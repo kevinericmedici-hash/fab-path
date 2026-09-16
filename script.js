@@ -4490,55 +4490,18 @@ function loadProgressPage() {
         ) || 0;
 
 
-    let completedLessons = 0;
+    const completedLessons =
+        getCompletedLessonCount();
 
-
-    if (
-        localStorage.getItem(
-            "fabPathLesson1Complete"
-        ) === "true"
-    ) {
-
-        completedLessons++;
-    }
-
-
-    if (
-        localStorage.getItem(
-            "fabPathLesson2Complete"
-        ) === "true"
-    ) {
-
-        completedLessons++;
-    }
-
-    if (
-    localStorage.getItem(
-        "fabPathLesson3Complete"
-    ) === "true"
-    ) {
-
-    completedLessons++;
-    }
-
-    if (
-    localStorage.getItem(
-        "fabPathLesson4Complete"
-    ) === "true"
-) {
-
-    completedLessons++;
-}
-
-    /*
-       Unit 1 currently contains
-       four total lessons.
-    */
+    const totalLessons =
+        getAllLessons().length;
 
     const percent =
-    Math.round(
-        (completedLessons / 8) * 100
-    );
+        totalLessons === 0
+            ? 0
+            : Math.round(
+                (completedLessons / totalLessons) * 100
+            );
 
 
     document.getElementById(

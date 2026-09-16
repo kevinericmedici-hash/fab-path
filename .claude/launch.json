@@ -4,8 +4,8 @@
     {
       "name": "fab-path-static",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "5502"],
-      "port": 5502
+      "runtimeArgs": ["-m", "http.server", "5504"],
+      "port": 5504
     }
   ]
 }
