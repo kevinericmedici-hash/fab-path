@@ -2913,7 +2913,7 @@ const lesson27Questions = [
 
     {
         question:
-            "Which of these is a real accelerometer application mentioned in the lecture?",
+            "Which of these is a real-world accelerometer application?",
 
         answers: [
             "Seismic activity sensing in buildings and bridges",
@@ -3137,7 +3137,7 @@ const lesson29Questions = [
 
     {
         question:
-            "About what is the noise floor of the ADXL accelerometer discussed in the lecture?",
+            "About what is the noise floor of a real ADXL accelerometer?",
 
         answers: [
             "0.005 g/√Hz",
