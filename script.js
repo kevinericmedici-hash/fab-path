@@ -2800,6 +2800,895 @@ const lesson26Questions = [
 
 ];
 
+/* ========================================
+   FAB CHALLENGE 27 — WHAT ARE ACCELEROMETERS?
+======================================== */
+
+const lesson27Questions = [
+
+    {
+        question:
+            "What physical quantity does an accelerometer measure?",
+
+        answers: [
+            "Acceleration (the change in velocity)",
+            "Absolute position",
+            "Temperature",
+            "Magnetic field strength"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Where and when was the first MEMS accelerometer micromachined?",
+
+        answers: [
+            "Stanford, in 1979",
+            "MIT, in 1995",
+            "Bell Labs, in 1958",
+            "SDSU, in 2005"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "About how long did it take MEMS accelerometers to reach a commercial breakthrough in automotive and avionics?",
+
+        answers: [
+            "Nearly 20 years",
+            "About 2 years",
+            "Over a century",
+            "Less than 6 months"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "About how many MEMS accelerometers are produced per year today?",
+
+        answers: [
+            "About 50 million",
+            "About 500",
+            "About 50 billion",
+            "About 5,000"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "About how much does a typical MEMS accelerometer cost?",
+
+        answers: [
+            "$3 to $10",
+            "$500 to $1,000",
+            "$0.01",
+            "$10,000"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "In pacemaker control applications, what does the accelerometer measure?",
+
+        answers: [
+            "Human activity level",
+            "Blood pressure",
+            "Body temperature",
+            "Heart electrical signals"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "In tilt-sensing applications, what does the accelerometer measure?",
+
+        answers: [
+            "Angle of inclination",
+            "Ambient light level",
+            "Sound pressure",
+            "Air humidity"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which of these is a real accelerometer application mentioned in the lecture?",
+
+        answers: [
+            "Seismic activity sensing in buildings and bridges",
+            "Measuring internet bandwidth",
+            "Detecting Wi-Fi signal strength",
+            "Reading barcodes"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 28 — THE PHYSICS OF SENSING
+======================================== */
+
+const lesson28Questions = [
+
+    {
+        question:
+            "When an accelerometer accelerates, what happens to the proof mass?",
+
+        answers: [
+            "It is displaced in the direction of sensing, restrained by the spring",
+            "It instantly matches the housing's velocity with no lag",
+            "It disappears from the structure",
+            "It becomes electrically charged"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What are the two common ways to sense the proof mass's displacement?",
+
+        answers: [
+            "Piezoelectrically or capacitively",
+            "Optically or thermally only",
+            "By weighing it directly",
+            "By measuring its color"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which law is the physical starting point for accelerometer operation?",
+
+        answers: [
+            "Newton's second law, F = ma",
+            "Ohm's law, V = IR",
+            "Boyle's law",
+            "Coulomb's law"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "In the mass-spring-damper model, what does 'k' represent?",
+
+        answers: [
+            "The spring constant",
+            "The damping factor",
+            "The proof mass",
+            "The resonant frequency"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "In the mass-spring-damper model, what does 'b' represent?",
+
+        answers: [
+            "The damping factor",
+            "The spring constant",
+            "The proof mass",
+            "The applied force"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the formula for the system's natural (resonant) frequency?",
+
+        answers: [
+            "ω₀ = √(k / m)",
+            "ω₀ = k × m",
+            "ω₀ = m / b",
+            "ω₀ = b × k"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What does the quality factor (Q) describe?",
+
+        answers: [
+            "How underdamped an oscillator or resonator is",
+            "The total mass of the sensor",
+            "The die size of the chip",
+            "The supply voltage required"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "All else being equal, what happens to resonant frequency if the spring constant increases?",
+
+        answers: [
+            "It increases",
+            "It decreases",
+            "It stays exactly the same",
+            "It becomes zero"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 29 — SENSITIVITY & NOISE
+======================================== */
+
+const lesson29Questions = [
+
+    {
+        question:
+            "What is the formula for an accelerometer's sensitivity (S)?",
+
+        answers: [
+            "S = x_static / a = m / k = 1 / ω²",
+            "S = m × a",
+            "S = k / b",
+            "S = V / R"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "In the ADI 50g example accelerometer running at 24.7 kHz, what is the maximum static displacement at full scale?",
+
+        answers: [
+            "20 nm",
+            "20 mm",
+            "1.2 m",
+            "50 µm"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What does TNEA stand for?",
+
+        answers: [
+            "Total Noise Equivalent Acceleration",
+            "Total Nitride Etch Area",
+            "Thermal Nitride Emission Analysis",
+            "Transimpedance Noise Elimination Amplifier"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What fundamentally causes the noise floor described by TNEA?",
+
+        answers: [
+            "Air molecules randomly colliding with the proof mass",
+            "Electromagnetic interference from nearby phones",
+            "Manufacturing defects in the die",
+            "Variations in supply voltage"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which two design choices reduce mechanical (TNEA) noise?",
+
+        answers: [
+            "Increasing quality factor and increasing mass",
+            "Decreasing quality factor and decreasing mass",
+            "Increasing supply voltage only",
+            "Decreasing the die size only"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "About what is the noise floor of the ADXL accelerometer discussed in the lecture?",
+
+        answers: [
+            "0.005 g/√Hz",
+            "5 g/√Hz",
+            "500 g/√Hz",
+            "0.005 V/√Hz"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the design rule of thumb for choosing resonant frequency?",
+
+        answers: [
+            "It should be higher than the maximum frequency component of the signal being measured",
+            "It should always equal exactly 1000 Hz",
+            "It should be as low as physically possible",
+            "It doesn't matter as long as the die is small"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Why is that resonant-frequency design rule important?",
+
+        answers: [
+            "Getting too close to resonance distorts the very signal being measured",
+            "It reduces the cost of the die",
+            "It has no real effect on performance",
+            "It only matters for optical sensors"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 30 — CAPACITIVE POSITION SENSING
+======================================== */
+
+const lesson30Questions = [
+
+    {
+        question:
+            "Which four methods can be used for electrical position measurement?",
+
+        answers: [
+            "Capacitance change, inductance change, optical method, scanning probe tips",
+            "Voltage change, current change, resistance change, temperature change",
+            "Weight, volume, density, and color",
+            "Sound, light, heat, and pressure only"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which two capacitor configurations are common in MEMS position sensing?",
+
+        answers: [
+            "Parallel plate and interdigitated (comb)",
+            "Cylindrical and spherical",
+            "Single-plate and triangular",
+            "Wireless and inductive"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "In Q = C(x)V, what does C(x) represent?",
+
+        answers: [
+            "Capacitance as a function of position",
+            "A constant current source",
+            "The supply voltage",
+            "The damping factor"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What circuit converts the sensing capacitor's current into an output voltage?",
+
+        answers: [
+            "A transimpedance amplifier",
+            "A voltage divider only",
+            "A simple resistor",
+            "An inductor coil"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "If the excitation voltage is DC, what is the output voltage proportional to?",
+
+        answers: [
+            "Velocity (dx/dt), not directly to position",
+            "Position directly, with no further circuitry needed",
+            "Temperature",
+            "Nothing — a DC source always gives zero output"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What can recover position instead of velocity from a capacitive sensing circuit?",
+
+        answers: [
+            "Adding an integrator, or using a time-varying (AC) excitation source",
+            "Removing the feedback capacitor entirely",
+            "Increasing the DC supply voltage",
+            "Switching to an optical sensor instead"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "With an AC excitation source and a feedback capacitor, what does the output voltage become approximately proportional to?",
+
+        answers: [
+            "C(x), the sensing capacitance (and therefore position)",
+            "The square of the supply voltage",
+            "The damping factor b",
+            "The die's physical size"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Why is a feedback capacitor added to the transimpedance amplifier circuit?",
+
+        answers: [
+            "To convert the sensed current into an output voltage proportional to capacitance/position",
+            "To physically move the proof mass",
+            "To increase the resonant frequency of the mass",
+            "To reduce the die's overall size"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 31 — INSIDE THE ADXL150
+======================================== */
+
+const lesson31Questions = [
+
+    {
+        question:
+            "Which company designed the ADXL150 accelerometer?",
+
+        answers: [
+            "Analog Devices",
+            "Intel",
+            "STMicroelectronics",
+            "Texas Instruments"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What forms the inertial (proof) mass in the ADXL150?",
+
+        answers: [
+            "A comb-like plate suspended from folded springs",
+            "A solid block of silicon glued to the substrate",
+            "A liquid-filled chamber",
+            "A single rigid metal rod"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "How is the ADXL150's proof-mass displacement measured?",
+
+        answers: [
+            "Capacitively, relative to stationary polysilicon finger electrodes",
+            "By directly weighing the mass in real time",
+            "Using a laser interferometer built into the die",
+            "By measuring the die's temperature change"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the approximate die size of the ADXL150?",
+
+        answers: [
+            "1.94 mm × 1.94 mm",
+            "1.94 m × 1.94 m",
+            "19.4 mm × 19.4 mm",
+            "194 µm × 194 µm"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "How many signal ports does the ADXL150 include?",
+
+        answers: [
+            "8",
+            "2",
+            "50",
+            "1"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "In the related ADXL-50 device, how many sets of polysilicon finger electrodes are there, and how thick are they?",
+
+        answers: [
+            "3 sets, 2 µm thick",
+            "10 sets, 50 µm thick",
+            "1 set, 0.5 µm thick",
+            "42 sets, 100 nm thick"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "In the ADXL-50, how many finger-electrode sets are fixed versus movable?",
+
+        answers: [
+            "2 fixed, 1 movable (suspended 1 µm above the base)",
+            "All 3 sets are fixed",
+            "All 3 sets move together",
+            "1 fixed, 2 movable"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "In the sensor layout, how many cells make up the position sense region and the self-test region?",
+
+        answers: [
+            "42 cells for position sense, 12 cells for self-test",
+            "8 cells for position sense, 1 cell for self-test",
+            "100 cells for position sense, 100 for self-test",
+            "1 cell for position sense, 42 for self-test"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 32 — DESIGNING THE SPRINGS
+======================================== */
+
+const lesson32Questions = [
+
+    {
+        question:
+            "In the spring-design example, what polysilicon thickness is used?",
+
+        answers: [
+            "2 µm",
+            "0.5 µm",
+            "20 µm",
+            "150 mm"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the nominal gap between the sensing fingers?",
+
+        answers: [
+            "1.3 µm",
+            "13 µm",
+            "0.13 µm",
+            "130 µm"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the overlap length of the sensing fingers in the example?",
+
+        answers: [
+            "104 µm",
+            "10.4 µm",
+            "1.04 µm",
+            "1040 µm"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Roughly what sense capacitance results from this finger geometry, including fringe effects?",
+
+        answers: [
+            "About 100 fF",
+            "About 100 µF",
+            "About 100 pF",
+            "About 1 F"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Using the beam-bending formula with two folded beams (L1 = L2 = 75 µm), what is the total spring constant?",
+
+        answers: [
+            "About 5.6 N/m",
+            "About 560 N/m",
+            "About 0.056 N/m",
+            "About 5,600,000 N/m"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "How closely did this calculated spring constant match Analog Devices' own estimate?",
+
+        answers: [
+            "Very closely — ADI estimated 5.4 N/m",
+            "It was off by a factor of 1000",
+            "ADI's estimate was negative",
+            "They were not comparable at all"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What resonant frequency results from the calculated mass and spring constant?",
+
+        answers: [
+            "About 24.7 kHz",
+            "About 24.7 Hz",
+            "About 1 kHz",
+            "About 247 MHz"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Using the Couette flow damping model for the proof mass's geometry, what quality factor results?",
+
+        answers: [
+            "About 120",
+            "About 1.2",
+            "About 12,000",
+            "About 0.12"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 33 — BUILD AN ACCELEROMETER
+======================================== */
+
+const lesson33Questions = [
+
+    {
+        question:
+            "In sensing an acceleration signal, which happens first?",
+
+        answers: [
+            "The proof mass is displaced, which then changes the sensing capacitance",
+            "The capacitance changes on its own, causing the mass to move",
+            "The supply voltage changes first",
+            "The die temperature changes first"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "In the ADXL150, is the 1000 Hz operating bandwidth safely below or dangerously close to the 24.7 kHz resonant frequency?",
+
+        answers: [
+            "Safely below, with a large margin",
+            "Dangerously close, right at resonance",
+            "Above the resonant frequency",
+            "Exactly equal to it"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "According to the TNEA formula, which two design levers reduce noise without changing the underlying physics?",
+
+        answers: [
+            "Increasing quality factor and mass",
+            "Decreasing quality factor and mass",
+            "Increasing supply voltage only",
+            "Decreasing the number of signal ports"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What fabrication processes finish an accelerometer once its mechanical design is set?",
+
+        answers: [
+            "Deposition, patterning, CVD oxide and nitride, and metallization",
+            "Only wafer dicing",
+            "Only optical inspection",
+            "Only wire bonding"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which concept from earlier fabrication units also appears in building an accelerometer?",
+
+        answers: [
+            "Polysilicon structural layers and a final sacrificial release, like a PolyMUMPs device",
+            "Silicon-on-insulator wafer bonding",
+            "Piezoelectric material deposition",
+            "Electroplated metal structural layers"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "According to S = m/k, what increases an accelerometer's sensitivity?",
+
+        answers: [
+            "A larger mass or a softer (lower k) spring",
+            "A smaller mass or a stiffer spring",
+            "A higher supply voltage only",
+            "A smaller die size only"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Why might a designer choose a stiffer spring despite lower sensitivity?",
+
+        answers: [
+            "To raise the resonant frequency and increase usable bandwidth",
+            "To make the die more expensive to produce",
+            "To reduce the number of signal ports needed",
+            "Stiffness has no effect on frequency or bandwidth"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the overall design tension every accelerometer designer must balance?",
+
+        answers: [
+            "Sensitivity versus bandwidth, and noise versus mass/stiffness",
+            "Die color versus package size",
+            "Supply voltage versus number of signal ports only",
+            "There is no meaningful trade-off in accelerometer design"
+        ],
+
+        correct: 0
+    }
+
+];
+
 function loadUnit1StudyModule() {
 
     const completeButton =
@@ -3057,6 +3946,69 @@ if (window.location.pathname.includes("lesson26.html")) {
 
     currentLesson =
         26;
+}
+
+if (window.location.pathname.includes("lesson27.html")) {
+
+    lessonQuestions =
+        lesson27Questions;
+
+    currentLesson =
+        27;
+}
+
+if (window.location.pathname.includes("lesson28.html")) {
+
+    lessonQuestions =
+        lesson28Questions;
+
+    currentLesson =
+        28;
+}
+
+if (window.location.pathname.includes("lesson29.html")) {
+
+    lessonQuestions =
+        lesson29Questions;
+
+    currentLesson =
+        29;
+}
+
+if (window.location.pathname.includes("lesson30.html")) {
+
+    lessonQuestions =
+        lesson30Questions;
+
+    currentLesson =
+        30;
+}
+
+if (window.location.pathname.includes("lesson31.html")) {
+
+    lessonQuestions =
+        lesson31Questions;
+
+    currentLesson =
+        31;
+}
+
+if (window.location.pathname.includes("lesson32.html")) {
+
+    lessonQuestions =
+        lesson32Questions;
+
+    currentLesson =
+        32;
+}
+
+if (window.location.pathname.includes("lesson33.html")) {
+
+    lessonQuestions =
+        lesson33Questions;
+
+    currentLesson =
+        33;
 }
 
 let currentQuestion = 0;
@@ -4802,3 +5754,140 @@ function renderUnit4() {
 }
 
 renderUnit4();
+
+function renderUnit5() {
+
+    const container =
+        document.getElementById("unit5Container");
+
+    if (!container) {
+        return;
+    }
+
+    const unit =
+        courseData.find(function (item) {
+            return item.id === 5;
+        });
+
+    if (!unit) {
+        return;
+    }
+
+    const unitUnlocked =
+        localStorage.getItem("fabPathLesson26Complete") === "true";
+
+    const studyComplete =
+        localStorage.getItem("fabPathUnit5StudyComplete") === "true";
+
+    let html = `
+        <div class="unit-banner">
+            <span>UNIT 5</span>
+            <h2>${unit.title}</h2>
+            <p>${unit.description}</p>
+        </div>
+    `;
+
+    let studyClass = "locked";
+    let studyIcon = "🔒";
+    let studyHref = "#";
+
+    if (studyComplete) {
+        studyClass = "complete";
+        studyIcon = "✓";
+        studyHref = unit.studyModule.href;
+    } else if (unitUnlocked) {
+        studyClass = "available";
+        studyIcon = "📖";
+        studyHref = unit.studyModule.href;
+    }
+
+    html += `
+        <a href="${studyHref}"
+           class="path-node node-left ${studyClass} lesson-link">
+
+            <div class="node-circle">
+                ${studyIcon}
+            </div>
+
+            <div class="node-info">
+                <span>STUDY MODULE</span>
+                <h3>${unit.studyModule.title}</h3>
+                <p>Learn the concepts before beginning Unit 5.</p>
+            </div>
+
+        </a>
+
+        <div class="vertical-path"></div>
+    `;
+
+    unit.lessons.forEach(function (lesson, index) {
+
+        const lessonComplete =
+            localStorage.getItem(
+                `fabPathLesson${lesson.id}Complete`
+            ) === "true";
+
+        let unlocked = false;
+
+        if (index === 0) {
+            unlocked = studyComplete;
+        } else {
+            const previousLesson =
+                unit.lessons[index - 1];
+
+            unlocked =
+                localStorage.getItem(
+                    `fabPathLesson${previousLesson.id}Complete`
+                ) === "true";
+        }
+
+        let statusClass = "locked";
+        let icon = "🔒";
+        let href = "#";
+
+        if (lessonComplete) {
+            statusClass = "complete";
+            icon = "✓";
+            href = `lesson${lesson.id}.html`;
+        } else if (unlocked) {
+            statusClass = "available";
+            icon = lesson.id;
+            href = `lesson${lesson.id}.html`;
+        }
+
+        const positionClass =
+            index % 2 === 0
+                ? "node-right"
+                : "node-left";
+
+        html += `
+            <a href="${href}"
+               class="path-node ${positionClass} ${statusClass} lesson-link"
+               id="lesson${lesson.id}Node">
+
+                <div class="node-circle"
+                     id="lesson${lesson.id}Circle">
+                    ${icon}
+                </div>
+
+                <div class="node-info">
+                    <span>FAB CHALLENGE ${lesson.id}</span>
+                    <h3>${lesson.title}</h3>
+                    <p>${lesson.description}</p>
+                </div>
+
+            </a>
+        `;
+
+        if (index < unit.lessons.length - 1) {
+            html += `
+                <div class="vertical-path"></div>
+            `;
+        }
+
+    });
+
+    container.innerHTML = html;
+}
+
+renderUnit5();

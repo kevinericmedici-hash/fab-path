@@ -275,6 +275,78 @@ const courseData = [
             }
 
         ]
+    },
+
+
+    /* =====================================
+       UNIT 5
+    ===================================== */
+
+    {
+        id: 5,
+
+        title: "MEMS Accelerometer Design",
+
+        description:
+            "Study the physics, sensing, and real-world design of the most widely produced MEMS sensor — the accelerometer.",
+
+        studyModule: {
+            title: "MEMS Accelerometer Design",
+            href: "unit5.html"
+        },
+
+        lessons: [
+
+            {
+                id: 27,
+                title: "What Are Accelerometers?",
+                description:
+                    "Learn what accelerometers measure, their history, and where they show up in everyday life."
+            },
+
+            {
+                id: 28,
+                title: "The Physics of Sensing",
+                description:
+                    "Model the proof mass as a spring-mass-damper system and learn natural frequency and quality factor."
+            },
+
+            {
+                id: 29,
+                title: "Sensitivity & Noise",
+                description:
+                    "Learn how sensitivity trades off against bandwidth, and what limits an accelerometer's noise floor."
+            },
+
+            {
+                id: 30,
+                title: "Capacitive Position Sensing",
+                description:
+                    "See how displacement becomes a measurable electrical signal through capacitance change."
+            },
+
+            {
+                id: 31,
+                title: "Inside the ADXL150",
+                description:
+                    "Study a real commercial accelerometer's structure, die layout, and design specifications."
+            },
+
+            {
+                id: 32,
+                title: "Designing the Springs",
+                description:
+                    "Work through the real capacitance, spring constant, frequency, and quality factor calculations."
+            },
+
+            {
+                id: 33,
+                title: "Build an Accelerometer",
+                description:
+                    "Bring the physics, sensing, and fabrication together into one complete design."
+            }
+
+        ]
     }
 
 ];
