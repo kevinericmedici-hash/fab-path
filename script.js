@@ -2109,8 +2109,24 @@ if (window.location.pathname.includes("lesson19.html")) {
 
 let currentQuestion = 0;
 let selectedAnswer = null;
+let currentCorrectIndex = null;
 let xp = 0;
 let answerChecked = false;
+
+
+function shuffleArray(array) {
+
+    const result = array.slice();
+
+    for (let i = result.length - 1; i > 0; i--) {
+
+        const j = Math.floor(Math.random() * (i + 1));
+
+        [result[i], result[j]] = [result[j], result[i]];
+    }
+
+    return result;
+}
 
 
 const questionText =
@@ -2152,7 +2168,15 @@ function loadQuestion() {
 
     answerGrid.innerHTML = "";
 
-    question.answers.forEach((answer, index) => {
+    const answerOrder =
+        shuffleArray(
+            question.answers.map((_, index) => index)
+        );
+
+    currentCorrectIndex =
+        answerOrder.indexOf(question.correct);
+
+    answerOrder.forEach((originalIndex, displayIndex) => {
 
         const button =
             document.createElement("button");
@@ -2161,7 +2185,7 @@ function loadQuestion() {
             "answer-button";
 
         button.textContent =
-            answer;
+            question.answers[originalIndex];
 
         button.addEventListener("click", function () {
 
@@ -2177,7 +2201,7 @@ function loadQuestion() {
 
             button.classList.add("selected");
 
-            selectedAnswer = index;
+            selectedAnswer = displayIndex;
 
             checkButton.disabled = false;
 
@@ -2234,7 +2258,7 @@ if (checkButton) {
 
             if (
                 selectedAnswer ===
-                question.correct
+                currentCorrectIndex
             ) {
 
                 buttons[selectedAnswer]
@@ -2253,7 +2277,7 @@ if (checkButton) {
                 buttons[selectedAnswer]
                     .classList.add("incorrect");
 
-                buttons[question.correct]
+                buttons[currentCorrectIndex]
                     .classList.add("correct");
 
                 feedbackMessage.textContent =
@@ -2267,7 +2291,7 @@ if (checkButton) {
             ) {
 
                 checkButton.textContent =
-                    "Finish Lesson";
+                    "Finish Fab Challenge";
 
             } else {
 
@@ -2289,11 +2313,6 @@ if (checkButton) {
             loadQuestion();
 
         } else {
-
-            localStorage.setItem(
-                "fabPathLesson1Complete",
-                "true"
-            );
 
 const previousXP =
     parseInt(
