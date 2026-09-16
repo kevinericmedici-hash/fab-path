@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MEMS Foundations | Fab Path</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="learn.html" class="active-nav">Learn</a>
+            <a href="practice.html">Practice</a>
+            <a href="progress.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 10
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    UNIT 1 • MEMS FOUNDATIONS
+                </p>
+
+                <h1>
+                    What are MEMS?
+                </h1>
+
+                <p class="module-lead">
+                    MEMS stands for
+                    <strong>Microelectromechanical Systems</strong>.
+                </p>
+
+                <div class="module-visual">
+                    ⚙️
+                </div>
+
+                <p>
+                    MEMS combine tiny mechanical structures with
+                    electrical components to sense, move, control,
+                    or interact with the physical world.
+                </p>
+
+                <div class="module-takeaway">
+
+                    <strong>Key idea</strong>
+
+                    MEMS bring mechanical and electrical behavior
+                    together at microscopic scales.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 2 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SENSING & ACTUATION
+                </p>
+
+                <h1>
+                    Sensors vs. Actuators
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            👁️
+                        </div>
+
+                        <h3>Sensor</h3>
+
+                        <p>
+                            Detects a physical quantity and converts
+                            it into a useful signal.
+                        </p>
+
+                    </div>
+
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ⚙️
+                        </div>
+
+                        <h3>Actuator</h3>
+
+                        <p>
+                            Uses energy or a control signal to create
+                            physical movement or force.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    A MEMS device may sense, actuate,
+                    or do both as part of a larger system.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 3 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SCALE
+                </p>
+
+                <h1>
+                    How small is the microscale?
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>1 millimeter</strong>
+                        <span>10⁻³ m</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>1 micrometer</strong>
+                        <span>10⁻⁶ m</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>1 nanometer</strong>
+                        <span>10⁻⁹ m</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    <strong>Remember:</strong>
+
+                    1 mm = 1,000 µm
+
+                    <br><br>
+
+                    1 µm = 1,000 nm
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 4 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SCALING LAWS
+                </p>
+
+                <h1>
+                    Shrinking changes physics.
+                </h1>
+
+                <p class="module-lead">
+                    If every dimension shrinks by a factor of 10:
+                </p>
+
+                <div class="module-card-grid three-column">
+
+                    <div class="module-card">
+                        <h3>Length</h3>
+                        <p>L</p>
+                        <strong>1 / 10</strong>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Area</h3>
+                        <p>L²</p>
+                        <strong>1 / 100</strong>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Volume</h3>
+                        <p>L³</p>
+                        <strong>1 / 1,000</strong>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Area and volume do not shrink at the same rate.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 5 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SURFACE EFFECTS
+                </p>
+
+                <h1>
+                    Surface area matters more.
+                </h1>
+
+                <div class="module-visual">
+                    ◻️ → ▫️ → ·
+                </div>
+
+                <p>
+                    As an object becomes smaller, its volume decreases
+                    faster than its surface area.
+                </p>
+
+                <p>
+                    That means the
+                    <strong>surface-area-to-volume ratio increases</strong>
+                    as size decreases.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Smaller devices are influenced more strongly by
+                    surface-related effects.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 6 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    MICROSCALE PHYSICS
+                </p>
+
+                <h1>
+                    Different forces dominate.
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+                        <h3>Gravity</h3>
+                        <p>
+                            Becomes relatively less significant
+                            as structures shrink.
+                        </p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Electrostatics</h3>
+                        <p>
+                            Can remain very useful for sensing
+                            and actuation.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    MEMS cannot simply be designed as tiny versions
+                    of ordinary machines.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 7 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    MEMS SENSOR
+                </p>
+
+                <h1>
+                    Accelerometers
+                </h1>
+
+                <div class="module-visual">
+                    📱
+                </div>
+
+                <p>
+                    An accelerometer measures acceleration or motion.
+                </p>
+
+                <p>
+                    A tiny suspended mass can move when acceleration
+                    occurs. That displacement can then be converted
+                    into an electrical signal.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Accelerometers are used in phones, vehicles,
+                    wearables, navigation systems, and more.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 8 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    MEMS SENSOR
+                </p>
+
+                <h1>
+                    Gyroscopes
+                </h1>
+
+                <div class="module-visual">
+                    🔄
+                </div>
+
+                <p>
+                    MEMS gyroscopes detect rotation or angular motion.
+                </p>
+
+                <p>
+                    They are often combined with accelerometers
+                    to help determine motion and orientation.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Common applications include smartphones,
+                    drones, vehicles, controllers, and navigation.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 9 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    APPLICATIONS
+                </p>
+
+                <h1>
+                    MEMS are everywhere.
+                </h1>
+
+                <div class="module-card-grid three-column">
+
+                    <div class="module-card">
+                        <h3>🚗 Inertial</h3>
+                        <p>Accelerometers and gyroscopes</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>🧬 BioMEMS</h3>
+                        <p>Lab-on-chip and microfluidics</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>🔬 Optical</h3>
+                        <p>Micromirrors and optical systems</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>📡 RF MEMS</h3>
+                        <p>Switches, filters, and resonators</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>🌡️ Sensors</h3>
+                        <p>Pressure and environmental sensing</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>📱 Consumer</h3>
+                        <p>Phones, wearables, and electronics</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 10 -->
+
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    MODULE COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🎓
+                </div>
+
+                <h1>
+                    Ready for Lesson 1?
+                </h1>
+
+                <p class="module-lead">
+                    You've learned the core ideas behind MEMS,
+                    the microscale, scaling laws, and common applications.
+                </p>
+
+                <button
+                    class="complete-study-button"
+                    id="completeUnit1Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+
+        <div class="module-controls">
+
+    <button
+        type="button"
+        class="module-nav-button secondary-button"
+        id="moduleBackButton"
+    >
+        ← Back
+    </button>
+
+
+    <button
+        type="button"
+        class="module-nav-button"
+        id="moduleNextButton"
+    >
+        Next →
+    </button>
+
+</div>
+
+
+    </section>
+
+</main>
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            progressFill.style.width =
+                progress + "%";
+
+
+            progressText.textContent =
+                (currentSlide + 1) +
+                " / " +
+                slides.length;
+
+
+            backButton.disabled =
+                currentSlide === 0;
+
+
+            if (currentSlide === slides.length - 1) {
+
+                nextButton.style.display = "none";
+
+            } else {
+
+                nextButton.style.display = "block";
+            }
+
+        }
+
+
+        nextButton.onclick = function () {
+
+            if (currentSlide < slides.length - 1) {
+
+                currentSlide++;
+
+                showSlide();
+            }
+
+        };
+
+
+        backButton.onclick = function () {
+
+            if (currentSlide > 0) {
+
+                currentSlide--;
+
+                showSlide();
+            }
+
+        };
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+</body>
+</html>

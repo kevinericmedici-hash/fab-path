@@ -1,0 +1,2932 @@
+const lesson1Questions = [
+    {
+        question: "What does MEMS stand for?",
+        answers: [
+            "Microelectronic Manufacturing Systems",
+            "Microelectromechanical Systems",
+            "Mechanical Electronics Measurement Systems",
+            "Micro Energy Management Systems"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Which best describes a MEMS device?",
+        answers: [
+            "A large mechanical machine controlled by a computer",
+            "A microscale device combining mechanical and electrical elements",
+            "A software-only simulation of a mechanical system",
+            "A type of high-voltage power transformer"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Which device is commonly manufactured using MEMS technology?",
+        answers: [
+            "Automobile accelerometer",
+            "Steel I-beam",
+            "Hydraulic excavator arm",
+            "Industrial storage tank"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "MEMS structures are commonly measured on what scale?",
+        answers: [
+            "Kilometers",
+            "Meters",
+            "Micrometers",
+            "Miles"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Which field commonly uses MEMS devices?",
+        answers: [
+            "Biomedical engineering",
+            "Automotive systems",
+            "Consumer electronics",
+            "All of the above"
+        ],
+        correct: 3
+    }
+];
+
+
+const lesson2Questions = [
+    {
+        question: "How many micrometers are in one millimeter?",
+        answers: [
+            "10",
+            "100",
+            "1,000",
+            "10,000"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Which is the smallest measurement?",
+        answers: [
+            "1 millimeter",
+            "500 micrometers",
+            "50 micrometers",
+            "1 micrometer"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Which sequence is ordered from largest to smallest?",
+        answers: [
+            "Meter → millimeter → micrometer → nanometer",
+            "Nanometer → micrometer → millimeter → meter",
+            "Millimeter → meter → nanometer → micrometer",
+            "Micrometer → nanometer → meter → millimeter"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "One micrometer is equal to:",
+        answers: [
+            "10⁻³ meters",
+            "10⁻⁶ meters",
+            "10⁻⁹ meters",
+            "10⁻¹² meters"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "A MEMS structure that is 100 µm wide is how many millimeters wide?",
+        answers: [
+            "0.001 mm",
+            "0.01 mm",
+            "0.1 mm",
+            "1 mm"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Why does size matter in MEMS design?",
+        answers: [
+            "Physical forces can scale differently as devices become smaller",
+            "Microscale devices stop obeying physics",
+            "Electrical forces disappear at small scales",
+            "Material properties are always identical at every scale"
+        ],
+        correct: 0
+    }
+];
+
+const lesson3Questions = [
+
+    {
+        question: "What happens to surface-area-to-volume ratio as size decreases?",
+        answers: [
+            "It decreases",
+            "It increases",
+            "It stays exactly the same",
+            "It becomes zero"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "If the characteristic length of an object is reduced by a factor of 10, its volume scales by approximately:",
+        answers: [
+            "1/10",
+            "1/100",
+            "1/1,000",
+            "1/10,000"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Which quantity typically scales with length squared?",
+        answers: [
+            "Volume",
+            "Area",
+            "Mass",
+            "Time"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Why can electrostatic forces become especially useful in MEMS?",
+        answers: [
+            "Because electrostatic effects can remain significant as device dimensions shrink",
+            "Because gravity becomes stronger at the microscale",
+            "Because electric charge disappears at small scales",
+            "Because all materials become magnetic"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which force generally becomes less dominant relative to surface forces as devices become smaller?",
+        answers: [
+            "Electrostatic force",
+            "Surface adhesion",
+            "Gravity",
+            "Capillary force"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Why are scaling laws important in MEMS design?",
+        answers: [
+            "They help predict which physical effects become more or less important as dimensions change",
+            "They eliminate the need for engineering calculations",
+            "They only matter for very large machines",
+            "They make all microscale devices behave identically"
+        ],
+        correct: 0
+    }
+
+];
+
+const lesson4Questions = [
+
+    {
+        question: "Which is a common MEMS application?",
+        answers: [
+            "Accelerometers in smartphones",
+            "Steel bridge beams",
+            "Large hydraulic cylinders",
+            "Industrial storage tanks"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What does a MEMS accelerometer measure?",
+        answers: [
+            "Temperature only",
+            "Acceleration or motion",
+            "Fluid color",
+            "Electrical resistance only"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Which MEMS device is commonly used in pressure sensing?",
+        answers: [
+            "Micromachined diaphragm",
+            "Large turbine blade",
+            "Steel I-beam",
+            "Hydraulic piston"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which field commonly uses BioMEMS devices?",
+        answers: [
+            "Medical diagnostics",
+            "Aircraft runway paving",
+            "Steel manufacturing only",
+            "Bridge construction only"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "A MEMS gyroscope is commonly used to detect:",
+        answers: [
+            "Rotation",
+            "Chemical concentration only",
+            "Fluid viscosity only",
+            "Surface roughness only"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Why are MEMS useful in consumer electronics?",
+        answers: [
+            "They can provide sensing and actuation in very small packages",
+            "They always require large mechanical assemblies",
+            "They cannot be mass-produced",
+            "They only work at very high temperatures"
+        ],
+        correct: 0
+    }
+
+];
+
+const lesson5Questions = [
+
+    {
+        question: "Why are cleanrooms used in microfabrication?",
+        answers: [
+            "To reduce contamination that could damage small device features",
+            "To make the room colder",
+            "To eliminate the need for safety equipment",
+            "To increase mechanical vibration"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What is one of the main contaminants controlled in a cleanroom?",
+        answers: [
+            "Airborne particles",
+            "Visible light",
+            "Sound waves",
+            "Gravity"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Why can a small particle be a serious problem during MEMS fabrication?",
+        answers: [
+            "It may be comparable in size to critical device features",
+            "It always melts silicon",
+            "It increases wafer thickness",
+            "It automatically changes crystal orientation"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Cleanroom classifications are primarily related to:",
+        answers: [
+            "The number and size of airborne particles",
+            "The number of workers in the building",
+            "The temperature of the wafer",
+            "The electrical resistance of the floor"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which behavior is appropriate inside a cleanroom?",
+        answers: [
+            "Moving carefully and minimizing unnecessary particle generation",
+            "Running between tools",
+            "Bringing cardboard boxes into processing areas",
+            "Touching wafer surfaces with bare hands"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Why is airflow important in many cleanrooms?",
+        answers: [
+            "It helps remove and control airborne contamination",
+            "It increases wafer mass",
+            "It eliminates all chemical hazards",
+            "It changes silicon into glass"
+        ],
+        correct: 0
+    }
+
+];
+
+const lesson6Questions = [
+
+    {
+        question: "What is the goal of wafer cleaning before a fabrication step?",
+        answers: [
+            "Remove unwanted particles, organic residue, and other contaminants",
+            "Increase the wafer diameter",
+            "Create a photolithography mask",
+            "Make the wafer mechanically flexible"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which type of contamination can interfere with thin-film adhesion?",
+        answers: [
+            "Surface residue or particles",
+            "Gravity",
+            "Visible light",
+            "Room temperature"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Why should a cleaned wafer be handled carefully after cleaning?",
+        answers: [
+            "It can be easily re-contaminated",
+            "Its crystal structure becomes unstable",
+            "It becomes permanently magnetic",
+            "Its diameter begins to shrink"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which is the best reason to avoid touching the active surface of a wafer?",
+        answers: [
+            "Fingerprints can leave oils, particles, and residues",
+            "The wafer will immediately fracture",
+            "The wafer will lose all electrical properties",
+            "The wafer will absorb too much UV light"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "A wafer has visible particles on its surface before photoresist coating. What is the best action?",
+        answers: [
+            "Stop and clean or inspect the wafer before continuing",
+            "Coat photoresist over the particles",
+            "Increase exposure time",
+            "Proceed directly to etching"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Why is cleanliness especially important before deposition or lithography?",
+        answers: [
+            "Contaminants can create defects in later layers and patterns",
+            "Cleaning makes the wafer thicker",
+            "Cleaning replaces the need for masks",
+            "Contaminants improve feature resolution"
+        ],
+        correct: 0
+    }
+
+];
+
+const lesson7Questions = [
+
+    {
+        question: "What is the primary reason for following a specific gowning procedure?",
+        answers: [
+            "To prevent contaminants from being carried into the cleanroom",
+            "To make fabrication equipment operate faster",
+            "To increase room humidity",
+            "To prevent wafers from being exposed to light"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which item should typically be covered before entering a clean fabrication area?",
+        answers: [
+            "Hair and exposed clothing",
+            "Only shoes",
+            "Only hands",
+            "Only safety glasses"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Why are gloves important during wafer handling?",
+        answers: [
+            "They reduce transfer of oils, salts, and particles from the hands",
+            "They increase wafer conductivity",
+            "They make the wafer more resistant to etching",
+            "They replace the need for wafer tweezers"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What is the safest way to handle a wafer when possible?",
+        answers: [
+            "Use appropriate wafer-handling tools and avoid touching device areas",
+            "Hold it flat with bare fingers across the center",
+            "Slide it across the work surface",
+            "Stack it directly on another wafer"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Why should movement be controlled inside a cleanroom?",
+        answers: [
+            "Fast or unnecessary movement can generate and disturb particles",
+            "Movement changes the wafer crystal orientation",
+            "Movement causes photoresist to chemically harden",
+            "Movement increases silicon oxidation"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which sequence best represents good cleanroom practice?",
+        answers: [
+            "Prepare → gown correctly → enter clean area → handle wafers carefully → process",
+            "Enter cleanroom → gown afterward → clean wafer → design device",
+            "Handle wafer → remove gloves → process → inspect",
+            "Process wafer → clean work area → gown"
+        ],
+        correct: 0
+    }
+
+];
+
+const lesson8Questions = [
+
+    {
+        question: "Why is wafer inspection performed between fabrication steps?",
+        answers: [
+            "To detect defects before they are carried into later processing",
+            "To increase the wafer thickness",
+            "To improve electrical conductivity automatically",
+            "To eliminate the need for process documentation"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "A patterned wafer shows broken or missing features under a microscope. What should you do?",
+        answers: [
+            "Investigate the defect before continuing to the next step",
+            "Ignore it and continue processing",
+            "Increase every process time by 50%",
+            "Immediately package the device"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which tool is commonly useful for inspecting small surface features?",
+        answers: [
+            "Optical microscope",
+            "Torque wrench",
+            "Drill press",
+            "Hydraulic pump"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Why is process discipline important in microfabrication?",
+        answers: [
+            "Small deviations can create defects or change device performance",
+            "All fabrication steps produce identical results automatically",
+            "MEMS devices are insensitive to process variation",
+            "Process order does not matter"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Why is it important to follow the correct fabrication sequence?",
+        answers: [
+            "Later steps often depend on structures created during earlier steps",
+            "The order only affects how fast the process feels",
+            "Every process step can be performed in any order",
+            "Sequence only matters during packaging"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which is the best response when a process result looks abnormal?",
+        answers: [
+            "Stop, inspect, document the issue, and determine the cause before continuing",
+            "Continue because later steps will always fix it",
+            "Change several process settings at once",
+            "Discard all process records"
+        ],
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   LESSON 9 — FROM ICs TO MEMS
+======================================== */
+
+const lesson9Questions = [
+
+    {
+        question:
+            "What does IC stand for?",
+
+        answers: [
+            "Integrated Circuit",
+            "Internal Conductor",
+            "Insulated Component",
+            "Integrated Crystal"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What commonly serves as the starting substrate for IC and MEMS fabrication?",
+
+        answers: [
+            "A polymer sheet",
+            "A silicon wafer",
+            "A steel plate",
+            "A glass fiber panel"
+        ],
+
+        correct: 1
+    },
+
+
+    {
+        question:
+            "How are silicon wafers produced for semiconductor fabrication?",
+
+        answers: [
+            "They are cut from a large single-crystal silicon structure",
+            "They are stamped from metal sheets",
+            "They are molded from photoresist",
+            "They are deposited directly onto a photomask"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which statement best describes how integrated circuits are fabricated?",
+
+        answers: [
+            "The entire circuit is formed in one machining operation",
+            "Devices are assembled only after the wafer is cut apart",
+            "The wafer passes through successive fabrication and patterning steps",
+            "Only mechanical cutting is used"
+        ],
+
+        correct: 2
+    },
+
+
+    {
+        question:
+            "What important capability did MEMS add to technologies inherited from integrated-circuit fabrication?",
+
+        answers: [
+            "The ability to create microscale mechanical structures",
+            "The ability to eliminate silicon completely",
+            "The ability to manufacture devices without patterning",
+            "The ability to avoid all thin-film processing"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Why is silicon especially useful as a bridge between microelectronics and MEMS?",
+
+        answers: [
+            "It can only be used as an electrical conductor",
+            "It combines useful electrical and mechanical properties and can be micromachined",
+            "It cannot be patterned using semiconductor fabrication methods",
+            "Its mechanical properties prevent structures from moving"
+        ],
+
+        correct: 1
+    },
+
+
+    {
+        question:
+            "Which statement best captures the relationship between IC fabrication and MEMS fabrication?",
+
+        answers: [
+            "They are completely unrelated manufacturing technologies",
+            "MEMS uses many semiconductor fabrication methods while extending them to mechanical structures",
+            "MEMS fabrication replaces all lithography with conventional machining",
+            "Integrated circuits are manufactured using MEMS devices"
+        ],
+
+        correct: 1
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 10 — SEMICONDUCTORS & DOPING
+======================================== */
+
+const lesson10Questions = [
+
+    {
+        question:
+            "What is the purpose of doping a semiconductor?",
+
+        answers: [
+            "To intentionally change its electrical properties",
+            "To make the wafer physically thicker",
+            "To remove all charge carriers",
+            "To prevent the material from being patterned"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which type of dopant is used to create P-type silicon?",
+
+        answers: [
+            "A Group III element such as boron",
+            "A Group V element such as phosphorus",
+            "A noble gas such as argon",
+            "A metal such as copper"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What type of charge carrier is abundant in P-type semiconductor material?",
+
+        answers: [
+            "Free neutrons",
+            "Holes",
+            "Protons",
+            "Mobile negative ions"
+        ],
+
+        correct: 1
+    },
+
+
+    {
+        question:
+            "Which dopant is commonly associated with N-type silicon?",
+
+        answers: [
+            "Boron",
+            "Phosphorus",
+            "Carbon",
+            "Aluminum oxide"
+        ],
+
+        correct: 1
+    },
+
+
+    {
+        question:
+            "What type of charge carrier is abundant in N-type semiconductor material?",
+
+        answers: [
+            "Holes",
+            "Mobile electrons",
+            "Protons",
+            "Neutral atoms"
+        ],
+
+        correct: 1
+    },
+
+
+    {
+        question:
+            "Which pairing is correct?",
+
+        answers: [
+            "P-type → phosphorus → electrons",
+            "N-type → boron → holes",
+            "P-type → boron → holes",
+            "N-type → boron → electrons"
+        ],
+
+        correct: 2
+    },
+
+
+    {
+        question:
+            "A silicon wafer is doped with phosphorus. What type of semiconductor is produced?",
+
+        answers: [
+            "P-type",
+            "N-type",
+            "Intrinsic silicon",
+            "Insulating silicon"
+        ],
+
+        correct: 1
+    },
+
+
+    {
+        question:
+            "A silicon region has an abundance of holes. Which type of semiconductor is it most likely to be?",
+
+        answers: [
+            "N-type",
+            "P-type",
+            "Undoped metal",
+            "Insulating oxide"
+        ],
+
+        correct: 1
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 11 — CMOS FABRICATION
+======================================== */
+
+const lesson11Questions = [
+
+    {
+        question:
+            "What does CMOS stand for?",
+
+        answers: [
+            "Complementary Metal-Oxide-Semiconductor",
+            "Controlled Micro-Optical System",
+            "Conductive Metal Oxide Structure",
+            "Complementary Mechanical Output Sensor"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which statement best describes CMOS fabrication?",
+
+        answers: [
+            "A device is created in one machining step",
+            "Many processing steps are repeated to build patterned layers",
+            "Only metal layers are deposited on the wafer",
+            "The silicon wafer is shaped only by mechanical cutting"
+        ],
+
+        correct: 1
+    },
+
+
+    {
+        question:
+            "Which of the following is a common CMOS processing step?",
+
+        answers: [
+            "Photolithography",
+            "Injection molding",
+            "Sand casting",
+            "Arc welding"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which process can be used to form material layers during CMOS fabrication?",
+
+        answers: [
+            "Chemical vapor deposition",
+            "Mechanical polishing only",
+            "Laser cutting only",
+            "Waterjet machining"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which pair consists of processes used to introduce dopants into semiconductor material?",
+
+        answers: [
+            "Diffusion and ion implantation",
+            "Etching and polishing",
+            "Evaporation and lithography",
+            "Oxidation and sputtering"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which pair is associated with depositing material onto a wafer?",
+
+        answers: [
+            "Evaporation and sputtering",
+            "Diffusion and etching",
+            "Photolithography and inspection",
+            "Oxidation and development"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Why does CMOS fabrication require many repeated process steps?",
+
+        answers: [
+            "Complex devices are built from multiple patterned material layers",
+            "Every wafer must be physically cut after each step",
+            "Only one material can exist on a wafer at a time",
+            "The silicon substrate is replaced after each layer"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which sequence best represents the general idea of layer-based microfabrication?",
+
+        answers: [
+            "Form or deposit material → pattern it → remove selected material → repeat",
+            "Cut wafer → weld wafer → paint wafer → repeat",
+            "Melt silicon → machine entire device → polish once",
+            "Deposit one layer → package immediately"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 12 — SILICON AS A MEMS MATERIAL
+======================================== */
+
+const lesson12Questions = [
+
+    {
+        question:
+            "Why is silicon especially useful for MEMS devices?",
+
+        answers: [
+            "It combines useful electrical and mechanical properties",
+            "It has no mechanical strength",
+            "It cannot be integrated with electronics",
+            "It can only be used as an insulating material"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which property makes silicon particularly compatible with MEMS manufacturing?",
+
+        answers: [
+            "It melts at room temperature",
+            "It cannot be patterned",
+            "It is amenable to micromachining",
+            "It must always be machined using conventional cutting tools"
+        ],
+
+        correct: 2
+    },
+
+
+    {
+        question:
+            "What is an important advantage of using silicon for systems that combine sensors and electronics?",
+
+        answers: [
+            "Silicon can only form mechanical structures",
+            "Silicon eliminates the need for any fabrication processes",
+            "Silicon prevents electrical components from being fabricated",
+            "Silicon allows convenient integration with electronics"
+        ],
+
+        correct: 3
+    },
+
+
+    {
+        question:
+            "Why does the existing semiconductor industry make silicon attractive for MEMS fabrication?",
+
+        answers: [
+            "Established silicon fabrication methods and facilities already exist",
+            "Silicon wafers are unavailable at high purity",
+            "Silicon cannot use microelectronics fabrication methods",
+            "Silicon requires completely new manufacturing equipment for every device"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which statement best describes the elasticity of single-crystal silicon?",
+
+        answers: [
+            "It behaves like a soft rubber",
+            "It permanently deforms under very small loads",
+            "It has high elasticity and can have an elastic modulus comparable to steel",
+            "It has essentially no stiffness"
+        ],
+
+        correct: 2
+    },
+
+
+    {
+        question:
+            "Which combination describes useful mechanical characteristics of silicon for MEMS?",
+
+        answers: [
+            "Low strength, high density, and extreme softness",
+            "Low stiffness, high ductility, and low hardness",
+            "No elasticity, high density, and low strength",
+            "High yield strength, low density, and high hardness"
+        ],
+
+        correct: 3
+    },
+
+
+    {
+        question:
+            "What is one advantage of single-crystal silicon for mechanical MEMS structures?",
+
+        answers: [
+            "It cannot support vibrating structures",
+            "It can exhibit high mechanical quality factor (Q)",
+            "It behaves only as an electrical insulator",
+            "It cannot withstand elastic deformation"
+        ],
+
+        correct: 1
+    },
+
+
+    {
+        question:
+            "An engineer wants a material for a microsensor that can be micromachined, has strong mechanical properties, and integrates well with electronics. Which material best matches these requirements?",
+
+        answers: [
+            "Paper",
+            "Wood",
+            "Silicon",
+            "Structural foam"
+        ],
+
+        correct: 2
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 13 — BULK VS. SURFACE MICROMACHINING
+======================================== */
+
+const lesson13Questions = [
+
+    {
+        question:
+            "Which description best defines bulk micromachining?",
+
+        answers: [
+            "Building structures entirely from deposited thin films",
+            "Etching deeply into the substrate to form mechanical features",
+            "Removing only photoresist from the wafer surface",
+            "Depositing sacrificial layers without removing them"
+        ],
+
+        correct: 1
+    },
+
+
+    {
+        question:
+            "What is a defining feature of surface micromachining?",
+
+        answers: [
+            "The entire silicon wafer is dissolved",
+            "Mechanical structures are cut using conventional milling",
+            "Features are formed only by deep substrate etching",
+            "Structures are fabricated layer-by-layer using thin films"
+        ],
+
+        correct: 3
+    },
+
+
+    {
+        question:
+            "An engineer creates a cavity by etching deeply into a silicon wafer. Which fabrication approach is being used?",
+
+        answers: [
+            "Bulk micromachining",
+            "Surface micromachining",
+            "Wafer bonding",
+            "Metallization"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the purpose of a sacrificial layer in surface micromachining?",
+
+        answers: [
+            "To permanently strengthen the silicon substrate",
+            "To serve as the final electrical contact",
+            "To be removed so a mechanical structure can become free-standing",
+            "To replace the structural layer"
+        ],
+
+        correct: 2
+    },
+
+
+    {
+        question:
+            "A thin mechanical beam is built above a wafer using deposited films. Material underneath the beam is later removed so the beam can move. What process does this describe?",
+
+        answers: [
+            "Bulk micromachining",
+            "Surface micromachining",
+            "Wafer inspection",
+            "Oxidation"
+        ],
+
+        correct: 1
+    },
+
+
+    {
+        question:
+            "Which material is identified as a mechanical structural layer in the fabrication example?",
+
+        answers: [
+            "PSG",
+            "Photoresist",
+            "Polysilicon",
+            "Solvent"
+        ],
+
+        correct: 2
+    },
+
+
+    {
+        question:
+            "In the fabrication example, what role does PSG serve?",
+
+        answers: [
+            "It acts as a sacrificial layer",
+            "It becomes the permanent mechanical structure",
+            "It serves as the silicon substrate",
+            "It replaces photolithography"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which statement correctly compares bulk and surface micromachining?",
+
+        answers: [
+            "Both techniques require the substrate to be completely removed",
+            "Bulk micromachining uses only deposition, while surface micromachining uses only etching",
+            "Surface micromachining must always etch deeply into the silicon wafer",
+            "Bulk micromachining forms features in the substrate, while surface micromachining builds thin-film structures above it"
+        ],
+
+        correct: 3
+    }
+
+];
+
+function loadUnit1StudyModule() {
+
+    const completeButton =
+        document.getElementById("completeUnit1Button");
+
+
+    if (!completeButton) {
+        return;
+    }
+
+
+    const alreadyComplete =
+        localStorage.getItem(
+            "fabPathUnit1StudyComplete"
+        ) === "true";
+
+
+    if (alreadyComplete) {
+
+        completeButton.textContent =
+            "Module Complete ✓";
+    }
+
+
+    completeButton.addEventListener(
+        "click",
+        function () {
+
+            localStorage.setItem(
+                "fabPathUnit1StudyComplete",
+                "true"
+            );
+
+            window.location.href =
+                "learn.html";
+        }
+    );
+}
+
+
+loadUnit1StudyModule();
+
+let lessonQuestions = [];
+let currentLesson = 0;
+
+
+if (window.location.pathname.includes("lesson1.html")) {
+
+    lessonQuestions = lesson1Questions;
+    currentLesson = 1;
+
+}
+
+
+if (window.location.pathname.includes("lesson2.html")) {
+
+    lessonQuestions = lesson2Questions;
+    currentLesson = 2;
+
+}
+
+if (window.location.pathname.includes("lesson3.html")) {
+
+    lessonQuestions = lesson3Questions;
+    currentLesson = 3;
+
+}
+
+if (window.location.pathname.includes("lesson4.html")) {
+
+    lessonQuestions = lesson4Questions;
+    currentLesson = 4;
+
+}
+
+if (window.location.pathname.includes("lesson5.html")) {
+
+    lessonQuestions = lesson5Questions;
+    currentLesson = 5;
+
+}
+
+if (window.location.pathname.includes("lesson6.html")) {
+    lessonQuestions = lesson6Questions;
+    currentLesson = 6;
+}
+
+if (window.location.pathname.includes("lesson7.html")) {
+    lessonQuestions = lesson7Questions;
+    currentLesson = 7;
+}
+
+if (window.location.pathname.includes("lesson8.html")) {
+    lessonQuestions = lesson8Questions;
+    currentLesson = 8;
+}
+
+if (window.location.pathname.includes("lesson9.html")) {
+
+    lessonQuestions =
+        lesson9Questions;
+
+    currentLesson =
+        9;
+}
+
+if (window.location.pathname.includes("lesson10.html")) {
+
+    lessonQuestions =
+        lesson10Questions;
+
+    currentLesson =
+        10;
+}
+
+if (window.location.pathname.includes("lesson11.html")) {
+
+    lessonQuestions =
+        lesson11Questions;
+
+    currentLesson =
+        11;
+}
+
+if (window.location.pathname.includes("lesson12.html")) {
+
+    lessonQuestions =
+        lesson12Questions;
+
+    currentLesson =
+        12;
+}
+
+if (window.location.pathname.includes("lesson13.html")) {
+
+    lessonQuestions =
+        lesson13Questions;
+
+    currentLesson =
+        13;
+}
+
+let currentQuestion = 0;
+let selectedAnswer = null;
+let xp = 0;
+let answerChecked = false;
+
+
+const questionText =
+    document.getElementById("questionText");
+
+const questionNumber =
+    document.getElementById("questionNumber");
+
+const answerGrid =
+    document.getElementById("answerGrid");
+
+const checkButton =
+    document.getElementById("checkButton");
+
+const feedbackMessage =
+    document.getElementById("feedbackMessage");
+
+const lessonProgress =
+    document.getElementById("lessonProgress");
+
+const xpDisplay =
+    document.getElementById("xpDisplay");
+
+
+function loadQuestion() {
+
+    if (!questionText) {
+        return;
+    }
+
+    const question =
+        lessonQuestions[currentQuestion];
+
+    questionText.textContent =
+        question.question;
+
+    questionNumber.textContent =
+        `QUESTION ${currentQuestion + 1} OF ${lessonQuestions.length}`;
+
+    answerGrid.innerHTML = "";
+
+    question.answers.forEach((answer, index) => {
+
+        const button =
+            document.createElement("button");
+
+        button.className =
+            "answer-button";
+
+        button.textContent =
+            answer;
+
+        button.addEventListener("click", function () {
+
+            if (answerChecked) {
+                return;
+            }
+
+            document
+                .querySelectorAll(".answer-button")
+                .forEach(btn => {
+                    btn.classList.remove("selected");
+                });
+
+            button.classList.add("selected");
+
+            selectedAnswer = index;
+
+            checkButton.disabled = false;
+
+            feedbackMessage.textContent =
+                "Ready to check your answer.";
+        });
+
+        answerGrid.appendChild(button);
+    });
+
+
+    const progress =
+        ((currentQuestion + 1) /
+        lessonQuestions.length) * 100;
+
+    lessonProgress.style.width =
+        `${progress}%`;
+
+    checkButton.textContent =
+        "Check Answer";
+
+    checkButton.disabled = true;
+
+    selectedAnswer = null;
+
+    answerChecked = false;
+
+    feedbackMessage.textContent =
+        "Select an answer to continue.";
+}
+
+
+if (checkButton) {
+
+    checkButton.addEventListener("click", function () {
+
+        if (selectedAnswer === null) {
+            return;
+        }
+
+
+        if (!answerChecked) {
+
+            answerChecked = true;
+
+            const question =
+                lessonQuestions[currentQuestion];
+
+            const buttons =
+                document.querySelectorAll(
+                    ".answer-button"
+                );
+
+
+            if (
+                selectedAnswer ===
+                question.correct
+            ) {
+
+                buttons[selectedAnswer]
+                    .classList.add("correct");
+
+                feedbackMessage.textContent =
+                    "Correct! +10 XP";
+
+                xp += 10;
+
+                xpDisplay.textContent =
+                    xp;
+
+            } else {
+
+                buttons[selectedAnswer]
+                    .classList.add("incorrect");
+
+                buttons[question.correct]
+                    .classList.add("correct");
+
+                feedbackMessage.textContent =
+                    "Not quite. The correct answer is highlighted.";
+            }
+
+
+            if (
+                currentQuestion ===
+                lessonQuestions.length - 1
+            ) {
+
+                checkButton.textContent =
+                    "Finish Lesson";
+
+            } else {
+
+                checkButton.textContent =
+                    "Continue";
+            }
+
+            return;
+        }
+
+
+        if (
+            currentQuestion <
+            lessonQuestions.length - 1
+        ) {
+
+            currentQuestion++;
+
+            loadQuestion();
+
+        } else {
+
+            localStorage.setItem(
+                "fabPathLesson1Complete",
+                "true"
+            );
+
+const previousXP =
+    parseInt(
+        localStorage.getItem("fabPathXP")
+    ) || 0;
+
+
+const completionKey =
+    `fabPathLesson${currentLesson}Complete`;
+
+
+const lessonAlreadyComplete =
+    localStorage.getItem(
+        completionKey
+    ) === "true";
+
+
+if (!lessonAlreadyComplete) {
+
+    localStorage.setItem(
+        "fabPathXP",
+        (previousXP + xp).toString()
+    );
+}
+
+
+localStorage.setItem(
+    completionKey,
+    "true"
+);
+
+
+updateStreakOnLessonComplete();
+
+
+window.location.href =
+    "learn.html";
+
+        }
+
+    });
+}
+
+
+loadQuestion();
+
+/* ========================================
+   LEARN PAGE PROGRESS
+======================================== */
+
+/* ========================================
+   COURSE HELPERS
+======================================== */
+
+function getLessonCompletionKey(lessonId) {
+
+    return `fabPathLesson${lessonId}Complete`;
+}
+
+
+function getUnitStudyCompletionKey(unitId) {
+
+    return `fabPathUnit${unitId}StudyComplete`;
+}
+
+
+function isLessonComplete(lessonId) {
+
+    return (
+        localStorage.getItem(
+            getLessonCompletionKey(lessonId)
+        ) === "true"
+    );
+}
+
+
+function isUnitStudyComplete(unitId) {
+
+    return (
+        localStorage.getItem(
+            getUnitStudyCompletionKey(unitId)
+        ) === "true"
+    );
+}
+
+
+/* ========================================
+   GET ALL LESSONS
+======================================== */
+
+function getAllLessons() {
+
+    const lessons = [];
+
+    courseData.forEach(function (unit) {
+
+        unit.lessons.forEach(function (lesson) {
+
+            lessons.push(lesson);
+        });
+
+    });
+
+    return lessons;
+}
+
+
+/* ========================================
+   COURSE PROGRESS
+======================================== */
+
+function getCompletedLessonCount() {
+
+    const lessons =
+        getAllLessons();
+
+    let completed = 0;
+
+
+    lessons.forEach(function (lesson) {
+
+        if (isLessonComplete(lesson.id)) {
+
+            completed++;
+        }
+
+    });
+
+
+    return completed;
+}
+
+
+/* ========================================
+   UNIT UNLOCKING
+======================================== */
+
+function isUnitUnlocked(unitIndex) {
+
+    /*
+        Unit 1 is always available.
+    */
+
+    if (unitIndex === 0) {
+
+        return true;
+    }
+
+
+    const previousUnit =
+        courseData[unitIndex - 1];
+
+
+    const previousLessons =
+        previousUnit.lessons;
+
+
+    const finalLesson =
+        previousLessons[
+            previousLessons.length - 1
+        ];
+
+
+    return isLessonComplete(
+        finalLesson.id
+    );
+}
+
+
+/* ========================================
+   LESSON UNLOCKING
+======================================== */
+
+function isLessonUnlocked(
+    unit,
+    lessonIndex
+) {
+
+    /*
+        First lesson requires study
+        module completion.
+    */
+
+    if (lessonIndex === 0) {
+
+        return isUnitStudyComplete(
+            unit.id
+        );
+    }
+
+
+    /*
+        Every later lesson requires
+        previous lesson completion.
+    */
+
+    const previousLesson =
+        unit.lessons[
+            lessonIndex - 1
+        ];
+
+
+    return isLessonComplete(
+        previousLesson.id
+    );
+}
+
+
+/* ========================================
+   CREATE STUDY MODULE NODE
+======================================== */
+
+function createStudyNode(
+    unit,
+    unitIndex
+) {
+
+    const complete =
+        isUnitStudyComplete(unit.id);
+
+    const unlocked =
+        isUnitUnlocked(unitIndex);
+
+
+    let statusClass =
+        "locked";
+
+    let icon =
+        "🔒";
+
+    let href =
+        "#";
+
+
+    if (complete) {
+
+        statusClass =
+            "complete";
+
+        icon =
+            "✓";
+
+        href =
+            unit.studyModule.href;
+
+    } else if (unlocked) {
+
+        statusClass =
+            "available";
+
+        icon =
+            "📖";
+
+        href =
+            unit.studyModule.href;
+    }
+
+
+    return `
+        <a
+            href="${href}"
+            class="path-node node-left ${statusClass} lesson-link"
+        >
+
+            <div class="node-circle">
+                ${icon}
+            </div>
+
+            <div class="node-info">
+
+                <span>
+                    STUDY MODULE
+                </span>
+
+                <h3>
+                    ${unit.studyModule.title}
+                </h3>
+
+                <p>
+                    Learn the concepts you need
+                    before beginning this unit.
+                </p>
+
+            </div>
+
+        </a>
+
+        <div class="vertical-path"></div>
+    `;
+}
+
+
+/* ========================================
+   CREATE LESSON NODE
+======================================== */
+
+function createLessonNode(
+    unit,
+    lesson,
+    lessonIndex
+) {
+
+    const complete =
+        isLessonComplete(
+            lesson.id
+        );
+
+    const unlocked =
+        isLessonUnlocked(
+            unit,
+            lessonIndex
+        );
+
+
+    let statusClass =
+        "locked";
+
+    let circleContent =
+        "🔒";
+
+    let href =
+        "#";
+
+
+    if (complete) {
+
+        statusClass =
+            "complete";
+
+        circleContent =
+            "✓";
+
+        href =
+            `lesson${lesson.id}.html`;
+
+    } else if (unlocked) {
+
+        statusClass =
+            "available";
+
+        circleContent =
+            lesson.id;
+
+        href =
+            `lesson${lesson.id}.html`;
+    }
+
+
+    /*
+        Automatically alternate
+        left / right.
+    */
+
+    const positionClass =
+        lessonIndex % 2 === 0
+            ? "node-right"
+            : "node-left";
+
+
+    return `
+        <a
+            href="${href}"
+            class="path-node ${positionClass} ${statusClass} lesson-link"
+            id="lesson${lesson.id}Node"
+        >
+
+            <div
+                class="node-circle"
+                id="lesson${lesson.id}Circle"
+            >
+                ${circleContent}
+            </div>
+
+            <div class="node-info">
+
+                <span>
+                    LESSON ${lesson.id}
+                </span>
+
+                <h3>
+                    ${lesson.title}
+                </h3>
+
+                <p>
+                    ${lesson.description}
+                </p>
+
+            </div>
+
+        </a>
+    `;
+}
+
+
+/* ========================================
+   BUILD LEARNING PATH
+======================================== */
+
+function renderLearningPath() {
+
+    const learningPath =
+        document.getElementById(
+            "learningPath"
+        );
+
+
+    if (!learningPath) {
+
+        return;
+    }
+
+
+    let html = "";
+
+
+    courseData.forEach(
+        function (unit, unitIndex) {
+
+
+            /*
+                UNIT BANNER
+            */
+
+            html += `
+                <div class="unit-banner">
+
+                    <span>
+                        UNIT ${unit.id}
+                    </span>
+
+                    <h2>
+                        ${unit.title}
+                    </h2>
+
+                    <p>
+                        ${unit.description}
+                    </p>
+
+                </div>
+            `;
+
+
+            /*
+                STUDY MODULE
+            */
+
+            html +=
+                createStudyNode(
+                    unit,
+                    unitIndex
+                );
+
+
+            /*
+                LESSONS
+            */
+
+            unit.lessons.forEach(
+                function (
+                    lesson,
+                    lessonIndex
+                ) {
+
+                    html +=
+                        createLessonNode(
+                            unit,
+                            lesson,
+                            lessonIndex
+                        );
+
+
+                    const isLastLesson =
+                        lessonIndex ===
+                        unit.lessons.length - 1;
+
+
+                    if (!isLastLesson) {
+
+                        html += `
+                            <div class="vertical-path"></div>
+                        `;
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+    learningPath.innerHTML =
+        html;
+
+
+    updateCourseProgress();
+}
+
+
+/* ========================================
+   UPDATE COURSE PROGRESS
+======================================== */
+
+function updateCourseProgress() {
+
+    const progressFill =
+        document.getElementById(
+            "courseProgressFill"
+        );
+
+    const progressText =
+        document.getElementById(
+            "courseProgressText"
+        );
+
+
+    const totalLessons =
+        getAllLessons().length;
+
+
+    const completedLessons =
+        getCompletedLessonCount();
+
+
+    const percent =
+        totalLessons === 0
+            ? 0
+            : Math.round(
+                (
+                    completedLessons /
+                    totalLessons
+                ) * 100
+            );
+
+
+    if (progressFill) {
+
+        progressFill.style.width =
+            `${percent}%`;
+    }
+
+
+    if (progressText) {
+
+        progressText.textContent =
+            `${percent}% complete`;
+    }
+}
+
+
+renderLearningPath();
+
+/* ========================================
+   LEARN PAGE PROGRESS
+   Units 1 and 2
+======================================== */
+
+function loadLearnPageProgress() {
+
+    const totalXPDisplay =
+        document.getElementById("totalXPDisplay");
+
+    const courseProgressFill =
+        document.getElementById("courseProgressFill");
+
+    const courseProgressText =
+        document.getElementById("courseProgressText");
+
+
+    /* =====================================
+       XP
+    ===================================== */
+
+    const savedXP =
+        parseInt(
+            localStorage.getItem("fabPathXP")
+        ) || 0;
+
+    if (totalXPDisplay) {
+        totalXPDisplay.textContent =
+            savedXP;
+    }
+
+
+    /* =====================================
+       HELPERS
+    ===================================== */
+
+    function lessonComplete(id) {
+
+        return (
+            localStorage.getItem(
+                `fabPathLesson${id}Complete`
+            ) === "true"
+        );
+    }
+
+
+    function unlockLesson(id) {
+
+        const node =
+            document.getElementById(
+                `lesson${id}Node`
+            );
+
+        const circle =
+            document.getElementById(
+                `lesson${id}Circle`
+            );
+
+
+        if (!node || !circle) {
+            return;
+        }
+
+
+        /*
+            Don't overwrite a completed lesson.
+        */
+
+        if (lessonComplete(id)) {
+            return;
+        }
+
+
+        node.classList.remove("locked");
+        node.classList.add("available");
+
+        node.href =
+            `lesson${id}.html`;
+
+        circle.textContent =
+            id;
+    }
+
+
+    function completeLessonNode(id) {
+
+        const node =
+            document.getElementById(
+                `lesson${id}Node`
+            );
+
+        const circle =
+            document.getElementById(
+                `lesson${id}Circle`
+            );
+
+
+        if (!node || !circle) {
+            return;
+        }
+
+
+        node.classList.remove(
+            "locked",
+            "available"
+        );
+
+        node.classList.add("complete");
+
+        node.href =
+            `lesson${id}.html`;
+
+        circle.textContent =
+            "✓";
+    }
+
+
+    /* =====================================
+       COMPLETED LESSONS
+    ===================================== */
+
+    let completedLessons = 0;
+
+
+    for (let id = 1; id <= 8; id++) {
+
+        if (lessonComplete(id)) {
+
+            completedLessons++;
+
+            completeLessonNode(id);
+        }
+
+    }
+
+
+    /* =====================================
+       UNIT 1 STUDY MODULE
+    ===================================== */
+
+    const unit1StudyComplete =
+        localStorage.getItem(
+            "fabPathUnit1StudyComplete"
+        ) === "true";
+
+
+    const unit1StudyNode =
+        document.getElementById(
+            "unit1StudyNode"
+        );
+
+    const unit1StudyCircle =
+        document.getElementById(
+            "unit1StudyCircle"
+        );
+
+
+    if (unit1StudyComplete) {
+
+        if (unit1StudyNode) {
+
+            unit1StudyNode.classList.remove(
+                "locked",
+                "available"
+            );
+
+            unit1StudyNode.classList.add(
+                "complete"
+            );
+
+            unit1StudyNode.href =
+                "unit1.html";
+        }
+
+
+        if (unit1StudyCircle) {
+
+            unit1StudyCircle.textContent =
+                "✓";
+        }
+
+
+        unlockLesson(1);
+    }
+
+
+    /* =====================================
+       UNIT 1 LESSON CHAIN
+    ===================================== */
+
+    if (lessonComplete(1)) {
+        unlockLesson(2);
+    }
+
+    if (lessonComplete(2)) {
+        unlockLesson(3);
+    }
+
+    if (lessonComplete(3)) {
+        unlockLesson(4);
+    }
+
+
+    /* =====================================
+       UNIT 2 STUDY MODULE
+    ===================================== */
+
+    const unit2StudyNode =
+        document.getElementById(
+            "unit2StudyNode"
+        );
+
+    const unit2StudyCircle =
+        document.getElementById(
+            "unit2StudyCircle"
+        );
+
+    const unit2StudyComplete =
+        localStorage.getItem(
+            "fabPathUnit2StudyComplete"
+        ) === "true";
+
+
+    /*
+        Lesson 4 unlocks Unit 2.
+    */
+
+    if (
+        lessonComplete(4) &&
+        !unit2StudyComplete
+    ) {
+
+        if (unit2StudyNode) {
+
+            unit2StudyNode.classList.remove(
+                "locked"
+            );
+
+            unit2StudyNode.classList.add(
+                "available"
+            );
+
+            unit2StudyNode.href =
+                "unit2.html";
+        }
+
+
+        if (unit2StudyCircle) {
+
+            unit2StudyCircle.textContent =
+                "📖";
+        }
+
+    }
+
+
+    if (unit2StudyComplete) {
+
+        if (unit2StudyNode) {
+
+            unit2StudyNode.classList.remove(
+                "locked",
+                "available"
+            );
+
+            unit2StudyNode.classList.add(
+                "complete"
+            );
+
+            unit2StudyNode.href =
+                "unit2.html";
+        }
+
+
+        if (unit2StudyCircle) {
+
+            unit2StudyCircle.textContent =
+                "✓";
+        }
+
+
+        unlockLesson(5);
+    }
+
+
+    /* =====================================
+       UNIT 2 LESSON CHAIN
+    ===================================== */
+
+    if (lessonComplete(5)) {
+        unlockLesson(6);
+    }
+
+    if (lessonComplete(6)) {
+        unlockLesson(7);
+    }
+
+    if (lessonComplete(7)) {
+        unlockLesson(8);
+    }
+
+
+    /* =====================================
+       COURSE PROGRESS
+    ===================================== */
+
+    let totalLessons = 8;
+
+
+    /*
+        Once course-data.js exists,
+        use the real total automatically.
+    */
+
+    if (typeof courseData !== "undefined") {
+
+        totalLessons =
+            courseData.reduce(
+                function (total, unit) {
+
+                    return (
+                        total +
+                        unit.lessons.length
+                    );
+                },
+                0
+            );
+    }
+
+
+    const percent =
+        Math.round(
+            (
+                completedLessons /
+                totalLessons
+            ) * 100
+        );
+
+
+    if (courseProgressFill) {
+
+        courseProgressFill.style.width =
+            `${percent}%`;
+    }
+
+
+    if (courseProgressText) {
+
+        courseProgressText.textContent =
+            `${percent}% complete`;
+    }
+
+}
+
+
+loadLearnPageProgress();
+
+/* ========================================
+   FAB PATH STREAK SYSTEM
+======================================== */
+
+function getTodayKey() {
+
+    const today = new Date();
+
+    const year = today.getFullYear();
+
+    const month =
+        String(today.getMonth() + 1).padStart(2, "0");
+
+    const day =
+        String(today.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+}
+
+
+function getDaysBetween(date1, date2) {
+
+    const first =
+        new Date(date1 + "T00:00:00");
+
+    const second =
+        new Date(date2 + "T00:00:00");
+
+    const difference =
+        second - first;
+
+    return Math.round(
+        difference / (1000 * 60 * 60 * 24)
+    );
+}
+
+
+function updateStreakOnLessonComplete() {
+
+    const today =
+        getTodayKey();
+
+
+    const lastActiveDate =
+        localStorage.getItem(
+            "fabPathLastActiveDate"
+        );
+
+
+    let streak =
+        parseInt(
+            localStorage.getItem(
+                "fabPathStreak"
+            )
+        ) || 0;
+
+
+    // First day ever using Fab Path
+
+    if (!lastActiveDate) {
+
+        streak = 1;
+
+    } else {
+
+        const daysApart =
+            getDaysBetween(
+                lastActiveDate,
+                today
+            );
+
+
+        // Already completed something today
+
+        if (daysApart === 0) {
+
+            return streak;
+        }
+
+
+        // Consecutive day
+
+        if (daysApart === 1) {
+
+            streak++;
+
+        } else {
+
+            // Missed at least one day
+
+            streak = 1;
+        }
+    }
+
+
+    localStorage.setItem(
+        "fabPathStreak",
+        streak.toString()
+    );
+
+
+    localStorage.setItem(
+        "fabPathLastActiveDate",
+        today
+    );
+
+
+    return streak;
+}
+function loadFabPathStats() {
+
+    const streakDisplay =
+        document.getElementById(
+            "streakDisplay"
+        );
+
+
+    const totalXPDisplay =
+        document.getElementById(
+            "totalXPDisplay"
+        );
+
+
+    let streak =
+        parseInt(
+            localStorage.getItem(
+                "fabPathStreak"
+            )
+        ) || 0;
+
+
+    const lastActiveDate =
+        localStorage.getItem(
+            "fabPathLastActiveDate"
+        );
+
+
+    const today =
+        getTodayKey();
+
+
+    /*
+       If the learner has missed more
+       than one full day, show 0.
+    */
+
+    if (lastActiveDate) {
+
+        const daysApart =
+            getDaysBetween(
+                lastActiveDate,
+                today
+            );
+
+
+        if (daysApart > 1) {
+
+            streak = 0;
+
+            localStorage.setItem(
+                "fabPathStreak",
+                "0"
+            );
+        }
+    }
+
+
+    const xp =
+        parseInt(
+            localStorage.getItem(
+                "fabPathXP"
+            )
+        ) || 0;
+
+
+    if (streakDisplay) {
+
+        streakDisplay.textContent =
+            streak;
+    }
+
+
+    if (totalXPDisplay) {
+
+        totalXPDisplay.textContent =
+            xp;
+    }
+}
+
+
+loadFabPathStats();
+
+/* ========================================
+   PRACTICE PAGE
+======================================== */
+
+function loadPracticePage() {
+
+    const lesson1Practice =
+        document.getElementById(
+            "practiceLesson1"
+        );
+
+    const lesson2Practice =
+        document.getElementById(
+            "practiceLesson2"
+        );
+
+    const lesson3Practice =
+        document.getElementById(
+            "practiceLesson3"
+        );
+    const lesson4Practice =
+        document.getElementById(
+            "practiceLesson4"
+        );
+
+    // Only run on Practice page
+    if (!lesson1Practice) {
+        return;
+    }
+
+
+    const lesson1Complete =
+        localStorage.getItem(
+            "fabPathLesson1Complete"
+        ) === "true";
+
+    const lesson2Complete =
+        localStorage.getItem(
+            "fabPathLesson2Complete"
+        ) === "true";
+
+    const lesson3Complete =
+        localStorage.getItem(
+            "fabPathLesson3Complete"
+        ) === "true";
+    
+        const lesson4Complete =
+        localStorage.getItem(
+            "fabPathLesson4Complete"
+        ) === "true";
+
+    if (!lesson1Complete) {
+
+        lesson1Practice.style.display =
+            "none";
+    }
+
+
+    if (
+        lesson2Complete &&
+        lesson2Practice
+    ) {
+
+        lesson2Practice.classList.remove(
+            "locked-practice"
+        );
+    }
+
+
+    if (
+        lesson3Complete &&
+        lesson3Practice
+    ) {
+
+        lesson3Practice.classList.remove(
+            "locked-practice"
+        );
+    }
+    if (
+        lesson4Complete &&
+        lesson4Practice
+    ) {
+
+        lesson4Practice.classList.remove(
+            "locked-practice"
+    );
+    }
+
+}
+
+
+loadPracticePage();
+/* ========================================
+   PROGRESS PAGE
+======================================== */
+
+function loadProgressPage() {
+
+    const progressXP =
+        document.getElementById(
+            "progressXP"
+        );
+
+
+    if (!progressXP) {
+        return;
+    }
+
+
+    const xp =
+        parseInt(
+            localStorage.getItem(
+                "fabPathXP"
+            )
+        ) || 0;
+
+
+    const streak =
+        parseInt(
+            localStorage.getItem(
+                "fabPathStreak"
+            )
+        ) || 0;
+
+
+    let completedLessons = 0;
+
+
+    if (
+        localStorage.getItem(
+            "fabPathLesson1Complete"
+        ) === "true"
+    ) {
+
+        completedLessons++;
+    }
+
+
+    if (
+        localStorage.getItem(
+            "fabPathLesson2Complete"
+        ) === "true"
+    ) {
+
+        completedLessons++;
+    }
+
+    if (
+    localStorage.getItem(
+        "fabPathLesson3Complete"
+    ) === "true"
+    ) {
+
+    completedLessons++;
+    }
+
+    if (
+    localStorage.getItem(
+        "fabPathLesson4Complete"
+    ) === "true"
+) {
+
+    completedLessons++;
+}
+
+    /*
+       Unit 1 currently contains
+       four total lessons.
+    */
+
+    const percent =
+    Math.round(
+        (completedLessons / 8) * 100
+    );
+
+
+    document.getElementById(
+        "progressXP"
+    ).textContent = xp;
+
+
+    document.getElementById(
+        "progressStreak"
+    ).textContent = streak;
+
+
+    document.getElementById(
+        "lessonsCompleted"
+    ).textContent =
+        completedLessons;
+
+
+    document.getElementById(
+        "progressPercent"
+    ).textContent =
+        `${percent}%`;
+}
+
+
+loadProgressPage();
+
+function renderUnit3() {
+
+    const container =
+        document.getElementById("unit3Container");
+
+    if (!container) {
+        return;
+    }
+
+    const unit =
+        courseData.find(function (item) {
+            return item.id === 3;
+        });
+
+    if (!unit) {
+        return;
+    }
+
+    const unitUnlocked =
+        localStorage.getItem("fabPathLesson8Complete") === "true";
+
+    const studyComplete =
+        localStorage.getItem("fabPathUnit3StudyComplete") === "true";
+
+    let html = `
+        <div class="unit-banner">
+            <span>UNIT 3</span>
+            <h2>${unit.title}</h2>
+            <p>${unit.description}</p>
+        </div>
+    `;
+
+    let studyClass = "locked";
+    let studyIcon = "🔒";
+    let studyHref = "#";
+
+    if (studyComplete) {
+        studyClass = "complete";
+        studyIcon = "✓";
+        studyHref = unit.studyModule.href;
+    } else if (unitUnlocked) {
+        studyClass = "available";
+        studyIcon = "📖";
+        studyHref = unit.studyModule.href;
+    }
+
+    html += `
+        <a href="${studyHref}"
+           class="path-node node-left ${studyClass} lesson-link">
+
+            <div class="node-circle">
+                ${studyIcon}
+            </div>
+
+            <div class="node-info">
+                <span>STUDY MODULE</span>
+                <h3>${unit.studyModule.title}</h3>
+                <p>Learn the concepts before beginning Unit 3.</p>
+            </div>
+
+        </a>
+
+        <div class="vertical-path"></div>
+    `;
+
+    unit.lessons.forEach(function (lesson, index) {
+
+        const lessonComplete =
+            localStorage.getItem(
+                `fabPathLesson${lesson.id}Complete`
+            ) === "true";
+
+        let unlocked = false;
+
+        if (index === 0) {
+            unlocked = studyComplete;
+        } else {
+            const previousLesson =
+                unit.lessons[index - 1];
+
+            unlocked =
+                localStorage.getItem(
+                    `fabPathLesson${previousLesson.id}Complete`
+                ) === "true";
+        }
+
+        let statusClass = "locked";
+        let icon = "🔒";
+        let href = "#";
+
+        if (lessonComplete) {
+            statusClass = "complete";
+            icon = "✓";
+            href = `lesson${lesson.id}.html`;
+        } else if (unlocked) {
+            statusClass = "available";
+            icon = lesson.id;
+            href = `lesson${lesson.id}.html`;
+        }
+
+        const positionClass =
+            index % 2 === 0
+                ? "node-right"
+                : "node-left";
+
+        html += `
+            <a href="${href}"
+               class="path-node ${positionClass} ${statusClass} lesson-link"
+               id="lesson${lesson.id}Node">
+
+                <div class="node-circle"
+                     id="lesson${lesson.id}Circle">
+                    ${icon}
+                </div>
+
+                <div class="node-info">
+                    <span>FAB CHALLENGE ${lesson.id}</span>
+                    <h3>${lesson.title}</h3>
+                    <p>${lesson.description}</p>
+                </div>
+
+            </a>
+        `;
+
+        if (index < unit.lessons.length - 1) {
+            html += `
+                <div class="vertical-path"></div>
+            `;
+        }
+
+    });
+
+    container.innerHTML = html;
+}
+
+renderUnit3();
