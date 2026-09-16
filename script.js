@@ -1164,6 +1164,753 @@ const lesson13Questions = [
 
 ];
 
+/* ========================================
+   FAB CHALLENGE 14 — OXIDATION & DOPING
+======================================== */
+
+const lesson14Questions = [
+
+    {
+        question:
+            "What does oxidation produce on the surface of a silicon wafer?",
+
+        answers: [
+            "A layer of silicon dioxide (SiO2)",
+            "A layer of pure gold",
+            "A layer of photoresist",
+            "A layer of polysilicon"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which two processes are used to introduce dopants into silicon?",
+
+        answers: [
+            "Diffusion and ion implantation",
+            "Evaporation and sputtering",
+            "Wet etching and dry etching",
+            "Oxidation and planarization"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Oxidation, doping, and thin-film deposition are all examples of which class of micromachining methods?",
+
+        answers: [
+            "Pattern-transfer methods",
+            "Wafer-level methods",
+            "Assembly methods",
+            "Packaging methods"
+        ],
+
+        correct: 1
+    },
+
+
+    {
+        question:
+            "What is the purpose of doping a silicon wafer?",
+
+        answers: [
+            "To deliberately change its electrical properties",
+            "To make the wafer optically transparent",
+            "To increase its physical thickness",
+            "To remove all photoresist"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Why might a wafer be oxidized before pattern transfer begins?",
+
+        answers: [
+            "Wafer-level processing can modify the wafer itself before patterning starts",
+            "Oxidation always happens after the final metallization step",
+            "Oxidation replaces the need for a silicon substrate",
+            "Oxidation removes the need for photolithography entirely"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "A designer wants two regions of the same wafer to have different electrical behavior. Which process family accomplishes this?",
+
+        answers: [
+            "Doping",
+            "Planarization",
+            "Evaporation",
+            "Wafer inspection"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which statement correctly distinguishes wafer-level processes from pattern-transfer processes?",
+
+        answers: [
+            "Wafer-level processes like oxidation and doping change the wafer itself; pattern-transfer processes like lithography and etching define and remove specific regions",
+            "Wafer-level processes only remove material; pattern-transfer processes only add material",
+            "Pattern-transfer processes always happen before any wafer-level process",
+            "There is no meaningful difference between the two classes"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 15 — THIN-FILM DEPOSITION
+======================================== */
+
+const lesson15Questions = [
+
+    {
+        question:
+            "Which deposition method commonly forms thin films such as polysilicon?",
+
+        answers: [
+            "CVD / LPCVD",
+            "RCA cleaning",
+            "Optical lithography",
+            "Wet etching"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What does LPCVD stand for?",
+
+        answers: [
+            "Low-Pressure Chemical Vapor Deposition",
+            "Liquid-Phase Circuit Vapor Deposition",
+            "Layered Polysilicon Chemical Vapor Diffusion",
+            "Low-Power Contact Vapor Development"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which two techniques deposit material through primarily physical, rather than chemical, processes?",
+
+        answers: [
+            "Evaporation and sputtering",
+            "Diffusion and ion implantation",
+            "Oxidation and doping",
+            "Wet etching and dry etching"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "In a typical surface-micromachined stack, which deposited film commonly serves as the sacrificial layer?",
+
+        answers: [
+            "PSG (phosphosilicate glass)",
+            "Polysilicon",
+            "Photoresist",
+            "Gold"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which deposited film commonly serves as the mechanical structural layer?",
+
+        answers: [
+            "Polysilicon",
+            "PSG",
+            "Photoresist",
+            "Silicon dioxide only"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Why might a nitride film be deposited during fabrication?",
+
+        answers: [
+            "For electrical and chemical isolation",
+            "To serve as the final electrical contact",
+            "To act as a photomask",
+            "To replace the silicon substrate"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the general purpose of thin-film deposition in a microfabrication sequence?",
+
+        answers: [
+            "To create material layers that can later be patterned into functional structures",
+            "To permanently remove material from the wafer",
+            "To inspect the wafer for defects",
+            "To dope the substrate with impurity atoms"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Microfabrication generally alternates between depositing material and ______.",
+
+        answers: [
+            "Removing material",
+            "Melting the substrate",
+            "Repackaging the wafer",
+            "Reversing doping"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 16 — OPTICAL LITHOGRAPHY
+======================================== */
+
+const lesson16Questions = [
+
+    {
+        question:
+            "What is the primary purpose of lithography in a fabrication sequence?",
+
+        answers: [
+            "To define where later fabrication operations should occur",
+            "To permanently form the final mechanical structure by itself",
+            "To dope the wafer with impurity atoms",
+            "To deposit the electrical contact metal"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What light-sensitive layer is applied to the wafer before exposure?",
+
+        answers: [
+            "Photoresist",
+            "Polysilicon",
+            "PSG",
+            "Silicon nitride"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "With positive photoresist, what happens to the regions exposed to light during development?",
+
+        answers: [
+            "They become soluble and wash away",
+            "They become insoluble and remain",
+            "They turn into silicon dioxide",
+            "They are unaffected by development"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "With negative photoresist, what happens to the regions exposed to light during development?",
+
+        answers: [
+            "They become insoluble and remain after development",
+            "They become soluble and wash away",
+            "They evaporate under UV light",
+            "They are removed by RCA cleaning"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Shipley resist is a common example of which type of photoresist?",
+
+        answers: [
+            "Positive resist",
+            "Negative resist",
+            "Neither positive nor negative",
+            "A sacrificial layer, not a resist"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "SU-8 is a common example of which type of photoresist?",
+
+        answers: [
+            "Negative resist",
+            "Positive resist",
+            "A wet etchant",
+            "A dry etch gas"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "If a process uses positive photoresist, how does the final pattern in the film relate to the photomask?",
+
+        answers: [
+            "It matches the mask",
+            "It is inverted from the mask",
+            "It has no relationship to the mask",
+            "It is always larger than the mask"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "In the lithography sequence (film, photoresist, exposure, development, etch, resist removal), which step comes immediately after exposure?",
+
+        answers: [
+            "Development",
+            "Etching",
+            "Resist removal",
+            "Film deposition"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 17 — WET & DRY ETCHING
+======================================== */
+
+const lesson17Questions = [
+
+    {
+        question:
+            "What does wet etching use to remove material?",
+
+        answers: [
+            "Liquid chemistry",
+            "Gas or plasma",
+            "Mechanical polishing",
+            "UV light exposure"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What does dry etching use to remove material?",
+
+        answers: [
+            "Gas or plasma-based processes",
+            "Liquid acid baths",
+            "Spin-coating",
+            "Thermal oxidation"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Wet and dry etching are both classified under which broader micromachining category?",
+
+        answers: [
+            "Pattern-transfer methods",
+            "Wafer-level methods",
+            "Packaging methods",
+            "Inspection methods"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Why does the choice between wet and dry etching matter for a design?",
+
+        answers: [
+            "It affects the geometry that can be fabricated",
+            "It has no effect on the final device",
+            "It only changes the color of the wafer",
+            "It determines the wafer's electrical doping type"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "In a typical lithography-to-etch sequence, etching happens immediately after which step?",
+
+        answers: [
+            "Development of the exposed photoresist",
+            "Metallization",
+            "Wafer dicing",
+            "SEM inspection"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What typically happens to the photoresist after etching is complete?",
+
+        answers: [
+            "It is stripped away, leaving the patterned film behind",
+            "It becomes the final structural layer",
+            "It is converted into silicon dioxide",
+            "It is reused for the next lithography step"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "An engineer removes silicon using an acid bath rather than a plasma chamber. Which technique are they using?",
+
+        answers: [
+            "Wet etching",
+            "Dry etching",
+            "Sputtering",
+            "Ion implantation"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Along with etching, which other process is grouped under pattern-transfer methods?",
+
+        answers: [
+            "Optical lithography",
+            "Doping",
+            "Oxidation",
+            "Thin-film deposition alone"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 18 — PLANARIZATION & PROCESS INTEGRATION
+======================================== */
+
+const lesson18Questions = [
+
+    {
+        question:
+            "What problem does planarization address in multi-layer fabrication?",
+
+        answers: [
+            "Managing the surface topography created by earlier steps",
+            "Introducing dopants into the substrate",
+            "Removing the entire photoresist layer",
+            "Cutting the wafer into individual dies"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Why can't a complex microdevice usually be made in a single fabrication operation?",
+
+        answers: [
+            "It is built through many sequential add, pattern, and remove steps",
+            "Silicon cannot be patterned more than once",
+            "Only one material can ever exist on a wafer",
+            "Every layer requires a brand-new substrate"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "When analyzing a MEMS fabrication sequence, which questions should you be asking at each step?",
+
+        answers: [
+            "What exists now, what should remain, what should be removed, and what must be added next",
+            "Only what the final selling price of the device will be",
+            "Only how many wafers are in the cleanroom",
+            "Only which company manufactures the equipment"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which statement best describes the relationship between fabrication layers?",
+
+        answers: [
+            "Each layer changes the starting condition for the layer that follows",
+            "Layers are completely independent of one another",
+            "Later layers never affect earlier ones or vice versa",
+            "Only the first layer affects the final device"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Planarization belongs to which part of the microfabrication toolbox?",
+
+        answers: [
+            "Pattern-transfer and micromachining methods",
+            "Wafer growth methods",
+            "Cleanroom certification steps",
+            "Electrical testing methods"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which sequence best describes the general repeating cycle of layer-based microfabrication?",
+
+        answers: [
+            "Deposit, pattern, etch, modify, repeat",
+            "Cut, weld, paint, repeat",
+            "Package, ship, test, repeat",
+            "Melt, mold, cool, repeat"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Fabrication is best understood as:",
+
+        answers: [
+            "An interconnected sequence, where each step depends on the ones before it",
+            "A set of completely isolated, unrelated steps",
+            "A single operation performed once per wafer",
+            "A process with no defined order"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "After a new layer is deposited and patterned, what must the next process step account for?",
+
+        answers: [
+            "The changed surface geometry left behind by that layer",
+            "Only the original bare silicon surface",
+            "The wafer's serial number",
+            "The mask shop's turnaround time"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 19 — BUILD A MEMS DEVICE
+======================================== */
+
+const lesson19Questions = [
+
+    {
+        question:
+            "In the layer-by-layer surface-micromachining example, what is deposited onto the silicon substrate first?",
+
+        answers: [
+            "A process layer",
+            "The final metal contacts",
+            "Photoresist only",
+            "A sacrificial layer only, with nothing structural"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is added on top of the process layer to later form the air gap beneath the finished structure?",
+
+        answers: [
+            "Sacrificial material",
+            "Gold",
+            "Photoresist",
+            "Silicon nitride"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is added and patterned to form the final free-standing mechanical structure?",
+
+        answers: [
+            "The structural layer",
+            "The sacrificial layer",
+            "The RCA clean",
+            "The mask shop layout"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What happens to the sacrificial material at the end of the surface-micromachining sequence?",
+
+        answers: [
+            "It is removed, releasing the free-standing structure",
+            "It becomes the permanent structural layer",
+            "It is converted into silicon dioxide",
+            "It is deposited a second time"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "In the cleanroom worked example, what file format is the CAD layout converted to before being sent to a mask shop?",
+
+        answers: [
+            "GDSII",
+            "PDF",
+            "STL",
+            "DXF"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the purpose of the RCA clean step early in the fabrication run?",
+
+        answers: [
+            "To remove organic and metallic contamination from the wafer",
+            "To pattern the photoresist",
+            "To deposit the structural layer",
+            "To etch the sacrificial layer"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which films are deposited during the LPCVD step of the cleanroom example?",
+
+        answers: [
+            "Nitride, polysilicon, and PSG",
+            "Gold and chromium only",
+            "Photoresist and developer",
+            "Quartz and glass only"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the final step in the cleanroom fabrication example?",
+
+        answers: [
+            "Metallization — depositing and lifting off the Au/Cr contact layer",
+            "RCA cleaning",
+            "Design and layout",
+            "Spin-coating photoresist"
+        ],
+
+        correct: 0
+    }
+
+];
+
 function loadUnit1StudyModule() {
 
     const completeButton =
@@ -1304,6 +2051,60 @@ if (window.location.pathname.includes("lesson13.html")) {
 
     currentLesson =
         13;
+}
+
+if (window.location.pathname.includes("lesson14.html")) {
+
+    lessonQuestions =
+        lesson14Questions;
+
+    currentLesson =
+        14;
+}
+
+if (window.location.pathname.includes("lesson15.html")) {
+
+    lessonQuestions =
+        lesson15Questions;
+
+    currentLesson =
+        15;
+}
+
+if (window.location.pathname.includes("lesson16.html")) {
+
+    lessonQuestions =
+        lesson16Questions;
+
+    currentLesson =
+        16;
+}
+
+if (window.location.pathname.includes("lesson17.html")) {
+
+    lessonQuestions =
+        lesson17Questions;
+
+    currentLesson =
+        17;
+}
+
+if (window.location.pathname.includes("lesson18.html")) {
+
+    lessonQuestions =
+        lesson18Questions;
+
+    currentLesson =
+        18;
+}
+
+if (window.location.pathname.includes("lesson19.html")) {
+
+    lessonQuestions =
+        lesson19Questions;
+
+    currentLesson =
+        19;
 }
 
 let currentQuestion = 0;
