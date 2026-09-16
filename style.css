@@ -1139,6 +1139,7 @@ nav a:hover {
     min-height: 150px;
 
     margin: 35px 0;
+    padding: 20px;
 
     border: 1px solid var(--border);
     border-radius: 22px;
@@ -1153,8 +1154,17 @@ nav a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+
+    overflow: hidden;
 
     font-size: clamp(4rem, 10vw, 7rem);
+}
+
+
+.module-visual.module-visual-text {
+    line-height: 1.8;
+    font-size: clamp(1.3rem, 3.5vw, 2rem);
 }
 
 
@@ -1332,9 +1342,7 @@ nav a:hover {
     }
 
 }
-.module-shell {
-    border: 5px solid red !important;
-}
+
 /* ========================================
    DYNAMIC UNIT CONTAINERS
 ======================================== */
