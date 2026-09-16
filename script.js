@@ -1911,6 +1911,895 @@ const lesson19Questions = [
 
 ];
 
+/* ========================================
+   FAB CHALLENGE 20 — MULTI-USER FOUNDRIES
+======================================== */
+
+const lesson20Questions = [
+
+    {
+        question:
+            "What does MUMPs stand for?",
+
+        answers: [
+            "Multi-User MEMS Processes",
+            "Micro-Unit Mask Production System",
+            "Metal-Underlay Microfabrication Process",
+            "Multi-Use Mold Prototyping Service"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "In what year did the MUMPs program start?",
+
+        answers: [
+            "1992",
+            "1959",
+            "2005",
+            "1978"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the main benefit of a multi-user foundry service like MUMPs?",
+
+        answers: [
+            "Economical access to MEMS prototyping without owning a fab",
+            "It eliminates the need for any design rules",
+            "It guarantees a device works without testing",
+            "It replaces the need for photolithography"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What size is a single die location, or tile, a customer purchases on a MUMPs run?",
+
+        answers: [
+            "1 cm × 1 cm",
+            "150 mm × 150 mm",
+            "1 mm × 1 mm",
+            "10 cm × 10 cm"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What must a customer's design follow before it can be submitted to a MUMPs run?",
+
+        answers: [
+            "The foundry's process design rules",
+            "No rules — any layout is accepted",
+            "A rule set chosen by the customer",
+            "Only the customer's own internal standards"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "About how long does a typical MUMPs run take from submission to delivery?",
+
+        answers: [
+            "8 to 12 weeks",
+            "24 hours",
+            "2 to 3 years",
+            "1 to 2 days"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "How many identical chips does a customer typically receive from a MUMPs run?",
+
+        answers: [
+            "15",
+            "1",
+            "1,000",
+            "150"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "In the semiconductor industry, what are the equivalent shared-wafer services called?",
+
+        answers: [
+            "MPC (Multi-Project Chip) and MPW (Multi-Project Wafer)",
+            "CPU and GPU",
+            "RIE and LPCVD",
+            "SOI and CMOS"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 21 — THE MUMPS FAMILY
+======================================== */
+
+const lesson21Questions = [
+
+    {
+        question:
+            "Which MUMPs process is a three-layer polysilicon surface micromachining process?",
+
+        answers: [
+            "PolyMUMPs",
+            "SOIMUMPs",
+            "PiezoMUMPs",
+            "MetalMUMPs"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which MUMPs process is built on a silicon-on-insulator wafer?",
+
+        answers: [
+            "SOIMUMPs",
+            "PolyMUMPs",
+            "MetalMUMPs",
+            "PiezoMUMPs"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which MUMPs process adds a piezoelectric material for sensing and actuation?",
+
+        answers: [
+            "PiezoMUMPs",
+            "PolyMUMPs",
+            "SOIMUMPs",
+            "MetalMUMPs"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which MUMPs process uses an electroplated metal structural layer instead of polysilicon?",
+
+        answers: [
+            "MetalMUMPs",
+            "PolyMUMPs",
+            "SOIMUMPs",
+            "PiezoMUMPs"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "How many mask levels does PolyMUMPs use?",
+
+        answers: [
+            "8",
+            "3",
+            "2",
+            "15"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "How many physical layers does PolyMUMPs build from its mask levels?",
+
+        answers: [
+            "7",
+            "8",
+            "3",
+            "2"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the minimum feature size in PolyMUMPs?",
+
+        answers: [
+            "2 µm",
+            "2 mm",
+            "20 nm",
+            "150 mm"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "How many sacrificial layers does PolyMUMPs use?",
+
+        answers: [
+            "2",
+            "0",
+            "3",
+            "8"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 22 — BUILDING THE BASE
+======================================== */
+
+const lesson22Questions = [
+
+    {
+        question:
+            "What size is the starting PolyMUMPs wafer?",
+
+        answers: [
+            "150 mm",
+            "2 µm",
+            "300 mm",
+            "1 cm"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What type of silicon is the starting PolyMUMPs wafer?",
+
+        answers: [
+            "n-type (100), 1–2 Ohm-cm",
+            "p-type (111), 10–20 Ohm-cm",
+            "Undoped intrinsic silicon",
+            "n-type glass composite"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Why is the wafer surface doped with phosphorous early in the process?",
+
+        answers: [
+            "To reduce charge feed-through to the substrate from electrostatic devices",
+            "To make the wafer transparent",
+            "To increase the wafer's thickness",
+            "To remove the need for a nitride layer"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is deposited to electrically insulate later structures from the substrate?",
+
+        answers: [
+            "A 0.6 µm low-stress silicon nitride layer",
+            "A 2.0 µm metal layer",
+            "A layer of photoresist",
+            "A layer of PSG"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What deposition method is used for the nitride and Poly0 layers?",
+
+        answers: [
+            "LPCVD",
+            "Electrodeposition",
+            "Anodic bonding",
+            "Wet etching"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is Poly0 commonly used for?",
+
+        answers: [
+            "Wiring and stationary electrodes beneath moving structures",
+            "The final reflective mirror surface",
+            "The sacrificial release layer",
+            "Wire bonding pads"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the thickness of the Poly0 layer?",
+
+        answers: [
+            "0.5 µm",
+            "2.0 µm",
+            "0.6 µm",
+            "1.5 µm"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which mask is used to pattern the Poly0 layer?",
+
+        answers: [
+            "The first mask in the PolyMUMPs sequence",
+            "The eighth and final mask",
+            "The DIMPLES mask",
+            "The METAL mask"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 23 — SACRIFICIAL LAYERS & ANCHORS
+======================================== */
+
+const lesson23Questions = [
+
+    {
+        question:
+            "What material forms PolyMUMPs' sacrificial layers?",
+
+        answers: [
+            "PSG (phosphosilicate glass)",
+            "Polysilicon",
+            "Silicon nitride",
+            "Gold"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the thickness of the First Oxide (PSG1) sacrificial layer?",
+
+        answers: [
+            "2.0 µm",
+            "0.5 µm",
+            "0.75 µm",
+            "0.6 µm"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "At what temperature and for how long is PSG1 annealed?",
+
+        answers: [
+            "1050°C for 1 hour, in argon",
+            "Room temperature for 24 hours",
+            "100°C for 10 minutes",
+            "1050°C for 10 minutes, in HF vapor"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the purpose of the DIMPLES mask?",
+
+        answers: [
+            "Etch shallow standoff dimples (~750 nm) so beams don't stick flat against Poly0",
+            "Cut all the way through to the substrate",
+            "Pattern the final metal contacts",
+            "Define the wafer's outer edge"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the purpose of the ANCHOR1 mask?",
+
+        answers: [
+            "Etch holes through PSG1 down to Poly0, later filled by Poly1",
+            "Etch dimples into Poly1",
+            "Pattern the metal lift-off layer",
+            "Dope the substrate with phosphorous"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "When is the First Oxide sacrificial layer finally removed?",
+
+        answers: [
+            "At the very end of the process, during release",
+            "Immediately after it is deposited",
+            "Before Poly0 is deposited",
+            "It is never removed"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What fills the ANCHOR1 holes during the next deposition step?",
+
+        answers: [
+            "Poly1",
+            "Metal",
+            "Poly2",
+            "Photoresist"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Why must dimples be etched into PSG1 before Poly1 is deposited?",
+
+        answers: [
+            "So Poly1 takes on small standoff bumps that help prevent it from sticking flat against Poly0",
+            "So Poly1 can be deposited at a lower temperature",
+            "So the wafer can be diced early",
+            "So the nitride layer can be skipped"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 24 — POLY1 & POLY2: THE STRUCTURAL LAYERS
+======================================== */
+
+const lesson24Questions = [
+
+    {
+        question:
+            "What is the thickness of the Poly1 layer?",
+
+        answers: [
+            "2.0 µm",
+            "0.5 µm",
+            "1.5 µm",
+            "0.75 µm"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What thin layer caps Poly1 during deposition, and what two jobs does it do?",
+
+        answers: [
+            "A 200 nm PSG cap that acts as a hard mask and a dopant source",
+            "A 200 nm metal cap that acts as a mirror",
+            "A photoresist cap that permanently insulates Poly1",
+            "A nitride cap that anchors Poly1 to the substrate"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What does the 1050°C anneal do to the Poly1 layer?",
+
+        answers: [
+            "Dopes it with phosphorous and relieves internal stress",
+            "Melts it into the substrate",
+            "Converts it into silicon nitride",
+            "Removes all dopants from it"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the thickness of the Second Oxide (PSG2) sacrificial layer?",
+
+        answers: [
+            "0.75 µm",
+            "2.0 µm",
+            "0.5 µm",
+            "1.5 µm"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What does the POLY1_POLY2_VIA mask do?",
+
+        answers: [
+            "Etches holes down to Poly1, connecting it mechanically and electrically to Poly2",
+            "Etches through the substrate itself",
+            "Deposits the final metal layer",
+            "Doped the wafer with phosphorous"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "How does the ANCHOR2 mask differ from POLY1_POLY2_VIA?",
+
+        answers: [
+            "It etches through both PSG1 and PSG2 in one step, avoiding misalignment between separate cuts",
+            "It only etches through the nitride layer",
+            "It is used before any polysilicon is deposited",
+            "It removes the Poly0 layer entirely"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the thickness of the Poly2 layer?",
+
+        answers: [
+            "1.5 µm",
+            "2.0 µm",
+            "0.5 µm",
+            "0.6 µm"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Why is a second structural layer (Poly2) useful in addition to Poly1?",
+
+        answers: [
+            "It allows structures that need an independent second moving layer, like a mirror on a hinge",
+            "It replaces the need for any sacrificial layers",
+            "It eliminates the need for anchoring",
+            "It is only used for wafer inspection"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 25 — METAL & RELEASE
+======================================== */
+
+const lesson25Questions = [
+
+    {
+        question:
+            "What is the thickness of the final metal layer in PolyMUMPs?",
+
+        answers: [
+            "0.5 µm",
+            "2.0 µm",
+            "1.5 µm",
+            "0.75 µm"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "How is the metal layer deposited and patterned?",
+
+        answers: [
+            "Using lift-off, with the eighth and final mask",
+            "Using RIE, with the first mask",
+            "By hand polishing",
+            "By anodic bonding"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What does the metal layer provide in a finished PolyMUMPs device?",
+
+        answers: [
+            "Probing pads, wire bonding, electrical routing, and reflective mirror surfaces",
+            "The main sacrificial support structure",
+            "Electrical insulation from the substrate",
+            "The dopant source for Poly2"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What solution releases the sacrificial PSG layers at the end of the process?",
+
+        answers: [
+            "49% hydrofluoric acid (HF)",
+            "Deionized water alone",
+            "Potassium hydroxide (KOH)",
+            "Isopropyl alcohol"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "How long is the chip immersed in the HF release bath?",
+
+        answers: [
+            "1.5–2 minutes at room temperature",
+            "24 hours at 1050°C",
+            "10 minutes at 100°C",
+            "8–12 weeks"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What rinse step follows the HF bath, and why?",
+
+        answers: [
+            "DI water, then alcohol, to reduce stiction",
+            "Only acetone, to dope the wafer",
+            "Only argon gas, to anneal the metal",
+            "A second HF bath, to double-check the release"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the final step of the release process?",
+
+        answers: [
+            "10 minutes in an oven at 100°C",
+            "A second RIE etch",
+            "Re-depositing the sacrificial oxide",
+            "Re-annealing at 1050°C"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "In what state are PolyMUMPs wafers shipped to the customer, before release?",
+
+        answers: [
+            "Diced, sorted, and unreleased",
+            "Fully released and packaged",
+            "As a single uncut wafer",
+            "Submerged in HF"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 26 — BUILD A POLYMUMPS DEVICE
+======================================== */
+
+const lesson26Questions = [
+
+    {
+        question:
+            "What is the very first fabrication step in a PolyMUMPs run?",
+
+        answers: [
+            "Starting with a doped 150 mm n-type silicon wafer",
+            "Depositing the metal layer",
+            "Etching the ANCHOR2 holes",
+            "Immersing the chip in HF"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which layer is deposited immediately after the silicon nitride insulation layer?",
+
+        answers: [
+            "Poly0",
+            "Poly1",
+            "PSG2",
+            "Metal"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which two features must exist in PSG1 before Poly1 is deposited?",
+
+        answers: [
+            "Dimples and ANCHOR1 holes",
+            "The METAL pattern and probing pads",
+            "POLY1_POLY2_VIA and ANCHOR2",
+            "The wafer's dicing lines"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which layer anchors to Poly0 through the ANCHOR1 holes?",
+
+        answers: [
+            "Poly1",
+            "Poly2",
+            "Metal",
+            "Silicon nitride"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which two mask features are patterned into PSG2?",
+
+        answers: [
+            "POLY1_POLY2_VIA and ANCHOR2",
+            "DIMPLES and ANCHOR1",
+            "METAL and POLY0",
+            "Nitride and Poly1"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which layer is deposited immediately after PSG2 is patterned?",
+
+        answers: [
+            "Poly2",
+            "Poly0",
+            "Metal",
+            "Silicon nitride"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the last physical layer added before release?",
+
+        answers: [
+            "Metal",
+            "Poly2",
+            "PSG2",
+            "Silicon nitride"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What removes the sacrificial oxide layers and frees the moving structure?",
+
+        answers: [
+            "The HF release bath",
+            "The 1050°C anneal",
+            "The RIE etch of ANCHOR1",
+            "The LPCVD deposition step"
+        ],
+
+        correct: 0
+    }
+
+];
+
 function loadUnit1StudyModule() {
 
     const completeButton =
@@ -2105,6 +2994,69 @@ if (window.location.pathname.includes("lesson19.html")) {
 
     currentLesson =
         19;
+}
+
+if (window.location.pathname.includes("lesson20.html")) {
+
+    lessonQuestions =
+        lesson20Questions;
+
+    currentLesson =
+        20;
+}
+
+if (window.location.pathname.includes("lesson21.html")) {
+
+    lessonQuestions =
+        lesson21Questions;
+
+    currentLesson =
+        21;
+}
+
+if (window.location.pathname.includes("lesson22.html")) {
+
+    lessonQuestions =
+        lesson22Questions;
+
+    currentLesson =
+        22;
+}
+
+if (window.location.pathname.includes("lesson23.html")) {
+
+    lessonQuestions =
+        lesson23Questions;
+
+    currentLesson =
+        23;
+}
+
+if (window.location.pathname.includes("lesson24.html")) {
+
+    lessonQuestions =
+        lesson24Questions;
+
+    currentLesson =
+        24;
+}
+
+if (window.location.pathname.includes("lesson25.html")) {
+
+    lessonQuestions =
+        lesson25Questions;
+
+    currentLesson =
+        25;
+}
+
+if (window.location.pathname.includes("lesson26.html")) {
+
+    lessonQuestions =
+        lesson26Questions;
+
+    currentLesson =
+        26;
 }
 
 let currentQuestion = 0;
@@ -3750,3 +4702,140 @@ function renderUnit3() {
 }
 
 renderUnit3();
+
+function renderUnit4() {
+
+    const container =
+        document.getElementById("unit4Container");
+
+    if (!container) {
+        return;
+    }
+
+    const unit =
+        courseData.find(function (item) {
+            return item.id === 4;
+        });
+
+    if (!unit) {
+        return;
+    }
+
+    const unitUnlocked =
+        localStorage.getItem("fabPathLesson19Complete") === "true";
+
+    const studyComplete =
+        localStorage.getItem("fabPathUnit4StudyComplete") === "true";
+
+    let html = `
+        <div class="unit-banner">
+            <span>UNIT 4</span>
+            <h2>${unit.title}</h2>
+            <p>${unit.description}</p>
+        </div>
+    `;
+
+    let studyClass = "locked";
+    let studyIcon = "🔒";
+    let studyHref = "#";
+
+    if (studyComplete) {
+        studyClass = "complete";
+        studyIcon = "✓";
+        studyHref = unit.studyModule.href;
+    } else if (unitUnlocked) {
+        studyClass = "available";
+        studyIcon = "📖";
+        studyHref = unit.studyModule.href;
+    }
+
+    html += `
+        <a href="${studyHref}"
+           class="path-node node-left ${studyClass} lesson-link">
+
+            <div class="node-circle">
+                ${studyIcon}
+            </div>
+
+            <div class="node-info">
+                <span>STUDY MODULE</span>
+                <h3>${unit.studyModule.title}</h3>
+                <p>Learn the concepts before beginning Unit 4.</p>
+            </div>
+
+        </a>
+
+        <div class="vertical-path"></div>
+    `;
+
+    unit.lessons.forEach(function (lesson, index) {
+
+        const lessonComplete =
+            localStorage.getItem(
+                `fabPathLesson${lesson.id}Complete`
+            ) === "true";
+
+        let unlocked = false;
+
+        if (index === 0) {
+            unlocked = studyComplete;
+        } else {
+            const previousLesson =
+                unit.lessons[index - 1];
+
+            unlocked =
+                localStorage.getItem(
+                    `fabPathLesson${previousLesson.id}Complete`
+                ) === "true";
+        }
+
+        let statusClass = "locked";
+        let icon = "🔒";
+        let href = "#";
+
+        if (lessonComplete) {
+            statusClass = "complete";
+            icon = "✓";
+            href = `lesson${lesson.id}.html`;
+        } else if (unlocked) {
+            statusClass = "available";
+            icon = lesson.id;
+            href = `lesson${lesson.id}.html`;
+        }
+
+        const positionClass =
+            index % 2 === 0
+                ? "node-right"
+                : "node-left";
+
+        html += `
+            <a href="${href}"
+               class="path-node ${positionClass} ${statusClass} lesson-link"
+               id="lesson${lesson.id}Node">
+
+                <div class="node-circle"
+                     id="lesson${lesson.id}Circle">
+                    ${icon}
+                </div>
+
+                <div class="node-info">
+                    <span>FAB CHALLENGE ${lesson.id}</span>
+                    <h3>${lesson.title}</h3>
+                    <p>${lesson.description}</p>
+                </div>
+
+            </a>
+        `;
+
+        if (index < unit.lessons.length - 1) {
+            html += `
+                <div class="vertical-path"></div>
+            `;
+        }
+
+    });
+
+    container.innerHTML = html;
+}
+
+renderUnit4();

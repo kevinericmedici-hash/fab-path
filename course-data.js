@@ -203,6 +203,78 @@ const courseData = [
             }
 
         ]
+    },
+
+
+    /* =====================================
+       UNIT 4
+    ===================================== */
+
+    {
+        id: 4,
+
+        title: "PolyMUMPs Fabrication",
+
+        description:
+            "Explore a real, commercially available MEMS foundry process — from shared wafers to a released three-layer polysilicon device.",
+
+        studyModule: {
+            title: "PolyMUMPs Fabrication",
+            href: "unit4.html"
+        },
+
+        lessons: [
+
+            {
+                id: 20,
+                title: "Multi-User Foundries",
+                description:
+                    "Learn why shared wafer services like MUMPs exist and how they make MEMS prototyping affordable."
+            },
+
+            {
+                id: 21,
+                title: "The MUMPs Family",
+                description:
+                    "Compare PolyMUMPs, SOIMUMPs, PiezoMUMPs, and MetalMUMPs, and see PolyMUMPs by the numbers."
+            },
+
+            {
+                id: 22,
+                title: "Building the Base",
+                description:
+                    "Follow the starting wafer through doping, nitride isolation, and the Poly0 ground layer."
+            },
+
+            {
+                id: 23,
+                title: "Sacrificial Layers & Anchors",
+                description:
+                    "Learn how PSG sacrificial layers, dimples, and anchor cuts set up moving structures."
+            },
+
+            {
+                id: 24,
+                title: "Poly1 & Poly2: The Structural Layers",
+                description:
+                    "See how the two structural polysilicon layers are deposited, annealed, and patterned."
+            },
+
+            {
+                id: 25,
+                title: "Metal & Release",
+                description:
+                    "Learn how the metal layer is added and how an HF bath releases the finished structure."
+            },
+
+            {
+                id: 26,
+                title: "Build a PolyMUMPs Device",
+                description:
+                    "Trace a complete PolyMUMPs cross-section from substrate to released structure."
+            }
+
+        ]
     }
 
 ];
