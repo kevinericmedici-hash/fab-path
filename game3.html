@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Match the Process | Fab Path</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="learn.html">Learn</a>
+            <a href="games.html" class="active-nav">Games</a>
+            <a href="practice.html">Practice</a>
+            <a href="progress.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <main class="game-page">
+
+        <section class="game-shell">
+
+            <div class="game-top">
+
+                <a href="games.html" class="module-exit">
+                    ← Back to Games
+                </a>
+
+                <div class="module-progress-area">
+
+                    <div class="module-progress-track">
+                        <div
+                            class="module-progress-fill"
+                            id="gameProgressFill"
+                        ></div>
+                    </div>
+
+                    <span id="gameProgressText">
+                        1 / 16
+                    </span>
+
+                </div>
+
+                <span class="game-badge">
+                    UNIT 3 GAME
+                </span>
+
+            </div>
+
+
+            <div class="game-header">
+
+                <p class="eyebrow">
+                    MATCH THE PROCESS
+                </p>
+
+                <h1>
+                    Add, pattern, remove, or modify?
+                </h1>
+
+                <p class="game-lead">
+                    Every fabrication step does one of four things to
+                    the wafer. Study the cross-section, then tap what
+                    it's doing.
+                </p>
+
+            </div>
+
+
+            <div id="gameBoard">
+
+                <div class="equipment-card" id="equipmentCard">
+
+                    <div class="equipment-icon" id="equipmentIcon">
+                    </div>
+
+                    <h2 class="equipment-name" id="equipmentName">
+                        Loading...
+                    </h2>
+
+                    <p class="equipment-desc" id="equipmentDesc">
+                    </p>
+
+                </div>
+
+
+                <div class="category-grid" id="categoryGrid">
+                </div>
+
+
+                <div class="game-feedback" id="gameFeedback">
+                    Tap what this process does to the wafer.
+                </div>
+
+            </div>
+
+
+            <div id="gameComplete" class="game-complete" hidden>
+
+                <p class="eyebrow">
+                    CHALLENGE COMPLETE
+                </p>
+
+                <h2>
+                    🧪 You can read a process flow!
+                </h2>
+
+                <p class="game-complete-xp" id="gameCompleteXP">
+                    +40 XP
+                </p>
+
+                <p class="game-complete-lead" id="gameCompleteStats">
+                    16 for 16 — perfect run.
+                </p>
+
+                <div class="game-recap" id="gameRecap">
+                </div>
+
+                <div class="game-complete-actions">
+
+                    <button
+                        type="button"
+                        class="module-nav-button secondary-button"
+                        id="playAgainButton"
+                    >
+                        Play Again
+                    </button>
+
+                    <a
+                        href="games.html"
+                        class="module-nav-button lesson-link"
+                        id="backToPathButton"
+                    >
+                        Back to Games
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+    <script src="process-art.js"></script>
+    <script src="game3.js"></script>
+
+</body>
+
+</html>
