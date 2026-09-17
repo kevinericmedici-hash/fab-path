@@ -419,6 +419,78 @@ const courseData = [
             }
 
         ]
+    },
+
+
+    /* =====================================
+       UNIT 7
+    ===================================== */
+
+    {
+        id: 7,
+
+        title: "Microfluidics Device Design",
+
+        description:
+            "Learn how MEMS-scale channels and acoustic waves manipulate individual cells, through a real acoustophoresis cell-separation chip.",
+
+        studyModule: {
+            title: "Microfluidics Device Design",
+            href: "unit7.html"
+        },
+
+        lessons: [
+
+            {
+                id: 41,
+                title: "Why Microfluidics?",
+                description:
+                    "See why MEMS-scale devices are a natural fit for interacting with living cells."
+            },
+
+            {
+                id: 42,
+                title: "Sorting Cells with Sound",
+                description:
+                    "Learn how standing acoustic waves separate particles by size inside a microfluidic channel."
+            },
+
+            {
+                id: 43,
+                title: "The Physics of Acoustic Forces",
+                description:
+                    "Study the acoustic and viscous forces that determine where a particle ends up."
+            },
+
+            {
+                id: 44,
+                title: "Designing the IDT & Channel",
+                description:
+                    "Work through the real electrode and microchannel dimensions of a working design."
+            },
+
+            {
+                id: 45,
+                title: "Simulating Before Fabricating",
+                description:
+                    "See how a finite-element simulation verifies a device's behavior before it's built."
+            },
+
+            {
+                id: 46,
+                title: "Building the Chip",
+                description:
+                    "Learn how metal lift-off patterns electrodes onto a piezoelectric substrate."
+            },
+
+            {
+                id: 47,
+                title: "Build an Acoustophoresis Chip",
+                description:
+                    "Bring design, simulation, and fabrication together into one complete device."
+            }
+
+        ]
     }
 
 ];

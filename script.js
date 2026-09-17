@@ -4578,6 +4578,895 @@ const lesson40Questions = [
 
 ];
 
+/* ========================================
+   FAB CHALLENGE 41 — WHY MICROFLUIDICS?
+======================================== */
+
+const lesson41Questions = [
+
+    {
+        question:
+            "Why are MEMS-scale devices a natural fit for interacting with biological cells?",
+
+        answers: [
+            "They are on the same size scale as cells",
+            "They are much larger than cells and easier to see",
+            "They only work with non-living materials",
+            "They require no electrical power to operate"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "About how large are red blood cells, white blood cells, and platelets?",
+
+        answers: [
+            "6 to 8 µm in diameter",
+            "6 to 8 mm in diameter",
+            "6 to 8 nm in diameter",
+            "6 to 8 cm in diameter"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What size range do neuron cells typically fall into?",
+
+        answers: [
+            "4 µm to 100 µm",
+            "4 mm to 100 mm",
+            "4 nm to 100 nm",
+            "4 cm to 100 cm"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is one key benefit of using MEMS-scale devices to interface with living cells?",
+
+        answers: [
+            "It minimizes damage to the cells",
+            "It destroys the cells for easier disposal",
+            "It makes the cells grow larger",
+            "It eliminates the need for any fluid at all"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What does a \"lung-on-a-chip\" device aim to do?",
+
+        answers: [
+            "Mimic organ and tissue functionality at a small scale",
+            "Replace the need for any biological studies",
+            "Convert light into digital signals",
+            "Measure acceleration of a moving vehicle"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which electrokinetic method uses acoustic waves to manipulate bio-particles?",
+
+        answers: [
+            "Acoustophoresis",
+            "Electroosmosis",
+            "Capillary action",
+            "Electromagnetics"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Besides silicon, what other materials have been used as substrates for BioMEMS/biochips?",
+
+        answers: [
+            "Plastics, glass, and carbon",
+            "Only wood and paper",
+            "Only pure gold",
+            "Only rubber"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which of these is an electrokinetic force used by BioMEMS to manipulate bio-particles?",
+
+        answers: [
+            "Dielectrophoresis",
+            "Gravitational lensing",
+            "Nuclear fission",
+            "Radioactive decay"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 42 — SORTING CELLS WITH SOUND
+======================================== */
+
+const lesson42Questions = [
+
+    {
+        question:
+            "What piezoelectric material commonly drives the acoustic waves in an acoustophoresis device?",
+
+        answers: [
+            "Lithium niobate",
+            "Pure aluminum",
+            "Rubber",
+            "Glass fiber"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What does SAW stand for?",
+
+        answers: [
+            "Surface Acoustic Wave",
+            "Silicon Anchor Weld",
+            "Static Air Wafer",
+            "Sequential Analog Waveform"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is formed when two surface acoustic waves travel toward each other and combine?",
+
+        answers: [
+            "A Standing Surface Acoustic Wave (SSAW)",
+            "A permanent electrical short circuit",
+            "A single traveling light wave",
+            "A magnetic field"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Where is the SSAW positioned in an acoustophoresis device?",
+
+        answers: [
+            "Between the channels of the microfluidic device",
+            "Outside the chip entirely",
+            "Inside the power supply",
+            "Above the display screen"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What happens to larger particles in the standing wave field?",
+
+        answers: [
+            "They are funneled into the center, at the pressure node",
+            "They are destroyed immediately",
+            "They float out of the channel entirely",
+            "They stick permanently to the substrate"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What happens to smaller particles in the standing wave field?",
+
+        answers: [
+            "They remain on the outside of the channel, near the antinodes",
+            "They are funneled into the exact center",
+            "They are electrically charged",
+            "They disappear from the channel"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What generates the surface acoustic waves on the piezoelectric substrate?",
+
+        answers: [
+            "An interdigitated transducer (IDT)",
+            "A rotating motor",
+            "A laser beam",
+            "A chemical reaction"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What material is the microfluidic channel typically made from in this design?",
+
+        answers: [
+            "PDMS (a polymer)",
+            "Solid steel",
+            "Pure diamond",
+            "Liquid mercury"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 43 — THE PHYSICS OF ACOUSTIC FORCES
+======================================== */
+
+const lesson43Questions = [
+
+    {
+        question:
+            "What determines the resonant frequency of the surface acoustic wave?",
+
+        answers: [
+            "The Rayleigh wave velocity divided by the IDT wavelength",
+            "The color of the substrate",
+            "The number of cells in the channel",
+            "The ambient room temperature only"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "About what is the Rayleigh wave velocity used for the lithium niobate substrate in this design?",
+
+        answers: [
+            "About 3980 m/s",
+            "About 3.98 m/s",
+            "About 3,980,000 m/s",
+            "About 39.8 m/s"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What does the acoustic contrast factor determine?",
+
+        answers: [
+            "The direction particles migrate — toward nodes or antinodes",
+            "The exact color of the acoustic wave",
+            "The total voltage supplied to the chip",
+            "The number of inlets on the device"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "When the acoustic contrast factor is positive, which direction does the force on a particle point?",
+
+        answers: [
+            "From the antinodes toward the pressure nodes",
+            "From the pressure nodes toward the antinodes",
+            "Directly upward, out of the channel",
+            "There is no force when the factor is positive"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What force opposes and balances the acoustic force acting on a particle in the fluid?",
+
+        answers: [
+            "Viscous force",
+            "Gravitational force only",
+            "Magnetic force",
+            "Nuclear force"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which three properties determine the viscous drag force on a particle?",
+
+        answers: [
+            "The particle's radius, its velocity, and the fluid's viscosity",
+            "The particle's color, weight, and temperature",
+            "The chip's supply voltage, size, and cost",
+            "The number of electrodes and their material only"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What sets the \"period\" — the spacing and width — of the IDT's electrode fingers?",
+
+        answers: [
+            "A quarter of the acoustic wavelength",
+            "The full acoustic wavelength times ten",
+            "The size of the largest cell being sorted",
+            "The thickness of the PDMS channel"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Roughly what is the smallest practical IDT wavelength, due to manufacturing limits?",
+
+        answers: [
+            "About 240 µm",
+            "About 2.4 mm",
+            "About 24 nm",
+            "About 2.4 m"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 44 — DESIGNING THE IDT & CHANNEL
+======================================== */
+
+const lesson44Questions = [
+
+    {
+        question:
+            "About how long and wide is each IDT transducer in this design?",
+
+        answers: [
+            "3 cm long, 1 cm wide",
+            "3 mm long, 1 mm wide",
+            "30 cm long, 10 cm wide",
+            "3 m long, 1 m wide"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the finger length used in the IDT design?",
+
+        answers: [
+            "25 mm",
+            "2.5 mm",
+            "250 mm",
+            "25 µm"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the aperture, or finger overlap, in the IDT design?",
+
+        answers: [
+            "20 mm",
+            "2 mm",
+            "200 mm",
+            "20 µm"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What are the electrode width and spacing in the IDT design?",
+
+        answers: [
+            "40 µm width, 80 µm spacing",
+            "4 mm width, 8 mm spacing",
+            "400 nm width, 800 nm spacing",
+            "40 mm width, 80 mm spacing"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "How many total fingers make up the IDT design, and how are they grouped?",
+
+        answers: [
+            "168 fingers, in 42 groups of 4",
+            "4 fingers total, in 1 group",
+            "1,680 fingers, in 4 groups of 420",
+            "42 fingers, in 168 groups"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "How many opposing IDT sets does this design use?",
+
+        answers: [
+            "Two",
+            "One",
+            "Eight",
+            "Forty-two"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "How many inlets does the microfluidic channel design use, and what is their diameter?",
+
+        answers: [
+            "3 inlets, 40 µm in diameter",
+            "1 inlet, 400 µm in diameter",
+            "10 inlets, 4 µm in diameter",
+            "3 inlets, 4 mm in diameter"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What layout property does the design deliberately keep symmetric?",
+
+        answers: [
+            "The microchannel and the SSAW device, mirrored about a centerline",
+            "The color of the substrate on each half of the chip",
+            "The supply voltage on each electrode randomly",
+            "Nothing in the layout is kept symmetric"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 45 — SIMULATING BEFORE FABRICATING
+======================================== */
+
+const lesson45Questions = [
+
+    {
+        question:
+            "What two physics domains are combined in this device's finite-element simulation?",
+
+        answers: [
+            "Solid mechanics and electrostatics",
+            "Thermodynamics and optics",
+            "Fluid dynamics and magnetism only",
+            "Chemistry and acoustics only"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What crystal cut of lithium niobate is used as the piezoelectric substrate?",
+
+        answers: [
+            "128° Y-cut, X-propagating",
+            "A random, uncontrolled cut",
+            "45° Z-cut, Y-propagating",
+            "0° X-cut, Z-propagating"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What size wafer is used to fabricate the device?",
+
+        answers: [
+            "A 4-inch lithium niobate wafer",
+            "A 50-inch silicon wafer",
+            "A 1-inch glass wafer",
+            "A 12-inch steel wafer"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What thickness are the gold electrodes modeled at in the simulation?",
+
+        answers: [
+            "250 nm",
+            "250 µm",
+            "25 mm",
+            "2.5 cm"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What voltage is applied to the drive electrode in the simulation's boundary conditions?",
+
+        answers: [
+            "+10 V",
+            "+10,000 V",
+            "+0.001 V",
+            "0 V"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What modal frequency did the simulation find for this device?",
+
+        answers: [
+            "16.473 MHz",
+            "16.473 Hz",
+            "16.473 GHz",
+            "1.6473 kHz"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What voltage peak did the electrostatics simulation results show?",
+
+        answers: [
+            "5 V",
+            "500 V",
+            "0.5 mV",
+            "50 kV"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What does the displacement field in the simulation results represent?",
+
+        answers: [
+            "The propagation of the acoustic wave",
+            "The chip's total electrical resistance",
+            "The number of cells in the channel",
+            "The temperature distribution across the chip"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 46 — BUILDING THE CHIP
+======================================== */
+
+const lesson46Questions = [
+
+    {
+        question:
+            "What fabrication technique is used to pattern the IDT electrodes onto the substrate?",
+
+        answers: [
+            "Metal lift-off",
+            "3D printing",
+            "Hand engraving",
+            "Injection molding"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What photoresist protocol and mask type are used in the photolithography step?",
+
+        answers: [
+            "Standard Futurrex photoresist protocol with a light-field mask",
+            "No photoresist is used at all",
+            "A photoresist made entirely of metal",
+            "A dark-field mask with no photoresist"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What two metals are deposited to form the IDT electrodes?",
+
+        answers: [
+            "Chromium and gold (Cr/Au)",
+            "Iron and lead",
+            "Copper and tin",
+            "Silver and zinc"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What happens during the \"lift-off\" step of fabrication?",
+
+        answers: [
+            "The photoresist, along with excess metal on top of it, is removed, leaving the patterned electrodes",
+            "The entire substrate is physically lifted off the wafer",
+            "New photoresist is added on top of the existing metal",
+            "The chip is heated until it melts"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What substrate material is patterned in this fabrication process?",
+
+        answers: [
+            "Lithium niobate",
+            "Pure copper",
+            "Plain glass",
+            "Cardboard"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "After the IDT/SSAW device is fabricated, what is bonded onto it to complete the chip?",
+
+        answers: [
+            "The microfluidic PDMS device",
+            "A second lithium niobate wafer",
+            "A battery pack",
+            "A speaker"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What does the final assembled chip combine?",
+
+        answers: [
+            "A piezoelectric SSAW-generating substrate and a microfluidic PDMS channel",
+            "Two identical PDMS channels stacked together",
+            "A battery and a display screen",
+            "A camera lens and a microphone"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the correct order of the fabrication sequence for the IDT device?",
+
+        answers: [
+            "Photolithography, then metal deposition, then lift-off",
+            "Lift-off, then metal deposition, then photolithography",
+            "Metal deposition, then lift-off, then photolithography",
+            "All three steps happen simultaneously"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 47 — BUILD AN ACOUSTOPHORESIS CHIP
+======================================== */
+
+const lesson47Questions = [
+
+    {
+        question:
+            "What is the overall design sequence for building an acoustophoresis cell-separation chip?",
+
+        answers: [
+            "Design by rule, then design by analysis, then fabrication, then bonding, then testing",
+            "Fabrication first, then design afterward",
+            "Testing first, then design, then fabrication",
+            "There is no meaningful sequence to follow"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What two tests does the finished device undergo?",
+
+        answers: [
+            "Particle focusing and particle separation",
+            "Sound volume and light brightness",
+            "Battery life and charging speed",
+            "Screen resolution and refresh rate"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the underlying reason larger and smaller particles end up in different locations within the channel?",
+
+        answers: [
+            "They experience different acoustic forces relative to viscous drag, based on their size",
+            "Larger particles are magnetically attracted to the walls",
+            "Smaller particles evaporate during testing",
+            "The channel randomly assigns particle positions"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which two chip components must be fabricated separately before being joined?",
+
+        answers: [
+            "The piezoelectric SSAW/IDT substrate and the PDMS microfluidic channel",
+            "Two identical copies of the same electrode pattern",
+            "A battery and a power switch",
+            "A lens and a mirror"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What real-world problem can an acoustophoresis chip like this help solve?",
+
+        answers: [
+            "Separating or isolating cells by size, such as from a blood sample",
+            "Increasing the speed of a car engine",
+            "Projecting a high-resolution image",
+            "Storing digital data on a hard drive"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the benefit of simulating the SAW device (design by analysis) before fabricating it?",
+
+        answers: [
+            "It lets you verify the frequency and displacement behavior before committing to fabrication",
+            "It eliminates the need for any fabrication at all",
+            "It guarantees the chip will never fail once built",
+            "It replaces the need for any design rules"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which physical quantity most directly sets the device's operating frequency?",
+
+        answers: [
+            "The IDT wavelength",
+            "The color of the PDMS channel",
+            "The number of blood cells in the sample",
+            "The thickness of the packaging"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What core principle links every step of this device, from IDT design to final testing?",
+
+        answers: [
+            "Precisely controlling an acoustic standing wave to apply size-dependent forces on particles",
+            "Minimizing the total cost of the chip at any expense",
+            "Maximizing the number of inlets regardless of function",
+            "Avoiding the use of any piezoelectric material"
+        ],
+
+        correct: 0
+    }
+
+];
+
 function loadUnit1StudyModule() {
 
     const completeButton =
@@ -4961,6 +5850,69 @@ if (window.location.pathname.includes("lesson40.html")) {
 
     currentLesson =
         40;
+}
+
+if (window.location.pathname.includes("lesson41.html")) {
+
+    lessonQuestions =
+        lesson41Questions;
+
+    currentLesson =
+        41;
+}
+
+if (window.location.pathname.includes("lesson42.html")) {
+
+    lessonQuestions =
+        lesson42Questions;
+
+    currentLesson =
+        42;
+}
+
+if (window.location.pathname.includes("lesson43.html")) {
+
+    lessonQuestions =
+        lesson43Questions;
+
+    currentLesson =
+        43;
+}
+
+if (window.location.pathname.includes("lesson44.html")) {
+
+    lessonQuestions =
+        lesson44Questions;
+
+    currentLesson =
+        44;
+}
+
+if (window.location.pathname.includes("lesson45.html")) {
+
+    lessonQuestions =
+        lesson45Questions;
+
+    currentLesson =
+        45;
+}
+
+if (window.location.pathname.includes("lesson46.html")) {
+
+    lessonQuestions =
+        lesson46Questions;
+
+    currentLesson =
+        46;
+}
+
+if (window.location.pathname.includes("lesson47.html")) {
+
+    lessonQuestions =
+        lesson47Questions;
+
+    currentLesson =
+        47;
 }
 
 let currentQuestion = 0;
@@ -6980,3 +7932,140 @@ function renderUnit6() {
 }
 
 renderUnit6();
+
+function renderUnit7() {
+
+    const container =
+        document.getElementById("unit7Container");
+
+    if (!container) {
+        return;
+    }
+
+    const unit =
+        courseData.find(function (item) {
+            return item.id === 7;
+        });
+
+    if (!unit) {
+        return;
+    }
+
+    const unitUnlocked =
+        localStorage.getItem("fabPathLesson40Complete") === "true";
+
+    const studyComplete =
+        localStorage.getItem("fabPathUnit7StudyComplete") === "true";
+
+    let html = `
+        <div class="unit-banner">
+            <span>UNIT 7</span>
+            <h2>${unit.title}</h2>
+            <p>${unit.description}</p>
+        </div>
+    `;
+
+    let studyClass = "locked";
+    let studyIcon = "🔒";
+    let studyHref = "#";
+
+    if (studyComplete) {
+        studyClass = "complete";
+        studyIcon = "✓";
+        studyHref = unit.studyModule.href;
+    } else if (unitUnlocked) {
+        studyClass = "available";
+        studyIcon = "📖";
+        studyHref = unit.studyModule.href;
+    }
+
+    html += `
+        <a href="${studyHref}"
+           class="path-node node-left ${studyClass} lesson-link">
+
+            <div class="node-circle">
+                ${studyIcon}
+            </div>
+
+            <div class="node-info">
+                <span>STUDY MODULE</span>
+                <h3>${unit.studyModule.title}</h3>
+                <p>Learn the concepts before beginning Unit 7.</p>
+            </div>
+
+        </a>
+
+        <div class="vertical-path"></div>
+    `;
+
+    unit.lessons.forEach(function (lesson, index) {
+
+        const lessonComplete =
+            localStorage.getItem(
+                `fabPathLesson${lesson.id}Complete`
+            ) === "true";
+
+        let unlocked = false;
+
+        if (index === 0) {
+            unlocked = studyComplete;
+        } else {
+            const previousLesson =
+                unit.lessons[index - 1];
+
+            unlocked =
+                localStorage.getItem(
+                    `fabPathLesson${previousLesson.id}Complete`
+                ) === "true";
+        }
+
+        let statusClass = "locked";
+        let icon = "🔒";
+        let href = "#";
+
+        if (lessonComplete) {
+            statusClass = "complete";
+            icon = "✓";
+            href = `lesson${lesson.id}.html`;
+        } else if (unlocked) {
+            statusClass = "available";
+            icon = lesson.id;
+            href = `lesson${lesson.id}.html`;
+        }
+
+        const positionClass =
+            index % 2 === 0
+                ? "node-right"
+                : "node-left";
+
+        html += `
+            <a href="${href}"
+               class="path-node ${positionClass} ${statusClass} lesson-link"
+               id="lesson${lesson.id}Node">
+
+                <div class="node-circle"
+                     id="lesson${lesson.id}Circle">
+                    ${icon}
+                </div>
+
+                <div class="node-info">
+                    <span>FAB CHALLENGE ${lesson.id}</span>
+                    <h3>${lesson.title}</h3>
+                    <p>${lesson.description}</p>
+                </div>
+
+            </a>
+        `;
+
+        if (index < unit.lessons.length - 1) {
+            html += `
+                <div class="vertical-path"></div>
+            `;
+        }
+
+    });
+
+    container.innerHTML = html;
+}
+
+renderUnit7();
