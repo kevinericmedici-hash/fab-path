@@ -41,112 +41,112 @@ const equipmentCategories = [
 const equipmentDeck = [
 
     {
-        icon: "🥼",
+        icon: equipmentArt.bunnySuit,
         name: "Bunny Suit",
         category: "gowning",
         desc: "A full-body coverall worn over street clothes to trap skin flakes and fabric fibers before they can reach the wafer."
     },
 
     {
-        icon: "🧤",
+        icon: equipmentArt.gloves,
         name: "Cleanroom Gloves",
         category: "gowning",
         desc: "Nitrile gloves that keep skin oils, salts, and fingerprints off wafer surfaces during handling."
     },
 
     {
-        icon: "🧢",
+        icon: equipmentArt.hoodBooties,
         name: "Hood & Booties",
         category: "gowning",
         desc: "Cover hair and shoes — two of the biggest particle sources a person carries into a cleanroom."
     },
 
     {
-        icon: "🌬️",
+        icon: equipmentArt.hepaFilter,
         name: "HEPA / ULPA Filter",
         category: "airflow",
         desc: "Traps sub-micron airborne particles, filtering the air before it ever enters the cleanroom."
     },
 
     {
-        icon: "💨",
+        icon: equipmentArt.laminarHood,
         name: "Laminar Flow Hood",
         category: "airflow",
         desc: "Pushes a steady, one-directional curtain of filtered air across a workbench to keep particles away from exposed wafers."
     },
 
     {
-        icon: "🚿",
+        icon: equipmentArt.airShower,
         name: "Air Shower",
         category: "airflow",
         desc: "Blasts jets of filtered air over a gowned worker right before cleanroom entry, knocking loose particles off the suit."
     },
 
     {
-        icon: "🌀",
+        icon: equipmentArt.spinCoater,
         name: "Spin Coater",
         category: "process",
         desc: "Spins a wafer at high speed to spread liquid photoresist into a thin, uniform film."
     },
 
     {
-        icon: "🎯",
+        icon: equipmentArt.maskAligner,
         name: "Mask Aligner",
         category: "process",
         desc: "Precisely lines up a photomask over the wafer, then exposes the photoresist to UV light through it."
     },
 
     {
-        icon: "🧫",
+        icon: equipmentArt.wetBench,
         name: "Wet Bench",
         category: "process",
         desc: "A ventilated station with chemical baths used for wet etching and wafer cleaning."
     },
 
     {
-        icon: "⚡",
+        icon: equipmentArt.plasmaEtcher,
         name: "Plasma (RIE) Etcher",
         category: "process",
         desc: "Uses reactive plasma gas inside a vacuum chamber to etch patterns into a wafer without any liquid chemicals."
     },
 
     {
-        icon: "🔥",
+        icon: equipmentArt.lpcvdFurnace,
         name: "LPCVD Furnace",
         category: "process",
         desc: "Heats wafers inside a low-pressure tube to deposit thin films like polysilicon or silicon nitride."
     },
 
     {
-        icon: "🔬",
+        icon: equipmentArt.opticalMicroscope,
         name: "Optical Microscope",
         category: "inspection",
         desc: "The everyday tool for spotting visible defects, particles, and pattern misalignment."
     },
 
     {
-        icon: "🖥️",
+        icon: equipmentArt.sem,
         name: "SEM",
         category: "inspection",
         desc: "Uses a focused electron beam instead of light, resolving features far smaller than an optical microscope ever could."
     },
 
     {
-        icon: "📏",
+        icon: equipmentArt.profilometer,
         name: "Profilometer",
         category: "inspection",
         desc: "Drags a fine stylus across the wafer surface to measure step height and film thickness."
     },
 
     {
-        icon: "🌫️",
+        icon: equipmentArt.fumeHood,
         name: "Fume Hood",
         category: "safety",
         desc: "A ventilated enclosure that pulls hazardous chemical vapors away from the operator's face."
     },
 
     {
-        icon: "🚰",
+        icon: equipmentArt.eyewash,
         name: "Eyewash Station",
         category: "safety",
         desc: "An emergency station for immediately rinsing chemicals out of the eyes."
@@ -230,7 +230,7 @@ function renderCard() {
         return;
     }
 
-    document.getElementById("equipmentIcon").textContent =
+    document.getElementById("equipmentIcon").innerHTML =
         item.icon;
 
     document.getElementById("equipmentName").textContent =

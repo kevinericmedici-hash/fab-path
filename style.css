@@ -1825,6 +1825,17 @@ nav a:hover {
 
 .game-recap-emoji {
     font-size: 1.4rem;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-recap-emoji svg {
+    width: 34px;
+    height: 34px;
 }
 
 .game-recap-label {
@@ -1865,8 +1876,16 @@ nav a:hover {
 }
 
 .equipment-icon {
-    font-size: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     margin-bottom: 16px;
+}
+
+.equipment-icon svg {
+    width: 130px;
+    height: 130px;
 }
 
 .equipment-name {
