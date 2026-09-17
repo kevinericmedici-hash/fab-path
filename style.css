@@ -1844,6 +1844,124 @@ nav a:hover {
     gap: 16px;
 }
 
+.equipment-card {
+    text-align: center;
+
+    padding: 40px 30px;
+
+    border: 1px solid var(--border);
+    border-radius: 22px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(84, 224, 199, 0.1),
+            transparent 65%
+        );
+
+    margin-bottom: 25px;
+
+    animation: slotPop 0.3s ease;
+}
+
+.equipment-icon {
+    font-size: 4rem;
+    margin-bottom: 16px;
+}
+
+.equipment-name {
+    font-size: 1.7rem;
+    margin-bottom: 12px;
+}
+
+.equipment-desc {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.6;
+
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 14px;
+
+    margin-bottom: 25px;
+}
+
+.category-button {
+    min-height: 90px;
+
+    padding: 16px;
+
+    border-radius: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.09);
+
+    background: var(--panel-light);
+    color: var(--text);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.category-button:hover {
+    transform: translateY(-2px);
+    border-color: rgba(84, 224, 199, 0.4);
+}
+
+.category-button-icon {
+    font-size: 1.6rem;
+}
+
+.category-button.correct {
+    border-color: var(--accent);
+    background: rgba(84, 224, 199, 0.16);
+}
+
+.category-button.wrong {
+    border-color: #ff6978;
+    background: rgba(255, 105, 120, 0.12);
+
+    animation: tileShake 0.4s ease;
+}
+
+.category-button.disabled {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.recap-category-group {
+    margin-bottom: 6px;
+}
+
+.recap-category-title {
+    color: var(--accent);
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+
+    margin: 18px 0 10px;
+}
+
+.recap-category-group:first-child .recap-category-title {
+    margin-top: 0;
+}
+
 @media (max-width: 700px) {
 
     .game-shell {
@@ -1856,6 +1974,15 @@ nav a:hover {
 
     .tile-grid {
         grid-template-columns: 1fr;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .game-top {
+        flex-wrap: wrap;
+        gap: 14px;
     }
 
     .game-complete-actions {
