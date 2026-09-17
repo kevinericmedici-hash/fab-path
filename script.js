@@ -7828,62 +7828,6 @@ function loadLearnPageProgress() {
 
 
     /* =====================================
-       UNIT 1 GAME — THE SCALE LADDER
-    ===================================== */
-
-    const unit1GameNode =
-        document.getElementById(
-            "unit1GameNode"
-        );
-
-    const unit1GameCircle =
-        document.getElementById(
-            "unit1GameCircle"
-        );
-
-    const unit1GamePlayed =
-        localStorage.getItem(
-            "fabPathGame1Complete"
-        ) === "true";
-
-    if (unit1GameNode && unit1GameCircle) {
-
-        if (unit1GamePlayed) {
-
-            unit1GameNode.classList.remove(
-                "locked"
-            );
-
-            unit1GameNode.classList.add(
-                "complete"
-            );
-
-            unit1GameNode.href =
-                "game1.html";
-
-            unit1GameCircle.textContent =
-                "✓";
-
-        } else if (lessonComplete(4)) {
-
-            unit1GameNode.classList.remove(
-                "locked"
-            );
-
-            unit1GameNode.classList.add(
-                "available"
-            );
-
-            unit1GameNode.href =
-                "game1.html";
-
-            unit1GameCircle.textContent =
-                "🎮";
-        }
-    }
-
-
-    /* =====================================
        UNIT 2 STUDY MODULE
     ===================================== */
 
@@ -9214,3 +9158,51 @@ function renderUnit8() {
 }
 
 renderUnit8();
+
+/* ========================================
+   GAMES HUB PAGE
+======================================== */
+
+function loadGamesPage() {
+
+    const game1Card =
+        document.getElementById("game1Card");
+
+    if (!game1Card) {
+        return;
+    }
+
+    const game1Badge =
+        document.getElementById("game1Badge");
+
+    const game1CTA =
+        document.getElementById("game1CTA");
+
+    const lesson4Complete =
+        localStorage.getItem(
+            "fabPathLesson4Complete"
+        ) === "true";
+
+    if (lesson4Complete) {
+
+        game1Card.classList.remove("locked");
+        game1Card.classList.add("playable");
+
+        game1Card.href =
+            "game1.html";
+
+        if (game1Badge) {
+
+            game1Badge.textContent =
+                "PLAY";
+        }
+
+        if (game1CTA) {
+
+            game1CTA.textContent =
+                "Play now →";
+        }
+    }
+}
+
+loadGamesPage();
