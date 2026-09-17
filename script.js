@@ -3689,6 +3689,895 @@ const lesson33Questions = [
 
 ];
 
+/* ========================================
+   FAB CHALLENGE 34 — WHY MEMS FOR OPTICS?
+======================================== */
+
+const lesson34Questions = [
+
+    {
+        question:
+            "Why is MEMS technology well-suited for optical applications?",
+
+        answers: [
+            "The wavelength of light is on the same order of magnitude as MEMS device dimensions",
+            "Light cannot interact with anything smaller than a millimeter",
+            "MEMS devices are too large to interact with light at all",
+            "Optics requires no moving parts of any kind"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which properties make MEMS switches attractive for routing optical signals?",
+
+        answers: [
+            "Low optical insertion loss and low crosstalk",
+            "High weight and high power consumption",
+            "Very large physical size",
+            "A requirement for liquid cooling"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "How many micromirrors can a high-resolution DMD chip contain, demonstrating how well MEMS scales?",
+
+        answers: [
+            "Over 1 million",
+            "About 10",
+            "About 1,000",
+            "Exactly 2"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Why are MEMS devices considered ideal for optical switching?",
+
+        answers: [
+            "A small mechanical displacement can produce a large optical effect",
+            "They require no electrical power whatsoever",
+            "They can only switch light off, never on",
+            "They must be replaced after every use"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Optical MEMS technology has evolved over roughly four decades, from early projection displays to which modern application?",
+
+        answers: [
+            "LiDAR scanning",
+            "Vinyl record players",
+            "Mechanical typewriters",
+            "Analog television"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which optical MEMS application area includes scanners and projection displays?",
+
+        answers: [
+            "Light control",
+            "Sensing",
+            "Fabrication",
+            "None of these"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which optical MEMS application area includes fiber-optic sensors and confocal microscopes?",
+
+        answers: [
+            "Sensing",
+            "Light control",
+            "Fabrication",
+            "None of these"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which optical MEMS application area includes Fabry-Perot mirrors and micro-lenses?",
+
+        answers: [
+            "Fabrication",
+            "Sensing",
+            "Light control",
+            "None of these"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 35 — THREE WAYS TO BUILD A MEMS DISPLAY
+======================================== */
+
+const lesson35Questions = [
+
+    {
+        question:
+            "What are the three basic approaches to MEMS-based projection displays?",
+
+        answers: [
+            "Reflective, diffractive, and interferometric modulation",
+            "Electrical, magnetic, and thermal",
+            "Analog, digital, and hybrid",
+            "Wired, wireless, and optical-fiber"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which display technology uses the reflective approach?",
+
+        answers: [
+            "TI's Digital Micromirror Device (DMD)",
+            "Qualcomm's mirasol display",
+            "The Grating Light Valve",
+            "LCD panels"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which display technology uses the diffractive approach?",
+
+        answers: [
+            "The Grating Light Valve (GLV)",
+            "TI's DMD",
+            "Qualcomm's mirasol display",
+            "OLED panels"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which company developed the interferometric modulation display technology known as mirasol?",
+
+        answers: [
+            "Qualcomm",
+            "Texas Instruments",
+            "Fujitsu",
+            "Intel"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What ownership changes did the Grating Light Valve technology go through?",
+
+        answers: [
+            "Bought by Cypress Semiconductor in 2000, then Dainippon in 2008, then eventually Sony",
+            "It was never sold or transferred to another company",
+            "It was immediately discontinued after invention",
+            "It was purchased by Apple in the 1990s"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "In a reflective display, what determines whether light reaches the viewer?",
+
+        answers: [
+            "The physical tilt position of a micromirror",
+            "The color of the incoming light only",
+            "The temperature of the chip",
+            "The thickness of the glass substrate"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "In a diffractive display, what optical property does the effect strongly depend on?",
+
+        answers: [
+            "Wavelength",
+            "Polarization only",
+            "Sound frequency",
+            "Air pressure"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which of the three display approaches works by forming an optically resonant cavity?",
+
+        answers: [
+            "Interferometric modulation (mirasol)",
+            "Reflective (DMD)",
+            "Diffractive (GLV)",
+            "None of them use a resonant cavity"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 36 — INSIDE TI'S DMD
+======================================== */
+
+const lesson36Questions = [
+
+    {
+        question:
+            "Roughly how many mirrors can a high-resolution DMD chip contain?",
+
+        answers: [
+            "Over 1 million",
+            "About 100",
+            "Exactly 1",
+            "About 4"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What does the DMD chip sit on, and what does that component do?",
+
+        answers: [
+            "A circuit board that converts incoming image data into digital signals",
+            "A magnet that levitates the chip",
+            "A speaker that produces sound",
+            "A battery that charges the mirrors permanently"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What determines whether incident light is reflected toward the image or deflected away in a DMD?",
+
+        answers: [
+            "Which of the two positions the micromirror is tilted to",
+            "The color of the mirror's coating",
+            "The ambient room temperature",
+            "The speed of the projector's fan"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What are two advantages of DMD-based projection?",
+
+        answers: [
+            "High brightness and contrast, with compact size, low weight, and low power",
+            "Extremely high cost and large physical size",
+            "Requires no electrical power at all",
+            "Cannot produce color images"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "About how many pixels does DLP 1080p technology deliver?",
+
+        answers: [
+            "More than 2 million, for 1920 × 1080 resolution",
+            "About 100",
+            "Exactly 1,080",
+            "About 50,000"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What shape is the mirror support structure in a typical DMD pixel?",
+
+        answers: [
+            "H-shaped",
+            "Perfectly circular",
+            "Triangular",
+            "Star-shaped"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What suspends the mirror support above the substrate in a DMD pixel?",
+
+        answers: [
+            "A thin torsional spring",
+            "A permanent magnet",
+            "A column of compressed air",
+            "A drop of liquid adhesive"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the purpose of the central post beneath the mirror?",
+
+        answers: [
+            "It elevates the mirror above the plane of the support structure",
+            "It permanently glues the mirror in place",
+            "It conducts heat away from the chip",
+            "It blocks light from reaching the mirror"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 37 — DMD BY THE NUMBERS
+======================================== */
+
+const lesson37Questions = [
+
+    {
+        question:
+            "About how many moving parts does a TI DMD chip contain?",
+
+        answers: [
+            "0.5 to 1.2 million",
+            "About 10",
+            "Exactly 1",
+            "About 4"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What kind of mechanical motion do DMD mirrors make?",
+
+        answers: [
+            "Discrete contacts, or \"landings\"",
+            "Continuous smooth rotation with no stopping points",
+            "Linear sliding motion only",
+            "No motion — they are fixed in place"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the lifetime requirement for a single DMD moving part?",
+
+        answers: [
+            "450 billion contacts",
+            "About 100 contacts",
+            "Exactly 1 contact",
+            "450 contacts"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What limits the DMD's address voltage?",
+
+        answers: [
+            "5-volt CMOS technology",
+            "A 500-volt power supply",
+            "There is no voltage limit at all",
+            "A single AA battery"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What material are the DMD's mechanical elements made from?",
+
+        answers: [
+            "Aluminum",
+            "Pure gold",
+            "Glass",
+            "Rubber"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What fabrication process forms the DMD's mechanical elements?",
+
+        answers: [
+            "Low-temperature sputter deposition and plasma etch",
+            "Hand-carving under a microscope",
+            "3D printing with molten metal",
+            "Injection molding"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What type of sacrificial layer does the DMD process use, and how is it removed?",
+
+        answers: [
+            "An organic sacrificial layer, dry-etched and removed at the wafer level",
+            "A permanent layer that is never removed",
+            "A liquid layer removed by hand with a syringe",
+            "A metal layer removed by melting the whole wafer"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "When does die separation happen in the DMD fabrication process?",
+
+        answers: [
+            "After the sacrificial layer is removed",
+            "Before any layers are deposited",
+            "Die separation never happens",
+            "Immediately after the wafer is doped"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 38 — THE PHYSICS OF TILTING MIRRORS
+======================================== */
+
+const lesson38Questions = [
+
+    {
+        question:
+            "What two torques must balance to determine a torsion mirror's tilt angle?",
+
+        answers: [
+            "Electrostatic torque and mechanical (restoring) torque",
+            "Gravitational torque and magnetic torque",
+            "Thermal torque and optical torque",
+            "There is only one torque involved"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What provides the mechanical restoring torque in a torsion mirror?",
+
+        answers: [
+            "The twisting of the torsion beam (spring)",
+            "A small electric motor",
+            "Air pressure from a built-in pump",
+            "Gravity acting on the mirror alone"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What provides the electrostatic torque that tips the mirror?",
+
+        answers: [
+            "The voltage applied between the mirror support and a bottom electrode",
+            "Sunlight striking the mirror directly",
+            "A magnetic field from an external coil",
+            "Friction from the surrounding air"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is a common structural material used for MEMS torsion mirrors?",
+
+        answers: [
+            "Polysilicon",
+            "Rubber",
+            "Wood",
+            "Glass fiber"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the name for the critical voltage moment when electrostatic torque overwhelms mechanical torque?",
+
+        answers: [
+            "Pull-in",
+            "Push-out",
+            "Lock-up",
+            "Drop-off"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What do landing pads prevent in a torsion mirror structure?",
+
+        answers: [
+            "Short circuits between the mirror and the electrode",
+            "The mirror from ever moving at all",
+            "Light from reflecting off the mirror",
+            "The torsion beam from twisting"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What simplifying assumption is commonly made when modeling a torsion mirror electrostatically?",
+
+        answers: [
+            "Fringing electric fields are neglected",
+            "The mirror is assumed to be infinitely heavy",
+            "Voltage is assumed to have no effect",
+            "The torsion beam is assumed to be liquid"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What happens to the mirror once pull-in occurs?",
+
+        answers: [
+            "It snaps the rest of the way to its landing position",
+            "It stops moving permanently",
+            "It reverses direction and returns to flat",
+            "It melts due to the applied voltage"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 39 — GRATINGS & INTERFEROMETRIC DISPLAYS
+======================================== */
+
+const lesson39Questions = [
+
+    {
+        question:
+            "What replaces individual tilting mirrors in a Grating Light Valve (GLV) display?",
+
+        answers: [
+            "An array of electrostatically actuated diffraction-grating ribbons",
+            "A single large rotating disc",
+            "A liquid crystal layer",
+            "A row of LEDs"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "How does a GLV display create different colors?",
+
+        answers: [
+            "By using different spacing between the ribbons",
+            "By heating different parts of the chip",
+            "By changing the chip's supply voltage only",
+            "By rotating the entire display"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Roughly how many ribbons form one pixel in a GLV display?",
+
+        answers: [
+            "About 6",
+            "About 1,000",
+            "Exactly 1",
+            "About 42"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Compared to a tilting mirror, how large is the displacement needed to operate a GLV ribbon?",
+
+        answers: [
+            "Much smaller — about a quarter wavelength",
+            "Much larger — about a full centimeter",
+            "Identical to the mirror's displacement",
+            "There is no displacement in a GLV"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which display technology has a nanosecond-scale response time due to its very small displacement?",
+
+        answers: [
+            "Diffractive (GLV)",
+            "Reflective (tilting mirror)",
+            "Both are equally fast",
+            "Neither has a measurable response time"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which display technology has a millisecond-scale response time due to its larger displacement?",
+
+        answers: [
+            "Reflective (tilting mirror)",
+            "Diffractive (GLV)",
+            "Both are equally slow",
+            "Neither has a measurable response time"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "In Qualcomm's mirasol display, what two components form the optically resonant cavity?",
+
+        answers: [
+            "A deformable reflective membrane and a thin-film stack",
+            "Two identical rigid mirrors bonded together",
+            "A speaker and a microphone",
+            "A battery and a capacitor"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What type of substrate holds both mirror components in a mirasol display?",
+
+        answers: [
+            "A transparent substrate",
+            "An opaque metal substrate",
+            "A liquid-filled substrate",
+            "No substrate is used at all"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 40 — OPTICAL MEMS BEYOND DISPLAYS
+======================================== */
+
+const lesson40Questions = [
+
+    {
+        question:
+            "Besides displays, what other major category of optical MEMS device exists for routing light signals?",
+
+        answers: [
+            "Optical MEMS switches",
+            "Optical MEMS speakers",
+            "Optical MEMS batteries",
+            "Optical MEMS keyboards"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which company is associated with 3D MEMS optical switches?",
+
+        answers: [
+            "Fujitsu",
+            "Qualcomm",
+            "Silicon Light Machines",
+            "Texas Instruments"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is a waveguide sensor an example of?",
+
+        answers: [
+            "An optical MEMS sensing application",
+            "A purely mechanical switch",
+            "A type of projection display",
+            "A fabrication tool used to build mirrors"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which optical MEMS sensing application is used in high-resolution biological imaging?",
+
+        answers: [
+            "Confocal microscopy",
+            "Grating Light Valve displays",
+            "DMD projection",
+            "Mirasol interferometric displays"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Besides displacement, what other physical quantities can optical MEMS sensors measure?",
+
+        answers: [
+            "Pressure, flow, and acceleration",
+            "Only electrical voltage",
+            "Only sound volume",
+            "Nothing besides displacement"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What does MEMS-nanophotonics integration refer to as a development trend?",
+
+        answers: [
+            "Combining MEMS structures with nanoscale photonic components",
+            "Removing all optical components from MEMS devices",
+            "Replacing MEMS with purely electronic circuits",
+            "Making MEMS devices larger and heavier"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What does a \"single-chip optical MEMS system\" refer to as a development trend?",
+
+        answers: [
+            "Integrating a complete optical MEMS system, including electronics, onto one chip",
+            "Using a separate chip for every individual mirror",
+            "Removing all electronics from optical MEMS entirely",
+            "Building optical MEMS devices without any silicon"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which underlying fabrication concepts, familiar from earlier microfabrication topics, also apply to building a device like the DMD?",
+
+        answers: [
+            "Deposition, patterning, sacrificial-layer release, and metallization",
+            "Only hand assembly with no fabrication steps",
+            "Only optical polishing, with no deposition at all",
+            "Only 3D printing in plastic"
+        ],
+
+        correct: 0
+    }
+
+];
+
 function loadUnit1StudyModule() {
 
     const completeButton =
@@ -4009,6 +4898,69 @@ if (window.location.pathname.includes("lesson33.html")) {
 
     currentLesson =
         33;
+}
+
+if (window.location.pathname.includes("lesson34.html")) {
+
+    lessonQuestions =
+        lesson34Questions;
+
+    currentLesson =
+        34;
+}
+
+if (window.location.pathname.includes("lesson35.html")) {
+
+    lessonQuestions =
+        lesson35Questions;
+
+    currentLesson =
+        35;
+}
+
+if (window.location.pathname.includes("lesson36.html")) {
+
+    lessonQuestions =
+        lesson36Questions;
+
+    currentLesson =
+        36;
+}
+
+if (window.location.pathname.includes("lesson37.html")) {
+
+    lessonQuestions =
+        lesson37Questions;
+
+    currentLesson =
+        37;
+}
+
+if (window.location.pathname.includes("lesson38.html")) {
+
+    lessonQuestions =
+        lesson38Questions;
+
+    currentLesson =
+        38;
+}
+
+if (window.location.pathname.includes("lesson39.html")) {
+
+    lessonQuestions =
+        lesson39Questions;
+
+    currentLesson =
+        39;
+}
+
+if (window.location.pathname.includes("lesson40.html")) {
+
+    lessonQuestions =
+        lesson40Questions;
+
+    currentLesson =
+        40;
 }
 
 let currentQuestion = 0;
@@ -5891,3 +6843,140 @@ function renderUnit5() {
 }
 
 renderUnit5();
+
+function renderUnit6() {
+
+    const container =
+        document.getElementById("unit6Container");
+
+    if (!container) {
+        return;
+    }
+
+    const unit =
+        courseData.find(function (item) {
+            return item.id === 6;
+        });
+
+    if (!unit) {
+        return;
+    }
+
+    const unitUnlocked =
+        localStorage.getItem("fabPathLesson33Complete") === "true";
+
+    const studyComplete =
+        localStorage.getItem("fabPathUnit6StudyComplete") === "true";
+
+    let html = `
+        <div class="unit-banner">
+            <span>UNIT 6</span>
+            <h2>${unit.title}</h2>
+            <p>${unit.description}</p>
+        </div>
+    `;
+
+    let studyClass = "locked";
+    let studyIcon = "🔒";
+    let studyHref = "#";
+
+    if (studyComplete) {
+        studyClass = "complete";
+        studyIcon = "✓";
+        studyHref = unit.studyModule.href;
+    } else if (unitUnlocked) {
+        studyClass = "available";
+        studyIcon = "📖";
+        studyHref = unit.studyModule.href;
+    }
+
+    html += `
+        <a href="${studyHref}"
+           class="path-node node-left ${studyClass} lesson-link">
+
+            <div class="node-circle">
+                ${studyIcon}
+            </div>
+
+            <div class="node-info">
+                <span>STUDY MODULE</span>
+                <h3>${unit.studyModule.title}</h3>
+                <p>Learn the concepts before beginning Unit 6.</p>
+            </div>
+
+        </a>
+
+        <div class="vertical-path"></div>
+    `;
+
+    unit.lessons.forEach(function (lesson, index) {
+
+        const lessonComplete =
+            localStorage.getItem(
+                `fabPathLesson${lesson.id}Complete`
+            ) === "true";
+
+        let unlocked = false;
+
+        if (index === 0) {
+            unlocked = studyComplete;
+        } else {
+            const previousLesson =
+                unit.lessons[index - 1];
+
+            unlocked =
+                localStorage.getItem(
+                    `fabPathLesson${previousLesson.id}Complete`
+                ) === "true";
+        }
+
+        let statusClass = "locked";
+        let icon = "🔒";
+        let href = "#";
+
+        if (lessonComplete) {
+            statusClass = "complete";
+            icon = "✓";
+            href = `lesson${lesson.id}.html`;
+        } else if (unlocked) {
+            statusClass = "available";
+            icon = lesson.id;
+            href = `lesson${lesson.id}.html`;
+        }
+
+        const positionClass =
+            index % 2 === 0
+                ? "node-right"
+                : "node-left";
+
+        html += `
+            <a href="${href}"
+               class="path-node ${positionClass} ${statusClass} lesson-link"
+               id="lesson${lesson.id}Node">
+
+                <div class="node-circle"
+                     id="lesson${lesson.id}Circle">
+                    ${icon}
+                </div>
+
+                <div class="node-info">
+                    <span>FAB CHALLENGE ${lesson.id}</span>
+                    <h3>${lesson.title}</h3>
+                    <p>${lesson.description}</p>
+                </div>
+
+            </a>
+        `;
+
+        if (index < unit.lessons.length - 1) {
+            html += `
+                <div class="vertical-path"></div>
+            `;
+        }
+
+    });
+
+    container.innerHTML = html;
+}
+
+renderUnit6();

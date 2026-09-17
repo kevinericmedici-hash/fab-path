@@ -347,6 +347,78 @@ const courseData = [
             }
 
         ]
+    },
+
+
+    /* =====================================
+       UNIT 6
+    ===================================== */
+
+    {
+        id: 6,
+
+        title: "Optical MEMS Design",
+
+        description:
+            "Explore how MEMS structures control and sense light, from TI's Digital Micromirror Device to modern optical switches.",
+
+        studyModule: {
+            title: "Optical MEMS Design",
+            href: "unit6.html"
+        },
+
+        lessons: [
+
+            {
+                id: 34,
+                title: "Why MEMS for Optics?",
+                description:
+                    "Learn why MEMS scales so well for optics, and where optical MEMS show up in the real world."
+            },
+
+            {
+                id: 35,
+                title: "Three Ways to Build a MEMS Display",
+                description:
+                    "Compare reflective, diffractive, and interferometric approaches to MEMS-based displays."
+            },
+
+            {
+                id: 36,
+                title: "Inside TI's DMD",
+                description:
+                    "See how a Digital Micromirror Device turns a tilting mirror into a projected pixel."
+            },
+
+            {
+                id: 37,
+                title: "DMD by the Numbers",
+                description:
+                    "Learn the real specs and fabrication process behind TI's Digital Micromirror Device."
+            },
+
+            {
+                id: 38,
+                title: "The Physics of Tilting Mirrors",
+                description:
+                    "Understand the torque balance and pull-in behavior that tips a torsion mirror."
+            },
+
+            {
+                id: 39,
+                title: "Gratings & Interferometric Displays",
+                description:
+                    "Explore the Grating Light Valve and Qualcomm's mirasol as alternatives to tilting mirrors."
+            },
+
+            {
+                id: 40,
+                title: "Optical MEMS Beyond Displays",
+                description:
+                    "Discover optical MEMS switches, sensors, and where the technology is headed next."
+            }
+
+        ]
     }
 
 ];
