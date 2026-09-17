@@ -1981,6 +1981,109 @@ nav a:hover {
     margin-top: 0;
 }
 
+.stack-visual {
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 16px;
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+
+    margin-bottom: 25px;
+}
+
+.stack-layer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 18px;
+
+    font-weight: 800;
+    font-size: 0.85rem;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+    white-space: nowrap;
+
+    transition:
+        height 0.5s ease,
+        opacity 0.5s ease,
+        padding 0.5s ease;
+
+    animation: slotPop 0.3s ease;
+}
+
+.stack-layer-thickness {
+    opacity: 0.75;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+
+    margin-left: 10px;
+}
+
+.stack-layer.sacrificial {
+    border-top: 1px dashed rgba(170, 179, 207, 0.5);
+    border-bottom: 1px dashed rgba(170, 179, 207, 0.5);
+}
+
+.stack-substrate {
+    height: 56px;
+
+    background: var(--panel-light);
+    border-top: 1px solid var(--border);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--muted);
+    font-weight: 800;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+}
+
+.stack-visual.released .stack-layer.sacrificial {
+    height: 6px !important;
+    padding: 0;
+    opacity: 0.35;
+}
+
+.stack-visual.released .stack-layer.sacrificial .stack-layer-name,
+.stack-visual.released .stack-layer.sacrificial .stack-layer-thickness {
+    display: none;
+}
+
+.release-button {
+    display: block;
+    margin: 0 auto 12px;
+
+    background: linear-gradient(135deg, #ffd166, #f77f00);
+    color: #2a1400;
+}
+
+.release-button:hover {
+    transform: translateY(-2px);
+}
+
+.release-button:disabled {
+    opacity: 0.4;
+    cursor: default;
+    transform: none;
+}
+
+.release-caption {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+
+    max-width: 440px;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
 @media (max-width: 700px) {
 
     .game-shell {

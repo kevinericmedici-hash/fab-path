@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Stack the Layers | Fab Path</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="learn.html">Learn</a>
+            <a href="games.html" class="active-nav">Games</a>
+            <a href="practice.html">Practice</a>
+            <a href="progress.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <main class="game-page">
+
+        <section class="game-shell">
+
+            <div class="game-top">
+
+                <a href="games.html" class="module-exit">
+                    ← Back to Games
+                </a>
+
+                <div class="module-progress-area">
+
+                    <div class="module-progress-track">
+                        <div
+                            class="module-progress-fill"
+                            id="gameProgressFill"
+                        ></div>
+                    </div>
+
+                    <span id="gameProgressText">
+                        0 / 7
+                    </span>
+
+                </div>
+
+                <span class="game-badge">
+                    UNIT 4 GAME
+                </span>
+
+            </div>
+
+
+            <div class="game-header">
+
+                <p class="eyebrow">
+                    STACK THE LAYERS
+                </p>
+
+                <h1>
+                    Build a PolyMUMPs chip
+                </h1>
+
+                <p class="game-lead">
+                    Seven layers, built in one fixed order. Tap them
+                    from the substrate up — each correct layer joins
+                    the cross-section at its real relative thickness.
+                </p>
+
+            </div>
+
+
+            <div id="gameBoard">
+
+                <div class="stack-visual" id="stackVisual">
+                </div>
+
+
+                <div class="tile-grid" id="tileGrid">
+                </div>
+
+
+                <div class="game-feedback" id="gameFeedback">
+                    Tap the layer that goes right on the substrate.
+                </div>
+
+            </div>
+
+
+            <div id="gameComplete" class="game-complete" hidden>
+
+                <p class="eyebrow">
+                    CHALLENGE COMPLETE
+                </p>
+
+                <h2>
+                    🔬 You built a PolyMUMPs chip!
+                </h2>
+
+                <p class="game-complete-xp" id="gameCompleteXP">
+                    +40 XP
+                </p>
+
+                <p class="game-complete-lead" id="gameCompleteStats">
+                    7 for 7 — perfect run.
+                </p>
+
+                <div class="stack-visual" id="finalStackVisual">
+                </div>
+
+                <button
+                    type="button"
+                    class="module-nav-button release-button"
+                    id="releaseButton"
+                >
+                    🔓 Release the Structure
+                </button>
+
+                <p class="release-caption" id="releaseCaption" hidden>
+                    The HF bath dissolved both PSG layers — Poly1 and
+                    Poly2 are now free-standing, suspended above the
+                    substrate.
+                </p>
+
+                <div class="game-recap" id="gameRecap">
+                </div>
+
+                <div class="game-complete-actions">
+
+                    <button
+                        type="button"
+                        class="module-nav-button secondary-button"
+                        id="playAgainButton"
+                    >
+                        Play Again
+                    </button>
+
+                    <a
+                        href="games.html"
+                        class="module-nav-button lesson-link"
+                        id="backToPathButton"
+                    >
+                        Back to Games
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+    <script src="game4.js"></script>
+
+</body>
+
+</html>
