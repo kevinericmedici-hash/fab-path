@@ -5467,6 +5467,895 @@ const lesson47Questions = [
 
 ];
 
+/* ========================================
+   FAB CHALLENGE 48 — WHY MEMS PACKAGING?
+======================================== */
+
+const lesson48Questions = [
+
+    {
+        question:
+            "What is the basic function of MEMS packaging?",
+
+        answers: [
+            "Building a connection between the die and the outside world, while selectively letting through what matters",
+            "Making the die permanently inaccessible to everything, including its own signals",
+            "Replacing the need for any fabrication steps",
+            "Increasing the die's size by a factor of ten"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which of these is a way packaging protects the device from the environment?",
+
+        answers: [
+            "Electrical and magnetic isolation from moisture and electrolytes",
+            "Exposing the die directly to open air at all times",
+            "Removing all electrical connections",
+            "Coating the die in a material that conducts electricity everywhere"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which of these is a way packaging protects the environment from the device?",
+
+        answers: [
+            "Reducing or eliminating host responses, or containing toxic products",
+            "Making the device louder",
+            "Increasing the device's power consumption",
+            "Removing the device's protective coating"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Why might a BioMEMS device specifically require sterilization as part of its packaging?",
+
+        answers: [
+            "To protect the environment, such as a patient, from the device",
+            "To make the device heavier",
+            "To increase its electrical resistance",
+            "Sterilization is never required for BioMEMS devices"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which packaging requirement is especially important for accelerometers and resonators?",
+
+        answers: [
+            "Hermetic, vacuum sealing / media compatibility",
+            "Bright, colorful packaging materials",
+            "Maximum possible package size",
+            "Zero electrical connections of any kind"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which packaging requirement addresses cross-talk, voltage drop, and capacitive loading?",
+
+        answers: [
+            "Acceptable electrical interconnection",
+            "Precision optical alignment",
+            "Chemical isolation",
+            "Device sterilization"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which packaging requirement is especially critical for optical MEMS devices?",
+
+        answers: [
+            "Precision alignment",
+            "Maximum electrical resistance",
+            "Total absence of any package",
+            "Bright surface coloring"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which packaging requirement addresses mounting the device without applying undue stress to it?",
+
+        answers: [
+            "Acceptable mechanical interconnection",
+            "Device sterilization",
+            "Precision optical alignment",
+            "Low electrical resistance"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 49 — FROM DIE TO SHIPPED CHIP
+======================================== */
+
+const lesson49Questions = [
+
+    {
+        question:
+            "How many major process steps are commonly involved in going from wafer to a finished packaged device?",
+
+        answers: [
+            "9",
+            "2",
+            "50",
+            "1"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which packaging process typically comes right after bonding, when preparing individual dies?",
+
+        answers: [
+            "Wafer sawing (dicing)",
+            "Final testing",
+            "Overmolding",
+            "Trimming"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which wafer-bonding type uses temperatures between 800 and 1200°C to form a stable Si-Si or Si-SiO2 bond?",
+
+        answers: [
+            "Direct wafer bonding",
+            "Anodic bonding",
+            "Flip-chip bonding",
+            "Wire bonding"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which wafer-bonding type is also called electrostatic bonding, and bonds silicon to glass?",
+
+        answers: [
+            "Anodic bonding",
+            "Direct wafer bonding",
+            "Flip-chip bonding",
+            "Thermocompression bonding"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What temperature and voltage range does anodic bonding typically use?",
+
+        answers: [
+            "180–500°C, 200–1000 volts",
+            "0°C, 0 volts",
+            "5000°C, 1,000,000 volts",
+            "20°C, 1 volt"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is a common application of wafer-level bonding that creates a sealed vacuum reference?",
+
+        answers: [
+            "Absolute pressure sensors",
+            "Wire bonding pads",
+            "Photoresist coating",
+            "Wafer dicing"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which of these is one of the 9 common packaging processes?",
+
+        answers: [
+            "Encapsulation",
+            "Photosynthesis",
+            "Radioactive decay",
+            "Nuclear fusion"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What are the last two steps in the typical 9-step packaging process list?",
+
+        answers: [
+            "Trimming and final testing",
+            "Bonding and wafer sawing",
+            "Pick and place and die attach",
+            "Wire bonding and encapsulation"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 50 — CUTTING, PLACING, ATTACHING
+======================================== */
+
+const lesson50Questions = [
+
+    {
+        question:
+            "What is the wafer placed on during dicing to hold it in place?",
+
+        answers: [
+            "A mylar film with light adhesive",
+            "A pool of liquid nitrogen",
+            "A bed of loose sand",
+            "A sheet of aluminum foil"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Why must the dicing adhesive be both strong and mild?",
+
+        answers: [
+            "Strong enough to hold the die during sawing, but mild enough to allow pick-and-place afterward",
+            "So it can be eaten safely if needed",
+            "So it changes color during the process",
+            "So it conducts electricity during sawing"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Besides diamond sawing, what are two other dicing techniques mentioned?",
+
+        answers: [
+            "Laser cutting and diamond wire cutting",
+            "Hand-cutting with scissors and biting",
+            "Melting and re-freezing",
+            "Dissolving in acid entirely"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What does the \"pick and place\" process do?",
+
+        answers: [
+            "Mounts dies from a wafer onto a lead-frame or into a package",
+            "Removes all dies from the wafer permanently",
+            "Cleans the wafer surface with solvent",
+            "Anneals the wafer at high temperature"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Why can pick and place be risky for some MEMS devices?",
+
+        answers: [
+            "It can damage sensitive, already-released structures like surface-micromachined accelerometers",
+            "It always destroys the entire wafer",
+            "It requires no physical contact at all",
+            "It only works on devices with no moving parts, so it's never risky"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What alternative technique is being explored to reduce pick-and-place damage?",
+
+        answers: [
+            "Self-assembly techniques",
+            "Manual assembly by hand only",
+            "Skipping packaging entirely",
+            "Using only wire bonding for every device"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What happens during die attach?",
+
+        answers: [
+            "An adhesive bond layer is deposited on the substrate, the die is placed on it, then cured, annealed, or fired",
+            "The die is wire-bonded directly with no adhesive",
+            "The die is submerged in acid",
+            "The die is diced into smaller pieces"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Does die attach happen before or after wire bonding?",
+
+        answers: [
+            "Before wire bonding",
+            "After wire bonding",
+            "At the exact same time as wire bonding",
+            "Die attach and wire bonding are the same step"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 51 — WIRING & FLIP-CHIP
+======================================== */
+
+const lesson51Questions = [
+
+    {
+        question:
+            "What are three common types of electrical interconnection used in packaging?",
+
+        answers: [
+            "Wire-bonding, flip-chip, and ball bonding",
+            "Painting, gluing, and stapling",
+            "Welding, riveting, and screwing",
+            "Freezing, boiling, and evaporating"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is thermocompression bonding, in the context of wire bonding?",
+
+        answers: [
+            "A metal-to-metal bond created using heat and pressure, usually with gold wire",
+            "A bond formed using only cold temperatures",
+            "A chemical adhesive with no heat or pressure involved",
+            "A bond formed by submerging the wire in water"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the typical wire-bonding technique called?",
+
+        answers: [
+            "Ball-wedge bonding",
+            "Flip-flop bonding",
+            "Square-triangle bonding",
+            "Straight-line bonding"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "In ball-wedge bonding, where is the ball initially formed?",
+
+        answers: [
+            "At the end of the wire, on the die's bond pad",
+            "In the middle of the lead frame",
+            "Inside the wafer itself before dicing",
+            "On the outside of the package casing"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is a major advantage of flip-chip bonding over wire bonding?",
+
+        answers: [
+            "It eliminates leads entirely, improving electrical and density performance",
+            "It requires more wires per connection",
+            "It only works on devices larger than a coin",
+            "It eliminates the need for any substrate"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What connects the flipped die to the substrate in flip-chip bonding?",
+
+        answers: [
+            "Solder bumps",
+            "Wire loops",
+            "Magnetic clamps",
+            "Adhesive tape only"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "How is a flip-chip die attached or removed from its substrate?",
+
+        answers: [
+            "By locally heating the substrate to reflow the solder",
+            "By freezing the entire assembly",
+            "By applying a strong magnetic field",
+            "By submerging it in oil"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "In the flip-chip MEMS glass-substrate example, what is deposited on the movable polysilicon MEMS plate first?",
+
+        answers: [
+            "A photopolymer",
+            "A layer of pure gold",
+            "A layer of liquid mercury",
+            "Nothing is deposited on it"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 52 — ENCAPSULATION & TESTING
+======================================== */
+
+const lesson52Questions = [
+
+    {
+        question:
+            "What two problems does encapsulation and overmolding protect a MEMS device from?",
+
+        answers: [
+            "Corrosion and mechanical damage",
+            "Overheating and underheating only",
+            "Too much light exposure only",
+            "Excess electrical conductivity"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What thermal issue can arise from encapsulation materials with different coefficients of thermal expansion (CTE)?",
+
+        answers: [
+            "Bimetallic action, causing thermal stress",
+            "Instant melting at room temperature",
+            "Permanent loss of all electrical conductivity",
+            "Spontaneous combustion"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "In the LPCVD/PSG encapsulation process, what does the thick PSG deposition define?",
+
+        answers: [
+            "The encapsulation regions",
+            "The final metal contact pads",
+            "The wafer's crystal orientation",
+            "The wire-bonding locations"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What does the thin PSG deposition define in this encapsulation process?",
+
+        answers: [
+            "The etch channels",
+            "The final package color",
+            "The die's overall thickness",
+            "The wire-bonding pads"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is deposited to form the protective shell in this encapsulation process?",
+
+        answers: [
+            "A nitride shell",
+            "A layer of pure aluminum only",
+            "A layer of rubber",
+            "A layer of wood"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What happens after all sacrificial PSG inside the shell is removed?",
+
+        answers: [
+            "Supercritical CO2 drying, followed by a global LPCVD sealing step",
+            "The entire wafer is discarded",
+            "The shell is immediately shattered",
+            "Nothing further happens"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What special equipment does accelerometer testing typically require?",
+
+        answers: [
+            "A shaker table",
+            "A telescope",
+            "A microwave oven",
+            "A wind tunnel"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Why is it often better to test microfluidics systems at the component level (valves, pumps) rather than as a whole system?",
+
+        answers: [
+            "Full-system testing is too expensive",
+            "Component-level testing is illegal",
+            "Whole-system testing is always faster and cheaper",
+            "Components cannot be tested individually"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 53 — CASE STUDY: WAFER-LEVEL MEMBRANE PACKAGING
+======================================== */
+
+const lesson53Questions = [
+
+    {
+        question:
+            "What is the general name of this case-study packaging technique?",
+
+        answers: [
+            "Wafer-level MEMS packaging via thermally released metal-organic membranes",
+            "Standard plastic injection overmolding",
+            "Manual hand-soldering packaging",
+            "Room-temperature adhesive bonding only"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What does Phase 1 of this process form, and using what?",
+
+        answers: [
+            "A cavity, using a sacrificial layer",
+            "A wire bond, using gold thread",
+            "A solder bump, using tin",
+            "A final metal seal, using copper"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "About what height range does the cavity formed in Phase 1 typically have?",
+
+        answers: [
+            "1 to 100 µm",
+            "1 to 100 mm",
+            "1 to 100 nm",
+            "1 to 100 m"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What kind of polymer is used to form the cap in Phase 2?",
+
+        answers: [
+            "A compliant, negative-tone, photo-definable polymer",
+            "A rigid, opaque metal polymer",
+            "A polymer that conducts electricity like copper",
+            "A polymer that dissolves instantly in water"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "How are the bond pads opened in Phase 2?",
+
+        answers: [
+            "By patterning the polymer overcoat",
+            "By manually drilling holes with a needle",
+            "By submerging the wafer in acid for a week",
+            "Bond pads are not opened in Phase 2"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What happens during Phase 3 of this process?",
+
+        answers: [
+            "The sacrificial polymer thermally decomposes, forming the air cavity",
+            "The wafer is diced into individual chips",
+            "Wire bonding is performed",
+            "The final metal layer is removed"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What temperature range is used for the thermal decomposition in Phase 3?",
+
+        answers: [
+            "180 to 260°C",
+            "0 to 10°C",
+            "1000 to 2000°C",
+            "-50 to 0°C"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What does Phase 4 (metallization) accomplish, and why is a thin insulator layer needed?",
+
+        answers: [
+            "It creates a hermetic seal with a conformal metal coating; the insulator maintains isolation between the package and the MEMS device",
+            "It removes the entire package to save weight",
+            "It dissolves the MEMS device intentionally",
+            "It converts the device into a purely optical component"
+        ],
+
+        correct: 0
+    }
+
+];
+
+/* ========================================
+   FAB CHALLENGE 54 — BUILD A PACKAGED MEMS DEVICE
+======================================== */
+
+const lesson54Questions = [
+
+    {
+        question:
+            "Once a MEMS device is fabricated, what is the next general category of steps it must go through?",
+
+        answers: [
+            "Packaging (bonding, dicing, attach, interconnection, encapsulation, testing)",
+            "Nothing further is needed after fabrication",
+            "The device must be re-fabricated from scratch",
+            "The device is immediately discarded"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which comes first in a typical packaging flow: die attach or wire bonding?",
+
+        answers: [
+            "Die attach",
+            "Wire bonding",
+            "They always happen at the exact same time",
+            "Neither step is ever required"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Why might a designer choose flip-chip bonding over wire bonding for a MEMS device?",
+
+        answers: [
+            "For better electrical/density performance, lower cost, and faster prototyping",
+            "Because it requires far more wires than wire bonding",
+            "Because it is always more expensive and slower",
+            "Because it eliminates the need for a substrate entirely"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Which wafer-bonding approach is well suited to creating a sealed vacuum reference for a pressure sensor?",
+
+        answers: [
+            "Wafer-level bonding, such as direct wafer bonding",
+            "Wire bonding",
+            "Flip-chip bonding",
+            "Pick and place"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "In the metal-organic membrane case study, which phase actually forms the air cavity that lets the MEMS structure move freely?",
+
+        answers: [
+            "Phase 3, thermal decomposition of the sacrificial polymer",
+            "Phase 1, cavity formation using a sacrificial layer",
+            "Phase 2, polymer cap formation",
+            "Phase 4, metallization"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What is the final step before a packaged MEMS device ships to a customer?",
+
+        answers: [
+            "Final testing",
+            "Wafer sawing",
+            "Die attach",
+            "Pick and place"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "Why does packaging matter just as much as the MEMS device's own fabrication?",
+
+        answers: [
+            "A poorly packaged device can fail from the environment even if the underlying structure was fabricated correctly",
+            "Packaging has no real effect on a device's performance or lifetime",
+            "Fabrication quality is irrelevant once packaging begins",
+            "Packaging is always simpler and less important than fabrication"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        question:
+            "What overall theme connects wafer bonding, encapsulation, and the metal-organic membrane case study?",
+
+        answers: [
+            "Sealing a MEMS device's sensitive parts from the environment while still connecting it electrically to the outside world",
+            "Making every MEMS device as large and heavy as possible",
+            "Avoiding any form of electrical connection entirely",
+            "Eliminating the need for any sacrificial layers"
+        ],
+
+        correct: 0
+    }
+
+];
+
 function loadUnit1StudyModule() {
 
     const completeButton =
@@ -5913,6 +6802,69 @@ if (window.location.pathname.includes("lesson47.html")) {
 
     currentLesson =
         47;
+}
+
+if (window.location.pathname.includes("lesson48.html")) {
+
+    lessonQuestions =
+        lesson48Questions;
+
+    currentLesson =
+        48;
+}
+
+if (window.location.pathname.includes("lesson49.html")) {
+
+    lessonQuestions =
+        lesson49Questions;
+
+    currentLesson =
+        49;
+}
+
+if (window.location.pathname.includes("lesson50.html")) {
+
+    lessonQuestions =
+        lesson50Questions;
+
+    currentLesson =
+        50;
+}
+
+if (window.location.pathname.includes("lesson51.html")) {
+
+    lessonQuestions =
+        lesson51Questions;
+
+    currentLesson =
+        51;
+}
+
+if (window.location.pathname.includes("lesson52.html")) {
+
+    lessonQuestions =
+        lesson52Questions;
+
+    currentLesson =
+        52;
+}
+
+if (window.location.pathname.includes("lesson53.html")) {
+
+    lessonQuestions =
+        lesson53Questions;
+
+    currentLesson =
+        53;
+}
+
+if (window.location.pathname.includes("lesson54.html")) {
+
+    lessonQuestions =
+        lesson54Questions;
+
+    currentLesson =
+        54;
 }
 
 let currentQuestion = 0;
@@ -8069,3 +9021,140 @@ function renderUnit7() {
 }
 
 renderUnit7();
+
+function renderUnit8() {
+
+    const container =
+        document.getElementById("unit8Container");
+
+    if (!container) {
+        return;
+    }
+
+    const unit =
+        courseData.find(function (item) {
+            return item.id === 8;
+        });
+
+    if (!unit) {
+        return;
+    }
+
+    const unitUnlocked =
+        localStorage.getItem("fabPathLesson47Complete") === "true";
+
+    const studyComplete =
+        localStorage.getItem("fabPathUnit8StudyComplete") === "true";
+
+    let html = `
+        <div class="unit-banner">
+            <span>UNIT 8</span>
+            <h2>${unit.title}</h2>
+            <p>${unit.description}</p>
+        </div>
+    `;
+
+    let studyClass = "locked";
+    let studyIcon = "🔒";
+    let studyHref = "#";
+
+    if (studyComplete) {
+        studyClass = "complete";
+        studyIcon = "✓";
+        studyHref = unit.studyModule.href;
+    } else if (unitUnlocked) {
+        studyClass = "available";
+        studyIcon = "📖";
+        studyHref = unit.studyModule.href;
+    }
+
+    html += `
+        <a href="${studyHref}"
+           class="path-node node-left ${studyClass} lesson-link">
+
+            <div class="node-circle">
+                ${studyIcon}
+            </div>
+
+            <div class="node-info">
+                <span>STUDY MODULE</span>
+                <h3>${unit.studyModule.title}</h3>
+                <p>Learn the concepts before beginning Unit 8.</p>
+            </div>
+
+        </a>
+
+        <div class="vertical-path"></div>
+    `;
+
+    unit.lessons.forEach(function (lesson, index) {
+
+        const lessonComplete =
+            localStorage.getItem(
+                `fabPathLesson${lesson.id}Complete`
+            ) === "true";
+
+        let unlocked = false;
+
+        if (index === 0) {
+            unlocked = studyComplete;
+        } else {
+            const previousLesson =
+                unit.lessons[index - 1];
+
+            unlocked =
+                localStorage.getItem(
+                    `fabPathLesson${previousLesson.id}Complete`
+                ) === "true";
+        }
+
+        let statusClass = "locked";
+        let icon = "🔒";
+        let href = "#";
+
+        if (lessonComplete) {
+            statusClass = "complete";
+            icon = "✓";
+            href = `lesson${lesson.id}.html`;
+        } else if (unlocked) {
+            statusClass = "available";
+            icon = lesson.id;
+            href = `lesson${lesson.id}.html`;
+        }
+
+        const positionClass =
+            index % 2 === 0
+                ? "node-right"
+                : "node-left";
+
+        html += `
+            <a href="${href}"
+               class="path-node ${positionClass} ${statusClass} lesson-link"
+               id="lesson${lesson.id}Node">
+
+                <div class="node-circle"
+                     id="lesson${lesson.id}Circle">
+                    ${icon}
+                </div>
+
+                <div class="node-info">
+                    <span>FAB CHALLENGE ${lesson.id}</span>
+                    <h3>${lesson.title}</h3>
+                    <p>${lesson.description}</p>
+                </div>
+
+            </a>
+        `;
+
+        if (index < unit.lessons.length - 1) {
+            html += `
+                <div class="vertical-path"></div>
+            `;
+        }
+
+    });
+
+    container.innerHTML = html;
+}
+
+renderUnit8();

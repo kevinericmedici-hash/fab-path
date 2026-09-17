@@ -491,6 +491,78 @@ const courseData = [
             }
 
         ]
+    },
+
+
+    /* =====================================
+       UNIT 8
+    ===================================== */
+
+    {
+        id: 8,
+
+        title: "MEMS Packaging",
+
+        description:
+            "Learn how a finished MEMS die is protected, wired up, and sealed into a real, shippable device.",
+
+        studyModule: {
+            title: "MEMS Packaging",
+            href: "unit8.html"
+        },
+
+        lessons: [
+
+            {
+                id: 48,
+                title: "Why MEMS Packaging?",
+                description:
+                    "Learn the two jobs every MEMS package has to do, and what makes packaging so demanding."
+            },
+
+            {
+                id: 49,
+                title: "From Die to Shipped Chip",
+                description:
+                    "See the nine-step process that turns a wafer into finished packages, and how wafer bonding works."
+            },
+
+            {
+                id: 50,
+                title: "Cutting, Placing, Attaching",
+                description:
+                    "Learn how dies are diced apart, placed into packages, and attached to their substrate."
+            },
+
+            {
+                id: 51,
+                title: "Wiring & Flip-Chip",
+                description:
+                    "Compare wire bonding and flip-chip bonding as ways to connect a die electrically."
+            },
+
+            {
+                id: 52,
+                title: "Encapsulation & Testing",
+                description:
+                    "See how a device is sealed from the environment, then tested before it ships."
+            },
+
+            {
+                id: 53,
+                title: "Case Study: Wafer-Level Membrane Packaging",
+                description:
+                    "Walk through a real four-phase process for packaging a MEMS device on the wafer itself."
+            },
+
+            {
+                id: 54,
+                title: "Build a Packaged MEMS Device",
+                description:
+                    "Bring fabrication and packaging together into one complete, shippable device."
+            }
+
+        ]
     }
 
 ];
