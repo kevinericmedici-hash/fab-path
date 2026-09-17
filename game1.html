@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Scale Ladder | Fab Path</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="learn.html" class="active-nav">Learn</a>
+            <a href="practice.html">Practice</a>
+            <a href="progress.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <main class="game-page">
+
+        <section class="game-shell">
+
+            <div class="game-top">
+
+                <a href="learn.html" class="module-exit">
+                    ← Back to Path
+                </a>
+
+                <span class="game-badge">
+                    UNIT 1 GAME
+                </span>
+
+            </div>
+
+
+            <div class="game-header">
+
+                <p class="eyebrow">
+                    THE SCALE LADDER
+                </p>
+
+                <h1>
+                    Smallest to largest
+                </h1>
+
+                <p class="game-lead">
+                    Tap the items below in order, starting with the
+                    smallest. Watch the real size get revealed as you
+                    go.
+                </p>
+
+            </div>
+
+
+            <div id="gameBoard">
+
+                <div class="ordered-strip" id="orderedStrip">
+                </div>
+
+
+                <div class="tile-grid" id="tileGrid">
+                </div>
+
+
+                <div class="game-feedback" id="gameFeedback">
+                    Tap the smallest item to begin.
+                </div>
+
+            </div>
+
+
+            <div id="gameComplete" class="game-complete" hidden>
+
+                <p class="eyebrow">
+                    CHALLENGE COMPLETE
+                </p>
+
+                <h2>
+                    🎉 You built the scale ladder!
+                </h2>
+
+                <p class="game-complete-xp" id="gameCompleteXP">
+                    +30 XP
+                </p>
+
+                <p class="game-complete-lead">
+                    From a single atom to a full-grown human — that's
+                    about ten billion times bigger, in just seven
+                    steps.
+                </p>
+
+                <div class="game-recap" id="gameRecap">
+                </div>
+
+                <div class="game-complete-actions">
+
+                    <button
+                        type="button"
+                        class="module-nav-button secondary-button"
+                        id="playAgainButton"
+                    >
+                        Play Again
+                    </button>
+
+                    <a
+                        href="learn.html"
+                        class="module-nav-button lesson-link"
+                        id="backToPathButton"
+                    >
+                        Back to Path
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+    <script src="game1.js"></script>
+
+</body>
+
+</html>

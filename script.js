@@ -7828,6 +7828,62 @@ function loadLearnPageProgress() {
 
 
     /* =====================================
+       UNIT 1 GAME — THE SCALE LADDER
+    ===================================== */
+
+    const unit1GameNode =
+        document.getElementById(
+            "unit1GameNode"
+        );
+
+    const unit1GameCircle =
+        document.getElementById(
+            "unit1GameCircle"
+        );
+
+    const unit1GamePlayed =
+        localStorage.getItem(
+            "fabPathGame1Complete"
+        ) === "true";
+
+    if (unit1GameNode && unit1GameCircle) {
+
+        if (unit1GamePlayed) {
+
+            unit1GameNode.classList.remove(
+                "locked"
+            );
+
+            unit1GameNode.classList.add(
+                "complete"
+            );
+
+            unit1GameNode.href =
+                "game1.html";
+
+            unit1GameCircle.textContent =
+                "✓";
+
+        } else if (lessonComplete(4)) {
+
+            unit1GameNode.classList.remove(
+                "locked"
+            );
+
+            unit1GameNode.classList.add(
+                "available"
+            );
+
+            unit1GameNode.href =
+                "game1.html";
+
+            unit1GameCircle.textContent =
+                "🎮";
+        }
+    }
+
+
+    /* =====================================
        UNIT 2 STUDY MODULE
     ===================================== */
 

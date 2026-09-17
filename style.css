@@ -1370,3 +1370,359 @@ nav a:hover {
 #unit8Container {
     display: contents;
 }
+
+/* ========================================
+   COMPLETE STUDY MODULE BUTTON
+======================================== */
+
+.complete-study-button {
+    border: none;
+
+    padding: 16px 32px;
+
+    border-radius: 14px;
+
+    background: var(--accent);
+    color: #08110f;
+
+    font-weight: 900;
+    font-size: 1.05rem;
+
+    cursor: pointer;
+
+    margin-top: 20px;
+
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease;
+}
+
+.complete-study-button:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   GAME PATH NODE
+======================================== */
+
+.game-node .node-info span {
+    color: #ffb545;
+}
+
+.game-node.available .node-circle,
+.game-node.complete .node-circle {
+    background: linear-gradient(135deg, #ffd166, #f77f00);
+    color: #2a1400;
+
+    border-color: rgba(255, 209, 102, 0.3);
+
+    box-shadow:
+        0 8px 0 #c66a00,
+        0 15px 35px rgba(247, 127, 0, 0.3);
+}
+
+/* ========================================
+   GAME PAGES
+======================================== */
+
+.game-page {
+    width: min(900px, calc(100% - 40px));
+    margin: 0 auto;
+
+    padding: 40px 0 100px;
+}
+
+.game-shell {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+
+    padding: 30px;
+
+    box-shadow: var(--shadow);
+}
+
+.game-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--border);
+
+    margin-bottom: 30px;
+}
+
+.game-badge {
+    color: var(--accent);
+
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+
+    background: rgba(84, 224, 199, 0.1);
+    border: 1px solid rgba(84, 224, 199, 0.25);
+    border-radius: 999px;
+
+    padding: 8px 16px;
+}
+
+.game-header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.08;
+
+    letter-spacing: -0.03em;
+
+    margin-bottom: 14px;
+}
+
+.game-lead {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+
+    margin-bottom: 35px;
+}
+
+.ordered-strip {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+
+    margin-bottom: 30px;
+}
+
+.ordered-slot {
+    min-height: 110px;
+
+    padding: 10px 8px;
+
+    border: 2px dashed var(--border);
+    border-radius: 14px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    gap: 4px;
+
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.ordered-slot-rank {
+    color: var(--muted);
+    font-size: 0.7rem;
+    font-weight: 800;
+}
+
+.ordered-slot-placeholder {
+    color: var(--muted);
+    font-size: 1.4rem;
+    font-weight: 800;
+    opacity: 0.4;
+}
+
+.ordered-slot.filled {
+    border: 2px solid var(--accent);
+    background: rgba(84, 224, 199, 0.1);
+
+    animation: slotPop 0.3s ease;
+}
+
+.ordered-slot-emoji {
+    font-size: 1.6rem;
+}
+
+.ordered-slot-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.ordered-slot-size {
+    color: var(--accent);
+    font-size: 0.65rem;
+    font-weight: 700;
+}
+
+@keyframes slotPop {
+
+    from {
+        transform: scale(0.85);
+        opacity: 0.4;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.tile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 14px;
+
+    margin-bottom: 25px;
+}
+
+.game-tile {
+    min-height: 90px;
+
+    padding: 16px;
+
+    border-radius: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.09);
+
+    background: var(--panel-light);
+    color: var(--text);
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+
+    font-size: 1rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.game-tile:hover {
+    transform: translateY(-2px);
+    border-color: rgba(84, 224, 199, 0.4);
+}
+
+.game-tile-emoji {
+    font-size: 1.7rem;
+    flex-shrink: 0;
+}
+
+.game-tile.wrong {
+    border-color: #ff6978;
+    background: rgba(255, 105, 120, 0.12);
+
+    animation: tileShake 0.4s ease;
+}
+
+@keyframes tileShake {
+
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-6px);
+    }
+
+    40% {
+        transform: translateX(6px);
+    }
+
+    60% {
+        transform: translateX(-4px);
+    }
+
+    80% {
+        transform: translateX(4px);
+    }
+}
+
+.game-feedback {
+    color: var(--muted);
+    font-weight: 600;
+
+    min-height: 24px;
+}
+
+.game-complete {
+    text-align: center;
+}
+
+.game-complete h2 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    margin-bottom: 10px;
+}
+
+.game-complete-xp {
+    color: var(--accent);
+    font-weight: 900;
+    font-size: 1.3rem;
+
+    margin-bottom: 18px;
+}
+
+.game-complete-lead {
+    color: var(--muted);
+    max-width: 480px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+}
+
+.game-recap {
+    display: grid;
+    gap: 10px;
+
+    margin-bottom: 35px;
+    text-align: left;
+}
+
+.game-recap-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 14px 18px;
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    background: var(--panel-light);
+}
+
+.game-recap-emoji {
+    font-size: 1.4rem;
+}
+
+.game-recap-label {
+    flex: 1;
+    font-weight: 700;
+}
+
+.game-recap-size {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.game-complete-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+@media (max-width: 700px) {
+
+    .game-shell {
+        padding: 20px;
+    }
+
+    .ordered-strip {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .tile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .game-complete-actions {
+        flex-direction: column;
+    }
+}
