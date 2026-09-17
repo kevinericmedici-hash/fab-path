@@ -2045,6 +2045,101 @@ nav a:hover {
     letter-spacing: 0.08em;
 }
 
+.stack-layer.flash {
+    animation: layerFlash 0.7s ease;
+}
+
+@keyframes layerFlash {
+
+    0%, 100% {
+        box-shadow: none;
+    }
+
+    30% {
+        box-shadow: inset 0 0 0 3px var(--text);
+    }
+}
+
+.process-log {
+    display: grid;
+    gap: 8px;
+
+    margin-bottom: 25px;
+}
+
+.process-log-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 10px 16px;
+
+    border-radius: 12px;
+    border: 1px solid rgba(84, 224, 199, 0.25);
+
+    background: rgba(84, 224, 199, 0.07);
+
+    font-size: 0.85rem;
+
+    animation: slotPop 0.3s ease;
+}
+
+.process-log-row.deposit-row {
+    border-color: var(--border);
+    background: var(--panel-light);
+}
+
+.process-log-check {
+    flex-shrink: 0;
+    color: var(--accent);
+    font-weight: 800;
+}
+
+.process-log-mask {
+    color: var(--accent);
+    font-weight: 800;
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+
+    flex-shrink: 0;
+}
+
+.process-log-row.deposit-row .process-log-mask {
+    color: var(--muted);
+}
+
+.process-log-name {
+    font-weight: 700;
+}
+
+.process-log-empty {
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+.game-tile.pattern-tile {
+    border-color: rgba(84, 224, 199, 0.3);
+}
+
+.game-tile-tag {
+    display: block;
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 800;
+    margin-top: 3px;
+}
+
+.recap-section-title {
+    color: var(--accent);
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+
+    margin: 30px 0 14px;
+}
+
 .stack-visual.released .stack-layer.sacrificial {
     height: 6px !important;
     padding: 0;
