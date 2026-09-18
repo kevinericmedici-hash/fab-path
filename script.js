@@ -8343,11 +8343,26 @@ function loadProgressPage() {
         ) || 0;
 
 
-    const completedLessons =
-        getCompletedLessonCount();
+    let completedLessons = 0;
+    let totalLessons = 0;
 
-    const totalLessons =
-        getAllLessons().length;
+    if (typeof courseData !== "undefined") {
+
+        completedLessons +=
+            getCompletedLessonCount();
+
+        totalLessons +=
+            getAllLessons().length;
+    }
+
+    if (typeof supercapCourseData !== "undefined") {
+
+        completedLessons +=
+            getSupercapCompletedLessonCount();
+
+        totalLessons +=
+            getSupercapAllLessons().length;
+    }
 
     const percent =
         totalLessons === 0
