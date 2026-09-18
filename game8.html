@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Build the Package | Fab Path</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="learn.html">Learn</a>
+            <a href="games.html" class="active-nav">Games</a>
+            <a href="practice.html">Practice</a>
+            <a href="progress.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <main class="game-page">
+
+        <section class="game-shell">
+
+            <div class="game-top">
+
+                <a href="games.html" class="module-exit">
+                    ← Back to Games
+                </a>
+
+                <div class="module-progress-area">
+
+                    <div class="module-progress-track">
+                        <div
+                            class="module-progress-fill"
+                            id="gameProgressFill"
+                        ></div>
+                    </div>
+
+                    <span id="gameProgressText">
+                        0 / 9
+                    </span>
+
+                </div>
+
+                <span class="game-badge">
+                    UNIT 8 GAME
+                </span>
+
+            </div>
+
+
+            <div class="game-header">
+
+                <p class="eyebrow">
+                    BUILD THE PACKAGE
+                </p>
+
+                <h1>
+                    Die to shipped chip, in order
+                </h1>
+
+                <p class="game-lead">
+                    A finished die still has to survive bonding,
+                    dicing, wiring, and sealing before it ships. Tap
+                    the nine packaging steps in the right order — do
+                    them out of sequence and the package won't work.
+                </p>
+
+            </div>
+
+
+            <div id="gameBoard">
+
+                <div class="build-zone" id="buildZone">
+                    <p class="build-zone-empty" id="buildZoneEmpty">
+                        No steps placed yet.
+                    </p>
+                </div>
+
+
+                <div class="tile-grid parts-grid" id="tileGrid">
+                </div>
+
+
+                <div class="game-feedback" id="gameFeedback">
+                    Tap the first packaging step.
+                </div>
+
+            </div>
+
+
+            <div id="gameComplete" class="game-complete" hidden>
+
+                <p class="eyebrow">
+                    CHALLENGE COMPLETE
+                </p>
+
+                <h2>
+                    📦 Shipped, in the right order
+                </h2>
+
+                <p class="game-complete-xp" id="gameCompleteXP">
+                    +65 XP
+                </p>
+
+                <p class="game-complete-lead" id="gameCompleteStats">
+                </p>
+
+                <div class="game-recap" id="gameRecap">
+                </div>
+
+                <div class="formula-recap">
+
+                    <p class="formula-recap-formula">
+                        Fabrication builds the device once.
+                        Packaging has to work every time it ships.
+                    </p>
+
+                    <p class="formula-recap-text">
+                        The order isn't arbitrary: die attach has to
+                        anchor the die before wire bonding can connect
+                        it, and encapsulation has to come after both
+                        or there's nothing left to protect. Skip a
+                        step, or run it early, and the die comes apart
+                        before it ever reaches a customer.
+                    </p>
+
+                </div>
+
+                <div class="game-complete-actions">
+
+                    <button
+                        type="button"
+                        class="module-nav-button secondary-button"
+                        id="playAgainButton"
+                    >
+                        Play Again
+                    </button>
+
+                    <a
+                        href="games.html"
+                        class="module-nav-button lesson-link"
+                        id="backToPathButton"
+                    >
+                        Back to Games
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+    <script src="game8.js"></script>
+
+</body>
+
+</html>

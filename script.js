@@ -9437,6 +9437,45 @@ function loadGamesPage() {
             }
         }
     }
+
+
+    const game8Card =
+        document.getElementById("game8Card");
+
+    if (game8Card) {
+
+        const game8Badge =
+            document.getElementById("game8Badge");
+
+        const game8CTA =
+            document.getElementById("game8CTA");
+
+        const lesson54Complete =
+            localStorage.getItem(
+                "fabPathLesson54Complete"
+            ) === "true";
+
+        if (lesson54Complete) {
+
+            game8Card.classList.remove("locked");
+            game8Card.classList.add("playable");
+
+            game8Card.href =
+                "game8.html";
+
+            if (game8Badge) {
+
+                game8Badge.textContent =
+                    "PLAY";
+            }
+
+            if (game8CTA) {
+
+                game8CTA.textContent =
+                    "Play now →";
+            }
+        }
+    }
 }
 
 loadGamesPage();
