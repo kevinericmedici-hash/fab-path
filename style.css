@@ -877,6 +877,7 @@ nav a:hover {
 
     padding: 12px 18px;
 
+    border: none;
     border-radius: 12px;
 
     background: var(--accent);
@@ -884,10 +885,24 @@ nav a:hover {
     color: #08110f;
 
     font-weight: 800;
+    font: inherit;
+
+    cursor: pointer;
+
+    transition: transform 0.15s ease;
+}
+
+.practice-button:hover {
+    transform: translateY(-2px);
 }
 
 .locked-practice {
     display: none;
+}
+
+.practice-session-shell {
+    width: min(900px, 100%);
+    margin: 0 auto;
 }
 
 
@@ -1017,6 +1032,15 @@ nav a:hover {
     color: var(--muted);
     font-weight: 700;
     white-space: nowrap;
+}
+
+button.module-exit {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
 }
 
 

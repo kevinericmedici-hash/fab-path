@@ -6398,6 +6398,69 @@ function loadUnit1StudyModule() {
 
 loadUnit1StudyModule();
 
+/*
+    Looked up by numeric lesson id - lets the practice
+    page pull any lesson's questions without a giant
+    if/else chain.
+*/
+
+const allLessonQuestions = {
+    1: lesson1Questions,
+    2: lesson2Questions,
+    3: lesson3Questions,
+    4: lesson4Questions,
+    5: lesson5Questions,
+    6: lesson6Questions,
+    7: lesson7Questions,
+    8: lesson8Questions,
+    9: lesson9Questions,
+    10: lesson10Questions,
+    11: lesson11Questions,
+    12: lesson12Questions,
+    13: lesson13Questions,
+    14: lesson14Questions,
+    15: lesson15Questions,
+    16: lesson16Questions,
+    17: lesson17Questions,
+    18: lesson18Questions,
+    19: lesson19Questions,
+    20: lesson20Questions,
+    21: lesson21Questions,
+    22: lesson22Questions,
+    23: lesson23Questions,
+    24: lesson24Questions,
+    25: lesson25Questions,
+    26: lesson26Questions,
+    27: lesson27Questions,
+    28: lesson28Questions,
+    29: lesson29Questions,
+    30: lesson30Questions,
+    31: lesson31Questions,
+    32: lesson32Questions,
+    33: lesson33Questions,
+    34: lesson34Questions,
+    35: lesson35Questions,
+    36: lesson36Questions,
+    37: lesson37Questions,
+    38: lesson38Questions,
+    39: lesson39Questions,
+    40: lesson40Questions,
+    41: lesson41Questions,
+    42: lesson42Questions,
+    43: lesson43Questions,
+    44: lesson44Questions,
+    45: lesson45Questions,
+    46: lesson46Questions,
+    47: lesson47Questions,
+    48: lesson48Questions,
+    49: lesson49Questions,
+    50: lesson50Questions,
+    51: lesson51Questions,
+    52: lesson52Questions,
+    53: lesson53Questions,
+    54: lesson54Questions
+};
+
 let lessonQuestions = [];
 let currentLesson = 0;
 
@@ -6994,6 +7057,61 @@ function loadQuestion() {
 }
 
 
+/* ========================================
+   MISTAKE TRACKING
+   Powers the "questions you get wrong most"
+   practice sessions.
+======================================== */
+
+function getMistakeCounts() {
+
+    return (
+        JSON.parse(
+            localStorage.getItem("fabPathMistakes")
+        ) || {}
+    );
+}
+
+
+function adjustMistakeCount(lessonId, questionIndex, delta) {
+
+    const mistakes =
+        getMistakeCounts();
+
+    const key =
+        `${lessonId}_${questionIndex}`;
+
+    const current =
+        mistakes[key] || 0;
+
+    const next =
+        Math.max(0, current + delta);
+
+    if (next === 0) {
+
+        delete mistakes[key];
+
+    } else {
+
+        mistakes[key] = next;
+    }
+
+    localStorage.setItem(
+        "fabPathMistakes",
+        JSON.stringify(mistakes)
+    );
+}
+
+
+function getMistakeCount(lessonId, questionIndex) {
+
+    const mistakes =
+        getMistakeCounts();
+
+    return mistakes[`${lessonId}_${questionIndex}`] || 0;
+}
+
+
 if (checkButton) {
 
     checkButton.addEventListener("click", function () {
@@ -7042,6 +7160,12 @@ if (checkButton) {
 
                 feedbackMessage.textContent =
                     "Not quite. The correct answer is highlighted.";
+
+                adjustMistakeCount(
+                    currentLesson,
+                    currentQuestion,
+                    1
+                );
             }
 
 
@@ -7960,7 +8084,7 @@ function loadLearnPageProgress() {
         across every unit for the progress bar.
     */
 
-    if (typeof getCompletedLessonCount === "function") {
+    if (typeof courseData !== "undefined") {
 
         completedLessons =
             getCompletedLessonCount();
@@ -8186,98 +8310,6 @@ function loadFabPathStats() {
 
 loadFabPathStats();
 
-/* ========================================
-   PRACTICE PAGE
-======================================== */
-
-function loadPracticePage() {
-
-    const lesson1Practice =
-        document.getElementById(
-            "practiceLesson1"
-        );
-
-    const lesson2Practice =
-        document.getElementById(
-            "practiceLesson2"
-        );
-
-    const lesson3Practice =
-        document.getElementById(
-            "practiceLesson3"
-        );
-    const lesson4Practice =
-        document.getElementById(
-            "practiceLesson4"
-        );
-
-    // Only run on Practice page
-    if (!lesson1Practice) {
-        return;
-    }
-
-
-    const lesson1Complete =
-        localStorage.getItem(
-            "fabPathLesson1Complete"
-        ) === "true";
-
-    const lesson2Complete =
-        localStorage.getItem(
-            "fabPathLesson2Complete"
-        ) === "true";
-
-    const lesson3Complete =
-        localStorage.getItem(
-            "fabPathLesson3Complete"
-        ) === "true";
-    
-        const lesson4Complete =
-        localStorage.getItem(
-            "fabPathLesson4Complete"
-        ) === "true";
-
-    if (!lesson1Complete) {
-
-        lesson1Practice.style.display =
-            "none";
-    }
-
-
-    if (
-        lesson2Complete &&
-        lesson2Practice
-    ) {
-
-        lesson2Practice.classList.remove(
-            "locked-practice"
-        );
-    }
-
-
-    if (
-        lesson3Complete &&
-        lesson3Practice
-    ) {
-
-        lesson3Practice.classList.remove(
-            "locked-practice"
-        );
-    }
-    if (
-        lesson4Complete &&
-        lesson4Practice
-    ) {
-
-        lesson4Practice.classList.remove(
-            "locked-practice"
-    );
-    }
-
-}
-
-
-loadPracticePage();
 /* ========================================
    PROGRESS PAGE
 ======================================== */
@@ -9178,315 +9210,42 @@ renderUnit8();
 
 function loadGamesPage() {
 
-    const game1Card =
-        document.getElementById("game1Card");
+    /*
+        Every game is playable right away - no lesson
+        gating. Just point each card at its game page.
+    */
 
-    if (!game1Card) {
-        return;
-    }
+    for (let gameNumber = 1; gameNumber <= 8; gameNumber++) {
 
-    const game1Badge =
-        document.getElementById("game1Badge");
+        const card =
+            document.getElementById(`game${gameNumber}Card`);
 
-    const game1CTA =
-        document.getElementById("game1CTA");
+        if (!card) {
+            continue;
+        }
 
-    const lesson4Complete =
-        localStorage.getItem(
-            "fabPathLesson4Complete"
-        ) === "true";
+        const badge =
+            document.getElementById(`game${gameNumber}Badge`);
 
-    if (lesson4Complete) {
+        const cta =
+            document.getElementById(`game${gameNumber}CTA`);
 
-        game1Card.classList.remove("locked");
-        game1Card.classList.add("playable");
+        card.classList.remove("locked");
+        card.classList.add("playable");
 
-        game1Card.href =
-            "game1.html";
+        card.href =
+            `game${gameNumber}.html`;
 
-        if (game1Badge) {
+        if (badge) {
 
-            game1Badge.textContent =
+            badge.textContent =
                 "PLAY";
         }
 
-        if (game1CTA) {
+        if (cta) {
 
-            game1CTA.textContent =
+            cta.textContent =
                 "Play now →";
-        }
-    }
-
-
-    const game2Card =
-        document.getElementById("game2Card");
-
-    if (game2Card) {
-
-        const game2Badge =
-            document.getElementById("game2Badge");
-
-        const game2CTA =
-            document.getElementById("game2CTA");
-
-        const lesson8Complete =
-            localStorage.getItem(
-                "fabPathLesson8Complete"
-            ) === "true";
-
-        if (lesson8Complete) {
-
-            game2Card.classList.remove("locked");
-            game2Card.classList.add("playable");
-
-            game2Card.href =
-                "game2.html";
-
-            if (game2Badge) {
-
-                game2Badge.textContent =
-                    "PLAY";
-            }
-
-            if (game2CTA) {
-
-                game2CTA.textContent =
-                    "Play now →";
-            }
-        }
-    }
-
-
-    const game3Card =
-        document.getElementById("game3Card");
-
-    if (game3Card) {
-
-        const game3Badge =
-            document.getElementById("game3Badge");
-
-        const game3CTA =
-            document.getElementById("game3CTA");
-
-        const lesson19Complete =
-            localStorage.getItem(
-                "fabPathLesson19Complete"
-            ) === "true";
-
-        if (lesson19Complete) {
-
-            game3Card.classList.remove("locked");
-            game3Card.classList.add("playable");
-
-            game3Card.href =
-                "game3.html";
-
-            if (game3Badge) {
-
-                game3Badge.textContent =
-                    "PLAY";
-            }
-
-            if (game3CTA) {
-
-                game3CTA.textContent =
-                    "Play now →";
-            }
-        }
-    }
-
-
-    const game4Card =
-        document.getElementById("game4Card");
-
-    if (game4Card) {
-
-        const game4Badge =
-            document.getElementById("game4Badge");
-
-        const game4CTA =
-            document.getElementById("game4CTA");
-
-        const lesson26Complete =
-            localStorage.getItem(
-                "fabPathLesson26Complete"
-            ) === "true";
-
-        if (lesson26Complete) {
-
-            game4Card.classList.remove("locked");
-            game4Card.classList.add("playable");
-
-            game4Card.href =
-                "game4.html";
-
-            if (game4Badge) {
-
-                game4Badge.textContent =
-                    "PLAY";
-            }
-
-            if (game4CTA) {
-
-                game4CTA.textContent =
-                    "Play now →";
-            }
-        }
-    }
-
-
-    const game5Card =
-        document.getElementById("game5Card");
-
-    if (game5Card) {
-
-        const game5Badge =
-            document.getElementById("game5Badge");
-
-        const game5CTA =
-            document.getElementById("game5CTA");
-
-        const lesson33Complete =
-            localStorage.getItem(
-                "fabPathLesson33Complete"
-            ) === "true";
-
-        if (lesson33Complete) {
-
-            game5Card.classList.remove("locked");
-            game5Card.classList.add("playable");
-
-            game5Card.href =
-                "game5.html";
-
-            if (game5Badge) {
-
-                game5Badge.textContent =
-                    "PLAY";
-            }
-
-            if (game5CTA) {
-
-                game5CTA.textContent =
-                    "Play now →";
-            }
-        }
-    }
-
-
-    const game6Card =
-        document.getElementById("game6Card");
-
-    if (game6Card) {
-
-        const game6Badge =
-            document.getElementById("game6Badge");
-
-        const game6CTA =
-            document.getElementById("game6CTA");
-
-        const lesson40Complete =
-            localStorage.getItem(
-                "fabPathLesson40Complete"
-            ) === "true";
-
-        if (lesson40Complete) {
-
-            game6Card.classList.remove("locked");
-            game6Card.classList.add("playable");
-
-            game6Card.href =
-                "game6.html";
-
-            if (game6Badge) {
-
-                game6Badge.textContent =
-                    "PLAY";
-            }
-
-            if (game6CTA) {
-
-                game6CTA.textContent =
-                    "Play now →";
-            }
-        }
-    }
-
-
-    const game7Card =
-        document.getElementById("game7Card");
-
-    if (game7Card) {
-
-        const game7Badge =
-            document.getElementById("game7Badge");
-
-        const game7CTA =
-            document.getElementById("game7CTA");
-
-        const lesson47Complete =
-            localStorage.getItem(
-                "fabPathLesson47Complete"
-            ) === "true";
-
-        if (lesson47Complete) {
-
-            game7Card.classList.remove("locked");
-            game7Card.classList.add("playable");
-
-            game7Card.href =
-                "game7.html";
-
-            if (game7Badge) {
-
-                game7Badge.textContent =
-                    "PLAY";
-            }
-
-            if (game7CTA) {
-
-                game7CTA.textContent =
-                    "Play now →";
-            }
-        }
-    }
-
-
-    const game8Card =
-        document.getElementById("game8Card");
-
-    if (game8Card) {
-
-        const game8Badge =
-            document.getElementById("game8Badge");
-
-        const game8CTA =
-            document.getElementById("game8CTA");
-
-        const lesson54Complete =
-            localStorage.getItem(
-                "fabPathLesson54Complete"
-            ) === "true";
-
-        if (lesson54Complete) {
-
-            game8Card.classList.remove("locked");
-            game8Card.classList.add("playable");
-
-            game8Card.href =
-                "game8.html";
-
-            if (game8Badge) {
-
-                game8Badge.textContent =
-                    "PLAY";
-            }
-
-            if (game8CTA) {
-
-                game8CTA.textContent =
-                    "Play now →";
-            }
         }
     }
 }

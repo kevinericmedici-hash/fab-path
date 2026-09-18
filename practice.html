@@ -1,226 +1,168 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Practice | Fab Path</title>
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
-<header class="topbar">
+    <header class="topbar">
 
-    <a
-        href="index.html"
-        class="logo"
-    >
-        FAB PATH
-    </a>
-
-
-    <nav>
-
-        <a href="learn.html">
-            Learn
+        <a href="index.html" class="logo">
+            FAB PATH
         </a>
 
-        <a href="games.html">
-            Games
-        </a>
+        <nav>
+            <a href="learn.html">Learn</a>
+            <a href="games.html">Games</a>
+            <a href="practice.html" class="active-nav">Practice</a>
+            <a href="progress.html">Progress</a>
+        </nav>
 
-        <a
-            href="practice.html"
-            class="active-nav"
-        >
-            Practice
-        </a>
-
-        <a href="progress.html">
-            Progress
-        </a>
-
-    </nav>
-
-
-    <div class="user-stats">
-
-        <span>
-            🔥
-            <span id="streakDisplay">
-                0
-            </span>
-        </span>
-
-        <span>
-            ⚡
-            <span id="totalXPDisplay">
-                0
-            </span>
-            XP
-        </span>
-
-    </div>
-
-</header>
-
-
-<main class="practice-page">
-
-
-    <section class="practice-header">
-
-        <p class="eyebrow">
-            PRACTICE
-        </p>
-
-        <h1>
-            Strengthen your skills.
-        </h1>
-
-        <p>
-            Review completed lessons and reinforce
-            your microfabrication knowledge.
-        </p>
-
-    </section>
-
-
-    <section class="practice-grid">
-
-
-        <div
-            class="practice-card"
-            id="practiceLesson1"
-        >
+        <div class="user-stats">
 
             <span>
-                MEMS FOUNDATIONS
+                🔥 <span id="streakDisplay">0</span>
             </span>
 
-            <h2>
-                What Are MEMS?
-            </h2>
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
 
-            <p>
-                Review MEMS fundamentals,
-                terminology, and applications.
-            </p>
+        </div>
 
-            <a
-                href="lesson1.html"
-                class="practice-button"
-            >
-                Practice Lesson
-            </a>
+    </header>
+
+
+    <main class="practice-page">
+
+        <div id="practiceHub">
+
+            <section class="practice-header">
+
+                <p class="eyebrow">
+                    PRACTICE
+                </p>
+
+                <h1>
+                    Fix your weak spots.
+                </h1>
+
+                <p>
+                    Each unit pulls together the questions you've
+                    missed the most, so you spend your time on what
+                    actually needs work — not what you already know.
+                </p>
+
+            </section>
+
+
+            <section class="practice-grid" id="practiceUnitsGrid">
+            </section>
 
         </div>
 
 
-        <div
-            class="practice-card locked-practice"
-            id="practiceLesson2"
-        >
+        <div id="practiceSession" class="practice-session-shell game-shell" hidden>
 
-            <span>
-                MEMS FOUNDATIONS
-            </span>
+            <div class="game-top">
 
-            <h2>
-                The Microscale
-            </h2>
+                <button type="button" class="module-exit" id="practiceBackButton">
+                    ← Back to Practice
+                </button>
 
-            <p>
-                Practice micrometers,
-                nanometers, scale, and
-                microsystem dimensions.
-            </p>
+                <div class="module-progress-area">
 
-            <a
-                href="lesson2.html"
-                class="practice-button"
-            >
-                Practice Lesson
-            </a>
+                    <div class="module-progress-track">
+                        <div class="module-progress-fill" id="practiceProgressFill"></div>
+                    </div>
+
+                    <span id="practiceProgressText">
+                        1 / 8
+                    </span>
+
+                </div>
+
+                <span class="game-badge" id="practiceSessionTitle">
+                    UNIT 1
+                </span>
+
+            </div>
+
+
+            <div id="practiceQuizArea">
+
+                <section class="question-card">
+
+                    <p class="question-number" id="practiceQuestionNumber">
+                        QUESTION 1 OF 8
+                    </p>
+
+                    <h1 id="practiceQuestionText">
+                    </h1>
+
+                    <p class="question-instruction">
+                        Choose the best answer.
+                    </p>
+
+                    <div class="answer-grid" id="practiceAnswerGrid">
+                    </div>
+
+                </section>
+
+
+                <div class="lesson-footer">
+
+                    <div class="feedback-message" id="practiceFeedbackMessage">
+                        Select an answer to continue.
+                    </div>
+
+                    <button class="check-button" id="practiceCheckButton" disabled>
+                        Check Answer
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div id="practiceSessionComplete" class="game-complete" hidden>
+
+                <p class="eyebrow">
+                    PRACTICE COMPLETE
+                </p>
+
+                <h2>
+                    🎯 Round done
+                </h2>
+
+                <p class="game-complete-lead" id="practiceSessionStats">
+                </p>
+
+                <div class="game-complete-actions">
+
+                    <button type="button" class="module-nav-button" id="practiceDoneButton">
+                        Back to Practice
+                    </button>
+
+                </div>
+
+            </div>
 
         </div>
 
+    </main>
 
 
-        <div
-    class="practice-card locked-practice"
-    id="practiceLesson3"
->
-
-    <span>
-        MEMS FOUNDATIONS
-    </span>
-
-    <h2>
-        Scaling Laws
-    </h2>
-
-    <p>
-        Review how area, volume, gravity,
-        surface forces, and electrostatics
-        change at the microscale.
-    </p>
-
-    <a
-        href="lesson3.html"
-        class="practice-button"
-    >
-        Practice Lesson
-    </a>
-
-</div>
-<div
-    class="practice-card locked-practice"
-    id="practiceLesson4"
->
-
-    <span>
-        MEMS FOUNDATIONS
-    </span>
-
-    <h2>
-        MEMS Applications
-    </h2>
-
-    <p>
-        Review common MEMS sensors,
-        actuators, biomedical devices,
-        and consumer applications.
-    </p>
-
-    <a
-        href="lesson4.html"
-        class="practice-button"
-    >
-        Practice Lesson
-    </a>
-
-</div>
-    </section>
-
-</main>
-
-
-<script src="script.js"></script>
+    <script src="course-data.js"></script>
+    <script src="script.js"></script>
+    <script src="practice.js"></script>
 
 </body>
 
