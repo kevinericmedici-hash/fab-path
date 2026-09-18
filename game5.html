@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Electrostatic Force Lab | Fab Path</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="learn.html">Learn</a>
+            <a href="games.html" class="active-nav">Games</a>
+            <a href="practice.html">Practice</a>
+            <a href="progress.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <main class="game-page">
+
+        <section class="game-shell">
+
+            <div class="game-top">
+
+                <a href="games.html" class="module-exit">
+                    ← Back to Games
+                </a>
+
+                <div class="module-progress-area">
+
+                    <div class="module-progress-track">
+                        <div
+                            class="module-progress-fill"
+                            id="gameProgressFill"
+                        ></div>
+                    </div>
+
+                    <span id="gameProgressText">
+                        1 / 5
+                    </span>
+
+                </div>
+
+                <span class="game-badge">
+                    UNIT 5 GAME
+                </span>
+
+            </div>
+
+
+            <div class="game-header">
+
+                <p class="eyebrow">
+                    ELECTROSTATIC FORCE LAB
+                </p>
+
+                <h1>
+                    Pull the plates together
+                </h1>
+
+                <p class="game-lead">
+                    A simple parallel-plate actuator — the same
+                    principle behind an accelerometer's self-test
+                    structures. Dial in voltage and gap to hit each
+                    target force.
+                </p>
+
+            </div>
+
+
+            <div id="gameBoard">
+
+                <div class="lab-stage">
+
+                    <div class="plate-stage">
+
+                        <div class="plate plate-fixed"></div>
+
+                        <div class="plate plate-movable" id="movablePlate"></div>
+
+                        <span class="gap-label" id="gapLabel">
+                            2.0 µm
+                        </span>
+
+                    </div>
+
+
+                    <div class="lab-readout">
+
+                        <p class="lab-readout-label">
+                            Force on the plate
+                        </p>
+
+                        <p class="lab-readout-value" id="forceReadout">
+                            0 µN
+                        </p>
+
+                        <div class="force-meter-track">
+                            <div
+                                class="force-meter-fill"
+                                id="forceMeterFill"
+                            ></div>
+
+                            <div
+                                class="force-meter-target"
+                                id="forceMeterTarget"
+                            ></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="target-badge" id="targetBadge">
+                        🎯 Target: ~2 µN
+                    </div>
+
+                </div>
+
+
+                <div class="slider-panel">
+
+                    <div class="slider-row">
+
+                        <label class="slider-label" for="voltageSlider">
+                            Voltage
+                            <span class="slider-value" id="voltageValue">10.0 V</span>
+                        </label>
+
+                        <input
+                            type="range"
+                            id="voltageSlider"
+                            min="1"
+                            max="20"
+                            step="0.5"
+                            value="10"
+                        >
+
+                    </div>
+
+
+                    <div class="slider-row">
+
+                        <label class="slider-label" for="gapSlider">
+                            Gap
+                            <span class="slider-value" id="gapValue">2.0 µm</span>
+                        </label>
+
+                        <input
+                            type="range"
+                            id="gapSlider"
+                            min="0.5"
+                            max="5"
+                            step="0.1"
+                            value="2"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="module-nav-button lock-in-button"
+                    id="lockInButton"
+                >
+                    Lock It In
+                </button>
+
+
+                <div class="game-feedback" id="gameFeedback">
+                    Adjust voltage and gap, then lock in when you
+                    think you've hit the target.
+                </div>
+
+            </div>
+
+
+            <div id="gameComplete" class="game-complete" hidden>
+
+                <p class="eyebrow">
+                    CHALLENGE COMPLETE
+                </p>
+
+                <h2>
+                    ⚡ You've got a feel for the force!
+                </h2>
+
+                <p class="game-complete-xp" id="gameCompleteXP">
+                    +50 XP
+                </p>
+
+                <p class="game-complete-lead" id="gameCompleteStats">
+                    5 for 5 — every target hit.
+                </p>
+
+                <div class="formula-recap">
+
+                    <p class="formula-recap-formula">
+                        F = ε₀AV² / 2g²
+                    </p>
+
+                    <p class="formula-recap-text">
+                        Force scales with the <strong>square</strong>
+                        of voltage but falls off with the
+                        <strong>square</strong> of the gap — which is
+                        why closing the gap works so much faster than
+                        raising the voltage. This exact relationship
+                        is what drives an accelerometer's electrostatic
+                        self-test structures, and what makes pull-in
+                        happen so suddenly in a torsion mirror.
+                    </p>
+
+                </div>
+
+                <div class="game-complete-actions">
+
+                    <button
+                        type="button"
+                        class="module-nav-button secondary-button"
+                        id="playAgainButton"
+                    >
+                        Play Again
+                    </button>
+
+                    <a
+                        href="games.html"
+                        class="module-nav-button lesson-link"
+                        id="backToPathButton"
+                    >
+                        Back to Games
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+    <script src="game5.js"></script>
+
+</body>
+
+</html>
