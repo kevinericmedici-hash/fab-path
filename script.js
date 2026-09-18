@@ -7954,6 +7954,19 @@ function loadLearnPageProgress() {
     }
 
 
+    /*
+        The loop above only checks lessons 1-8, a leftover
+        from before later units existed. Use the real count
+        across every unit for the progress bar.
+    */
+
+    if (typeof getCompletedLessonCount === "function") {
+
+        completedLessons =
+            getCompletedLessonCount();
+    }
+
+
     const percent =
         Math.round(
             (
