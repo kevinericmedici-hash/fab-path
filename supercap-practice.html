@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Practice | Fab Path</title>
+    <title>Practice | Supercapacitors | Fab Path</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -19,9 +19,9 @@
         </a>
 
         <nav>
-            <a href="learn.html">Learn</a>
-            <a href="games.html">Games</a>
-            <a href="practice.html" class="active-nav">Practice</a>
+            <a href="supercap-learn.html">Learn</a>
+            <a href="supercap-games.html">Games</a>
+            <a href="supercap-practice.html" class="active-nav">Practice</a>
             <a href="index.html">Progress</a>
         </nav>
 
@@ -42,7 +42,7 @@
 
     <main class="practice-page">
 
-        <div id="practiceHub">
+        <div id="supercapPracticeHub">
 
             <section class="practice-header">
 
@@ -56,62 +56,62 @@
 
                 <p>
                     Each unit pulls together the questions you've
-                    missed the most, so you spend your time on what
-                    actually needs work — not what you already know.
+                    missed the most in the Supercapacitors course, so
+                    you spend your time on what actually needs work.
                 </p>
 
             </section>
 
 
-            <section class="practice-grid" id="practiceUnitsGrid">
+            <section class="practice-grid" id="supercapPracticeUnitsGrid">
             </section>
 
         </div>
 
 
-        <div id="practiceSession" class="practice-session-shell game-shell" hidden>
+        <div id="supercapPracticeSession" class="practice-session-shell game-shell" hidden>
 
             <div class="game-top">
 
-                <button type="button" class="module-exit" id="practiceBackButton">
+                <button type="button" class="module-exit" id="supercapPracticeBackButton">
                     ← Back to Practice
                 </button>
 
                 <div class="module-progress-area">
 
                     <div class="module-progress-track">
-                        <div class="module-progress-fill" id="practiceProgressFill"></div>
+                        <div class="module-progress-fill" id="supercapPracticeProgressFill"></div>
                     </div>
 
-                    <span id="practiceProgressText">
+                    <span id="supercapPracticeProgressText">
                         1 / 8
                     </span>
 
                 </div>
 
-                <span class="game-badge" id="practiceSessionTitle">
+                <span class="game-badge" id="supercapPracticeSessionTitle">
                     UNIT 1
                 </span>
 
             </div>
 
 
-            <div id="practiceQuizArea">
+            <div id="supercapPracticeQuizArea">
 
                 <section class="question-card">
 
-                    <p class="question-number" id="practiceQuestionNumber">
+                    <p class="question-number" id="supercapPracticeQuestionNumber">
                         QUESTION 1 OF 8
                     </p>
 
-                    <h1 id="practiceQuestionText">
+                    <h1 id="supercapPracticeQuestionText">
                     </h1>
 
                     <p class="question-instruction">
                         Choose the best answer.
                     </p>
 
-                    <div class="answer-grid" id="practiceAnswerGrid">
+                    <div class="answer-grid" id="supercapPracticeAnswerGrid">
                     </div>
 
                 </section>
@@ -119,11 +119,11 @@
 
                 <div class="lesson-footer">
 
-                    <div class="feedback-message" id="practiceFeedbackMessage">
+                    <div class="feedback-message" id="supercapPracticeFeedbackMessage">
                         Select an answer to continue.
                     </div>
 
-                    <button class="check-button" id="practiceCheckButton" disabled>
+                    <button class="check-button" id="supercapPracticeCheckButton" disabled>
                         Check Answer
                     </button>
 
@@ -132,7 +132,7 @@
             </div>
 
 
-            <div id="practiceSessionComplete" class="game-complete" hidden>
+            <div id="supercapPracticeSessionComplete" class="game-complete" hidden>
 
                 <p class="eyebrow">
                     PRACTICE COMPLETE
@@ -142,12 +142,12 @@
                     🎯 Round done
                 </h2>
 
-                <p class="game-complete-lead" id="practiceSessionStats">
+                <p class="game-complete-lead" id="supercapPracticeSessionStats">
                 </p>
 
                 <div class="game-complete-actions">
 
-                    <button type="button" class="module-nav-button" id="practiceDoneButton">
+                    <button type="button" class="module-nav-button" id="supercapPracticeDoneButton">
                         Back to Practice
                     </button>
 
@@ -160,9 +160,11 @@
     </main>
 
 
-    <script src="course-data.js"></script>
+    <script src="supercap-course-data.js"></script>
+    <script src="supercap-questions-data.js"></script>
     <script src="script.js"></script>
-    <script src="practice.js"></script>
+    <script src="supercap-script.js"></script>
+    <script src="supercap-practice.js"></script>
 
 </body>
 

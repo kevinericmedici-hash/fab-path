@@ -80,6 +80,65 @@ function getSupercapCompletedLessonCount() {
 }
 
 
+/* ========================================
+   MISTAKE TRACKING
+   Powers the Supercapacitors "questions you
+   get wrong most" practice sessions. Uses
+   its own localStorage blob so lesson ids
+   never collide with the MEMS course's
+   mistake tracking (both courses start
+   numbering lessons at 1).
+======================================== */
+
+function getSupercapMistakeCounts() {
+
+    return (
+        JSON.parse(
+            localStorage.getItem("fabPathSupercapMistakes")
+        ) || {}
+    );
+}
+
+
+function adjustSupercapMistakeCount(lessonId, questionIndex, delta) {
+
+    const mistakes =
+        getSupercapMistakeCounts();
+
+    const key =
+        `${lessonId}_${questionIndex}`;
+
+    const current =
+        mistakes[key] || 0;
+
+    const next =
+        Math.max(0, current + delta);
+
+    if (next === 0) {
+
+        delete mistakes[key];
+
+    } else {
+
+        mistakes[key] = next;
+    }
+
+    localStorage.setItem(
+        "fabPathSupercapMistakes",
+        JSON.stringify(mistakes)
+    );
+}
+
+
+function getSupercapMistakeCount(lessonId, questionIndex) {
+
+    const mistakes =
+        getSupercapMistakeCounts();
+
+    return mistakes[`${lessonId}_${questionIndex}`] || 0;
+}
+
+
 function createSupercapStudyNode(unit, unitIndex) {
 
     const complete =
@@ -412,6 +471,12 @@ function initSupercapLessonQuiz(lessonId, questions) {
 
                 feedbackMessage.textContent =
                     "Not quite. The correct answer is highlighted.";
+
+                adjustSupercapMistakeCount(
+                    lessonId,
+                    currentQuestion,
+                    1
+                );
             }
 
             checkButton.textContent =
