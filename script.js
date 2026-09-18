@@ -9251,3 +9251,112 @@ function loadGamesPage() {
 }
 
 loadGamesPage();
+
+/* ========================================
+   INDEX PAGE - COURSE CATALOG
+======================================== */
+
+function loadIndexPage() {
+
+    const grid =
+        document.getElementById("courseCatalogGrid");
+
+    if (!grid) {
+        return;
+    }
+
+    if (typeof coursesData === "undefined") {
+        return;
+    }
+
+    grid.innerHTML =
+        coursesData.map(function (course) {
+
+            if (course.status !== "live") {
+
+                return `
+                    <div class="game-hub-card coming-soon">
+
+                        <span class="game-hub-badge">
+                            COMING SOON
+                        </span>
+
+                        <div class="game-hub-icon">
+                            ${course.icon}
+                        </div>
+
+                        <h3>${course.title}</h3>
+
+                        <p>${course.description}</p>
+
+                        <span class="game-hub-cta">
+                            Coming soon
+                        </span>
+
+                    </div>
+                `;
+            }
+
+            let percent = 0;
+
+            if (
+                course.id === "mems" &&
+                typeof courseData !== "undefined"
+            ) {
+
+                const totalLessons =
+                    getAllLessons().length;
+
+                const completedLessons =
+                    getCompletedLessonCount();
+
+                percent =
+                    totalLessons === 0
+                        ? 0
+                        : Math.round(
+                            (completedLessons / totalLessons) * 100
+                        );
+            }
+
+            let badge = "START";
+            let cta = "Start Learning →";
+
+            if (percent === 100) {
+
+                badge = "COMPLETE";
+                cta = "Review →";
+
+            } else if (percent > 0) {
+
+                badge = `${percent}% COMPLETE`;
+                cta = "Continue Learning →";
+            }
+
+            return `
+                <a
+                    href="${course.href}"
+                    class="game-hub-card playable lesson-link"
+                >
+                    <span class="game-hub-badge">
+                        ${badge}
+                    </span>
+
+                    <div class="game-hub-icon">
+                        ${course.icon}
+                    </div>
+
+                    <h3>${course.title}</h3>
+
+                    <p>${course.description}</p>
+
+                    <span class="game-hub-cta">
+                        ${cta}
+                    </span>
+
+                </a>
+            `;
+
+        }).join("");
+}
+
+loadIndexPage();

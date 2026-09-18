@@ -141,6 +141,19 @@ nav a:hover {
     transform: translateY(-2px);
 }
 
+.hero-solo {
+    grid-template-columns: 1fr;
+    min-height: auto;
+
+    max-width: 900px;
+
+    padding: 90px 0 60px;
+}
+
+.courses-section {
+    padding-top: 10px;
+}
+
 .path-preview {
     background: linear-gradient(
         145deg,
