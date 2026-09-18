@@ -157,6 +157,57 @@ const supercapCourseData = [
             }
 
         ]
+    },
+
+
+    /* =====================================
+       UNIT 4
+    ===================================== */
+
+    {
+        id: 4,
+
+        title: "Device Design",
+
+        description:
+            "Why 3D interdigitated electrodes win, where the geometry tradeoffs bite, and how five designs led to Galileo.",
+
+        studyModule: {
+            title: "Device Design",
+            href: "supercapunit4.html"
+        },
+
+        lessons: [
+
+            {
+                id: 13,
+                title: "Why Go 3D?",
+                description:
+                    "Planar interdigitated electrodes, the thin-film limit, and how height buys capacity."
+            },
+
+            {
+                id: 14,
+                title: "Geometry Tradeoffs",
+                description:
+                    "Height, spacing, and finger width all pull against each other."
+            },
+
+            {
+                id: 15,
+                title: "Layers & Requirements",
+                description:
+                    "The four-layer device stack and the constraints the design had to satisfy."
+            },
+
+            {
+                id: 16,
+                title: "Da Vinci to Galileo",
+                description:
+                    "Five design iterations, what broke in each, and what the final device fixed."
+            }
+
+        ]
     }
 
 ];

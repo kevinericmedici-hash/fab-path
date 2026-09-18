@@ -726,6 +726,246 @@ const supercapLesson12Questions = [
 ];
 
 
+const supercapLesson13Questions = [
+
+    {
+        question: "In a planar interdigitated micro supercapacitor, how are the electrodes arranged?",
+        answers: [
+            "Alternating positive and negative fingers patterned side by side on the same substrate",
+            "One large electrode stacked on top of the other with a membrane between them",
+            "A single electrode wrapped around a wire",
+            "Two electrodes on opposite sides of a wafer"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which is an advantage of the in-plane interdigitated layout?",
+        answers: [
+            "It needs a thick separator membrane between the electrodes",
+            "Both electrodes can be made in the same lithographic process, and the small lateral gaps shorten ion travel",
+            "It makes the electrodes invisible",
+            "It removes the need for an electrolyte"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Why can an ultrathin-film electrode show high capacitance per gram or per volume but low capacitance per unit area?",
+        answers: [
+            "Thin films are too conductive",
+            "A very thin layer holds only a small total amount of active material in the available footprint",
+            "Thin films cannot touch the electrolyte",
+            "Thin films always short-circuit"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "How does a 3D interdigitated design increase charge storage without enlarging the device footprint?",
+        answers: [
+            "It makes the electrolyte thicker",
+            "It shrinks the electrodes",
+            "It extends the electrodes vertically, adding sidewall area and active-material volume",
+            "It removes the gap between the electrodes"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Earlier planar pyrolytic-carbon micro supercapacitors reached about 2.75 mF/cm² or less. A 3D device with a pseudocapacitive coating reached roughly what?",
+        answers: [
+            "About 0.5 mF/cm²",
+            "About 5 mF/cm²",
+            "About 125 mF/cm²",
+            "About 12,500 mF/cm²"
+        ],
+        correct: 2
+    }
+
+];
+
+
+const supercapLesson14Questions = [
+
+    {
+        question: "Why can an excessively thick electrode perform worse at high scan rates?",
+        answers: [
+            "Ions may not be able to penetrate the full depth quickly, causing concentration gradients and higher ionic resistance",
+            "Thick electrodes stop conducting electrons entirely",
+            "Thick electrodes change color",
+            "Thick electrodes make the electrolyte evaporate"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which of these is one of the coupled geometric parameters in a 3D interdigitated micro supercapacitor?",
+        answers: [
+            "The brand of the alligator clips",
+            "The number of interdigitated electrode pairs",
+            "The time of day of testing",
+            "The wafer supplier's logo"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What is the electrochemical benefit of reducing the gap between adjacent electrode fingers?",
+        answers: [
+            "It lengthens the ion diffusion path",
+            "It lowers the number of fingers",
+            "It shortens the ionic diffusion distance",
+            "It removes the need for current collectors"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What is a fabrication downside of making the gaps extremely narrow?",
+        answers: [
+            "It complicates fabrication, electrolyte infiltration, and electrical isolation between electrodes",
+            "It makes the electrodes too wide",
+            "It changes the substrate material",
+            "It eliminates the need for photolithography"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "In a thick 3D electrode, what does the \"energy-power tradeoff\" mean?",
+        answers: [
+            "More active material raises stored energy, but if ions cannot reach all of it quickly, high-rate power suffers",
+            "More active material always raises both energy and power equally",
+            "Power and energy are unrelated in supercapacitors",
+            "Thicker electrodes have less material"
+        ],
+        correct: 0
+    }
+
+];
+
+
+const supercapLesson15Questions = [
+
+    {
+        question: "Which is the correct order of the device's layers, from first fabricated to last?",
+        answers: [
+            "Second polyimide, silver, glassy carbon, first polyimide",
+            "Glassy-carbon electrodes, first polyimide, titanium/silver current collectors, second polyimide",
+            "Titanium/silver, glassy carbon, second polyimide, first polyimide",
+            "First polyimide, second polyimide, glassy carbon, titanium/silver"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What are the two polyimide layers for?",
+        answers: [
+            "To store the charge",
+            "To act as the electrolyte",
+            "To provide electrical insulation and protection, with openings that expose the active electrodes and the contact pads",
+            "To make the device conductive"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Why must the gap between electrode fingers be small, but not too small?",
+        answers: [
+            "A smaller gap raises capacitance, but it must stay large enough to avoid shorting and keep the structure intact through fabrication and pyrolysis",
+            "A smaller gap always lowers capacitance",
+            "The gap has no effect on anything",
+            "Gaps must be as large as possible"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Why were the metal contact pads made large enough?",
+        answers: [
+            "To hold extra electrolyte",
+            "So potentiostat alligator clips could make reliable contact without damaging the device",
+            "To store more charge than the electrodes",
+            "To block light"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Which set of biomedical devices set the size targets for the design?",
+        answers: [
+            "A laptop, a smartphone, and a television",
+            "A neural interface, a continuous glucose monitor, and a cardiac pacemaker",
+            "A hearing aid, a wristwatch, and a drone",
+            "A car battery, a solar panel, and a wind turbine"
+        ],
+        correct: 1
+    }
+
+];
+
+
+const supercapLesson16Questions = [
+
+    {
+        question: "The da Vinci design used 50 µm × 1.40 cm electrodes. Why was it not carried forward for electrochemical characterization?",
+        answers: [
+            "It stored too little charge to measure",
+            "It was too large for a 20 mm coin-cell enclosure, fragile with low yield, and had undersized contact pads",
+            "It used the wrong electrolyte",
+            "It had no electrodes"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What went wrong when the Medici design narrowed the gaps between electrodes?",
+        answers: [
+            "The gaps approached the lithography resolution limit, and incomplete resist development left gaps too small or electrodes shorted together",
+            "The gaps became too wide to hold electrolyte",
+            "The electrodes turned into metal",
+            "The polyimide dissolved"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Wider 100 µm electrodes fixed the lithography yield in the Mona Lisa design. What new problem appeared?",
+        answers: [
+            "Fingers delaminated from the substrate during pyrolysis because of thermal stress",
+            "The electrodes were too short",
+            "The polyimide layers merged",
+            "The contact pads vanished"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Why was the Marco Polo design fabricated at multiple glassy-carbon thicknesses with identical geometry?",
+        answers: [
+            "To compare electrode shapes",
+            "To act as a benchmark based on a previously validated design, isolating how thickness alone affects performance",
+            "To test different electrolytes",
+            "To avoid using polyimide"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Which Galileo change fixed a problem shared by the Medici and Mona Lisa designs?",
+        answers: [
+            "Shrinking the whole device to a single electrode",
+            "Removing the polyimide",
+            "Moving the contact pads about 2.5 mm away so the silver pads stay out of the electrolyte while the carbon electrodes are fully immersed",
+            "Doubling the operating voltage"
+        ],
+        correct: 2
+    }
+
+];
+
+
 /*
     Looked up by numeric lesson id, the same
     pattern script.js uses for the MEMS course's
@@ -744,5 +984,9 @@ const supercapAllLessonQuestions = {
     9: supercapLesson9Questions,
     10: supercapLesson10Questions,
     11: supercapLesson11Questions,
-    12: supercapLesson12Questions
+    12: supercapLesson12Questions,
+    13: supercapLesson13Questions,
+    14: supercapLesson14Questions,
+    15: supercapLesson15Questions,
+    16: supercapLesson16Questions
 };
