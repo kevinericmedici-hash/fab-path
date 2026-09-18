@@ -2424,6 +2424,22 @@ nav a:hover {
     display: block;
 }
 
+.acoustic-stage {
+    max-width: 380px;
+    margin: 0 auto 22px;
+}
+
+.acoustic-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.acoustic-svg circle,
+.acoustic-svg text {
+    transition: cx 0.2s ease, x 0.2s ease;
+}
+
 .accel-mass-rect {
     transition: width 0.15s ease, height 0.15s ease, x 0.15s ease, y 0.15s ease;
 }

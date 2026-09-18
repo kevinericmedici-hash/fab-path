@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sort the Cells | Fab Path</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="learn.html">Learn</a>
+            <a href="games.html" class="active-nav">Games</a>
+            <a href="practice.html">Practice</a>
+            <a href="progress.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <main class="game-page">
+
+        <section class="game-shell">
+
+            <div class="game-top">
+
+                <a href="games.html" class="module-exit">
+                    ← Back to Games
+                </a>
+
+                <div class="module-progress-area">
+
+                    <div class="module-progress-track">
+                        <div
+                            class="module-progress-fill"
+                            id="gameProgressFill"
+                        ></div>
+                    </div>
+
+                    <span id="gameProgressText">
+                        1 / 5
+                    </span>
+
+                </div>
+
+                <span class="game-badge">
+                    UNIT 7 GAME
+                </span>
+
+            </div>
+
+
+            <div class="game-header">
+
+                <p class="eyebrow">
+                    SORT THE CELLS
+                </p>
+
+                <h1>
+                    Fund the wave, sort by size
+                </h1>
+
+                <p class="game-lead">
+                    Two IDTs launch surface acoustic waves toward each
+                    other, forming a standing wave with a pressure
+                    node down the center. Dial in the drive voltage so
+                    the large cells get funneled to the node — without
+                    dragging the small ones in too.
+                </p>
+
+            </div>
+
+
+            <div id="gameBoard">
+
+                <div class="acoustic-stage">
+
+                    <svg viewBox="0 0 300 160" class="acoustic-svg" id="acousticSvg">
+
+                        <g id="idtLeft">
+                            <rect x="0" y="20" width="10" height="120" fill="var(--text)"/>
+                            <line x1="10" y1="30" x2="25" y2="30" stroke="var(--muted)" stroke-width="3"/>
+                            <line x1="10" y1="55" x2="25" y2="55" stroke="var(--muted)" stroke-width="3"/>
+                            <line x1="10" y1="80" x2="25" y2="80" stroke="var(--muted)" stroke-width="3"/>
+                            <line x1="10" y1="105" x2="25" y2="105" stroke="var(--muted)" stroke-width="3"/>
+                            <line x1="10" y1="130" x2="25" y2="130" stroke="var(--muted)" stroke-width="3"/>
+                        </g>
+
+                        <g id="idtRight">
+                            <rect x="290" y="20" width="10" height="120" fill="var(--text)"/>
+                            <line x1="290" y1="30" x2="275" y2="30" stroke="var(--muted)" stroke-width="3"/>
+                            <line x1="290" y1="55" x2="275" y2="55" stroke="var(--muted)" stroke-width="3"/>
+                            <line x1="290" y1="80" x2="275" y2="80" stroke="var(--muted)" stroke-width="3"/>
+                            <line x1="290" y1="105" x2="275" y2="105" stroke="var(--muted)" stroke-width="3"/>
+                            <line x1="290" y1="130" x2="275" y2="130" stroke="var(--muted)" stroke-width="3"/>
+                        </g>
+
+                        <rect x="25" y="10" width="250" height="140" fill="none" stroke="var(--muted)" stroke-width="1" opacity="0.3"/>
+
+                        <rect
+                            x="130"
+                            y="10"
+                            width="40"
+                            height="140"
+                            fill="rgba(84, 224, 199, 0.12)"
+                            stroke="rgba(84, 224, 199, 0.35)"
+                            stroke-width="1"
+                        />
+
+                        <text x="150" y="9" text-anchor="middle" fill="var(--muted)" font-size="9">
+                            PRESSURE NODE
+                        </text>
+
+                        <circle id="smallParticle" cx="60" cy="45" r="6" fill="var(--muted)"/>
+                        <text id="smallParticleLabel" x="60" y="28" text-anchor="middle" fill="var(--muted)" font-size="9">
+                            Small
+                        </text>
+
+                        <circle id="largeParticle" cx="240" cy="118" r="11" fill="var(--accent)"/>
+                        <text id="largeParticleLabel" x="240" y="140" text-anchor="middle" fill="var(--accent)" font-size="9">
+                            Large
+                        </text>
+
+                    </svg>
+
+                </div>
+
+
+                <div class="accel-readout-grid">
+
+                    <div class="accel-readout-box">
+                        <p class="accel-readout-label" id="smallStatusLabel">Small cells</p>
+                        <p class="accel-readout-value" id="smallStatusValue">❌ at the edges</p>
+                    </div>
+
+                    <div class="accel-readout-box">
+                        <p class="accel-readout-label" id="largeStatusLabel">Large cells</p>
+                        <p class="accel-readout-value" id="largeStatusValue">❌ at the edges</p>
+                    </div>
+
+                </div>
+
+
+                <div class="slider-panel">
+
+                    <div class="slider-row">
+
+                        <label class="slider-label" for="powerSlider">
+                            IDT drive voltage
+                            <span class="slider-value" id="powerValue">1.0 V</span>
+                        </label>
+
+                        <input
+                            type="range"
+                            id="powerSlider"
+                            min="1"
+                            max="15"
+                            step="0.1"
+                            value="1"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="target-badge" id="targetBadge">
+                    🎯 Round 1 / 5 — sort 5 µm cells from 15 µm cells
+                </div>
+
+                <button
+                    type="button"
+                    class="module-nav-button lock-in-button"
+                    id="lockInButton"
+                >
+                    Lock It In
+                </button>
+
+                <div class="game-feedback" id="gameFeedback">
+                    Raise the voltage until only the large cells are
+                    funneled into the node, then lock it in.
+                </div>
+
+            </div>
+
+
+            <div id="gameComplete" class="game-complete" hidden>
+
+                <p class="eyebrow">
+                    CHALLENGE COMPLETE
+                </p>
+
+                <h2>
+                    🔊 Every batch sorted clean
+                </h2>
+
+                <p class="game-complete-xp" id="gameCompleteXP">
+                    +55 XP
+                </p>
+
+                <p class="game-complete-lead" id="gameCompleteStats">
+                </p>
+
+                <div class="game-recap" id="gameRecap">
+                </div>
+
+                <div class="formula-recap">
+
+                    <p class="formula-recap-formula">
+                        Bigger particle → bigger acoustic force,
+                        same viscous drag
+                    </p>
+
+                    <p class="formula-recap-text">
+                        The standing-wave force scales with particle
+                        volume, but Stokes drag only scales with
+                        radius — so past a certain drive strength,
+                        larger cells cross the channel to the node
+                        well before smaller ones do. The real chip
+                        this is modeled on drives its IDTs at ~10V,
+                        launching a wave at a wavelength of about
+                        240 µm — a resonance the design team confirmed
+                        by simulation at 16.473 MHz before ever
+                        cutting a wafer.
+                    </p>
+
+                </div>
+
+                <div class="game-complete-actions">
+
+                    <button
+                        type="button"
+                        class="module-nav-button secondary-button"
+                        id="playAgainButton"
+                    >
+                        Play Again
+                    </button>
+
+                    <a
+                        href="games.html"
+                        class="module-nav-button lesson-link"
+                        id="backToPathButton"
+                    >
+                        Back to Games
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+    <script src="game7.js"></script>
+
+</body>
+
+</html>
