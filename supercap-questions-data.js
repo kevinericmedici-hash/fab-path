@@ -486,6 +486,246 @@ const supercapLesson8Questions = [
 ];
 
 
+const supercapLesson9Questions = [
+
+    {
+        question: "Which set of properties best describes an ideal supercapacitor electrode?",
+        answers: [
+            "High conductivity, large active surface area, chemical stability, mechanical durability, and electrolyte compatibility",
+            "Low conductivity, small surface area, and high density",
+            "Transparency, low melting point, and magnetism",
+            "High cost, rarity, and fragility"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which are the three main families of supercapacitor electrode materials?",
+        answers: [
+            "Ceramics, glass, and wood",
+            "Transition metal oxides, electrically conducting polymers, and carbon-based materials",
+            "Copper, aluminum, and steel",
+            "Silicon, germanium, and gallium arsenide"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Why does an electrode's electrochemically active surface area matter so much?",
+        answers: [
+            "More active area gives ions and charge more places to be stored, raising capacitance",
+            "It makes the electrode lighter",
+            "It lowers the electrolyte's viscosity",
+            "It removes the need for a current collector"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which pair of properties most directly protects an electrode from wearing out over many charge cycles?",
+        answers: [
+            "Bright color and low weight",
+            "Chemical stability and mechanical durability",
+            "High cost and rarity",
+            "Low conductivity and small area"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Which device characteristics are directly shaped by the choice of electrode material?",
+        answers: [
+            "Only the color of the package",
+            "Only the price of the electrolyte",
+            "Capacitance, energy density, power density, cycling stability, and lifetime",
+            "Only the shipping weight"
+        ],
+        correct: 2
+    }
+
+];
+
+
+const supercapLesson10Questions = [
+
+    {
+        question: "What makes ruthenium oxide (RuO₂) a benchmark pseudocapacitive material?",
+        answers: [
+            "It is extremely cheap and abundant",
+            "It combines excellent electrical conductivity, rapid redox kinetics, and exceptionally high specific capacitance",
+            "It is a polymer that can be printed",
+            "It never changes oxidation state"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Why is RuO₂ not widely used in practice despite its performance?",
+        answers: [
+            "It cannot store any charge",
+            "It is too electrically conductive",
+            "Its high cost, scarcity, and environmental concerns limit widespread use",
+            "It dissolves instantly in water"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Which of these is a lower-cost alternative transition metal oxide?",
+        answers: [
+            "Activated carbon",
+            "Manganese oxide (MnO₂)",
+            "Glassy carbon",
+            "Polytetrafluoroethylene"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What is a typical weakness of transition metal oxide electrodes compared with carbon?",
+        answers: [
+            "Lower electrical conductivity, plus structural degradation from repeated redox reactions",
+            "They cannot undergo redox reactions",
+            "They have no surface area",
+            "They are always liquid"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "How do conducting polymers like PANI, PPy, and PEDOT store charge, and what commonly shortens their lifetime?",
+        answers: [
+            "By trapping ions in a vacuum; heat from the sun",
+            "By reversible doping and dedoping; swelling and shrinking during cycling that leads to cracking",
+            "By storing charge in a dielectric; the color of the electrolyte",
+            "By burning fuel; corrosion of the package"
+        ],
+        correct: 1
+    }
+
+];
+
+
+const supercapLesson11Questions = [
+
+    {
+        question: "Which carbon-based electrode material is the most commercially used in supercapacitors?",
+        answers: [
+            "Activated carbon",
+            "Diamond",
+            "Carbon dioxide",
+            "Charcoal briquettes"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What specific surface area range is typical of activated carbon?",
+        answers: [
+            "About 1 to 10 m²/g",
+            "About 10 to 100 m²/g",
+            "About 1,000 to 3,000 m²/g",
+            "About 100,000 m²/g or more"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Why can the tiny pores in activated carbon limit performance at high charging rates?",
+        answers: [
+            "Small pores can restrict ion transport, so not all of the surface gets used quickly",
+            "Small pores make the carbon too conductive",
+            "Small pores dissolve the electrolyte",
+            "Small pores prevent any ions from entering at all times"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Graphene has a very high theoretical surface area (about 2,630 m²/g). What problem often cuts into that in real electrodes?",
+        answers: [
+            "The sheets restack through van der Waals forces, reducing the surface accessible to ions",
+            "The sheets become magnetic",
+            "The sheets turn into activated carbon",
+            "The sheets are too thick"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which combination describes carbon nanotubes as supercapacitor electrodes?",
+        answers: [
+            "Poor conductivity and very low cost",
+            "Excellent conductivity and strength, but lower surface area than activated carbon or graphene, high cost, and a tendency to bundle",
+            "Highest surface area of any material and no processing difficulties",
+            "Insulating behavior and high density"
+        ],
+        correct: 1
+    }
+
+];
+
+
+const supercapLesson12Questions = [
+
+    {
+        question: "How is glassy carbon produced?",
+        answers: [
+            "By controlled pyrolysis of a polymeric precursor in an inert atmosphere",
+            "By mining and crushing natural graphite",
+            "By melting sand at low temperature",
+            "By electroplating carbon onto silicon"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What is distinctive about glassy carbon's microstructure?",
+        answers: [
+            "It is a perfect single crystal",
+            "It is a non-graphitizing, disordered 3D network of curved graphitic domains, with no long-range crystalline layers",
+            "It is a stack of flat graphite sheets that cleave easily",
+            "It is a liquid at room temperature"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Which photoresist is patterned with ultraviolet lithography and then pyrolyzed to make 3D glassy-carbon electrodes?",
+        answers: [
+            "Polyimide",
+            "SU-8 epoxy photoresist",
+            "Photographic film",
+            "Silicone rubber"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What happens to a patterned polymer structure during pyrolysis that designers must account for?",
+        answers: [
+            "It grows to twice its size",
+            "It vanishes completely",
+            "It loses mass as non-carbon elements escape and shrinks isotropically, though the overall geometry is largely preserved",
+            "It turns into metal"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Which properties make glassy carbon a good fit for devices in physiological fluids like PBS?",
+        answers: [
+            "Toxicity and rapid corrosion",
+            "Biocompatibility with minimal cytotoxicity, and resistance to corrosion and biofouling",
+            "Solubility in saline",
+            "Very low electrical conductivity"
+        ],
+        correct: 1
+    }
+
+];
+
+
 /*
     Looked up by numeric lesson id, the same
     pattern script.js uses for the MEMS course's
@@ -500,5 +740,9 @@ const supercapAllLessonQuestions = {
     5: supercapLesson5Questions,
     6: supercapLesson6Questions,
     7: supercapLesson7Questions,
-    8: supercapLesson8Questions
+    8: supercapLesson8Questions,
+    9: supercapLesson9Questions,
+    10: supercapLesson10Questions,
+    11: supercapLesson11Questions,
+    12: supercapLesson12Questions
 };

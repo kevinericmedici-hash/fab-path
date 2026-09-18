@@ -106,6 +106,57 @@ const supercapCourseData = [
             }
 
         ]
+    },
+
+
+    /* =====================================
+       UNIT 3
+    ===================================== */
+
+    {
+        id: 3,
+
+        title: "Electrode Materials",
+
+        description:
+            "What an electrode needs to do, the three material families, and why glassy carbon stands out for micro devices.",
+
+        studyModule: {
+            title: "Electrode Materials",
+            href: "supercapunit3.html"
+        },
+
+        lessons: [
+
+            {
+                id: 9,
+                title: "What Makes a Good Electrode",
+                description:
+                    "The properties an ideal electrode needs, and the three families of materials to choose from."
+            },
+
+            {
+                id: 10,
+                title: "Metal Oxides & Conducting Polymers",
+                description:
+                    "High-capacitance pseudocapacitive materials, and what they cost you in stability."
+            },
+
+            {
+                id: 11,
+                title: "The Carbon Family",
+                description:
+                    "Activated carbon, graphene, nanotubes, and aerogels — strengths and catches of each."
+            },
+
+            {
+                id: 12,
+                title: "Glassy Carbon",
+                description:
+                    "A pyrolyzed, non-graphitizing carbon that can be patterned with photolithography."
+            }
+
+        ]
     }
 
 ];

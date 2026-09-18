@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Electrode Materials | Fab Path</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="supercap-learn.html">Learn</a>
+            <a href="supercap-games.html">Games</a>
+            <a href="supercap-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="supercap-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 18
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    UNIT 3 • ELECTRODE MATERIALS
+                </p>
+
+                <h1>
+                    The electrode decides
+                </h1>
+
+                <p class="module-lead">
+                    Once you know how a supercapacitor stores charge,
+                    the next question is what to build the electrodes
+                    out of.
+                </p>
+
+                <div class="module-visual">
+                    🧪
+                </div>
+
+                <p>
+                    The material you pick directly affects capacitance,
+                    energy density, power density, cycling stability,
+                    and how long the device lasts. It also decides how
+                    the device can be built at all.
+                </p>
+
+                <div class="module-takeaway">
+
+                    <strong>Key idea</strong>
+
+                    Electrode material is the single biggest design
+                    choice in a supercapacitor — and every option comes
+                    with tradeoffs.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 2 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE WISH LIST
+                </p>
+
+                <h1>
+                    What an ideal electrode needs
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Electrical conductivity</strong>
+                        <span>Moves electrons in and out quickly</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Large active surface area</strong>
+                        <span>More places to hold charge</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Chemical stability</strong>
+                        <span>Survives the electrolyte, cycle after cycle</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Mechanical durability</strong>
+                        <span>Doesn't crack, swell, or flake</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Electrolyte compatibility</strong>
+                        <span>Ions can reach and wet the surface</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    No material maximizes all five — picking one means
+                    deciding which to sacrifice.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 3 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE MENU
+                </p>
+
+                <h1>
+                    Three material families
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+                        <h3>Transition metal oxides</h3>
+                        <p>Store charge through fast, reversible redox reactions</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Conducting polymers</h3>
+                        <p>Store charge through reversible doping and dedoping</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Carbon-based materials</h3>
+                        <p>Store charge mainly as an electric double layer</p>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The first two are pseudocapacitive; carbon is the
+                    workhorse of double-layer storage.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 4 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    METAL OXIDES
+                </p>
+
+                <h1>
+                    The benchmark: RuO₂
+                </h1>
+
+                <div class="module-visual">
+                    💎
+                </div>
+
+                <p>
+                    Ruthenium oxide is considered a benchmark
+                    pseudocapacitive material: excellent electrical
+                    conductivity, rapid redox kinetics, and
+                    exceptionally high specific capacitance. On
+                    performance alone, it's hard to beat.
+                </p>
+
+                <div class="module-takeaway">
+
+                    But its high cost, scarcity, and environmental
+                    concerns keep it from widespread use.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 5 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    METAL OXIDES
+                </p>
+
+                <h1>
+                    Cheaper oxides, real limits
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Lower-cost alternatives</strong>
+                        <span>MnO₂, NiO, Co₃O₄, V₂O₅, Fe₂O₃</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Conductivity</strong>
+                        <span>Generally lower than carbon</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Durability</strong>
+                        <span>Repeated redox reactions can degrade the structure</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Oxides usually need conductive additives or
+                    composite structures to move charge well and stay
+                    intact.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 6 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CONDUCTING POLYMERS
+                </p>
+
+                <h1>
+                    Charge by doping
+                </h1>
+
+                <p>
+                    Polyaniline (PANI), polypyrrole (PPy), and PEDOT
+                    store charge through reversible doping and dedoping
+                    during oxidation and reduction. Their relatively
+                    high conductivity and large pseudocapacitance let
+                    them beat plain double-layer storage.
+                </p>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+                        <h3>Low density</h3>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Easy to fabricate</h3>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Flexible and low-cost</h3>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Those traits make polymers attractive for flexible
+                    electronics, wearables, and micro supercapacitors.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 7 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CONDUCTING POLYMERS
+                </p>
+
+                <h1>
+                    The swelling problem
+                </h1>
+
+                <p>
+                    During charge and discharge, these polymers
+                    repeatedly expand and contract. That volume
+                    change leads to cracking, mechanical degradation,
+                    and lost performance, so conducting polymers
+                    generally have shorter cycle lives than
+                    carbon-based electrodes.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A common fix: pair the polymer with a carbon
+                    material to improve structural stability and
+                    conductivity.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 8 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CARBON
+                </p>
+
+                <h1>
+                    The workhorse family
+                </h1>
+
+                <div class="module-visual">
+                    ⬡
+                </div>
+
+                <p>
+                    Carbon-based materials are the most widely used
+                    supercapacitor electrodes thanks to high
+                    conductivity, large surface area, chemical
+                    stability, and long cycling life. They mainly store
+                    energy through double-layer capacitance, so they
+                    charge fast and barely degrade.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Many different carbon nanostructures exist — each
+                    trades something for something else.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 9 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CARBON • ACTIVATED CARBON
+                </p>
+
+                <h1>
+                    The commercial standard
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Surface area</strong>
+                        <span>1,000 – 3,000 m² per gram</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Cycle life</strong>
+                        <span>Frequently over one million cycles</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Cost</strong>
+                        <span>Cheap precursors: coconut shells, wood, coal, polymers</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The catch: tiny pores can restrict ion transport,
+                    limiting power at fast charging rates and leaving
+                    surface area unused.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 10 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CARBON • GRAPHENE
+                </p>
+
+                <h1>
+                    One atom thick
+                </h1>
+
+                <p>
+                    Graphene is a single layer of sp²-bonded carbon
+                    atoms in a two-dimensional honeycomb lattice. It
+                    offers exceptional conductivity, mechanical
+                    strength, chemical stability, and a theoretical
+                    surface area of about 2,630 m² per gram.
+                </p>
+
+                <div class="module-takeaway">
+
+                    The catch: sheets restack through strong van der
+                    Waals forces, shrinking the surface ions can
+                    reach. Spacers or 3D architectures are needed to
+                    keep them apart.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 11 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CARBON • NANOTUBES
+                </p>
+
+                <h1>
+                    Conductive highways
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+                        <h3>Strengths</h3>
+                        <p>Excellent conductivity, mechanical strength, and an interconnected porous network for fast electron and ion transport</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Catches</h3>
+                        <p>Lower surface area than activated carbon or graphene, high manufacturing cost, and a tendency to bundle</p>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Their 1D shape gives efficient conductive pathways
+                    that stay intact through repeated cycling.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 12 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CARBON • THE REST
+                </p>
+
+                <h1>
+                    Aerogels, fibers, and cloth
+                </h1>
+
+                <p>
+                    Carbon aerogels, carbon fibers, and carbon cloth
+                    combine porous architecture, mechanical
+                    flexibility, and excellent conductivity. They're
+                    especially attractive for flexible and wearable
+                    energy storage.
+                </p>
+
+                <div class="module-takeaway">
+
+                    They often need extra nanostructuring or composite
+                    materials to match the capacitance of graphene or
+                    activated carbon.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 13 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE GAP
+                </p>
+
+                <h1>
+                    No perfect material
+                </h1>
+
+                <p>
+                    Each carbon offers something, but none delivers
+                    everything at once: high conductivity, large
+                    accessible surface area, mechanical robustness,
+                    chemical stability, biocompatibility, and
+                    compatibility with conventional microfabrication.
+                </p>
+
+                <div class="module-visual module-visual-text">
+                    conductive + stable + biocompatible + patternable = ?
+                </div>
+
+                <div class="module-takeaway">
+
+                    For micro supercapacitors, that last requirement —
+                    being patternable with standard lithography — is
+                    what points to glassy carbon.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 14 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    GLASSY CARBON
+                </p>
+
+                <h1>
+                    Baked from a polymer
+                </h1>
+
+                <p>
+                    Glassy carbon is made by controlled pyrolysis of a
+                    polymeric precursor in an inert atmosphere.
+                    Volatile components — mostly hydrogen, oxygen, and
+                    nitrogen — are driven off, and the remaining
+                    carbon atoms reorganize into an interconnected
+                    network of curved graphitic domains.
+                </p>
+
+                <div class="module-visual module-visual-text">
+                    polymer + heat, no oxygen → glassy carbon
+                </div>
+
+                <div class="module-takeaway">
+
+                    Unlike graphite, these domains never line up into
+                    long crystalline layers — so there are no weak
+                    cleavage planes.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 15 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    GLASSY CARBON
+                </p>
+
+                <h1>
+                    What that structure buys you
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Chemically inert</strong>
+                        <span>Resists acidic and alkaline electrolytes with minimal corrosion</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Conductive enough</strong>
+                        <span>Lower than graphite, yet fine for fast electron transfer</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Hard and stable</strong>
+                        <span>High hardness, wear resistance, and low thermal expansion</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Wide potential window</strong>
+                        <span>Slow hydrogen and oxygen evolution, low background current</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Its surface can also be tuned through
+                    functionalization, plasma treatment, or catalytic
+                    nanomaterials.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 16 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    GLASSY CARBON • MICROFABRICATION
+                </p>
+
+                <h1>
+                    Patterned like a photoresist
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>1. Pattern</strong>
+                        <span>Thick SU-8 epoxy photoresist exposed with standard UV lithography</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>2. Pyrolyze</strong>
+                        <span>Heat in an inert atmosphere; non-carbon elements leave as gas</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>3. Result</strong>
+                        <span>3D glassy-carbon electrodes with the original geometry largely intact</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The structure does shrink isotropically during
+                    pyrolysis, so designers must plan for it — but the
+                    shape stays reproducible.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 17 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    GLASSY CARBON • IN THE BODY
+                </p>
+
+                <h1>
+                    Built for biology
+                </h1>
+
+                <div class="module-visual">
+                    🧠
+                </div>
+
+                <p>
+                    Glassy carbon shows minimal cytotoxicity and
+                    favorable interactions with tissue, plus strong
+                    resistance to corrosion and biofouling in
+                    physiological solutions like PBS. It's already used
+                    in biosensors, neural interfaces, fuel cells, and
+                    batteries.
+                </p>
+
+                <div class="module-takeaway">
+
+                    <strong>Key idea</strong>
+
+                    Conductive, inert, patternable, and biocompatible —
+                    that combination is why glassy carbon is the
+                    electrode material for this course's device.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- COMPLETION SLIDE -->
+
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 3 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    ⬡ → 🔬
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenges?
+                </h1>
+
+                <p class="module-lead">
+                    You now know what an electrode needs to do, how
+                    metal oxides, polymers, and carbons compare, and
+                    why glassy carbon stands out for micro devices.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeSupercapUnit3Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeSupercapUnit3Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathSupercapUnit3StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathSupercapUnit3StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "supercap-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+</body>
+</html>
