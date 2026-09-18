@@ -167,13 +167,13 @@ const supercapCourseData = [
     {
         id: 4,
 
-        title: "Device Design",
+        title: "Device Geometries",
 
         description:
-            "Why 3D interdigitated electrodes win, where the geometry tradeoffs bite, and how five designs led to Galileo.",
+            "From wound cylinders and coin cells to combs, fibers, and stretchable films: how shape sets what a supercapacitor can do.",
 
         studyModule: {
-            title: "Device Design",
+            title: "Device Geometries",
             href: "supercapunit4.html"
         },
 
@@ -181,30 +181,44 @@ const supercapCourseData = [
 
             {
                 id: 13,
-                title: "Why Go 3D?",
+                title: "Macro Form Factors",
                 description:
-                    "Planar interdigitated electrodes, the thin-film limit, and how height buys capacity."
+                    "Cylindrical, coin/button, and pouch cells, and how cells combine into modules."
             },
 
             {
                 id: 14,
-                title: "Geometry Tradeoffs",
+                title: "Sandwich vs. In-Plane",
                 description:
-                    "Height, spacing, and finger width all pull against each other."
+                    "Stacked electrodes with a separator, or side-by-side electrodes with a gap."
             },
 
             {
                 id: 15,
-                title: "Layers & Requirements",
+                title: "Interdigitated Micro Architectures",
                 description:
-                    "The four-layer device stack and the constraints the design had to satisfy."
+                    "Combs, spirals, and 3D fingers for on-chip energy storage."
             },
 
             {
                 id: 16,
-                title: "Da Vinci to Galileo",
+                title: "Fiber, Wire & Textile",
                 description:
-                    "Five design iterations, what broke in each, and what the final device fixed."
+                    "Parallel, twisted, and coaxial fibers that can be woven into fabric."
+            },
+
+            {
+                id: 17,
+                title: "Shape-Shifting Devices",
+                description:
+                    "Stretchable, origami, printed, transparent, structural, and implantable forms."
+            },
+
+            {
+                id: 18,
+                title: "Symmetric vs. Asymmetric",
+                description:
+                    "Why pairing the same or different electrodes changes voltage, capacity, and mass balance."
             }
 
         ]

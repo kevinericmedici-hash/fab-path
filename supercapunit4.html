@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Device Design | Fab Path</title>
+    <title>Device Geometries | Fab Path</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -60,7 +60,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 19
+                    1 / 25
                 </span>
 
             </div>
@@ -76,36 +76,36 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    UNIT 4 • DEVICE DESIGN
+                    UNIT 4 • DEVICE GEOMETRIES
                 </p>
 
                 <h1>
-                    Geometry is a design choice
+                    Same physics, many shapes
                 </h1>
 
                 <p class="module-lead">
-                    You know how charge is stored and what the
-                    electrodes are made of. Now: what shape should
-                    they be?
+                    A supercapacitor's chemistry decides what it can do.
+                    Its geometry decides where it can do it.
                 </p>
 
                 <div class="module-visual">
-                    📐
+                    🧩
                 </div>
 
                 <p>
-                    In a micro supercapacitor the footprint is fixed by
-                    the device it powers, so performance has to come
-                    from how the electrodes are arranged — their
-                    height, width, spacing, and layout.
+                    The same double-layer physics powers a wound metal
+                    can, a coin cell, a flat pouch, a comb on a chip, and
+                    a fiber woven into a shirt. Each shape trades
+                    something to fit its job.
                 </p>
 
                 <div class="module-takeaway">
 
                     <strong>Key idea</strong>
 
-                    When you can't make the device bigger, you make the
-                    geometry smarter.
+                    Geometry is a design tool: it sets resistance, ion
+                    travel, packing density, and whether a device can
+                    bend at all.
 
                 </div>
 
@@ -118,30 +118,67 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE STARTING POINT
+                    THREE LAYERS OF CHOICE
                 </p>
 
                 <h1>
-                    Planar interdigitated electrodes
+                    Zoom in, decision by decision
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    + − + − + − + −
-                </div>
+                <div class="module-card-grid">
 
-                <p>
-                    Alternating positive and negative electrode fingers
-                    are patterned side by side on the same substrate,
-                    like two interlocking combs lying flat. This
-                    in-plane layout is well suited to tiny, on-chip
-                    devices.
-                </p>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            📦
+                        </div>
+
+                        <h3>Outer shape</h3>
+
+                        <p>
+                            The macro form factor: cylinder, coin, pouch,
+                            fiber, film.
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🥪
+                        </div>
+
+                        <h3>Inner architecture</h3>
+
+                        <p>
+                            How electrodes face each other: stacked
+                            sandwich or side by side in-plane.
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ⚖️
+                        </div>
+
+                        <h3>Electrode pairing</h3>
+
+                        <p>
+                            Identical electrodes (symmetric) or
+                            different ones (asymmetric).
+                        </p>
+
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    No separate membrane is needed between stacked
-                    electrodes, and both electrodes come from the same
-                    lithography step.
+                    These choices are independent: you can put a
+                    sandwich inside a pouch, or an asymmetric pair in a
+                    coin cell.
 
                 </div>
 
@@ -154,40 +191,42 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE LIMIT
+                    WHY SHAPE MATTERS
                 </p>
 
                 <h1>
-                    Thin films hold little
+                    Four things geometry controls
                 </h1>
 
-                <p>
-                    Many planar micro supercapacitors are built from
-                    thin films or nanometer-scale coatings. That gives
-                    a large surface area per gram and short diffusion
-                    distances — but a very thin electrode contains only
-                    a small total amount of active material in the
-                    available footprint.
-                </p>
+                <div class="scale-stack">
 
-                <div class="module-card-grid">
-
-                    <div class="module-card">
-                        <h3>Per gram or volume</h3>
-                        <p>Can look excellent</p>
+                    <div class="scale-row">
+                        <strong>Ion path</strong>
+                        <span>How far ions travel between the electrodes</span>
                     </div>
 
-                    <div class="module-card">
-                        <h3>Per unit area</h3>
-                        <p>Comes out low</p>
+                    <div class="scale-row">
+                        <strong>Electron path</strong>
+                        <span>How far charge travels through the current collectors (resistance)</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Packing</strong>
+                        <span>How much active material fits in the volume or footprint</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Compliance</strong>
+                        <span>Whether the device can bend, stretch, or fold</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    Footprint is what's fixed, so areal capacitance is
-                    the number that matters.
+                    Short paths mean high power; lots of material means
+                    high energy; flexibility opens new uses. You rarely
+                    get all three.
 
                 </div>
 
@@ -200,40 +239,29 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE FIX
+                    MACRO FORM • CYLINDRICAL
                 </p>
 
                 <h1>
-                    Go vertical
+                    The jelly roll
                 </h1>
 
                 <div class="module-visual">
-                    🏙️
+                    🌀
                 </div>
 
                 <p>
-                    Instead of spreading out, extend the electrodes
-                    upward into tall, high-aspect-ratio fingers. The
-                    footprint stays the same, but the sidewalls add a
-                    much larger electrode-electrolyte interface.
+                    Two long strips of coated metal foil, with a porous
+                    separator between them, are wound into a tight spiral
+                    and sealed in a metal can with electrolyte. Unrolled,
+                    it's a very large stacked pair of electrodes folded
+                    into a small volume.
                 </p>
 
-                <div class="scale-stack">
+                <div class="module-takeaway">
 
-                    <div class="scale-row">
-                        <strong>More surface area</strong>
-                        <span>Sidewalls add area for double-layer or faradaic storage</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>More active material</strong>
-                        <span>Higher loading lifts areal capacitance and energy</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Short ion path</strong>
-                        <span>Lateral gaps stay small even as height grows</span>
-                    </div>
+                    A huge electrode area rolled into a compact,
+                    sturdy cylinder.
 
                 </div>
 
@@ -246,37 +274,31 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    EVIDENCE
+                    MACRO FORM • CYLINDRICAL
                 </p>
 
                 <h1>
-                    3D structures deliver
+                    Strengths and catches
                 </h1>
 
-                <div class="scale-stack">
+                <div class="module-card-grid">
 
-                    <div class="scale-row">
-                        <strong>High-aspect-ratio silicon</strong>
-                        <span>≈ 90.7 mF/cm² areal capacitance</span>
+                    <div class="module-card">
+                        <h3>Strengths</h3>
+                        <p>Mature winding machinery borrowed from batteries and capacitors, efficient use of volume inside the cell, and a rugged sealed can</p>
                     </div>
 
-                    <div class="scale-row">
-                        <strong>3D scaffold with sub-500 nm MnO₂</strong>
-                        <span>≈ 10 µWh/cm² areal energy density</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Alumina scaffold, 25 µm deep pores</strong>
-                        <span>≈ 137 mF/cm² at 2 mV/s, still ≈ 47 mF/cm² at 2000 mV/s</span>
+                    <div class="module-card">
+                        <h3>Catches</h3>
+                        <p>Round cans leave gaps when packed into modules, and a single tab makes charge run along the whole foil, adding resistance</p>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    A thin active coating on a tall 3D scaffold gives
-                    big storage gains without a bigger footprint — and
-                    can keep good rate capability.
+                    The fix for that resistance: multiple tabs or
+                    offset foils that shorten the current path.
 
                 </div>
 
@@ -289,32 +311,35 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    EVIDENCE IN CARBON
+                    MACRO FORM • COIN / BUTTON
                 </p>
 
                 <h1>
-                    From 2.75 to 125
+                    Stacked discs
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    planar carbon ≤ 2.75 → 3D coated ≈ 125 mF/cm²
+                <div class="module-visual">
+                    🪙
                 </div>
 
                 <p>
-                    Planar pyrolytic-carbon devices were limited to
-                    about 2.75 mF/cm² or less because of how little
-                    carbon fits in a thin layer. Extending the
-                    electrode vertically and adding a pseudocapacitive
-                    coating reached about 125 mF/cm². Activated 3D
-                    carbon (C-MEMS) devices have approached about
-                    75 mF/cm².
+                    A coin cell stacks two electrode discs with a
+                    separator between them, pressed together by a
+                    spring or spacer inside a crimped two-part metal
+                    case. It's the simplest sandwich you can seal.
                 </p>
 
-                <div class="module-takeaway">
+                <div class="module-card-grid">
 
-                    Height also boosts redox amplification: recall the
-                    jump from roughly 9× to 37× in taller carbon
-                    electrodes.
+                    <div class="module-card">
+                        <h3>Good at</h3>
+                        <p>Tiny, cheap, easy to assemble; the everyday test vehicle for new electrode materials; memory backup</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Limited by</h3>
+                        <p>Small capacity and relatively high resistance, so modest power</p>
+                    </div>
 
                 </div>
 
@@ -327,25 +352,36 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE CATCH
+                    MACRO FORM • POUCH / PRISMATIC
                 </p>
 
                 <h1>
-                    Taller isn't always better
+                    Flat stacks and folded strips
                 </h1>
 
+                <div class="module-visual">
+                    🗂️
+                </div>
+
                 <p>
-                    If electrodes become excessively thick, dense, or
-                    poorly wetted, ions can't penetrate the full depth
-                    during rapid cycling. That causes concentration
-                    gradients, higher ionic resistance, and incomplete
-                    use of the active material.
+                    Flat electrode plates are stacked with separators
+                    between them, or one long strip is folded in a
+                    zigzag. The stack is sealed in a heat-sealed foil
+                    pouch or a rigid rectangular case. Each plate
+                    connects to a tab, so many plates work in parallel.
                 </p>
 
-                <div class="module-takeaway">
+                <div class="scale-stack">
 
-                    Capacitance retention at high scan rates can drop
-                    — the classic energy-power tradeoff.
+                    <div class="scale-row">
+                        <strong>Strengths</strong>
+                        <span>Best fit for rectangular products, thin and light, short current paths</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Catches</strong>
+                        <span>Pouches can swell if gas forms, and need good seals and gentle compression</span>
+                    </div>
 
                 </div>
 
@@ -358,46 +394,37 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    COUPLED PARAMETERS
+                    MACRO FORMS COMPARED
                 </p>
 
                 <h1>
-                    Six knobs, all linked
+                    Three cells, three personalities
                 </h1>
 
-                <div class="module-card-grid">
+                <div class="scale-stack">
 
-                    <div class="module-card">
-                        <h3>Electrode height</h3>
+                    <div class="scale-row">
+                        <strong>Cylindrical</strong>
+                        <span>Wound roll · large, rugged, power-oriented cells</span>
                     </div>
 
-                    <div class="module-card">
-                        <h3>Finger width</h3>
+                    <div class="scale-row">
+                        <strong>Coin / button</strong>
+                        <span>Stacked discs · tiny, low-power backup and lab testing</span>
                     </div>
 
-                    <div class="module-card">
-                        <h3>Electrode spacing</h3>
-                    </div>
-
-                    <div class="module-card">
-                        <h3>Number of electrode pairs</h3>
-                    </div>
-
-                    <div class="module-card">
-                        <h3>Porosity</h3>
-                    </div>
-
-                    <div class="module-card">
-                        <h3>Aspect ratio</h3>
+                    <div class="scale-row">
+                        <strong>Pouch / prismatic</strong>
+                        <span>Stacked or folded plates · thin, flat, packs neatly</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    More height and more fingers raise active area;
-                    smaller gaps shorten ion paths. Change one and the
-                    others shift with it.
+                    Same electrodes, same electrolyte: only the
+                    arrangement changes the trade between size,
+                    resistance, and packability.
 
                 </div>
 
@@ -410,32 +437,39 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE PRACTICAL LIMITS
+                    BUILDING BLOCKS
                 </p>
 
                 <h1>
-                    Where designs break
+                    Series and parallel
                 </h1>
 
-                <div class="scale-stack">
+                <div class="module-card-grid">
 
-                    <div class="scale-row">
-                        <strong>Very narrow gaps</strong>
-                        <span>Harder fabrication, poorer electrolyte infiltration, risk of shorting</span>
+                    <div class="module-card">
+                        <h3>In parallel</h3>
+                        <p>Capacitance adds up (more area); voltage stays the same</p>
                     </div>
 
-                    <div class="scale-row">
-                        <strong>Very tall electrodes</strong>
-                        <span>Mechanically unstable and hard to reproduce</span>
+                    <div class="module-card">
+                        <h3>In series</h3>
+                        <p>Voltage rating adds up; overall capacitance drops</p>
                     </div>
 
                 </div>
 
+                <p>
+                    A single cell is rated for only a modest voltage,
+                    roughly 1 V for water-based electrolytes up to about
+                    2.5–3 V for organic ones. Higher voltages come from
+                    stringing cells in series, which needs balancing so
+                    no cell drifts past its rating.
+                </p>
+
                 <div class="module-takeaway">
 
-                    The best design isn't the most extreme one — it's
-                    the one that balances storage, transport, and what
-                    can actually be built.
+                    Stacked plates inside a cell are parallel; cells in
+                    a module are often in series.
 
                 </div>
 
@@ -448,42 +482,28 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    FROM CONCEPT TO DEVICE
+                    INNER ARCHITECTURE • SANDWICH
                 </p>
 
                 <h1>
-                    The four-layer stack
+                    Electrode, separator, electrode
                 </h1>
 
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>1. Glassy-carbon electrodes</strong>
-                        <span>Interdigitated fingers from pyrolyzed SU-8</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>2. First polyimide</strong>
-                        <span>Insulation the electrodes sit on, with openings to the electrodes and collectors</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>3. Titanium / silver</strong>
-                        <span>Current collectors and contact pads</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>4. Second polyimide</strong>
-                        <span>Final insulation, with openings over the pads</span>
-                    </div>
-
+                <div class="module-visual module-visual-text">
+                    ▮ electrode | ░ separator | ▮ electrode
                 </div>
+
+                <p>
+                    In the sandwich geometry, the electrodes face each
+                    other across a thin porous separator soaked in
+                    electrolyte. The separator blocks electrons but lets
+                    ions through, so ions cross the layer thickness.
+                </p>
 
                 <div class="module-takeaway">
 
-                    Fabrication starts from a 4-inch silicon oxide
-                    wafer cut into quarter circles, and the finished
-                    device is later stripped from it.
+                    Capacity scales up by stacking more layers or using
+                    thicker electrodes.
 
                 </div>
 
@@ -496,42 +516,28 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    DESIGN REQUIREMENTS
+                    INNER ARCHITECTURE • IN-PLANE
                 </p>
 
                 <h1>
-                    What the design had to do
+                    Side by side, no separator
                 </h1>
 
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Big active area</strong>
-                        <span>Interdigitated fingers packed into a small footprint</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Tight gaps</strong>
-                        <span>Small enough to raise capacitance, large enough to avoid shorts</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Mechanical stability</strong>
-                        <span>No curling, deformation, or fracture</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Easy to test</strong>
-                        <span>Pads sized for potentiostat clips</span>
-                    </div>
-
+                <div class="module-visual module-visual-text">
+                    ▮ electrode ·· gap ·· electrode ▮
                 </div>
+
+                <p>
+                    In an in-plane (coplanar) device, both electrodes
+                    sit on the same surface, separated by a small
+                    lateral gap. That gap, filled with liquid, gel, or
+                    solid electrolyte, replaces the separator entirely.
+                </p>
 
                 <div class="module-takeaway">
 
-                    Gap size follows the same C = εA/d logic from
-                    Unit 1 — but the manufacturing limits set how far
-                    you can push it.
+                    Both electrodes can be patterned in a single step,
+                    which suits chips, films, and printing.
 
                 </div>
 
@@ -544,41 +550,41 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    DESIGN REQUIREMENTS
+                    SANDWICH VS. IN-PLANE
                 </p>
 
                 <h1>
-                    Small enough to implant
+                    Two ways to arrange the ions' trip
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>Neural interface</strong>
-                        <span>≈ 24.26 mm diameter</span>
+                        <strong>Ion path</strong>
+                        <span>Sandwich: through the separator · In-plane: across the lateral gap</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Glucose monitor</strong>
-                        <span>≈ 27 × 24 × 4.7 mm</span>
+                        <strong>Build</strong>
+                        <span>Sandwich: assemble and stack layers · In-plane: pattern both electrodes at once</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Pacemaker</strong>
-                        <span>20 mm × 4.5 mm</span>
+                        <strong>Scaling</strong>
+                        <span>Sandwich: add layers upward · In-plane: add fingers sideways or grow taller</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Test package</strong>
-                        <span>A 20 mm coin-cell enclosure</span>
+                        <strong>Best for</strong>
+                        <span>Sandwich: cells and modules · In-plane: chips and flexible films</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    These real device sizes — and the coin-cell
-                    package — cap how big the supercapacitor can be.
+                    A thin in-plane device holds little material per
+                    footprint unless its electrodes grow tall.
 
                 </div>
 
@@ -591,30 +597,30 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    DESIGN 1 • DA VINCI
+                    MICRO • INTERDIGITATED
                 </p>
 
                 <h1>
-                    Maximum area, maximum trouble
+                    Two combs, interleaved
                 </h1>
 
-                <div class="module-visual">
-                    🖌️
+                <div class="module-visual module-visual-text">
+                    ┃┃┃ ⇄ ┃┃┃
                 </div>
 
                 <p>
-                    Da Vinci went for the most active area: 50 µm wide,
-                    1.40 cm long fingers. But the device exceeded the
-                    20 mm coin-cell space, the narrow long fingers
-                    cracked, delaminated, or broke, and undersized
-                    contact pads stressed the traces until devices
-                    failed during handling.
+                    The classic in-plane layout: a positive comb and a
+                    negative comb whose fingers interleave. Every finger
+                    faces a neighbor of the opposite polarity, so ions
+                    only cross one small gap.
                 </p>
 
-                <div class="module-takeaway">
+                <div class="scale-stack">
 
-                    Never characterized — but it taught what to fix:
-                    size, finger fragility, and pad design.
+                    <div class="scale-row">
+                        <strong>Design knobs</strong>
+                        <span>Finger width, gap, length, number of fingers, and height</span>
+                    </div>
 
                 </div>
 
@@ -627,32 +633,41 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    DESIGN 2 • MEDICI
+                    MICRO • BEYOND STRAIGHT COMBS
                 </p>
 
                 <h1>
-                    Smaller, but too tight
+                    Patterns with more edge
                 </h1>
 
-                <div class="module-visual">
-                    🏛️
-                </div>
+                <div class="module-card-grid">
 
-                <p>
-                    Medici shrank to 0.40 cm fingers, fitting the
-                    coin cell and curling far less. But its tighter
-                    gaps hit the lithography limit: incomplete
-                    development of the negative resist left gaps too
-                    small or electrodes shorted together. The 50 µm
-                    fingers still broke, and the electrodes sat so
-                    close to the pads that electrolyte reached the
-                    silver.
-                </p>
+                    <div class="module-card">
+                        <h3>Concentric rings</h3>
+                        <p>Round layouts that suit circular chips and coin-like devices</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Spirals</h3>
+                        <p>Two intertwined spiral arms packed into a small round footprint</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Serpentine</h3>
+                        <p>Winding, meandering fingers that can also flex</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Fractal-style</h3>
+                        <p>Space-filling curves explored to pack long facing edges into little area</p>
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    Better packaging, but not enough yield or
-                    testability.
+                    The goal is more electrode-to-electrode edge per
+                    footprint, where ions have short paths.
 
                 </div>
 
@@ -665,30 +680,42 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    DESIGN 3 • MONA LISA
+                    MICRO • GOING 3D
                 </p>
 
                 <h1>
-                    Wider fingers, new failure
+                    Grow upward, not outward
                 </h1>
 
-                <div class="module-visual">
-                    🖼️
-                </div>
+                <div class="scale-stack">
 
-                <p>
-                    Mona Lisa widened the fingers to 100 µm (same
-                    length, 100 µm spacing). Lithography improved
-                    markedly, with fewer broken or underdeveloped
-                    fingers. But during pyrolysis, thermal stress made
-                    many fingers delaminate, and the electrodes were
-                    still too near the metal pads.
-                </p>
+                    <div class="scale-row">
+                        <strong>Tall walls</strong>
+                        <span>High-aspect-ratio fingers add sidewall area</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Pillar arrays</strong>
+                        <span>Forests of posts or rods with a lot of surface</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Etched trenches</strong>
+                        <span>Deep wells or trenches carved into silicon, then coated</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Porous scaffolds</strong>
+                        <span>Foams and sponges as 3D skeletons for active material</span>
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    Good photolithography isn't enough — the device
-                    has to survive conversion to glassy carbon too.
+                    The footprint stays fixed while the active area
+                    grows, but deep electrodes can starve for ions if
+                    they get too tall or dense.
 
                 </div>
 
@@ -701,31 +728,36 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    DESIGN 4 • MARCO POLO
+                    FIBER • THREE LAYOUTS
                 </p>
 
                 <h1>
-                    The benchmark
+                    Wires that store energy
                 </h1>
 
-                <div class="module-visual">
-                    🧭
-                </div>
+                <div class="module-card-grid">
 
-                <p>
-                    Marco Polo wasn't a new idea. It reused a
-                    previously validated design — large 750 µm ×
-                    2500 µm fingers, 200 µm spacing, 10 electrodes —
-                    as a dependable reference. It was fabricated at
-                    several glassy-carbon thicknesses with identical
-                    geometry, so thickness could be studied on its
-                    own.
-                </p>
+                    <div class="module-card">
+                        <h3>Parallel</h3>
+                        <p>Two electrode fibers side by side, coated in a gel electrolyte</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Twisted</h3>
+                        <p>Two fibers wound around each other like a rope, gel electrolyte between</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Coaxial</h3>
+                        <p>A core fiber electrode, an electrolyte sheath, and an outer electrode, like a coaxial cable</p>
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    Big electrodes were robust and consistent — the
-                    yardstick for judging the new compact geometry.
+                    Fibers are the one-dimensional end of the geometry
+                    spectrum: length becomes the scaling axis.
 
                 </div>
 
@@ -738,42 +770,41 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    DESIGN 5 • GALILEO
+                    FIBER • STRENGTHS AND CATCHES
                 </p>
 
                 <h1>
-                    The compromise that worked
+                    Weavable, but resistive
                 </h1>
-
-                <div class="module-visual">
-                    🔭
-                </div>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>Electrodes</strong>
-                        <span>25 interdigitated pairs, 75 µm wide, 100 µm gap, ≈ 3700 µm active length</span>
+                        <strong>Strength</strong>
+                        <span>Thin and flexible; can be woven, knitted, or embroidered into fabric</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Connection tabs</strong>
-                        <span>Widened to 125 µm for stronger support at the collectors</span>
+                        <strong>Catch: resistance</strong>
+                        <span>R = ρL/A grows with length, so long fibers lose power</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Contact pads</strong>
-                        <span>≈ 3.5 × 4 mm, moved ≈ 2.5 mm from the electrodes</span>
+                        <strong>Catch: capacity</strong>
+                        <span>Little electrode area per length, so modest storage</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Materials</strong>
+                        <span>Carbon nanotube yarn, graphene fiber, carbon fiber, coated metal wire</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    75 µm sits between Medici (50) and Mona Lisa (100):
-                    better yield than the first, less material than the
-                    second. Pads far from the electrodes keep silver out
-                    of the electrolyte.
+                    A textile of many short fiber cells in parallel
+                    often beats one very long fiber.
 
                 </div>
 
@@ -786,38 +817,292 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    BY THE NUMBERS
+                    SHAPE-SHIFTING • STRETCHABLE
                 </p>
 
                 <h1>
-                    Five designs compared
+                    Bend, stretch, fold
+                </h1>
+
+                <div class="module-visual">
+                    🦋
+                </div>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Serpentine bridges</strong>
+                        <span>Wavy, horseshoe-shaped connections unfold when stretched, so the stiff conductor barely strains</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Buckled films</strong>
+                        <span>Electrodes bonded to a pre-stretched elastomer wrinkle when released, then flatten on stretch</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Origami / kirigami</strong>
+                        <span>Fold and cut patterns let a sheet expand, bend, or collapse compactly</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 19 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SHAPE-SHIFTING • MADE DIFFERENTLY
+                </p>
+
+                <h1>
+                    Printed, see-through, and lattice
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+                        <h3>Printed</h3>
+                        <p>Screen or inkjet printing of electrodes onto paper or plastic, even roll to roll</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Transparent</h3>
+                        <p>Ultrathin films or sparse meshes let light through, at the cost of less stored charge</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>3D-printed lattices</h3>
+                        <p>Designed open channels give ions fast routes through thick electrodes</p>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The manufacturing method becomes part of the
+                    geometry: what you can print decides what you can
+                    shape.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 20 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SHAPE-SHIFTING • MULTIFUNCTIONAL
+                </p>
+
+                <h1>
+                    When the battery is the body
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ✈️
+                        </div>
+
+                        <h3>Structural</h3>
+
+                        <p>
+                            A carbon-fiber composite that carries
+                            mechanical load and stores energy, so a panel
+                            can double as a power source.
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🫀
+                        </div>
+
+                        <h3>Implantable</h3>
+
+                        <p>
+                            Soft, thin devices that conform to tissue;
+                            researchers also explore biodegradable ones
+                            that dissolve when their job is done.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Here the shape is set by the host: the aircraft
+                    skin or the organ surface.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 21 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    ELECTRODE PAIRING • SYMMETRIC
+                </p>
+
+                <h1>
+                    Twins on both sides
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    carbon // carbon
+                </div>
+
+                <p>
+                    A symmetric supercapacitor uses the same material
+                    (usually with equal mass) on both electrodes. Each
+                    electrode acts like one capacitor, and the cell is
+                    two of them in series, so two equal electrodes give
+                    a cell capacitance half of one electrode's.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Simple and robust, but the voltage is capped by the
+                    electrolyte's stable window.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 22 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    ELECTRODE PAIRING • ASYMMETRIC
+                </p>
+
+                <h1>
+                    Different partners, wider window
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    oxide (+) // carbon (−)
+                </div>
+
+                <p>
+                    An asymmetric cell pairs two different electrode
+                    materials, for example a pseudocapacitive oxide with
+                    a carbon electrode. Each works in its own stable
+                    potential range, so together they allow a higher
+                    cell voltage, and since energy grows with V², the
+                    payoff is large.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Hybrid cells go further: a battery-type electrode
+                    plus a capacitive one adds energy, at some cost to
+                    cycle life.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 23 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    ELECTRODE PAIRING • BALANCE
+                </p>
+
+                <h1>
+                    The charge-balance rule
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    m₊ C₊ ΔV₊ = m₋ C₋ ΔV₋
+                </div>
+
+                <p>
+                    Both electrodes must hold the same charge, so their
+                    masses (m), specific capacitances (C), and potential
+                    swings (ΔV) have to trade off. The two electrodes are
+                    in series, so the cell capacitance follows
+                    1/C = 1/C₊ + 1/C₋: it's dominated by the smaller
+                    electrode.
+                </p>
+
+                <div class="module-takeaway">
+
+                    An unbalanced pair wastes material: one electrode
+                    runs out of room while the other sits half full.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 24 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    PUTTING IT TOGETHER
+                </p>
+
+                <h1>
+                    Match the shape to the job
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>Da Vinci</strong>
-                        <span>96 electrodes · 50 µm wide · 90 µm gap → 0.672 cm²</span>
+                        <strong>Memory backup in a gadget</strong>
+                        <span>Coin cell, stacked discs</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Medici</strong>
-                        <span>60 electrodes · 50 µm wide · 75 µm gap → 0.120 cm²</span>
+                        <strong>Burst power for a bus or crane</strong>
+                        <span>Wound cylindrical or large prismatic cells in modules</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Mona Lisa</strong>
-                        <span>36 electrodes · 100 µm wide · 100 µm gap → 0.144 cm²</span>
+                        <strong>Thin pack in a tablet or drone</strong>
+                        <span>Pouch with stacked or folded plates</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Marco Polo</strong>
-                        <span>10 electrodes · 750 µm wide · 200 µm gap → 0.1875 cm²</span>
+                        <strong>On-chip power for a sensor node</strong>
+                        <span>In-plane interdigitated micro-device</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Galileo</strong>
-                        <span>50 electrodes · 75 µm wide · 100 µm gap → 0.139 cm²</span>
+                        <strong>Smart clothing</strong>
+                        <span>Fiber or textile supercapacitors</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Skin patch or foldable display</strong>
+                        <span>Stretchable, origami, or printed film</span>
                     </div>
 
                 </div>
@@ -826,9 +1111,8 @@
 
                     <strong>Key idea</strong>
 
-                    Da Vinci had by far the most area and Medici the
-                    least — yet neither won. Yield, robustness, and
-                    testability beat raw surface area.
+                    There is no best geometry, only the best match
+                    between the job and the trade you can afford.
 
                 </div>
 
@@ -845,7 +1129,7 @@
                 </p>
 
                 <div class="module-visual">
-                    📐 → 🔭
+                    🧩 → ⚡
                 </div>
 
                 <h1>
@@ -853,9 +1137,9 @@
                 </h1>
 
                 <p class="module-lead">
-                    You now know why 3D interdigitated electrodes beat
-                    thin films, where their geometry tradeoffs bite,
-                    and how five real designs converged on Galileo.
+                    You can now read a supercapacitor by its shape:
+                    outer form, inner architecture, and electrode
+                    pairing, and know what each one trades away.
                 </p>
 
                 <button

@@ -729,58 +729,69 @@ const supercapLesson12Questions = [
 const supercapLesson13Questions = [
 
     {
-        question: "In a planar interdigitated micro supercapacitor, how are the electrodes arranged?",
+        question: "How is a cylindrical supercapacitor cell typically built?",
         answers: [
-            "Alternating positive and negative fingers patterned side by side on the same substrate",
-            "One large electrode stacked on top of the other with a membrane between them",
-            "A single electrode wrapped around a wire",
-            "Two electrodes on opposite sides of a wafer"
+            "A single solid rod of carbon with no separator",
+            "Long electrode sheets and a separator wound into a spiral \"jelly roll\" inside a sealed can",
+            "Two flat plates clamped together with bolts",
+            "A hollow tube filled with dry powder"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Why do many cylindrical cells use multiple tabs or offset foils instead of a single tab?",
+        answers: [
+            "To make the can heavier",
+            "To shorten the path charge must travel along the wound electrode, lowering resistance",
+            "To change the electrolyte's color",
+            "To increase the separator thickness"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What best describes the internals of a coin (button) supercapacitor?",
+        answers: [
+            "A wound spiral of foil",
+            "A single fiber coated in gel",
+            "Stacked discs: electrode, separator, electrode, held together by a spring or spacer in a crimped two-part case",
+            "A comb-shaped pattern on a silicon chip"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What is a main advantage of pouch or prismatic cells built from flat stacked plates?",
+        answers: [
+            "They pack efficiently into rectangular products and can be thin and light, with many plates in parallel adding area",
+            "They cannot leak under any condition",
+            "They need no electrolyte",
+            "They always store more energy than any other shape"
         ],
         correct: 0
     },
 
     {
-        question: "Which is an advantage of the in-plane interdigitated layout?",
+        question: "Which application is a natural fit for a small coin-cell supercapacitor?",
         answers: [
-            "It needs a thick separator membrane between the electrodes",
-            "Both electrodes can be made in the same lithographic process, and the small lateral gaps shorten ion travel",
-            "It makes the electrodes invisible",
-            "It removes the need for an electrolyte"
+            "Recovering braking energy in a city bus",
+            "Backup power to hold memory or a real-time clock for a short time",
+            "Powering a factory substation",
+            "Starting a large locomotive engine"
         ],
         correct: 1
     },
 
     {
-        question: "Why can an ultrathin-film electrode show high capacitance per gram or per volume but low capacitance per unit area?",
+        question: "What happens when supercapacitor cells are connected in series?",
         answers: [
-            "Thin films are too conductive",
-            "A very thin layer holds only a small total amount of active material in the available footprint",
-            "Thin films cannot touch the electrolyte",
-            "Thin films always short-circuit"
+            "The voltage rating adds up, but the overall capacitance drops and cells need balancing",
+            "The voltage stays the same and capacitance adds up",
+            "Nothing changes",
+            "The cells stop storing charge"
         ],
-        correct: 1
-    },
-
-    {
-        question: "How does a 3D interdigitated design increase charge storage without enlarging the device footprint?",
-        answers: [
-            "It makes the electrolyte thicker",
-            "It shrinks the electrodes",
-            "It extends the electrodes vertically, adding sidewall area and active-material volume",
-            "It removes the gap between the electrodes"
-        ],
-        correct: 2
-    },
-
-    {
-        question: "Earlier planar pyrolytic-carbon micro supercapacitors reached about 2.75 mF/cm² or less. A 3D device with a pseudocapacitive coating reached roughly what?",
-        answers: [
-            "About 0.5 mF/cm²",
-            "About 5 mF/cm²",
-            "About 125 mF/cm²",
-            "About 12,500 mF/cm²"
-        ],
-        correct: 2
+        correct: 0
     }
 
 ];
@@ -789,58 +800,58 @@ const supercapLesson13Questions = [
 const supercapLesson14Questions = [
 
     {
-        question: "Why can an excessively thick electrode perform worse at high scan rates?",
+        question: "In a sandwich (stacked) geometry, what sits between the two electrodes?",
         answers: [
-            "Ions may not be able to penetrate the full depth quickly, causing concentration gradients and higher ionic resistance",
-            "Thick electrodes stop conducting electrons entirely",
-            "Thick electrodes change color",
-            "Thick electrodes make the electrolyte evaporate"
+            "A porous separator soaked in electrolyte",
+            "A solid metal plate",
+            "A vacuum",
+            "Nothing at all"
         ],
         correct: 0
     },
 
     {
-        question: "Which of these is one of the coupled geometric parameters in a 3D interdigitated micro supercapacitor?",
+        question: "In an in-plane (coplanar) device, what plays the role of the separator?",
         answers: [
-            "The brand of the alligator clips",
-            "The number of interdigitated electrode pairs",
-            "The time of day of testing",
-            "The wafer supplier's logo"
+            "A thick ceramic wall",
+            "The electrolyte-filled lateral gap between electrodes, with no separate separator layer",
+            "A second wafer bonded on top",
+            "A layer of paint"
         ],
         correct: 1
     },
 
     {
-        question: "What is the electrochemical benefit of reducing the gap between adjacent electrode fingers?",
+        question: "Why is in-plane geometry attractive for on-chip devices?",
         answers: [
-            "It lengthens the ion diffusion path",
-            "It lowers the number of fingers",
-            "It shortens the ionic diffusion distance",
-            "It removes the need for current collectors"
-        ],
-        correct: 2
-    },
-
-    {
-        question: "What is a fabrication downside of making the gaps extremely narrow?",
-        answers: [
-            "It complicates fabrication, electrolyte infiltration, and electrical isolation between electrodes",
-            "It makes the electrodes too wide",
-            "It changes the substrate material",
-            "It eliminates the need for photolithography"
+            "Both electrodes can be patterned in one step on one surface, and ions cross only a short lateral gap",
+            "It needs the largest possible footprint",
+            "It requires stacking dozens of layers",
+            "It eliminates the need for electrodes"
         ],
         correct: 0
     },
 
     {
-        question: "In a thick 3D electrode, what does the \"energy-power tradeoff\" mean?",
+        question: "How does a sandwich device typically scale up its capacity?",
         answers: [
-            "More active material raises stored energy, but if ions cannot reach all of it quickly, high-rate power suffers",
-            "More active material always raises both energy and power equally",
-            "Power and energy are unrelated in supercapacitors",
-            "Thicker electrodes have less material"
+            "By making the electrolyte darker",
+            "By adding more electrode layers or thicker electrodes stacked in the vertical direction",
+            "By removing the separator",
+            "By shrinking the electrodes"
         ],
-        correct: 0
+        correct: 1
+    },
+
+    {
+        question: "What is a typical downside of a thin in-plane device?",
+        answers: [
+            "The ions cannot move at all",
+            "There is little active material per unit of footprint unless the electrodes are made tall",
+            "It can only work at very high temperatures",
+            "It cannot use any electrolyte"
+        ],
+        correct: 1
     }
 
 ];
@@ -849,58 +860,58 @@ const supercapLesson14Questions = [
 const supercapLesson15Questions = [
 
     {
-        question: "Which is the correct order of the device's layers, from first fabricated to last?",
+        question: "What are the two \"combs\" in an interdigitated electrode pair?",
         answers: [
-            "Second polyimide, silver, glassy carbon, first polyimide",
-            "Glassy-carbon electrodes, first polyimide, titanium/silver current collectors, second polyimide",
-            "Titanium/silver, glassy carbon, second polyimide, first polyimide",
-            "First polyimide, second polyimide, glassy carbon, titanium/silver"
-        ],
-        correct: 1
-    },
-
-    {
-        question: "What are the two polyimide layers for?",
-        answers: [
-            "To store the charge",
-            "To act as the electrolyte",
-            "To provide electrical insulation and protection, with openings that expose the active electrodes and the contact pads",
-            "To make the device conductive"
-        ],
-        correct: 2
-    },
-
-    {
-        question: "Why must the gap between electrode fingers be small, but not too small?",
-        answers: [
-            "A smaller gap raises capacitance, but it must stay large enough to avoid shorting and keep the structure intact through fabrication and pyrolysis",
-            "A smaller gap always lowers capacitance",
-            "The gap has no effect on anything",
-            "Gaps must be as large as possible"
+            "The positive and negative electrodes, with their fingers interleaved",
+            "Two separators",
+            "Two electrolytes",
+            "Two wafers"
         ],
         correct: 0
     },
 
     {
-        question: "Why were the metal contact pads made large enough?",
+        question: "Which change shortens the ion path in an interdigitated device?",
         answers: [
-            "To hold extra electrolyte",
-            "So potentiostat alligator clips could make reliable contact without damaging the device",
-            "To store more charge than the electrodes",
-            "To block light"
+            "Widening the gap between neighboring fingers",
+            "Narrowing the gap between neighboring fingers",
+            "Removing half of the fingers",
+            "Making the substrate thicker"
         ],
         correct: 1
     },
 
     {
-        question: "Which set of biomedical devices set the size targets for the design?",
+        question: "Which layout is a variation on straight, parallel combs?",
         answers: [
-            "A laptop, a smartphone, and a television",
-            "A neural interface, a continuous glucose monitor, and a cardiac pacemaker",
-            "A hearing aid, a wristwatch, and a drone",
-            "A car battery, a solar panel, and a wind turbine"
+            "Concentric-ring, spiral, or serpentine (meander) finger patterns",
+            "A single solid block with no pattern",
+            "A stack of round discs",
+            "A wound roll of foil"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "How does making interdigitated fingers taller (going 3D) help?",
+        answers: [
+            "It shrinks the footprint to zero",
+            "It adds sidewall area and active material without enlarging the footprint",
+            "It removes the need for electrolyte",
+            "It makes the electrodes transparent"
         ],
         correct: 1
+    },
+
+    {
+        question: "Why are very narrow gaps between fingers a manufacturing challenge?",
+        answers: [
+            "Patterning resolution limits and the risk of neighboring fingers shorting together",
+            "Narrow gaps make the device too heavy",
+            "Narrow gaps are impossible to see",
+            "Narrow gaps make ions travel farther"
+        ],
+        correct: 0
     }
 
 ];
@@ -909,58 +920,178 @@ const supercapLesson15Questions = [
 const supercapLesson16Questions = [
 
     {
-        question: "The da Vinci design used 50 µm × 1.40 cm electrodes. Why was it not carried forward for electrochemical characterization?",
+        question: "Which describes a coaxial fiber supercapacitor?",
         answers: [
-            "It stored too little charge to measure",
-            "It was too large for a 20 mm coin-cell enclosure, fragile with low yield, and had undersized contact pads",
-            "It used the wrong electrolyte",
-            "It had no electrodes"
+            "Two flat plates in a pouch",
+            "A core fiber electrode wrapped by an electrolyte/separator layer and an outer electrode, like a coaxial cable",
+            "A comb pattern on silicon",
+            "A stack of coin cells"
         ],
         correct: 1
     },
 
     {
-        question: "What went wrong when the Medici design narrowed the gaps between electrodes?",
+        question: "How are the electrodes arranged in a twisted fiber supercapacitor?",
         answers: [
-            "The gaps approached the lithography resolution limit, and incomplete resist development left gaps too small or electrodes shorted together",
-            "The gaps became too wide to hold electrolyte",
-            "The electrodes turned into metal",
-            "The polyimide dissolved"
-        ],
-        correct: 0
-    },
-
-    {
-        question: "Wider 100 µm electrodes fixed the lithography yield in the Mona Lisa design. What new problem appeared?",
-        answers: [
-            "Fingers delaminated from the substrate during pyrolysis because of thermal stress",
-            "The electrodes were too short",
-            "The polyimide layers merged",
-            "The contact pads vanished"
-        ],
-        correct: 0
-    },
-
-    {
-        question: "Why was the Marco Polo design fabricated at multiple glassy-carbon thicknesses with identical geometry?",
-        answers: [
-            "To compare electrode shapes",
-            "To act as a benchmark based on a previously validated design, isolating how thickness alone affects performance",
-            "To test different electrolytes",
-            "To avoid using polyimide"
+            "One fiber, cut in half",
+            "Two electrode-coated fibers twisted around each other with gel electrolyte between them",
+            "Fibers laid on opposite sides of a wafer",
+            "Fibers glued to a metal can"
         ],
         correct: 1
     },
 
     {
-        question: "Which Galileo change fixed a problem shared by the Medici and Mona Lisa designs?",
+        question: "Why does a very long fiber supercapacitor lose power?",
         answers: [
-            "Shrinking the whole device to a single electrode",
-            "Removing the polyimide",
-            "Moving the contact pads about 2.5 mm away so the silver pads stay out of the electrolyte while the carbon electrodes are fully immersed",
-            "Doubling the operating voltage"
+            "The electrolyte freezes",
+            "Charge must travel along a thin conductor, and resistance (R = ρL/A) grows with length",
+            "Longer fibers have wider gaps",
+            "Fibers cannot store any charge"
         ],
-        correct: 2
+        correct: 1
+    },
+
+    {
+        question: "What makes fiber supercapacitors attractive for wearables?",
+        answers: [
+            "They can be woven, knitted, or embroidered into fabric while staying flexible",
+            "They are always rigid",
+            "They need a metal can",
+            "They must be kept flat"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which of these is a common fiber-electrode material?",
+        answers: [
+            "Carbon nanotube yarn",
+            "Window glass",
+            "Table salt crystals",
+            "Ceramic tile"
+        ],
+        correct: 0
+    }
+
+];
+
+
+const supercapLesson17Questions = [
+
+    {
+        question: "How do serpentine (wavy or horseshoe) interconnects help a stretchable supercapacitor?",
+        answers: [
+            "They unfold when stretched, so the stiff conductor itself sees little strain",
+            "They make the device rigid",
+            "They remove the need for electrodes",
+            "They insulate the electrolyte"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What do origami and kirigami designs add to a supercapacitor?",
+        answers: [
+            "Fold and cut patterns that let the device bend, stretch, or fold compactly while still working",
+            "A higher operating temperature",
+            "Extra separators",
+            "A brighter color"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What is the main tradeoff in a transparent supercapacitor?",
+        answers: [
+            "Thinner or sparser electrodes let more light through but store less charge",
+            "Transparent devices store far more charge",
+            "Transparent devices cannot use electrolyte",
+            "There is no tradeoff"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What is a structural supercapacitor?",
+        answers: [
+            "A device that only works inside a building",
+            "A device built into a load-bearing composite, such as carbon fiber, that both carries mechanical load and stores energy",
+            "A supercapacitor made of concrete only",
+            "A capacitor with no electrodes"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Which manufacturing approach lets designers make lattice-like electrodes with open channels for ion transport?",
+        answers: [
+            "3D printing (for example, direct ink writing)",
+            "Sanding a flat sheet",
+            "Winding a foil roll",
+            "Pressing a coin"
+        ],
+        correct: 0
+    }
+
+];
+
+
+const supercapLesson18Questions = [
+
+    {
+        question: "What defines a symmetric supercapacitor?",
+        answers: [
+            "Both electrodes use the same material, typically with equal mass",
+            "Only one electrode is used",
+            "It has no electrolyte",
+            "One electrode is metal and the other is plastic"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Two identical electrodes act like two equal capacitors in series. How does the cell capacitance compare with one electrode's?",
+        answers: [
+            "It is twice as large",
+            "It is half as large",
+            "It is exactly the same",
+            "It is zero"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Why pair two different electrode materials in an asymmetric device?",
+        answers: [
+            "To widen the usable cell voltage window, since stored energy grows with voltage squared",
+            "To make the device heavier",
+            "To remove the electrolyte",
+            "To lower the capacitance on purpose"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "When balancing the two electrodes of an asymmetric cell, what must be equal?",
+        answers: [
+            "The stored charge on the positive and negative electrodes",
+            "The color of the electrodes",
+            "The number of tabs",
+            "The brand of the separator"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which is an example of an asymmetric pairing?",
+        answers: [
+            "A carbon electrode paired with a pseudocapacitive metal-oxide electrode",
+            "Two identical activated-carbon electrodes",
+            "Two identical fibers",
+            "Two identical coin cells"
+        ],
+        correct: 0
     }
 
 ];
@@ -988,5 +1119,7 @@ const supercapAllLessonQuestions = {
     13: supercapLesson13Questions,
     14: supercapLesson14Questions,
     15: supercapLesson15Questions,
-    16: supercapLesson16Questions
+    16: supercapLesson16Questions,
+    17: supercapLesson17Questions,
+    18: supercapLesson18Questions
 };
