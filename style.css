@@ -1154,6 +1154,15 @@ button.module-exit {
 
     margin-top: 10px;
     margin-bottom: 25px;
+
+    overflow-wrap: break-word;
+}
+
+@media (max-width: 480px) {
+
+    .module-slide h1 {
+        font-size: clamp(2rem, 9vw, 2.8rem);
+    }
 }
 
 
@@ -1278,6 +1287,7 @@ button.module-exit {
 
 .scale-stack {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: 15px;
 
     margin: 35px 0;
@@ -1288,6 +1298,7 @@ button.module-exit {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 16px;
 
     padding: 22px;
 

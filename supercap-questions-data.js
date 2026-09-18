@@ -246,6 +246,246 @@ const supercapLesson4Questions = [
 ];
 
 
+const supercapLesson5Questions = [
+
+    {
+        question: "Supercapacitors are generally classified into which three categories, based on how they store charge?",
+        answers: [
+            "Ceramic, electrolytic, and film capacitors",
+            "Electric double-layer capacitors, pseudocapacitors, and hybrid capacitors",
+            "Planar, stacked, and wound capacitors",
+            "Primary, secondary, and tertiary capacitors"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "How does a supercapacitor's charge storage differ from a battery's?",
+        answers: [
+            "Supercapacitors rely on bulk diffusion-controlled reactions; batteries use surface processes",
+            "Supercapacitors store charge inside a solid dielectric layer; batteries do not",
+            "Supercapacitors use surface-based processes at the electrode-electrolyte interface; batteries rely on diffusion-controlled bulk reactions",
+            "There is no meaningful difference in how they store charge"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "An electric double-layer capacitor (EDLC) stores charge through what?",
+        answers: [
+            "Fast reversible redox reactions at the electrode surface",
+            "Electrostatic accumulation of ions at the electrode-electrolyte interface",
+            "Bulk chemical reactions inside the electrode",
+            "Heat generated during charging"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Which type of supercapacitor typically reaches higher capacitance and energy density by using electrochemical charge-transfer reactions?",
+        answers: [
+            "Pseudocapacitors",
+            "Electric double-layer capacitors",
+            "Ceramic capacitors",
+            "Film capacitors"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What is the goal of a hybrid capacitor?",
+        answers: [
+            "To eliminate the electrolyte entirely",
+            "To combine both charge-storage mechanisms, boosting energy storage while keeping good power characteristics",
+            "To store charge only in the bulk of the electrode",
+            "To operate without any electrodes"
+        ],
+        correct: 1
+    }
+
+];
+
+
+const supercapLesson6Questions = [
+
+    {
+        question: "When voltage is applied to an electric double-layer capacitor, what happens to the ions in the electrolyte?",
+        answers: [
+            "They are destroyed",
+            "They move toward and adhere to the surface of the oppositely charged porous electrodes",
+            "They leave the device through the current collector",
+            "They turn into a solid dielectric"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Why are EDLC electrodes typically made of highly porous activated carbon?",
+        answers: [
+            "It is transparent to light",
+            "Its very large surface area provides more room to store charge",
+            "It reacts chemically with the electrolyte",
+            "It is the cheapest insulator available"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What is the thin, dense region of charge that forms at the boundary between an electrode and the electrolyte commonly called?",
+        answers: [
+            "The Helmholtz double layer",
+            "The dielectric shell",
+            "The Faraday cage",
+            "The diffusion wedge"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Roughly how quickly can an EDLC charge and discharge?",
+        answers: [
+            "Over several days",
+            "Over many hours",
+            "In seconds",
+            "Only after a rest period of weeks"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Why can an EDLC cycle millions of times with virtually no degradation?",
+        answers: [
+            "Its electrodes are replaced during each cycle",
+            "Charge is stored by ions physically adsorbing and releasing, with no chemical change to the electrode",
+            "It is always operated at zero volts",
+            "Its electrolyte is renewed after every cycle"
+        ],
+        correct: 1
+    }
+
+];
+
+
+const supercapLesson7Questions = [
+
+    {
+        question: "What distinguishes pseudocapacitance from double-layer capacitance?",
+        answers: [
+            "Pseudocapacitance involves no charge at all",
+            "Pseudocapacitance involves electron transfer through fast, reversible faradaic reactions at or near the electrode surface",
+            "Pseudocapacitance only happens in the bulk of the electrode",
+            "Pseudocapacitance requires a solid dielectric"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Which of these is a common pseudocapacitive electrode material?",
+        answers: [
+            "Mica",
+            "Activated carbon",
+            "Manganese oxide (MnO₂)",
+            "Polyethylene"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Why can pseudocapacitive reactions stay fast even though they involve redox chemistry?",
+        answers: [
+            "They only occur in the near-surface region rather than deep in the bulk material",
+            "They run at extremely high temperatures",
+            "They skip the electrolyte entirely",
+            "They only occur once per device lifetime"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What is a common drawback of pseudocapacitive electrodes compared with double-layer ones?",
+        answers: [
+            "They store far less charge",
+            "They cannot be charged quickly",
+            "Repeated redox reactions and structural changes tend to reduce their cycling stability",
+            "They are not affected by the electrolyte"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Which of these is an electrically conducting polymer used as a pseudocapacitive electrode material?",
+        answers: [
+            "Polyaniline (PANI)",
+            "Ruthenium oxide (RuO₂)",
+            "Graphene",
+            "Mica"
+        ],
+        correct: 0
+    }
+
+];
+
+
+const supercapLesson8Questions = [
+
+    {
+        question: "In an interdigitated electrode array, what roles do adjacent electrodes play in redox amplification?",
+        answers: [
+            "Both act only as insulators",
+            "One acts as a generator and the neighboring one as a collector that regenerates the opposite oxidation state",
+            "Both electrodes only oxidize the species",
+            "Neither electrode takes part in electron transfer"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What happens to redox-active species diffusing between closely spaced electrodes in redox amplification?",
+        answers: [
+            "They are consumed permanently on the first reaction",
+            "They are repeatedly oxidized and reduced, producing an amplified current",
+            "They stop moving entirely",
+            "They turn into a solid film"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "How does narrowing the spacing between interdigitated electrodes affect redox amplification?",
+        answers: [
+            "It increases amplification by shortening the diffusion distance and allowing more redox cycles",
+            "It decreases amplification by blocking the electrolyte",
+            "It has no effect",
+            "It removes the need for a redox-active species"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which redox couple is one of the most extensively studied for interdigitated electrodes because of its rapid, highly reversible electron transfer?",
+        answers: [
+            "Ferri/ferrocyanide",
+            "Sodium chloride",
+            "Distilled water",
+            "Atmospheric oxygen"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "In one study of carbon interdigitated electrodes, the redox amplification factor rose from about 9 to about 37. What change produced this?",
+        answers: [
+            "Doubling the electrolyte temperature",
+            "Increasing electrode height from about 0.22 µm to about 1.1 µm",
+            "Removing the current collector",
+            "Reducing the scan rate to zero"
+        ],
+        correct: 1
+    }
+
+];
+
+
 /*
     Looked up by numeric lesson id, the same
     pattern script.js uses for the MEMS course's
@@ -256,5 +496,9 @@ const supercapAllLessonQuestions = {
     1: supercapLesson1Questions,
     2: supercapLesson2Questions,
     3: supercapLesson3Questions,
-    4: supercapLesson4Questions
+    4: supercapLesson4Questions,
+    5: supercapLesson5Questions,
+    6: supercapLesson6Questions,
+    7: supercapLesson7Questions,
+    8: supercapLesson8Questions
 };

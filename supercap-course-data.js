@@ -55,6 +55,57 @@ const supercapCourseData = [
             }
 
         ]
+    },
+
+
+    /* =====================================
+       UNIT 2
+    ===================================== */
+
+    {
+        id: 2,
+
+        title: "Charge Storage Mechanisms",
+
+        description:
+            "How supercapacitors actually store charge: double layers, fast surface redox reactions, and redox amplification.",
+
+        studyModule: {
+            title: "Charge Storage Mechanisms",
+            href: "supercapunit2.html"
+        },
+
+        lessons: [
+
+            {
+                id: 5,
+                title: "Three Kinds of Supercapacitor",
+                description:
+                    "EDLCs, pseudocapacitors, and hybrids — and how surface storage differs from a battery."
+            },
+
+            {
+                id: 6,
+                title: "The Electric Double Layer",
+                description:
+                    "How ions pile up at an electrode surface to store charge electrostatically."
+            },
+
+            {
+                id: 7,
+                title: "Pseudocapacitance",
+                description:
+                    "Fast, reversible redox reactions that store more charge — at a cost."
+            },
+
+            {
+                id: 8,
+                title: "Redox Amplification",
+                description:
+                    "How closely spaced interdigitated electrodes recycle redox species to amplify current."
+            }
+
+        ]
     }
 
 ];

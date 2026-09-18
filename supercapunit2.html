@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Charge Storage Mechanisms | Fab Path</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="supercap-learn.html">Learn</a>
+            <a href="supercap-games.html">Games</a>
+            <a href="supercap-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="supercap-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 17
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    UNIT 2 • CHARGE STORAGE MECHANISMS
+                </p>
+
+                <h1>
+                    Where the charge actually goes
+                </h1>
+
+                <p class="module-lead">
+                    A supercapacitor doesn't store energy the way a
+                    battery or an ordinary capacitor does.
+                </p>
+
+                <div class="module-visual">
+                    🔬
+                </div>
+
+                <p>
+                    Its energy is stored at a very specific place: the
+                    boundary where a solid electrode meets a liquid
+                    electrolyte. What happens at that boundary decides
+                    the device's capacitance, power, energy, and
+                    lifetime.
+                </p>
+
+                <div class="module-takeaway">
+
+                    <strong>Key idea</strong>
+
+                    The charge-storage mechanism is what determines
+                    everything else about a supercapacitor's
+                    performance.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 2 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE INTERFACE
+                </p>
+
+                <h1>
+                    Electrode meets electrolyte
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔌
+                        </div>
+
+                        <h3>Conventional capacitor</h3>
+
+                        <p>
+                            Stores energy across a solid dielectric
+                            layer between two plates.
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ⚡
+                        </div>
+
+                        <h3>Supercapacitor</h3>
+
+                        <p>
+                            Stores energy at the interface between an
+                            electrode and an electrolyte.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    That interface can hold capacitance several orders
+                    of magnitude greater than a conventional
+                    capacitor.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 3 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SURFACE VS. BULK
+                </p>
+
+                <h1>
+                    Not a battery
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Battery</strong>
+                        <span>Energy stored by diffusion-controlled chemical reactions throughout the bulk of the electrode</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Supercapacitor</strong>
+                        <span>Energy stored by surface-based processes at the electrode-electrolyte interface</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Surface processes are fast and gentle on the
+                    material — that's why supercapacitors charge
+                    quickly and last so many cycles.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 4 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CHARGING, STEP BY STEP
+                </p>
+
+                <h1>
+                    Electrons out, ions in
+                </h1>
+
+                <p>
+                    During charging, an external circuit supplies
+                    electrons to one electrode and removes them from
+                    the other. Ions in the electrolyte then migrate
+                    toward the oppositely charged electrode surfaces
+                    to keep everything electrically neutral. The
+                    resulting charge separation is the stored energy.
+                </p>
+
+                <div class="module-visual module-visual-text">
+                    e⁻ → electrode &nbsp;|&nbsp; ions → surface
+                </div>
+
+                <div class="module-takeaway">
+
+                    Discharging simply runs the process in reverse,
+                    releasing that stored energy to a load.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 5 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THREE CATEGORIES
+                </p>
+
+                <h1>
+                    Sorted by mechanism
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+                        <h3>EDLC</h3>
+                        <p>Electrostatic ion accumulation at the interface</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Pseudocapacitor</h3>
+                        <p>Fast, reversible faradaic redox reactions at the surface</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Hybrid</h3>
+                        <p>Combines both mechanisms in a single device</p>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    EDLCs tend to win on power and cycle life;
+                    pseudocapacitors tend to win on capacitance and
+                    energy density.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 6 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    MECHANISM 1 • EDLC
+                </p>
+
+                <h1>
+                    The electric double layer
+                </h1>
+
+                <div class="module-visual">
+                    🧲
+                </div>
+
+                <p>
+                    An electric double-layer capacitor stores energy
+                    electrostatically, by physically separating ions.
+                    When a voltage is applied, ions in the electrolyte
+                    move through the liquid and adhere to the surface
+                    of the electrodes, forming a thin, dense layer of
+                    stored charge.
+                </p>
+
+                <div class="module-takeaway">
+
+                    No electrons cross the interface — the ions just
+                    line up at the surface.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 7 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    MECHANISM 1 • EDLC
+                </p>
+
+                <h1>
+                    Porous carbon, huge surface
+                </h1>
+
+                <p>
+                    EDLC electrodes are typically highly porous
+                    activated carbon, chosen for its enormous surface
+                    area — more surface means more room for ions to
+                    line up. Ions accumulate at the microscopic
+                    boundary between the solid electrode and the liquid
+                    electrolyte, forming two thin dense regions of
+                    charge known as the Helmholtz double layer.
+                </p>
+
+                <div class="module-visual module-visual-text">
+                    solid electrode | Helmholtz double layer | electrolyte
+                </div>
+
+                <div class="module-takeaway">
+
+                    Capacitance here scales with how much surface the
+                    ions can reach.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 8 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    MECHANISM 1 • EDLC
+                </p>
+
+                <h1>
+                    What EDLCs are good at
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Charge / discharge</strong>
+                        <span>Typically in seconds</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Cycle life</strong>
+                        <span>Millions of cycles with virtually no degradation</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Power</strong>
+                        <span>Massive bursts of current thanks to low internal resistance</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    When the ions release from the surface and disperse
+                    back into the electrolyte, the stored energy is
+                    delivered — and nothing has been used up.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 9 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    MECHANISM 2 • PSEUDOCAPACITANCE
+                </p>
+
+                <h1>
+                    Charge that crosses the interface
+                </h1>
+
+                <div class="module-visual">
+                    🔁
+                </div>
+
+                <p>
+                    Pseudocapacitance stores energy through quick,
+                    reversible faradaic reactions at or near the
+                    electrode surface. Unlike an EDLC, electrons
+                    actually transfer between the electrode and
+                    electrochemically active species — which allows
+                    far more charge to be stored.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Faradaic just means electron transfer across the
+                    interface — real, but reversible, chemistry.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 10 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    MECHANISM 2 • PSEUDOCAPACITANCE
+                </p>
+
+                <h1>
+                    Fast because it stays shallow
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+                        <h3>Redox reactions</h3>
+                        <p>Reversible oxidation and reduction</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Ion intercalation</h3>
+                        <p>Ions slip into the near-surface material</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Electrosorption</h3>
+                        <p>Ions adsorb with partial charge transfer</p>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    These reactions are confined to the near-surface
+                    region, not the bulk — so kinetics stay fast and
+                    power stays high.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 11 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    MECHANISM 2 • PSEUDOCAPACITANCE
+                </p>
+
+                <h1>
+                    Pseudocapacitive materials
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Metal oxides</strong>
+                        <span>Ruthenium oxide (RuO₂), manganese oxide (MnO₂)</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Conducting polymers</strong>
+                        <span>Polyaniline (PANI), polypyrrole (PPy), PEDOT</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    These offer electrochemically active sites for
+                    reversible charge transfer, giving capacitance well
+                    beyond what double-layer storage alone achieves.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 12 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE TRADEOFF
+                </p>
+
+                <h1>
+                    More storage, less endurance
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <h3>EDLC</h3>
+
+                        <p>
+                            Exceptional cycle life and power, but
+                            lower capacitance.
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <h3>Pseudocapacitor</h3>
+
+                        <p>
+                            Higher capacitance and energy density, but
+                            repeated redox reactions and structural
+                            changes reduce cycling stability.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Many modern designs combine both mechanisms to get
+                    the best of each.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 13 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    MECHANISM 3 • REDOX AMPLIFICATION
+                </p>
+
+                <h1>
+                    Generator and collector
+                </h1>
+
+                <p>
+                    In an interdigitated electrode array, one
+                    electrode acts as a generator, where oxidation or
+                    reduction first occurs. The neighboring electrode
+                    acts as a collector, regenerating the opposite
+                    oxidation state. A redox-active species shuttles
+                    back and forth between them.
+                </p>
+
+                <div class="module-visual module-visual-text">
+                    generator ⇄ collector ⇄ generator ⇄ collector
+                </div>
+
+                <div class="module-takeaway">
+
+                    Each trip is another electron-transfer reaction —
+                    so one molecule can contribute current many times
+                    over.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 14 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    MECHANISM 3 • REDOX AMPLIFICATION
+                </p>
+
+                <h1>
+                    What controls the amplification
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>↓ Electrode spacing</strong>
+                        <span>Shorter diffusion distance, so more redox cycles before escaping to the bulk</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>↑ Electrode height / area</strong>
+                        <span>More sidewall area, so more chances for electron transfer</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Reversible redox couple</strong>
+                        <span>Ferri/ferrocyanide is one of the most studied — fast, highly reversible kinetics</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Geometry is a design knob: the same electrolyte can
+                    give very different amplification in different
+                    electrode layouts.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 15 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE EVIDENCE
+                </p>
+
+                <h1>
+                    Taller electrodes, bigger boost
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    0.22 µm tall → ~9× &nbsp;&nbsp;|&nbsp;&nbsp; 1.1 µm tall → ~37×
+                </div>
+
+                <p>
+                    In one study of 3D carbon interdigitated electrode
+                    arrays, raising electrode height from about
+                    0.22 µm to about 1.1 µm lifted the redox
+                    amplification factor from roughly 9 to roughly
+                    37.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A five-times-taller electrode gave roughly four
+                    times the amplification — geometry matters a lot.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 16 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    PUTTING IT TOGETHER
+                </p>
+
+                <h1>
+                    Why micro devices care
+                </h1>
+
+                <p>
+                    Micro supercapacitors have tiny electrodes and
+                    tiny diffusion lengths — exactly where redox
+                    amplification shines. Pair optimized interdigitated
+                    geometry with a reversible redox-active
+                    electrolyte, and you can boost charge storage
+                    without making the device any bigger.
+                </p>
+
+                <div class="module-takeaway">
+
+                    <strong>Key idea</strong>
+
+                    Three mechanisms, one toolbox: double-layer
+                    storage for power and endurance, pseudocapacitance
+                    for capacity, and redox amplification for
+                    geometry-driven gains.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- COMPLETION SLIDE -->
+
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 2 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    ⚡ → 🔁
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenges?
+                </h1>
+
+                <p class="module-lead">
+                    You now know the three ways a supercapacitor
+                    stores charge, what each one is good and bad at,
+                    and why electrode geometry can amplify the result.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeSupercapUnit2Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeSupercapUnit2Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathSupercapUnit2StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathSupercapUnit2StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "supercap-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+</body>
+</html>
