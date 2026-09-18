@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Supercapacitor Fundamentals | Fab Path</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="learn.html">Learn</a>
+            <a href="games.html">Games</a>
+            <a href="practice.html">Practice</a>
+            <a href="progress.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="supercap-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 16
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- =====================================
+                 SLIDE 1
+            ====================================== -->
+
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    UNIT 1 • SUPERCAPACITOR FUNDAMENTALS
+                </p>
+
+                <h1>
+                    Energy fast enough to matter
+                </h1>
+
+                <p class="module-lead">
+                    Portable electronics, wearables, and biomedical
+                    implants all need power sources that fit in a
+                    shrinking footprint.
+                </p>
+
+                <div class="module-visual">
+                    ⚡
+                </div>
+
+                <p>
+                    As these devices get smaller and do more, the
+                    challenge of storing enough energy — and
+                    delivering it fast enough — gets harder. An ideal
+                    power source stores a lot of energy AND releases
+                    it quickly on demand.
+                </p>
+
+                <div class="module-takeaway">
+
+                    <strong>Key idea</strong>
+
+                    Energy storage and power delivery are two
+                    different jobs, and most technologies are only
+                    good at one of them.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 SLIDE 2
+            ====================================== -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE TRADEOFF
+                </p>
+
+                <h1>
+                    Batteries vs. capacitors
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔋
+                        </div>
+
+                        <h3>Batteries</h3>
+
+                        <p>
+                            High energy density, but slower
+                            charge/discharge and a limited cycle life
+                            — the chemical reactions inside wear out.
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔌
+                        </div>
+
+                        <h3>Capacitors</h3>
+
+                        <p>
+                            Extremely high power density and near
+                            -instant charge/discharge, but store only
+                            a small amount of energy.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Neither one alone is a great fit for a device
+                    that needs to store real energy AND deliver quick
+                    bursts of power.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 SLIDE 3
+            ====================================== -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE RAGONE PLOT
+                </p>
+
+                <h1>
+                    Plotting energy against power
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    ENERGY DENSITY ↑ &nbsp;&nbsp;vs&nbsp;&nbsp; ↑ POWER DENSITY
+                </div>
+
+                <p>
+                    A Ragone plot compares energy density (how much
+                    energy fits per unit mass or volume) against power
+                    density (how fast that energy can be delivered).
+                    Capacitors sit in the high-power, low-energy
+                    corner. Batteries sit in the high-energy,
+                    lower-power corner.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Supercapacitors were developed specifically to
+                    occupy the gap in between.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 SLIDE 4
+            ====================================== -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE MIDDLE GROUND
+                </p>
+
+                <h1>
+                    Where supercapacitors fit
+                </h1>
+
+                <div class="module-visual">
+                    🔋 ← ⚡ → 🔌
+                </div>
+
+                <p>
+                    Supercapacitors — also called electrochemical
+                    capacitors or ultracapacitors — offer significantly
+                    higher energy density than conventional capacitors
+                    while keeping high power density, rapid
+                    charge-discharge, and exceptional cycle life
+                    (often past a million cycles).
+                </p>
+
+                <div class="module-takeaway">
+
+                    <strong>Key idea</strong>
+
+                    Supercapacitors don't beat batteries on energy or
+                    beat capacitors on power — they get "good enough"
+                    at both at once.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 SLIDE 5
+            ====================================== -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHY IT MATTERS
+                </p>
+
+                <h1>
+                    Biomedical power budgets
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Neural interfaces</strong>
+                        <span>~0.47 µW (low-power recording) up to ~200 mW (high-channel-count stimulators)</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Continuous glucose monitors</strong>
+                        <span>~10 µW for sensing, processing, and wireless communication</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Cardiac pacemakers</strong>
+                        <span>10–100 µW, sustained for years off one implanted power source</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    These devices need long-term energy capacity AND
+                    the ability to deliver power quickly — exactly the
+                    gap supercapacitors are built to fill.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 SLIDE 6
+            ====================================== -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE DEVICE IN THIS COURSE
+                </p>
+
+                <h1>
+                    A real research device
+                </h1>
+
+                <div class="module-visual">
+                    🔬
+                </div>
+
+                <p>
+                    This course is grounded in original thesis
+                    research: a glassy-carbon interdigitated micro
+                    supercapacitor, built with 3D electrodes and
+                    tested in a PBS electrolyte to simulate
+                    physiological conditions.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Every formula and fabrication step in this course
+                    ties back to a device that was actually designed,
+                    built, and electrochemically tested.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 SLIDE 7
+            ====================================== -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CAPACITOR BASICS
+                </p>
+
+                <h1>
+                    Two plates and a gap
+                </h1>
+
+                <div class="module-visual">
+                    🔲 | 🔲
+                </div>
+
+                <p>
+                    A capacitor is two conductive plates separated by
+                    an insulating dielectric. Apply a voltage, and
+                    positive charge builds up on one plate while equal
+                    negative charge builds up on the other. The
+                    dielectric blocks current flow but lets an electric
+                    field build between the plates — that's where the
+                    energy lives.
+                </p>
+
+                <div class="module-takeaway">
+
+                    No chemical reaction happens here — just charge
+                    physically separating. That's why capacitors can
+                    charge and discharge so fast.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 SLIDE 8
+            ====================================== -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHY SO FAST
+                </p>
+
+                <h1>
+                    Speed vs. capacity
+                </h1>
+
+                <p>
+                    Because energy storage is purely electrostatic
+                    (charge separation, not a chemical reaction),
+                    capacitors can deliver very high power — often
+                    exceeding several kW/kg — and survive millions of
+                    cycles. The tradeoff: electrode surface area is
+                    small, so there's only so much charge to separate
+                    in the first place.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A capacitor's power is limited mostly by internal
+                    resistance, not by chemistry — which is exactly
+                    why it can't store much energy either.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 SLIDE 9
+            ====================================== -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE CORE EQUATION
+                </p>
+
+                <h1>
+                    What sets capacitance
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    C = εA / d
+                </div>
+
+                <p>
+                    Capacitance (C) depends on the permittivity of the
+                    dielectric (ε), the electrode surface area (A), and
+                    the separation distance between electrodes (d).
+                    Bigger area or a smaller gap both raise
+                    capacitance.
+                </p>
+
+                <div class="module-takeaway">
+
+                    <strong>Key idea</strong>
+
+                    Every strategy for a better supercapacitor
+                    electrode — more surface area, tighter spacing —
+                    traces back to this one equation.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 SLIDE 10
+            ====================================== -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CHARGE, VOLTAGE, ENERGY
+                </p>
+
+                <h1>
+                    From capacitance to energy
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Capacitance</strong>
+                        <span>C = ratio of stored charge to applied voltage</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Stored energy</strong>
+                        <span>E = ½ · C · (ΔV)²</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Energy scales with voltage <strong>squared</strong>
+                    — small increases in operating voltage window
+                    matter a lot for how much energy a device can
+                    hold.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 SLIDE 11
+            ====================================== -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THINKING IN AREA
+                </p>
+
+                <h1>
+                    Why "areal" matters here
+                </h1>
+
+                <p>
+                    Micro supercapacitors don't have the luxury of
+                    scaling up — their footprint is fixed by the
+                    device they're powering. So instead of measuring
+                    performance per gram, this field measures
+                    performance per unit area: areal charge storage
+                    (mC/cm²), areal capacitance (mF/cm²), and areal
+                    energy density.
+                </p>
+
+                <div class="module-visual module-visual-text">
+                    Q_A = (1/vA) ∫|I(V)| dV &nbsp;&nbsp;·&nbsp;&nbsp; C_A = Q_A / ΔV
+                </div>
+
+                <div class="module-takeaway">
+
+                    Areal charge storage is calculated from the area
+                    inside a cyclic voltammogram (CV) curve — you'll
+                    see CV curves throughout this course.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 SLIDE 12
+            ====================================== -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    LEVERS YOU CAN PULL
+                </p>
+
+                <h1>
+                    Four ways to raise capacitance
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+                        <h3>More surface area</h3>
+                        <p>Bigger electrode area, same footprint</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Less spacing</h3>
+                        <p>Shorter distance between electrode fingers</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Better electrolyte transport</h3>
+                        <p>Ions reach the electrode surface faster</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Reversible redox reactions</h3>
+                        <p>Add faradaic charge storage on top of electrostatics</p>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Every device design choice later in this course —
+                    electrode geometry, electrode height, electrolyte
+                    choice — is really just pulling one of these four
+                    levers.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 SLIDE 13
+            ====================================== -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    TESTING IT
+                </p>
+
+                <h1>
+                    Cyclic voltammetry, briefly
+                </h1>
+
+                <div class="module-visual">
+                    📈
+                </div>
+
+                <p>
+                    Cyclic voltammetry (CV) sweeps voltage up and back
+                    down while measuring current, tracing out a loop.
+                    The area inside that loop is where areal charge
+                    storage comes from. The height of the peaks on
+                    that curve is the peak current — and it tells you
+                    a lot about what's happening at the electrode.
+                </p>
+
+                <div class="module-takeaway">
+
+                    You'll read real CV curves from this thesis later
+                    in the course — this is the tool that produces
+                    them.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 SLIDE 14
+            ====================================== -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE RANDLES-ŠEVČÍK EQUATION
+                </p>
+
+                <h1>
+                    What sets peak current
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    i_p = (2.69×10⁵) n^(3/2) A D₀^(1/2) C₀* v^(1/2)
+                </div>
+
+                <p>
+                    This equation predicts the peak current (i_p) on a
+                    CV curve from the number of electrons transferred
+                    (n), electrode area (A), the redox species'
+                    diffusion coefficient (D₀) and concentration (C₀*),
+                    and the scan rate (v) — how fast the voltage is
+                    swept.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Peak current is a direct readout of how a redox
+                    reaction responds to your test conditions.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 SLIDE 15
+            ====================================== -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    READING THE VARIABLES
+                </p>
+
+                <h1>
+                    Bigger electrode, bigger peak
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>↑ Electrode area (A)</strong>
+                        <span>More surface for the reaction → higher peak current</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>↑ Scan rate (v)</strong>
+                        <span>Faster voltage sweep → higher peak current</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>↑ Concentration (C₀*)</strong>
+                        <span>More redox-active species available → higher peak current</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Every one of these variables scales peak current
+                    up — none of them scale it down. That's why CV
+                    curves are so sensitive to test setup.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 COMPLETION SLIDE
+            ====================================== -->
+
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 1 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    ⚡ → 🔬
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenges?
+                </h1>
+
+                <p class="module-lead">
+                    You now understand where supercapacitors sit
+                    between batteries and capacitors, the equations
+                    behind charge storage, and how a CV curve is read
+                    — the foundation for everything else in this
+                    course.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeSupercapUnit1Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeSupercapUnit1Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathSupercapUnit1StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathSupercapUnit1StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "supercap-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+</body>
+</html>

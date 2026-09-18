@@ -23,9 +23,10 @@ const coursesData = [
         title: "Supercapacitors",
         tagline: "Energy storage at the electrode interface",
         description:
-            "Electric double-layer capacitance, pseudocapacitance, electrode materials, and the fabrication choices that push energy density higher.",
+            "Electric double-layer capacitance, pseudocapacitance, electrode materials, and the fabrication choices that push energy density higher. Grounded in original thesis research on 3D interdigitated glassy-carbon devices.",
         icon: "⚡",
-        status: "coming-soon"
+        status: "live",
+        href: "supercap-learn.html"
     },
 
     {

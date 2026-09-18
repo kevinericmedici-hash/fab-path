@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Why Supercapacitors? | Fab Path</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="lesson-body">
+
+    <main class="lesson-page">
+
+        <div class="lesson-topbar">
+
+            <a href="supercap-learn.html" class="exit-lesson">
+                ✕
+            </a>
+
+            <div class="lesson-progress-track">
+                <div class="lesson-progress-fill" id="supercapLessonProgress"></div>
+            </div>
+
+            <div class="lesson-xp">
+                ⚡ <span id="supercapXpDisplay">0</span> XP
+            </div>
+
+        </div>
+
+
+        <section class="question-card">
+
+            <p class="question-number" id="supercapQuestionNumber">
+                QUESTION 1 OF 5
+            </p>
+
+            <h1 id="supercapQuestionText">
+            </h1>
+
+            <p class="question-instruction">
+                Choose the best answer.
+            </p>
+
+
+            <div class="answer-grid" id="supercapAnswerGrid">
+            </div>
+
+        </section>
+
+
+        <div class="lesson-footer">
+
+            <div class="feedback-message" id="supercapFeedbackMessage">
+                Select an answer to continue.
+            </div>
+
+            <button class="check-button" id="supercapCheckButton" disabled>
+                Check Answer
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+    <script src="supercap-script.js"></script>
+
+    <script>
+
+        const supercapLesson1Questions = [
+
+            {
+                question: "What does a Ragone plot compare?",
+                answers: [
+                    "Cost vs. weight",
+                    "Energy density vs. power density",
+                    "Voltage vs. current",
+                    "Temperature vs. pressure"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "Why do batteries typically have lower power density than capacitors?",
+                answers: [
+                    "They use more expensive materials",
+                    "Their energy storage relies on slower, diffusion-controlled chemical reactions",
+                    "They require larger dielectrics",
+                    "They operate at lower voltages"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "Where do supercapacitors sit on a Ragone plot relative to batteries and capacitors?",
+                answers: [
+                    "Below both",
+                    "In between, bridging the gap",
+                    "Above both",
+                    "Exactly on top of batteries"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "Roughly how much power does a cardiac pacemaker need to operate?",
+                answers: [
+                    "10–100 µW",
+                    "10–100 mW",
+                    "1–10 W",
+                    "100–1000 W"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "What makes supercapacitors attractive for implantable devices that need frequent charging?",
+                answers: [
+                    "Very low cost",
+                    "Long cycle life with minimal degradation over many charge-discharge cycles",
+                    "They require no electrolyte",
+                    "They only work at room temperature"
+                ],
+                correct: 1
+            }
+
+        ];
+
+        initSupercapLessonQuiz(1, supercapLesson1Questions);
+
+    </script>
+
+</body>
+
+</html>

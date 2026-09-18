@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inside a Conventional Capacitor | Fab Path</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="lesson-body">
+
+    <main class="lesson-page">
+
+        <div class="lesson-topbar">
+
+            <a href="supercap-learn.html" class="exit-lesson">
+                ✕
+            </a>
+
+            <div class="lesson-progress-track">
+                <div class="lesson-progress-fill" id="supercapLessonProgress"></div>
+            </div>
+
+            <div class="lesson-xp">
+                ⚡ <span id="supercapXpDisplay">0</span> XP
+            </div>
+
+        </div>
+
+
+        <section class="question-card">
+
+            <p class="question-number" id="supercapQuestionNumber">
+                QUESTION 1 OF 5
+            </p>
+
+            <h1 id="supercapQuestionText">
+            </h1>
+
+            <p class="question-instruction">
+                Choose the best answer.
+            </p>
+
+
+            <div class="answer-grid" id="supercapAnswerGrid">
+            </div>
+
+        </section>
+
+
+        <div class="lesson-footer">
+
+            <div class="feedback-message" id="supercapFeedbackMessage">
+                Select an answer to continue.
+            </div>
+
+            <button class="check-button" id="supercapCheckButton" disabled>
+                Check Answer
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+    <script src="supercap-script.js"></script>
+
+    <script>
+
+        const supercapLesson3Questions = [
+
+            {
+                question: "What separates the two conductive plates in a capacitor?",
+                answers: [
+                    "A vacuum tube",
+                    "An insulating dielectric material",
+                    "A semiconductor wire",
+                    "A magnetic coil"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "Why can capacitors charge and discharge extremely fast compared to batteries?",
+                answers: [
+                    "They use higher voltages",
+                    "Energy storage is electrostatic charge separation, not a chemical reaction",
+                    "They are smaller in size",
+                    "They use liquid electrolytes"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "What primarily limits a capacitor's power delivery capability?",
+                answers: [
+                    "Its internal resistance",
+                    "Its color",
+                    "The ambient humidity",
+                    "Its weight"
+                ],
+                correct: 0
+            },
+
+            {
+                question: "Which of these is a common capacitor dielectric material?",
+                answers: [
+                    "Activated carbon",
+                    "Mica",
+                    "Glassy carbon",
+                    "Graphene"
+                ],
+                correct: 1
+            },
+
+            {
+                question: "Why do conventional capacitors have low energy density compared to batteries or supercapacitors?",
+                answers: [
+                    "They operate at very low temperatures",
+                    "Charge storage is limited to simple electrostatic separation on a relatively small electrode area",
+                    "They can't hold any voltage",
+                    "They require rare materials"
+                ],
+                correct: 1
+            }
+
+        ];
+
+        initSupercapLessonQuiz(3, supercapLesson3Questions);
+
+    </script>
+
+</body>
+
+</html>

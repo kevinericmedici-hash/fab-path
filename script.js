@@ -9316,6 +9316,24 @@ function loadIndexPage() {
                         : Math.round(
                             (completedLessons / totalLessons) * 100
                         );
+
+            } else if (
+                course.id === "supercapacitors" &&
+                typeof supercapCourseData !== "undefined"
+            ) {
+
+                const totalLessons =
+                    getSupercapAllLessons().length;
+
+                const completedLessons =
+                    getSupercapCompletedLessonCount();
+
+                percent =
+                    totalLessons === 0
+                        ? 0
+                        : Math.round(
+                            (completedLessons / totalLessons) * 100
+                        );
             }
 
             let badge = "START";
