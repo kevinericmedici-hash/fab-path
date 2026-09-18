@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Build the Display | Fab Path</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="learn.html">Learn</a>
+            <a href="games.html" class="active-nav">Games</a>
+            <a href="practice.html">Practice</a>
+            <a href="progress.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <main class="game-page">
+
+        <section class="game-shell">
+
+            <div class="game-top">
+
+                <a href="games.html" class="module-exit">
+                    ← Back to Games
+                </a>
+
+                <div class="module-progress-area">
+
+                    <div class="module-progress-track">
+                        <div
+                            class="module-progress-fill"
+                            id="gameProgressFill"
+                        ></div>
+                    </div>
+
+                    <span id="gameProgressText">
+                        0 / 10
+                    </span>
+
+                </div>
+
+                <span class="game-badge">
+                    UNIT 6 GAME
+                </span>
+
+            </div>
+
+
+            <div class="game-header">
+
+                <p class="eyebrow">
+                    BUILD THE DISPLAY
+                </p>
+
+                <h1>
+                    Three devices, real parts
+                </h1>
+
+                <p class="game-lead">
+                    You're the engineer on this build. Gather the
+                    right parts for each device — watch out for parts
+                    that belong to one of the other two.
+                </p>
+
+            </div>
+
+
+            <div id="gameBoard">
+
+                <div class="device-phase-header" id="devicePhaseHeader">
+                    <span class="device-phase-icon" id="devicePhaseIcon">🪞</span>
+                    <div>
+                        <p class="device-phase-label" id="devicePhaseLabel">
+                            DEVICE 1 OF 3
+                        </p>
+                        <h2 class="device-phase-name" id="devicePhaseName">
+                            Digital Micromirror Device
+                        </h2>
+                    </div>
+                </div>
+
+
+                <div class="build-zone" id="buildZone">
+                    <p class="build-zone-empty" id="buildZoneEmpty">
+                        No parts gathered yet.
+                    </p>
+                </div>
+
+
+                <div class="tile-grid parts-grid" id="tileGrid">
+                </div>
+
+
+                <div class="game-feedback" id="gameFeedback">
+                    Tap the parts that belong to this device.
+                </div>
+
+
+                <div class="phase-complete-panel" id="phaseCompletePanel" hidden>
+
+                    <p class="phase-complete-title" id="phaseCompleteTitle">
+                        ✅ DMD complete!
+                    </p>
+
+                    <p class="phase-complete-blurb" id="phaseCompleteBlurb">
+                    </p>
+
+                    <button
+                        type="button"
+                        class="module-nav-button"
+                        id="continueButton"
+                    >
+                        Next: Build the GLV →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div id="gameComplete" class="game-complete" hidden>
+
+                <p class="eyebrow">
+                    CHALLENGE COMPLETE
+                </p>
+
+                <h2>
+                    🛠️ Three devices, built right
+                </h2>
+
+                <p class="game-complete-xp" id="gameCompleteXP">
+                    +60 XP
+                </p>
+
+                <p class="game-complete-lead" id="gameCompleteStats">
+                    10 for 10 — every part correct.
+                </p>
+
+                <div class="game-recap" id="gameRecap">
+                </div>
+
+                <div class="game-complete-actions">
+
+                    <button
+                        type="button"
+                        class="module-nav-button secondary-button"
+                        id="playAgainButton"
+                    >
+                        Play Again
+                    </button>
+
+                    <a
+                        href="games.html"
+                        class="module-nav-button lesson-link"
+                        id="backToPathButton"
+                    >
+                        Back to Games
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+    <script src="optics-parts-art.js"></script>
+    <script src="game6.js"></script>
+
+</body>
+
+</html>
