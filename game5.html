@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Electrostatic Force Lab | Fab Path</title>
+    <title>Accelerometer Design Lab | Fab Path</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -60,7 +60,7 @@
                     </div>
 
                     <span id="gameProgressText">
-                        1 / 5
+                        0 / 7
                     </span>
 
                 </div>
@@ -75,18 +75,18 @@
             <div class="game-header">
 
                 <p class="eyebrow">
-                    ELECTROSTATIC FORCE LAB
+                    ACCELEROMETER DESIGN LAB
                 </p>
 
                 <h1>
-                    Pull the plates together
+                    Build it, then tune it
                 </h1>
 
                 <p class="game-lead">
-                    A simple parallel-plate actuator — the same
-                    principle behind an accelerometer's self-test
-                    structures. Dial in voltage and gap to hit each
-                    target force.
+                    Gather the real parts of a comb-finger MEMS
+                    accelerometer, then dial in the proof mass, spring,
+                    and air gap to see how frequency, quality factor,
+                    sensitivity, and noise respond.
                 </p>
 
             </div>
@@ -94,48 +94,188 @@
 
             <div id="gameBoard">
 
-                <div class="lab-stage">
+                <div class="device-phase-header">
+                    <span class="device-phase-icon">🛠️</span>
+                    <div>
+                        <p class="device-phase-label">
+                            PHASE 1 OF 2
+                        </p>
+                        <h2 class="device-phase-name">
+                            Assemble the sensor cell
+                        </h2>
+                    </div>
+                </div>
 
-                    <div class="plate-stage">
 
-                        <div class="plate plate-fixed"></div>
+                <div class="build-zone" id="buildZone">
+                    <p class="build-zone-empty" id="buildZoneEmpty">
+                        No parts gathered yet.
+                    </p>
+                </div>
 
-                        <div class="plate plate-movable" id="movablePlate"></div>
 
-                        <span class="gap-label" id="gapLabel">
-                            2.0 µm
-                        </span>
+                <div class="tile-grid parts-grid" id="tileGrid">
+                </div>
 
+
+                <div class="game-feedback" id="gameFeedback">
+                    Tap the parts that belong in a comb-finger
+                    accelerometer.
+                </div>
+
+
+                <div class="phase-complete-panel" id="phaseCompletePanel" hidden>
+
+                    <p class="phase-complete-title" id="phaseCompleteTitle">
+                        ✅ Sensor cell assembled!
+                    </p>
+
+                    <p class="phase-complete-blurb" id="phaseCompleteBlurb">
+                        Anchors hold the folded springs to the
+                        substrate, the springs suspend the proof mass,
+                        and fixed fingers interleave with it to sense
+                        every move capacitively.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="module-nav-button"
+                        id="continueButton"
+                    >
+                        Next: Tune the design →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div id="tunePhase" hidden>
+
+                <div class="device-phase-header">
+                    <span class="device-phase-icon">📐</span>
+                    <div>
+                        <p class="device-phase-label">
+                            PHASE 2 OF 2
+                        </p>
+                        <h2 class="device-phase-name">
+                            Tune the sensor design
+                        </h2>
+                    </div>
+                </div>
+
+                <p class="game-lead accel-tune-lead">
+                    The mass, the spring, and the air gap underneath
+                    the mass set everything else. Adjust them and
+                    watch the readouts move.
+                </p>
+
+                <div class="accel-stage">
+
+                    <svg viewBox="0 0 300 200" class="accel-svg" id="accelSvg">
+
+                        <rect x="15" y="8" width="34" height="16" rx="2" fill="var(--text)"/>
+                        <line x1="18" y1="24" x2="12" y2="34" stroke="var(--muted)" stroke-width="2"/>
+                        <line x1="28" y1="24" x2="22" y2="34" stroke="var(--muted)" stroke-width="2"/>
+                        <line x1="38" y1="24" x2="32" y2="34" stroke="var(--muted)" stroke-width="2"/>
+                        <line x1="48" y1="24" x2="42" y2="34" stroke="var(--muted)" stroke-width="2"/>
+
+                        <rect x="251" y="8" width="34" height="16" rx="2" fill="var(--text)"/>
+                        <line x1="254" y1="24" x2="248" y2="34" stroke="var(--muted)" stroke-width="2"/>
+                        <line x1="264" y1="24" x2="258" y2="34" stroke="var(--muted)" stroke-width="2"/>
+                        <line x1="274" y1="24" x2="268" y2="34" stroke="var(--muted)" stroke-width="2"/>
+                        <line x1="284" y1="24" x2="278" y2="34" stroke="var(--muted)" stroke-width="2"/>
+
+                        <path
+                            id="springLeft"
+                            d="M32 24 L32 60"
+                            stroke="var(--accent)"
+                            stroke-width="3"
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+
+                        <path
+                            id="springRight"
+                            d="M268 24 L268 60"
+                            stroke="var(--accent)"
+                            stroke-width="3"
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+
+                        <g id="fingersLeft">
+                            <line x1="58" y1="78" x2="80" y2="78" stroke="var(--muted)" stroke-width="3"/>
+                            <line x1="58" y1="90" x2="80" y2="90" stroke="var(--muted)" stroke-width="3"/>
+                            <line x1="58" y1="102" x2="80" y2="102" stroke="var(--muted)" stroke-width="3"/>
+                        </g>
+
+                        <g id="fingersRight">
+                            <line x1="242" y1="78" x2="220" y2="78" stroke="var(--muted)" stroke-width="3"/>
+                            <line x1="242" y1="90" x2="220" y2="90" stroke="var(--muted)" stroke-width="3"/>
+                            <line x1="242" y1="102" x2="220" y2="102" stroke="var(--muted)" stroke-width="3"/>
+                        </g>
+
+                        <rect
+                            id="accelMassRect"
+                            x="110"
+                            y="65"
+                            width="80"
+                            height="40"
+                            rx="4"
+                            fill="var(--accent)"
+                            class="accel-mass-rect"
+                        />
+
+                        <rect
+                            id="accelGapRect"
+                            x="70"
+                            y="150"
+                            width="160"
+                            height="14"
+                            fill="rgba(84, 224, 199, 0.15)"
+                            stroke="rgba(84, 224, 199, 0.4)"
+                            stroke-width="1"
+                        />
+
+                        <text
+                            x="150"
+                            y="182"
+                            text-anchor="middle"
+                            fill="var(--muted)"
+                            font-size="11"
+                            id="accelGapText"
+                        >
+                            air gap: 3.0 µm
+                        </text>
+
+                    </svg>
+
+                </div>
+
+
+                <div class="accel-readout-grid">
+
+                    <div class="accel-readout-box">
+                        <p class="accel-readout-label">Natural frequency</p>
+                        <p class="accel-readout-value" id="freqReadout">— kHz</p>
                     </div>
 
-
-                    <div class="lab-readout">
-
-                        <p class="lab-readout-label">
-                            Force on the plate
-                        </p>
-
-                        <p class="lab-readout-value" id="forceReadout">
-                            0 µN
-                        </p>
-
-                        <div class="force-meter-track">
-                            <div
-                                class="force-meter-fill"
-                                id="forceMeterFill"
-                            ></div>
-
-                            <div
-                                class="force-meter-target"
-                                id="forceMeterTarget"
-                            ></div>
-                        </div>
-
+                    <div class="accel-readout-box">
+                        <p class="accel-readout-label">Quality factor</p>
+                        <p class="accel-readout-value" id="qReadout">—</p>
                     </div>
 
+                    <div class="accel-readout-box">
+                        <p class="accel-readout-label">Sensitivity</p>
+                        <p class="accel-readout-value" id="sensReadout">— nm/g</p>
+                    </div>
 
-                    <div class="target-badge" id="targetBadge">
-                        🎯 Target: ~2 µN
+                    <div class="accel-readout-box">
+                        <p class="accel-readout-label">TNEA (noise floor)</p>
+                        <p class="accel-readout-value" id="tneaReadout">— µg/√Hz</p>
                     </div>
 
                 </div>
@@ -145,17 +285,36 @@
 
                     <div class="slider-row">
 
-                        <label class="slider-label" for="voltageSlider">
-                            Voltage
-                            <span class="slider-value" id="voltageValue">10.0 V</span>
+                        <label class="slider-label" for="massSlider">
+                            Proof mass
+                            <span class="slider-value" id="massValue">150 ng</span>
                         </label>
 
                         <input
                             type="range"
-                            id="voltageSlider"
+                            id="massSlider"
+                            min="50"
+                            max="500"
+                            step="5"
+                            value="150"
+                        >
+
+                    </div>
+
+
+                    <div class="slider-row">
+
+                        <label class="slider-label" for="springSlider">
+                            Spring constant
+                            <span class="slider-value" id="springValue">10.0 N/m</span>
+                        </label>
+
+                        <input
+                            type="range"
+                            id="springSlider"
                             min="1"
                             max="20"
-                            step="0.5"
+                            step="0.1"
                             value="10"
                         >
 
@@ -164,18 +323,18 @@
 
                     <div class="slider-row">
 
-                        <label class="slider-label" for="gapSlider">
-                            Gap
-                            <span class="slider-value" id="gapValue">2.0 µm</span>
+                        <label class="slider-label" for="gapSlider2">
+                            Air gap under mass
+                            <span class="slider-value" id="gapValue2">3.0 µm</span>
                         </label>
 
                         <input
                             type="range"
-                            id="gapSlider"
+                            id="gapSlider2"
                             min="0.5"
                             max="5"
                             step="0.1"
-                            value="2"
+                            value="3"
                         >
 
                     </div>
@@ -183,18 +342,21 @@
                 </div>
 
 
+                <div class="target-badge" id="tuneTargetBadge">
+                    🎯 Match the real ADXL150: ~24.7 kHz, Q ≈ 120
+                </div>
+
                 <button
                     type="button"
                     class="module-nav-button lock-in-button"
-                    id="lockInButton"
+                    id="tuneLockInButton"
                 >
                     Lock It In
                 </button>
 
-
-                <div class="game-feedback" id="gameFeedback">
-                    Adjust voltage and gap, then lock in when you
-                    think you've hit the target.
+                <div class="game-feedback" id="tuneFeedback">
+                    Adjust mass, spring constant, and air gap, then
+                    lock in when you're close to the real design.
                 </div>
 
             </div>
@@ -207,34 +369,38 @@
                 </p>
 
                 <h2>
-                    ⚡ You've got a feel for the force!
+                    📐 You designed a working accelerometer
                 </h2>
 
                 <p class="game-complete-xp" id="gameCompleteXP">
-                    +50 XP
+                    +60 XP
                 </p>
 
                 <p class="game-complete-lead" id="gameCompleteStats">
-                    5 for 5 — every target hit.
                 </p>
+
+                <div class="accel-final-grid" id="accelFinalGrid">
+                </div>
 
                 <div class="formula-recap">
 
                     <p class="formula-recap-formula">
-                        F = ε₀AV² / 2g²
+                        ω₀ = √(k/m) &nbsp;·&nbsp; Q = mω₀/b &nbsp;·&nbsp;
+                        S = m/k &nbsp;·&nbsp; TNEA = √(4k<sub>B</sub>Tb)/m
                     </p>
 
                     <p class="formula-recap-text">
-                        Force scales with the <strong>square</strong>
-                        of voltage but falls off with the
-                        <strong>square</strong> of the gap — which is
-                        why closing the gap works so much faster than
-                        raising the voltage. This exact relationship
-                        is what drives an accelerometer's electrostatic
-                        self-test structures, and what makes pull-in
-                        happen so suddenly in a torsion mirror.
+                        The same mass and spring set both the
+                        frequency and the sensitivity — that's why a
+                        stiffer spring always trades sensitivity for
+                        speed. The air gap sets the damping (b) through
+                        Couette flow, which is what actually controls
+                        the quality factor and the noise floor.
                     </p>
 
+                </div>
+
+                <div class="game-recap" id="gameRecap">
                 </div>
 
                 <div class="game-complete-actions">
@@ -265,6 +431,8 @@
 
 
     <script src="script.js"></script>
+    <script src="optics-parts-art.js"></script>
+    <script src="accel-parts-art.js"></script>
     <script src="game5.js"></script>
 
 </body>

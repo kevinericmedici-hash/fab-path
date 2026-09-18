@@ -2408,6 +2408,63 @@ nav a:hover {
     text-align: left;
 }
 
+.accel-tune-lead {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.accel-stage {
+    max-width: 340px;
+    margin: 0 auto 22px;
+}
+
+.accel-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.accel-mass-rect {
+    transition: width 0.15s ease, height 0.15s ease, x 0.15s ease, y 0.15s ease;
+}
+
+.accel-readout-grid,
+.accel-final-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+
+    max-width: 420px;
+    margin: 0 auto 24px;
+}
+
+.accel-readout-box {
+    padding: 14px 16px;
+
+    border: 1px solid rgba(84, 224, 199, 0.2);
+    border-radius: 12px;
+
+    background: rgba(84, 224, 199, 0.06);
+
+    text-align: center;
+}
+
+.accel-readout-label {
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    margin-bottom: 6px;
+}
+
+.accel-readout-value {
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: var(--accent);
+}
+
 .device-phase-header {
     display: flex;
     align-items: center;
