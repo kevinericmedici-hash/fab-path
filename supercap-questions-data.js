@@ -2243,6 +2243,388 @@ const supercapLesson36Questions = [
 ];
 
 
+const supercapLesson37Questions = [
+
+    {
+        question: "Which pair of traits best describes where supercapacitors beat batteries?",
+        answers: [
+            "High energy density and low self-discharge",
+            "High power and very long cycle life",
+            "Low power and a very long runtime",
+            "A flat voltage and slow, gentle charging"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "How does supercapacitor energy density compare with a lithium-ion battery's?",
+        answers: [
+            "Supercapacitors store far more energy per kilogram",
+            "The two store about the same energy per kilogram",
+            "Supercapacitors store far less energy per kilogram",
+            "Supercapacitors store no measurable energy"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Why does a supercapacitor's voltage fall as it discharges?",
+        answers: [
+            "Its electrolyte runs out of ions during use",
+            "Its electrodes slowly dissolve as it discharges",
+            "Its current collector heats up and resists flow",
+            "Voltage is proportional to stored charge, V = Q/C"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Why can a supercapacitor cost less per cycle than a battery, despite costing more per kWh?",
+        answers: [
+            "It can last for hundreds of thousands of cycles",
+            "It stores more energy in each single cycle",
+            "It needs no electrolyte or separator inside",
+            "It never needs any power electronics around it"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which duty cycle suits a supercapacitor best?",
+        answers: [
+            "One long, slow discharge over many hours",
+            "Short, powerful bursts repeated many times",
+            "A single deep discharge every few months",
+            "A tiny steady trickle held for many years"
+        ],
+        correct: 1
+    }
+
+];
+
+
+const supercapLesson38Questions = [
+
+    {
+        question: "What does a supercapacitor do in regenerative braking?",
+        answers: [
+            "Absorbs braking energy and returns it to accelerate",
+            "Turns braking energy into heat for the brake pads",
+            "Stores braking energy for weeks until it is needed",
+            "Replaces the motor while the vehicle is stopped"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Why pair a supercapacitor with a battery in a vehicle?",
+        answers: [
+            "The battery takes peaks and shields the supercapacitor",
+            "The supercapacitor takes peaks and shields the battery",
+            "The supercapacitor supplies all of the long-range energy",
+            "The two must always be wired in series to function"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Which grid job suits supercapacitors?",
+        answers: [
+            "Storing a season of solar energy for winter",
+            "Powering a whole city overnight from stored charge",
+            "Bridging the seconds until a generator starts",
+            "Replacing every transmission line in a region"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Why are supercapacitors used for wind-turbine blade-pitch backup?",
+        answers: [
+            "They store enough energy to run the turbine for days",
+            "They generate electricity from the wind directly",
+            "They make the blades lighter and easier to turn",
+            "They deliver reliable power fast in a fault"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "How can a start-stop engine benefit from a supercapacitor?",
+        answers: [
+            "It helps crank the engine, sparing the battery",
+            "It replaces the fuel that the engine burns",
+            "It lets the engine run with no starter motor at all",
+            "It stores the exhaust heat of the engine for later"
+        ],
+        correct: 0
+    }
+
+];
+
+
+const supercapLesson39Questions = [
+
+    {
+        question: "Why add a supercapacitor across a small coin cell in a wireless sensor?",
+        answers: [
+            "It raises the total energy capacity of the coin cell",
+            "It removes the need for any sleep mode in the node",
+            "It converts the radio signal into direct current",
+            "It supplies the pulse so the cell gives a gentle average"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What does power-loss protection in a storage drive rely on?",
+        answers: [
+            "Stored charge that lets data finish writing",
+            "A backup battery that runs the drive for hours",
+            "A solar cell built into the case of the drive",
+            "A fan that keeps the drive cool during outages"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which is a typical energy-harvesting source for an IoT node?",
+        answers: [
+            "A wall outlet supplying steady mains power",
+            "Indoor light, vibration, or body heat",
+            "A large diesel generator beside the node",
+            "A stack of disposable alkaline batteries"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What property matters most in a supercapacitor that buffers a tiny harvester?",
+        answers: [
+            "Extremely high peak power output",
+            "Very large physical size and weight",
+            "Very low leakage and self-discharge",
+            "A very wide operating temperature range"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "In a sensor node's day, when is most of the energy spent?",
+        answers: [
+            "During the long sleep periods",
+            "While the harvester recharges the cell",
+            "While the sensor is switched fully off",
+            "During the brief transmit bursts"
+        ],
+        correct: 3
+    }
+
+];
+
+
+const supercapLesson40Questions = [
+
+    {
+        question: "How is the usable energy of a supercapacitor calculated?",
+        answers: [
+            "½CV₂², using only the cutoff voltage",
+            "C(V₁ − V₂), capacitance times the swing",
+            "½C(V₁² − V₂²) between the two voltages",
+            "½C(V₁ − V₂), without any squares in it"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "A burst needs 6 mJ, and the capacitor swings from 3.3 V to 2.0 V. About what capacitance is needed?",
+        answers: [
+            "About 17 mF",
+            "About 0.17 mF",
+            "About 6 F",
+            "About 1.7 mF"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "A 1 F capacitor supplies 0.5 A while falling from 5 V to 3 V. How long does it last?",
+        answers: [
+            "About 4 seconds",
+            "About 1 second",
+            "About 2 seconds",
+            "About 10 seconds"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "A 2 A pulse flows through 0.1 Ω of ESR. What is the instant voltage drop?",
+        answers: [
+            "0.02 V",
+            "0.2 V",
+            "2 V",
+            "20 V"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Why should a sizing calculation include extra margin?",
+        answers: [
+            "Bigger devices always charge faster than small ones",
+            "Voltage doesn't matter once a margin is added",
+            "Aging and leakage reduce capacitance over its life",
+            "A margin removes the need to check the ESR"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Why do series stacks of supercapacitors need balancing?",
+        answers: [
+            "Balancing raises the capacitance of the whole stack",
+            "Cells in series carry different currents by design",
+            "Balancing removes the need for an electrolyte",
+            "Cells can drift so that one exceeds its voltage rating"
+        ],
+        correct: 3
+    }
+
+];
+
+
+const supercapLesson41Questions = [
+
+    {
+        question: "Why are strong acid and base electrolytes unsuitable for implants?",
+        answers: [
+            "They conduct too well to hold any charge",
+            "They aren't biocompatible or safe in tissue",
+            "They freeze at normal body temperature",
+            "They contain no ions for the double layer"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What is physiological saline like as a supercapacitor electrolyte?",
+        answers: [
+            "Highly conductive, with a window above 4 V",
+            "A solid that must be heated before it conducts",
+            "Safe and moderately conductive, window near 1 V",
+            "A non-aqueous solvent with a very wide window"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "How can an implanted supercapacitor be recharged without wires?",
+        answers: [
+            "Heating the device above body temperature",
+            "A permanent magnet resting on the skin",
+            "Squeezing the device by hand from outside",
+            "Inductive coupling through the skin"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Beyond capacity, what do wearable fiber supercapacitors need most?",
+        answers: [
+            "Flexibility and safe electrolytes",
+            "Rigidity and a strong metal casing",
+            "A very wide voltage window above 5 V",
+            "Toxic solvents for higher conductivity"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What role can a supercapacitor play alongside a biofuel cell or motion harvester?",
+        answers: [
+            "Turning strong brief input into weak steady output",
+            "Turning weak steady input into strong brief output",
+            "Generating power from body heat by itself",
+            "Producing the fuel that the harvester consumes"
+        ],
+        correct: 1
+    }
+
+];
+
+
+const supercapLesson42Questions = [
+
+    {
+        question: "Most supercapacitor innovations are levers on which relationship?",
+        answers: [
+            "E = ½CV², by raising C, V, or volume use",
+            "P = IV, by raising only the current drawn",
+            "C = εA/d, by shrinking only the area used",
+            "Q = It, by lengthening only the test time"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What is a lithium-ion capacitor?",
+        answers: [
+            "Two identical activated-carbon electrodes",
+            "Pre-lithiated graphite anode, carbon cathode",
+            "A metal foil anode with a polymer cathode",
+            "Two lithium-metal plates held in a solid gel"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What does adding a battery-type electrode to a capacitor generally do?",
+        answers: [
+            "Adds cycle life at some cost to energy",
+            "Removes the need for any electrolyte",
+            "Adds energy at some cost to cycle life",
+            "Doubles the power with no other change"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What are MXenes?",
+        answers: [
+            "Plant-derived carbons made from waste biomass",
+            "Soft polymer gels used as solid electrolytes",
+            "Oxide films grown by anodizing aluminum metal",
+            "Layered metal carbides with high conductivity"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Which storage suits a load needing both power peaks and long runtime?",
+        answers: [
+            "A battery and supercapacitor hybrid system",
+            "A supercapacitor alone, sized very large",
+            "A battery alone, with no other storage",
+            "A conventional dielectric capacitor alone"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which is still an open problem for supercapacitors?",
+        answers: [
+            "Cycle life is too short for any use",
+            "Energy density still far below batteries",
+            "Power output is too low for any use",
+            "Charging always takes several hours"
+        ],
+        correct: 1
+    }
+
+];
+
+
 /*
     Looked up by numeric lesson id, the same
     pattern script.js uses for the MEMS course's
@@ -2285,5 +2667,11 @@ const supercapAllLessonQuestions = {
     33: supercapLesson33Questions,
     34: supercapLesson34Questions,
     35: supercapLesson35Questions,
-    36: supercapLesson36Questions
+    36: supercapLesson36Questions,
+    37: supercapLesson37Questions,
+    38: supercapLesson38Questions,
+    39: supercapLesson39Questions,
+    40: supercapLesson40Questions,
+    41: supercapLesson41Questions,
+    42: supercapLesson42Questions
 };

@@ -414,6 +414,70 @@ const supercapCourseData = [
             }
 
         ]
+    },
+
+    /* =====================================
+       UNIT 8
+    ===================================== */
+
+    {
+        id: 8,
+
+        title: "Applications & Frontiers",
+
+        description:
+            "Where supercapacitors earn their place: vehicles, grids, electronics, harvesting, the body, and the hybrid devices coming next.",
+
+        studyModule: {
+            title: "Applications & Frontiers",
+            href: "supercapunit8.html"
+        },
+
+        lessons: [
+
+            {
+                id: 37,
+                title: "Where Supercapacitors Win",
+                description:
+                    "Power, cycle life, and cost per cycle, compared with batteries."
+            },
+
+            {
+                id: 38,
+                title: "Vehicles & the Grid",
+                description:
+                    "Regenerative braking, hybrid packs, and grid support."
+            },
+
+            {
+                id: 39,
+                title: "Electronics, IoT & Harvesting",
+                description:
+                    "Pulse loads, backup power, and buffering tiny harvested energy."
+            },
+
+            {
+                id: 40,
+                title: "Sizing a Supercapacitor",
+                description:
+                    "Usable energy, hold-up time, and the ESR drop, with worked examples."
+            },
+
+            {
+                id: 41,
+                title: "Wearables & Biomedical",
+                description:
+                    "Flexible, body-safe power, and how wearables and implants recharge."
+            },
+
+            {
+                id: 42,
+                title: "Hybrids & the Frontier",
+                description:
+                    "Lithium-ion capacitors, new materials, open problems, and how to choose storage."
+            }
+
+        ]
     }
 
 ];
