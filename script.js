@@ -14,9 +14,9 @@ const lesson1Questions = [
         question: "Which best describes a MEMS device?",
         answers: [
             "A large mechanical machine controlled by a computer",
-            "A microscale device combining mechanical and electrical elements",
-            "A software-only simulation of a mechanical system",
-            "A type of high-voltage power transformer"
+            "A microscale device combining mechanical and electrical parts",
+            "A software-only simulation of a mechanical machine",
+            "A type of high-voltage transformer used on power lines"
         ],
         correct: 1
     },
@@ -36,9 +36,9 @@ const lesson1Questions = [
         question: "MEMS structures are commonly measured on what scale?",
         answers: [
             "Kilometers",
-            "Meters",
+            "Centimeters",
             "Micrometers",
-            "Miles"
+            "Nautical miles"
         ],
         correct: 2
     },
@@ -115,9 +115,9 @@ const lesson2Questions = [
     {
         question: "Why does size matter in MEMS design?",
         answers: [
-            "Physical forces can scale differently as devices become smaller",
-            "Microscale devices stop obeying physics",
-            "Electrical forces disappear at small scales",
+            "Physical forces scale differently at smaller sizes",
+            "Microscale devices stop obeying the laws of physics",
+            "Electrical forces vanish entirely at small scales",
             "Material properties are always identical at every scale"
         ],
         correct: 0
@@ -131,7 +131,7 @@ const lesson3Questions = [
         answers: [
             "It decreases",
             "It increases",
-            "It stays exactly the same",
+            "It stays the same",
             "It becomes zero"
         ],
         correct: 1
@@ -162,10 +162,10 @@ const lesson3Questions = [
     {
         question: "Why can electrostatic forces become especially useful in MEMS?",
         answers: [
-            "Because electrostatic effects can remain significant as device dimensions shrink",
-            "Because gravity becomes stronger at the microscale",
-            "Because electric charge disappears at small scales",
-            "Because all materials become magnetic"
+            "Because electrostatic effects stay significant as sizes shrink",
+            "Because gravity becomes far stronger as devices get smaller",
+            "Because electric charge cannot exist at very small scales",
+            "Because all materials turn magnetic below a few microns"
         ],
         correct: 0
     },
@@ -174,8 +174,8 @@ const lesson3Questions = [
         question: "Which force generally becomes less dominant relative to surface forces as devices become smaller?",
         answers: [
             "Electrostatic force",
-            "Surface adhesion",
-            "Gravity",
+            "Surface adhesion force",
+            "Gravitational force",
             "Capillary force"
         ],
         correct: 2
@@ -184,10 +184,10 @@ const lesson3Questions = [
     {
         question: "Why are scaling laws important in MEMS design?",
         answers: [
-            "They help predict which physical effects become more or less important as dimensions change",
-            "They eliminate the need for engineering calculations",
-            "They only matter for very large machines",
-            "They make all microscale devices behave identically"
+            "They predict which physical effects grow or shrink in importance",
+            "They eliminate the need for detailed engineering calculations",
+            "They only matter for the design of very large machines",
+            "They make all microscale devices behave in identical ways"
         ],
         correct: 0
     }
@@ -200,9 +200,9 @@ const lesson4Questions = [
         question: "Which is a common MEMS application?",
         answers: [
             "Accelerometers in smartphones",
-            "Steel bridge beams",
+            "Steel bridge support beams",
             "Large hydraulic cylinders",
-            "Industrial storage tanks"
+            "Large industrial storage tanks"
         ],
         correct: 0
     },
@@ -222,9 +222,9 @@ const lesson4Questions = [
         question: "Which MEMS device is commonly used in pressure sensing?",
         answers: [
             "Micromachined diaphragm",
-            "Large turbine blade",
-            "Steel I-beam",
-            "Hydraulic piston"
+            "Large steel turbine blade",
+            "Structural steel I-beam",
+            "Large hydraulic piston"
         ],
         correct: 0
     },
@@ -243,10 +243,10 @@ const lesson4Questions = [
     {
         question: "A MEMS gyroscope is commonly used to detect:",
         answers: [
-            "Rotation",
-            "Chemical concentration only",
-            "Fluid viscosity only",
-            "Surface roughness only"
+            "Angular rotation rate",
+            "Chemical concentration",
+            "Fluid viscosity changes",
+            "Surface roughness levels"
         ],
         correct: 0
     },
@@ -254,10 +254,10 @@ const lesson4Questions = [
     {
         question: "Why are MEMS useful in consumer electronics?",
         answers: [
-            "They can provide sensing and actuation in very small packages",
+            "They provide sensing and actuation in tiny packages",
             "They always require large mechanical assemblies",
-            "They cannot be mass-produced",
-            "They only work at very high temperatures"
+            "They cannot be mass-produced at any reasonable cost",
+            "They only operate above several hundred degrees"
         ],
         correct: 0
     }
@@ -269,10 +269,10 @@ const lesson5Questions = [
     {
         question: "Why are cleanrooms used in microfabrication?",
         answers: [
-            "To reduce contamination that could damage small device features",
-            "To make the room colder",
-            "To eliminate the need for safety equipment",
-            "To increase mechanical vibration"
+            "To reduce contamination that damages small features",
+            "To keep the room colder for equipment and staff",
+            "To remove the need for personal protective equipment",
+            "To increase mechanical vibration during processing"
         ],
         correct: 0
     },
@@ -281,9 +281,9 @@ const lesson5Questions = [
         question: "What is one of the main contaminants controlled in a cleanroom?",
         answers: [
             "Airborne particles",
-            "Visible light",
-            "Sound waves",
-            "Gravity"
+            "Sunlight from windows",
+            "Loud sound waves",
+            "Earth's gravity"
         ],
         correct: 0
     },
@@ -292,9 +292,9 @@ const lesson5Questions = [
         question: "Why can a small particle be a serious problem during MEMS fabrication?",
         answers: [
             "It may be comparable in size to critical device features",
-            "It always melts silicon",
-            "It increases wafer thickness",
-            "It automatically changes crystal orientation"
+            "It always melts the silicon it lands on instantly",
+            "It significantly increases the overall wafer thickness",
+            "It automatically changes the silicon crystal orientation"
         ],
         correct: 0
     },
@@ -313,10 +313,10 @@ const lesson5Questions = [
     {
         question: "Which behavior is appropriate inside a cleanroom?",
         answers: [
-            "Moving carefully and minimizing unnecessary particle generation",
-            "Running between tools",
+            "Moving carefully and limiting particle generation",
+            "Hurrying quickly between the tools to save time",
             "Bringing cardboard boxes into processing areas",
-            "Touching wafer surfaces with bare hands"
+            "Touching wafer surfaces with bare uncovered hands"
         ],
         correct: 0
     },
@@ -325,9 +325,9 @@ const lesson5Questions = [
         question: "Why is airflow important in many cleanrooms?",
         answers: [
             "It helps remove and control airborne contamination",
-            "It increases wafer mass",
-            "It eliminates all chemical hazards",
-            "It changes silicon into glass"
+            "It increases the overall mass of each wafer",
+            "It eliminates all chemical hazards in the room",
+            "It converts the silicon surface into glass"
         ],
         correct: 0
     }
@@ -339,10 +339,10 @@ const lesson6Questions = [
     {
         question: "What is the goal of wafer cleaning before a fabrication step?",
         answers: [
-            "Remove unwanted particles, organic residue, and other contaminants",
-            "Increase the wafer diameter",
-            "Create a photolithography mask",
-            "Make the wafer mechanically flexible"
+            "Remove particles, organic residue, and contaminants",
+            "Slightly increase the wafer's overall diameter",
+            "Create the pattern for a photolithography mask",
+            "Make the wafer thinner and more mechanically flexible"
         ],
         correct: 0
     },
@@ -351,9 +351,9 @@ const lesson6Questions = [
         question: "Which type of contamination can interfere with thin-film adhesion?",
         answers: [
             "Surface residue or particles",
-            "Gravity",
-            "Visible light",
-            "Room temperature"
+            "Gravitational pull on the wafer",
+            "Bright ambient room lighting",
+            "A normal room-temperature setting"
         ],
         correct: 0
     },
@@ -373,9 +373,9 @@ const lesson6Questions = [
         question: "Which is the best reason to avoid touching the active surface of a wafer?",
         answers: [
             "Fingerprints can leave oils, particles, and residues",
-            "The wafer will immediately fracture",
-            "The wafer will lose all electrical properties",
-            "The wafer will absorb too much UV light"
+            "The wafer will immediately crack under finger pressure",
+            "The wafer will lose all of its electrical properties",
+            "The wafer will absorb too much UV light afterward"
         ],
         correct: 0
     },
@@ -384,9 +384,9 @@ const lesson6Questions = [
         question: "A wafer has visible particles on its surface before photoresist coating. What is the best action?",
         answers: [
             "Stop and clean or inspect the wafer before continuing",
-            "Coat photoresist over the particles",
-            "Increase exposure time",
-            "Proceed directly to etching"
+            "Coat the photoresist directly over the particles",
+            "Increase the exposure time to compensate for them",
+            "Skip the coating and proceed directly to etching"
         ],
         correct: 0
     },
@@ -394,10 +394,10 @@ const lesson6Questions = [
     {
         question: "Why is cleanliness especially important before deposition or lithography?",
         answers: [
-            "Contaminants can create defects in later layers and patterns",
-            "Cleaning makes the wafer thicker",
-            "Cleaning replaces the need for masks",
-            "Contaminants improve feature resolution"
+            "Contaminants create defects in later layers",
+            "Cleaning makes the wafer noticeably thicker",
+            "Cleaning removes the need for patterning masks",
+            "Contaminants slightly improve feature resolution"
         ],
         correct: 0
     }
@@ -409,9 +409,9 @@ const lesson7Questions = [
     {
         question: "What is the primary reason for following a specific gowning procedure?",
         answers: [
-            "To prevent contaminants from being carried into the cleanroom",
+            "To keep contaminants from entering the cleanroom",
             "To make fabrication equipment operate faster",
-            "To increase room humidity",
+            "To slightly increase the room humidity level",
             "To prevent wafers from being exposed to light"
         ],
         correct: 0
@@ -421,9 +421,9 @@ const lesson7Questions = [
         question: "Which item should typically be covered before entering a clean fabrication area?",
         answers: [
             "Hair and exposed clothing",
-            "Only shoes",
-            "Only hands",
-            "Only safety glasses"
+            "Only shoes and shoe soles",
+            "Only hands and fingernails",
+            "Only the safety glasses"
         ],
         correct: 0
     },
@@ -431,10 +431,10 @@ const lesson7Questions = [
     {
         question: "Why are gloves important during wafer handling?",
         answers: [
-            "They reduce transfer of oils, salts, and particles from the hands",
-            "They increase wafer conductivity",
+            "They limit oils, salts, and particles from the hands",
+            "They increase the wafer's electrical conductivity",
             "They make the wafer more resistant to etching",
-            "They replace the need for wafer tweezers"
+            "They replace the need for wafer-handling tweezers"
         ],
         correct: 0
     },
@@ -442,10 +442,10 @@ const lesson7Questions = [
     {
         question: "What is the safest way to handle a wafer when possible?",
         answers: [
-            "Use appropriate wafer-handling tools and avoid touching device areas",
-            "Hold it flat with bare fingers across the center",
-            "Slide it across the work surface",
-            "Stack it directly on another wafer"
+            "Use wafer-handling tools and avoid touching device areas",
+            "Hold it flat with bare fingers across the wafer center",
+            "Slide it across the work surface to reposition it",
+            "Stack it directly on top of another wafer to save space"
         ],
         correct: 0
     },
@@ -453,10 +453,10 @@ const lesson7Questions = [
     {
         question: "Why should movement be controlled inside a cleanroom?",
         answers: [
-            "Fast or unnecessary movement can generate and disturb particles",
+            "Fast movement can generate and stir up particles",
             "Movement changes the wafer crystal orientation",
             "Movement causes photoresist to chemically harden",
-            "Movement increases silicon oxidation"
+            "Movement noticeably increases silicon oxidation"
         ],
         correct: 0
     },
@@ -464,10 +464,10 @@ const lesson7Questions = [
     {
         question: "Which sequence best represents good cleanroom practice?",
         answers: [
-            "Prepare → gown correctly → enter clean area → handle wafers carefully → process",
+            "Prepare → gown → enter clean area → handle wafers carefully → process",
             "Enter cleanroom → gown afterward → clean wafer → design device",
-            "Handle wafer → remove gloves → process → inspect",
-            "Process wafer → clean work area → gown"
+            "Handle wafer → remove gloves → enter cleanroom → process → inspect",
+            "Process wafer → clean work area → gown up → leave the cleanroom"
         ],
         correct: 0
     }
@@ -479,8 +479,8 @@ const lesson8Questions = [
     {
         question: "Why is wafer inspection performed between fabrication steps?",
         answers: [
-            "To detect defects before they are carried into later processing",
-            "To increase the wafer thickness",
+            "To catch defects before they carry into later steps",
+            "To increase the thickness of the wafer between steps",
             "To improve electrical conductivity automatically",
             "To eliminate the need for process documentation"
         ],
@@ -490,10 +490,10 @@ const lesson8Questions = [
     {
         question: "A patterned wafer shows broken or missing features under a microscope. What should you do?",
         answers: [
-            "Investigate the defect before continuing to the next step",
-            "Ignore it and continue processing",
-            "Increase every process time by 50%",
-            "Immediately package the device"
+            "Investigate the defect before continuing",
+            "Ignore it and continue with the next step",
+            "Increase every later process time by 50 percent",
+            "Immediately dice and package the device"
         ],
         correct: 0
     },
@@ -502,9 +502,9 @@ const lesson8Questions = [
         question: "Which tool is commonly useful for inspecting small surface features?",
         answers: [
             "Optical microscope",
-            "Torque wrench",
-            "Drill press",
-            "Hydraulic pump"
+            "Torque wrench set",
+            "Bench drill press",
+            "Hydraulic floor pump"
         ],
         correct: 0
     },
@@ -512,10 +512,10 @@ const lesson8Questions = [
     {
         question: "Why is process discipline important in microfabrication?",
         answers: [
-            "Small deviations can create defects or change device performance",
+            "Small deviations can cause defects or shift performance",
             "All fabrication steps produce identical results automatically",
-            "MEMS devices are insensitive to process variation",
-            "Process order does not matter"
+            "MEMS devices are largely insensitive to process variation",
+            "The order of the process steps does not matter at all"
         ],
         correct: 0
     },
@@ -523,10 +523,10 @@ const lesson8Questions = [
     {
         question: "Why is it important to follow the correct fabrication sequence?",
         answers: [
-            "Later steps often depend on structures created during earlier steps",
+            "Later steps depend on structures made in earlier steps",
             "The order only affects how fast the process feels",
             "Every process step can be performed in any order",
-            "Sequence only matters during packaging"
+            "Sequence only matters during the final packaging stage"
         ],
         correct: 0
     },
@@ -534,10 +534,10 @@ const lesson8Questions = [
     {
         question: "Which is the best response when a process result looks abnormal?",
         answers: [
-            "Stop, inspect, document the issue, and determine the cause before continuing",
+            "Stop, inspect, document, and find the cause first",
             "Continue because later steps will always fix it",
-            "Change several process settings at once",
-            "Discard all process records"
+            "Change several process settings at once to compensate",
+            "Discard all of the process records and restart"
         ],
         correct: 0
     }
@@ -585,10 +585,10 @@ const lesson9Questions = [
             "How are silicon wafers produced for semiconductor fabrication?",
 
         answers: [
-            "They are cut from a large single-crystal silicon structure",
-            "They are stamped from metal sheets",
-            "They are molded from photoresist",
-            "They are deposited directly onto a photomask"
+            "They are sliced from a large silicon single crystal",
+            "They are stamped from thin sheets of pure metal",
+            "They are molded from cured photoresist polymer",
+            "They are deposited directly onto a glass photomask"
         ],
 
         correct: 0
@@ -602,8 +602,8 @@ const lesson9Questions = [
         answers: [
             "The entire circuit is formed in one machining operation",
             "Devices are assembled only after the wafer is cut apart",
-            "The wafer passes through successive fabrication and patterning steps",
-            "Only mechanical cutting is used"
+            "The wafer undergoes successive patterning and fabrication steps",
+            "Only mechanical cutting and grinding of the wafer are used"
         ],
 
         correct: 2
@@ -630,10 +630,10 @@ const lesson9Questions = [
             "Why is silicon especially useful as a bridge between microelectronics and MEMS?",
 
         answers: [
-            "It can only be used as an electrical conductor",
-            "It combines useful electrical and mechanical properties and can be micromachined",
+            "It can only ever be used as a passive electrical conductor",
+            "It combines electrical and mechanical properties and can be micromachined",
             "It cannot be patterned using semiconductor fabrication methods",
-            "Its mechanical properties prevent structures from moving"
+            "Its mechanical properties prevent thin structures from ever moving"
         ],
 
         correct: 1
@@ -645,10 +645,10 @@ const lesson9Questions = [
             "Which statement best captures the relationship between IC fabrication and MEMS fabrication?",
 
         answers: [
-            "They are completely unrelated manufacturing technologies",
-            "MEMS uses many semiconductor fabrication methods while extending them to mechanical structures",
+            "They are completely unrelated technologies that share no common fabrication methods",
+            "MEMS builds on semiconductor fabrication methods, extending them to mechanical parts",
             "MEMS fabrication replaces all lithography with conventional machining",
-            "Integrated circuits are manufactured using MEMS devices"
+            "Integrated circuits are manufactured using large arrays of MEMS devices"
         ],
 
         correct: 1
@@ -668,8 +668,8 @@ const lesson10Questions = [
 
         answers: [
             "To intentionally change its electrical properties",
-            "To make the wafer physically thicker",
-            "To remove all charge carriers",
+            "To make the wafer physically thicker and stronger",
+            "To remove all charge carriers from the material",
             "To prevent the material from being patterned"
         ],
 
@@ -697,10 +697,10 @@ const lesson10Questions = [
             "What type of charge carrier is abundant in P-type semiconductor material?",
 
         answers: [
-            "Free neutrons",
-            "Holes",
-            "Protons",
-            "Mobile negative ions"
+            "Free neutrons in the lattice",
+            "Holes (positive carriers)",
+            "Bound protons in the nucleus",
+            "Mobile negative ions (anions)"
         ],
 
         correct: 1
@@ -727,10 +727,10 @@ const lesson10Questions = [
             "What type of charge carrier is abundant in N-type semiconductor material?",
 
         answers: [
-            "Holes",
-            "Mobile electrons",
-            "Protons",
-            "Neutral atoms"
+            "Holes (positive carriers)",
+            "Mobile electrons (negative)",
+            "Bound protons in the nucleus",
+            "Neutral atoms in the lattice"
         ],
 
         correct: 1
@@ -757,10 +757,10 @@ const lesson10Questions = [
             "A silicon wafer is doped with phosphorus. What type of semiconductor is produced?",
 
         answers: [
-            "P-type",
-            "N-type",
-            "Intrinsic silicon",
-            "Insulating silicon"
+            "P-type semiconductor",
+            "N-type semiconductor",
+            "Intrinsic (undoped) silicon",
+            "Fully insulating silicon"
         ],
 
         correct: 1
@@ -772,10 +772,10 @@ const lesson10Questions = [
             "A silicon region has an abundance of holes. Which type of semiconductor is it most likely to be?",
 
         answers: [
-            "N-type",
-            "P-type",
-            "Undoped metal",
-            "Insulating oxide"
+            "N-type semiconductor",
+            "P-type semiconductor",
+            "Undoped metallic film",
+            "Insulating oxide layer"
         ],
 
         correct: 1
@@ -810,9 +810,9 @@ const lesson11Questions = [
 
         answers: [
             "A device is created in one machining step",
-            "Many processing steps are repeated to build patterned layers",
+            "Many repeated steps build up patterned layers",
             "Only metal layers are deposited on the wafer",
-            "The silicon wafer is shaped only by mechanical cutting"
+            "The wafer is shaped only by mechanical cutting"
         ],
 
         correct: 1
@@ -884,8 +884,8 @@ const lesson11Questions = [
             "Why does CMOS fabrication require many repeated process steps?",
 
         answers: [
-            "Complex devices are built from multiple patterned material layers",
-            "Every wafer must be physically cut after each step",
+            "Complex devices need multiple patterned material layers",
+            "Every wafer must be physically cut apart after each step",
             "Only one material can exist on a wafer at a time",
             "The silicon substrate is replaced after each layer"
         ],
@@ -899,10 +899,10 @@ const lesson11Questions = [
             "Which sequence best represents the general idea of layer-based microfabrication?",
 
         answers: [
-            "Form or deposit material → pattern it → remove selected material → repeat",
-            "Cut wafer → weld wafer → paint wafer → repeat",
-            "Melt silicon → machine entire device → polish once",
-            "Deposit one layer → package immediately"
+            "Deposit material → pattern it → remove selected material → repeat",
+            "Cut the wafer → weld it → paint the wafer surface → repeat",
+            "Melt silicon → machine the entire device → polish it once",
+            "Deposit one layer → dice it → package the device immediately"
         ],
 
         correct: 0
@@ -921,9 +921,9 @@ const lesson12Questions = [
             "Why is silicon especially useful for MEMS devices?",
 
         answers: [
-            "It combines useful electrical and mechanical properties",
-            "It has no mechanical strength",
-            "It cannot be integrated with electronics",
+            "It combines electrical and mechanical properties",
+            "It has essentially no mechanical strength at all",
+            "It cannot be integrated with on-chip electronics",
             "It can only be used as an insulating material"
         ],
 
@@ -981,10 +981,10 @@ const lesson12Questions = [
             "Which statement best describes the elasticity of single-crystal silicon?",
 
         answers: [
-            "It behaves like a soft rubber",
-            "It permanently deforms under very small loads",
-            "It has high elasticity and can have an elastic modulus comparable to steel",
-            "It has essentially no stiffness"
+            "It behaves like a soft rubber that stretches easily",
+            "It permanently deforms even under very small loads",
+            "It is highly elastic, with a modulus comparable to steel",
+            "It has essentially no stiffness against bending or pulling"
         ],
 
         correct: 2
@@ -1094,9 +1094,9 @@ const lesson13Questions = [
 
         answers: [
             "To permanently strengthen the silicon substrate",
-            "To serve as the final electrical contact",
-            "To be removed so a mechanical structure can become free-standing",
-            "To replace the structural layer"
+            "To serve as the final electrical contact layer",
+            "To be removed so the structure becomes free-standing",
+            "To permanently replace the structural layer above it"
         ],
 
         correct: 2
@@ -1110,8 +1110,8 @@ const lesson13Questions = [
         answers: [
             "Bulk micromachining",
             "Surface micromachining",
-            "Wafer inspection",
-            "Oxidation"
+            "Optical wafer inspection",
+            "Thermal oxidation growth"
         ],
 
         correct: 1
@@ -1153,10 +1153,10 @@ const lesson13Questions = [
             "Which statement correctly compares bulk and surface micromachining?",
 
         answers: [
-            "Both techniques require the substrate to be completely removed",
-            "Bulk micromachining uses only deposition, while surface micromachining uses only etching",
-            "Surface micromachining must always etch deeply into the silicon wafer",
-            "Bulk micromachining forms features in the substrate, while surface micromachining builds thin-film structures above it"
+            "Both techniques require the entire silicon substrate to be removed",
+            "Bulk uses only deposition, while surface micromachining uses only etching",
+            "Surface micromachining must always etch deep trenches into the wafer",
+            "Bulk forms features in the substrate; surface builds thin-film structures above it"
         ],
 
         correct: 3
@@ -1176,9 +1176,9 @@ const lesson14Questions = [
 
         answers: [
             "A layer of silicon dioxide (SiO2)",
-            "A layer of pure gold",
-            "A layer of photoresist",
-            "A layer of polysilicon"
+            "A thin layer of pure gold metal",
+            "A thin layer of cured photoresist",
+            "A thin layer of doped polysilicon"
         ],
 
         correct: 0
@@ -1221,9 +1221,9 @@ const lesson14Questions = [
 
         answers: [
             "To deliberately change its electrical properties",
-            "To make the wafer optically transparent",
-            "To increase its physical thickness",
-            "To remove all photoresist"
+            "To make the wafer optically transparent to UV light",
+            "To increase its overall physical thickness",
+            "To remove all remaining photoresist from it"
         ],
 
         correct: 0
@@ -1235,7 +1235,7 @@ const lesson14Questions = [
             "Why might a wafer be oxidized before pattern transfer begins?",
 
         answers: [
-            "Wafer-level processing can modify the wafer itself before patterning starts",
+            "Wafer-level processing can modify the wafer before patterning",
             "Oxidation always happens after the final metallization step",
             "Oxidation replaces the need for a silicon substrate",
             "Oxidation removes the need for photolithography entirely"
@@ -1250,9 +1250,9 @@ const lesson14Questions = [
             "A designer wants two regions of the same wafer to have different electrical behavior. Which process family accomplishes this?",
 
         answers: [
-            "Doping",
-            "Planarization",
-            "Evaporation",
+            "Selective doping",
+            "Planarization (CMP)",
+            "Metal evaporation",
             "Wafer inspection"
         ],
 
@@ -1265,10 +1265,10 @@ const lesson14Questions = [
             "Which statement correctly distinguishes wafer-level processes from pattern-transfer processes?",
 
         answers: [
-            "Wafer-level processes like oxidation and doping change the wafer itself; pattern-transfer processes like lithography and etching define and remove specific regions",
-            "Wafer-level processes only remove material; pattern-transfer processes only add material",
-            "Pattern-transfer processes always happen before any wafer-level process",
-            "There is no meaningful difference between the two classes"
+            "Wafer-level steps (oxidation, doping) modify the wafer; pattern-transfer steps (lithography, etching) define regions",
+            "Wafer-level processes only remove material, while pattern-transfer processes only ever add new material",
+            "Pattern-transfer processes always happen before any wafer-level process, in every sequence",
+            "There is no meaningful difference, since both classes change the wafer in exactly the same way"
         ],
 
         correct: 0
@@ -1289,7 +1289,7 @@ const lesson15Questions = [
         answers: [
             "CVD / LPCVD",
             "RCA cleaning",
-            "Optical lithography",
+            "Photolithography",
             "Wet etching"
         ],
 
@@ -1333,9 +1333,9 @@ const lesson15Questions = [
 
         answers: [
             "PSG (phosphosilicate glass)",
-            "Polysilicon",
-            "Photoresist",
-            "Gold"
+            "Polysilicon (Poly1 layer)",
+            "Photoresist (soft-baked)",
+            "Gold (Cr/Au metal layer)"
         ],
 
         correct: 0
@@ -1377,10 +1377,10 @@ const lesson15Questions = [
             "What is the general purpose of thin-film deposition in a microfabrication sequence?",
 
         answers: [
-            "To create material layers that can later be patterned into functional structures",
-            "To permanently remove material from the wafer",
-            "To inspect the wafer for defects",
-            "To dope the substrate with impurity atoms"
+            "To create material layers that are later patterned into structures",
+            "To permanently remove material from across the wafer surface",
+            "To inspect the wafer for defects before the next step",
+            "To dope the silicon substrate with a controlled dose of atoms"
         ],
 
         correct: 0
@@ -1415,9 +1415,9 @@ const lesson16Questions = [
 
         answers: [
             "To define where later fabrication operations should occur",
-            "To permanently form the final mechanical structure by itself",
-            "To dope the wafer with impurity atoms",
-            "To deposit the electrical contact metal"
+            "To form the final mechanical structure all by itself",
+            "To dope the whole wafer with impurity atoms",
+            "To deposit the electrical contact metal layer"
         ],
 
         correct: 0
@@ -1460,9 +1460,9 @@ const lesson16Questions = [
 
         answers: [
             "They become insoluble and remain after development",
-            "They become soluble and wash away",
-            "They evaporate under UV light",
-            "They are removed by RCA cleaning"
+            "They become soluble and wash away in the developer",
+            "They evaporate away under the UV exposure light",
+            "They are removed by an RCA cleaning step afterward"
         ],
 
         correct: 0
@@ -1474,10 +1474,10 @@ const lesson16Questions = [
             "Shipley resist is a common example of which type of photoresist?",
 
         answers: [
-            "Positive resist",
-            "Negative resist",
-            "Neither positive nor negative",
-            "A sacrificial layer, not a resist"
+            "Positive-tone resist",
+            "Negative-tone resist",
+            "Neither type of resist",
+            "A sacrificial oxide layer"
         ],
 
         correct: 0
@@ -1504,10 +1504,10 @@ const lesson16Questions = [
             "If a process uses positive photoresist, how does the final pattern in the film relate to the photomask?",
 
         answers: [
-            "It matches the mask",
+            "It matches the pattern on the mask",
             "It is inverted from the mask",
-            "It has no relationship to the mask",
-            "It is always larger than the mask"
+            "It has no relation to the mask pattern",
+            "It is always larger than the mask pattern"
         ],
 
         correct: 0
@@ -1557,9 +1557,9 @@ const lesson17Questions = [
 
         answers: [
             "Gas or plasma-based processes",
-            "Liquid acid baths",
-            "Spin-coating",
-            "Thermal oxidation"
+            "Liquid chemical acid baths",
+            "Spin-coating of liquid resist",
+            "Thermal oxidation in a furnace"
         ],
 
         correct: 0
@@ -1572,9 +1572,9 @@ const lesson17Questions = [
 
         answers: [
             "Pattern-transfer methods",
-            "Wafer-level methods",
-            "Packaging methods",
-            "Inspection methods"
+            "Wafer-level process methods",
+            "Chip packaging methods",
+            "Wafer inspection methods"
         ],
 
         correct: 0
@@ -1602,9 +1602,9 @@ const lesson17Questions = [
 
         answers: [
             "Development of the exposed photoresist",
-            "Metallization",
-            "Wafer dicing",
-            "SEM inspection"
+            "Metallization of the wafer surface",
+            "Wafer dicing into individual dies",
+            "Final SEM inspection of the wafer"
         ],
 
         correct: 0
@@ -1616,10 +1616,10 @@ const lesson17Questions = [
             "What typically happens to the photoresist after etching is complete?",
 
         answers: [
-            "It is stripped away, leaving the patterned film behind",
-            "It becomes the final structural layer",
-            "It is converted into silicon dioxide",
-            "It is reused for the next lithography step"
+            "It is stripped away, leaving the patterned film",
+            "It remains in place as the final structural layer",
+            "It is converted into a layer of silicon dioxide",
+            "It is reused as-is for the next lithography step"
         ],
 
         correct: 0
@@ -1647,9 +1647,9 @@ const lesson17Questions = [
 
         answers: [
             "Optical lithography",
-            "Doping",
-            "Oxidation",
-            "Thin-film deposition alone"
+            "Ion-implant doping",
+            "Thermal oxidation",
+            "Thin-film deposition"
         ],
 
         correct: 0
@@ -1668,10 +1668,10 @@ const lesson18Questions = [
             "What problem does planarization address in multi-layer fabrication?",
 
         answers: [
-            "Managing the surface topography created by earlier steps",
-            "Introducing dopants into the substrate",
-            "Removing the entire photoresist layer",
-            "Cutting the wafer into individual dies"
+            "Managing surface topography from earlier steps",
+            "Introducing dopants deep into the substrate",
+            "Removing the entire photoresist layer at once",
+            "Cutting the finished wafer into individual dies"
         ],
 
         correct: 0
@@ -1683,10 +1683,10 @@ const lesson18Questions = [
             "Why can't a complex microdevice usually be made in a single fabrication operation?",
 
         answers: [
-            "It is built through many sequential add, pattern, and remove steps",
-            "Silicon cannot be patterned more than once",
-            "Only one material can ever exist on a wafer",
-            "Every layer requires a brand-new substrate"
+            "It is built through many add, pattern, and remove steps",
+            "Silicon cannot be patterned more than once per wafer",
+            "Only one material can ever exist on a single wafer",
+            "Every layer requires a brand-new substrate wafer"
         ],
 
         correct: 0
@@ -1698,10 +1698,10 @@ const lesson18Questions = [
             "When analyzing a MEMS fabrication sequence, which questions should you be asking at each step?",
 
         answers: [
-            "What exists now, what should remain, what should be removed, and what must be added next",
-            "Only what the final selling price of the device will be",
-            "Only how many wafers are in the cleanroom",
-            "Only which company manufactures the equipment"
+            "What exists now, what should stay, what goes, and what is added",
+            "What the final selling price of each finished device will be",
+            "How many wafers are currently waiting in the cleanroom",
+            "Which company manufactured each piece of equipment"
         ],
 
         correct: 0
@@ -1713,10 +1713,10 @@ const lesson18Questions = [
             "Which statement best describes the relationship between fabrication layers?",
 
         answers: [
-            "Each layer changes the starting condition for the layer that follows",
-            "Layers are completely independent of one another",
+            "Each layer changes the starting point for the next layer",
+            "Layers are completely independent of every other layer",
             "Later layers never affect earlier ones or vice versa",
-            "Only the first layer affects the final device"
+            "Only the very first layer affects the final device"
         ],
 
         correct: 0
@@ -1728,10 +1728,10 @@ const lesson18Questions = [
             "Planarization belongs to which part of the microfabrication toolbox?",
 
         answers: [
-            "Pattern-transfer and micromachining methods",
-            "Wafer growth methods",
-            "Cleanroom certification steps",
-            "Electrical testing methods"
+            "Pattern-transfer and micromachining",
+            "Crystal and wafer growth methods",
+            "Cleanroom certification and audit steps",
+            "Final electrical and functional testing methods"
         ],
 
         correct: 0
@@ -1744,9 +1744,9 @@ const lesson18Questions = [
 
         answers: [
             "Deposit, pattern, etch, modify, repeat",
-            "Cut, weld, paint, repeat",
-            "Package, ship, test, repeat",
-            "Melt, mold, cool, repeat"
+            "Cut, weld, paint, inspect, repeat",
+            "Package, ship, test, return, repeat",
+            "Melt, mold, cool, trim, repeat"
         ],
 
         correct: 0
@@ -1758,10 +1758,10 @@ const lesson18Questions = [
             "Fabrication is best understood as:",
 
         answers: [
-            "An interconnected sequence, where each step depends on the ones before it",
-            "A set of completely isolated, unrelated steps",
-            "A single operation performed once per wafer",
-            "A process with no defined order"
+            "An interconnected sequence where each step builds on the last",
+            "A set of completely isolated steps with no dependencies",
+            "A single long operation performed once for the whole wafer",
+            "A loose process with no defined order between steps"
         ],
 
         correct: 0
@@ -1773,10 +1773,10 @@ const lesson18Questions = [
             "After a new layer is deposited and patterned, what must the next process step account for?",
 
         answers: [
-            "The changed surface geometry left behind by that layer",
-            "Only the original bare silicon surface",
-            "The wafer's serial number",
-            "The mask shop's turnaround time"
+            "The changed surface geometry that layer leaves behind",
+            "Only the original bare silicon surface of the wafer",
+            "The wafer's serial number and lot tracking label",
+            "The photomask shop's typical delivery turnaround time"
         ],
 
         correct: 0
@@ -1795,10 +1795,10 @@ const lesson19Questions = [
             "In the layer-by-layer surface-micromachining example, what is deposited onto the silicon substrate first?",
 
         answers: [
-            "A process layer",
+            "A base process layer",
             "The final metal contacts",
-            "Photoresist only",
-            "A sacrificial layer only, with nothing structural"
+            "A layer of photoresist",
+            "A sacrificial layer only"
         ],
 
         correct: 0
@@ -1811,9 +1811,9 @@ const lesson19Questions = [
 
         answers: [
             "Sacrificial material",
-            "Gold",
-            "Photoresist",
-            "Silicon nitride"
+            "A gold metal layer",
+            "A photoresist layer",
+            "A silicon nitride layer"
         ],
 
         correct: 0
@@ -1842,8 +1842,8 @@ const lesson19Questions = [
         answers: [
             "It is removed, releasing the free-standing structure",
             "It becomes the permanent structural layer",
-            "It is converted into silicon dioxide",
-            "It is deposited a second time"
+            "It is converted into a layer of silicon dioxide",
+            "It is deposited a second time over the structure"
         ],
 
         correct: 0
@@ -1870,10 +1870,10 @@ const lesson19Questions = [
             "What is the purpose of the RCA clean step early in the fabrication run?",
 
         answers: [
-            "To remove organic and metallic contamination from the wafer",
-            "To pattern the photoresist",
-            "To deposit the structural layer",
-            "To etch the sacrificial layer"
+            "To remove organic and metallic contamination",
+            "To pattern the photoresist for the first mask",
+            "To deposit the first polysilicon structural layer",
+            "To etch away the sacrificial layer at the start"
         ],
 
         correct: 0
@@ -1886,9 +1886,9 @@ const lesson19Questions = [
 
         answers: [
             "Nitride, polysilicon, and PSG",
-            "Gold and chromium only",
-            "Photoresist and developer",
-            "Quartz and glass only"
+            "Gold, chromium, and platinum",
+            "Photoresist and developer liquids",
+            "Quartz, glass, and sapphire"
         ],
 
         correct: 0
@@ -1900,10 +1900,10 @@ const lesson19Questions = [
             "What is the final step in the cleanroom fabrication example?",
 
         answers: [
-            "Metallization — depositing and lifting off the Au/Cr contact layer",
-            "RCA cleaning",
-            "Design and layout",
-            "Spin-coating photoresist"
+            "Metallization: depositing and lifting off Au/Cr contacts",
+            "A final RCA clean of the finished, released chip",
+            "Design and layout of the next set of photomasks",
+            "Spin-coating photoresist onto the bare substrate"
         ],
 
         correct: 0
@@ -1923,9 +1923,9 @@ const lesson20Questions = [
 
         answers: [
             "Multi-User MEMS Processes",
-            "Micro-Unit Mask Production System",
-            "Metal-Underlay Microfabrication Process",
-            "Multi-Use Mold Prototyping Service"
+            "Micro-Unit Mask Production",
+            "Metal-Underlay Micro Process",
+            "Multi-Use Mold Prototyping"
         ],
 
         correct: 0
@@ -1952,7 +1952,7 @@ const lesson20Questions = [
             "What is the main benefit of a multi-user foundry service like MUMPs?",
 
         answers: [
-            "Economical access to MEMS prototyping without owning a fab",
+            "Economical MEMS prototyping without owning a fab",
             "It eliminates the need for any design rules",
             "It guarantees a device works without testing",
             "It replaces the need for photolithography"
@@ -2028,9 +2028,9 @@ const lesson20Questions = [
 
         answers: [
             "MPC (Multi-Project Chip) and MPW (Multi-Project Wafer)",
-            "CPU and GPU",
-            "RIE and LPCVD",
-            "SOI and CMOS"
+            "CPU (Central Processor Unit) and GPU (Graphics Unit)",
+            "RIE (Reactive Ion Etch) and LPCVD (Low-Pressure CVD)",
+            "SOI (Silicon On Insulator) and CMOS (Complementary MOS)"
         ],
 
         correct: 0
@@ -2206,10 +2206,10 @@ const lesson22Questions = [
             "Why is the wafer surface doped with phosphorous early in the process?",
 
         answers: [
-            "To reduce charge feed-through to the substrate from electrostatic devices",
-            "To make the wafer transparent",
-            "To increase the wafer's thickness",
-            "To remove the need for a nitride layer"
+            "To reduce charge feed-through from electrostatic devices",
+            "To make the wafer optically transparent to infrared",
+            "To increase the wafer's thickness during later etching",
+            "To remove the need for any nitride insulating layer"
         ],
 
         correct: 0
@@ -2222,9 +2222,9 @@ const lesson22Questions = [
 
         answers: [
             "A 0.6 µm low-stress silicon nitride layer",
-            "A 2.0 µm metal layer",
-            "A layer of photoresist",
-            "A layer of PSG"
+            "A 0.5 µm chromium and gold metal layer",
+            "A 1.5 µm layer of positive photoresist",
+            "A 2.0 µm layer of sacrificial PSG"
         ],
 
         correct: 0
@@ -2236,10 +2236,10 @@ const lesson22Questions = [
             "What deposition method is used for the nitride and Poly0 layers?",
 
         answers: [
-            "LPCVD",
-            "Electrodeposition",
-            "Anodic bonding",
-            "Wet etching"
+            "LPCVD (low-pressure CVD)",
+            "Electrodeposition (plating)",
+            "Anodic bonding to glass",
+            "Wet chemical etching"
         ],
 
         correct: 0
@@ -2251,10 +2251,10 @@ const lesson22Questions = [
             "What is Poly0 commonly used for?",
 
         answers: [
-            "Wiring and stationary electrodes beneath moving structures",
-            "The final reflective mirror surface",
-            "The sacrificial release layer",
-            "Wire bonding pads"
+            "Wiring and fixed electrodes under moving structures",
+            "The final reflective mirror surface of the device",
+            "The sacrificial release layer under the beams",
+            "The wire bonding pads placed along the chip edge"
         ],
 
         correct: 0
@@ -2282,9 +2282,9 @@ const lesson22Questions = [
 
         answers: [
             "The first mask in the PolyMUMPs sequence",
-            "The eighth and final mask",
-            "The DIMPLES mask",
-            "The METAL mask"
+            "The eighth and final mask in the sequence",
+            "The DIMPLES mask, used after PSG1 is coated",
+            "The METAL mask, near the end of the run"
         ],
 
         correct: 0
@@ -2304,9 +2304,9 @@ const lesson23Questions = [
 
         answers: [
             "PSG (phosphosilicate glass)",
-            "Polysilicon",
-            "Silicon nitride",
-            "Gold"
+            "Polysilicon (Poly1 layer)",
+            "Silicon nitride (Si3N4 layer)",
+            "Gold (Cr/Au metal layer)"
         ],
 
         correct: 0
@@ -2348,10 +2348,10 @@ const lesson23Questions = [
             "What is the purpose of the DIMPLES mask?",
 
         answers: [
-            "Etch shallow standoff dimples (~750 nm) so beams don't stick flat against Poly0",
-            "Cut all the way through to the substrate",
-            "Pattern the final metal contacts",
-            "Define the wafer's outer edge"
+            "Etch shallow dimples so beams don't stick flat against Poly0",
+            "Cut deep trenches all the way through to the substrate",
+            "Pattern the final metal contacts and bonding pads",
+            "Define the wafer's outer edge and alignment marks"
         ],
 
         correct: 0
@@ -2363,10 +2363,10 @@ const lesson23Questions = [
             "What is the purpose of the ANCHOR1 mask?",
 
         answers: [
-            "Etch holes through PSG1 down to Poly0, later filled by Poly1",
-            "Etch dimples into Poly1",
-            "Pattern the metal lift-off layer",
-            "Dope the substrate with phosphorous"
+            "Etch holes through PSG1 to Poly0, later filled by Poly1",
+            "Etch shallow dimples into the Poly1 structural layer",
+            "Pattern the metal lift-off layer for the bond pads",
+            "Dope the substrate with phosphorous before the nitride"
         ],
 
         correct: 0
@@ -2379,9 +2379,9 @@ const lesson23Questions = [
 
         answers: [
             "At the very end of the process, during release",
-            "Immediately after it is deposited",
-            "Before Poly0 is deposited",
-            "It is never removed"
+            "Immediately after it is deposited and patterned",
+            "Before the Poly0 layer is deposited on the nitride",
+            "It is never removed and stays as an insulator"
         ],
 
         correct: 0
@@ -2408,10 +2408,10 @@ const lesson23Questions = [
             "Why must dimples be etched into PSG1 before Poly1 is deposited?",
 
         answers: [
-            "So Poly1 takes on small standoff bumps that help prevent it from sticking flat against Poly0",
-            "So Poly1 can be deposited at a lower temperature",
-            "So the wafer can be diced early",
-            "So the nitride layer can be skipped"
+            "So Poly1 gets standoff bumps that keep it from sticking to Poly0",
+            "So Poly1 can be deposited at a much lower temperature than usual",
+            "So the wafer can be diced apart earlier in the process run",
+            "So the silicon nitride insulating layer can be skipped entirely"
         ],
 
         correct: 0
@@ -2445,8 +2445,8 @@ const lesson24Questions = [
             "What thin layer caps Poly1 during deposition, and what two jobs does it do?",
 
         answers: [
-            "A 200 nm PSG cap that acts as a hard mask and a dopant source",
-            "A 200 nm metal cap that acts as a mirror",
+            "A 200 nm PSG cap serving as a hard mask and dopant source",
+            "A 200 nm metal cap that acts as a mirror and a heater",
             "A photoresist cap that permanently insulates Poly1",
             "A nitride cap that anchors Poly1 to the substrate"
         ],
@@ -2461,9 +2461,9 @@ const lesson24Questions = [
 
         answers: [
             "Dopes it with phosphorous and relieves internal stress",
-            "Melts it into the substrate",
-            "Converts it into silicon nitride",
-            "Removes all dopants from it"
+            "Melts it and fuses it into the silicon substrate",
+            "Converts the film entirely into silicon nitride",
+            "Removes all of the dopants from the polysilicon film"
         ],
 
         correct: 0
@@ -2490,10 +2490,10 @@ const lesson24Questions = [
             "What does the POLY1_POLY2_VIA mask do?",
 
         answers: [
-            "Etches holes down to Poly1, connecting it mechanically and electrically to Poly2",
-            "Etches through the substrate itself",
-            "Deposits the final metal layer",
-            "Doped the wafer with phosphorous"
+            "Etches holes down to Poly1 so Poly2 can connect to it",
+            "Etches completely through the substrate wafer itself",
+            "Deposits and patterns the final metal layer on top",
+            "Dopes the whole wafer with phosphorous at the start"
         ],
 
         correct: 0
@@ -2505,10 +2505,10 @@ const lesson24Questions = [
             "How does the ANCHOR2 mask differ from POLY1_POLY2_VIA?",
 
         answers: [
-            "It etches through both PSG1 and PSG2 in one step, avoiding misalignment between separate cuts",
-            "It only etches through the nitride layer",
-            "It is used before any polysilicon is deposited",
-            "It removes the Poly0 layer entirely"
+            "It etches through PSG1 and PSG2 in one step, avoiding misalignment",
+            "It only etches through the silicon nitride insulating layer",
+            "It is used before any polysilicon has been deposited at all",
+            "It removes the Poly0 layer entirely from the whole wafer"
         ],
 
         correct: 0
@@ -2535,10 +2535,10 @@ const lesson24Questions = [
             "Why is a second structural layer (Poly2) useful in addition to Poly1?",
 
         answers: [
-            "It allows structures that need an independent second moving layer, like a mirror on a hinge",
-            "It replaces the need for any sacrificial layers",
-            "It eliminates the need for anchoring",
-            "It is only used for wafer inspection"
+            "It allows an independent second moving layer, like a hinged mirror",
+            "It replaces the need for any sacrificial layers in the stack",
+            "It eliminates the need for any anchoring to the substrate",
+            "It is only used as an alignment marker during inspection"
         ],
 
         correct: 0
@@ -2573,9 +2573,9 @@ const lesson25Questions = [
 
         answers: [
             "Using lift-off, with the eighth and final mask",
-            "Using RIE, with the first mask",
-            "By hand polishing",
-            "By anodic bonding"
+            "Using RIE plasma etching, with the first mask",
+            "By hand polishing after the final HF release",
+            "By anodic bonding with a glass cover wafer"
         ],
 
         correct: 0
@@ -2587,10 +2587,10 @@ const lesson25Questions = [
             "What does the metal layer provide in a finished PolyMUMPs device?",
 
         answers: [
-            "Probing pads, wire bonding, electrical routing, and reflective mirror surfaces",
-            "The main sacrificial support structure",
-            "Electrical insulation from the substrate",
-            "The dopant source for Poly2"
+            "Probing pads, wire bonding, routing, and reflective surfaces",
+            "The main sacrificial support structure under the beams",
+            "Electrical insulation between the layers and the substrate",
+            "The dopant source that dopes the Poly2 structural layer"
         ],
 
         correct: 0
@@ -2618,9 +2618,9 @@ const lesson25Questions = [
 
         answers: [
             "1.5–2 minutes at room temperature",
-            "24 hours at 1050°C",
-            "10 minutes at 100°C",
-            "8–12 weeks"
+            "24 hours in an oven at 1050°C",
+            "10 minutes in a bath at 100°C",
+            "8–12 weeks at room temperature"
         ],
 
         correct: 0
@@ -2664,8 +2664,8 @@ const lesson25Questions = [
         answers: [
             "Diced, sorted, and unreleased",
             "Fully released and packaged",
-            "As a single uncut wafer",
-            "Submerged in HF"
+            "As a single uncut full wafer",
+            "Submerged in HF and unrinsed"
         ],
 
         correct: 0
@@ -2685,9 +2685,9 @@ const lesson26Questions = [
 
         answers: [
             "Starting with a doped 150 mm n-type silicon wafer",
-            "Depositing the metal layer",
-            "Etching the ANCHOR2 holes",
-            "Immersing the chip in HF"
+            "Depositing the metal layer on the bare wafer",
+            "Etching the ANCHOR2 holes into the first oxide",
+            "Immersing the bare wafer in HF for release"
         ],
 
         correct: 0
@@ -2732,7 +2732,7 @@ const lesson26Questions = [
             "Poly1",
             "Poly2",
             "Metal",
-            "Silicon nitride"
+            "Nitride"
         ],
 
         correct: 0
@@ -2745,9 +2745,9 @@ const lesson26Questions = [
 
         answers: [
             "POLY1_POLY2_VIA and ANCHOR2",
-            "DIMPLES and ANCHOR1",
-            "METAL and POLY0",
-            "Nitride and Poly1"
+            "DIMPLES and ANCHOR1 holes",
+            "METAL and POLY0 patterns",
+            "Nitride and Poly1 layers"
         ],
 
         correct: 0
@@ -2762,7 +2762,7 @@ const lesson26Questions = [
             "Poly2",
             "Poly0",
             "Metal",
-            "Silicon nitride"
+            "Nitride"
         ],
 
         correct: 0
@@ -2777,7 +2777,7 @@ const lesson26Questions = [
             "Metal",
             "Poly2",
             "PSG2",
-            "Silicon nitride"
+            "Nitride"
         ],
 
         correct: 0
@@ -2812,9 +2812,9 @@ const lesson27Questions = [
 
         answers: [
             "Acceleration (the change in velocity)",
-            "Absolute position",
-            "Temperature",
-            "Magnetic field strength"
+            "Absolute position relative to the ground",
+            "Ambient temperature change over time",
+            "Magnetic field strength and direction"
         ],
 
         correct: 0
@@ -2857,9 +2857,9 @@ const lesson27Questions = [
 
         answers: [
             "About 50 million",
-            "About 500",
+            "About 500 thousand",
             "About 50 billion",
-            "About 5,000"
+            "About 5 thousand"
         ],
 
         correct: 0
@@ -2903,8 +2903,8 @@ const lesson27Questions = [
         answers: [
             "Angle of inclination",
             "Ambient light level",
-            "Sound pressure",
-            "Air humidity"
+            "Sound pressure level",
+            "Air humidity level"
         ],
 
         correct: 0
@@ -2917,9 +2917,9 @@ const lesson27Questions = [
 
         answers: [
             "Seismic activity sensing in buildings and bridges",
-            "Measuring internet bandwidth",
-            "Detecting Wi-Fi signal strength",
-            "Reading barcodes"
+            "Measuring internet bandwidth in office buildings",
+            "Detecting Wi-Fi signal strength inside phones",
+            "Reading barcodes on packages at a checkout"
         ],
 
         correct: 0
@@ -2938,10 +2938,10 @@ const lesson28Questions = [
             "When an accelerometer accelerates, what happens to the proof mass?",
 
         answers: [
-            "It is displaced in the direction of sensing, restrained by the spring",
+            "It is displaced in the sensing direction, held by the spring",
             "It instantly matches the housing's velocity with no lag",
-            "It disappears from the structure",
-            "It becomes electrically charged"
+            "It disappears from the structure whenever the device moves",
+            "It becomes electrically charged and sticks to the housing"
         ],
 
         correct: 0
@@ -2954,9 +2954,9 @@ const lesson28Questions = [
 
         answers: [
             "Piezoelectrically or capacitively",
-            "Optically or thermally only",
-            "By weighing it directly",
-            "By measuring its color"
+            "Acoustically or chemically",
+            "By weighing it directly on a scale",
+            "By measuring its color and shape"
         ],
 
         correct: 0
@@ -2969,9 +2969,9 @@ const lesson28Questions = [
 
         answers: [
             "Newton's second law, F = ma",
-            "Ohm's law, V = IR",
-            "Boyle's law",
-            "Coulomb's law"
+            "Ohm's law of circuits, V = IR",
+            "Boyle's law, P₁V₁ = P₂V₂",
+            "Coulomb's law, F = kq₁q₂/r²"
         ],
 
         correct: 0
@@ -3029,9 +3029,9 @@ const lesson28Questions = [
 
         answers: [
             "How underdamped an oscillator or resonator is",
-            "The total mass of the sensor",
-            "The die size of the chip",
-            "The supply voltage required"
+            "The total mass of the moving sensor structure",
+            "The overall die size of the accelerometer chip",
+            "The supply voltage required to run the sensor"
         ],
 
         correct: 0
@@ -3045,7 +3045,7 @@ const lesson28Questions = [
         answers: [
             "It increases",
             "It decreases",
-            "It stays exactly the same",
+            "It stays the same",
             "It becomes zero"
         ],
 
@@ -3066,9 +3066,9 @@ const lesson29Questions = [
 
         answers: [
             "S = x_static / a = m / k = 1 / ω²",
-            "S = m × a",
-            "S = k / b",
-            "S = V / R"
+            "S = F_static / m = k / m = ω²",
+            "S = a_static / x = k / m = ω²",
+            "S = m·a / b = m / b = 1 / ω"
         ],
 
         correct: 0
@@ -3112,8 +3112,8 @@ const lesson29Questions = [
         answers: [
             "Air molecules randomly colliding with the proof mass",
             "Electromagnetic interference from nearby phones",
-            "Manufacturing defects in the die",
-            "Variations in supply voltage"
+            "Manufacturing defects in the sensor die itself",
+            "Random variations in the supply voltage over time"
         ],
 
         correct: 0
@@ -3127,8 +3127,8 @@ const lesson29Questions = [
         answers: [
             "Increasing quality factor and increasing mass",
             "Decreasing quality factor and decreasing mass",
-            "Increasing supply voltage only",
-            "Decreasing the die size only"
+            "Increasing the supply voltage and die area",
+            "Decreasing the die size and spring stiffness"
         ],
 
         correct: 0
@@ -3155,10 +3155,10 @@ const lesson29Questions = [
             "What is the design rule of thumb for choosing resonant frequency?",
 
         answers: [
-            "It should be higher than the maximum frequency component of the signal being measured",
-            "It should always equal exactly 1000 Hz",
-            "It should be as low as physically possible",
-            "It doesn't matter as long as the die is small"
+            "It should exceed the highest frequency in the measured signal",
+            "It should always equal exactly 1000 Hz for every design",
+            "It should be as low as physically possible for max gain",
+            "It does not matter at all as long as the die is small"
         ],
 
         correct: 0
@@ -3170,10 +3170,10 @@ const lesson29Questions = [
             "Why is that resonant-frequency design rule important?",
 
         answers: [
-            "Getting too close to resonance distorts the very signal being measured",
-            "It reduces the cost of the die",
-            "It has no real effect on performance",
-            "It only matters for optical sensors"
+            "Operating near resonance distorts the measured signal",
+            "It mainly reduces the manufacturing cost of the die",
+            "It has no real effect on sensor performance at all",
+            "It only matters for optical MEMS sensors and mirrors"
         ],
 
         correct: 0
@@ -3192,10 +3192,10 @@ const lesson30Questions = [
             "Which four methods can be used for electrical position measurement?",
 
         answers: [
-            "Capacitance change, inductance change, optical method, scanning probe tips",
+            "Capacitance change, inductance change, optical, scanning-probe tips",
             "Voltage change, current change, resistance change, temperature change",
-            "Weight, volume, density, and color",
-            "Sound, light, heat, and pressure only"
+            "Weight change, volume change, density change, and color shift",
+            "Sound change, light change, heat change, pressure change"
         ],
 
         correct: 0
@@ -3208,9 +3208,9 @@ const lesson30Questions = [
 
         answers: [
             "Parallel plate and interdigitated (comb)",
-            "Cylindrical and spherical",
-            "Single-plate and triangular",
-            "Wireless and inductive"
+            "Cylindrical and spherical (coaxial)",
+            "Single-plate and triangular (wedge) plate",
+            "Wireless radio and inductive coil types"
         ],
 
         correct: 0
@@ -3223,9 +3223,9 @@ const lesson30Questions = [
 
         answers: [
             "Capacitance as a function of position",
-            "A constant current source",
-            "The supply voltage",
-            "The damping factor"
+            "A constant current source in the circuit",
+            "The supply voltage across the sensor",
+            "The damping factor of the proof mass"
         ],
 
         correct: 0
@@ -3238,9 +3238,9 @@ const lesson30Questions = [
 
         answers: [
             "A transimpedance amplifier",
-            "A voltage divider only",
-            "A simple resistor",
-            "An inductor coil"
+            "A passive voltage divider",
+            "A simple series resistor",
+            "An inductor coil network"
         ],
 
         correct: 0
@@ -3267,10 +3267,10 @@ const lesson30Questions = [
             "What can recover position instead of velocity from a capacitive sensing circuit?",
 
         answers: [
-            "Adding an integrator, or using a time-varying (AC) excitation source",
-            "Removing the feedback capacitor entirely",
-            "Increasing the DC supply voltage",
-            "Switching to an optical sensor instead"
+            "Adding an integrator, or using an AC excitation source",
+            "Removing the feedback capacitor from the circuit entirely",
+            "Increasing the DC supply voltage across the sensor",
+            "Switching to an optical position sensor instead"
         ],
 
         correct: 0
@@ -3282,10 +3282,10 @@ const lesson30Questions = [
             "With an AC excitation source and a feedback capacitor, what does the output voltage become approximately proportional to?",
 
         answers: [
-            "C(x), the sensing capacitance (and therefore position)",
-            "The square of the supply voltage",
-            "The damping factor b",
-            "The die's physical size"
+            "C(x), the sensing capacitance, and so position",
+            "The square of the DC supply voltage applied",
+            "The damping factor b of the air under the mass",
+            "The physical size of the whole die and its package"
         ],
 
         correct: 0
@@ -3297,10 +3297,10 @@ const lesson30Questions = [
             "Why is a feedback capacitor added to the transimpedance amplifier circuit?",
 
         answers: [
-            "To convert the sensed current into an output voltage proportional to capacitance/position",
-            "To physically move the proof mass",
-            "To increase the resonant frequency of the mass",
-            "To reduce the die's overall size"
+            "To convert the sensed current into a voltage tracking capacitance",
+            "To physically drive the proof mass back to its center",
+            "To increase the resonant frequency of the proof mass",
+            "To reduce the overall size of the die and the package"
         ],
 
         correct: 0
@@ -3336,8 +3336,8 @@ const lesson31Questions = [
         answers: [
             "A comb-like plate suspended from folded springs",
             "A solid block of silicon glued to the substrate",
-            "A liquid-filled chamber",
-            "A single rigid metal rod"
+            "A sealed chamber filled with a viscous liquid",
+            "A single rigid metal rod clamped at both ends"
         ],
 
         correct: 0
@@ -3349,10 +3349,10 @@ const lesson31Questions = [
             "How is the ADXL150's proof-mass displacement measured?",
 
         answers: [
-            "Capacitively, relative to stationary polysilicon finger electrodes",
-            "By directly weighing the mass in real time",
+            "Capacitively, against stationary polysilicon fingers",
+            "By directly weighing the proof mass in real time",
             "Using a laser interferometer built into the die",
-            "By measuring the die's temperature change"
+            "By measuring the change in the die's temperature"
         ],
 
         correct: 0
@@ -3410,9 +3410,9 @@ const lesson31Questions = [
 
         answers: [
             "2 fixed, 1 movable (suspended 1 µm above the base)",
-            "All 3 sets are fixed",
-            "All 3 sets move together",
-            "1 fixed, 2 movable"
+            "All 3 sets fixed (anchored 1 µm above the base)",
+            "All 3 sets movable (suspended 1 µm above the base)",
+            "1 fixed, 2 movable (suspended 1 µm above the base)"
         ],
 
         correct: 0
@@ -3573,10 +3573,10 @@ const lesson33Questions = [
             "In sensing an acceleration signal, which happens first?",
 
         answers: [
-            "The proof mass is displaced, which then changes the sensing capacitance",
+            "The proof mass is displaced, then the capacitance changes",
             "The capacitance changes on its own, causing the mass to move",
-            "The supply voltage changes first",
-            "The die temperature changes first"
+            "The supply voltage changes first, then the mass moves",
+            "The die temperature changes first, then the mass moves"
         ],
 
         correct: 0
@@ -3618,10 +3618,10 @@ const lesson33Questions = [
             "What fabrication processes finish an accelerometer once its mechanical design is set?",
 
         answers: [
-            "Deposition, patterning, CVD oxide and nitride, and metallization",
-            "Only wafer dicing",
-            "Only optical inspection",
-            "Only wire bonding"
+            "Deposition, patterning, oxide/nitride CVD, and metallization",
+            "Wafer dicing, sawing, and sorting of the finished dies",
+            "Optical inspection, imaging, and defect-map review",
+            "Wire bonding, die attach, and lead-frame trimming"
         ],
 
         correct: 0
@@ -3633,10 +3633,10 @@ const lesson33Questions = [
             "Which concept from earlier fabrication units also appears in building an accelerometer?",
 
         answers: [
-            "Polysilicon structural layers and a final sacrificial release, like a PolyMUMPs device",
-            "Silicon-on-insulator wafer bonding",
-            "Piezoelectric material deposition",
-            "Electroplated metal structural layers"
+            "Polysilicon structural layers with a final sacrificial release",
+            "Silicon-on-insulator wafers joined by fusion bonding",
+            "Piezoelectric thin-film deposition with electrical poling",
+            "Electroplated metal structural layers with a resist mold"
         ],
 
         correct: 0
@@ -3649,9 +3649,9 @@ const lesson33Questions = [
 
         answers: [
             "A larger mass or a softer (lower k) spring",
-            "A smaller mass or a stiffer spring",
-            "A higher supply voltage only",
-            "A smaller die size only"
+            "A smaller mass or a stiffer (higher k) spring",
+            "A higher supply voltage or a smaller mass",
+            "A smaller die size or a thinner package"
         ],
 
         correct: 0
@@ -3663,9 +3663,9 @@ const lesson33Questions = [
             "Why might a designer choose a stiffer spring despite lower sensitivity?",
 
         answers: [
-            "To raise the resonant frequency and increase usable bandwidth",
-            "To make the die more expensive to produce",
-            "To reduce the number of signal ports needed",
+            "To raise resonant frequency and widen usable bandwidth",
+            "To make the die deliberately more expensive to produce",
+            "To reduce the number of signal ports that are needed",
             "Stiffness has no effect on frequency or bandwidth"
         ],
 
@@ -3679,8 +3679,8 @@ const lesson33Questions = [
 
         answers: [
             "Sensitivity versus bandwidth, and noise versus mass/stiffness",
-            "Die color versus package size",
-            "Supply voltage versus number of signal ports only",
+            "Die color and marking style versus package size choice",
+            "Supply voltage versus number of signal ports on the die",
             "There is no meaningful trade-off in accelerometer design"
         ],
 
@@ -3700,10 +3700,10 @@ const lesson34Questions = [
             "Why is MEMS technology well-suited for optical applications?",
 
         answers: [
-            "The wavelength of light is on the same order of magnitude as MEMS device dimensions",
+            "Light's wavelength is similar in scale to MEMS device dimensions",
             "Light cannot interact with anything smaller than a millimeter",
             "MEMS devices are too large to interact with light at all",
-            "Optics requires no moving parts of any kind"
+            "Optics never requires any moving parts of any kind in a system"
         ],
 
         correct: 0
@@ -3717,8 +3717,8 @@ const lesson34Questions = [
         answers: [
             "Low optical insertion loss and low crosstalk",
             "High weight and high power consumption",
-            "Very large physical size",
-            "A requirement for liquid cooling"
+            "Very large physical size and heavy mass",
+            "A requirement for liquid nitrogen cooling"
         ],
 
         correct: 0
@@ -3745,10 +3745,10 @@ const lesson34Questions = [
             "Why are MEMS devices considered ideal for optical switching?",
 
         answers: [
-            "A small mechanical displacement can produce a large optical effect",
-            "They require no electrical power whatsoever",
-            "They can only switch light off, never on",
-            "They must be replaced after every use"
+            "A small displacement can produce a large optical effect",
+            "They require no electrical power in any operating mode",
+            "They can only ever switch light off, and never back on",
+            "They must be replaced after every single use cycle"
         ],
 
         correct: 0
@@ -3760,7 +3760,7 @@ const lesson34Questions = [
             "Optical MEMS technology has evolved over roughly four decades, from early projection displays to which modern application?",
 
         answers: [
-            "LiDAR scanning",
+            "LiDAR beam scanning",
             "Vinyl record players",
             "Mechanical typewriters",
             "Analog television"
@@ -3828,9 +3828,9 @@ const lesson35Questions = [
 
         answers: [
             "Reflective, diffractive, and interferometric modulation",
-            "Electrical, magnetic, and thermal",
-            "Analog, digital, and hybrid",
-            "Wired, wireless, and optical-fiber"
+            "Electrical, magnetic, and thermal modulation of light",
+            "Analog, digital, and hybrid electronic modulation",
+            "Wired, wireless, and optical-fiber light modulation"
         ],
 
         correct: 0
@@ -3843,9 +3843,9 @@ const lesson35Questions = [
 
         answers: [
             "TI's Digital Micromirror Device (DMD)",
-            "Qualcomm's mirasol display",
-            "The Grating Light Valve",
-            "LCD panels"
+            "Qualcomm's mirasol color display",
+            "The Grating Light Valve (GLV)",
+            "Backlit liquid-crystal LCD panels"
         ],
 
         correct: 0
@@ -3858,9 +3858,9 @@ const lesson35Questions = [
 
         answers: [
             "The Grating Light Valve (GLV)",
-            "TI's DMD",
-            "Qualcomm's mirasol display",
-            "OLED panels"
+            "TI's Digital Micromirror (DMD)",
+            "Qualcomm's mirasol color display",
+            "Organic OLED emissive panels"
         ],
 
         correct: 0
@@ -3887,10 +3887,10 @@ const lesson35Questions = [
             "What ownership changes did the Grating Light Valve technology go through?",
 
         answers: [
-            "Bought by Cypress Semiconductor in 2000, then Dainippon in 2008, then eventually Sony",
-            "It was never sold or transferred to another company",
-            "It was immediately discontinued after invention",
-            "It was purchased by Apple in the 1990s"
+            "Bought by Cypress in 2000, then Dainippon in 2008, then Sony",
+            "It was never sold or transferred to any other company",
+            "It was immediately discontinued right after its invention",
+            "It was purchased by Apple in the 1990s, then re-sold"
         ],
 
         correct: 0
@@ -3904,7 +3904,7 @@ const lesson35Questions = [
         answers: [
             "The physical tilt position of a micromirror",
             "The color of the incoming light only",
-            "The temperature of the chip",
+            "The operating temperature of the chip",
             "The thickness of the glass substrate"
         ],
 
@@ -3917,10 +3917,10 @@ const lesson35Questions = [
             "In a diffractive display, what optical property does the effect strongly depend on?",
 
         answers: [
-            "Wavelength",
-            "Polarization only",
+            "Light wavelength",
+            "Polarization state",
             "Sound frequency",
-            "Air pressure"
+            "Air pressure level"
         ],
 
         correct: 0
@@ -3933,8 +3933,8 @@ const lesson35Questions = [
 
         answers: [
             "Interferometric modulation (mirasol)",
-            "Reflective (DMD)",
-            "Diffractive (GLV)",
+            "Reflective micromirror modulation (DMD)",
+            "Diffractive grating modulation (GLV)",
             "None of them use a resonant cavity"
         ],
 
@@ -3969,10 +3969,10 @@ const lesson36Questions = [
             "What does the DMD chip sit on, and what does that component do?",
 
         answers: [
-            "A circuit board that converts incoming image data into digital signals",
-            "A magnet that levitates the chip",
-            "A speaker that produces sound",
-            "A battery that charges the mirrors permanently"
+            "A circuit board converting image data into digital signals",
+            "A permanent magnet that levitates the chip above it",
+            "A small speaker that produces sound for the projector",
+            "A battery that keeps the mirrors permanently charged"
         ],
 
         correct: 0
@@ -3984,10 +3984,10 @@ const lesson36Questions = [
             "What determines whether incident light is reflected toward the image or deflected away in a DMD?",
 
         answers: [
-            "Which of the two positions the micromirror is tilted to",
-            "The color of the mirror's coating",
-            "The ambient room temperature",
-            "The speed of the projector's fan"
+            "Which of two positions the micromirror tilts to",
+            "The color of the mirror's reflective coating",
+            "The ambient room temperature around the chip",
+            "The speed of the projector's cooling fan"
         ],
 
         correct: 0
@@ -3999,10 +3999,10 @@ const lesson36Questions = [
             "What are two advantages of DMD-based projection?",
 
         answers: [
-            "High brightness and contrast, with compact size, low weight, and low power",
-            "Extremely high cost and large physical size",
-            "Requires no electrical power at all",
-            "Cannot produce color images"
+            "High brightness and contrast in a compact, low-power package",
+            "Extremely high cost and a bulky, heavy physical size",
+            "Requires no electrical power at all to hold an image",
+            "Cannot produce color images or any grayscale shading"
         ],
 
         correct: 0
@@ -4015,9 +4015,9 @@ const lesson36Questions = [
 
         answers: [
             "More than 2 million, for 1920 × 1080 resolution",
-            "About 100",
-            "Exactly 1,080",
-            "About 50,000"
+            "About 100 thousand, for 320 × 320 resolution",
+            "Exactly 1,080, one per horizontal row of pixels",
+            "About 500 thousand, for 800 × 600 resolution"
         ],
 
         correct: 0
@@ -4029,10 +4029,10 @@ const lesson36Questions = [
             "What shape is the mirror support structure in a typical DMD pixel?",
 
         answers: [
-            "H-shaped",
+            "H-shaped support",
             "Perfectly circular",
-            "Triangular",
-            "Star-shaped"
+            "Triangular frame",
+            "Star-shaped hub"
         ],
 
         correct: 0
@@ -4059,10 +4059,10 @@ const lesson36Questions = [
             "What is the purpose of the central post beneath the mirror?",
 
         answers: [
-            "It elevates the mirror above the plane of the support structure",
-            "It permanently glues the mirror in place",
-            "It conducts heat away from the chip",
-            "It blocks light from reaching the mirror"
+            "It lifts the mirror above the support structure plane",
+            "It permanently glues the mirror in a fixed position",
+            "It conducts heat away from the chip to a heat sink",
+            "It blocks stray light from reaching the mirror surface"
         ],
 
         correct: 0
@@ -4082,9 +4082,9 @@ const lesson37Questions = [
 
         answers: [
             "0.5 to 1.2 million",
-            "About 10",
-            "Exactly 1",
-            "About 4"
+            "About 10 thousand",
+            "About 2 thousand",
+            "About 90 million"
         ],
 
         correct: 0
@@ -4112,9 +4112,9 @@ const lesson37Questions = [
 
         answers: [
             "450 billion contacts",
-            "About 100 contacts",
-            "Exactly 1 contact",
-            "450 contacts"
+            "About 100 thousand contacts",
+            "Exactly one contact",
+            "450 million contacts"
         ],
 
         correct: 0
@@ -4157,9 +4157,9 @@ const lesson37Questions = [
 
         answers: [
             "Low-temperature sputter deposition and plasma etch",
-            "Hand-carving under a microscope",
-            "3D printing with molten metal",
-            "Injection molding"
+            "Hand-carving each mirror under a high-power microscope",
+            "3D printing each part from molten metal droplets",
+            "Injection molding of small plastic mirror parts"
         ],
 
         correct: 0
@@ -4171,10 +4171,10 @@ const lesson37Questions = [
             "What type of sacrificial layer does the DMD process use, and how is it removed?",
 
         answers: [
-            "An organic sacrificial layer, dry-etched and removed at the wafer level",
-            "A permanent layer that is never removed",
-            "A liquid layer removed by hand with a syringe",
-            "A metal layer removed by melting the whole wafer"
+            "An organic sacrificial layer, dry-etched at the wafer level",
+            "A permanent oxide layer that is never removed at all",
+            "A liquid layer removed by hand with a small syringe",
+            "A metal layer removed by melting the entire wafer"
         ],
 
         correct: 0
@@ -4209,9 +4209,9 @@ const lesson38Questions = [
 
         answers: [
             "Electrostatic torque and mechanical (restoring) torque",
-            "Gravitational torque and magnetic torque",
-            "Thermal torque and optical torque",
-            "There is only one torque involved"
+            "Gravitational torque and magnetic (restoring) torque",
+            "Thermal (expansion) torque and optical radiation torque",
+            "There is only one torque, and it needs no balancing"
         ],
 
         correct: 0
@@ -4224,9 +4224,9 @@ const lesson38Questions = [
 
         answers: [
             "The twisting of the torsion beam (spring)",
-            "A small electric motor",
-            "Air pressure from a built-in pump",
-            "Gravity acting on the mirror alone"
+            "A small electric motor beneath the mirror",
+            "Air pressure from a tiny built-in pump",
+            "Gravity acting on the mirror mass alone"
         ],
 
         correct: 0
@@ -4238,10 +4238,10 @@ const lesson38Questions = [
             "What provides the electrostatic torque that tips the mirror?",
 
         answers: [
-            "The voltage applied between the mirror support and a bottom electrode",
-            "Sunlight striking the mirror directly",
-            "A magnetic field from an external coil",
-            "Friction from the surrounding air"
+            "Voltage applied between the mirror support and an electrode",
+            "Sunlight striking the mirror surface from a fixed angle",
+            "A magnetic field produced by an external electromagnet coil",
+            "Friction from the surrounding air as the mirror tilts"
         ],
 
         correct: 0
@@ -4284,9 +4284,9 @@ const lesson38Questions = [
 
         answers: [
             "Short circuits between the mirror and the electrode",
-            "The mirror from ever moving at all",
-            "Light from reflecting off the mirror",
-            "The torsion beam from twisting"
+            "The mirror from ever moving at all during operation",
+            "Light from reflecting off the mirror surface at all",
+            "The torsion beam from twisting under electric load"
         ],
 
         correct: 0
@@ -4314,9 +4314,9 @@ const lesson38Questions = [
 
         answers: [
             "It snaps the rest of the way to its landing position",
-            "It stops moving permanently",
-            "It reverses direction and returns to flat",
-            "It melts due to the applied voltage"
+            "It stops moving permanently at the current angle",
+            "It reverses direction and returns to its flat position",
+            "It melts due to the heat of the applied voltage"
         ],
 
         correct: 0
@@ -4335,10 +4335,10 @@ const lesson39Questions = [
             "What replaces individual tilting mirrors in a Grating Light Valve (GLV) display?",
 
         answers: [
-            "An array of electrostatically actuated diffraction-grating ribbons",
-            "A single large rotating disc",
-            "A liquid crystal layer",
-            "A row of LEDs"
+            "An array of electrostatically actuated grating ribbons",
+            "A single large rotating disc with reflective facets",
+            "A liquid crystal layer with a color-filter array",
+            "A single row of tiny red, green, and blue LEDs"
         ],
 
         correct: 0
@@ -4351,9 +4351,9 @@ const lesson39Questions = [
 
         answers: [
             "By using different spacing between the ribbons",
-            "By heating different parts of the chip",
-            "By changing the chip's supply voltage only",
-            "By rotating the entire display"
+            "By heating different regions of the chip surface",
+            "By changing the chip's supply voltage alone",
+            "By rotating the entire display panel mechanically"
         ],
 
         correct: 0
@@ -4395,10 +4395,10 @@ const lesson39Questions = [
             "Which display technology has a nanosecond-scale response time due to its very small displacement?",
 
         answers: [
-            "Diffractive (GLV)",
+            "Diffractive (ribbon grating)",
             "Reflective (tilting mirror)",
-            "Both are equally fast",
-            "Neither has a measurable response time"
+            "Both are equally fast overall",
+            "Neither has a measurable speed"
         ],
 
         correct: 0
@@ -4427,8 +4427,8 @@ const lesson39Questions = [
         answers: [
             "A deformable reflective membrane and a thin-film stack",
             "Two identical rigid mirrors bonded together",
-            "A speaker and a microphone",
-            "A battery and a capacitor"
+            "A vibrating speaker cone and a microphone stack",
+            "A battery cell and a thin-film capacitor stack"
         ],
 
         correct: 0
@@ -4477,8 +4477,8 @@ const lesson40Questions = [
             "Which company is associated with 3D MEMS optical switches?",
 
         answers: [
-            "Fujitsu",
-            "Qualcomm",
+            "Fujitsu Limited",
+            "Qualcomm Inc.",
             "Silicon Light Machines",
             "Texas Instruments"
         ],
@@ -4507,10 +4507,10 @@ const lesson40Questions = [
             "Which optical MEMS sensing application is used in high-resolution biological imaging?",
 
         answers: [
-            "Confocal microscopy",
-            "Grating Light Valve displays",
-            "DMD projection",
-            "Mirasol interferometric displays"
+            "Confocal microscopy imaging",
+            "GLV projection displays",
+            "DMD projection displays",
+            "Mirasol reflective displays"
         ],
 
         correct: 0
@@ -4523,9 +4523,9 @@ const lesson40Questions = [
 
         answers: [
             "Pressure, flow, and acceleration",
-            "Only electrical voltage",
-            "Only sound volume",
-            "Nothing besides displacement"
+            "Electrical voltage and current",
+            "Sound volume and musical pitch",
+            "Nothing beyond simple displacement"
         ],
 
         correct: 0
@@ -4537,10 +4537,10 @@ const lesson40Questions = [
             "What does MEMS-nanophotonics integration refer to as a development trend?",
 
         answers: [
-            "Combining MEMS structures with nanoscale photonic components",
+            "Combining MEMS with nanoscale photonic components",
             "Removing all optical components from MEMS devices",
             "Replacing MEMS with purely electronic circuits",
-            "Making MEMS devices larger and heavier"
+            "Making MEMS devices much larger and heavier"
         ],
 
         correct: 0
@@ -4552,10 +4552,10 @@ const lesson40Questions = [
             "What does a \"single-chip optical MEMS system\" refer to as a development trend?",
 
         answers: [
-            "Integrating a complete optical MEMS system, including electronics, onto one chip",
-            "Using a separate chip for every individual mirror",
-            "Removing all electronics from optical MEMS entirely",
-            "Building optical MEMS devices without any silicon"
+            "Putting the whole optical MEMS system and electronics on one chip",
+            "Using a separate chip for every individual mirror in the array",
+            "Removing all electronics from optical MEMS devices entirely",
+            "Building optical MEMS devices without any silicon at all"
         ],
 
         correct: 0
@@ -4567,10 +4567,10 @@ const lesson40Questions = [
             "Which underlying fabrication concepts, familiar from earlier microfabrication topics, also apply to building a device like the DMD?",
 
         answers: [
-            "Deposition, patterning, sacrificial-layer release, and metallization",
-            "Only hand assembly with no fabrication steps",
-            "Only optical polishing, with no deposition at all",
-            "Only 3D printing in plastic"
+            "Deposition, patterning, sacrificial release, and metallization",
+            "Hand assembly of each part with no fabrication steps at all",
+            "Optical polishing and grinding, with no deposition at all",
+            "3D printing in plastic, with no lithography or etching steps"
         ],
 
         correct: 0
@@ -4650,9 +4650,9 @@ const lesson41Questions = [
 
         answers: [
             "Mimic organ and tissue functionality at a small scale",
-            "Replace the need for any biological studies",
-            "Convert light into digital signals",
-            "Measure acceleration of a moving vehicle"
+            "Replace the need for any further biological studies",
+            "Convert incoming light into digital image signals",
+            "Measure the acceleration of a moving vehicle"
         ],
 
         correct: 0
@@ -4680,9 +4680,9 @@ const lesson41Questions = [
 
         answers: [
             "Plastics, glass, and carbon",
-            "Only wood and paper",
-            "Only pure gold",
-            "Only rubber"
+            "Wood, paper, and cotton fabric",
+            "Gold, silver, and platinum foil",
+            "Rubber, leather, and cardboard"
         ],
 
         correct: 0
@@ -4717,9 +4717,9 @@ const lesson42Questions = [
 
         answers: [
             "Lithium niobate",
-            "Pure aluminum",
-            "Rubber",
-            "Glass fiber"
+            "Pure aluminum foil",
+            "Natural rubber sheet",
+            "Woven glass fiber"
         ],
 
         correct: 0
@@ -4748,8 +4748,8 @@ const lesson42Questions = [
         answers: [
             "A Standing Surface Acoustic Wave (SSAW)",
             "A permanent electrical short circuit",
-            "A single traveling light wave",
-            "A magnetic field"
+            "A single traveling wave of light",
+            "A steady magnetic field pattern"
         ],
 
         correct: 0
@@ -4762,9 +4762,9 @@ const lesson42Questions = [
 
         answers: [
             "Between the channels of the microfluidic device",
-            "Outside the chip entirely",
-            "Inside the power supply",
-            "Above the display screen"
+            "Outside of the chip, in the surrounding air space",
+            "Inside the power supply and signal generator unit",
+            "Above the computer display screen used for imaging"
         ],
 
         correct: 0
@@ -4777,9 +4777,9 @@ const lesson42Questions = [
 
         answers: [
             "They are funneled into the center, at the pressure node",
-            "They are destroyed immediately",
-            "They float out of the channel entirely",
-            "They stick permanently to the substrate"
+            "They are destroyed immediately by the acoustic field",
+            "They float out of the channel entirely and are lost",
+            "They stick permanently to the piezoelectric substrate"
         ],
 
         correct: 0
@@ -4791,10 +4791,10 @@ const lesson42Questions = [
             "What happens to smaller particles in the standing wave field?",
 
         answers: [
-            "They remain on the outside of the channel, near the antinodes",
-            "They are funneled into the exact center",
-            "They are electrically charged",
-            "They disappear from the channel"
+            "They stay toward the channel edges, near the antinodes",
+            "They are funneled into the exact center of the channel",
+            "They become strongly electrically charged in the field",
+            "They disappear from the channel and cannot be seen"
         ],
 
         correct: 0
@@ -4807,9 +4807,9 @@ const lesson42Questions = [
 
         answers: [
             "An interdigitated transducer (IDT)",
-            "A rotating motor",
-            "A laser beam",
-            "A chemical reaction"
+            "A small rotating electric motor",
+            "A focused pulsed laser beam",
+            "A chemical reaction in the fluid"
         ],
 
         correct: 0
@@ -4821,10 +4821,10 @@ const lesson42Questions = [
             "What material is the microfluidic channel typically made from in this design?",
 
         answers: [
-            "PDMS (a polymer)",
-            "Solid steel",
-            "Pure diamond",
-            "Liquid mercury"
+            "PDMS (a soft polymer)",
+            "Solid stainless steel",
+            "Polished pure diamond",
+            "Sealed liquid mercury"
         ],
 
         correct: 0
@@ -4843,10 +4843,10 @@ const lesson43Questions = [
             "What determines the resonant frequency of the surface acoustic wave?",
 
         answers: [
-            "The Rayleigh wave velocity divided by the IDT wavelength",
-            "The color of the substrate",
-            "The number of cells in the channel",
-            "The ambient room temperature only"
+            "Rayleigh wave velocity divided by the IDT wavelength",
+            "The color and surface finish of the substrate crystal",
+            "The number of cells flowing through the channel",
+            "The ambient room temperature during the experiment"
         ],
 
         correct: 0
@@ -4873,10 +4873,10 @@ const lesson43Questions = [
             "What does the acoustic contrast factor determine?",
 
         answers: [
-            "The direction particles migrate — toward nodes or antinodes",
-            "The exact color of the acoustic wave",
-            "The total voltage supplied to the chip",
-            "The number of inlets on the device"
+            "Whether particles migrate toward nodes or antinodes",
+            "The exact color and amplitude of the acoustic wave",
+            "The total voltage supplied to the chip electrodes",
+            "The number of inlets and outlets on the device"
         ],
 
         correct: 0
@@ -4904,7 +4904,7 @@ const lesson43Questions = [
 
         answers: [
             "Viscous force",
-            "Gravitational force only",
+            "Gravitational force",
             "Magnetic force",
             "Nuclear force"
         ],
@@ -4918,10 +4918,10 @@ const lesson43Questions = [
             "Which three properties determine the viscous drag force on a particle?",
 
         answers: [
-            "The particle's radius, its velocity, and the fluid's viscosity",
-            "The particle's color, weight, and temperature",
-            "The chip's supply voltage, size, and cost",
-            "The number of electrodes and their material only"
+            "The particle's radius, velocity, and the fluid's viscosity",
+            "The particle's color, weight, and surface temperature",
+            "The chip's supply voltage, overall size, and cost",
+            "The number of electrodes and their material type"
         ],
 
         correct: 0
@@ -5075,10 +5075,10 @@ const lesson44Questions = [
             "What layout property does the design deliberately keep symmetric?",
 
         answers: [
-            "The microchannel and the SSAW device, mirrored about a centerline",
-            "The color of the substrate on each half of the chip",
-            "The supply voltage on each electrode randomly",
-            "Nothing in the layout is kept symmetric"
+            "The microchannel and SSAW device, mirrored about a centerline",
+            "The color of the substrate on each half of the whole chip",
+            "The supply voltage applied to each electrode, randomly",
+            "Nothing in the layout is deliberately kept symmetric at all"
         ],
 
         correct: 0
@@ -5128,9 +5128,9 @@ const lesson45Questions = [
 
         answers: [
             "A 4-inch lithium niobate wafer",
-            "A 50-inch silicon wafer",
-            "A 1-inch glass wafer",
-            "A 12-inch steel wafer"
+            "A 50-inch single-crystal silicon wafer",
+            "A 1-inch borosilicate glass wafer",
+            "A 12-inch stainless steel wafer"
         ],
 
         correct: 0
@@ -5239,10 +5239,10 @@ const lesson46Questions = [
             "What photoresist protocol and mask type are used in the photolithography step?",
 
         answers: [
-            "Standard Futurrex photoresist protocol with a light-field mask",
-            "No photoresist is used at all",
-            "A photoresist made entirely of metal",
-            "A dark-field mask with no photoresist"
+            "Standard Futurrex resist protocol with a light-field mask",
+            "No photoresist is used, with a light-field mask alone",
+            "A photoresist made entirely of metal and a clear mask",
+            "A dark-field mask used without any photoresist layer"
         ],
 
         correct: 0
@@ -5255,9 +5255,9 @@ const lesson46Questions = [
 
         answers: [
             "Chromium and gold (Cr/Au)",
-            "Iron and lead",
-            "Copper and tin",
-            "Silver and zinc"
+            "Iron and lead (Fe/Pb)",
+            "Copper and tin (Cu/Sn)",
+            "Silver and zinc (Ag/Zn)"
         ],
 
         correct: 0
@@ -5269,10 +5269,10 @@ const lesson46Questions = [
             "What happens during the \"lift-off\" step of fabrication?",
 
         answers: [
-            "The photoresist, along with excess metal on top of it, is removed, leaving the patterned electrodes",
-            "The entire substrate is physically lifted off the wafer",
-            "New photoresist is added on top of the existing metal",
-            "The chip is heated until it melts"
+            "Photoresist and the excess metal on it are removed, leaving the electrodes",
+            "The entire substrate is physically lifted off the carrier wafer beneath it",
+            "New photoresist is added on top of the existing metal to protect it",
+            "The chip is heated until the substrate melts and reflows into place"
         ],
 
         correct: 0
@@ -5285,9 +5285,9 @@ const lesson46Questions = [
 
         answers: [
             "Lithium niobate",
-            "Pure copper",
-            "Plain glass",
-            "Cardboard"
+            "Pure copper sheet",
+            "Plain window glass",
+            "Coated cardboard"
         ],
 
         correct: 0
@@ -5301,8 +5301,8 @@ const lesson46Questions = [
         answers: [
             "The microfluidic PDMS device",
             "A second lithium niobate wafer",
-            "A battery pack",
-            "A speaker"
+            "A rechargeable battery pack",
+            "A small piezo audio speaker"
         ],
 
         correct: 0
@@ -5314,10 +5314,10 @@ const lesson46Questions = [
             "What does the final assembled chip combine?",
 
         answers: [
-            "A piezoelectric SSAW-generating substrate and a microfluidic PDMS channel",
-            "Two identical PDMS channels stacked together",
-            "A battery and a display screen",
-            "A camera lens and a microphone"
+            "A piezoelectric SSAW substrate and a microfluidic PDMS channel",
+            "Two identical PDMS channels stacked on top of a glass slide",
+            "A rechargeable battery and a small color display screen",
+            "A camera lens assembly and a small electret microphone"
         ],
 
         correct: 0
@@ -5351,10 +5351,10 @@ const lesson47Questions = [
             "What is the overall design sequence for building an acoustophoresis cell-separation chip?",
 
         answers: [
-            "Design by rule, then design by analysis, then fabrication, then bonding, then testing",
-            "Fabrication first, then design afterward",
-            "Testing first, then design, then fabrication",
-            "There is no meaningful sequence to follow"
+            "Design by rule, design by analysis, fabrication, bonding, testing",
+            "Fabrication first, then bonding, then design, and testing last",
+            "Testing first, then design, then fabrication, then bonding",
+            "There is no meaningful sequence, so steps can be done in any order"
         ],
 
         correct: 0
@@ -5367,9 +5367,9 @@ const lesson47Questions = [
 
         answers: [
             "Particle focusing and particle separation",
-            "Sound volume and light brightness",
-            "Battery life and charging speed",
-            "Screen resolution and refresh rate"
+            "Sound volume and light brightness levels",
+            "Battery life and battery charging speed",
+            "Screen resolution and screen refresh rate"
         ],
 
         correct: 0
@@ -5381,10 +5381,10 @@ const lesson47Questions = [
             "What is the underlying reason larger and smaller particles end up in different locations within the channel?",
 
         answers: [
-            "They experience different acoustic forces relative to viscous drag, based on their size",
-            "Larger particles are magnetically attracted to the walls",
-            "Smaller particles evaporate during testing",
-            "The channel randomly assigns particle positions"
+            "They feel different acoustic forces relative to drag, based on size",
+            "Larger particles are magnetically attracted to the channel walls",
+            "Smaller particles slowly evaporate during the testing period",
+            "The channel randomly assigns each particle to a position"
         ],
 
         correct: 0
@@ -5396,10 +5396,10 @@ const lesson47Questions = [
             "Which two chip components must be fabricated separately before being joined?",
 
         answers: [
-            "The piezoelectric SSAW/IDT substrate and the PDMS microfluidic channel",
+            "The piezoelectric IDT substrate and the PDMS channel",
             "Two identical copies of the same electrode pattern",
-            "A battery and a power switch",
-            "A lens and a mirror"
+            "A rechargeable battery and a mechanical power switch",
+            "A glass focusing lens and a silvered surface mirror"
         ],
 
         correct: 0
@@ -5411,10 +5411,10 @@ const lesson47Questions = [
             "What real-world problem can an acoustophoresis chip like this help solve?",
 
         answers: [
-            "Separating or isolating cells by size, such as from a blood sample",
-            "Increasing the speed of a car engine",
-            "Projecting a high-resolution image",
-            "Storing digital data on a hard drive"
+            "Sorting cells by size, such as from a blood sample",
+            "Increasing the top speed of a gasoline car engine",
+            "Projecting a high-resolution image onto a screen",
+            "Storing large amounts of digital data on a hard drive"
         ],
 
         correct: 0
@@ -5426,10 +5426,10 @@ const lesson47Questions = [
             "What is the benefit of simulating the SAW device (design by analysis) before fabricating it?",
 
         answers: [
-            "It lets you verify the frequency and displacement behavior before committing to fabrication",
-            "It eliminates the need for any fabrication at all",
-            "It guarantees the chip will never fail once built",
-            "It replaces the need for any design rules"
+            "It lets you verify frequency and displacement before fabricating",
+            "It eliminates the need for any later fabrication at all",
+            "It guarantees the chip will never fail once it is built",
+            "It replaces the need for any design rules or analysis"
         ],
 
         correct: 0
@@ -5441,9 +5441,9 @@ const lesson47Questions = [
             "Which physical quantity most directly sets the device's operating frequency?",
 
         answers: [
-            "The IDT wavelength",
+            "The wavelength of the IDT",
             "The color of the PDMS channel",
-            "The number of blood cells in the sample",
+            "The number of cells in the sample",
             "The thickness of the packaging"
         ],
 
@@ -5456,10 +5456,10 @@ const lesson47Questions = [
             "What core principle links every step of this device, from IDT design to final testing?",
 
         answers: [
-            "Precisely controlling an acoustic standing wave to apply size-dependent forces on particles",
-            "Minimizing the total cost of the chip at any expense",
-            "Maximizing the number of inlets regardless of function",
-            "Avoiding the use of any piezoelectric material"
+            "Controlling an acoustic standing wave to apply size-dependent forces",
+            "Minimizing the total cost of the chip at any expense to quality",
+            "Maximizing the number of inlets on the chip regardless of function",
+            "Avoiding the use of any piezoelectric material in the design"
         ],
 
         correct: 0
@@ -5478,10 +5478,10 @@ const lesson48Questions = [
             "What is the basic function of MEMS packaging?",
 
         answers: [
-            "Building a connection between the die and the outside world, while selectively letting through what matters",
-            "Making the die permanently inaccessible to everything, including its own signals",
-            "Replacing the need for any fabrication steps",
-            "Increasing the die's size by a factor of ten"
+            "Connecting the die to the outside world, passing only what matters",
+            "Making the die permanently inaccessible, even to its own signals",
+            "Replacing the need for any of the earlier fabrication steps",
+            "Increasing the die's overall footprint by a factor of about ten"
         ],
 
         correct: 0
@@ -5494,9 +5494,9 @@ const lesson48Questions = [
 
         answers: [
             "Electrical and magnetic isolation from moisture and electrolytes",
-            "Exposing the die directly to open air at all times",
-            "Removing all electrical connections",
-            "Coating the die in a material that conducts electricity everywhere"
+            "Exposing the die directly to open air and moisture at all times",
+            "Removing all of the electrical connections from the die",
+            "Coating the die in a material that conducts electricity"
         ],
 
         correct: 0
@@ -5508,10 +5508,10 @@ const lesson48Questions = [
             "Which of these is a way packaging protects the environment from the device?",
 
         answers: [
-            "Reducing or eliminating host responses, or containing toxic products",
-            "Making the device louder",
-            "Increasing the device's power consumption",
-            "Removing the device's protective coating"
+            "Reducing host responses, or containing toxic products",
+            "Making the device louder so that it can be heard",
+            "Increasing the device's power consumption when active",
+            "Removing the device's protective coating before use"
         ],
 
         correct: 0
@@ -5523,9 +5523,9 @@ const lesson48Questions = [
             "Why might a BioMEMS device specifically require sterilization as part of its packaging?",
 
         answers: [
-            "To protect the environment, such as a patient, from the device",
-            "To make the device heavier",
-            "To increase its electrical resistance",
+            "To protect the environment, like a patient, from the device",
+            "To make the device heavier so it stays in place",
+            "To increase its overall electrical resistance in the body",
             "Sterilization is never required for BioMEMS devices"
         ],
 
@@ -5539,9 +5539,9 @@ const lesson48Questions = [
 
         answers: [
             "Hermetic, vacuum sealing / media compatibility",
-            "Bright, colorful packaging materials",
-            "Maximum possible package size",
-            "Zero electrical connections of any kind"
+            "Bright, colorful packaging materials and finish",
+            "Maximum possible package size and internal volume",
+            "Zero electrical connections of any kind to the die"
         ],
 
         correct: 0
@@ -5554,9 +5554,9 @@ const lesson48Questions = [
 
         answers: [
             "Acceptable electrical interconnection",
-            "Precision optical alignment",
-            "Chemical isolation",
-            "Device sterilization"
+            "Precision optical alignment tolerance",
+            "Chemical isolation from the environment",
+            "Device sterilization before implantation"
         ],
 
         correct: 0
@@ -5568,10 +5568,10 @@ const lesson48Questions = [
             "Which packaging requirement is especially critical for optical MEMS devices?",
 
         answers: [
-            "Precision alignment",
+            "Precision optical alignment",
             "Maximum electrical resistance",
             "Total absence of any package",
-            "Bright surface coloring"
+            "Bright decorative coloring"
         ],
 
         correct: 0
@@ -5584,9 +5584,9 @@ const lesson48Questions = [
 
         answers: [
             "Acceptable mechanical interconnection",
-            "Device sterilization",
-            "Precision optical alignment",
-            "Low electrical resistance"
+            "Device sterilization before use",
+            "Precision optical alignment tolerance",
+            "Low electrical resistance contacts"
         ],
 
         correct: 0
@@ -5621,9 +5621,9 @@ const lesson49Questions = [
 
         answers: [
             "Wafer sawing (dicing)",
-            "Final testing",
-            "Overmolding",
-            "Trimming"
+            "Final electrical testing",
+            "Plastic overmolding",
+            "Lead-frame trimming"
         ],
 
         correct: 0
@@ -5636,9 +5636,9 @@ const lesson49Questions = [
 
         answers: [
             "Direct wafer bonding",
-            "Anodic bonding",
-            "Flip-chip bonding",
-            "Wire bonding"
+            "Anodic wafer bonding",
+            "Flip-chip die bonding",
+            "Gold wire bonding"
         ],
 
         correct: 0
@@ -5650,9 +5650,9 @@ const lesson49Questions = [
             "Which wafer-bonding type is also called electrostatic bonding, and bonds silicon to glass?",
 
         answers: [
-            "Anodic bonding",
+            "Anodic wafer bonding",
             "Direct wafer bonding",
-            "Flip-chip bonding",
+            "Flip-chip die bonding",
             "Thermocompression bonding"
         ],
 
@@ -5666,9 +5666,9 @@ const lesson49Questions = [
 
         answers: [
             "180–500°C, 200–1000 volts",
-            "0°C, 0 volts",
+            "10–30°C, 1–5 volts (ambient)",
             "5000°C, 1,000,000 volts",
-            "20°C, 1 volt"
+            "60–90°C, 5–20 volts applied"
         ],
 
         correct: 0
@@ -5681,9 +5681,9 @@ const lesson49Questions = [
 
         answers: [
             "Absolute pressure sensors",
-            "Wire bonding pads",
-            "Photoresist coating",
-            "Wafer dicing"
+            "Wire bonding pad layers",
+            "Photoresist spin coating",
+            "Wafer dicing and sorting"
         ],
 
         correct: 0
@@ -5733,9 +5733,9 @@ const lesson50Questions = [
 
         answers: [
             "A mylar film with light adhesive",
-            "A pool of liquid nitrogen",
-            "A bed of loose sand",
-            "A sheet of aluminum foil"
+            "A shallow pool of liquid nitrogen",
+            "A bed of loose quartz sand",
+            "A sheet of thin aluminum foil"
         ],
 
         correct: 0
@@ -5747,10 +5747,10 @@ const lesson50Questions = [
             "Why must the dicing adhesive be both strong and mild?",
 
         answers: [
-            "Strong enough to hold the die during sawing, but mild enough to allow pick-and-place afterward",
-            "So it can be eaten safely if needed",
-            "So it changes color during the process",
-            "So it conducts electricity during sawing"
+            "Strong enough to hold the die while sawing, but mild enough for pick-and-place",
+            "Strong enough to hold the die while sawing, and equally strong afterward",
+            "Mild enough to release the die instantly, before sawing even begins",
+            "Conductive enough to carry current through the die during sawing"
         ],
 
         correct: 0
@@ -5764,8 +5764,8 @@ const lesson50Questions = [
         answers: [
             "Laser cutting and diamond wire cutting",
             "Hand-cutting with scissors and biting",
-            "Melting and re-freezing",
-            "Dissolving in acid entirely"
+            "Melting and re-freezing the wafer edge",
+            "Dissolving it entirely in strong acid"
         ],
 
         correct: 0
@@ -5777,10 +5777,10 @@ const lesson50Questions = [
             "What does the \"pick and place\" process do?",
 
         answers: [
-            "Mounts dies from a wafer onto a lead-frame or into a package",
-            "Removes all dies from the wafer permanently",
-            "Cleans the wafer surface with solvent",
-            "Anneals the wafer at high temperature"
+            "Mounts dies from the wafer onto a lead-frame or package",
+            "Removes all of the dies from the wafer permanently",
+            "Cleans the wafer surface with solvent and a brush",
+            "Anneals the wafer at a high temperature in a furnace"
         ],
 
         correct: 0
@@ -5792,10 +5792,10 @@ const lesson50Questions = [
             "Why can pick and place be risky for some MEMS devices?",
 
         answers: [
-            "It can damage sensitive, already-released structures like surface-micromachined accelerometers",
-            "It always destroys the entire wafer",
-            "It requires no physical contact at all",
-            "It only works on devices with no moving parts, so it's never risky"
+            "It can damage delicate, already-released structures like accelerometers",
+            "It always destroys the entire wafer, so it is never used on MEMS",
+            "It requires no physical contact with the die, so it is risk-free",
+            "It only works on devices with no moving parts, so it is never risky"
         ],
 
         correct: 0
@@ -5808,9 +5808,9 @@ const lesson50Questions = [
 
         answers: [
             "Self-assembly techniques",
-            "Manual assembly by hand only",
+            "Manual assembly by hand",
             "Skipping packaging entirely",
-            "Using only wire bonding for every device"
+            "Wire bonding for every device"
         ],
 
         correct: 0
@@ -5822,10 +5822,10 @@ const lesson50Questions = [
             "What happens during die attach?",
 
         answers: [
-            "An adhesive bond layer is deposited on the substrate, the die is placed on it, then cured, annealed, or fired",
-            "The die is wire-bonded directly with no adhesive",
-            "The die is submerged in acid",
-            "The die is diced into smaller pieces"
+            "Adhesive is put on the substrate, the die is placed, then it is cured",
+            "The die is wire-bonded to the package directly, with no adhesive",
+            "The die is submerged in acid, then rinsed and dried in place",
+            "The die is diced into many smaller pieces and re-sorted by size"
         ],
 
         correct: 0
@@ -5837,10 +5837,10 @@ const lesson50Questions = [
             "Does die attach happen before or after wire bonding?",
 
         answers: [
-            "Before wire bonding",
-            "After wire bonding",
-            "At the exact same time as wire bonding",
-            "Die attach and wire bonding are the same step"
+            "Before the wire bonding step",
+            "After the wire bonding step",
+            "Simultaneously with wire bonding",
+            "It is the same step as wire bonding"
         ],
 
         correct: 0
@@ -5860,9 +5860,9 @@ const lesson51Questions = [
 
         answers: [
             "Wire-bonding, flip-chip, and ball bonding",
-            "Painting, gluing, and stapling",
-            "Welding, riveting, and screwing",
-            "Freezing, boiling, and evaporating"
+            "Painting, gluing, and mechanical stapling",
+            "Welding, riveting, and threaded screwing",
+            "Freezing, boiling, and vapor evaporating"
         ],
 
         correct: 0
@@ -5874,10 +5874,10 @@ const lesson51Questions = [
             "What is thermocompression bonding, in the context of wire bonding?",
 
         answers: [
-            "A metal-to-metal bond created using heat and pressure, usually with gold wire",
-            "A bond formed using only cold temperatures",
-            "A chemical adhesive with no heat or pressure involved",
-            "A bond formed by submerging the wire in water"
+            "A metal bond made with heat and pressure, often with gold wire",
+            "A bond formed using only very cold temperatures and vacuum",
+            "A chemical adhesive cured with no heat or pressure involved",
+            "A bond formed by submerging the wire in salt water overnight"
         ],
 
         correct: 0
@@ -5905,9 +5905,9 @@ const lesson51Questions = [
 
         answers: [
             "At the end of the wire, on the die's bond pad",
-            "In the middle of the lead frame",
-            "Inside the wafer itself before dicing",
-            "On the outside of the package casing"
+            "In the middle of the lead frame, away from the die",
+            "Inside the silicon wafer itself before it is diced",
+            "On the outside of the finished package casing"
         ],
 
         correct: 0
@@ -5919,10 +5919,10 @@ const lesson51Questions = [
             "What is a major advantage of flip-chip bonding over wire bonding?",
 
         answers: [
-            "It eliminates leads entirely, improving electrical and density performance",
-            "It requires more wires per connection",
-            "It only works on devices larger than a coin",
-            "It eliminates the need for any substrate"
+            "It eliminates leads, improving electrical and density performance",
+            "It requires more fine wires per connection than wire bonding",
+            "It only works on very large devices, bigger than a coin",
+            "It eliminates the need for any substrate under the die"
         ],
 
         correct: 0
@@ -5950,9 +5950,9 @@ const lesson51Questions = [
 
         answers: [
             "By locally heating the substrate to reflow the solder",
-            "By freezing the entire assembly",
-            "By applying a strong magnetic field",
-            "By submerging it in oil"
+            "By freezing the entire assembly to shatter the solder",
+            "By applying a strong magnetic field across the solder bumps",
+            "By submerging the whole assembly in a bath of hot oil"
         ],
 
         correct: 0
@@ -5964,7 +5964,7 @@ const lesson51Questions = [
             "In the flip-chip MEMS glass-substrate example, what is deposited on the movable polysilicon MEMS plate first?",
 
         answers: [
-            "A photopolymer",
+            "A layer of photopolymer",
             "A layer of pure gold",
             "A layer of liquid mercury",
             "Nothing is deposited on it"
@@ -6031,10 +6031,10 @@ const lesson52Questions = [
             "What does the thin PSG deposition define in this encapsulation process?",
 
         answers: [
-            "The etch channels",
-            "The final package color",
-            "The die's overall thickness",
-            "The wire-bonding pads"
+            "The sacrificial etch channels",
+            "The final color of the package",
+            "The overall thickness of the die",
+            "The wire-bonding pad locations"
         ],
 
         correct: 0
@@ -6046,10 +6046,10 @@ const lesson52Questions = [
             "What is deposited to form the protective shell in this encapsulation process?",
 
         answers: [
-            "A nitride shell",
-            "A layer of pure aluminum only",
-            "A layer of rubber",
-            "A layer of wood"
+            "A nitride shell layer",
+            "A layer of pure aluminum",
+            "A thick layer of rubber",
+            "A thin layer of wood"
         ],
 
         correct: 0
@@ -6061,10 +6061,10 @@ const lesson52Questions = [
             "What happens after all sacrificial PSG inside the shell is removed?",
 
         answers: [
-            "Supercritical CO2 drying, followed by a global LPCVD sealing step",
-            "The entire wafer is discarded",
-            "The shell is immediately shattered",
-            "Nothing further happens"
+            "Supercritical CO2 drying, then a global LPCVD seal",
+            "The entire wafer is discarded and the run restarted",
+            "The shell is immediately shattered by the pressure",
+            "Nothing further happens, and the wafer is left as-is"
         ],
 
         correct: 0
@@ -6113,10 +6113,10 @@ const lesson53Questions = [
             "What is the general name of this case-study packaging technique?",
 
         answers: [
-            "Wafer-level MEMS packaging via thermally released metal-organic membranes",
-            "Standard plastic injection overmolding",
-            "Manual hand-soldering packaging",
-            "Room-temperature adhesive bonding only"
+            "Wafer-level packaging via thermally released membranes",
+            "Standard plastic injection overmolding of each finished die",
+            "Manual hand-soldering of each package by a technician",
+            "Room-temperature adhesive bonding of a separate glass lid"
         ],
 
         correct: 0
@@ -6159,9 +6159,9 @@ const lesson53Questions = [
 
         answers: [
             "A compliant, negative-tone, photo-definable polymer",
-            "A rigid, opaque metal polymer",
+            "A rigid, opaque, positive-tone metal-filled polymer",
             "A polymer that conducts electricity like copper",
-            "A polymer that dissolves instantly in water"
+            "A polymer that dissolves instantly in plain water"
         ],
 
         correct: 0
@@ -6188,10 +6188,10 @@ const lesson53Questions = [
             "What happens during Phase 3 of this process?",
 
         answers: [
-            "The sacrificial polymer thermally decomposes, forming the air cavity",
-            "The wafer is diced into individual chips",
-            "Wire bonding is performed",
-            "The final metal layer is removed"
+            "The sacrificial polymer decomposes, forming the air cavity",
+            "The wafer is diced into individual chips and sorted",
+            "Wire bonding is performed on every die on the wafer",
+            "The final metal layer is removed from the whole wafer"
         ],
 
         correct: 0
@@ -6218,10 +6218,10 @@ const lesson53Questions = [
             "What does Phase 4 (metallization) accomplish, and why is a thin insulator layer needed?",
 
         answers: [
-            "It creates a hermetic seal with a conformal metal coating; the insulator maintains isolation between the package and the MEMS device",
-            "It removes the entire package to save weight",
-            "It dissolves the MEMS device intentionally",
-            "It converts the device into a purely optical component"
+            "A conformal metal coating hermetically seals it; the insulator maintains isolation",
+            "It strips the package away to save weight; the insulator glues the die down",
+            "It dissolves the MEMS device on purpose; the insulator speeds up the etch",
+            "It converts the device to a purely optical one; the insulator acts as a lens"
         ],
 
         correct: 0
@@ -6240,10 +6240,10 @@ const lesson54Questions = [
             "Once a MEMS device is fabricated, what is the next general category of steps it must go through?",
 
         answers: [
-            "Packaging (bonding, dicing, attach, interconnection, encapsulation, testing)",
-            "Nothing further is needed after fabrication",
-            "The device must be re-fabricated from scratch",
-            "The device is immediately discarded"
+            "Packaging (dicing, attach, interconnection, encapsulation, testing)",
+            "Nothing further is needed once the wafer has been fabricated",
+            "The device must be entirely re-fabricated from scratch again",
+            "The device is immediately discarded once fabrication is done"
         ],
 
         correct: 0
@@ -6255,9 +6255,9 @@ const lesson54Questions = [
             "Which comes first in a typical packaging flow: die attach or wire bonding?",
 
         answers: [
-            "Die attach",
-            "Wire bonding",
-            "They always happen at the exact same time",
+            "Die attach comes first",
+            "Wire bonding comes first",
+            "They always happen together",
             "Neither step is ever required"
         ],
 
@@ -6270,9 +6270,9 @@ const lesson54Questions = [
             "Why might a designer choose flip-chip bonding over wire bonding for a MEMS device?",
 
         answers: [
-            "For better electrical/density performance, lower cost, and faster prototyping",
-            "Because it requires far more wires than wire bonding",
-            "Because it is always more expensive and slower",
+            "Better electrical performance, lower cost, and faster prototyping",
+            "Because it requires far more wires per connection than wire bonding",
+            "Because it is always more expensive and slower to prototype",
             "Because it eliminates the need for a substrate entirely"
         ],
 
@@ -6286,9 +6286,9 @@ const lesson54Questions = [
 
         answers: [
             "Wafer-level bonding, such as direct wafer bonding",
-            "Wire bonding",
-            "Flip-chip bonding",
-            "Pick and place"
+            "Wire bonding with gold wire to the die pads",
+            "Flip-chip bonding of the die onto solder bumps",
+            "Pick and place of the die onto a lead-frame post"
         ],
 
         correct: 0
@@ -6302,8 +6302,8 @@ const lesson54Questions = [
         answers: [
             "Phase 3, thermal decomposition of the sacrificial polymer",
             "Phase 1, cavity formation using a sacrificial layer",
-            "Phase 2, polymer cap formation",
-            "Phase 4, metallization"
+            "Phase 2, polymer cap formation over the cavity layer",
+            "Phase 4, metallization to hermetically seal the cap"
         ],
 
         correct: 0
@@ -6330,9 +6330,9 @@ const lesson54Questions = [
             "Why does packaging matter just as much as the MEMS device's own fabrication?",
 
         answers: [
-            "A poorly packaged device can fail from the environment even if the underlying structure was fabricated correctly",
+            "A poorly packaged device can fail even if it was fabricated correctly",
             "Packaging has no real effect on a device's performance or lifetime",
-            "Fabrication quality is irrelevant once packaging begins",
+            "Fabrication quality becomes irrelevant once packaging begins",
             "Packaging is always simpler and less important than fabrication"
         ],
 
@@ -6345,10 +6345,10 @@ const lesson54Questions = [
             "What overall theme connects wafer bonding, encapsulation, and the metal-organic membrane case study?",
 
         answers: [
-            "Sealing a MEMS device's sensitive parts from the environment while still connecting it electrically to the outside world",
-            "Making every MEMS device as large and heavy as possible",
-            "Avoiding any form of electrical connection entirely",
-            "Eliminating the need for any sacrificial layers"
+            "Sealing sensitive parts from the environment while still connecting electrically",
+            "Making every MEMS device as large and heavy as physically possible",
+            "Avoiding any form of electrical connection to the outside world",
+            "Eliminating the need for any sacrificial layers in every process"
         ],
 
         correct: 0
