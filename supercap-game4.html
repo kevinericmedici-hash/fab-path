@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shape for the Job | Fab Path</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="supercap-learn.html">Learn</a>
+            <a href="supercap-games.html" class="active-nav">Games</a>
+            <a href="supercap-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <main class="game-page">
+
+        <section class="game-shell">
+
+            <div class="game-top">
+
+                <a href="supercap-games.html" class="module-exit">
+                    ← Back to Games
+                </a>
+
+                <div class="module-progress-area">
+
+                    <div class="module-progress-track">
+                        <div
+                            class="module-progress-fill"
+                            id="gameProgressFill"
+                        ></div>
+                    </div>
+
+                    <span id="gameProgressText">
+                        0 / 0
+                    </span>
+
+                </div>
+
+                <span class="game-badge">
+                    UNIT 4 GAME
+                </span>
+
+            </div>
+
+
+            <div class="game-header">
+
+                <p class="eyebrow">
+                    SHAPE FOR THE JOB
+                </p>
+
+                <h1>
+                    Which geometry fits?
+                </h1>
+
+                <p class="game-lead">
+                    Coin cells, wound cans, pouches, on-chip combs, fibers, and stretchy films each suit different jobs. Match every scenario to its shape.
+                </p>
+
+            </div>
+
+
+            <div id="gameBoard">
+
+                <div class="equipment-card" id="equipmentCard">
+
+                    <div class="equipment-icon" id="equipmentIcon">
+                    </div>
+
+                    <h2 class="equipment-name" id="equipmentName">
+                        Loading...
+                    </h2>
+
+                    <p class="equipment-desc" id="equipmentDesc">
+                    </p>
+
+                </div>
+
+
+                <div class="category-grid" id="categoryGrid">
+                </div>
+
+                <div class="game-feedback" id="gameFeedback">
+                    Loading...
+                </div>
+
+            </div>
+
+
+            <div id="gameComplete" class="game-complete" hidden>
+
+                <p class="eyebrow">
+                    CHALLENGE COMPLETE
+                </p>
+
+                <h2>
+                    🧩 Every shape matched to its job
+                </h2>
+
+                <p class="game-complete-xp" id="gameCompleteXP">
+                    +40 XP
+                </p>
+
+                <p class="game-complete-lead" id="gameCompleteStats">
+                </p>
+
+                <p class="game-complete-lead">
+                    There is no best geometry, only the best match between the job and the trade you can afford.
+                </p>
+
+                <div class="game-recap" id="gameRecap">
+                </div>
+
+                <div class="game-complete-actions">
+
+                    <button
+                        type="button"
+                        class="module-nav-button secondary-button"
+                        id="playAgainButton"
+                    >
+                        Play Again
+                    </button>
+
+                    <a
+                        href="supercap-games.html"
+                        class="module-nav-button lesson-link"
+                        id="backToPathButton"
+                    >
+                        Back to Games
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+    <script src="supercap-game-common.js"></script>
+    <script src="supercap-game-sort.js"></script>
+    <script src="supercap-games-data.js"></script>
+
+    <script>
+
+        SCGames.startSort(supercapGameData.geometry);
+
+    </script>
+
+</body>
+
+</html>

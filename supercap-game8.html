@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Size It | Fab Path</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="supercap-learn.html">Learn</a>
+            <a href="supercap-games.html" class="active-nav">Games</a>
+            <a href="supercap-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <main class="game-page">
+
+        <section class="game-shell">
+
+            <div class="game-top">
+
+                <a href="supercap-games.html" class="module-exit">
+                    ← Back to Games
+                </a>
+
+                <div class="module-progress-area">
+
+                    <div class="module-progress-track">
+                        <div
+                            class="module-progress-fill"
+                            id="gameProgressFill"
+                        ></div>
+                    </div>
+
+                    <span id="gameProgressText">
+                        0 / 0
+                    </span>
+
+                </div>
+
+                <span class="game-badge">
+                    UNIT 8 GAME
+                </span>
+
+            </div>
+
+
+            <div class="game-header">
+
+                <p class="eyebrow">
+                    SIZE IT
+                </p>
+
+                <h1>
+                    Pick the smallest part that survives
+                </h1>
+
+                <p class="game-lead">
+                    A supercapacitor must hold its voltage above the cutoff for the whole load, and its ESR steals voltage instantly. Slide to pick a size, then test it. Hold-up time is t = C(V₁ − V₂ − I·ESR) / I.
+                </p>
+
+            </div>
+
+
+            <div id="gameBoard">
+
+                <div class="sc-size-card">
+
+                    <div class="sc-size-icon" id="sizeIcon"></div>
+
+                    <p class="sc-round-title" id="sizeTitle"></p>
+
+                    <p class="sc-size-text" id="sizeText"></p>
+
+                    <div class="sc-size-spec" id="sizeSpec"></div>
+
+                </div>
+
+                <div class="sc-size-chart-wrap">
+                    <svg class="sc-size-chart" id="sizeSvg" viewBox="0 0 320 190" role="img" aria-label="Voltage during the load"></svg>
+                </div>
+
+                <div class="slider-panel">
+
+                    <div class="slider-row">
+
+                        <label class="slider-label" for="sizeSlider">
+                            <span>Supercapacitor size</span>
+                            <span class="slider-value" id="sizeValue"></span>
+                        </label>
+
+                        <input type="range" id="sizeSlider" min="0" max="7" step="1" value="0">
+
+                    </div>
+
+                </div>
+
+                <div class="sc-size-result" id="sizeResult">
+                </div>
+
+                <div class="sc-size-actions">
+
+                    <button type="button" class="module-nav-button lock-in-button" id="sizeTestButton">
+                        Test this part
+                    </button>
+
+                    <button type="button" class="module-nav-button lock-in-button" id="sizeNextButton" hidden>
+                        Next round →
+                    </button>
+
+                </div>
+
+                <div class="game-feedback" id="gameFeedback">
+                    Loading...
+                </div>
+
+            </div>
+
+
+            <div id="gameComplete" class="game-complete" hidden>
+
+                <p class="eyebrow">
+                    CHALLENGE COMPLETE
+                </p>
+
+                <h2>
+                    🔋 Sized for the job
+                </h2>
+
+                <p class="game-complete-xp" id="gameCompleteXP">
+                    +65 XP
+                </p>
+
+                <p class="game-complete-lead" id="gameCompleteStats">
+                </p>
+
+                <p class="game-complete-lead">
+                    Sizing is arithmetic plus margin: check both the energy budget and the instant ESR drop.
+                </p>
+
+                <div class="game-recap" id="gameRecap">
+                </div>
+
+                <div class="game-complete-actions">
+
+                    <button
+                        type="button"
+                        class="module-nav-button secondary-button"
+                        id="playAgainButton"
+                    >
+                        Play Again
+                    </button>
+
+                    <a
+                        href="supercap-games.html"
+                        class="module-nav-button lesson-link"
+                        id="backToPathButton"
+                    >
+                        Back to Games
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+    <script src="supercap-game-common.js"></script>
+    <script src="supercap-game-size.js"></script>
+    <script src="supercap-games-data.js"></script>
+
+    <script>
+
+        SCGames.startSizing(supercapGameData.sizing);
+
+    </script>
+
+</body>
+
+</html>

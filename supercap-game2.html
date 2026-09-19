@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mechanism Match | Fab Path</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="supercap-learn.html">Learn</a>
+            <a href="supercap-games.html" class="active-nav">Games</a>
+            <a href="supercap-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <main class="game-page">
+
+        <section class="game-shell">
+
+            <div class="game-top">
+
+                <a href="supercap-games.html" class="module-exit">
+                    ← Back to Games
+                </a>
+
+                <div class="module-progress-area">
+
+                    <div class="module-progress-track">
+                        <div
+                            class="module-progress-fill"
+                            id="gameProgressFill"
+                        ></div>
+                    </div>
+
+                    <span id="gameProgressText">
+                        0 / 0
+                    </span>
+
+                </div>
+
+                <span class="game-badge">
+                    UNIT 2 GAME
+                </span>
+
+            </div>
+
+
+            <div class="game-header">
+
+                <p class="eyebrow">
+                    MECHANISM MATCH
+                </p>
+
+                <h1>
+                    EDLC, pseudocapacitor, or hybrid?
+                </h1>
+
+                <p class="game-lead">
+                    Three kinds of supercapacitor store charge in different ways. Read each clue and tap the kind it describes.
+                </p>
+
+            </div>
+
+
+            <div id="gameBoard">
+
+                <div class="equipment-card" id="equipmentCard">
+
+                    <div class="equipment-icon" id="equipmentIcon">
+                    </div>
+
+                    <h2 class="equipment-name" id="equipmentName">
+                        Loading...
+                    </h2>
+
+                    <p class="equipment-desc" id="equipmentDesc">
+                    </p>
+
+                </div>
+
+
+                <div class="category-grid" id="categoryGrid">
+                </div>
+
+                <div class="game-feedback" id="gameFeedback">
+                    Loading...
+                </div>
+
+            </div>
+
+
+            <div id="gameComplete" class="game-complete" hidden>
+
+                <p class="eyebrow">
+                    CHALLENGE COMPLETE
+                </p>
+
+                <h2>
+                    ⚛️ You can tell the mechanisms apart
+                </h2>
+
+                <p class="game-complete-xp" id="gameCompleteXP">
+                    +40 XP
+                </p>
+
+                <p class="game-complete-lead" id="gameCompleteStats">
+                </p>
+
+                <p class="game-complete-lead">
+                    Double layers store charge electrostatically, pseudocapacitors add fast surface redox, and hybrids combine both.
+                </p>
+
+                <div class="game-recap" id="gameRecap">
+                </div>
+
+                <div class="game-complete-actions">
+
+                    <button
+                        type="button"
+                        class="module-nav-button secondary-button"
+                        id="playAgainButton"
+                    >
+                        Play Again
+                    </button>
+
+                    <a
+                        href="supercap-games.html"
+                        class="module-nav-button lesson-link"
+                        id="backToPathButton"
+                    >
+                        Back to Games
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+    <script src="supercap-game-common.js"></script>
+    <script src="supercap-game-sort.js"></script>
+    <script src="supercap-games-data.js"></script>
+
+    <script>
+
+        SCGames.startSort(supercapGameData.mechanisms);
+
+    </script>
+
+</body>
+
+</html>
