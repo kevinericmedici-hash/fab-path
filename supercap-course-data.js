@@ -350,6 +350,70 @@ const supercapCourseData = [
             }
 
         ]
+    },
+
+    /* =====================================
+       UNIT 7
+    ===================================== */
+
+    {
+        id: 7,
+
+        title: "Fabrication Methods",
+
+        description:
+            "How electrodes and devices actually get made: slurries, lithography and pyrolysis, thin films, printing, lasers, growth, and how to choose among them.",
+
+        studyModule: {
+            title: "Fabrication Methods",
+            href: "supercapunit7.html"
+        },
+
+        lessons: [
+
+            {
+                id: 31,
+                title: "Slurries, Binders & Coating",
+                description:
+                    "Slurry recipes, doctor-blade casting, and the thickness trade-off."
+            },
+
+            {
+                id: 32,
+                title: "Photolithography & Pyrolysis",
+                description:
+                    "Patterning polymer with light, then baking it into 3D glassy carbon."
+            },
+
+            {
+                id: 33,
+                title: "Deposition, Etching & Templates",
+                description:
+                    "Thin films, lift-off, deep etching, and anodized templates."
+            },
+
+            {
+                id: 34,
+                title: "Printing & Laser Writing",
+                description:
+                    "Mask-free inks, laser-written graphene, and roll-to-roll production."
+            },
+
+            {
+                id: 35,
+                title: "Growing, Plating & Spinning",
+                description:
+                    "Electrodeposition, direct growth, electrospinning, and fiber devices."
+            },
+
+            {
+                id: 36,
+                title: "Assembly & Choosing a Method",
+                description:
+                    "Sealing devices, scale-up trade-offs, and a guide to picking a method."
+            }
+
+        ]
     }
 
 ];

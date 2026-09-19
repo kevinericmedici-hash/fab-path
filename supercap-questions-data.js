@@ -1861,6 +1861,388 @@ const supercapLesson30Questions = [
 ];
 
 
+const supercapLesson31Questions = [
+
+    {
+        question: "What is the role of the binder in a slurry electrode?",
+        answers: [
+            "It stores most of the charge in the electrode",
+            "It supplies the mobile ions for the electrolyte",
+            "It holds particles together and to the collector",
+            "It makes the electrode conduct electrons better"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Why is carbon black often added to a slurry?",
+        answers: [
+            "It dissolves the binder so the slurry can flow",
+            "It replaces the current collector under the film",
+            "It widens the voltage window of the electrolyte",
+            "It creates electron pathways between particles"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What is a doctor blade used for?",
+        answers: [
+            "Spreading a uniform slurry film onto foil",
+            "Cutting finished electrodes into round discs",
+            "Pressing a dried electrode to raise its density",
+            "Mixing the active powder into the solvent"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What is the main downside of too much binder?",
+        answers: [
+            "It makes the film too conductive to hold charge",
+            "It blocks pores and adds resistance and weight",
+            "It dissolves into the electrolyte during cycling",
+            "It widens the voltage window of the electrolyte"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What happens to rate capability as a slurry electrode gets much thicker?",
+        answers: [
+            "It rises, since ions travel less far",
+            "It stays fixed, since thickness doesn't matter",
+            "It falls, since ions must travel farther",
+            "It rises, since the current collector is bigger"
+        ],
+        correct: 2
+    }
+
+];
+
+
+const supercapLesson32Questions = [
+
+    {
+        question: "What does a negative photoresist do when exposed to UV light?",
+        answers: [
+            "The exposed areas dissolve in the developer",
+            "The exposed areas cross-link and remain",
+            "The exposed areas turn directly into carbon",
+            "The exposed areas become fully insulating"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Which resist is widely used for tall structures that are later pyrolyzed?",
+        answers: [
+            "Positive novolac resist, spun very thin",
+            "Polydimethylsiloxane, a soft silicone",
+            "SU-8, an epoxy-based negative resist",
+            "Silver halide photographic emulsion"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Why is pyrolysis done in an inert atmosphere?",
+        answers: [
+            "So the polymer oxidizes fully in the furnace",
+            "So the film absorbs extra moisture as it heats",
+            "So the surface is cleaned by ozone as it heats",
+            "So the polymer chars instead of burning away"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What should designers plan for when pyrolyzing a patterned polymer?",
+        answers: [
+            "Large, fairly uniform shrinkage of features",
+            "Growth of the features to twice their size",
+            "Complete loss of the pattern as fine ash",
+            "Conversion of the structure into a metal"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Why do photolithography and pyrolysis suit tall interdigitated electrodes?",
+        answers: [
+            "They need no cleanroom tools or furnace at all",
+            "They give micron-scale 3D features across wafers",
+            "They work best on cheap large plastic sheets",
+            "They produce electrodes that never shrink at all"
+        ],
+        correct: 1
+    }
+
+];
+
+
+const supercapLesson33Questions = [
+
+    {
+        question: "Which deposition method adds one atomic layer per cycle?",
+        answers: [
+            "Atomic layer deposition (ALD)",
+            "Line-of-sight sputtering",
+            "Thermal evaporation of a metal",
+            "Chemical bath precipitation"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Why is ALD useful for coating 3D electrode scaffolds?",
+        answers: [
+            "It works only on flat, open surfaces",
+            "It coats evenly, even deep inside pores",
+            "It deposits thick films in a few seconds",
+            "It needs no vacuum or gas precursors"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "How does lift-off pattern a metal film?",
+        answers: [
+            "Metal is burned off by a laser after deposition",
+            "Metal is etched by plasma through a mask",
+            "Metal on the dissolved resist washes away",
+            "Metal is pressed through a mesh with a squeegee"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What does deep reactive ion etching (DRIE) make in silicon?",
+        answers: [
+            "Shallow, rounded dimples in the surface",
+            "A thin, uniform oxide layer on the wafer",
+            "Flat, polished surfaces across the wafer",
+            "Deep, near-vertical trenches and pillars"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What forms when aluminum is anodized in acid?",
+        answers: [
+            "A regular honeycomb of nanopores",
+            "A smooth, pore-free oxide skin layer",
+            "A thin liquid layer of molten metal",
+            "A fibrous forest of carbon nanotubes"
+        ],
+        correct: 0
+    }
+
+];
+
+
+const supercapLesson34Questions = [
+
+    {
+        question: "In inkjet and direct ink writing, what replaces the photomask?",
+        answers: [
+            "A pressed metal stamp or die",
+            "A glass plate with chrome lines",
+            "A thin polymer film stencil",
+            "A digital design file (CAD)"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Which printing method pushes thick ink through a patterned mesh?",
+        answers: [
+            "Screen printing",
+            "Inkjet printing",
+            "Direct ink writing",
+            "Roll-to-roll etching"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Why must inkjet ink have low viscosity and small particles?",
+        answers: [
+            "Thin inks dry instantly on any substrate used",
+            "Thick inks and large particles clog the nozzle",
+            "Small particles cannot carry any charge at all",
+            "Low-viscosity ink cannot wet any solid surface"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What does laser scribing of polyimide produce?",
+        answers: [
+            "A solid layer of copper oxide",
+            "A smooth film of glassy carbon",
+            "Porous laser-induced graphene",
+            "A dense ceramic insulating film"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What is a key limit of laser-written electrodes compared with lithography?",
+        answers: [
+            "They need a full cleanroom and a furnace",
+            "They cannot be made on any plastic films",
+            "They take many hours per small pattern",
+            "Wider features, set by the laser spot size"
+        ],
+        correct: 3
+    }
+
+];
+
+
+const supercapLesson35Questions = [
+
+    {
+        question: "What is electropolymerization?",
+        answers: [
+            "A polymer melting into a mold under pressure",
+            "A polymer dissolving into the electrolyte",
+            "A polymer film grown on an electrode by current",
+            "A polymer being cut into fibers by a laser"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What sets the thickness of an electrodeposited film?",
+        answers: [
+            "The color of the substrate under the film",
+            "The size of the reference electrode used",
+            "The room humidity while the film is deposited",
+            "The amount of charge passed during deposition"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What does electrospinning produce?",
+        answers: [
+            "A nanofiber mat made by a high-voltage jet",
+            "A solid block of dense, hard carbon",
+            "A wafer patterned with tall carbon pillars",
+            "A coating of many ultra-thin oxide layers"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "How does wet spinning make a fiber electrode?",
+        answers: [
+            "A wire is dipped into a bath of hot metal",
+            "A dispersion is injected into a setting bath",
+            "A polymer mat is heated in a vacuum furnace",
+            "A film is scribed along a thread by a laser"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Why are direct-growth methods called binder-free?",
+        answers: [
+            "The active material dissolves the current collector",
+            "The binder is swapped for a second polymer",
+            "The active material grows attached to the collector",
+            "The electrode is made without any active material"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "How does vacuum filtration make a graphene film?",
+        answers: [
+            "Flakes are burned onto a substrate by a laser",
+            "Flakes are pressed through a patterned mesh",
+            "Flakes are spun into a fiber inside a bath",
+            "Flakes pile up on a membrane as the liquid passes"
+        ],
+        correct: 3
+    }
+
+];
+
+
+const supercapLesson36Questions = [
+
+    {
+        question: "Which sequence is part of assembling a coin cell?",
+        answers: [
+            "Spin photoresist over the assembled stack",
+            "Stack discs, add electrolyte, then crimp shut",
+            "Pyrolyze the finished cell in a hot furnace",
+            "Sputter a metal layer over the cell case"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Why is vacuum filling used to add electrolyte?",
+        answers: [
+            "It removes the salt from the electrolyte",
+            "It hardens the electrolyte into a solid",
+            "It pulls electrolyte deep into the pores",
+            "It thins the electrodes to a tenth of their size"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Which method is best suited to cheap, large-format electrodes?",
+        answers: [
+            "Photolithography and pyrolysis",
+            "Atomic layer deposition on wafers",
+            "Deep etching of silicon wafers",
+            "Slurry casting and roll coating"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Which route suits small, precise, on-chip devices?",
+        answers: [
+            "Photolithography and then pyrolysis",
+            "Hand-painting ink onto paper sheets",
+            "Wet spinning into long thin fibers",
+            "Casting a thick slurry with a blade"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What is a common trade-off of printing versus photolithography?",
+        answers: [
+            "Finer resolution, but slower and costlier",
+            "Easier and cheaper, but with lower resolution",
+            "Higher resolution and no ink design needed",
+            "Cleanroom-free, but needing many photomasks"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What should decide which fabrication method to use?",
+        answers: [
+            "Whichever method uses the newest equipment",
+            "Whichever method has the longest process steps",
+            "The device's geometry, material, and volume",
+            "Whichever method the lab already happens to own"
+        ],
+        correct: 2
+    }
+
+];
+
+
 /*
     Looked up by numeric lesson id, the same
     pattern script.js uses for the MEMS course's
@@ -1897,5 +2279,11 @@ const supercapAllLessonQuestions = {
     27: supercapLesson27Questions,
     28: supercapLesson28Questions,
     29: supercapLesson29Questions,
-    30: supercapLesson30Questions
+    30: supercapLesson30Questions,
+    31: supercapLesson31Questions,
+    32: supercapLesson32Questions,
+    33: supercapLesson33Questions,
+    34: supercapLesson34Questions,
+    35: supercapLesson35Questions,
+    36: supercapLesson36Questions
 };

@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fabrication Methods | Fab Path</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="supercap-learn.html">Learn</a>
+            <a href="supercap-games.html">Games</a>
+            <a href="supercap-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="supercap-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 32
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    UNIT 7 • FABRICATION METHODS
+                </p>
+
+                <h1>
+                    How the shapes get made
+                </h1>
+
+                <p class="module-lead">
+                    A geometry on paper only matters if someone can build it. Each fabrication route sets what a supercapacitor can do, how small it can be, and what it costs.
+                </p>
+
+                <div class="module-visual">
+                    🏭
+                </div>
+
+                <p>
+                    Fabrication decides which materials you can use, the smallest feature you can draw, which surfaces you can build on, and how many devices you can make. This unit tours the main routes, from casting a slurry to writing with a laser.
+                </p>
+
+                <div class="module-takeaway">
+
+                    <strong>Key idea</strong>
+
+                    Every fabrication method trades precision, throughput, cost, and material choice.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 2 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    FOUR PHILOSOPHIES
+                </p>
+
+                <h1>
+                    Ways to make an electrode
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Bulk and additive</strong>
+                        <span>Mix powders, cast or print them, and dry them: cheap and scalable, but less precise</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Top-down microfabrication</strong>
+                        <span>Pattern with light, then etch or bake the shapes: precise and small, but slower and costlier</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Growth and assembly</strong>
+                        <span>Let material plate, grow, or spin into shape on a scaffold</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Direct writing</strong>
+                        <span>Draw features with a nozzle or a laser, no mask needed</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Most real devices combine two or more of these.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 3 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SLURRY ELECTRODES
+                </p>
+
+                <h1>
+                    The standard recipe
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ⚡
+                        </div>
+
+                        <h3>Active material</h3>
+
+                        <p>
+                            The carbon or oxide that actually stores the charge
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🕸️
+                        </div>
+
+                        <h3>Conductive additive</h3>
+
+                        <p>
+                            Carbon black or similar, forming electron paths between particles
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧷
+                        </div>
+
+                        <h3>Binder</h3>
+
+                        <p>
+                            A polymer such as PVDF, PTFE, or CMC that glues particles together and to the collector
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Stirred with a solvent into a smooth paste called a slurry.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 4 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    FROM SLURRY TO ELECTRODE
+                </p>
+
+                <h1>
+                    Five steps borrowed from batteries
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>1 · Mix</strong>
+                        <span>Blend powder, additive, binder, and solvent into a uniform paste</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>2 · Cast</strong>
+                        <span>Spread a film onto metal foil with a doctor blade or coater</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>3 · Dry</strong>
+                        <span>Drive off the solvent, often in an oven</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>4 · Press</strong>
+                        <span>Roll the film to densify it and improve contact</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>5 · Cut</strong>
+                        <span>Punch out discs or strips for assembly</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Simple, roll-friendly steps are what make this route so easy to scale.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 5 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE BINDER TRADE
+                </p>
+
+                <h1>
+                    Glue that gets in the way
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    binder ⇄ pore space
+                </div>
+
+                <p>
+                    The binder keeps the film from cracking or peeling, but it's an electrical insulator that can block pores, adding resistance and dead weight. Too little binder and the electrode falls apart; too much and performance drops. Binder-free electrodes, grown or self-standing, avoid the trade.
+                </p>
+
+                <div class="module-takeaway">
+
+                    The best binder is the smallest amount that still holds the film together.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 6 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THICKNESS AND LOADING
+                </p>
+
+                <h1>
+                    How thick can you go?
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Thicker film</strong>
+                        <span>More active material per footprint, so more energy</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Longer ion paths</strong>
+                        <span>Ions have to travel deeper, so power and rate capability fall</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Cracking risk</strong>
+                        <span>Thick dried films can crack or peel from the foil</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Current collector</strong>
+                        <span>Foil, foam, or cloth carries the electrons out</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Loading is a dial between energy and speed.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 7 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    TOP-DOWN MICROFABRICATION
+                </p>
+
+                <h1>
+                    Draw the electrodes with light
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    mask → light → pattern
+                </div>
+
+                <p>
+                    In photolithography, a light-sensitive polymer called photoresist is spun onto a substrate, exposed to UV light through a patterned mask, and developed so only part of it remains. It's the tool behind computer chips and MEMS devices, here used to define electrodes.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Light draws the pattern; the mask holds the design.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 8 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CHOOSING A RESIST
+                </p>
+
+                <h1>
+                    Photoresists for building structures
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Positive resist</strong>
+                        <span>Exposed areas dissolve in the developer</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Negative resist</strong>
+                        <span>Exposed areas cross-link and stay behind</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>SU-8</strong>
+                        <span>An epoxy-based negative resist that forms thick, tall, steep-walled structures</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Why tall matters</strong>
+                        <span>Tall pillars and combs add surface area without a bigger footprint</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    SU-8 is a common starting point for tall polymer structures.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 9 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE FLOW
+                </p>
+
+                <h1>
+                    Pattern first, then bake
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>1 · Clean</strong>
+                        <span>Prepare the substrate, such as silicon or oxidized silicon</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>2 · Spin</strong>
+                        <span>Coat resist to a set thickness</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>3 · Soft bake</strong>
+                        <span>Drive off the solvent</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>4 · Expose</strong>
+                        <span>Shine UV through the mask</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>5 · Develop</strong>
+                        <span>Bake after exposure, then wash away the unwanted resist</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>6 · Pyrolyze</strong>
+                        <span>Heat in an inert gas so the polymer becomes carbon</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Steps 1 to 5 make a polymer structure. Step 6 turns it into carbon.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 10 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    PYROLYSIS
+                </p>
+
+                <h1>
+                    Turning polymer into carbon
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    N₂ + 900 °C → carbon
+                </div>
+
+                <p>
+                    In a tube furnace under nitrogen or forming gas, the structure is heated in stages, often first to a few hundred degrees and then to roughly 900 to 1000 °C. Hydrogen, oxygen, and nitrogen leave as gases, and what remains is glassy carbon in the same pattern.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Same shape, new material: an insulating polymer becomes conductive carbon.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 11 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SHRINKAGE
+                </p>
+
+                <h1>
+                    Design for the shrink
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            📉
+                        </div>
+
+                        <h3>Big change</h3>
+
+                        <p>
+                            Pyrolysis removes much of the mass, so features can lose around half their size or more
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ✏️
+                        </div>
+
+                        <h3>Predictable</h3>
+
+                        <p>
+                            Shrinkage is fairly uniform, so the mask can be drawn larger to compensate
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧷
+                        </div>
+
+                        <h3>Adhesion risk</h3>
+
+                        <p>
+                            A shrinking film can crack or peel, so adhesion and gentle heating ramps help
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Shrinkage is a design input, not a surprise.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 12 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    STRENGTHS AND CATCHES
+                </p>
+
+                <h1>
+                    Photolithography with pyrolysis
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Precision</strong>
+                        <span>Micrometer-scale features and gaps, set by the mask</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>3D structures</strong>
+                        <span>Tall pillars and combs raise area without growing the footprint</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Parallel</strong>
+                        <span>A whole wafer is patterned at once, so devices match</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Cost</strong>
+                        <span>Needs cleanroom tools and a high-temperature furnace</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Substrate</strong>
+                        <span>It has to survive the furnace, which rules out most plastics</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Best for small, precise, repeatable devices, not cheap large ones.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 13 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    DEPOSITION
+                </p>
+
+                <h1>
+                    Building films atom by atom
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    PVD · CVD · ALD
+                </div>
+
+                <p>
+                    Deposition tools lay down thin films. Sputtering and evaporation release material from a source onto the substrate. Chemical vapor deposition (CVD) grows films from reacting gases. Atomic layer deposition (ALD) adds one atomic layer per cycle. They make current collectors, oxide layers, and conformal coatings.
+                </p>
+
+                <div class="module-takeaway">
+
+                    The same deposition tools as MEMS, aimed at energy storage.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 14 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHAT EACH BRINGS
+                </p>
+
+                <h1>
+                    Choosing a deposition method
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Sputtering, evaporation</strong>
+                        <span>Metal current collectors and thin oxide or nitride films</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>CVD</strong>
+                        <span>Graphene, nanotube forests, and diamond-like films</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>ALD</strong>
+                        <span>Ultra-thin, even coatings on 3D structures, even inside pores</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The catch</strong>
+                        <span>Vacuum equipment, slow rates, and high cost per area</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    ALD and CVD can coat 3D scaffolds where line-of-sight methods can't.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 15 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    LIFT-OFF
+                </p>
+
+                <h1>
+                    Patterning without etching
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    resist → metal → lift
+                </div>
+
+                <p>
+                    For metals that are hard to etch, pattern the resist first, deposit metal over everything, then dissolve the resist. The metal sitting on the resist lifts away, and only the metal that touched the substrate remains. It's a common way to make thin-film current collectors, such as interleaved gold fingers.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Pattern the negative space, then let the resist carry the excess away.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 16 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    ETCHING
+                </p>
+
+                <h1>
+                    Carving out surface area
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧪
+                        </div>
+
+                        <h3>Wet etching</h3>
+
+                        <p>
+                            A chemical bath removes material. Cheap and simple, but it usually cuts sideways too
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ⚡
+                        </div>
+
+                        <h3>Plasma etching (RIE)</h3>
+
+                        <p>
+                            Ions and reactive gas remove material with much more directional control
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🏛️
+                        </div>
+
+                        <h3>Deep RIE (DRIE)</h3>
+
+                        <p>
+                            Cuts tall, near-vertical trenches and pillars deep into silicon
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Etching can turn flat silicon into towers, trenches, or pores, which are then coated with storage material.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 17 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    TEMPLATES
+                </p>
+
+                <h1>
+                    Let a template set the geometry
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    aluminum → nanopores
+                </div>
+
+                <p>
+                    Anodizing aluminum in acid grows a regular honeycomb of nanoscale pores, called anodic aluminum oxide. Filling those pores with carbon or a conductor, or anodizing titanium into an array of nanotubes, gives ordered, high-area electrodes without lithography.
+                </p>
+
+                <div class="module-takeaway">
+
+                    The template sets the geometry; the coating sets the chemistry.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 18 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    DIRECT WRITING
+                </p>
+
+                <h1>
+                    No mask, no cleanroom
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    file → nozzle → device
+                </div>
+
+                <p>
+                    Printing methods deposit electrode inks exactly where they're needed. A design file replaces the photomask, so changing the pattern is as quick as changing the file. That suits prototypes, small runs, and unusual substrates like paper, plastic, and fabric.
+                </p>
+
+                <div class="module-takeaway">
+
+                    The design lives in software, not in a mask.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 19 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE PRINTING FAMILY
+                </p>
+
+                <h1>
+                    Four ways to lay down ink
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Screen printing</strong>
+                        <span>A squeegee pushes thick ink through a patterned mesh. Fast and simple, with features of roughly 100 µm</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Inkjet printing</strong>
+                        <span>Tiny droplets from a nozzle. Fine detail and thin layers, but the ink must be runny</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Direct ink writing</strong>
+                        <span>A paste is extruded layer by layer, building thick or even tall electrodes</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Roll-to-roll</strong>
+                        <span>A long flexible sheet runs past printing and drying stations, for high volume</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Pick the method by feature size, layer thickness, and volume.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 20 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    INK DESIGN
+                </p>
+
+                <h1>
+                    The ink is half the device
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            💧
+                        </div>
+
+                        <h3>Viscosity</h3>
+
+                        <p>
+                            Inkjet needs a runny ink; screen printing and extrusion need thicker pastes
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔬
+                        </div>
+
+                        <h3>Particle size</h3>
+
+                        <p>
+                            Particles must be far smaller than the nozzle or mesh opening, or they clog it
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔥
+                        </div>
+
+                        <h3>Post-treatment</h3>
+
+                        <p>
+                            Printed layers are dried, cured, or sintered, at a temperature the substrate can survive
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Great printing depends on an ink tuned to the method.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 21 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    LASER SCRIBING
+                </p>
+
+                <h1>
+                    Burning a pattern into carbon
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    laser + polyimide
+                </div>
+
+                <p>
+                    A focused infrared laser scans a polymer film such as polyimide, and the heat converts the surface into porous graphene, called laser-induced graphene, in a single step. Scan the laser in a comb pattern and you have interleaved electrodes in minutes, with no mask or furnace.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Draw a design, and the laser writes conductive carbon.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 22 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    LASER WRITING TRADE-OFFS
+                </p>
+
+                <h1>
+                    Fast, but not the finest
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Speed</strong>
+                        <span>A pattern goes from drawing to device in minutes</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Substrate</strong>
+                        <span>Works on plastic films, so devices can be flexible</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Resolution</strong>
+                        <span>Limited by the laser spot and heat spread, so features are wider than lithography's</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Reproducibility</strong>
+                        <span>Rough, porous surfaces need tight control of laser power and speed</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Ideal for fast prototyping, less so for micron-scale precision.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 23 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    ELECTRODEPOSITION
+                </p>
+
+                <h1>
+                    Plating the active material
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    voltage → film
+                </div>
+
+                <p>
+                    Put a conductive pattern in a bath and apply a voltage. Metal oxides such as MnO₂ can plate directly from solution, and conducting polymers such as polyaniline or PEDOT form by electropolymerization of monomers. The film grows only on the conductive surface, and its thickness tracks the charge passed.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Grow only where the pattern is, and tune thickness by charge.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 24 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    OTHER GROWTH ROUTES
+                </p>
+
+                <h1>
+                    Building the material on the electrode
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Hydrothermal growth</strong>
+                        <span>Heat a solution in a sealed vessel so nanostructures grow on a substrate</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Chemical bath deposition</strong>
+                        <span>Films precipitate onto a substrate from solution at mild temperature</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>CVD growth</strong>
+                        <span>Nanotube forests or graphene grown directly on the current collector</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Filtration and layer-by-layer</strong>
+                        <span>Flakes stack up on a membrane, or alternately charged layers build up by dipping</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Why it helps</strong>
+                        <span>Direct growth gives binder-free electrodes with good electrical contact</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Growing the material in place skips the binder entirely.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 25 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    ELECTROSPINNING
+                </p>
+
+                <h1>
+                    Fibers from a high-voltage jet
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    jet → nanofibers
+                </div>
+
+                <p>
+                    A high voltage pulls a polymer solution into a fine jet that dries into a mat of nanofibers, each just tens to hundreds of nanometers across. Heating the mat in stages, in air and then in inert gas, converts the polymer into carbon nanofibers that can serve as a self-standing, binder-free electrode.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Spin the polymer, then bake it into carbon.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 26 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    MAKING FIBER DEVICES
+                </p>
+
+                <h1>
+                    Continuous processes for continuous devices
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Wet spinning</strong>
+                        <span>A graphene or nanotube dispersion is injected into a bath and solidifies into a fiber</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Dip and coat</strong>
+                        <span>A yarn or wire is pulled through electrode ink, layer by layer</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Assemble</strong>
+                        <span>Twist, wrap, or sheath the fibers with gel electrolyte between them</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Textiles</strong>
+                        <span>Dip-coat, dye, or print electrodes directly onto fabric</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Fiber devices are made the way fibers are made: continuously.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 27 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    ASSEMBLY
+                </p>
+
+                <h1>
+                    Fabrication doesn't end at the electrode
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    assemble · fill · seal
+                </div>
+
+                <p>
+                    Electrodes still need to be paired, wetted with electrolyte, and sealed. Details matter: stacks must be aligned, the separator must not let the electrodes touch, electrolyte must soak the pores fully, and moisture and oxygen must be kept out.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Many failures come from assembly, not from the electrode material.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 28 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    ASSEMBLY BY FORMAT
+                </p>
+
+                <h1>
+                    Different shapes, different final steps
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Coin cell</strong>
+                        <span>Punch discs, stack them with a separator, add electrolyte, and crimp shut</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Pouch or wound cell</strong>
+                        <span>Cut, stack or wind, add tabs, fill, and heat-seal the foil</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>In-plane micro device</strong>
+                        <span>Pattern electrodes, then add a gel or liquid under a cover</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Fiber device</strong>
+                        <span>Coat, twist or wrap, then encapsulate in a polymer sleeve</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    The shape from Unit 4 decides the final steps.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 29 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SCALE, COST, AND YIELD
+                </p>
+
+                <h1>
+                    What changes as volume grows
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Yield</strong>
+                        <span>One short or defect ruins a device, so cleanliness and alignment matter</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Cost per device</strong>
+                        <span>Cleanroom time is costly at low volume but cheap per chip at high volume</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Reproducibility</strong>
+                        <span>Printed and laser-written devices need tight process control to match</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Material cost</strong>
+                        <span>Costly precursors or vacuum steps can dominate the price</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    The cheapest method for ten devices is rarely the cheapest for a million.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 30 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    FABRICATION AT A GLANCE
+                </p>
+
+                <h1>
+                    Six routes compared
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Slurry casting</strong>
+                        <span>Cheap and scalable · limited resolution · needs a binder</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Photolithography + pyrolysis</strong>
+                        <span>Micron precision, 3D · cleanroom and furnace</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Deposition and etching</strong>
+                        <span>Thin, conformal, precise · vacuum tools, high cost</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Printing</strong>
+                        <span>Mask-free, flexible substrates · ink tuning, lower resolution</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Laser writing</strong>
+                        <span>Fast, one step · rough features, limited materials</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Growth and spinning</strong>
+                        <span>Binder-free, high area · slower, more chemistry</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    No single method wins on everything.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 31 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    A DECISION GUIDE
+                </p>
+
+                <h1>
+                    Match the method to the goal
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Cheap, large-format cells</strong>
+                        <span>Slurry casting and roll-to-roll coating</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Small, precise, on-chip</strong>
+                        <span>Photolithography with pyrolysis, or thin films</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Rapid flexible prototypes</strong>
+                        <span>Inkjet, screen printing, or laser scribing</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Tall electrodes, small footprint</strong>
+                        <span>Direct ink writing or lithographic 3D structures</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Fibers and textiles</strong>
+                        <span>Wet spinning and dip coating</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Binder-free, high area</strong>
+                        <span>Direct growth, electrospinning, or self-assembly</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    <strong>Key idea</strong>
+
+                    The best method is the one that produces the geometry, material, and volume the application needs.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- COMPLETION SLIDE -->
+
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 7 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🏭 → ⚡
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenges?
+                </h1>
+
+                <p class="module-lead">
+                    You can now trace a supercapacitor from raw material to finished
+                    device, and match each fabrication method to what it does best.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeSupercapUnit7Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeSupercapUnit7Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathSupercapUnit7StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathSupercapUnit7StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "supercap-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+</body>
+</html>
