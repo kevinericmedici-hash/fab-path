@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Practice | BioFETs &amp; MOSFETs | Fab Path</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="fet-learn.html">Learn</a>
+            <a href="fet-games.html">Games</a>
+            <a href="fet-practice.html" class="active-nav">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <main class="practice-page">
+
+        <div id="fetPracticeHub">
+
+            <section class="practice-header">
+
+                <p class="eyebrow">
+                    PRACTICE
+                </p>
+
+                <h1>
+                    Fix your weak spots.
+                </h1>
+
+                <p>
+                    Each unit pulls together the questions you've
+                    missed the most in the BioFETs &amp; MOSFETs course, so
+                    you spend your time on what actually needs work.
+                </p>
+
+            </section>
+
+
+            <section class="practice-grid" id="fetPracticeUnitsGrid">
+            </section>
+
+        </div>
+
+
+        <div id="fetPracticeSession" class="practice-session-shell game-shell" hidden>
+
+            <div class="game-top">
+
+                <button type="button" class="module-exit" id="fetPracticeBackButton">
+                    ← Back to Practice
+                </button>
+
+                <div class="module-progress-area">
+
+                    <div class="module-progress-track">
+                        <div class="module-progress-fill" id="fetPracticeProgressFill"></div>
+                    </div>
+
+                    <span id="fetPracticeProgressText">
+                        1 / 8
+                    </span>
+
+                </div>
+
+                <span class="game-badge" id="fetPracticeSessionTitle">
+                    UNIT 1
+                </span>
+
+            </div>
+
+
+            <div id="fetPracticeQuizArea">
+
+                <section class="question-card">
+
+                    <p class="question-number" id="fetPracticeQuestionNumber">
+                        QUESTION 1 OF 8
+                    </p>
+
+                    <h1 id="fetPracticeQuestionText">
+                    </h1>
+
+                    <p class="question-instruction">
+                        Choose the best answer.
+                    </p>
+
+                    <div class="answer-grid" id="fetPracticeAnswerGrid">
+                    </div>
+
+                </section>
+
+
+                <div class="lesson-footer">
+
+                    <div class="feedback-message" id="fetPracticeFeedbackMessage">
+                        Select an answer to continue.
+                    </div>
+
+                    <button class="check-button" id="fetPracticeCheckButton" disabled>
+                        Check Answer
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div id="fetPracticeSessionComplete" class="game-complete" hidden>
+
+                <p class="eyebrow">
+                    PRACTICE COMPLETE
+                </p>
+
+                <h2>
+                    🎯 Round done
+                </h2>
+
+                <p class="game-complete-lead" id="fetPracticeSessionStats">
+                </p>
+
+                <div class="game-complete-actions">
+
+                    <button type="button" class="module-nav-button" id="fetPracticeDoneButton">
+                        Back to Practice
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script src="fet-course-data.js"></script>
+    <script src="fet-questions-data.js"></script>
+    <script src="script.js"></script>
+    <script src="fet-script.js"></script>
+    <script src="fet-practice.js"></script>
+
+</body>
+
+</html>

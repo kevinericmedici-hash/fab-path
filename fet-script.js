@@ -1,0 +1,524 @@
+/* ========================================
+   BIOFETS & MOSFETS COURSE ENGINE
+   Self-contained: progress tracking, path
+   rendering, and quiz logic for the
+   BioFETs & MOSFETs course. Namespaced with
+   "fabPathFet" localStorage keys and
+   "fet"-prefixed element ids so it
+   never collides with the MEMS course's
+   script.js, which is loaded on the same
+   pages for the shared streak/XP header.
+======================================== */
+
+function isFetLessonComplete(lessonId) {
+
+    return (
+        localStorage.getItem(
+            `fabPathFetLesson${lessonId}Complete`
+        ) === "true"
+    );
+}
+
+
+function isFetUnitStudyComplete(unitId) {
+
+    return (
+        localStorage.getItem(
+            `fabPathFetUnit${unitId}StudyComplete`
+        ) === "true"
+    );
+}
+
+
+function isFetUnitUnlocked(unitIndex) {
+
+    if (unitIndex === 0) {
+        return true;
+    }
+
+    const previousUnit =
+        fetCourseData[unitIndex - 1];
+
+    const lastLesson =
+        previousUnit.lessons[previousUnit.lessons.length - 1];
+
+    return isFetLessonComplete(lastLesson.id);
+}
+
+
+function isFetLessonUnlocked(unit, lessonIndex) {
+
+    if (lessonIndex === 0) {
+        return isFetUnitStudyComplete(unit.id);
+    }
+
+    return isFetLessonComplete(
+        unit.lessons[lessonIndex - 1].id
+    );
+}
+
+
+function getFetAllLessons() {
+
+    const lessons = [];
+
+    fetCourseData.forEach(function (unit) {
+        unit.lessons.forEach(function (lesson) {
+            lessons.push(lesson);
+        });
+    });
+
+    return lessons;
+}
+
+
+function getFetCompletedLessonCount() {
+
+    return getFetAllLessons().filter(function (lesson) {
+        return isFetLessonComplete(lesson.id);
+    }).length;
+}
+
+
+/* ========================================
+   MISTAKE TRACKING
+   Powers the BioFETs & MOSFETs "questions you
+   get wrong most" practice sessions. Uses
+   its own localStorage blob so lesson ids
+   never collide with the MEMS course's
+   mistake tracking (both courses start
+   numbering lessons at 1).
+======================================== */
+
+function getFetMistakeCounts() {
+
+    return (
+        JSON.parse(
+            localStorage.getItem("fabPathFetMistakes")
+        ) || {}
+    );
+}
+
+
+function adjustFetMistakeCount(lessonId, questionIndex, delta) {
+
+    const mistakes =
+        getFetMistakeCounts();
+
+    const key =
+        `${lessonId}_${questionIndex}`;
+
+    const current =
+        mistakes[key] || 0;
+
+    const next =
+        Math.max(0, current + delta);
+
+    if (next === 0) {
+
+        delete mistakes[key];
+
+    } else {
+
+        mistakes[key] = next;
+    }
+
+    localStorage.setItem(
+        "fabPathFetMistakes",
+        JSON.stringify(mistakes)
+    );
+}
+
+
+function getFetMistakeCount(lessonId, questionIndex) {
+
+    const mistakes =
+        getFetMistakeCounts();
+
+    return mistakes[`${lessonId}_${questionIndex}`] || 0;
+}
+
+
+function createFetStudyNode(unit, unitIndex) {
+
+    const complete =
+        isFetUnitStudyComplete(unit.id);
+
+    const unlocked =
+        isFetUnitUnlocked(unitIndex);
+
+    let statusClass = "locked";
+    let icon = "🔒";
+    let href = "#";
+
+    if (complete) {
+
+        statusClass = "complete";
+        icon = "✓";
+        href = unit.studyModule.href;
+
+    } else if (unlocked) {
+
+        statusClass = "available";
+        icon = "📖";
+        href = unit.studyModule.href;
+    }
+
+    return `
+        <a href="${href}" class="path-node node-left ${statusClass} lesson-link">
+
+            <div class="node-circle">
+                ${icon}
+            </div>
+
+            <div class="node-info">
+                <span>STUDY MODULE</span>
+                <h3>${unit.studyModule.title}</h3>
+                <p>Learn the core concepts before starting the lessons.</p>
+            </div>
+
+        </a>
+    `;
+}
+
+
+function createFetLessonNode(unit, lesson, lessonIndex) {
+
+    const complete =
+        isFetLessonComplete(lesson.id);
+
+    const unlocked =
+        isFetLessonUnlocked(unit, lessonIndex);
+
+    let statusClass = "locked";
+    let circleContent = "🔒";
+    let href = "#";
+
+    if (complete) {
+
+        statusClass = "complete";
+        circleContent = "✓";
+        href = `fetlesson${lesson.id}.html`;
+
+    } else if (unlocked) {
+
+        statusClass = "available";
+        circleContent = lesson.id;
+        href = `fetlesson${lesson.id}.html`;
+    }
+
+    const positionClass =
+        lessonIndex % 2 === 0
+            ? "node-right"
+            : "node-left";
+
+    return `
+        <a href="${href}" class="path-node ${positionClass} ${statusClass} lesson-link">
+
+            <div class="node-circle">
+                ${circleContent}
+            </div>
+
+            <div class="node-info">
+                <span>FAB CHALLENGE ${lesson.id}</span>
+                <h3>${lesson.title}</h3>
+                <p>${lesson.description}</p>
+            </div>
+
+        </a>
+    `;
+}
+
+
+function renderFetLearningPath() {
+
+    const container =
+        document.getElementById("fetLearningPath");
+
+    if (!container) {
+        return;
+    }
+
+    let html = "";
+
+    fetCourseData.forEach(function (unit, unitIndex) {
+
+        html += `
+            <div class="unit-banner">
+                <span>UNIT ${unit.id}</span>
+                <h2>${unit.title}</h2>
+                <p>${unit.description}</p>
+            </div>
+        `;
+
+        html += createFetStudyNode(unit, unitIndex);
+        html += `<div class="vertical-path"></div>`;
+
+        unit.lessons.forEach(function (lesson, lessonIndex) {
+
+            html += createFetLessonNode(unit, lesson, lessonIndex);
+
+            const isLast =
+                lessonIndex === unit.lessons.length - 1;
+
+            if (!isLast) {
+                html += `<div class="vertical-path"></div>`;
+            }
+        });
+    });
+
+    container.innerHTML = html;
+
+    updateFetCourseProgress();
+}
+
+
+function updateFetCourseProgress() {
+
+    const progressFill =
+        document.getElementById("fetProgressFill");
+
+    const progressText =
+        document.getElementById("fetProgressText");
+
+    const total =
+        getFetAllLessons().length;
+
+    const completed =
+        getFetCompletedLessonCount();
+
+    const percent =
+        total === 0
+            ? 0
+            : Math.round((completed / total) * 100);
+
+    if (progressFill) {
+
+        progressFill.style.width =
+            `${percent}%`;
+    }
+
+    if (progressText) {
+
+        progressText.textContent =
+            `${percent}% complete`;
+    }
+}
+
+
+renderFetLearningPath();
+
+
+/* ========================================
+   FAB CHALLENGE QUIZZES
+   Shared logic for any fetlessonN.html
+   page. Elements use a "fet" prefix so
+   they never collide with script.js's own
+   (MEMS-only) quiz element lookups.
+======================================== */
+
+function shuffleFetArray(array) {
+
+    const result = array.slice();
+
+    for (let i = result.length - 1; i > 0; i--) {
+
+        const j = Math.floor(Math.random() * (i + 1));
+
+        [result[i], result[j]] = [result[j], result[i]];
+    }
+
+    return result;
+}
+
+
+function initFetLessonQuiz(lessonId, questions) {
+
+    const questionText =
+        document.getElementById("fetQuestionText");
+
+    if (!questionText) {
+        return;
+    }
+
+    const questionNumber =
+        document.getElementById("fetQuestionNumber");
+
+    const answerGrid =
+        document.getElementById("fetAnswerGrid");
+
+    const checkButton =
+        document.getElementById("fetCheckButton");
+
+    const feedbackMessage =
+        document.getElementById("fetFeedbackMessage");
+
+    const lessonProgress =
+        document.getElementById("fetLessonProgress");
+
+    const xpDisplay =
+        document.getElementById("fetXpDisplay");
+
+    let currentQuestion = 0;
+    let selectedAnswer = null;
+    let currentCorrectIndex = null;
+    let xp = 0;
+    let answerChecked = false;
+
+
+    function loadQuestion() {
+
+        const question =
+            questions[currentQuestion];
+
+        questionText.textContent =
+            question.question;
+
+        questionNumber.textContent =
+            `QUESTION ${currentQuestion + 1} OF ${questions.length}`;
+
+        answerGrid.innerHTML = "";
+
+        const answerOrder =
+            shuffleFetArray(
+                question.answers.map(function (_, index) {
+                    return index;
+                })
+            );
+
+        currentCorrectIndex =
+            answerOrder.indexOf(question.correct);
+
+        answerOrder.forEach(function (originalIndex, displayIndex) {
+
+            const button =
+                document.createElement("button");
+
+            button.className = "answer-button";
+
+            button.textContent =
+                question.answers[originalIndex];
+
+            button.addEventListener("click", function () {
+
+                if (answerChecked) {
+                    return;
+                }
+
+                document
+                    .querySelectorAll("#fetAnswerGrid .answer-button")
+                    .forEach(function (b) {
+                        b.classList.remove("selected");
+                    });
+
+                button.classList.add("selected");
+
+                selectedAnswer = displayIndex;
+                checkButton.disabled = false;
+
+                feedbackMessage.textContent =
+                    "Ready to check your answer.";
+            });
+
+            answerGrid.appendChild(button);
+        });
+
+        const progress =
+            ((currentQuestion + 1) / questions.length) * 100;
+
+        lessonProgress.style.width =
+            `${progress}%`;
+
+        checkButton.textContent = "Check Answer";
+        checkButton.disabled = true;
+
+        selectedAnswer = null;
+        answerChecked = false;
+
+        feedbackMessage.textContent =
+            "Select an answer to continue.";
+    }
+
+
+    checkButton.addEventListener("click", function () {
+
+        if (selectedAnswer === null) {
+            return;
+        }
+
+        if (!answerChecked) {
+
+            answerChecked = true;
+
+            const buttons =
+                document.querySelectorAll("#fetAnswerGrid .answer-button");
+
+            if (selectedAnswer === currentCorrectIndex) {
+
+                buttons[selectedAnswer].classList.add("correct");
+
+                feedbackMessage.textContent =
+                    "Correct! +10 XP";
+
+                xp += 10;
+
+                xpDisplay.textContent = xp;
+
+            } else {
+
+                buttons[selectedAnswer].classList.add("incorrect");
+                buttons[currentCorrectIndex].classList.add("correct");
+
+                feedbackMessage.textContent =
+                    "Not quite. The correct answer is highlighted.";
+
+                adjustFetMistakeCount(
+                    lessonId,
+                    currentQuestion,
+                    1
+                );
+            }
+
+            checkButton.textContent =
+                currentQuestion === questions.length - 1
+                    ? "Finish Fab Challenge"
+                    : "Continue";
+
+            return;
+        }
+
+        if (currentQuestion < questions.length - 1) {
+
+            currentQuestion++;
+
+            loadQuestion();
+
+        } else {
+
+            const previousXP =
+                parseInt(
+                    localStorage.getItem("fabPathXP")
+                ) || 0;
+
+            const completionKey =
+                `fabPathFetLesson${lessonId}Complete`;
+
+            const alreadyComplete =
+                localStorage.getItem(completionKey) === "true";
+
+            if (!alreadyComplete) {
+
+                localStorage.setItem(
+                    "fabPathXP",
+                    (previousXP + xp).toString()
+                );
+            }
+
+            localStorage.setItem(completionKey, "true");
+
+            window.location.href = "fet-learn.html";
+        }
+    });
+
+    loadQuestion();
+}

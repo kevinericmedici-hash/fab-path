@@ -2963,3 +2963,149 @@ button.module-exit {
 .lock-in-button[hidden] {
     display: none;
 }
+
+/* ========================================
+   FET COURSE DIAGRAMS
+======================================== */
+
+.module-visual.fet-diagram {
+    padding: 14px;
+}
+
+.module-visual.fet-diagram svg {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: block;
+}
+
+.fd-label {
+    fill: var(--text);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.fd-sub {
+    fill: var(--muted);
+    font-size: 8.5px;
+}
+
+.fd-accent {
+    fill: var(--accent);
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.fd-p {
+    fill: rgba(170, 179, 207, 0.14);
+    stroke: rgba(170, 179, 207, 0.5);
+    stroke-width: 1.2;
+}
+
+.fd-n {
+    fill: rgba(84, 224, 199, 0.26);
+    stroke: var(--accent);
+    stroke-width: 1.2;
+}
+
+.fd-ox {
+    fill: rgba(255, 214, 102, 0.28);
+    stroke: #ffd666;
+    stroke-width: 1.2;
+}
+
+.fd-metal {
+    fill: rgba(245, 247, 255, 0.22);
+    stroke: var(--text);
+    stroke-width: 1.2;
+}
+
+.fd-depl {
+    fill: rgba(255, 105, 120, 0.14);
+    stroke: rgba(255, 105, 120, 0.55);
+    stroke-width: 1;
+    stroke-dasharray: 3 2;
+}
+
+.fd-channel {
+    stroke: var(--accent);
+    stroke-width: 2.4;
+    stroke-dasharray: 5 3;
+}
+
+.fd-axis {
+    stroke: var(--muted);
+    stroke-width: 1.2;
+    fill: none;
+}
+
+.fd-grid {
+    stroke: rgba(255, 255, 255, 0.07);
+    stroke-width: 1;
+}
+
+.fd-curve {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 2.2;
+    stroke-linejoin: round;
+}
+
+.fd-curve-alt {
+    fill: none;
+    stroke: #ffd666;
+    stroke-width: 2.2;
+    stroke-linejoin: round;
+}
+
+.fd-dash {
+    fill: none;
+    stroke: var(--muted);
+    stroke-width: 1.2;
+    stroke-dasharray: 4 3;
+}
+
+.fd-hole {
+    fill: #ffd666;
+}
+
+.fd-electron {
+    fill: var(--accent);
+}
+
+.fd-ion {
+    fill: #ff6978;
+}
+
+.fd-arrow {
+    fill: var(--text);
+}
+
+.fd-sym {
+    font-size: 9px;
+    font-weight: 900;
+}
+
+@media (max-width: 600px) {
+
+    .module-visual.fet-diagram {
+        padding: 8px;
+        min-height: 0;
+    }
+
+    .fd-label {
+        font-size: 13px;
+    }
+
+    .fd-sub {
+        font-size: 11px;
+    }
+
+    .fd-accent {
+        font-size: 11.5px;
+    }
+
+    .fd-sym {
+        font-size: 12px;
+    }
+}

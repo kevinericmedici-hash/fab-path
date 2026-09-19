@@ -1,0 +1,1888 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MOSFET Fundamentals | Fab Path</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="fet-learn.html">Learn</a>
+            <a href="fet-games.html">Games</a>
+            <a href="fet-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="fet-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 35
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    UNIT 1 • MOSFET FUNDAMENTALS
+                </p>
+
+                <h1>
+                    The device inside everything
+                </h1>
+
+                <p class="module-lead">
+                    The MOSFET is the most manufactured device in history. Before it can sense biology, we need to know exactly how it works.
+                </p>
+
+                <div class="module-visual">
+                    🔲
+                </div>
+
+                <p>
+                    A metal-oxide-semiconductor field-effect transistor, or MOSFET, sits in every processor, memory chip, and phone. Billions fit on a single chip. This course first learns how one works, then turns its gate into a sensor.
+                </p>
+
+                <div class="module-takeaway">
+
+                    <strong>Key idea</strong>
+
+                    A MOSFET turns a voltage on one terminal into control over the current between two others.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 2 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THREE TERMINALS
+                </p>
+
+                <h1>
+                    One control, two ends of a path
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🎛️
+                        </div>
+
+                        <h3>Gate</h3>
+
+                        <p>
+                            The control terminal. Its voltage decides how much current can flow
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🚪
+                        </div>
+
+                        <h3>Source</h3>
+
+                        <p>
+                            Where the current-carrying charges enter the channel
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🏁
+                        </div>
+
+                        <h3>Drain</h3>
+
+                        <p>
+                            Where those charges leave the channel
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    A fourth connection, the body, also exists. We'll meet it in lesson 3.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 3 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THREE JOBS
+                </p>
+
+                <h1>
+                    What a transistor can be
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Switch</strong>
+                        <span>Gate high means on, gate low means off: the basis of digital logic</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Amplifier</strong>
+                        <span>A small change in gate voltage makes a larger change in current</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Sensor</strong>
+                        <span>Anything that changes the gate's effective voltage changes the current</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    The sensor job is why this course exists.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 4 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    FIELD EFFECT
+                </p>
+
+                <h1>
+                    Current controlled by a field
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    field → current
+                </div>
+
+                <p>
+                    In a field-effect transistor, the gate's electric field, not a current, controls how many charges sit in the channel. The gate is insulated by an oxide, so almost no DC current flows into it. That makes it cheap to hold in a state and a very sensitive voltage probe.
+                </p>
+
+                <div class="module-takeaway">
+
+                    The insulated gate is what makes a MOSFET both efficient and a good sensor.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 5 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE FET FAMILY
+                </p>
+
+                <h1>
+                    Where the MOSFET fits
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>MOSFET</strong>
+                        <span>Insulated gate: an oxide separates the gate from the channel</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>JFET</strong>
+                        <span>The gate is a reverse-biased p–n junction instead of an oxide</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>MESFET, HEMT</strong>
+                        <span>Metal-semiconductor gates, used mostly in high-frequency circuits</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>BJT</strong>
+                        <span>Not a FET at all: a small input current controls a larger one</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    We focus on the MOSFET, because its oxide surface is what sensing builds on.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 6 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SILICON
+                </p>
+
+                <h1>
+                    A conductor you can tune
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    Si · 1.12 eV
+                </div>
+
+                <p>
+                    Silicon's conductivity sits between a metal's and an insulator's. Its band gap is 1.12 eV, so at room temperature only about 10¹⁰ electrons per cm³ are free, compared with roughly 5×10²² silicon atoms per cm³. Adding impurities changes that by many orders of magnitude.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Pure silicon barely conducts. Doping makes it useful.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 7 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    DOPING
+                </p>
+
+                <h1>
+                    Choose your carrier
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ➖
+                        </div>
+
+                        <h3>n-type</h3>
+
+                        <p>
+                            Donors such as phosphorus or arsenic add free electrons
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ➕
+                        </div>
+
+                        <h3>p-type</h3>
+
+                        <p>
+                            Acceptors such as boron leave mobile holes behind
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ⚖️
+                        </div>
+
+                        <h3>Majority and minority</h3>
+
+                        <p>
+                            The dominant carrier is the majority; the other is the minority
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Typical doping runs from about 10¹⁵ to 10²⁰ atoms per cm³.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 8 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    MASS ACTION
+                </p>
+
+                <h1>
+                    Fewer holes, more electrons
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    n · p = nᵢ²
+                </div>
+
+                <p>
+                    In equilibrium the electron and hole concentrations multiply to a constant, nᵢ². In p-type silicon doped with 10¹⁶ boron atoms per cm³, holes number about 10¹⁶ per cm³, so electrons drop to (10¹⁰)² / 10¹⁶ = 10⁴ per cm³.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Minority carriers in the substrate are nearly absent, until a gate field pulls them in.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 9 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE P–N JUNCTION
+                </p>
+
+                <h1>
+                    Where n meets p
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 168" role="img" aria-label="A p-n junction with its depletion region">
+<rect class="fd-p" x="20" y="30" width="150" height="90"/>
+<rect class="fd-n" x="170" y="30" width="150" height="90"/>
+<rect class="fd-depl" x="130" y="30" width="80" height="90"/>
+<circle class="fd-hole" cx="34" cy="48" r="3.6"/>
+<circle class="fd-hole" cx="34" cy="76" r="3.6"/>
+<circle class="fd-hole" cx="34" cy="104" r="3.6"/>
+<circle class="fd-hole" cx="54" cy="48" r="3.6"/>
+<circle class="fd-hole" cx="54" cy="76" r="3.6"/>
+<circle class="fd-hole" cx="54" cy="104" r="3.6"/>
+<circle class="fd-hole" cx="74" cy="48" r="3.6"/>
+<circle class="fd-hole" cx="74" cy="76" r="3.6"/>
+<circle class="fd-hole" cx="74" cy="104" r="3.6"/>
+<circle class="fd-hole" cx="94" cy="48" r="3.6"/>
+<circle class="fd-hole" cx="94" cy="76" r="3.6"/>
+<circle class="fd-hole" cx="94" cy="104" r="3.6"/>
+<circle class="fd-hole" cx="114" cy="48" r="3.6"/>
+<circle class="fd-hole" cx="114" cy="76" r="3.6"/>
+<circle class="fd-hole" cx="114" cy="104" r="3.6"/>
+<circle class="fd-electron" cx="226" cy="48" r="3.6"/>
+<circle class="fd-electron" cx="226" cy="76" r="3.6"/>
+<circle class="fd-electron" cx="226" cy="104" r="3.6"/>
+<circle class="fd-electron" cx="246" cy="48" r="3.6"/>
+<circle class="fd-electron" cx="246" cy="76" r="3.6"/>
+<circle class="fd-electron" cx="246" cy="104" r="3.6"/>
+<circle class="fd-electron" cx="266" cy="48" r="3.6"/>
+<circle class="fd-electron" cx="266" cy="76" r="3.6"/>
+<circle class="fd-electron" cx="266" cy="104" r="3.6"/>
+<circle class="fd-electron" cx="286" cy="48" r="3.6"/>
+<circle class="fd-electron" cx="286" cy="76" r="3.6"/>
+<circle class="fd-electron" cx="286" cy="104" r="3.6"/>
+<circle class="fd-electron" cx="306" cy="48" r="3.6"/>
+<circle class="fd-electron" cx="306" cy="76" r="3.6"/>
+<circle class="fd-electron" cx="306" cy="104" r="3.6"/>
+<text class="fd-ion fd-sym" x="140" y="55" text-anchor="middle">−</text>
+<text class="fd-ion fd-sym" x="140" y="83" text-anchor="middle">−</text>
+<text class="fd-ion fd-sym" x="140" y="111" text-anchor="middle">−</text>
+<text class="fd-ion fd-sym" x="156" y="55" text-anchor="middle">−</text>
+<text class="fd-ion fd-sym" x="156" y="83" text-anchor="middle">−</text>
+<text class="fd-ion fd-sym" x="156" y="111" text-anchor="middle">−</text>
+<text class="fd-ion fd-sym" x="184" y="55" text-anchor="middle">+</text>
+<text class="fd-ion fd-sym" x="184" y="83" text-anchor="middle">+</text>
+<text class="fd-ion fd-sym" x="184" y="111" text-anchor="middle">+</text>
+<text class="fd-ion fd-sym" x="200" y="55" text-anchor="middle">+</text>
+<text class="fd-ion fd-sym" x="200" y="83" text-anchor="middle">+</text>
+<text class="fd-ion fd-sym" x="200" y="111" text-anchor="middle">+</text>
+<text class="fd-label" x="80" y="22" text-anchor="middle">p-type · holes</text>
+<text class="fd-label" x="260" y="22" text-anchor="middle">n-type · electrons</text>
+<text class="fd-label" x="170" y="138" text-anchor="middle">depletion region</text>
+<text class="fd-sub" x="170" y="152" text-anchor="middle">fixed ions, few free carriers, built-in field</text>
+</svg>
+                </div>
+
+                <p>
+                    Electrons diffuse from the n side into the p side, and holes go the other way. That leaves behind fixed, charged dopant ions, forming a depletion region with a built-in electric field. Reverse bias widens it; forward bias narrows it.
+                </p>
+
+                <div class="module-takeaway">
+
+                    
+
+                    A reverse-biased junction blocks current, and that's how a MOSFET's source and drain stay isolated from the body.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 10 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    MOVING CHARGE
+                </p>
+
+                <h1>
+                    Drift, diffusion, and mobility
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Drift</strong>
+                        <span>Charges pushed along by an electric field</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Diffusion</strong>
+                        <span>Charges spreading from high concentration to low</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Mobility</strong>
+                        <span>How easily a carrier moves: about 1400 cm²/V·s for bulk electrons, 450 for holes</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Inversion layers</strong>
+                        <span>Mobility at the surface is lower, often a few hundred</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Electrons move faster than holes, which is why NMOS transistors beat PMOS in speed.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 11 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    STRUCTURE
+                </p>
+
+                <h1>
+                    The layers, from the top
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 214" role="img" aria-label="Cross-section of an NMOS transistor">
+<text class="fd-sub" x="20" y="20">W runs into the page</text>
+<line class="fd-axis" x1="105" y1="48" x2="235" y2="48"/>
+<line class="fd-axis" x1="105" y1="43" x2="105" y2="53"/>
+<line class="fd-axis" x1="235" y1="43" x2="235" y2="53"/>
+<text class="fd-label" x="170" y="42" text-anchor="middle">L</text>
+<rect class="fd-p" x="20" y="100" width="300" height="80" rx="4"/>
+<rect class="fd-n" x="50" y="100" width="70" height="30"/>
+<rect class="fd-n" x="220" y="100" width="70" height="30"/>
+<rect class="fd-ox" x="105" y="84" width="130" height="16"/>
+<rect class="fd-metal" x="105" y="62" width="130" height="22"/>
+<rect class="fd-metal" x="62" y="84" width="36" height="16"/>
+<rect class="fd-metal" x="242" y="84" width="36" height="16"/>
+<rect class="fd-metal" x="150" y="180" width="40" height="10"/>
+<line class="fd-channel" x1="118" y1="104" x2="222" y2="104"/>
+<text class="fd-label" x="170" y="77" text-anchor="middle">Gate</text>
+<text class="fd-sub" x="170" y="95" text-anchor="middle">gate oxide</text>
+<text class="fd-label" x="80" y="76" text-anchor="middle">Source</text>
+<text class="fd-label" x="260" y="76" text-anchor="middle">Drain</text>
+<text class="fd-label" x="85" y="121" text-anchor="middle">n⁺</text>
+<text class="fd-label" x="255" y="121" text-anchor="middle">n⁺</text>
+<text class="fd-accent" x="170" y="120" text-anchor="middle">channel</text>
+<text class="fd-label" x="170" y="152" text-anchor="middle">p-type body</text>
+<text class="fd-sub" x="170" y="165" text-anchor="middle">(silicon substrate)</text>
+<text class="fd-label" x="170" y="205" text-anchor="middle">Body</text>
+</svg>
+                </div>
+
+                <p>
+                    An n-channel MOSFET is built on a p-type silicon body. Two heavily doped n⁺ regions form the source and drain. Between them, a thin oxide separates the gate from the silicon surface, where the channel will form when the gate is on.
+                </p>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Gate, oxide, silicon: the metal-oxide-semiconductor stack that gives the MOSFET its name.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 12 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    FOUR TERMINALS
+                </p>
+
+                <h1>
+                    Gate, source, drain, body
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🎛️
+                        </div>
+
+                        <h3>Gate</h3>
+
+                        <p>
+                            Sets the field that creates or removes the channel
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🚪
+                        </div>
+
+                        <h3>Source</h3>
+
+                        <p>
+                            The reference end: gate voltage is measured against it
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🏁
+                        </div>
+
+                        <h3>Drain</h3>
+
+                        <p>
+                            Collects the current, usually held at a higher voltage in NMOS
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧱
+                        </div>
+
+                        <h3>Body</h3>
+
+                        <p>
+                            The substrate, usually tied to the source or to ground
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Most circuit diagrams tie the body to the source and show three terminals.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 13 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE MATERIALS
+                </p>
+
+                <h1>
+                    What each part is made of
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Gate</strong>
+                        <span>Heavily doped polysilicon, or a metal in modern high-k metal gates</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Gate oxide</strong>
+                        <span>Thermally grown SiO₂, or a high-k dielectric such as HfO₂</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Channel</strong>
+                        <span>A very thin layer of silicon just under the oxide</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Source and drain</strong>
+                        <span>Heavily doped regions, n⁺ for NMOS and p⁺ for PMOS</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Body</strong>
+                        <span>A lightly doped silicon wafer</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    The oxide interface is the most carefully engineered layer in the device.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 14 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SIZE MATTERS
+                </p>
+
+                <h1>
+                    The W/L ratio
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    I ∝ W / L
+                </div>
+
+                <p>
+                    The channel length L runs from source to drain, and the width W runs across it. A wider channel carries more current in parallel, and a shorter one adds less resistance. The ratio W/L is the designer's main knob, with L ranging from micrometers in classic devices to tens of nanometers in leading-edge chips.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Wider and shorter means more current, at the same voltages.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 15 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    TWO FLAVORS
+                </p>
+
+                <h1>
+                    NMOS and PMOS
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🟢
+                        </div>
+
+                        <h3>NMOS</h3>
+
+                        <p>
+                            p-type body, n⁺ source and drain, electron channel. Turns on with a positive gate voltage
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🟡
+                        </div>
+
+                        <h3>PMOS</h3>
+
+                        <p>
+                            n-type body, p⁺ source and drain, hole channel. Turns on with a negative gate voltage
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🤝
+                        </div>
+
+                        <h3>CMOS</h3>
+
+                        <p>
+                            Both kinds on one chip, so almost no current flows when idle
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    This unit follows the NMOS. The PMOS mirrors it with signs and carriers flipped.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 16 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHY THE INSULATOR MATTERS
+                </p>
+
+                <h1>
+                    The oxide's four gifts
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>No DC gate current</strong>
+                        <span>The oxide blocks charge flow, so the gate only sets a field</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>High input resistance</strong>
+                        <span>The gate looks like a capacitor, ideal for sensing a voltage</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Sensitive to charge</strong>
+                        <span>Trapped or nearby charge changes how the device behaves</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>A sensing surface</strong>
+                        <span>If the gate is exposed to a liquid, the oxide surface becomes the sensor</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Keep the last one in mind: it's the bridge from transistor to biosensor.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 17 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    METAL–OXIDE–SEMICONDUCTOR
+                </p>
+
+                <h1>
+                    The capacitor at the heart
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    gate | oxide | Si
+                </div>
+
+                <p>
+                    Under the gate, the stack forms a capacitor: gate on top, oxide in the middle, silicon below. The oxide capacitance per area is C_ox = ε_ox / t_ox, with ε_ox = 3.9 ε₀ for SiO₂. A 10 nm oxide gives about 3.45 fF per µm².
+                </p>
+
+                <div class="module-takeaway">
+
+                    Thinner oxide means more capacitance, so the gate grips the channel harder.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 18 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THREE STATES
+                </p>
+
+                <h1>
+                    Accumulation, depletion, inversion
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 176" role="img" aria-label="Accumulation, depletion, and inversion in a p-type MOS capacitor">
+<rect class="fd-metal" x="10" y="14" width="100" height="10"/>
+<rect class="fd-ox" x="10" y="24" width="100" height="8"/>
+<rect class="fd-p" x="10" y="32" width="100" height="94"/>
+<text class="fd-arrow fd-sym" x="26" y="22" text-anchor="middle">−</text>
+<text class="fd-arrow fd-sym" x="48" y="22" text-anchor="middle">−</text>
+<text class="fd-arrow fd-sym" x="70" y="22" text-anchor="middle">−</text>
+<text class="fd-arrow fd-sym" x="92" y="22" text-anchor="middle">−</text>
+<circle class="fd-hole" cx="22" cy="41" r="3.4"/>
+<circle class="fd-hole" cx="37" cy="41" r="3.4"/>
+<circle class="fd-hole" cx="52" cy="41" r="3.4"/>
+<circle class="fd-hole" cx="67" cy="41" r="3.4"/>
+<circle class="fd-hole" cx="82" cy="41" r="3.4"/>
+<circle class="fd-hole" cx="97" cy="41" r="3.4"/>
+<circle class="fd-hole" cx="30" cy="80" r="3.4"/>
+<circle class="fd-hole" cx="50" cy="80" r="3.4"/>
+<circle class="fd-hole" cx="70" cy="80" r="3.4"/>
+<circle class="fd-hole" cx="90" cy="80" r="3.4"/>
+<text class="fd-label" x="60" y="146" text-anchor="middle">Accumulation</text>
+<text class="fd-sub" x="60" y="160" text-anchor="middle">VG < 0</text>
+<rect class="fd-metal" x="122" y="14" width="100" height="10"/>
+<rect class="fd-ox" x="122" y="24" width="100" height="8"/>
+<rect class="fd-p" x="122" y="32" width="100" height="94"/>
+<text class="fd-arrow fd-sym" x="140.0" y="22" text-anchor="middle">+</text>
+<text class="fd-arrow fd-sym" x="172.0" y="22" text-anchor="middle">+</text>
+<text class="fd-arrow fd-sym" x="204.0" y="22" text-anchor="middle">+</text>
+<rect class="fd-depl" x="122" y="32" width="100" height="42"/>
+<text class="fd-ion fd-sym" x="136" y="64" text-anchor="middle">−</text>
+<text class="fd-ion fd-sym" x="154" y="64" text-anchor="middle">−</text>
+<text class="fd-ion fd-sym" x="172" y="64" text-anchor="middle">−</text>
+<text class="fd-ion fd-sym" x="190" y="64" text-anchor="middle">−</text>
+<text class="fd-ion fd-sym" x="208" y="64" text-anchor="middle">−</text>
+<text class="fd-ion fd-sym" x="136" y="46" text-anchor="middle">−</text>
+<text class="fd-ion fd-sym" x="154" y="46" text-anchor="middle">−</text>
+<text class="fd-ion fd-sym" x="172" y="46" text-anchor="middle">−</text>
+<text class="fd-ion fd-sym" x="190" y="46" text-anchor="middle">−</text>
+<text class="fd-ion fd-sym" x="208" y="46" text-anchor="middle">−</text>
+<circle class="fd-hole" cx="142" cy="98" r="3.4"/>
+<circle class="fd-hole" cx="162" cy="98" r="3.4"/>
+<circle class="fd-hole" cx="182" cy="98" r="3.4"/>
+<circle class="fd-hole" cx="202" cy="98" r="3.4"/>
+<text class="fd-label" x="172" y="146" text-anchor="middle">Depletion</text>
+<text class="fd-sub" x="172" y="160" text-anchor="middle">0 < VG < Vth</text>
+<rect class="fd-metal" x="234" y="14" width="100" height="10"/>
+<rect class="fd-ox" x="234" y="24" width="100" height="8"/>
+<rect class="fd-p" x="234" y="32" width="100" height="94"/>
+<text class="fd-arrow fd-sym" x="252.0" y="22" text-anchor="middle">+</text>
+<text class="fd-arrow fd-sym" x="268.0" y="22" text-anchor="middle">+</text>
+<text class="fd-arrow fd-sym" x="284.0" y="22" text-anchor="middle">+</text>
+<text class="fd-arrow fd-sym" x="300.0" y="22" text-anchor="middle">+</text>
+<text class="fd-arrow fd-sym" x="316.0" y="22" text-anchor="middle">+</text>
+<rect class="fd-depl" x="234" y="32" width="100" height="50"/>
+<text class="fd-ion fd-sym" x="248" y="72" text-anchor="middle">−</text>
+<text class="fd-ion fd-sym" x="266" y="72" text-anchor="middle">−</text>
+<text class="fd-ion fd-sym" x="284" y="72" text-anchor="middle">−</text>
+<text class="fd-ion fd-sym" x="302" y="72" text-anchor="middle">−</text>
+<text class="fd-ion fd-sym" x="320" y="72" text-anchor="middle">−</text>
+<circle class="fd-electron" cx="246" cy="40" r="3.4"/>
+<circle class="fd-electron" cx="261" cy="40" r="3.4"/>
+<circle class="fd-electron" cx="276" cy="40" r="3.4"/>
+<circle class="fd-electron" cx="291" cy="40" r="3.4"/>
+<circle class="fd-electron" cx="306" cy="40" r="3.4"/>
+<circle class="fd-electron" cx="321" cy="40" r="3.4"/>
+<circle class="fd-hole" cx="254" cy="98" r="3.4"/>
+<circle class="fd-hole" cx="274" cy="98" r="3.4"/>
+<circle class="fd-hole" cx="294" cy="98" r="3.4"/>
+<circle class="fd-hole" cx="314" cy="98" r="3.4"/>
+<text class="fd-label" x="284" y="146" text-anchor="middle">Inversion</text>
+<text class="fd-sub" x="284" y="160" text-anchor="middle">VG > Vth</text>
+</svg>
+                </div>
+
+                <p>
+                    Take a p-type body. A negative gate voltage pulls holes to the surface (accumulation). A small positive voltage pushes holes away, exposing fixed negative ions (depletion). A larger voltage pulls electrons to the surface, forming an n-type layer (inversion).
+                </p>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Inversion is the channel: an electron layer in p-type silicon.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 19 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WALKING THE GATE VOLTAGE
+                </p>
+
+                <h1>
+                    What each range does
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>VG &lt; 0 · accumulation</strong>
+                        <span>Holes gather at the surface, so it looks even more p-type</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>0 &lt; VG &lt; Vth · depletion</strong>
+                        <span>Holes are repelled, uncovering fixed negative acceptor ions</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>VG &gt; Vth · inversion</strong>
+                        <span>Electrons gather at the surface and form a conducting channel</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    The boundaries shift slightly with the flat-band voltage, which we'll meet next.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 20 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    STRONG INVERSION
+                </p>
+
+                <h1>
+                    How much bending is enough?
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    φs = 2φF
+                </div>
+
+                <p>
+                    The surface is strongly inverted once the band bending φs reaches twice the Fermi potential, φF = (kT/q) ln(N_A/nᵢ). For N_A = 10¹⁶ cm⁻³, φF is about 0.36 V, so 2φF is about 0.71 V.
+                </p>
+
+                <div class="module-takeaway">
+
+                    The channel's electron density at the surface matches the body's hole density.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 21 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE DEPLETION LAYER
+                </p>
+
+                <h1>
+                    How deep does it reach?
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Exposed ions</strong>
+                        <span>The depletion layer is the region of uncovered dopant ions under the gate</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Charge balance</strong>
+                        <span>Gate charge equals depletion charge plus inversion charge</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Maximum depth</strong>
+                        <span>Once inverted, extra gate voltage adds electrons, not depth</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>A number</strong>
+                        <span>For N_A = 10¹⁶ cm⁻³ the maximum depth is about 0.3 µm</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Heavier doping means a shallower depletion layer, and a higher threshold.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 22 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE SWITCH POINT
+                </p>
+
+                <h1>
+                    What Vth means
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    VGS = Vth
+                </div>
+
+                <p>
+                    The threshold voltage is the gate-to-source voltage at which a conducting inversion channel forms. In an enhancement-mode NMOS, it's positive, commonly 0.3 to 1 V. Well below it the transistor is essentially off.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Vth is the gate voltage where the switch turns on.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 23 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE RECIPE
+                </p>
+
+                <h1>
+                    Three ingredients of Vth
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    Vth = VFB+2φF+Qd/Cox
+                </div>
+
+                <p>
+                    The flat-band voltage V_FB accounts for the work-function difference and any oxide charge. The 2φF term supplies the band bending for inversion. Q_d / C_ox is the extra voltage needed to support the depletion charge across the oxide.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Every knob that sets Vth acts on one of these three terms.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 24 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHAT MOVES Vth
+                </p>
+
+                <h1>
+                    Six knobs
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Doping N_A</strong>
+                        <span>More doping raises Vth</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Oxide thickness</strong>
+                        <span>A thinner oxide lowers the depletion term</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Gate material</strong>
+                        <span>Its work function shifts the flat-band voltage</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Oxide charge</strong>
+                        <span>Trapped or nearby charge shifts Vth by −Q / Cox</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Body bias</strong>
+                        <span>A reverse-biased source-body junction raises Vth</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Temperature</strong>
+                        <span>Vth falls as the device heats up</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Oxide charge is the knob that biosensors will turn.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 25 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CHARGE SHIFTS THE THRESHOLD
+                </p>
+
+                <h1>
+                    The transistor as a charge detector
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    ΔVth = −Q / Cox
+                </div>
+
+                <p>
+                    Put positive charge Q per unit area at the oxide-silicon interface, and the gate needs less positive voltage to invert the surface, so Vth drops by Q/C_ox. Negative charge raises it. Example: 10¹² elementary charges per cm² on a 0.345 µF/cm² oxide moves Vth by about 0.46 V.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Sensing with a FET means measuring how far a surface charge moves the threshold.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 26 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    TWO MODES
+                </p>
+
+                <h1>
+                    Enhancement and depletion
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Enhancement mode</strong>
+                        <span>Normally off: an NMOS has Vth &gt; 0 and needs gate voltage to form a channel</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Depletion mode</strong>
+                        <span>Normally on: a channel exists at VGS = 0 and a gate voltage pinches it off</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Where each is used</strong>
+                        <span>Logic uses enhancement mode; some sensors, like doped nanowires, use depletion mode</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Both respond to charge the same way: the threshold shifts.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 27 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    OUTPUT CURVES
+                </p>
+
+                <h1>
+                    ID versus VDS
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 214" role="img" aria-label="MOSFET output curves">
+<line class="fd-axis" x1="44" y1="176" x2="322" y2="176"/>
+<line class="fd-axis" x1="44" y1="176" x2="44" y2="18"/>
+<path class="fd-curve" d="M44.0 176.0 L48.6 174.2 L53.2 172.6 L57.8 171.2 L62.4 169.9 L67.0 168.9 L71.6 168.0 L76.2 167.4 L80.8 166.9 L85.4 166.6 L90.0 166.5 L94.6 166.5 L99.2 166.5 L103.8 166.5 L108.4 166.5 L113.0 166.5 L117.6 166.5 L122.2 166.5 L126.8 166.5 L131.4 166.5 L136.0 166.5 L140.6 166.5 L145.2 166.5 L149.8 166.5 L154.4 166.5 L159.0 166.5 L163.6 166.5 L168.2 166.5 L172.8 166.5 L177.4 166.5 L182.0 166.5 L186.6 166.5 L191.2 166.5 L195.8 166.5 L200.4 166.5 L205.0 166.5 L209.6 166.5 L214.2 166.5 L218.8 166.5 L223.4 166.5 L228.0 166.5 L232.6 166.5 L237.2 166.5 L241.8 166.5 L246.4 166.5 L251.0 166.5 L255.6 166.5 L260.2 166.5 L264.8 166.5 L269.4 166.5 L274.0 166.5 L278.6 166.5 L283.2 166.5 L287.8 166.5 L292.4 166.5 L297.0 166.5 L301.6 166.5 L306.2 166.5 L310.8 166.5 L315.4 166.5 L320.0 166.5"/>
+<path class="fd-curve" d="M44.0 176.0 L48.6 172.3 L53.2 168.8 L57.8 165.5 L62.4 162.3 L67.0 159.4 L71.6 156.6 L76.2 154.1 L80.8 151.7 L85.4 149.5 L90.0 147.5 L94.6 145.7 L99.2 144.1 L103.8 142.7 L108.4 141.4 L113.0 140.4 L117.6 139.5 L122.2 138.9 L126.8 138.4 L131.4 138.1 L136.0 138.0 L140.6 138.0 L145.2 138.0 L149.8 138.0 L154.4 138.0 L159.0 138.0 L163.6 138.0 L168.2 138.0 L172.8 138.0 L177.4 138.0 L182.0 138.0 L186.6 138.0 L191.2 138.0 L195.8 138.0 L200.4 138.0 L205.0 138.0 L209.6 138.0 L214.2 138.0 L218.8 138.0 L223.4 138.0 L228.0 138.0 L232.6 138.0 L237.2 138.0 L241.8 138.0 L246.4 138.0 L251.0 138.0 L255.6 138.0 L260.2 138.0 L264.8 138.0 L269.4 138.0 L274.0 138.0 L278.6 138.0 L283.2 138.0 L287.8 138.0 L292.4 138.0 L297.0 138.0 L301.6 138.0 L306.2 138.0 L310.8 138.0 L315.4 138.0 L320.0 138.0"/>
+<path class="fd-curve" d="M44.0 176.0 L48.6 170.4 L53.2 165.0 L57.8 159.8 L62.4 154.7 L67.0 149.9 L71.6 145.2 L76.2 140.8 L80.8 136.5 L85.4 132.4 L90.0 128.5 L94.6 124.8 L99.2 121.3 L103.8 118.0 L108.4 114.8 L113.0 111.9 L117.6 109.1 L122.2 106.6 L126.8 104.2 L131.4 102.0 L136.0 100.0 L140.6 98.2 L145.2 96.6 L149.8 95.2 L154.4 93.9 L159.0 92.9 L163.6 92.0 L168.2 91.4 L172.8 90.9 L177.4 90.6 L182.0 90.5 L186.6 90.5 L191.2 90.5 L195.8 90.5 L200.4 90.5 L205.0 90.5 L209.6 90.5 L214.2 90.5 L218.8 90.5 L223.4 90.5 L228.0 90.5 L232.6 90.5 L237.2 90.5 L241.8 90.5 L246.4 90.5 L251.0 90.5 L255.6 90.5 L260.2 90.5 L264.8 90.5 L269.4 90.5 L274.0 90.5 L278.6 90.5 L283.2 90.5 L287.8 90.5 L292.4 90.5 L297.0 90.5 L301.6 90.5 L306.2 90.5 L310.8 90.5 L315.4 90.5 L320.0 90.5"/>
+<path class="fd-curve" d="M44.0 176.0 L48.6 168.5 L53.2 161.2 L57.8 154.1 L62.4 147.1 L67.0 140.4 L71.6 133.8 L76.2 127.5 L80.8 121.3 L85.4 115.3 L90.0 109.5 L94.6 103.9 L99.2 98.5 L103.8 93.3 L108.4 88.2 L113.0 83.4 L117.6 78.7 L122.2 74.3 L126.8 70.0 L131.4 65.9 L136.0 62.0 L140.6 58.3 L145.2 54.8 L149.8 51.5 L154.4 48.3 L159.0 45.4 L163.6 42.6 L168.2 40.1 L172.8 37.7 L177.4 35.5 L182.0 33.5 L186.6 31.7 L191.2 30.1 L195.8 28.7 L200.4 27.4 L205.0 26.4 L209.6 25.5 L214.2 24.9 L218.8 24.4 L223.4 24.1 L228.0 24.0 L232.6 24.0 L237.2 24.0 L241.8 24.0 L246.4 24.0 L251.0 24.0 L255.6 24.0 L260.2 24.0 L264.8 24.0 L269.4 24.0 L274.0 24.0 L278.6 24.0 L283.2 24.0 L287.8 24.0 L292.4 24.0 L297.0 24.0 L301.6 24.0 L306.2 24.0 L310.8 24.0 L315.4 24.0 L320.0 24.0"/>
+<path class="fd-dash" d="M44.0 176.0 L48.6 175.9 L53.2 175.6 L57.8 175.1 L62.4 174.5 L67.0 173.6 L71.6 172.6 L76.2 171.3 L80.8 169.9 L85.4 168.3 L90.0 166.5 L94.6 164.5 L99.2 162.3 L103.8 159.9 L108.4 157.4 L113.0 154.6 L117.6 151.7 L122.2 148.5 L126.8 145.2 L131.4 141.7 L136.0 138.0 L140.6 134.1 L145.2 130.0 L149.8 125.7 L154.4 121.3 L159.0 116.6 L163.6 111.8 L168.2 106.7 L172.8 101.5 L177.4 96.1 L182.0 90.5 L186.6 84.7 L191.2 78.7 L195.8 72.5 L200.4 66.2 L205.0 59.6 L209.6 52.9 L214.2 45.9 L218.8 38.8 L223.4 31.5 L228.0 24.0"/>
+<text class="fd-accent" x="62" y="44">triode</text>
+<text class="fd-accent" x="322" y="40" text-anchor="end">saturation</text>
+<text class="fd-sub" x="322" y="192" text-anchor="end">VDS →</text>
+<text class="fd-sub" x="50" y="18">ID ↑</text>
+<text class="fd-sub" x="322" y="57" text-anchor="end">boundary:</text>
+<text class="fd-sub" x="322" y="69" text-anchor="end">VDS = VGS − Vth</text>
+<text class="fd-sub" x="190" y="154">each curve = one VGS</text>
+<text class="fd-sub" x="170" y="208" text-anchor="middle">Below Vth (cutoff) the current is near zero, so no curve is drawn.</text>
+</svg>
+                </div>
+
+                <p>
+                    Fix the gate voltage, sweep the drain voltage, and record the drain current. Each curve is one gate voltage. Current first rises along a curve, then flattens once the channel pinches off near the drain.
+                </p>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Higher gate voltage, taller curve: that's the gate controlling the current.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 28 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THREE REGIONS
+                </p>
+
+                <h1>
+                    Cutoff, triode, saturation
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Cutoff · VGS &lt; Vth</strong>
+                        <span>No inversion channel, only a tiny leakage current</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Triode · VDS &lt; VGS − Vth</strong>
+                        <span>The channel spans source to drain, acting like a voltage-controlled resistor</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Saturation · VDS ≥ VGS − Vth</strong>
+                        <span>The channel pinches off near the drain and the current flattens</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    VGS − Vth is called the overdrive voltage.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 29 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    TRIODE REGION
+                </p>
+
+                <h1>
+                    A tunable resistor
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    ID = k(VGS−Vth)VDS
+                </div>
+
+                <p>
+                    For small VDS the current is proportional to VDS, with k = μ·C_ox·(W/L). The full expression is ID = k[(VGS − Vth)·VDS − VDS²/2]. More gate overdrive lowers the effective resistance, so the gate tunes the resistance.
+                </p>
+
+                <div class="module-takeaway">
+
+                    In triode, the MOSFET is a resistor whose value the gate sets.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 30 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SATURATION REGION
+                </p>
+
+                <h1>
+                    A gate-controlled current source
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    ID = ½k(VGS−Vth)²
+                </div>
+
+                <p>
+                    Once the channel pinches off, the current depends on the gate, not the drain. Example: with μC_ox = 100 µA/V², W/L = 10, and an overdrive of 0.5 V, the saturation current is ½ × 100 µA/V² × 10 × 0.25 V² = 125 µA.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Square law: doubling the overdrive quadruples the current.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 31 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    TRANSFER CURVES
+                </p>
+
+                <h1>
+                    ID versus VGS, and the sideways shift
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 226" role="img" aria-label="Transfer curves before and after charge binds to the gate">
+<line class="fd-axis" x1="44" y1="180" x2="322" y2="180"/>
+<line class="fd-axis" x1="44" y1="180" x2="44" y2="18"/>
+<line class="fd-grid" x1="44" y1="144.0" x2="322" y2="144.0"/>
+<text class="fd-sub" x="40" y="147.0" text-anchor="end">10⁻¹²</text>
+<line class="fd-grid" x1="44" y1="108.0" x2="322" y2="108.0"/>
+<text class="fd-sub" x="40" y="111.0" text-anchor="end">10⁻⁹</text>
+<line class="fd-grid" x1="44" y1="72.0" x2="322" y2="72.0"/>
+<text class="fd-sub" x="40" y="75.0" text-anchor="end">10⁻⁶</text>
+<line class="fd-grid" x1="44" y1="36.0" x2="322" y2="36.0"/>
+<text class="fd-sub" x="40" y="39.0" text-anchor="end">10⁻³</text>
+<path class="fd-curve" d="M44.0 175.2 L46.8 172.3 L49.5 169.4 L52.3 166.6 L55.0 163.7 L57.8 160.8 L60.6 157.9 L63.3 155.0 L66.1 152.2 L68.8 149.3 L71.6 146.4 L74.4 143.5 L77.1 140.6 L79.9 137.8 L82.6 134.9 L85.4 132.0 L88.2 129.1 L90.9 126.3 L93.7 123.4 L96.4 120.5 L99.2 117.6 L102.0 114.7 L104.7 111.9 L107.5 109.0 L110.2 106.1 L113.0 103.3 L115.8 100.4 L118.5 97.6 L121.3 94.7 L124.0 91.9 L126.8 89.1 L129.6 86.3 L132.3 83.6 L135.1 80.9 L137.8 78.2 L140.6 75.6 L143.4 73.0 L146.1 70.6 L148.9 68.2 L151.6 66.0 L154.4 63.8 L157.2 61.8 L159.9 59.9 L162.7 58.2 L165.4 56.6 L168.2 55.1 L171.0 53.7 L173.7 52.4 L176.5 51.3 L179.2 50.2 L182.0 49.2 L184.8 48.3 L187.5 47.4 L190.3 46.6 L193.0 45.8 L195.8 45.1 L198.6 44.5 L201.3 43.9 L204.1 43.3 L206.8 42.7 L209.6 42.2 L212.4 41.7 L215.1 41.2 L217.9 40.7 L220.6 40.3 L223.4 39.9 L226.2 39.4 L228.9 39.1 L231.7 38.7 L234.4 38.3 L237.2 38.0 L240.0 37.6 L242.7 37.3 L245.5 37.0 L248.2 36.7 L251.0 36.3 L253.8 36.1 L256.5 35.8 L259.3 35.5 L262.0 35.2 L264.8 35.0 L267.6 34.7 L270.3 34.4 L273.1 34.2 L275.8 34.0 L278.6 33.7 L281.4 33.5 L284.1 33.3 L286.9 33.1 L289.6 32.8 L292.4 32.6 L295.2 32.4 L297.9 32.2 L300.7 32.0 L303.4 31.8 L306.2 31.6 L309.0 31.4 L311.7 31.3 L314.5 31.1 L317.2 30.9 L320.0 30.7"/>
+<path class="fd-curve-alt" d="M44.0 139.2 L46.8 136.3 L49.5 133.4 L52.3 130.6 L55.0 127.7 L57.8 124.8 L60.6 121.9 L63.3 119.1 L66.1 116.2 L68.8 113.3 L71.6 110.4 L74.4 107.6 L77.1 104.7 L79.9 101.9 L82.6 99.0 L85.4 96.2 L88.2 93.3 L90.9 90.5 L93.7 87.7 L96.4 85.0 L99.2 82.2 L102.0 79.5 L104.7 76.9 L107.5 74.3 L110.2 71.8 L113.0 69.4 L115.8 67.1 L118.5 64.9 L121.3 62.8 L124.0 60.8 L126.8 59.0 L129.6 57.4 L132.3 55.8 L135.1 54.4 L137.8 53.0 L140.6 51.8 L143.4 50.7 L146.1 49.7 L148.9 48.7 L151.6 47.8 L154.4 47.0 L157.2 46.2 L159.9 45.5 L162.7 44.8 L165.4 44.2 L168.2 43.6 L171.0 43.0 L173.7 42.4 L176.5 41.9 L179.2 41.4 L182.0 41.0 L184.8 40.5 L187.5 40.1 L190.3 39.6 L193.0 39.2 L195.8 38.9 L198.6 38.5 L201.3 38.1 L204.1 37.8 L206.8 37.4 L209.6 37.1 L212.4 36.8 L215.1 36.5 L217.9 36.2 L220.6 35.9 L223.4 35.6 L226.2 35.4 L228.9 35.1 L231.7 34.8 L234.4 34.6 L237.2 34.3 L240.0 34.1 L242.7 33.8 L245.5 33.6 L248.2 33.4 L251.0 33.2 L253.8 32.9 L256.5 32.7 L259.3 32.5 L262.0 32.3 L264.8 32.1 L267.6 31.9 L270.3 31.7 L273.1 31.5 L275.8 31.4 L278.6 31.2 L281.4 31.0 L284.1 30.8 L286.9 30.6 L289.6 30.5 L292.4 30.3 L295.2 30.1 L297.9 30.0 L300.7 29.8 L303.4 29.7 L306.2 29.5 L309.0 29.3 L311.7 29.2 L314.5 29.0 L317.2 28.9 L320.0 28.8"/>
+<line class="fd-dash" x1="140.6" y1="180" x2="140.6" y2="24"/>
+<line class="fd-arrow" style="stroke:var(--text);stroke-width:1.4" x1="108.5" y1="108.0" x2="79.0" y2="108.0"/>
+<polygon class="fd-arrow" points="74.0,108.0 81.0,104.5 81.0,111.5"/>
+<text class="fd-label" x="91.2" y="102.0" text-anchor="middle">ΔVth</text>
+<text class="fd-sub" x="144.6" y="34">fixed VGS</text>
+<text class="fd-sub" x="322" y="198" text-anchor="end">VGS →</text>
+<text class="fd-sub" x="50" y="18">log ID ↑</text>
+<text class="fd-accent" x="60" y="212">before</text>
+<text class="fd-sub" x="112" y="212" style="fill:#ffd666;font-weight:700">after surface charge binds</text>
+</svg>
+                </div>
+
+                <p>
+                    Now hold VDS fixed and sweep the gate. Above threshold the current follows the square law. Below it, the current falls exponentially, which is a straight line on a log axis. When charge binds at the gate, the whole curve slides sideways by ΔVth.
+                </p>
+
+                <div class="module-takeaway">
+
+                    <strong>Key idea</strong>
+
+                    A sensing event slides the curve sideways.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 32 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    TRANSCONDUCTANCE
+                </p>
+
+                <h1>
+                    Gain, in one number
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    gm = ∂ID / ∂VGS
+                </div>
+
+                <p>
+                    Transconductance is how much drain current changes per volt of gate change. In saturation g_m = k·(VGS − Vth). With the numbers from before, that's 100 µA/V² × 10 × 0.5 V = 0.5 mS. A larger g_m means a bigger current change for the same shift.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Higher g_m turns a small voltage shift into a larger, easier-to-read current.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 33 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SUBTHRESHOLD
+                </p>
+
+                <h1>
+                    The most sensitive region
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    S ≥ 60 mV/decade
+                </div>
+
+                <p>
+                    Below threshold the current changes exponentially. The subthreshold swing S = n·(kT/q)·ln 10 cannot be better than about 60 mV per decade at room temperature, since n ≥ 1. So every 60 mV of gate shift changes the current tenfold at best, which is why sensors love this region.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Small charge, small ΔVth, but a big change in current.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 34 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    FROM TRANSISTOR TO SENSOR
+                </p>
+
+                <h1>
+                    The whole unit in six lines
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Gate voltage</strong>
+                        <span>controls the current through an insulating oxide</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Threshold voltage</strong>
+                        <span>is the switch-on point, set by doping, oxide, and charge</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Surface charge</strong>
+                        <span>shifts the threshold: ΔVth ≈ −Q / Cox</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Current</strong>
+                        <span>reveals the shift at a fixed gate voltage</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Subthreshold</strong>
+                        <span>gives the biggest change: about 10× per 60 mV</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Next</strong>
+                        <span>what happens when the gate is a liquid instead of a metal</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    <strong>Key idea</strong>
+
+                    Everything ahead builds on this: a MOSFET is a charge detector.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- COMPLETION SLIDE -->
+
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 1 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🔲 → 🧪
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenges?
+                </h1>
+
+                <p class="module-lead">
+                    You can now read a MOSFET: its structure, its threshold,
+                    its I–V curves, and why it's a natural charge detector.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeFetUnit1Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeFetUnit1Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathFetUnit1StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathFetUnit1StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "fet-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+</body>
+</html>

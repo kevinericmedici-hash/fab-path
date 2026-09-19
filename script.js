@@ -8364,6 +8364,15 @@ function loadProgressPage() {
             getSupercapAllLessons().length;
     }
 
+    if (typeof fetCourseData !== "undefined") {
+
+        completedLessons +=
+            getFetCompletedLessonCount();
+
+        totalLessons +=
+            getFetAllLessons().length;
+    }
+
     const percent =
         totalLessons === 0
             ? 0
@@ -9349,6 +9358,24 @@ function loadIndexPage() {
                         : Math.round(
                             (completedLessons / totalLessons) * 100
                         );
+
+            } else if (
+                course.id === "biofets" &&
+                typeof fetCourseData !== "undefined"
+            ) {
+
+                const totalLessons =
+                    getFetAllLessons().length;
+
+                const completedLessons =
+                    getFetCompletedLessonCount();
+
+                percent =
+                    totalLessons === 0
+                        ? 0
+                        : Math.round(
+                            (completedLessons / totalLessons) * 100
+                        );
             }
 
             let badge = "START";
@@ -9356,7 +9383,13 @@ function loadIndexPage() {
 
             if (percent === 100) {
 
-                badge = "COMPLETE";
+                /*
+                    A course flagged "growing" has more units
+                    on the way, so finishing everything built
+                    so far isn't the same as finishing it.
+                */
+
+                badge = course.growing ? "CAUGHT UP" : "COMPLETE";
                 cta = "Review →";
 
             } else if (percent > 0) {

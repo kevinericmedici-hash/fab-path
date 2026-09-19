@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Games | BioFETs &amp; MOSFETs | Fab Path</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="fet-learn.html">Learn</a>
+            <a href="fet-games.html" class="active-nav">Games</a>
+            <a href="fet-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <main class="games-page">
+
+        <div class="games-header">
+
+            <p class="eyebrow">
+                BIOFET &amp; MOSFET GAMES
+            </p>
+
+            <h1>
+                Play &amp; learn
+            </h1>
+
+            <p>
+                Every unit gets its own hands-on game. Jump into any
+                of them, any time. More arrive as more units go live.
+            </p>
+
+        </div>
+
+
+        <div class="games-grid" id="fetGamesGrid">
+
+            <a
+                href="fet-game1.html"
+                class="game-hub-card playable lesson-link"
+                id="fetGame1Card"
+            >
+                <span class="game-hub-badge" id="fetGame1Badge">
+                    PLAY
+                </span>
+
+                <div class="game-hub-icon">
+                    🎚️
+                </div>
+
+                <h3>Find the Region</h3>
+
+                <p>
+                    Unit 1 · Read gate and drain voltages against the
+                    threshold and name the MOSFET's operating region.
+                </p>
+
+                <span class="game-hub-cta" id="fetGame1CTA">
+                    Play now →
+                </span>
+
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+    <script>
+
+        for (let n = 1; n <= 1; n++) {
+
+            let done = false;
+
+            try {
+                done = localStorage.getItem(
+                    `fabPathFetGame${n}Complete`
+                ) === "true";
+            } catch (e) {
+                done = false;
+            }
+
+            if (!done) {
+                continue;
+            }
+
+            const badge = document.getElementById(`fetGame${n}Badge`);
+            const cta = document.getElementById(`fetGame${n}CTA`);
+
+            if (badge) {
+                badge.textContent = "✓ DONE";
+            }
+
+            if (cta) {
+                cta.textContent = "Play again →";
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
