@@ -222,6 +222,70 @@ const supercapCourseData = [
             }
 
         ]
+    },
+
+    /* =====================================
+       UNIT 5
+    ===================================== */
+
+    {
+        id: 5,
+
+        title: "Electrolytes",
+
+        description:
+            "The ions between the electrodes: what an electrolyte does, where its voltage window ends, and how water, organic, ionic-liquid, and gel families compare.",
+
+        studyModule: {
+            title: "Electrolytes",
+            href: "supercapunit5.html"
+        },
+
+        lessons: [
+
+            {
+                id: 19,
+                title: "What the Electrolyte Does",
+                description:
+                    "Ion source, ion highway, and electron blocker, and how conductivity steers power."
+            },
+
+            {
+                id: 20,
+                title: "The Voltage Window",
+                description:
+                    "Why voltage is worth more than capacitance, and what limits it."
+            },
+
+            {
+                id: 21,
+                title: "Aqueous Electrolytes",
+                description:
+                    "Acidic, alkaline, and neutral water-based electrolytes, and the 1.23 V ceiling."
+            },
+
+            {
+                id: 22,
+                title: "Organic Electrolytes & Ionic Liquids",
+                description:
+                    "Wider windows from solvents that don't split and salts that stay liquid."
+            },
+
+            {
+                id: 23,
+                title: "Gel & Solid-State Electrolytes",
+                description:
+                    "Leak-free, bendable electrolytes that double as the separator."
+            },
+
+            {
+                id: 24,
+                title: "Choosing an Electrolyte",
+                description:
+                    "Ion and pore size, temperature, redox-active electrolytes, and a decision guide."
+            }
+
+        ]
     }
 
 ];

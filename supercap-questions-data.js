@@ -1097,6 +1097,388 @@ const supercapLesson18Questions = [
 ];
 
 
+const supercapLesson19Questions = [
+
+    {
+        question: "What are the three jobs of a supercapacitor electrolyte?",
+        answers: [
+            "Supply electrons, carry them between electrodes, and block ions",
+            "Store the charge itself, carry electrons, and block all ions",
+            "Supply ions, carry them between electrodes, and block electrons",
+            "Supply heat, carry it between electrodes, and block all light"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "An ideal electrolyte is what kind of conductor?",
+        answers: [
+            "A good electronic conductor and a poor ionic conductor",
+            "A good ionic conductor and a poor electronic conductor",
+            "A good conductor of both the ions and the electrons",
+            "A poor conductor of both the ions and the electrons"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Maximum power follows P = V² / (4 · ESR). What does this say about the electrolyte's effect on power?",
+        answers: [
+            "It sets the resistance but has no effect on voltage",
+            "It sets the voltage but has no effect on resistance",
+            "It affects neither the voltage nor the resistance",
+            "It sets the voltage and part of the resistance"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "An electrolyte has low ionic conductivity. What is the most direct result?",
+        answers: [
+            "Higher series resistance, and so lower power",
+            "A wider voltage window, and so higher energy",
+            "No need for any separator between electrodes",
+            "Faster charging at every current that is used"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "In an electrolyte, what is a solvation shell?",
+        answers: [
+            "A metal casing that wraps around the electrode",
+            "Solvent molecules clustered around an ion",
+            "A layer of solid salt on the current collector",
+            "A gas bubble that forms on the electrode surface"
+        ],
+        correct: 1
+    }
+
+];
+
+
+const supercapLesson20Questions = [
+
+    {
+        question: "If the voltage doubles at the same capacitance, by what factor does the stored energy rise?",
+        answers: [
+            "Two times",
+            "Eight times",
+            "Four times",
+            "It stays the same"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What sets the edge of an electrolyte's voltage window?",
+        answers: [
+            "The voltage where the electrodes begin to melt away",
+            "The voltage where the electrolyte starts breaking down",
+            "The voltage where the capacitance drops to nothing",
+            "The voltage where the ions stop moving altogether"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "On a CV, what usually signals that the edge of the window has been reached?",
+        answers: [
+            "A sharp rise in current from side reactions",
+            "A flat line sitting at exactly zero current",
+            "A sudden fall in the current down to zero",
+            "A smooth box-shaped trace that never changes"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Why is a cell usually rated below its true breakdown voltage?",
+        answers: [
+            "Higher voltages make the ions travel more slowly",
+            "The capacitance vanishes above the rated voltage",
+            "Margin against slow breakdown that shortens lifetime",
+            "A lower rating makes the cell smaller and lighter"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Which is a likely result of operating a cell beyond its voltage window?",
+        answers: [
+            "Lower resistance and faster ion movement",
+            "Higher capacitance with no side effects",
+            "A wider temperature range for the electrolyte",
+            "Gas, rising resistance, and capacity fade"
+        ],
+        correct: 3
+    }
+
+];
+
+
+const supercapLesson21Questions = [
+
+    {
+        question: "Which is a standard advantage of aqueous electrolytes?",
+        answers: [
+            "High conductivity, low cost, and no flammability",
+            "A voltage window that reaches well above 4 V",
+            "Excellent performance in deep sub-zero cold",
+            "No corrosion risk for any current collector"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "At about what voltage does water thermodynamically split into hydrogen and oxygen?",
+        answers: [
+            "About 0.12 V",
+            "About 1.23 V",
+            "About 3.5 V",
+            "About 12 V"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "How can a neutral salt solution such as Na₂SO₄ run above 1.23 V in a carbon cell?",
+        answers: [
+            "The salt lowers the voltage at which water splits",
+            "The salt swaps the water for a liquid that never splits",
+            "Slow gas evolution on carbon delays the water splitting",
+            "Carbon electrodes speed up the splitting of the water"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What is the idea behind a water-in-salt electrolyte?",
+        answers: [
+            "A thin film of water spread over a solid salt crystal",
+            "Pure water that has had every ion removed from it",
+            "Just a tiny trace of salt dissolved in a lot of water",
+            "So much salt that little free water remains to split"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Which is a common catch of strong acid electrolytes such as H₂SO₄?",
+        answers: [
+            "They corrode many metal current collectors",
+            "They are too resistive to carry any current",
+            "They are solid at normal room temperature",
+            "They are unable to dissolve in water at all"
+        ],
+        correct: 0
+    }
+
+];
+
+
+const supercapLesson22Questions = [
+
+    {
+        question: "Why can organic-electrolyte cells reach about 2.5–2.7 V?",
+        answers: [
+            "Their ions are smaller than the ions in water",
+            "There is no water to split, so the window is wider",
+            "They have far higher conductivity than aqueous cells",
+            "Their electrodes store much more charge per gram"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Which is a typical organic electrolyte?",
+        answers: [
+            "Sulfuric acid dissolved in distilled water",
+            "Potassium hydroxide dissolved in distilled water",
+            "TEABF₄ salt dissolved in acetonitrile solvent",
+            "Sodium sulfate dissolved in distilled water"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Why are organic-electrolyte cells assembled under dry conditions?",
+        answers: [
+            "Water would freeze the solvent at room temperature",
+            "Water would make the electrolyte too conductive",
+            "Water would dissolve the current collector at once",
+            "Trace water causes gas and aging at high voltage"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What is an ionic liquid?",
+        answers: [
+            "A salt that is molten at or near room temperature",
+            "A salt dissolved in a very large amount of water",
+            "A liquid that contains no free ions of any kind",
+            "A solid polymer that swells up in a solvent bath"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Compared with organic electrolytes, what is the main trade-off of ionic liquids?",
+        answers: [
+            "A narrower window, but lower viscosity and cost",
+            "A wider window, but higher viscosity and cost",
+            "Higher conductivity and lower cost, but flammable",
+            "No trade-off, since they win on every measure"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Ordered from lowest to highest typical voltage window, which list is correct?",
+        answers: [
+            "Ionic liquid, organic, aqueous",
+            "Organic, aqueous, ionic liquid",
+            "Aqueous, organic, ionic liquid",
+            "Aqueous, ionic liquid, organic"
+        ],
+        correct: 2
+    }
+
+];
+
+
+const supercapLesson23Questions = [
+
+    {
+        question: "What is a gel polymer electrolyte?",
+        answers: [
+            "A polymer network holding an ion-conducting liquid",
+            "A pure metal foil that carries all of the ions",
+            "A dry ceramic powder that contains no free ions",
+            "A gas that fills the gap between the electrodes"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which is a widely used hydrogel electrolyte in lab micro-supercapacitors?",
+        answers: [
+            "Silicone oil with a small trace of dye mixed in",
+            "PVA mixed with an acid such as H₂SO₄ or H₃PO₄",
+            "Pure PTFE sheet with no mobile ions added to it",
+            "Molten metal held inside a thin plastic tube"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Why do gel electrolytes suit fiber and in-plane devices?",
+        answers: [
+            "They flow freely, so the device fills itself",
+            "They need a thick rigid case to hold them",
+            "They fill the gap, resist leaks, and can bend",
+            "They raise the voltage window above 5 V"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What is a typical drawback of a gel compared with a free liquid?",
+        answers: [
+            "It leaks readily whenever the device is bent",
+            "It is much more flammable than the liquid",
+            "It cannot hold any ions inside the network",
+            "Lower conductivity and poorer entry into pores"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "How can a hydrogel electrolyte degrade over time?",
+        answers: [
+            "It can dry out or freeze, cutting its conductivity",
+            "It slowly turns into a metal that shorts the electrodes",
+            "It gets more conductive until the cell shorts out",
+            "It expands and hardens into a solid ceramic"
+        ],
+        correct: 0
+    }
+
+];
+
+
+const supercapLesson24Questions = [
+
+    {
+        question: "Why does pore size matter when choosing an electrolyte?",
+        answers: [
+            "Pores set the color of the electrolyte solution",
+            "Ions must fit into pores to store charge there",
+            "Larger pores always give lower capacitance",
+            "Pore size decides which salt is soluble in water"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What can boost capacitance per area in very small pores?",
+        answers: [
+            "Ions gaining extra solvent molecules in the pore",
+            "Ions turning into neutral atoms inside the pore",
+            "Ions shedding part of their solvent shell to fit",
+            "Ions leaving the pore and forming a gas"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What does adding a redox couple to an electrolyte do?",
+        answers: [
+            "Adds redox capacitance, and stops self-discharge completely",
+            "Removes redox capacitance, but lowers self-discharge",
+            "Adds nothing, since redox couples are inert here",
+            "Adds redox capacitance, but can raise self-discharge"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Which electrolyte suits a device that must be thin, flexible, and leak-free?",
+        answers: [
+            "A gel or solid polymer electrolyte",
+            "A free-flowing aqueous acid solution",
+            "A volatile organic solvent in an open cell",
+            "A pure ionic liquid poured into a rigid can"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which electrolyte would you consider first for a large module needing about 2.7 V and high energy?",
+        answers: [
+            "A neutral aqueous salt whose window is about 1 V",
+            "An organic electrolyte like TEABF₄ in acetonitrile",
+            "A hydrogel that dries out when left in open air",
+            "A dilute aqueous acid whose window is near 1.2 V"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What is the main cold-weather problem for ionic liquids?",
+        answers: [
+            "They boil away at temperatures near zero",
+            "They become volatile and much more flammable",
+            "Viscosity climbs, so conductivity drops",
+            "They lose all of their ions when chilled"
+        ],
+        correct: 2
+    }
+
+];
+
+
 /*
     Looked up by numeric lesson id, the same
     pattern script.js uses for the MEMS course's
@@ -1121,5 +1503,11 @@ const supercapAllLessonQuestions = {
     15: supercapLesson15Questions,
     16: supercapLesson16Questions,
     17: supercapLesson17Questions,
-    18: supercapLesson18Questions
+    18: supercapLesson18Questions,
+    19: supercapLesson19Questions,
+    20: supercapLesson20Questions,
+    21: supercapLesson21Questions,
+    22: supercapLesson22Questions,
+    23: supercapLesson23Questions,
+    24: supercapLesson24Questions
 };
