@@ -286,6 +286,70 @@ const supercapCourseData = [
             }
 
         ]
+    },
+
+    /* =====================================
+       UNIT 6
+    ===================================== */
+
+    {
+        id: 6,
+
+        title: "Testing & Metrics",
+
+        description:
+            "How supercapacitors are measured: cyclic voltammetry, charge-discharge, impedance, and the formulas and pitfalls behind every reported number.",
+
+        studyModule: {
+            title: "Testing & Metrics",
+            href: "supercapunit6.html"
+        },
+
+        lessons: [
+
+            {
+                id: 25,
+                title: "How Supercapacitors Get Tested",
+                description:
+                    "Potentiostats, three- vs. two-electrode cells, and the factor of four."
+            },
+
+            {
+                id: 26,
+                title: "Cyclic Voltammetry in Depth",
+                description:
+                    "Reading CV shapes, computing capacitance, and scan-rate fingerprints."
+            },
+
+            {
+                id: 27,
+                title: "Charge–Discharge Curves",
+                description:
+                    "Constant-current cycling: capacitance, IR drop, and coulombic efficiency."
+            },
+
+            {
+                id: 28,
+                title: "Impedance Spectroscopy",
+                description:
+                    "Nyquist plots, series resistance, diffusion, and the knee frequency."
+            },
+
+            {
+                id: 29,
+                title: "Energy, Power & Normalization",
+                description:
+                    "Turning data into Wh, W, and Ragone points, per gram, per cm², or per cm³."
+            },
+
+            {
+                id: 30,
+                title: "Stability, Self-Discharge & Honest Reporting",
+                description:
+                    "Cycle life, leakage, and a checklist for spotting shaky claims."
+            }
+
+        ]
     }
 
 ];

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Charge–Discharge Curves | Fab Path</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="lesson-body">
+
+    <main class="lesson-page">
+
+        <div class="lesson-topbar">
+
+            <a href="supercap-learn.html" class="exit-lesson">
+                ✕
+            </a>
+
+            <div class="lesson-progress-track">
+                <div class="lesson-progress-fill" id="supercapLessonProgress"></div>
+            </div>
+
+            <div class="lesson-xp">
+                ⚡ <span id="supercapXpDisplay">0</span> XP
+            </div>
+
+        </div>
+
+
+        <section class="question-card">
+
+            <p class="question-number" id="supercapQuestionNumber">
+                QUESTION 1 OF 5
+            </p>
+
+            <h1 id="supercapQuestionText">
+            </h1>
+
+            <p class="question-instruction">
+                Choose the best answer.
+            </p>
+
+
+            <div class="answer-grid" id="supercapAnswerGrid">
+            </div>
+
+        </section>
+
+
+        <div class="lesson-footer">
+
+            <div class="feedback-message" id="supercapFeedbackMessage">
+                Select an answer to continue.
+            </div>
+
+            <button class="check-button" id="supercapCheckButton" disabled>
+                Check Answer
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <script src="supercap-questions-data.js"></script>
+    <script src="script.js"></script>
+    <script src="supercap-script.js"></script>
+
+    <script>
+
+        initSupercapLessonQuiz(27, supercapLesson27Questions);
+
+    </script>
+
+</body>
+
+</html>

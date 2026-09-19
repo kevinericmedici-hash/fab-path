@@ -1479,6 +1479,388 @@ const supercapLesson24Questions = [
 ];
 
 
+const supercapLesson25Questions = [
+
+    {
+        question: "In a three-electrode cell, what is the job of the reference electrode?",
+        answers: [
+            "It carries the whole cell current between electrodes",
+            "It stores the charge the working electrode releases",
+            "It holds the electrolyte in place inside the cell",
+            "It gives a stable potential to measure against"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Which setup should a claim about a finished device's performance come from?",
+        answers: [
+            "A two-electrode cell built like the real device",
+            "A three-electrode cell using a single electrode",
+            "A cell that is tested with no electrolyte in it",
+            "A computer model using no measured data at all"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "A galvanostat controls which quantity, and measures which?",
+        answers: [
+            "It controls the voltage and measures the current",
+            "It controls the current and measures the voltage",
+            "It controls the current and measures the capacitance",
+            "It controls the frequency and measures the temperature"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "In a symmetric two-electrode cell, why is the cell capacitance half of one electrode's?",
+        answers: [
+            "The two electrodes act as capacitors in parallel",
+            "Half of each electrode is blocked by the separator",
+            "The two electrodes act as capacitors in series",
+            "The electrolyte absorbs half of the stored charge"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "A carbon measures 200 F/g in a three-electrode test. About what would a symmetric cell give per total electrode mass?",
+        answers: [
+            "About 400 F/g",
+            "About 200 F/g",
+            "About 100 F/g",
+            "About 50 F/g"
+        ],
+        correct: 3
+    }
+
+];
+
+
+const supercapLesson26Questions = [
+
+    {
+        question: "What does the CV of an ideal double-layer capacitor look like?",
+        answers: [
+            "A single sharp peak",
+            "A straight diagonal line",
+            "A near-perfect rectangle",
+            "A circle centered on zero"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Broad humps or peaks on an otherwise boxy CV usually indicate what?",
+        answers: [
+            "A perfectly ideal double layer",
+            "A short circuit through the separator",
+            "A dry electrolyte inside the cell",
+            "Pseudocapacitive redox reactions"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "A CV that tilts into a leaf-like shape most often points to what?",
+        answers: [
+            "High series resistance in the cell",
+            "A perfectly ideal double-layer response",
+            "An unusually wide voltage window",
+            "A very small electrode area"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "How does capacitance from a CV typically change as the scan rate rises?",
+        answers: [
+            "It rises, since ions reach deeper pores",
+            "It falls, since ions can't reach deep pores",
+            "It stays exactly the same at every rate",
+            "It flips sign at very fast scan rates"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "On a log–log plot of peak current versus scan rate, a slope near 1 means what?",
+        answers: [
+            "Diffusion-limited storage in the bulk",
+            "Electrolyte decomposition at the electrodes",
+            "Capacitive, surface-controlled storage",
+            "A broken reference electrode"
+        ],
+        correct: 2
+    }
+
+];
+
+
+const supercapLesson27Questions = [
+
+    {
+        question: "In galvanostatic charge–discharge (GCD), what is held constant?",
+        answers: [
+            "The voltage",
+            "The current",
+            "The frequency",
+            "The temperature"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "How is capacitance found from a GCD discharge curve?",
+        answers: [
+            "C = ΔV / (I · Δt)",
+            "C = I · ΔV / Δt",
+            "C = I · Δt / ΔV",
+            "C = Δt / (I · ΔV)"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What does a sudden voltage drop at the start of discharge show?",
+        answers: [
+            "A very large capacitance",
+            "A high coulombic efficiency",
+            "A wide voltage window",
+            "Series resistance (IR drop)"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "For an ideal double-layer capacitor, what shape does a GCD curve have?",
+        answers: [
+            "A symmetric up-and-down triangle",
+            "A flat plateau at fixed voltage",
+            "A sharp spike followed by decay",
+            "A square wave with sharp edges"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "At constant current, what does discharge time divided by charge time give?",
+        answers: [
+            "The cell capacitance",
+            "The coulombic efficiency",
+            "The equivalent series resistance",
+            "The energy density value"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "A GCD curve with a flat plateau usually points to what?",
+        answers: [
+            "Perfect capacitive behavior",
+            "A cell with zero resistance",
+            "Battery-like redox reactions",
+            "A missing electrolyte"
+        ],
+        correct: 2
+    }
+
+];
+
+
+const supercapLesson28Questions = [
+
+    {
+        question: "What does electrochemical impedance spectroscopy apply to the device?",
+        answers: [
+            "A small AC signal over many frequencies",
+            "A large constant current until failure",
+            "A slow triangular voltage sweep cycle",
+            "A fixed DC voltage held for many hours"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "On a Nyquist plot, what does the high-frequency intercept on the real axis represent?",
+        answers: [
+            "The total charge that is stored",
+            "The equivalent series resistance",
+            "The width of the voltage window",
+            "The cycling coulombic efficiency"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What does a near-vertical line at low frequency show?",
+        answers: [
+            "High charge-transfer resistance",
+            "Electrolyte breakdown at the limit",
+            "Capacitor-like charge storage",
+            "Diffusion through the bulk phase"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "A 45° line on a Nyquist plot usually reflects what?",
+        answers: [
+            "A short circuit in the cell",
+            "Ideal capacitance with no loss",
+            "Pure series resistance alone",
+            "Ion diffusion (Warburg behavior)"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Roughly, what does a smaller R × C time constant mean for a device?",
+        answers: [
+            "It responds faster to changes",
+            "It stores more energy",
+            "It has a wider voltage window",
+            "It self-discharges more slowly"
+        ],
+        correct: 0
+    }
+
+];
+
+
+const supercapLesson29Questions = [
+
+    {
+        question: "How do you convert energy in joules to watt-hours?",
+        answers: [
+            "Multiply by 3600",
+            "Divide by 60",
+            "Multiply by 1000",
+            "Divide by 3600"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "For an on-chip micro-supercapacitor, which normalization is usually most meaningful?",
+        answers: [
+            "Per unit of footprint area or volume",
+            "Per gram of active material alone",
+            "Per electron transferred in the cell",
+            "Per hour of continuous testing time"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Why can per-gram numbers mislead for thin-film devices?",
+        answers: [
+            "Thin films have no measurable mass at all",
+            "A tiny active mass makes them look huge",
+            "Grams cannot be used for capacitance",
+            "Thin films store no usable energy"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Which two quantities set the maximum power of a cell?",
+        answers: [
+            "Capacitance and film thickness",
+            "Mass and volume of electrolyte",
+            "Voltage and series resistance",
+            "Scan rate and test temperature"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "How is a Ragone plot built from GCD tests?",
+        answers: [
+            "Run one GCD test and plot voltage against time",
+            "Run EIS once and plot Z′ against −Z″ data",
+            "Run a CV and plot the current against voltage",
+            "Run GCD at several currents; plot energy vs. power"
+        ],
+        correct: 3
+    }
+
+];
+
+
+const supercapLesson30Questions = [
+
+    {
+        question: "What does capacitance retention describe?",
+        answers: [
+            "The fraction of charge lost in an hour at rest",
+            "The ratio of discharge time to the charge time",
+            "Fraction of initial capacitance left after cycling",
+            "The ratio of energy delivered to energy stored"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "How is self-discharge measured?",
+        answers: [
+            "Cycle the device 10,000 times at full current",
+            "Sweep the voltage at a very fast scan rate",
+            "Measure impedance at a single high frequency",
+            "Charge, disconnect, and watch the voltage decay"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Which is a cause of self-discharge?",
+        answers: [
+            "Leakage currents and side redox reactions",
+            "A wide voltage window, and nothing else",
+            "Too low a scan rate during CV testing",
+            "Too many impedance tests on the cell"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "A paper quotes a three-electrode capacitance as if it were the device value. What is wrong?",
+        answers: [
+            "Three-electrode tests can never measure capacitance",
+            "A symmetric full cell may deliver about a quarter of it",
+            "Device values must come from impedance data only",
+            "The value is always too low, and never too high"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Why are battery-like plateaus better quoted as capacity than as capacitance?",
+        answers: [
+            "They contain no stored charge of any kind",
+            "Capacity is always the larger of the two numbers",
+            "Voltage isn't proportional to the stored charge",
+            "Capacitance only applies to metal electrodes"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Which result best supports a claim of long cycle life?",
+        answers: [
+            "Ten cycles at the slowest possible current rate",
+            "One CV loop that happens to look quite smooth",
+            "A single, unusually high capacitance reading",
+            "Thousands of cycles, with retention and efficiency"
+        ],
+        correct: 3
+    }
+
+];
+
+
 /*
     Looked up by numeric lesson id, the same
     pattern script.js uses for the MEMS course's
@@ -1509,5 +1891,11 @@ const supercapAllLessonQuestions = {
     21: supercapLesson21Questions,
     22: supercapLesson22Questions,
     23: supercapLesson23Questions,
-    24: supercapLesson24Questions
+    24: supercapLesson24Questions,
+    25: supercapLesson25Questions,
+    26: supercapLesson26Questions,
+    27: supercapLesson27Questions,
+    28: supercapLesson28Questions,
+    29: supercapLesson29Questions,
+    30: supercapLesson30Questions
 };
