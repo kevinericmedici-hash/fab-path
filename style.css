@@ -3109,3 +3109,18 @@ button.module-exit {
         font-size: 12px;
     }
 }
+
+/* ========================================
+   SUBSCRIPTS AND SUPERSCRIPTS
+   Keep them from stretching line spacing.
+======================================== */
+
+sub,
+sup {
+    line-height: 0;
+    font-size: 0.72em;
+}
+
+.module-visual .math-visual {
+    text-align: center;
+}

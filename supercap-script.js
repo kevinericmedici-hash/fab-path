@@ -371,8 +371,8 @@ function initSupercapLessonQuiz(lessonId, questions) {
         const question =
             questions[currentQuestion];
 
-        questionText.textContent =
-            question.question;
+        questionText.innerHTML =
+            fabFormatMath(question.question);
 
         questionNumber.textContent =
             `QUESTION ${currentQuestion + 1} OF ${questions.length}`;
@@ -396,8 +396,8 @@ function initSupercapLessonQuiz(lessonId, questions) {
 
             button.className = "answer-button";
 
-            button.textContent =
-                question.answers[originalIndex];
+            button.innerHTML =
+                fabFormatMath(question.answers[originalIndex]);
 
             button.addEventListener("click", function () {
 

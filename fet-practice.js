@@ -211,8 +211,8 @@ function loadFetPracticeQuestion() {
     document.getElementById("fetPracticeQuestionNumber").textContent =
         `QUESTION ${fetPracticeIndex + 1} OF ${fetPracticeQuestions.length}`;
 
-    document.getElementById("fetPracticeQuestionText").textContent =
-        question.question;
+    document.getElementById("fetPracticeQuestionText").innerHTML =
+        fabFormatMath(question.question);
 
     const answerGrid =
         document.getElementById("fetPracticeAnswerGrid");
@@ -236,8 +236,8 @@ function loadFetPracticeQuestion() {
 
         button.className = "answer-button";
 
-        button.textContent =
-            question.answers[originalIndex];
+        button.innerHTML =
+            fabFormatMath(question.answers[originalIndex]);
 
         button.addEventListener("click", function () {
 

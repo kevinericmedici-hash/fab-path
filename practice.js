@@ -210,8 +210,8 @@ function loadPracticeQuestion() {
     document.getElementById("practiceQuestionNumber").textContent =
         `QUESTION ${practiceIndex + 1} OF ${practiceQuestions.length}`;
 
-    document.getElementById("practiceQuestionText").textContent =
-        question.question;
+    document.getElementById("practiceQuestionText").innerHTML =
+        fabFormatMath(question.question);
 
     const answerGrid =
         document.getElementById("practiceAnswerGrid");
@@ -235,8 +235,8 @@ function loadPracticeQuestion() {
 
         button.className = "answer-button";
 
-        button.textContent =
-            question.answers[originalIndex];
+        button.innerHTML =
+            fabFormatMath(question.answers[originalIndex]);
 
         button.addEventListener("click", function () {
 

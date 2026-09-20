@@ -211,8 +211,8 @@ function loadSupercapPracticeQuestion() {
     document.getElementById("supercapPracticeQuestionNumber").textContent =
         `QUESTION ${supercapPracticeIndex + 1} OF ${supercapPracticeQuestions.length}`;
 
-    document.getElementById("supercapPracticeQuestionText").textContent =
-        question.question;
+    document.getElementById("supercapPracticeQuestionText").innerHTML =
+        fabFormatMath(question.question);
 
     const answerGrid =
         document.getElementById("supercapPracticeAnswerGrid");
@@ -236,8 +236,8 @@ function loadSupercapPracticeQuestion() {
 
         button.className = "answer-button";
 
-        button.textContent =
-            question.answers[originalIndex];
+        button.innerHTML =
+            fabFormatMath(question.answers[originalIndex]);
 
         button.addEventListener("click", function () {
 

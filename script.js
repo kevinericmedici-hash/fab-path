@@ -1,3 +1,43 @@
+/* ========================================
+   MATH FORMATTING
+   Turns plain-text notation into real
+   subscripts and superscripts:
+
+     x_static  ->  x<sub>static</sub>
+     C_{ox}    ->  C<sub>ox</sub>
+     n^(3/2)   ->  n<sup>3/2</sup>
+
+   The text is HTML-escaped first, so the
+   result is safe to assign to innerHTML.
+   Only a one- or two-letter symbol right
+   before the underscore counts, so names
+   like POLY1_POLY2_VIA are left alone.
+======================================== */
+
+function fabFormatMath(text) {
+
+    const escaped =
+        String(text)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
+
+    return escaped
+        .replace(
+            /(^|[^A-Za-z0-9])([A-Za-z\u0391-\u03C9]{1,2})_(?:\{([^}]+)\}|([A-Za-z0-9]+))/g,
+            function (match, before, base, braced, plain) {
+                return `${before}${base}<sub>${braced || plain}</sub>`;
+            }
+        )
+        .replace(
+            /\^(?:\(([^)]+)\)|\{([^}]+)\}|([-\u2212+]?[A-Za-z0-9.]+))/g,
+            function (match, paren, braced, plain) {
+                return `<sup>${paren || braced || plain}</sup>`;
+            }
+        );
+}
+
+
 const lesson1Questions = [
     {
         question: "What does MEMS stand for?",
@@ -6983,8 +7023,8 @@ function loadQuestion() {
     const question =
         lessonQuestions[currentQuestion];
 
-    questionText.textContent =
-        question.question;
+    questionText.innerHTML =
+        fabFormatMath(question.question);
 
     questionNumber.textContent =
         `QUESTION ${currentQuestion + 1} OF ${lessonQuestions.length}`;
@@ -7007,8 +7047,8 @@ function loadQuestion() {
         button.className =
             "answer-button";
 
-        button.textContent =
-            question.answers[originalIndex];
+        button.innerHTML =
+            fabFormatMath(question.answers[originalIndex]);
 
         button.addEventListener("click", function () {
 
