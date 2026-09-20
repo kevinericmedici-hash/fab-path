@@ -5,17 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Fab Path</title>
+    <title>Fab Path: Learn how chips get made</title>
+    <meta name="description" content="Free interactive lessons and games on lithography, etching, MOSFETs, and microfabrication. Built for students heading into semiconductors and chip manufacturing.">
+    <meta name="theme-color" content="#0b1020">
 
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Fab Path: Learn how chips get made">
+    <meta property="og:description" content="Free interactive lessons and games on lithography, etching, MOSFETs, and microfabrication. Built for students heading into semiconductors and chip manufacturing.">
+    <meta property="og:image" content="og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="og-image.png">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
     <header class="topbar">
-        <div class="logo">
+        <a href="index.html" class="logo">
             FAB PATH
-        </div>
+        </a>
+
+        <nav class="hm-nav">
+            <a href="index.html#courses">Courses</a>
+            <a href="careers.html">Career paths</a>
+            <a href="about.html">About</a>
+        </nav>
 
         <div class="user-stats">
             <span>🔥 <span id="streakDisplay">0</span></span>
@@ -26,30 +44,241 @@
 
     <main class="index-page">
 
-        <section class="hero hero-solo">
+        <section class="hm-hero">
 
-            <p class="eyebrow">
-                HARD SCIENCE, ONE STEP AT A TIME
-            </p>
+            <div class="hm-hero-copy">
 
-            <h1>
-                Learn how real devices
-                <span>actually get built.</span>
-            </h1>
+                <p class="hm-kicker">
+                    <span class="hm-dot"></span>
+                    Free · Interactive · No signup
+                </p>
 
-            <p class="hero-description">
-                Fab Path started with MEMS and microfabrication —
-                cleanrooms, photolithography, etching, real devices.
-                It's growing into a full catalog of hard-science
-                courses, each one built the same way: short
-                interactive lessons, hands-on games, and practice that
-                targets exactly what you keep getting wrong.
-            </p>
+                <h1>
+                    Learn how chips
+                    <span>get made.</span>
+                </h1>
+
+                <p class="hm-lead">
+                    From cleanroom to transistor: interactive lessons and
+                    games on lithography, etching, MOSFETs, and
+                    microfabrication. Built for students heading into
+                    semiconductors.
+                </p>
+
+                <div class="hm-cta-row">
+                    <a href="#courses" class="start-button">Start learning</a>
+                    <a href="careers.html" class="hm-ghost">Explore career paths</a>
+                </div>
+
+                <ul class="hm-chips">
+                    <li><strong id="hmLessonCount">100+</strong> lessons</li>
+                    <li>Games &amp; practice in every unit</li>
+                    <li>Works on your phone</li>
+                </ul>
+
+            </div>
+
+            <div class="hm-hero-art">
+<svg class="hm-wafer" viewBox="0 0 400 400" role="img" aria-label="A silicon wafer covered in a grid of chip dies, with an exposure scan sweeping across it">
+<defs><radialGradient id="wg" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#1c2745"/><stop offset="1" stop-color="#101833"/></radialGradient></defs>
+<circle cx="200" cy="200" r="188" fill="url(#wg)" stroke="rgba(84,224,199,.55)" stroke-width="2"/>
+<circle cx="200" cy="200" r="181" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+<path d="M187 387 Q200 373 213 387 Z" fill="#0b1020" stroke="rgba(84,224,199,.55)" stroke-width="1.5"/>
+<rect class="die" x="189.0" y="26.0" width="22" height="18" rx="2.5" style="--d:0.19s"/>
+<rect class="die" x="137.0" y="48.0" width="22" height="18" rx="2.5" style="--d:0.37s"/>
+<rect class="die" x="163.0" y="48.0" width="22" height="18" rx="2.5" style="--d:0.37s"/>
+<rect class="die bad" x="189.0" y="48.0" width="22" height="18" rx="2.5" style="--d:0.37s"/>
+<rect class="die" x="215.0" y="48.0" width="22" height="18" rx="2.5" style="--d:0.37s"/>
+<rect class="die" x="241.0" y="48.0" width="22" height="18" rx="2.5" style="--d:0.37s"/>
+<rect class="die bad" x="85.0" y="70.0" width="22" height="18" rx="2.5" style="--d:0.55s"/>
+<rect class="die" x="111.0" y="70.0" width="22" height="18" rx="2.5" style="--d:0.55s"/>
+<rect class="die bad" x="137.0" y="70.0" width="22" height="18" rx="2.5" style="--d:0.55s"/>
+<rect class="die" x="163.0" y="70.0" width="22" height="18" rx="2.5" style="--d:0.55s"/>
+<rect class="die bad" x="189.0" y="70.0" width="22" height="18" rx="2.5" style="--d:0.55s"/>
+<rect class="die" x="215.0" y="70.0" width="22" height="18" rx="2.5" style="--d:0.55s"/>
+<rect class="die" x="241.0" y="70.0" width="22" height="18" rx="2.5" style="--d:0.55s"/>
+<rect class="die" x="267.0" y="70.0" width="22" height="18" rx="2.5" style="--d:0.55s"/>
+<rect class="die" x="293.0" y="70.0" width="22" height="18" rx="2.5" style="--d:0.55s"/>
+<rect class="die" x="85.0" y="92.0" width="22" height="18" rx="2.5" style="--d:0.73s"/>
+<rect class="die" x="111.0" y="92.0" width="22" height="18" rx="2.5" style="--d:0.73s"/>
+<rect class="die" x="137.0" y="92.0" width="22" height="18" rx="2.5" style="--d:0.73s"/>
+<rect class="die" x="163.0" y="92.0" width="22" height="18" rx="2.5" style="--d:0.73s"/>
+<rect class="die" x="189.0" y="92.0" width="22" height="18" rx="2.5" style="--d:0.73s"/>
+<rect class="die" x="215.0" y="92.0" width="22" height="18" rx="2.5" style="--d:0.73s"/>
+<rect class="die bad" x="241.0" y="92.0" width="22" height="18" rx="2.5" style="--d:0.73s"/>
+<rect class="die" x="267.0" y="92.0" width="22" height="18" rx="2.5" style="--d:0.73s"/>
+<rect class="die" x="293.0" y="92.0" width="22" height="18" rx="2.5" style="--d:0.73s"/>
+<rect class="die" x="59.0" y="114.0" width="22" height="18" rx="2.5" style="--d:0.92s"/>
+<rect class="die" x="85.0" y="114.0" width="22" height="18" rx="2.5" style="--d:0.92s"/>
+<rect class="die" x="111.0" y="114.0" width="22" height="18" rx="2.5" style="--d:0.92s"/>
+<rect class="die" x="137.0" y="114.0" width="22" height="18" rx="2.5" style="--d:0.92s"/>
+<rect class="die" x="163.0" y="114.0" width="22" height="18" rx="2.5" style="--d:0.92s"/>
+<rect class="die" x="189.0" y="114.0" width="22" height="18" rx="2.5" style="--d:0.92s"/>
+<rect class="die" x="215.0" y="114.0" width="22" height="18" rx="2.5" style="--d:0.92s"/>
+<rect class="die" x="241.0" y="114.0" width="22" height="18" rx="2.5" style="--d:0.92s"/>
+<rect class="die" x="267.0" y="114.0" width="22" height="18" rx="2.5" style="--d:0.92s"/>
+<rect class="die bad" x="293.0" y="114.0" width="22" height="18" rx="2.5" style="--d:0.92s"/>
+<rect class="die bad" x="319.0" y="114.0" width="22" height="18" rx="2.5" style="--d:0.92s"/>
+<rect class="die" x="59.0" y="136.0" width="22" height="18" rx="2.5" style="--d:1.10s"/>
+<rect class="die" x="85.0" y="136.0" width="22" height="18" rx="2.5" style="--d:1.10s"/>
+<rect class="die" x="111.0" y="136.0" width="22" height="18" rx="2.5" style="--d:1.10s"/>
+<rect class="die" x="137.0" y="136.0" width="22" height="18" rx="2.5" style="--d:1.10s"/>
+<rect class="die" x="163.0" y="136.0" width="22" height="18" rx="2.5" style="--d:1.10s"/>
+<rect class="die" x="189.0" y="136.0" width="22" height="18" rx="2.5" style="--d:1.10s"/>
+<rect class="die" x="215.0" y="136.0" width="22" height="18" rx="2.5" style="--d:1.10s"/>
+<rect class="die" x="241.0" y="136.0" width="22" height="18" rx="2.5" style="--d:1.10s"/>
+<rect class="die" x="267.0" y="136.0" width="22" height="18" rx="2.5" style="--d:1.10s"/>
+<rect class="die" x="293.0" y="136.0" width="22" height="18" rx="2.5" style="--d:1.10s"/>
+<rect class="die" x="319.0" y="136.0" width="22" height="18" rx="2.5" style="--d:1.10s"/>
+<rect class="die" x="33.0" y="158.0" width="22" height="18" rx="2.5" style="--d:1.28s"/>
+<rect class="die" x="59.0" y="158.0" width="22" height="18" rx="2.5" style="--d:1.28s"/>
+<rect class="die" x="85.0" y="158.0" width="22" height="18" rx="2.5" style="--d:1.28s"/>
+<rect class="die" x="111.0" y="158.0" width="22" height="18" rx="2.5" style="--d:1.28s"/>
+<rect class="die" x="137.0" y="158.0" width="22" height="18" rx="2.5" style="--d:1.28s"/>
+<rect class="die" x="163.0" y="158.0" width="22" height="18" rx="2.5" style="--d:1.28s"/>
+<rect class="die" x="189.0" y="158.0" width="22" height="18" rx="2.5" style="--d:1.28s"/>
+<rect class="die" x="215.0" y="158.0" width="22" height="18" rx="2.5" style="--d:1.28s"/>
+<rect class="die" x="241.0" y="158.0" width="22" height="18" rx="2.5" style="--d:1.28s"/>
+<rect class="die" x="267.0" y="158.0" width="22" height="18" rx="2.5" style="--d:1.28s"/>
+<rect class="die bad" x="293.0" y="158.0" width="22" height="18" rx="2.5" style="--d:1.28s"/>
+<rect class="die" x="319.0" y="158.0" width="22" height="18" rx="2.5" style="--d:1.28s"/>
+<rect class="die" x="345.0" y="158.0" width="22" height="18" rx="2.5" style="--d:1.28s"/>
+<rect class="die" x="33.0" y="180.0" width="22" height="18" rx="2.5" style="--d:1.46s"/>
+<rect class="die" x="59.0" y="180.0" width="22" height="18" rx="2.5" style="--d:1.46s"/>
+<rect class="die" x="85.0" y="180.0" width="22" height="18" rx="2.5" style="--d:1.46s"/>
+<rect class="die" x="111.0" y="180.0" width="22" height="18" rx="2.5" style="--d:1.46s"/>
+<rect class="die" x="137.0" y="180.0" width="22" height="18" rx="2.5" style="--d:1.46s"/>
+<rect class="die" x="163.0" y="180.0" width="22" height="18" rx="2.5" style="--d:1.46s"/>
+<rect class="die" x="189.0" y="180.0" width="22" height="18" rx="2.5" style="--d:1.46s"/>
+<rect class="die" x="215.0" y="180.0" width="22" height="18" rx="2.5" style="--d:1.46s"/>
+<rect class="die" x="241.0" y="180.0" width="22" height="18" rx="2.5" style="--d:1.46s"/>
+<rect class="die" x="267.0" y="180.0" width="22" height="18" rx="2.5" style="--d:1.46s"/>
+<rect class="die" x="293.0" y="180.0" width="22" height="18" rx="2.5" style="--d:1.46s"/>
+<rect class="die bad" x="319.0" y="180.0" width="22" height="18" rx="2.5" style="--d:1.46s"/>
+<rect class="die" x="345.0" y="180.0" width="22" height="18" rx="2.5" style="--d:1.46s"/>
+<rect class="die" x="33.0" y="202.0" width="22" height="18" rx="2.5" style="--d:1.64s"/>
+<rect class="die" x="59.0" y="202.0" width="22" height="18" rx="2.5" style="--d:1.64s"/>
+<rect class="die" x="85.0" y="202.0" width="22" height="18" rx="2.5" style="--d:1.64s"/>
+<rect class="die" x="111.0" y="202.0" width="22" height="18" rx="2.5" style="--d:1.64s"/>
+<rect class="die" x="137.0" y="202.0" width="22" height="18" rx="2.5" style="--d:1.64s"/>
+<rect class="die" x="163.0" y="202.0" width="22" height="18" rx="2.5" style="--d:1.64s"/>
+<rect class="die bad" x="189.0" y="202.0" width="22" height="18" rx="2.5" style="--d:1.64s"/>
+<rect class="die" x="215.0" y="202.0" width="22" height="18" rx="2.5" style="--d:1.64s"/>
+<rect class="die" x="241.0" y="202.0" width="22" height="18" rx="2.5" style="--d:1.64s"/>
+<rect class="die" x="267.0" y="202.0" width="22" height="18" rx="2.5" style="--d:1.64s"/>
+<rect class="die bad" x="293.0" y="202.0" width="22" height="18" rx="2.5" style="--d:1.64s"/>
+<rect class="die" x="319.0" y="202.0" width="22" height="18" rx="2.5" style="--d:1.64s"/>
+<rect class="die" x="345.0" y="202.0" width="22" height="18" rx="2.5" style="--d:1.64s"/>
+<rect class="die" x="33.0" y="224.0" width="22" height="18" rx="2.5" style="--d:1.82s"/>
+<rect class="die" x="59.0" y="224.0" width="22" height="18" rx="2.5" style="--d:1.82s"/>
+<rect class="die" x="85.0" y="224.0" width="22" height="18" rx="2.5" style="--d:1.82s"/>
+<rect class="die" x="111.0" y="224.0" width="22" height="18" rx="2.5" style="--d:1.82s"/>
+<rect class="die" x="137.0" y="224.0" width="22" height="18" rx="2.5" style="--d:1.82s"/>
+<rect class="die" x="163.0" y="224.0" width="22" height="18" rx="2.5" style="--d:1.82s"/>
+<rect class="die" x="189.0" y="224.0" width="22" height="18" rx="2.5" style="--d:1.82s"/>
+<rect class="die" x="215.0" y="224.0" width="22" height="18" rx="2.5" style="--d:1.82s"/>
+<rect class="die" x="241.0" y="224.0" width="22" height="18" rx="2.5" style="--d:1.82s"/>
+<rect class="die" x="267.0" y="224.0" width="22" height="18" rx="2.5" style="--d:1.82s"/>
+<rect class="die" x="293.0" y="224.0" width="22" height="18" rx="2.5" style="--d:1.82s"/>
+<rect class="die" x="319.0" y="224.0" width="22" height="18" rx="2.5" style="--d:1.82s"/>
+<rect class="die" x="345.0" y="224.0" width="22" height="18" rx="2.5" style="--d:1.82s"/>
+<rect class="die" x="59.0" y="246.0" width="22" height="18" rx="2.5" style="--d:2.00s"/>
+<rect class="die" x="85.0" y="246.0" width="22" height="18" rx="2.5" style="--d:2.00s"/>
+<rect class="die" x="111.0" y="246.0" width="22" height="18" rx="2.5" style="--d:2.00s"/>
+<rect class="die" x="137.0" y="246.0" width="22" height="18" rx="2.5" style="--d:2.00s"/>
+<rect class="die" x="163.0" y="246.0" width="22" height="18" rx="2.5" style="--d:2.00s"/>
+<rect class="die" x="189.0" y="246.0" width="22" height="18" rx="2.5" style="--d:2.00s"/>
+<rect class="die" x="215.0" y="246.0" width="22" height="18" rx="2.5" style="--d:2.00s"/>
+<rect class="die" x="241.0" y="246.0" width="22" height="18" rx="2.5" style="--d:2.00s"/>
+<rect class="die bad" x="267.0" y="246.0" width="22" height="18" rx="2.5" style="--d:2.00s"/>
+<rect class="die" x="293.0" y="246.0" width="22" height="18" rx="2.5" style="--d:2.00s"/>
+<rect class="die" x="319.0" y="246.0" width="22" height="18" rx="2.5" style="--d:2.00s"/>
+<rect class="die" x="59.0" y="268.0" width="22" height="18" rx="2.5" style="--d:2.18s"/>
+<rect class="die" x="85.0" y="268.0" width="22" height="18" rx="2.5" style="--d:2.18s"/>
+<rect class="die" x="111.0" y="268.0" width="22" height="18" rx="2.5" style="--d:2.18s"/>
+<rect class="die" x="137.0" y="268.0" width="22" height="18" rx="2.5" style="--d:2.18s"/>
+<rect class="die" x="163.0" y="268.0" width="22" height="18" rx="2.5" style="--d:2.18s"/>
+<rect class="die" x="189.0" y="268.0" width="22" height="18" rx="2.5" style="--d:2.18s"/>
+<rect class="die bad" x="215.0" y="268.0" width="22" height="18" rx="2.5" style="--d:2.18s"/>
+<rect class="die" x="241.0" y="268.0" width="22" height="18" rx="2.5" style="--d:2.18s"/>
+<rect class="die" x="267.0" y="268.0" width="22" height="18" rx="2.5" style="--d:2.18s"/>
+<rect class="die" x="293.0" y="268.0" width="22" height="18" rx="2.5" style="--d:2.18s"/>
+<rect class="die" x="319.0" y="268.0" width="22" height="18" rx="2.5" style="--d:2.18s"/>
+<rect class="die" x="85.0" y="290.0" width="22" height="18" rx="2.5" style="--d:2.37s"/>
+<rect class="die" x="111.0" y="290.0" width="22" height="18" rx="2.5" style="--d:2.37s"/>
+<rect class="die" x="137.0" y="290.0" width="22" height="18" rx="2.5" style="--d:2.37s"/>
+<rect class="die" x="163.0" y="290.0" width="22" height="18" rx="2.5" style="--d:2.37s"/>
+<rect class="die bad" x="189.0" y="290.0" width="22" height="18" rx="2.5" style="--d:2.37s"/>
+<rect class="die bad" x="215.0" y="290.0" width="22" height="18" rx="2.5" style="--d:2.37s"/>
+<rect class="die" x="241.0" y="290.0" width="22" height="18" rx="2.5" style="--d:2.37s"/>
+<rect class="die" x="267.0" y="290.0" width="22" height="18" rx="2.5" style="--d:2.37s"/>
+<rect class="die" x="293.0" y="290.0" width="22" height="18" rx="2.5" style="--d:2.37s"/>
+<rect class="die bad" x="85.0" y="312.0" width="22" height="18" rx="2.5" style="--d:2.55s"/>
+<rect class="die bad" x="111.0" y="312.0" width="22" height="18" rx="2.5" style="--d:2.55s"/>
+<rect class="die" x="137.0" y="312.0" width="22" height="18" rx="2.5" style="--d:2.55s"/>
+<rect class="die" x="163.0" y="312.0" width="22" height="18" rx="2.5" style="--d:2.55s"/>
+<rect class="die" x="189.0" y="312.0" width="22" height="18" rx="2.5" style="--d:2.55s"/>
+<rect class="die bad" x="215.0" y="312.0" width="22" height="18" rx="2.5" style="--d:2.55s"/>
+<rect class="die" x="241.0" y="312.0" width="22" height="18" rx="2.5" style="--d:2.55s"/>
+<rect class="die" x="267.0" y="312.0" width="22" height="18" rx="2.5" style="--d:2.55s"/>
+<rect class="die" x="293.0" y="312.0" width="22" height="18" rx="2.5" style="--d:2.55s"/>
+<rect class="die" x="137.0" y="334.0" width="22" height="18" rx="2.5" style="--d:2.73s"/>
+<rect class="die" x="163.0" y="334.0" width="22" height="18" rx="2.5" style="--d:2.73s"/>
+<rect class="die" x="189.0" y="334.0" width="22" height="18" rx="2.5" style="--d:2.73s"/>
+<rect class="die" x="215.0" y="334.0" width="22" height="18" rx="2.5" style="--d:2.73s"/>
+<rect class="die" x="241.0" y="334.0" width="22" height="18" rx="2.5" style="--d:2.73s"/>
+<rect class="die" x="189.0" y="356.0" width="22" height="18" rx="2.5" style="--d:2.91s"/>
+<g class="scan"><rect x="18" y="12" width="364" height="3" rx="1.5"/></g>
+</svg>
+                <p class="hm-art-caption">
+                    Every chip starts as a grid of identical dies.<br>
+                    <span>Amber</span> dies fail inspection. Cleanrooms exist to keep them rare.
+                </p>
+            </div>
 
         </section>
 
 
-        <section class="games-page progress-summary-section">
+        <section class="hm-section">
+
+            <div class="hm-section-head">
+                <p class="eyebrow">HOW IT WORKS</p>
+                <h2>Learn it, play it, practice it.</h2>
+                <p>
+                    Every unit follows the same loop, so you spend your time
+                    on the parts you don't know yet.
+                </p>
+            </div>
+
+            <div class="hm-steps">
+
+                <div class="hm-card">
+                    <div class="hm-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v16H6.5A2.5 2.5 0 0 0 4 21.5v-16z"/><path d="M4 19a2.5 2.5 0 0 1 2.5-2H19"/></svg></div>
+                    <p class="hm-step-num">01 · LEARN</p>
+                    <h3>Short illustrated lessons</h3>
+                    <p>Cross-sections, curves, and worked equations, then a quiz to lock it in.</p>
+                </div>
+
+                <div class="hm-card">
+                    <div class="hm-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="11" rx="5.5"/><path d="M7 10v5M4.5 12.5h5M15.5 11h.01M18 14h.01"/></svg></div>
+                    <p class="hm-step-num">02 · PLAY</p>
+                    <h3>Hands-on games</h3>
+                    <p>Order a process flow, read a bias point, size a component, name a curve.</p>
+                </div>
+
+                <div class="hm-card">
+                    <div class="hm-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div>
+                    <p class="hm-step-num">03 · PRACTICE</p>
+                    <h3>Targets what you miss</h3>
+                    <p>Practice sessions pull together the questions you get wrong most.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="games-page progress-summary-section" id="progressSection">
 
             <div class="progress-header">
 
@@ -95,7 +324,7 @@
         </section>
 
 
-        <section class="games-page courses-section">
+        <section class="games-page courses-section" id="courses">
 
             <div class="games-header">
 
@@ -104,13 +333,12 @@
                 </p>
 
                 <h1>
-                    Explore the courses
+                    Pick a course
                 </h1>
 
                 <p>
                     Three courses are live today. The rest are on the
-                    way — built the same way these were, unit by
-                    unit.
+                    way, built the same way these were, unit by unit.
                 </p>
 
             </div>
@@ -121,7 +349,121 @@
 
         </section>
 
+
+        <section class="hm-section">
+
+            <div class="hm-section-head">
+                <p class="eyebrow">WHAT YOU'LL COVER</p>
+                <h2>The fundamentals behind chip manufacturing.</h2>
+                <p>
+                    The ideas underneath cleanroom work, process flows,
+                    devices, and packaging.
+                </p>
+            </div>
+
+            <ul class="hm-topics">
+                <li>Photolithography</li>
+                <li>Etch &amp; deposition</li>
+                <li>Cleanroom practice</li>
+                <li>CMOS fabrication</li>
+                <li>MOSFET physics</li>
+                <li>Process integration</li>
+                <li>MEMS sensors</li>
+                <li>Packaging</li>
+                <li>Energy storage</li>
+            </ul>
+
+        </section>
+
+
+        <section class="hm-section" id="careers">
+
+            <div class="hm-section-head">
+                <p class="eyebrow">CAREER PATHS</p>
+                <h2>See where the skills lead.</h2>
+                <p>
+                    Process, device, equipment, design, and packaging roles
+                    all build on the same foundations. Here is which units
+                    map to which roles.
+                </p>
+            </div>
+
+            <div class="hm-roles">
+
+                <a class="hm-role" href="careers.html#process">
+                    <div class="hm-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="m3 13 9 5 9-5"/><path d="m3 17.5 9 5 9-5" opacity=".55"/></svg></div>
+                    <h3>Process engineer</h3>
+                    <p>Owns the steps that build a chip (deposition, etch, lithography, cleans) and tunes them for yield and repeatability.</p>
+                </a>
+
+                <a class="hm-role" href="careers.html#device">
+                    <div class="hm-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h7M10 6v12M14 7v10M14 8h7M14 16h7"/></svg></div>
+                    <h3>Device engineer</h3>
+                    <p>Connects process choices to electrical behavior: threshold voltage, drive current, leakage, and reliability.</p>
+                </a>
+
+                <a class="hm-role" href="careers.html#equipment">
+                    <div class="hm-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1"/></svg></div>
+                    <h3>Equipment &amp; tool engineer</h3>
+                    <p>Keeps the lithography scanners, etchers, and deposition chambers running: vacuum, plasma, motion control, and uptime.</p>
+                </a>
+
+                <a class="hm-role" href="careers.html#design">
+                    <div class="hm-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9.5 2.5v3.5M14.5 2.5v3.5M9.5 18v3.5M14.5 18v3.5M2.5 9.5H6M2.5 14.5H6M18 9.5h3.5M18 14.5h3.5"/></svg></div>
+                    <h3>Circuit &amp; RF design engineer</h3>
+                    <p>Designs the circuits on the chip using a foundry&#x27;s transistor models, so gain, noise, and bias have to be intuitive.</p>
+                </a>
+
+                <a class="hm-role" href="careers.html#packaging">
+                    <div class="hm-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 7 9-4 9 4v10l-9 4-9-4V7z"/><path d="m3 7 9 4 9-4M12 11v10"/></svg></div>
+                    <h3>Packaging &amp; test engineer</h3>
+                    <p>Turns finished dies into shipped parts: dicing, die attach, wire and flip-chip bonding, encapsulation, and test.</p>
+                </a>
+
+            </div>
+
+            <p class="hm-more">
+                <a href="careers.html">See all career paths →</a>
+            </p>
+
+        </section>
+
     </main>
+
+    <footer class="site-footer">
+
+        <div class="sf-inner">
+
+            <div class="sf-brand">
+                <a href="index.html" class="logo">
+                    FAB PATH
+                </a>
+                <p>
+                    Free, interactive lessons and games on semiconductors,
+                    microfabrication, and devices.
+                </p>
+            </div>
+
+            <nav class="sf-links">
+                <a href="index.html#courses">Courses</a>
+                <a href="careers.html">Career paths</a>
+                <a href="about.html">About</a>
+                <a href="learn.html">MEMS &amp; Microfabrication</a>
+                <a href="supercap-learn.html">Supercapacitors</a>
+                <a href="fet-learn.html">BioFETs &amp; MOSFETs</a>
+            </nav>
+
+            <p class="sf-legal">
+                Fab Path is an independent educational project. It is not
+                affiliated with, endorsed by, or sponsored by any company
+                mentioned on this site; company names appear only to describe
+                where these skills are used. Progress is saved in your
+                browser on this device, and there are no accounts.
+            </p>
+
+        </div>
+
+    </footer>
 
 
     <script src="course-data.js"></script>
@@ -131,6 +473,42 @@
     <script src="supercap-script.js"></script>
     <script src="fet-script.js"></script>
     <script src="script.js"></script>
+
+    <script>
+
+        (function () {
+
+            /* live lesson count across every course */
+
+            let total = 0;
+
+            try {
+                total += getAllLessons().length;
+                total += getSupercapAllLessons().length;
+                total += getFetAllLessons().length;
+            } catch (e) {
+                total = 0;
+            }
+
+            const count = document.getElementById("hmLessonCount");
+
+            if (count && total > 0) {
+                count.textContent = total;
+            }
+
+            /* first-time visitors see the pitch, not an empty scoreboard */
+
+            const section = document.getElementById("progressSection");
+            const xp = parseInt(document.getElementById("progressXP").textContent) || 0;
+            const done = parseInt(document.getElementById("lessonsCompleted").textContent) || 0;
+
+            if (section && xp === 0 && done === 0) {
+                section.hidden = true;
+            }
+
+        })();
+
+    </script>
 
 </body>
 
