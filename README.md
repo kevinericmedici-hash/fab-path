@@ -5,6 +5,9 @@ devices, built for students heading into the chip industry.
 
 **Courses**
 
+- **Sand to Chip**: how a chip gets made, from quartz sand, purification, crystal
+  growth, and wafers to the cleanroom (Unit 1 live; lithography, the CMOS
+  process flow, yield, and packaging are planned).
 - **MEMS & Microfabrication**: cleanroom practice, lithography, deposition,
   etching, real MEMS processes, and packaging (54 lessons, 8 games).
 - **Supercapacitors**: charge storage, materials, geometries, electrolytes,
@@ -29,9 +32,10 @@ Then open http://localhost:5737. Progress is stored in the browser's
 ## Layout
 
 - `index.html`, `about.html`, `careers.html`: the public pages.
-- `learn.html`, `supercap-learn.html`, `fet-learn.html`: each course's path.
-- `unitN.html`, `lessonN.html`, `gameN.html` (plus `supercap*` and `fet*`
-  equivalents): study slides, quizzes, and games.
+- `learn.html`, `supercap-learn.html`, `fet-learn.html`, `chip-learn.html`: each
+  course's path.
+- `unitN.html`, `lessonN.html`, `gameN.html` (plus `supercap*`, `fet*`, and
+  `chip*` equivalents): study slides, quizzes, and games.
 - `*-course-data.js`, `*-questions-data.js`: course structure and quiz content.
 - `style.css`: shared styles, including the brand and design tokens at the end.
 - `fonts/`: self-hosted Inter and JetBrains Mono (SIL Open Font License).

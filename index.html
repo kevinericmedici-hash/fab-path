@@ -337,7 +337,7 @@
                 </h1>
 
                 <p>
-                    Three courses are live today. The rest are on the
+                    Four courses are live today. The rest are on the
                     way, built the same way these were, unit by unit.
                 </p>
 
@@ -362,6 +362,7 @@
             </div>
 
             <ul class="hm-topics">
+                <li>Silicon &amp; wafer manufacturing</li>
                 <li>Photolithography</li>
                 <li>Etch &amp; deposition</li>
                 <li>Cleanroom practice</li>
@@ -448,6 +449,7 @@
                 <a href="index.html#courses">Courses</a>
                 <a href="careers.html">Career paths</a>
                 <a href="about.html">About</a>
+                <a href="chip-learn.html">Sand to Chip</a>
                 <a href="learn.html">MEMS &amp; Microfabrication</a>
                 <a href="supercap-learn.html">Supercapacitors</a>
                 <a href="fet-learn.html">BioFETs &amp; MOSFETs</a>
@@ -469,9 +471,11 @@
     <script src="course-data.js"></script>
     <script src="supercap-course-data.js"></script>
     <script src="fet-course-data.js"></script>
+    <script src="chip-course-data.js"></script>
     <script src="courses-data.js"></script>
     <script src="supercap-script.js"></script>
     <script src="fet-script.js"></script>
+    <script src="chip-script.js"></script>
     <script src="script.js"></script>
 
     <script>
@@ -486,6 +490,7 @@
                 total += getAllLessons().length;
                 total += getSupercapAllLessons().length;
                 total += getFetAllLessons().length;
+                total += getChipAllLessons().length;
             } catch (e) {
                 total = 0;
             }

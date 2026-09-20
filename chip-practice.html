@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Practice | Sand to Chip | Fab Path</title>
+    <meta name="description" content="Practice the Sand to Chip questions you miss most, on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Practice | Sand to Chip | Fab Path">
+    <meta property="og:description" content="Practice the Sand to Chip questions you miss most, on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="chip-learn.html">Learn</a>
+            <a href="chip-games.html">Games</a>
+            <a href="chip-practice.html" class="active-nav">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <main class="practice-page">
+
+        <div id="chipPracticeHub">
+
+            <section class="practice-header">
+
+                <p class="eyebrow">
+                    PRACTICE
+                </p>
+
+                <h1>
+                    Fix your weak spots.
+                </h1>
+
+                <p>
+                    Each unit pulls together the questions you've
+                    missed the most in the Sand to Chip course, so
+                    you spend your time on what actually needs work.
+                </p>
+
+            </section>
+
+
+            <section class="practice-grid" id="chipPracticeUnitsGrid">
+            </section>
+
+        </div>
+
+
+        <div id="chipPracticeSession" class="practice-session-shell game-shell" hidden>
+
+            <div class="game-top">
+
+                <button type="button" class="module-exit" id="chipPracticeBackButton">
+                    ← Back to Practice
+                </button>
+
+                <div class="module-progress-area">
+
+                    <div class="module-progress-track">
+                        <div class="module-progress-fill" id="chipPracticeProgressFill"></div>
+                    </div>
+
+                    <span id="chipPracticeProgressText">
+                        1 / 8
+                    </span>
+
+                </div>
+
+                <span class="game-badge" id="chipPracticeSessionTitle">
+                    UNIT 1
+                </span>
+
+            </div>
+
+
+            <div id="chipPracticeQuizArea">
+
+                <section class="question-card">
+
+                    <p class="question-number" id="chipPracticeQuestionNumber">
+                        QUESTION 1 OF 8
+                    </p>
+
+                    <h1 id="chipPracticeQuestionText">
+                    </h1>
+
+                    <p class="question-instruction">
+                        Choose the best answer.
+                    </p>
+
+                    <div class="answer-grid" id="chipPracticeAnswerGrid">
+                    </div>
+
+                </section>
+
+
+                <div class="lesson-footer">
+
+                    <div class="feedback-message" id="chipPracticeFeedbackMessage">
+                        Select an answer to continue.
+                    </div>
+
+                    <button class="check-button" id="chipPracticeCheckButton" disabled>
+                        Check Answer
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div id="chipPracticeSessionComplete" class="game-complete" hidden>
+
+                <p class="eyebrow">
+                    PRACTICE COMPLETE
+                </p>
+
+                <h2>
+                    🎯 Round done
+                </h2>
+
+                <p class="game-complete-lead" id="chipPracticeSessionStats">
+                </p>
+
+                <div class="game-complete-actions">
+
+                    <button type="button" class="module-nav-button" id="chipPracticeDoneButton">
+                        Back to Practice
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script src="chip-course-data.js"></script>
+    <script src="chip-questions-data.js"></script>
+    <script src="script.js"></script>
+    <script src="chip-script.js"></script>
+    <script src="chip-practice.js"></script>
+
+</body>
+
+</html>

@@ -8413,6 +8413,15 @@ function loadProgressPage() {
             getFetAllLessons().length;
     }
 
+    if (typeof chipCourseData !== "undefined") {
+
+        completedLessons +=
+            getChipCompletedLessonCount();
+
+        totalLessons +=
+            getChipAllLessons().length;
+    }
+
     const percent =
         totalLessons === 0
             ? 0
@@ -9409,6 +9418,24 @@ function loadIndexPage() {
 
                 const completedLessons =
                     getFetCompletedLessonCount();
+
+                percent =
+                    totalLessons === 0
+                        ? 0
+                        : Math.round(
+                            (completedLessons / totalLessons) * 100
+                        );
+
+            } else if (
+                course.id === "sand-to-chip" &&
+                typeof chipCourseData !== "undefined"
+            ) {
+
+                const totalLessons =
+                    getChipAllLessons().length;
+
+                const completedLessons =
+                    getChipCompletedLessonCount();
 
                 percent =
                     totalLessons === 0

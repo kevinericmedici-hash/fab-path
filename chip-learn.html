@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sand to Chip | Fab Path</title>
+    <meta name="description" content="Sand to Chip on Fab Path: how a chip gets made. Free interactive lessons, games, and practice.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sand to Chip | Fab Path">
+    <meta property="og:description" content="Sand to Chip on Fab Path: how a chip gets made. Free interactive lessons, games, and practice.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="chip-learn.html" class="active-nav">Learn</a>
+            <a href="chip-games.html">Games</a>
+            <a href="chip-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+            <span>🔥 <span id="streakDisplay">0</span></span>
+            <span>⚡ <span id="totalXPDisplay">0</span> XP</span>
+        </div>
+    </header>
+
+
+    <main class="learn-page">
+
+        <section class="course-header">
+
+            <p class="eyebrow">
+                COURSE 04
+            </p>
+
+            <h1>Sand to Chip</h1>
+
+            <p>
+                From quartz sand to a finished chip. Start with how silicon is
+                purified, grown into a crystal, and cut into wafers; later
+                units cover lithography, the CMOS process flow, yield, and
+                packaging.
+            </p>
+
+            <div class="course-progress">
+                <div class="progress-track">
+                    <div class="progress-fill" id="chipProgressFill"></div>
+                </div>
+
+                <span id="chipProgressText">0% complete</span>
+            </div>
+
+        </section>
+
+
+        <section class="learning-path" id="chipLearningPath">
+        </section>
+
+    </main>
+
+
+    <script src="chip-course-data.js"></script>
+    <script src="script.js"></script>
+    <script src="chip-script.js"></script>
+
+</body>
+
+</html>

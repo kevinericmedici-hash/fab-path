@@ -1,0 +1,2217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>From Sand to Wafer | Fab Path</title>
+    <meta name="description" content="From Sand to Wafer: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="From Sand to Wafer | Fab Path">
+    <meta property="og:description" content="From Sand to Wafer: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="chip-learn.html">Learn</a>
+            <a href="chip-games.html">Games</a>
+            <a href="chip-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="chip-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 39
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    UNIT 1 • FROM SAND TO WAFER
+                </p>
+
+                <h1>
+                    One of the hardest things people make, grown from sand
+                </h1>
+
+                <p class="module-lead">
+                    Every phone, car, and data center runs on chips. This course follows a chip from raw sand to a packaged part.
+                </p>
+
+                <div class="module-visual">
+                    🏭
+                </div>
+
+                <p>
+                    Unit 1 covers the first half of the journey: turning quartz sand into the flawless silicon wafers that fabs build on. Before a single transistor exists, the material has to be purer, flatter, and more perfect than almost anything else industry produces.
+                </p>
+
+                <div class="module-takeaway">
+
+                    <strong>Key idea</strong>
+
+                    A chip starts long before the fab: as sand, then as an ultra-pure crystal, then as a polished wafer.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 2 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE VOCABULARY
+                </p>
+
+                <h1>
+                    Wafer, die, package, transistor
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            💿
+                        </div>
+
+                        <h3>Wafer</h3>
+
+                        <p>
+                            A thin, polished disc of silicon, usually 300 mm across, that carries hundreds of chips
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔲
+                        </div>
+
+                        <h3>Die</h3>
+
+                        <p>
+                            One rectangular chip cut from a wafer, often about a centimeter on a side
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            📦
+                        </div>
+
+                        <h3>Package</h3>
+
+                        <p>
+                            The housing that protects a die and connects it to a circuit board
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔀
+                        </div>
+
+                        <h3>Transistor</h3>
+
+                        <p>
+                            The tiny switch that everything is built from; one die holds billions
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    People say 'chip' for both the bare die and the packaged part.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 3 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    ZOOMING IN
+                </p>
+
+                <h1>
+                    From wafer to transistor
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 168" role="img" aria-label="Zooming in from a wafer to a die to a transistor">
+<circle class="fd-p" cx="58" cy="70" r="48"/>
+<rect class="fd-n" x="14" y="63" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="14" y="71" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="23" y="47" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="23" y="55" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="23" y="63" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="23" y="71" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="23" y="79" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="23" y="87" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="32" y="39" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="32" y="47" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="32" y="55" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="32" y="63" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="32" y="71" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="32" y="79" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="32" y="87" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="32" y="95" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="41" y="31" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="41" y="39" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="41" y="47" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="41" y="55" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="41" y="63" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="41" y="71" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="41" y="79" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="41" y="87" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="41" y="95" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="41" y="103" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="50" y="31" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="50" y="39" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="50" y="47" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="50" y="55" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="50" y="63" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="50" y="71" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="50" y="79" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="50" y="87" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="50" y="95" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="50" y="103" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="59" y="31" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="59" y="39" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="59" y="47" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="59" y="55" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="59" y="63" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="59" y="71" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="59" y="79" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="59" y="87" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="59" y="95" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="59" y="103" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="68" y="31" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="68" y="39" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="68" y="47" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="68" y="55" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="68" y="63" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="68" y="71" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="68" y="79" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="68" y="87" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="68" y="95" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="68" y="103" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="77" y="39" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="77" y="47" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="77" y="55" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="77" y="63" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="77" y="71" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="77" y="79" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="77" y="87" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="77" y="95" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="86" y="47" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="86" y="55" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="86" y="63" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="86" y="71" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="86" y="79" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="86" y="87" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="95" y="63" width="7" height="6" rx="1"/>
+<rect class="fd-n" x="95" y="71" width="7" height="6" rx="1"/>
+<line class="fd-axis" x1="112" y1="70" x2="129" y2="70"/><polygon class="fd-arrow" points="134,70 127,66.5 127,73.5"/>
+<rect class="fd-p" x="140" y="40" width="60" height="60" rx="3"/>
+<rect class="fd-n" x="146" y="46" width="22" height="22" rx="2"/>
+<rect class="fd-n" x="172" y="46" width="22" height="14" rx="2"/>
+<rect class="fd-n" x="172" y="64" width="22" height="30" rx="2"/>
+<rect class="fd-n" x="146" y="72" width="22" height="22" rx="2"/>
+<line class="fd-axis" x1="206" y1="70" x2="225" y2="70"/><polygon class="fd-arrow" points="230,70 223,66.5 223,73.5"/>
+<rect class="fd-p" x="240" y="86" width="90" height="16" rx="2"/>
+<rect class="fd-n" x="256" y="52" width="8" height="36"/>
+<rect class="fd-n" x="276" y="52" width="8" height="36"/>
+<rect class="fd-n" x="296" y="52" width="8" height="36"/>
+<rect class="fd-metal" x="248" y="62" width="74" height="12" rx="2"/>
+<text class="fd-label" x="58" y="140" text-anchor="middle">Wafer</text>
+<text class="fd-sub" x="58" y="155" text-anchor="middle">≈ 300 mm across</text>
+<text class="fd-label" x="170" y="140" text-anchor="middle">Die</text>
+<text class="fd-sub" x="170" y="155" text-anchor="middle">≈ 1 cm</text>
+<text class="fd-label" x="285" y="140" text-anchor="middle">Transistor</text>
+<text class="fd-sub" x="285" y="155" text-anchor="middle">tens of nm</text>
+</svg>
+                </div>
+
+                <p>
+                    One wafer holds hundreds of identical dies. Each die holds billions of transistors, whose features are only tens of nanometers across.
+                </p>
+
+                <div class="module-takeaway">
+
+                    
+
+                    The whole industry is about making the same tiny structures, billions of times, without mistakes.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 4 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    HOW SMALL IS SMALL?
+                </p>
+
+                <h1>
+                    A scale ladder
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Wafer</strong>
+                        <span>About 30 cm across, roughly a large dinner plate</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Die</strong>
+                        <span>Around 1 cm on a side, about the size of a fingernail</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Human hair</strong>
+                        <span>About 70 µm wide, thousands of times wider than a transistor feature</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Virus</strong>
+                        <span>Around 100 nm, larger than many transistor features</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Transistor features</strong>
+                        <span>Tens of nanometers</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    From wafer to transistor feature, the size range spans about seven orders of magnitude.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 5 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    NODE NAMES
+                </p>
+
+                <h1>
+                    What '3 nm' really means
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    '3 nm' ≠ 3 nm
+                </div>
+
+                <p>
+                    Node names like 7 nm, 5 nm, and 3 nm began as gate lengths, but they stopped measuring any single feature years ago. Today they are generation labels, so two companies' '5 nm' chips are not identical.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Treat a node name as a marketing generation, not a ruler.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 6 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    MOORE'S OBSERVATION
+                </p>
+
+                <h1>
+                    Why chips keep shrinking
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    2× per ~2 years
+                </div>
+
+                <p>
+                    In 1965 Gordon Moore noticed that the number of components on a chip was doubling regularly, and in 1975 he revised the pace to about every two years. Shrinking features packed more transistors onto a chip, and that drove decades of progress.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Fabs exist to make the same structures smaller, cheaper, and more reliably.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 7 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHAT A FAB DOES
+                </p>
+
+                <h1>
+                    Four verbs, repeated hundreds of times
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Add</strong>
+                        <span>Deposit or grow a thin film on the wafer</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Pattern</strong>
+                        <span>Use light to define where material goes</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Remove</strong>
+                        <span>Etch away what you don't need</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Modify</strong>
+                        <span>Change a material's properties with dopants or heat</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Repeat that loop over dozens of layers and you have a chip.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 8 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE MATERIAL
+                </p>
+
+                <h1>
+                    Silicon by the numbers
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    ≈ 28% of the crust
+                </div>
+
+                <p>
+                    Silicon is the second most abundant element in Earth's crust after oxygen, at roughly 28 percent by mass. It is found bound to oxygen in sand and quartz, so the raw material is essentially free.
+                </p>
+
+                <div class="module-takeaway">
+
+                    The hard part isn't finding silicon. It's purifying it.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 9 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    BAND GAPS
+                </p>
+
+                <h1>
+                    How the semiconductors compare
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Germanium</strong>
+                        <span>0.66 eV · the first transistors, but leaky at room temperature</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Silicon</strong>
+                        <span>1.12 eV · the balanced workhorse</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Gallium arsenide</strong>
+                        <span>1.42 eV · fast electrons and good light emission</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Silicon carbide</strong>
+                        <span>about 3.3 eV · high-voltage, high-temperature power</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Gallium nitride</strong>
+                        <span>about 3.4 eV · power, radio, and blue LEDs</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    A wider band gap tolerates more voltage and heat; a narrower one switches at lower energy but leaks more.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 10 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SILICON'S SUPERPOWERS
+                </p>
+
+                <h1>
+                    Why it won
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧱
+                        </div>
+
+                        <h3>A native oxide</h3>
+
+                        <p>
+                            Heating silicon in oxygen grows SiO₂, a stable, high-quality insulator that bonds cleanly to the crystal
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔥
+                        </div>
+
+                        <h3>A wide processing window</h3>
+
+                        <p>
+                            It melts at 1,414 °C and tolerates the high temperatures that oxidation and doping need
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🎚️
+                        </div>
+
+                        <h3>Controllable conductivity</h3>
+
+                        <p>
+                            Tiny amounts of boron or phosphorus set how well it conducts
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The best transistor material is the one you can build a whole ecosystem around.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 11 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHERE OTHERS WIN
+                </p>
+
+                <h1>
+                    What silicon can't do well
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Emitting light</strong>
+                        <span>Silicon's indirect band gap makes a poor light source, so LEDs and lasers use III-V compounds</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Very fast radio</strong>
+                        <span>Gallium arsenide and related compounds move electrons faster, for some RF uses</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>High-voltage power</strong>
+                        <span>Silicon carbide and gallium nitride handle more voltage and heat</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Silicon wins on cost and ecosystem, so it's used unless something else is essential.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 12 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    GERMANIUM'S FALL
+                </p>
+
+                <h1>
+                    Why the first material lost
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    Ge oxide: water-soluble
+                </div>
+
+                <p>
+                    The first transistor in 1947 used germanium. But germanium's oxide is unstable and dissolves in water, and its small band gap makes it leak heavily at room temperature. Silicon's robust oxide made reliable integrated circuits possible.
+                </p>
+
+                <div class="module-takeaway">
+
+                    The oxide, not just the crystal, made silicon the winner.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 13 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE RAW MATERIAL
+                </p>
+
+                <h1>
+                    Sand is silicon dioxide
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    SiO₂ → Si
+                </div>
+
+                <p>
+                    Quartz sand and quartzite are almost pure silicon dioxide, SiO₂. To get silicon you must strip away the oxygen, then purify what is left far beyond anything found in nature.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Getting the oxygen off is easy. Getting everything else off is the hard part.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 14 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE PIPELINE
+                </p>
+
+                <h1>
+                    Four steps to electronic-grade silicon
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 262" role="img" aria-label="Four steps from quartz sand to electronic-grade polysilicon">
+<rect class="fd-p" x="40" y="4" width="260" height="42" rx="6"/>
+<text class="fd-label" x="170" y="22" text-anchor="middle">Quartz sand</text>
+<text class="fd-sub" x="170" y="37" text-anchor="middle">SiO₂</text>
+<line class="fd-axis" x1="64" y1="46" x2="64" y2="71"/><polygon class="fd-arrow" points="64,76 60.5,69 67.5,69"/>
+<text class="fd-accent" x="78" y="65">+ carbon · about 1,900 °C</text>
+<rect class="fd-p" x="40" y="76" width="260" height="42" rx="6"/>
+<text class="fd-label" x="170" y="94" text-anchor="middle">Metallurgical silicon</text>
+<text class="fd-sub" x="170" y="109" text-anchor="middle">98–99% pure</text>
+<line class="fd-axis" x1="64" y1="118" x2="64" y2="143"/><polygon class="fd-arrow" points="64,148 60.5,141 67.5,141"/>
+<text class="fd-accent" x="78" y="137">+ HCl gas · about 300 °C</text>
+<rect class="fd-p" x="40" y="148" width="260" height="42" rx="6"/>
+<text class="fd-label" x="170" y="166" text-anchor="middle">Trichlorosilane</text>
+<text class="fd-sub" x="170" y="181" text-anchor="middle">SiHCl₃, a liquid</text>
+<line class="fd-axis" x1="64" y1="190" x2="64" y2="215"/><polygon class="fd-arrow" points="64,220 60.5,213 67.5,213"/>
+<text class="fd-accent" x="78" y="209">distill, then + H₂ · about 1,100 °C</text>
+<rect class="fd-n" x="40" y="220" width="260" height="42" rx="6"/>
+<text class="fd-label" x="170" y="238" text-anchor="middle">Electronic-grade polysilicon</text>
+<text class="fd-sub" x="170" y="253" text-anchor="middle">9–11 nines pure</text>
+</svg>
+                </div>
+
+                <p>
+                    Each step raises the purity. A furnace makes rough silicon, a reactor turns it into a liquid compound, distillation cleans that liquid, and a second reactor deposits pure solid silicon from it.
+                </p>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Purification works by changing silicon's form so impurities can be left behind.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 15 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    STEP 1 · THE FURNACE
+                </p>
+
+                <h1>
+                    Stripping the oxygen
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    SiO₂ + 2C → Si + 2CO
+                </div>
+
+                <p>
+                    Sand and carbon (coal or coke) are heated in a submerged-arc furnace at roughly 1,900 °C or more. The carbon takes the oxygen away as carbon monoxide, leaving liquid metallurgical-grade silicon that is about 98 to 99 percent pure.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Good enough for aluminum alloys and silicones, nowhere near good enough for chips.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 16 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    STEP 2 · A LIQUID FORM
+                </p>
+
+                <h1>
+                    Turning silicon into a liquid
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    Si + 3HCl → SiHCl₃ + H₂
+                </div>
+
+                <p>
+                    Ground silicon reacts with hydrogen chloride gas at around 300 °C to form trichlorosilane, SiHCl₃, plus hydrogen. Trichlorosilane boils at about 32 °C, so it can be purified by fractional distillation, the same trick used to separate the components of oil.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Distillation separates impurities that silicon itself can't shed.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 17 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    STEP 3 · THE SIEMENS REACTOR
+                </p>
+
+                <h1>
+                    Growing silicon from gas
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    SiHCl₃ + H₂ → Si + 3HCl
+                </div>
+
+                <p>
+                    Purified trichlorosilane and hydrogen flow over thin silicon rods heated to about 1,100 °C. Silicon deposits on the rods, which grow into thick polycrystalline bars that are broken into chunks. Fluidized-bed reactors that use silane are an alternative route.
+                </p>
+
+                <div class="module-takeaway">
+
+                    The result is polysilicon: ultra-pure, but still a jumble of tiny crystals.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 18 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    HOW PURE IS PURE?
+                </p>
+
+                <h1>
+                    Purity, counted in nines
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Metallurgical silicon</strong>
+                        <span>98–99% · about two nines</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Solar-grade silicon</strong>
+                        <span>about 99.9999% · six nines</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Electronic-grade silicon</strong>
+                        <span>99.9999999% to 99.999999999% · nine to eleven nines</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>What it means</strong>
+                        <span>Impurities measured in parts per billion or even per trillion</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Parts-per-billion impurities can change how silicon conducts, so they must be kept below that.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 19 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHY SINGLE CRYSTAL
+                </p>
+
+                <h1>
+                    One lattice, no boundaries
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    grain boundaries ✗
+                </div>
+
+                <p>
+                    Polysilicon is a jumble of tiny crystal grains. At every boundary between grains, atoms are misaligned, and those defects scatter charges and ruin transistors. Chips need one continuous crystal, with every atom sitting where the lattice says it should.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A transistor built on a grain boundary is a broken transistor.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 20 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE CZOCHRALSKI METHOD
+                </p>
+
+                <h1>
+                    Pulling a crystal from a melt
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 262" role="img" aria-label="A Czochralski crystal puller: a seed pulls a growing ingot out of molten silicon in a crucible">
+<rect class="fd-axis" x="5" y="14" width="190" height="228" rx="10" style="fill:rgba(255,255,255,.02)"/>
+<line class="fd-axis" x1="100" y1="14" x2="100" y2="66"/>
+<polygon class="fd-arrow" points="100,5 93,18 107,18"/>
+<path class="fd-crystal" d="M97 66 L103 66 L103 92 L127 116 L127 168 L73 168 L73 116 L97 92 Z"/>
+<path class="fd-metal" d="M29 150 L45 226 L155 226 L171 150 Z" style="fill:rgba(245,247,255,.10)"/>
+<path class="fd-melt" d="M34 168 L166 168 L152 214 L48 214 Z"/>
+<rect class="fd-melt" x="11" y="150" width="9" height="76" rx="2" style="fill:rgba(255,105,120,.25);stroke:#ff6978"/>
+<rect class="fd-melt" x="180" y="150" width="9" height="76" rx="2" style="fill:rgba(255,105,120,.25);stroke:#ff6978"/>
+<line class="fd-dash" x1="103" y1="40" x2="199" y2="40"/>
+<text class="fd-sub" x="204" y="44">seed, pulled up</text>
+<line class="fd-dash" x1="103" y1="80" x2="199" y2="78"/>
+<text class="fd-sub" x="204" y="82">thin neck</text>
+<line class="fd-dash" x1="127" y1="138" x2="199" y2="116"/>
+<text class="fd-label" x="204" y="114">single-crystal</text>
+<text class="fd-label" x="204" y="128">ingot</text>
+<line class="fd-dash" x1="150" y1="190" x2="199" y2="178"/>
+<text class="fd-label" x="204" y="176">molten silicon</text>
+<text class="fd-sub" x="204" y="190">about 1,420 °C</text>
+<line class="fd-dash" x1="189" y1="214" x2="199" y2="226"/>
+<text class="fd-sub" x="204" y="230">heater</text>
+<line class="fd-dash" x1="100" y1="226" x2="100" y2="246"/>
+<text class="fd-sub" x="100" y="258" text-anchor="middle">quartz crucible</text>
+<text class="fd-sub" x="100" y="142" text-anchor="middle" style="fill:#9ef2e2">rotating</text>
+</svg>
+                </div>
+
+                <p>
+                    Polysilicon is melted in a quartz crucible just above 1,414 °C in an argon atmosphere. A small seed crystal is dipped in and pulled upward slowly while rotating. Silicon freezes onto the seed atom by atom, copying its crystal orientation.
+                </p>
+
+                <div class="module-takeaway">
+
+                    
+
+                    The seed sets the crystal orientation; pull rate and temperature set the diameter.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 21 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE PULL, STEP BY STEP
+                </p>
+
+                <h1>
+                    From melt to ingot
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Melt</strong>
+                        <span>Polysilicon and dopant melt in a quartz crucible</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Dip</strong>
+                        <span>The seed touches the melt surface</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Neck</strong>
+                        <span>A thin neck of a few millimeters is pulled first, to shed dislocations</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Crown</strong>
+                        <span>The crystal widens out to full diameter</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Body</strong>
+                        <span>The constant-diameter body grows at roughly a millimeter per minute</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Tail</strong>
+                        <span>The diameter tapers so the ingot can cool safely</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Every step is controlled to keep the crystal flawless.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 22 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE PAYOFF
+                </p>
+
+                <h1>
+                    An ingot the size of a person
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    ⌀ 300 mm × ~2 m
+                </div>
+
+                <p>
+                    A finished 300 mm ingot can be around two meters long and weigh hundreds of kilograms, and one pull takes days. Its entire volume is one continuous crystal.
+                </p>
+
+                <div class="module-takeaway">
+
+                    One seed crystal's atoms, copied hundreds of kilograms deep.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 23 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    DOPING THE INGOT
+                </p>
+
+                <h1>
+                    Setting n-type or p-type
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧪
+                        </div>
+
+                        <h3>Add to the melt</h3>
+
+                        <p>
+                            Boron makes p-type; phosphorus or arsenic make n-type. They're mixed into the melt before pulling
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            📉
+                        </div>
+
+                        <h3>Segregation</h3>
+
+                        <p>
+                            Dopants prefer the melt over the crystal, so their concentration drifts along the ingot
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            📏
+                        </div>
+
+                        <h3>Resistivity spec</h3>
+
+                        <p>
+                            Wafers are sorted by resistivity, in ohm-centimeters, to match what customers ordered
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Starting doping sets the background the transistors are built into.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 24 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    OXYGEN
+                </p>
+
+                <h1>
+                    A crucible that dissolves
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    quartz → oxygen
+                </div>
+
+                <p>
+                    The quartz crucible slowly dissolves into the melt, so Czochralski silicon carries oxygen, typically on the order of 10<sup>18</sup> atoms per cm³. Some of it forms tiny clusters that trap metal impurities away from the transistors, but too much causes defects.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Oxygen is both a helpful and a harmful passenger.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 25 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CZ VERSUS FLOAT ZONE
+                </p>
+
+                <h1>
+                    Two ways to grow a crystal
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Czochralski (CZ)</strong>
+                        <span>Melt in a crucible · large diameters · some oxygen · the workhorse for chips</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Float zone (FZ)</strong>
+                        <span>A moving molten zone, no crucible · very low oxygen · smaller diameters · power devices and detectors</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Which is common</strong>
+                        <span>CZ makes the large majority of wafers for logic and memory</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Pick the method by the diameter and purity the device needs.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 26 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SLICING THE CRYSTAL
+                </p>
+
+                <h1>
+                    From ingot to wafers
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 176" role="img" aria-label="An ingot is sliced into thin wafers">
+<path class="fd-crystal" d="M22 48 L22 118 A46 12 0 0 0 114 118 L114 48 Z"/>
+<ellipse class="fd-crystal" cx="68" cy="48" rx="46" ry="12"/>
+<path class="fd-dash" d="M22 68 A46 12 0 0 0 114 68"/>
+<path class="fd-dash" d="M22 88 A46 12 0 0 0 114 88"/>
+<path class="fd-dash" d="M22 106 A46 12 0 0 0 114 106"/>
+<text class="fd-label" x="68" y="152" text-anchor="middle">Ingot</text>
+<text class="fd-sub" x="68" y="166" text-anchor="middle">≈ 300 mm × ~2 m</text>
+<line class="fd-axis" x1="128" y1="84" x2="173" y2="84"/><polygon class="fd-arrow" points="178,84 171,80.5 171,87.5"/>
+<text class="fd-accent" x="153" y="72" text-anchor="middle">wire saw</text>
+<ellipse class="fd-p" cx="250" cy="44" rx="52" ry="11" style="stroke:#54e0c7"/>
+<ellipse class="fd-p" cx="250" cy="62" rx="52" ry="11" style="stroke:#54e0c7"/>
+<ellipse class="fd-p" cx="250" cy="80" rx="52" ry="11" style="stroke:#54e0c7"/>
+<ellipse class="fd-p" cx="250" cy="98" rx="52" ry="11" style="stroke:#54e0c7"/>
+<ellipse class="fd-p" cx="250" cy="116" rx="52" ry="11" style="stroke:#54e0c7"/>
+<ellipse class="fd-n" cx="250" cy="44" rx="52" ry="11"/>
+<path d="M247 53 Q250 49 253 53 Z" fill="#0b1020" stroke="#54e0c7" stroke-width="1"/>
+<text class="fd-label" x="250" y="152" text-anchor="middle">Wafers</text>
+<text class="fd-sub" x="250" y="166" text-anchor="middle">≈ 775 µm thick each</text>
+</svg>
+                </div>
+
+                <p>
+                    The ingot is trimmed, ground to an exact diameter, marked with a notch, and sliced into thin discs by a diamond-coated wire saw. Each slice becomes one wafer.
+                </p>
+
+                <div class="module-takeaway">
+
+                    
+
+                    One ingot yields hundreds of wafers.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 27 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE FINISHING LINE
+                </p>
+
+                <h1>
+                    A typical order of steps
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Crop and test</strong>
+                        <span>Remove the ends and check resistivity and crystal quality</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Grind and mark</strong>
+                        <span>Grind to exact diameter and add the notch</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Slice</strong>
+                        <span>A diamond wire saw cuts the ingot into wafers</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Round and lap</strong>
+                        <span>Round the edges to prevent chipping, then lap flat</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Etch</strong>
+                        <span>Chemistry removes the damaged surface layer</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Polish</strong>
+                        <span>Chemical-mechanical polishing gives a mirror finish</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Clean and inspect</strong>
+                        <span>Remove particles and check flatness and defects</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Each step removes damage caused by the one before it.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 28 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    NOTCH AND FLATS
+                </p>
+
+                <h1>
+                    A mark that says which way is up
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    notch → orientation
+                </div>
+
+                <p>
+                    300 mm wafers carry a tiny notch that tells equipment how the crystal lattice is oriented; smaller wafers use a flat edge instead. Tools use it to align each wafer so that layers and cuts line up with the crystal.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Every wafer, in every tool, is aligned to its notch.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 29 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WAFER SIZES
+                </p>
+
+                <h1>
+                    Bigger wafers, more chips
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>150 mm · 6 inch</strong>
+                        <span>About 675 µm thick</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>200 mm · 8 inch</strong>
+                        <span>About 725 µm thick</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>300 mm · 12 inch</strong>
+                        <span>About 775 µm thick</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Area jump</strong>
+                        <span>A 300 mm wafer has about 2.25 times the area of a 200 mm wafer</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>450 mm</strong>
+                        <span>Proposed, but the industry never adopted it</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Thickness grows with diameter so the wafer stays strong enough to handle.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 30 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SPECIAL WAFERS
+                </p>
+
+                <h1>
+                    Not every wafer is plain
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            💿
+                        </div>
+
+                        <h3>Polished (prime)</h3>
+
+                        <p>
+                            The standard starting wafer: polished and cleaned, ready for the fab
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🌱
+                        </div>
+
+                        <h3>Epitaxial</h3>
+
+                        <p>
+                            A thin, extra-perfect crystal layer grown on top, for demanding devices
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🥪
+                        </div>
+
+                        <h3>SOI</h3>
+
+                        <p>
+                            Silicon on insulator: a buried oxide layer under a thin silicon film, to cut leakage
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The starting wafer can already contain a layer that helps the device.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 31 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    HOW FLAT IS FLAT?
+                </p>
+
+                <h1>
+                    Smooth beyond belief
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    sub-nanometer smooth
+                </div>
+
+                <p>
+                    A polished wafer is smooth to well under a nanometer, and flat to within a tiny fraction of a micrometer across each exposure site. Lithography focuses light very precisely, so any bump would blur the pattern.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Flatness isn't cosmetic: it's what lets tiny patterns print sharply.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 32 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE CLEANROOM
+                </p>
+
+                <h1>
+                    Air ten thousand times cleaner
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    ISO 5 ≈ 3,520 / m³
+                </div>
+
+                <p>
+                    Ordinary room air holds tens of millions of particles per cubic meter. In an ISO Class 5 cleanroom, particles of 0.5 µm and larger are limited to about 3,520 per cubic meter, roughly ten thousand times cleaner. Critical areas run cleaner still.
+                </p>
+
+                <div class="module-takeaway">
+
+                    One particle on the wrong spot can kill a transistor, so the air is engineered.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 33 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    KEEPING IT CLEAN
+                </p>
+
+                <h1>
+                    Air, people, and wafers
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🌬️
+                        </div>
+
+                        <h3>Filtered airflow</h3>
+
+                        <p>
+                            Ceiling filters push air down in a steady, laminar flow that carries particles away
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧑‍🔬
+                        </div>
+
+                        <h3>Gowning</h3>
+
+                        <p>
+                            Suits cover skin and hair, the biggest particle source in the room
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🤖
+                        </div>
+
+                        <h3>Sealed pods</h3>
+
+                        <p>
+                            300 mm wafers travel in sealed pods called FOUPs, moved by overhead robots, so people rarely touch them
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The best cleanroom strategy is to keep people and wafers apart.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 34 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    YELLOW LIGHT
+                </p>
+
+                <h1>
+                    Why lithography rooms glow yellow
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    no UV, no blue
+                </div>
+
+                <p>
+                    Photoresist reacts to shorter wavelengths: ultraviolet and blue light. Lithography areas are lit in yellow, which lacks them, so wafers can be handled without accidentally exposing the resist.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Even the lighting is part of the process.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 35 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE VERTICAL STACK
+                </p>
+
+                <h1>
+                    From transistors up to wiring
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 232" role="img" aria-label="Cross-section of a chip: transistors in the silicon with layers of metal wiring stacked above">
+<rect class="fd-ox" x="20" y="34" width="238" height="140" style="fill:rgba(255,214,102,.06);stroke:none"/>
+<rect class="fd-metal" x="30" y="146" width="54" height="5" rx="1"/>
+<rect class="fd-metal" x="104" y="146" width="62" height="5" rx="1"/>
+<rect class="fd-metal" x="186" y="146" width="62" height="5" rx="1"/>
+<rect class="fd-metal" x="55" y="130" width="4" height="16"/>
+<rect class="fd-metal" x="213" y="130" width="4" height="16"/>
+<rect class="fd-metal" x="30" y="124" width="54" height="6" rx="1"/>
+<rect class="fd-metal" x="104" y="124" width="62" height="6" rx="1"/>
+<rect class="fd-metal" x="186" y="124" width="62" height="6" rx="1"/>
+<rect class="fd-metal" x="133" y="108" width="4" height="16"/>
+<rect class="fd-metal" x="233" y="108" width="4" height="16"/>
+<rect class="fd-metal" x="30" y="100" width="54" height="8" rx="1"/>
+<rect class="fd-metal" x="104" y="100" width="62" height="8" rx="1"/>
+<rect class="fd-metal" x="186" y="100" width="62" height="8" rx="1"/>
+<rect class="fd-metal" x="55" y="85" width="4" height="15"/>
+<rect class="fd-metal" x="213" y="85" width="4" height="15"/>
+<rect class="fd-metal" x="30" y="74" width="54" height="11" rx="1"/>
+<rect class="fd-metal" x="104" y="74" width="62" height="11" rx="1"/>
+<rect class="fd-metal" x="186" y="74" width="62" height="11" rx="1"/>
+<rect class="fd-metal" x="133" y="58" width="4" height="16"/>
+<rect class="fd-metal" x="233" y="58" width="4" height="16"/>
+<rect class="fd-metal" x="30" y="44" width="54" height="14" rx="1"/>
+<rect class="fd-metal" x="104" y="44" width="62" height="14" rx="1"/>
+<rect class="fd-metal" x="186" y="44" width="62" height="14" rx="1"/>
+<rect class="fd-metal" x="46" y="152" width="4" height="16"/>
+<rect class="fd-metal" x="94" y="152" width="4" height="16"/>
+<rect class="fd-metal" x="150" y="152" width="4" height="16"/>
+<rect class="fd-metal" x="198" y="152" width="4" height="16"/>
+<rect class="fd-metal" x="234" y="152" width="4" height="16"/>
+<rect class="fd-p" x="20" y="176" width="238" height="44" rx="3"/>
+<rect class="fd-n" x="36" y="172" width="14" height="8"/>
+<rect class="fd-n" x="74" y="172" width="14" height="8"/>
+<rect class="fd-metal" x="52" y="164" width="20" height="8" rx="1"/>
+<rect class="fd-n" x="148" y="172" width="14" height="8"/>
+<rect class="fd-n" x="186" y="172" width="14" height="8"/>
+<rect class="fd-metal" x="164" y="164" width="20" height="8" rx="1"/>
+<rect class="fd-n" x="210" y="172" width="12" height="8"/>
+<path class="fd-axis" d="M262 40 L268 40 L268 142 L262 142"/><text class="fd-label" x="274" y="90.0">BEOL</text><text class="fd-sub" x="274" y="103.0">wiring</text>
+<path class="fd-axis" d="M262 148 L268 148 L268 170 L262 170"/><text class="fd-label" x="274" y="158.0">MOL</text><text class="fd-sub" x="274" y="171.0">contacts</text>
+<path class="fd-axis" d="M262 174 L268 174 L268 218 L262 218"/><text class="fd-label" x="274" y="195.0">FEOL</text><text class="fd-sub" x="274" y="208.0">transistors</text>
+<text class="fd-sub" x="139" y="230" text-anchor="middle">silicon wafer</text>
+</svg>
+                </div>
+
+                <p>
+                    A chip is built bottom-up. Front-end-of-line (FEOL) makes the transistors in the silicon. Middle-of-line adds contacts. Back-end-of-line (BEOL) stacks many layers of copper wiring, separated by insulator, to connect billions of transistors.
+                </p>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Don't confuse this with a factory's 'back end': assembly and test come later.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 36 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE LOOP
+                </p>
+
+                <h1>
+                    How long a chip takes
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Layers</strong>
+                        <span>Dozens of mask layers, each patterned with lithography</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Steps</strong>
+                        <span>Hundreds to well over a thousand process steps</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Time</strong>
+                        <span>Roughly two to three months from bare wafer to finished wafer</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Repeat</strong>
+                        <span>Add, pattern, remove, modify, again and again</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    A chip is a stack of layers built one at a time.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 37 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    DIES PER WAFER
+                </p>
+
+                <h1>
+                    How many chips fit?
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 352" role="img" aria-label="A wafer covered in square dies; complete dies are good, partial dies at the edge are lost">
+<defs><clipPath id="wclip"><circle cx="170" cy="174" r="160"/></clipPath></defs>
+<circle class="fd-p" cx="170" cy="174" r="160"/>
+<g clip-path="url(#wclip)">
+<rect class="fd-lost" x="-5.0" y="95.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="-5.0" y="127.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="-5.0" y="159.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="-5.0" y="191.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="-5.0" y="223.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="27.0" y="31.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="27.0" y="63.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="27.0" y="95.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="27.0" y="223.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="27.0" y="255.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="27.0" y="287.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="59.0" y="31.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="59.0" y="63.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="59.0" y="255.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="59.0" y="287.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="91.0" y="-1.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="91.0" y="31.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="91.0" y="287.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="91.0" y="319.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="123.0" y="-1.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="123.0" y="319.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="155.0" y="-1.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="155.0" y="319.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="187.0" y="-1.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="187.0" y="319.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="219.0" y="-1.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="219.0" y="31.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="219.0" y="287.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="219.0" y="319.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="251.0" y="31.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="251.0" y="63.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="251.0" y="255.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="251.0" y="287.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="283.0" y="31.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="283.0" y="63.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="283.0" y="95.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="283.0" y="223.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="283.0" y="255.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="283.0" y="287.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="315.0" y="95.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="315.0" y="127.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="315.0" y="159.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="315.0" y="191.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="315.0" y="223.0" width="30.0" height="30.0" rx="2"/>
+</g>
+<rect class="fd-n" x="27.0" y="127.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="27.0" y="159.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="27.0" y="191.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="59.0" y="95.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="59.0" y="127.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="59.0" y="159.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="59.0" y="191.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="59.0" y="223.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="91.0" y="63.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="91.0" y="95.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="91.0" y="127.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="91.0" y="159.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="91.0" y="191.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="91.0" y="223.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="91.0" y="255.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="123.0" y="31.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="123.0" y="63.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="123.0" y="95.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="123.0" y="127.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="123.0" y="159.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="123.0" y="191.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="123.0" y="223.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="123.0" y="255.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="123.0" y="287.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="155.0" y="31.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="155.0" y="63.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="155.0" y="95.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="155.0" y="127.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="155.0" y="159.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="155.0" y="191.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="155.0" y="223.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="155.0" y="255.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="155.0" y="287.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="187.0" y="31.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="187.0" y="63.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="187.0" y="95.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="187.0" y="127.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="187.0" y="159.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="187.0" y="191.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="187.0" y="223.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="187.0" y="255.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="187.0" y="287.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="219.0" y="63.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="219.0" y="95.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="219.0" y="127.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="219.0" y="159.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="219.0" y="191.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="219.0" y="223.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="219.0" y="255.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="251.0" y="95.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="251.0" y="127.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="251.0" y="159.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="251.0" y="191.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="251.0" y="223.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="283.0" y="127.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="283.0" y="159.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="283.0" y="191.0" width="30.0" height="30.0" rx="2"/>
+<rect x="130" y="152" width="80" height="52" rx="10" fill="#0b1020" opacity=".88"/>
+<text class="fd-label" x="170" y="182" text-anchor="middle" style="font-size:24px">57</text>
+<text class="fd-sub" x="170" y="198" text-anchor="middle">full dies</text>
+<text class="fd-sub" x="6" y="348">teal = complete die</text>
+<text class="fd-sub" x="334" y="348" text-anchor="end" style="fill:#ffb86b">amber = lost at the edge</text>
+</svg>
+                </div>
+
+                <p>
+                    A rough formula: dies per wafer ≈ π d<sup>2</sup> / (4 A) − π d / √(2 A), where d is the wafer diameter and A the die area. A 100 mm² die on a 300 mm wafer gives about 640 dies. Dies cut by the edge are incomplete and wasted. In this picture, 30 × 30 mm dies leave 57 full dies.
+                </p>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Bigger dies waste more of the wafer's edge, which is one reason small dies are cheaper.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 38 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    UNIT 1 IN SIX LINES
+                </p>
+
+                <h1>
+                    From sand to wafer
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Sand</strong>
+                        <span>Quartz, SiO₂, is the raw material</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Purify</strong>
+                        <span>A furnace, a reactor, and distillation reach 9–11 nines</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Crystal</strong>
+                        <span>Czochralski pulls one perfect crystal from a melt</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Wafer</strong>
+                        <span>Wire saw, lapping, and polishing make 775 µm wafers</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Fab</strong>
+                        <span>Cleanrooms and sealed pods keep wafers particle-free</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Next</strong>
+                        <span>Add layers, pattern them, and build transistors</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    <strong>Key idea</strong>
+
+                    Every chip starts with silicon among the purest and flattest materials humans make.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- COMPLETION SLIDE -->
+
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 1 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🏭 → 💿
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenges?
+                </h1>
+
+                <p class="module-lead">
+                    You can now follow a chip from quartz sand to a polished wafer,
+                    and explain why each step exists.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeChipUnit1Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeChipUnit1Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathChipUnit1StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathChipUnit1StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "chip-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+</body>
+</html>

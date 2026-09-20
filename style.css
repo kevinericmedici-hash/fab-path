@@ -3965,3 +3965,25 @@ svg text {
     font-size: 0.72rem;
     line-height: 1.2;
 }
+
+/* ========================================
+   CHIP COURSE DIAGRAMS
+======================================== */
+
+.fd-melt {
+    fill: rgba(255, 184, 107, 0.35);
+    stroke: #ffb86b;
+    stroke-width: 1.2;
+}
+
+.fd-crystal {
+    fill: rgba(84, 224, 199, 0.16);
+    stroke: var(--accent);
+    stroke-width: 1.3;
+}
+
+.fd-lost {
+    fill: rgba(255, 184, 107, 0.14);
+    stroke: rgba(255, 184, 107, 0.7);
+    stroke-width: 1;
+}

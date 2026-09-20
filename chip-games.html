@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Games | Sand to Chip | Fab Path</title>
+    <meta name="description" content="Hands-on games for the Sand to Chip course on Fab Path: how a chip gets made.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Games | Sand to Chip | Fab Path">
+    <meta property="og:description" content="Hands-on games for the Sand to Chip course on Fab Path: how a chip gets made.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="chip-learn.html">Learn</a>
+            <a href="chip-games.html" class="active-nav">Games</a>
+            <a href="chip-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <main class="games-page">
+
+        <div class="games-header">
+
+            <p class="eyebrow">
+                SAND TO CHIP GAMES
+            </p>
+
+            <h1>
+                Play &amp; learn
+            </h1>
+
+            <p>
+                Every unit gets its own hands-on game. Jump into any
+                of them, any time. More arrive as more units go live.
+            </p>
+
+        </div>
+
+
+        <div class="games-grid" id="chipGamesGrid">
+
+            <a
+                href="chip-game1.html"
+                class="game-hub-card playable lesson-link"
+                id="chipGame1Card"
+            >
+                <span class="game-hub-badge" id="chipGame1Badge">
+                    PLAY
+                </span>
+
+                <div class="game-hub-icon">
+                    💿
+                </div>
+
+                <h3>Sand to Wafer</h3>
+
+                <p>
+                    Unit 1 · Put the steps of silicon purification, crystal
+                    growth, and wafer making in the right order.
+                </p>
+
+                <span class="game-hub-cta" id="chipGame1CTA">
+                    Play now →
+                </span>
+
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+    <script>
+
+        for (let n = 1; n <= 1; n++) {
+
+            let done = false;
+
+            try {
+                done = localStorage.getItem(
+                    `fabPathChipGame${n}Complete`
+                ) === "true";
+            } catch (e) {
+                done = false;
+            }
+
+            if (!done) {
+                continue;
+            }
+
+            const badge = document.getElementById(`chipGame${n}Badge`);
+            const cta = document.getElementById(`chipGame${n}CTA`);
+
+            if (badge) {
+                badge.textContent = "✓ DONE";
+            }
+
+            if (cta) {
+                cta.textContent = "Play again →";
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
