@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Can the Gate See It? | Fab Path</title>
+    <meta name="description" content="Can the Gate See It?: a hands-on game from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Can the Gate See It? | Fab Path">
+    <meta property="og:description" content="Can the Gate See It?: a hands-on game from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="fet-learn.html">Learn</a>
+            <a href="fet-games.html" class="active-nav">Games</a>
+            <a href="fet-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <main class="game-page">
+
+        <section class="game-shell">
+
+            <div class="game-top">
+
+                <a href="fet-games.html" class="module-exit">
+                    ← Back to Games
+                </a>
+
+                <div class="module-progress-area">
+
+                    <div class="module-progress-track">
+                        <div
+                            class="module-progress-fill"
+                            id="gameProgressFill"
+                        ></div>
+                    </div>
+
+                    <span id="gameProgressText">
+                        0 / 0
+                    </span>
+
+                </div>
+
+                <span class="game-badge">
+                    PART 4 GAME
+                </span>
+
+            </div>
+
+
+            <div class="game-header">
+
+                <p class="eyebrow">
+                    CAN THE GATE SEE IT?
+                </p>
+
+                <h1>
+                    Sensed, faded, or screened?
+                </h1>
+
+                <p class="game-lead">
+                    Charge only reaches the channel within a few Debye lengths. Estimate λ<sub>D</sub> ≈ 0.3 nm ÷ √c, with c in mol/L, then compare it with the receptor's height. Under 1 λ<sub>D</sub> is sensed, 1 to 3 is faded, and over 3 is screened.
+                </p>
+
+            </div>
+
+
+            <div id="gameBoard">
+
+                <div class="equipment-card" id="equipmentCard">
+
+                    <div class="equipment-icon" id="equipmentIcon">
+                    </div>
+
+                    <h2 class="equipment-name" id="equipmentName">
+                        Loading...
+                    </h2>
+
+                    <p class="equipment-desc" id="equipmentDesc">
+                    </p>
+
+                </div>
+
+
+                <div class="category-grid" id="categoryGrid">
+                </div>
+
+                <div class="game-feedback" id="gameFeedback">
+                    Loading...
+                </div>
+
+            </div>
+
+
+            <div id="gameComplete" class="game-complete" hidden>
+
+                <p class="eyebrow">
+                    CHALLENGE COMPLETE
+                </p>
+
+                <h2>
+                    🧂 You can size up screening
+                </h2>
+
+                <p class="game-complete-xp" id="gameCompleteXP">
+                    +45 XP
+                </p>
+
+                <p class="game-complete-lead" id="gameCompleteStats">
+                </p>
+
+                <p class="game-complete-lead">
+                    Compare the height of the charge with the Debye length. Salty samples and tall receptors are the worst combination, and dilution or small receptors are the fix.
+                </p>
+
+                <div class="game-recap" id="gameRecap">
+                </div>
+
+                <div class="game-complete-actions">
+
+                    <button
+                        type="button"
+                        class="module-nav-button secondary-button"
+                        id="playAgainButton"
+                    >
+                        Play Again
+                    </button>
+
+                    <a
+                        href="fet-games.html"
+                        class="module-nav-button lesson-link"
+                        id="backToPathButton"
+                    >
+                        Back to Games
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+    <script src="supercap-game-common.js"></script>
+    <script src="supercap-game-sort.js"></script>
+    <script src="fet-games-data.js"></script>
+
+    <script>
+
+        SCGames.startSort(fetGameData.debye);
+
+    </script>
+
+</body>
+
+</html>
