@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Reading a CV Curve | Fab Path</title>
-    <meta name="description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <title>The Voltage Window | Fab Path</title>
+    <meta name="description" content="The Voltage Window: illustrated study slides from the Supercapacitors course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Reading a CV Curve | Fab Path">
-    <meta property="og:description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <meta property="og:title" content="The Voltage Window | Fab Path">
+    <meta property="og:description" content="The Voltage Window: illustrated study slides from the Supercapacitors course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 4
+                    1 / 5
                 </span>
 
             </div>
@@ -86,31 +86,24 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    TESTING IT
+                    THE VOLTAGE WINDOW
                 </p>
 
                 <h1>
-                    Cyclic voltammetry, briefly
+                    Why voltage is the prize
                 </h1>
 
-                <div class="module-visual">
-                    📈
+                <div class="module-visual module-visual-text">
+                    E = ½ C V²
                 </div>
 
                 <p>
-                    Cyclic voltammetry (CV) sweeps voltage up and back
-                    down while measuring current, tracing out a loop.
-                    The area inside that loop is where areal charge
-                    storage comes from. The height of the peaks on
-                    that curve is the peak current — and it tells you
-                    a lot about what's happening at the electrode.
+                    Stored energy grows with the square of the voltage. Doubling the capacitance doubles the energy, but doubling the voltage quadruples it. So the voltage window an electrolyte allows is worth more than almost any other property.
                 </p>
 
                 <div class="module-takeaway">
 
-                    You'll read real CV curves from this thesis later
-                    in the course — this is the tool that produces
-                    them.
+                    Widen the window and energy climbs fast, which is why electrolytes are tied so closely to energy density.
 
                 </div>
 
@@ -121,30 +114,62 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE RANDLES-ŠEVČÍK EQUATION
+                    WHAT LIMITS THE WINDOW
                 </p>
 
                 <h1>
-                    What sets peak current
+                    Where the electrolyte gives up
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    <span class="math-visual">i<sub>p</sub> = (2.69×10⁵) n<sup>3/2</sup> A D₀<sup>1/2</sup> C₀* v<sup>1/2</sup></span>
-                </div>
+                <div class="module-card-grid">
 
-                <p>
-                    This equation predicts the peak current (i<sub>p</sub>) on a
-                    CV curve from the number of electrons transferred
-                    (n), electrode area (A), the redox species'
-                    diffusion coefficient (D₀) and concentration (C₀*),
-                    and the scan rate (v) — how fast the voltage is
-                    swept.
-                </p>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ⬇️
+                        </div>
+
+                        <h3>Reduction limit</h3>
+
+                        <p>
+                            At the negative electrode, the ions or solvent start to gain electrons and break down
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ⬆️
+                        </div>
+
+                        <h3>Oxidation limit</h3>
+
+                        <p>
+                            At the positive electrode, they start to lose electrons and break down
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ↔️
+                        </div>
+
+                        <h3>The window</h3>
+
+                        <p>
+                            The gap between the two limits is the voltage range the cell can safely use
+                        </p>
+
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    Peak current is a direct readout of how a redox
-                    reaction responds to your test conditions.
+                    Past a limit, charge goes into destroying the electrolyte instead of storing energy.
 
                 </div>
 
@@ -155,37 +180,88 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    READING THE VARIABLES
+                    READING THE EDGES
                 </p>
 
                 <h1>
-                    Bigger electrode, bigger peak
+                    How to spot a window on a CV
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>↑ Electrode area (A)</strong>
-                        <span>More surface for the reaction → higher peak current</span>
+                        <strong>Flat, box-shaped trace</strong>
+                        <span>Charge is being stored capacitively, so the electrolyte is stable</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Scan rate (v)</strong>
-                        <span>Faster voltage sweep → higher peak current</span>
+                        <strong>Sharp current rise at either end</strong>
+                        <span>Side reactions are breaking the electrolyte down</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Concentration (C₀*)</strong>
-                        <span>More redox-active species available → higher peak current</span>
+                        <strong>The cut-off matters</strong>
+                        <span>Papers pick a current threshold, so a window depends on how it was defined</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The electrode matters</strong>
+                        <span>The same electrolyte can show different limits on carbon, metal, or oxide</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    Every one of these variables scales peak current
-                    up — none of them scale it down. That's why CV
-                    curves are so sensitive to test setup.
+                    
+
+                    A quoted window is a measurement with conditions attached, not a constant of nature.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    PUSHING TOO FAR
+                </p>
+
+                <h1>
+                    What happens past the limit
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Gas</strong>
+                        <span>Gas forms and can swell a sealed cell</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Resistance</strong>
+                        <span>Breakdown products raise resistance and fade capacity</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Leakage</strong>
+                        <span>Side reactions raise leakage current and speed up self-discharge</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Safety</strong>
+                        <span>In the worst cases, heat and pressure build up</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    This is why cells are rated with margin below the limit: margin buys lifetime.
 
                 </div>
 
@@ -196,11 +272,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 4 STUDY COMPLETE
+                    UNIT 20 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    ⚡
+                    💧
                 </div>
 
                 <h1>
@@ -208,13 +284,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered the Randles-Ševčík equation and what a cyclic voltammogram's peak current tells you.
+                    You've covered why voltage is worth more than capacitance, and what limits it.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeSupercapUnit4Button"
+                    id="completeSupercapUnit20Button"
                 >
                     Complete Module
                 </button>
@@ -276,7 +352,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeSupercapUnit4Button");
+            document.getElementById("completeSupercapUnit20Button");
 
 
         let currentSlide = 0;
@@ -386,7 +462,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathSupercapStudy4Complete"
+                    "fabPathSupercapStudy20Complete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -399,7 +475,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathSupercapStudy4Complete",
+                        "fabPathSupercapStudy20Complete",
                         "true"
                     );
 

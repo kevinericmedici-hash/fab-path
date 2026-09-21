@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Reading a CV Curve | Fab Path</title>
-    <meta name="description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <title>Gel &amp; Solid-State Electrolytes | Fab Path</title>
+    <meta name="description" content="Gel &amp; Solid-State Electrolytes: illustrated study slides from the Supercapacitors course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Reading a CV Curve | Fab Path">
-    <meta property="og:description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <meta property="og:title" content="Gel &amp; Solid-State Electrolytes | Fab Path">
+    <meta property="og:description" content="Gel &amp; Solid-State Electrolytes: illustrated study slides from the Supercapacitors course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 4
+                    1 / 5
                 </span>
 
             </div>
@@ -86,31 +86,24 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    TESTING IT
+                    GEL &amp; SOLID-STATE
                 </p>
 
                 <h1>
-                    Cyclic voltammetry, briefly
+                    Take away the puddle
                 </h1>
 
-                <div class="module-visual">
-                    📈
+                <div class="module-visual module-visual-text">
+                    polymer + liquid → gel
                 </div>
 
                 <p>
-                    Cyclic voltammetry (CV) sweeps voltage up and back
-                    down while measuring current, tracing out a loop.
-                    The area inside that loop is where areal charge
-                    storage comes from. The height of the peaks on
-                    that curve is the peak current — and it tells you
-                    a lot about what's happening at the electrode.
+                    Liquids leak, need a separator, and want a rigid case. A gel polymer electrolyte holds a liquid electrolyte inside a polymer network, so it acts like a soft solid while ions still move through it. A true solid electrolyte goes further and has no free liquid at all.
                 </p>
 
                 <div class="module-takeaway">
 
-                    You'll read real CV curves from this thesis later
-                    in the course — this is the tool that produces
-                    them.
+                    Gels trade some conductivity for leak-free, bendable devices.
 
                 </div>
 
@@ -121,30 +114,62 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE RANDLES-ŠEVČÍK EQUATION
+                    RECIPES
                 </p>
 
                 <h1>
-                    What sets peak current
+                    Three families of gels and solids
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    <span class="math-visual">i<sub>p</sub> = (2.69×10⁵) n<sup>3/2</sup> A D₀<sup>1/2</sup> C₀* v<sup>1/2</sup></span>
-                </div>
+                <div class="module-card-grid">
 
-                <p>
-                    This equation predicts the peak current (i<sub>p</sub>) on a
-                    CV curve from the number of electrons transferred
-                    (n), electrode area (A), the redox species'
-                    diffusion coefficient (D₀) and concentration (C₀*),
-                    and the scan rate (v) — how fast the voltage is
-                    swept.
-                </p>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            💦
+                        </div>
+
+                        <h3>Hydrogels</h3>
+
+                        <p>
+                            A polymer such as PVA plus water and an acid, base, or salt (H₂SO₄, H₃PO₄, KOH). The go-to for lab micro devices and wearables
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧈
+                        </div>
+
+                        <h3>Organogels &amp; ionogels</h3>
+
+                        <p>
+                            A polymer such as PVDF-HFP holding an organic solvent or an ionic liquid, for a wider window
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧱
+                        </div>
+
+                        <h3>Solid polymers &amp; inorganics</h3>
+
+                        <p>
+                            Ions hop along polymer chains (PEO plus a salt) or through ceramics and glasses. Safest, but slowest
+                        </p>
+
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    Peak current is a direct readout of how a redox
-                    reaction responds to your test conditions.
+                    The liquid inside a gel sets the window; the polymer sets the shape.
 
                 </div>
 
@@ -155,37 +180,103 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    READING THE VARIABLES
+                    THE GEL AS SEPARATOR
                 </p>
 
                 <h1>
-                    Bigger electrode, bigger peak
+                    The gel doubles as the separator
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>↑ Electrode area (A)</strong>
-                        <span>More surface for the reaction → higher peak current</span>
+                        <strong>Fills the gap</strong>
+                        <span>In in-plane and fiber devices, the gel sits between electrodes and keeps them apart</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Scan rate (v)</strong>
-                        <span>Faster voltage sweep → higher peak current</span>
+                        <strong>Leak-free and bendable</strong>
+                        <span>No puddle to escape when a device flexes, folds, or stretches</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Concentration (C₀*)</strong>
-                        <span>More redox-active species available → higher peak current</span>
+                        <strong>Thin</strong>
+                        <span>Lets the whole device stay slim and lightweight</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Catch: conductivity</strong>
+                        <span>Ions move slower than in a free liquid</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Catch: pore contact</strong>
+                        <span>A thick gel struggles to fill deep pores, so it is cast thin and runny, then allowed to set</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    Every one of these variables scales peak current
-                    up — none of them scale it down. That's why CV
-                    curves are so sensitive to test setup.
+                    
+
+                    For 3D micro-electrodes, getting the gel into the structure is a fabrication problem.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    PAIRING WITH GEOMETRY
+                </p>
+
+                <h1>
+                    Match the electrolyte to the device shape
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Coin cell or wound can</strong>
+                        <span>Free liquid plus a porous separator, sealed tight</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Pouch</strong>
+                        <span>Liquid or gel, with foil sealing that keeps moisture out</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>In-plane micro device</strong>
+                        <span>A gel, or a thin liquid layer held under a cover</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Fiber and textile</strong>
+                        <span>Gel between the fibers, so it flexes and doesn't drip</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Stretchable film</strong>
+                        <span>A stretchable hydrogel or ionogel</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Implant or skin patch</strong>
+                        <span>Neutral, biocompatible electrolytes such as body-like saline</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Part 4's shapes are only practical when the electrolyte can live inside them.
 
                 </div>
 
@@ -196,11 +287,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 4 STUDY COMPLETE
+                    UNIT 23 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    ⚡
+                    💧
                 </div>
 
                 <h1>
@@ -208,13 +299,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered the Randles-Ševčík equation and what a cyclic voltammogram's peak current tells you.
+                    You've covered leak-free, bendable electrolytes that double as the separator.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeSupercapUnit4Button"
+                    id="completeSupercapUnit23Button"
                 >
                     Complete Module
                 </button>
@@ -276,7 +367,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeSupercapUnit4Button");
+            document.getElementById("completeSupercapUnit23Button");
 
 
         let currentSlide = 0;
@@ -386,7 +477,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathSupercapStudy4Complete"
+                    "fabPathSupercapStudy23Complete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -399,7 +490,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathSupercapStudy4Complete",
+                        "fabPathSupercapStudy23Complete",
                         "true"
                     );
 

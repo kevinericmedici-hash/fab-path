@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Reading a CV Curve | Fab Path</title>
-    <meta name="description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <title>What the Electrolyte Does | Fab Path</title>
+    <meta name="description" content="What the Electrolyte Does: illustrated study slides from the Supercapacitors course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Reading a CV Curve | Fab Path">
-    <meta property="og:description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <meta property="og:title" content="What the Electrolyte Does | Fab Path">
+    <meta property="og:description" content="What the Electrolyte Does: illustrated study slides from the Supercapacitors course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 4
+                    1 / 5
                 </span>
 
             </div>
@@ -86,31 +86,62 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    TESTING IT
+                    THE JOB DESCRIPTION
                 </p>
 
                 <h1>
-                    Cyclic voltammetry, briefly
+                    Three jobs, one material
                 </h1>
 
-                <div class="module-visual">
-                    📈
-                </div>
+                <div class="module-card-grid">
 
-                <p>
-                    Cyclic voltammetry (CV) sweeps voltage up and back
-                    down while measuring current, tracing out a loop.
-                    The area inside that loop is where areal charge
-                    storage comes from. The height of the peaks on
-                    that curve is the peak current — and it tells you
-                    a lot about what's happening at the electrode.
-                </p>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧪
+                        </div>
+
+                        <h3>Ion source</h3>
+
+                        <p>
+                            Supplies the positive and negative ions that build the electric double layer
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🚚
+                        </div>
+
+                        <h3>Ion highway</h3>
+
+                        <p>
+                            Carries ions between the electrodes, and deep into their pores
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🛑
+                        </div>
+
+                        <h3>Electron blocker</h3>
+
+                        <p>
+                            Refuses to pass electrons, so charge can't short-circuit through the cell
+                        </p>
+
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    You'll read real CV curves from this thesis later
-                    in the course — this is the tool that produces
-                    them.
+                    Great ionic conduction, zero electronic conduction: that is the whole spec.
 
                 </div>
 
@@ -121,30 +152,52 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE RANDLES-ŠEVČÍK EQUATION
+                    THE WISH LIST
                 </p>
 
                 <h1>
-                    What sets peak current
+                    What we'd want from an electrolyte
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    <span class="math-visual">i<sub>p</sub> = (2.69×10⁵) n<sup>3/2</sup> A D₀<sup>1/2</sup> C₀* v<sup>1/2</sup></span>
-                </div>
+                <div class="scale-stack">
 
-                <p>
-                    This equation predicts the peak current (i<sub>p</sub>) on a
-                    CV curve from the number of electrons transferred
-                    (n), electrode area (A), the redox species'
-                    diffusion coefficient (D₀) and concentration (C₀*),
-                    and the scan rate (v) — how fast the voltage is
-                    swept.
-                </p>
+                    <div class="scale-row">
+                        <strong>Wide voltage window</strong>
+                        <span>Stays stable at high cell voltage, so energy grows</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>High ionic conductivity</strong>
+                        <span>Ions move easily, so resistance stays low</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Low viscosity, wide temperature range</strong>
+                        <span>Still flows in the cold, still stable when hot</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Chemical compatibility</strong>
+                        <span>Doesn't attack electrodes, current collectors, or seals</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Safety</strong>
+                        <span>Non-flammable and low toxicity</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Low cost</strong>
+                        <span>Cheap, common, and easy to handle</span>
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    Peak current is a direct readout of how a redox
-                    reaction responds to your test conditions.
+                    
+
+                    No electrolyte wins every line. That is why several families exist.
 
                 </div>
 
@@ -155,37 +208,52 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    READING THE VARIABLES
+                    WHAT'S IN THE BOTTLE
                 </p>
 
                 <h1>
-                    Bigger electrode, bigger peak
+                    Salt, solvent, and solvation
                 </h1>
 
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>↑ Electrode area (A)</strong>
-                        <span>More surface for the reaction → higher peak current</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>↑ Scan rate (v)</strong>
-                        <span>Faster voltage sweep → higher peak current</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>↑ Concentration (C₀*)</strong>
-                        <span>More redox-active species available → higher peak current</span>
-                    </div>
-
+                <div class="module-visual module-visual-text">
+                    salt + solvent → ions
                 </div>
+
+                <p>
+                    Most electrolytes are a salt dissolved in a solvent. The salt splits into positive cations and negative anions, and solvent molecules cluster around each ion in a solvation shell. Ionic liquids skip the solvent, since the salt is already a liquid.
+                </p>
 
                 <div class="module-takeaway">
 
-                    Every one of these variables scales peak current
-                    up — none of them scale it down. That's why CV
-                    curves are so sensitive to test setup.
+                    An ion in solution isn't bare: it arrives with a shell of solvent that changes how big it acts and how fast it moves.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CONDUCTIVITY MEETS POWER
+                </p>
+
+                <h1>
+                    Why resistance is the electrolyte's job too
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    <span class="math-visual">P<sub>max</sub> = V² / (4 · ESR)</span>
+                </div>
+
+                <p>
+                    For a matched load, a cell's maximum power grows with the square of its voltage and shrinks with its equivalent series resistance (ESR). The electrolyte's conductivity is a big part of ESR, and its window sets the voltage, so it steers power twice.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Voltage and resistance both live in the electrolyte.
 
                 </div>
 
@@ -196,11 +264,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 4 STUDY COMPLETE
+                    UNIT 19 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    ⚡
+                    💧
                 </div>
 
                 <h1>
@@ -208,13 +276,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered the Randles-Ševčík equation and what a cyclic voltammogram's peak current tells you.
+                    You've covered ion source, ion highway, and electron blocker, and how conductivity steers power.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeSupercapUnit4Button"
+                    id="completeSupercapUnit19Button"
                 >
                     Complete Module
                 </button>
@@ -276,7 +344,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeSupercapUnit4Button");
+            document.getElementById("completeSupercapUnit19Button");
 
 
         let currentSlide = 0;
@@ -386,7 +454,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathSupercapStudy4Complete"
+                    "fabPathSupercapStudy19Complete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -399,7 +467,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathSupercapStudy4Complete",
+                        "fabPathSupercapStudy19Complete",
                         "true"
                     );
 

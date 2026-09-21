@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Reading a CV Curve | Fab Path</title>
-    <meta name="description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <title>Sizing a Supercapacitor | Fab Path</title>
+    <meta name="description" content="Sizing a Supercapacitor: illustrated study slides from the Supercapacitors course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Reading a CV Curve | Fab Path">
-    <meta property="og:description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <meta property="og:title" content="Sizing a Supercapacitor | Fab Path">
+    <meta property="og:description" content="Sizing a Supercapacitor: illustrated study slides from the Supercapacitors course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 4
+                    1 / 6
                 </span>
 
             </div>
@@ -86,31 +86,24 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    TESTING IT
+                    SIZING
                 </p>
 
                 <h1>
-                    Cyclic voltammetry, briefly
+                    Start with the energy you need
                 </h1>
 
-                <div class="module-visual">
-                    📈
+                <div class="module-visual module-visual-text">
+                    E = ½C(V₁² − V₂²)
                 </div>
 
                 <p>
-                    Cyclic voltammetry (CV) sweeps voltage up and back
-                    down while measuring current, tracing out a loop.
-                    The area inside that loop is where areal charge
-                    storage comes from. The height of the peaks on
-                    that curve is the peak current — and it tells you
-                    a lot about what's happening at the electrode.
+                    You can't use all of a supercapacitor's energy, because electronics stop working below a minimum voltage. Usable energy is the energy at full voltage V₁ minus the energy left at the cutoff voltage V₂.
                 </p>
 
                 <div class="module-takeaway">
 
-                    You'll read real CV curves from this thesis later
-                    in the course — this is the tool that produces
-                    them.
+                    Usable energy comes from the voltage range you can actually use.
 
                 </div>
 
@@ -121,30 +114,24 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE RANDLES-ŠEVČÍK EQUATION
+                    SOLVING FOR C
                 </p>
 
                 <h1>
-                    What sets peak current
+                    How big must it be?
                 </h1>
 
                 <div class="module-visual module-visual-text">
-                    <span class="math-visual">i<sub>p</sub> = (2.69×10⁵) n<sup>3/2</sup> A D₀<sup>1/2</sup> C₀* v<sup>1/2</sup></span>
+                    C = 2E / (V₁² − V₂²)
                 </div>
 
                 <p>
-                    This equation predicts the peak current (i<sub>p</sub>) on a
-                    CV curve from the number of electrons transferred
-                    (n), electrode area (A), the redox species'
-                    diffusion coefficient (D₀) and concentration (C₀*),
-                    and the scan rate (v) — how fast the voltage is
-                    swept.
+                    Example: a sensor burst needs 6 mJ, and the supercapacitor swings from 3.3 V down to 2.0 V. Then C = 2 × 0.006 / (3.3² − 2.0²) = 0.012 / 6.89 ≈ 1.7 mF. Real designs add margin for leakage and aging, since end of life is often defined as a 20% capacitance loss.
                 </p>
 
                 <div class="module-takeaway">
 
-                    Peak current is a direct readout of how a redox
-                    reaction responds to your test conditions.
+                    Always add margin for aging and leakage.
 
                 </div>
 
@@ -155,37 +142,108 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    READING THE VARIABLES
+                    HOLD-UP TIME
                 </p>
 
                 <h1>
-                    Bigger electrode, bigger peak
+                    How long can it carry a load?
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    t = C(V₁ − V₂) / I
+                </div>
+
+                <p>
+                    For a constant current I, the voltage falls in a straight line, so hold-up time is t = C(V₁ − V₂)/I. Example: a 1 F capacitor supplying 0.5 A while falling from 5 V to 3 V lasts 1 × 2 / 0.5 = 4 seconds.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A constant-power load drains faster, since it draws more current as the voltage falls.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE ESR DROP
+                </p>
+
+                <h1>
+                    Resistance takes its cut instantly
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    ΔV = I × ESR
+                </div>
+
+                <p>
+                    When a load switches on, the voltage drops at once by I × ESR, before the capacitance has even begun to discharge. Example: a 2 A pulse through 0.1 Ω of ESR drops 0.2 V immediately and wastes I²R = 0.4 W as heat. If the cutoff is close, that drop alone can trip it.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Check both: the energy budget and the instant drop.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SIZING CHECKLIST
+                </p>
+
+                <h1>
+                    Before you pick a part
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>↑ Electrode area (A)</strong>
-                        <span>More surface for the reaction → higher peak current</span>
+                        <strong>Voltage range</strong>
+                        <span>Highest safe voltage and lowest usable voltage</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Scan rate (v)</strong>
-                        <span>Faster voltage sweep → higher peak current</span>
+                        <strong>Load profile</strong>
+                        <span>Peak current, its duration, and constant current or constant power</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Concentration (C₀*)</strong>
-                        <span>More redox-active species available → higher peak current</span>
+                        <strong>Energy</strong>
+                        <span>Usable energy from ½C(V₁² − V₂²), plus margin</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>ESR</strong>
+                        <span>The instant drop and heating at peak current</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Life and temperature</strong>
+                        <span>Aging, leakage, and derating in the real environment</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Series stacks</strong>
+                        <span>Cells must be balanced so none exceeds its rated voltage</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    Every one of these variables scales peak current
-                    up — none of them scale it down. That's why CV
-                    curves are so sensitive to test setup.
+                    <strong>Key idea</strong>
+
+                    Sizing is arithmetic plus margin.
 
                 </div>
 
@@ -196,11 +254,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 4 STUDY COMPLETE
+                    UNIT 40 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    ⚡
+                    🌍
                 </div>
 
                 <h1>
@@ -208,13 +266,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered the Randles-Ševčík equation and what a cyclic voltammogram's peak current tells you.
+                    You've covered usable energy, hold-up time, and the ESR drop, with worked examples.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeSupercapUnit4Button"
+                    id="completeSupercapUnit40Button"
                 >
                     Complete Module
                 </button>
@@ -276,7 +334,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeSupercapUnit4Button");
+            document.getElementById("completeSupercapUnit40Button");
 
 
         let currentSlide = 0;
@@ -386,7 +444,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathSupercapStudy4Complete"
+                    "fabPathSupercapStudy40Complete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -399,7 +457,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathSupercapStudy4Complete",
+                        "fabPathSupercapStudy40Complete",
                         "true"
                     );
 

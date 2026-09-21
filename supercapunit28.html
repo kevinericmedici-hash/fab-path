@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Reading a CV Curve | Fab Path</title>
-    <meta name="description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <title>Impedance Spectroscopy | Fab Path</title>
+    <meta name="description" content="Impedance Spectroscopy: illustrated study slides from the Supercapacitors course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Reading a CV Curve | Fab Path">
-    <meta property="og:description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <meta property="og:title" content="Impedance Spectroscopy | Fab Path">
+    <meta property="og:description" content="Impedance Spectroscopy: illustrated study slides from the Supercapacitors course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 4
+                    1 / 5
                 </span>
 
             </div>
@@ -86,31 +86,24 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    TESTING IT
+                    IMPEDANCE SPECTROSCOPY
                 </p>
 
                 <h1>
-                    Cyclic voltammetry, briefly
+                    Small signals, many timescales
                 </h1>
 
-                <div class="module-visual">
-                    📈
+                <div class="module-visual module-visual-text">
+                    small AC, sweep f
                 </div>
 
                 <p>
-                    Cyclic voltammetry (CV) sweeps voltage up and back
-                    down while measuring current, tracing out a loop.
-                    The area inside that loop is where areal charge
-                    storage comes from. The height of the peaks on
-                    that curve is the peak current — and it tells you
-                    a lot about what's happening at the electrode.
+                    Electrochemical impedance spectroscopy applies a tiny AC voltage (often about 10 mV) across a range of frequencies, from perhaps 100 kHz down to 10 mHz, and records the size and timing of the current. The signal is small enough not to change the device, so it simply reveals how each process responds at each speed.
                 </p>
 
                 <div class="module-takeaway">
 
-                    You'll read real CV curves from this thesis later
-                    in the course — this is the tool that produces
-                    them.
+                    Fast processes show up at high frequency, slow ones at low frequency.
 
                 </div>
 
@@ -121,30 +114,24 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE RANDLES-ŠEVČÍK EQUATION
+                    THE NYQUIST PLOT
                 </p>
 
                 <h1>
-                    What sets peak current
+                    One point per frequency
                 </h1>
 
                 <div class="module-visual module-visual-text">
-                    <span class="math-visual">i<sub>p</sub> = (2.69×10⁵) n<sup>3/2</sup> A D₀<sup>1/2</sup> C₀* v<sup>1/2</sup></span>
+                    Z′ vs −Z″
                 </div>
 
                 <p>
-                    This equation predicts the peak current (i<sub>p</sub>) on a
-                    CV curve from the number of electrons transferred
-                    (n), electrode area (A), the redox species'
-                    diffusion coefficient (D₀) and concentration (C₀*),
-                    and the scan rate (v) — how fast the voltage is
-                    swept.
+                    Each frequency becomes one point. Real impedance Z′ (resistance) runs along the horizontal axis, and imaginary impedance −Z″ (capacitive reactance) up the vertical axis. An ideal capacitor is a vertical line, and any series resistance slides that line to the right.
                 </p>
 
                 <div class="module-takeaway">
 
-                    Peak current is a direct readout of how a redox
-                    reaction responds to your test conditions.
+                    Resistance moves the plot sideways; capacitance lifts it upward.
 
                 </div>
 
@@ -155,37 +142,70 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    READING THE VARIABLES
+                    READ IT LEFT TO RIGHT
                 </p>
 
                 <h1>
-                    Bigger electrode, bigger peak
+                    Parts of a Nyquist plot
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>↑ Electrode area (A)</strong>
-                        <span>More surface for the reaction → higher peak current</span>
+                        <strong>High-frequency intercept</strong>
+                        <span>Series resistance (ESR): electrolyte, contacts, and electrodes</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Scan rate (v)</strong>
-                        <span>Faster voltage sweep → higher peak current</span>
+                        <strong>Semicircle</strong>
+                        <span>Charge-transfer resistance at the electrode interface</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Concentration (C₀*)</strong>
-                        <span>More redox-active species available → higher peak current</span>
+                        <strong>45° line (Warburg region)</strong>
+                        <span>Ions diffusing into pores or the bulk</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Near-vertical line</strong>
+                        <span>Capacitive behavior at low frequency</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    Every one of these variables scales peak current
-                    up — none of them scale it down. That's why CV
-                    curves are so sensitive to test setup.
+                    
+
+                    Same physics as CV and GCD, sorted by timescale.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    KNEE FREQUENCY
+                </p>
+
+                <h1>
+                    How fast can it really go?
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    τ ≈ R · C
+                </div>
+
+                <p>
+                    Where the 45° region turns into the vertical line is the knee frequency. Below it the device behaves like a capacitor; above it, resistance dominates. Roughly, the device's response time is its resistance times its capacitance (τ ≈ R·C), so a low-resistance device can be large and still fast.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A smaller time constant means a device that keeps up with faster loads.
 
                 </div>
 
@@ -196,11 +216,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 4 STUDY COMPLETE
+                    UNIT 28 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    ⚡
+                    📊
                 </div>
 
                 <h1>
@@ -208,13 +228,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered the Randles-Ševčík equation and what a cyclic voltammogram's peak current tells you.
+                    You've covered Nyquist plots, series resistance, diffusion, and the knee frequency.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeSupercapUnit4Button"
+                    id="completeSupercapUnit28Button"
                 >
                     Complete Module
                 </button>
@@ -276,7 +296,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeSupercapUnit4Button");
+            document.getElementById("completeSupercapUnit28Button");
 
 
         let currentSlide = 0;
@@ -386,7 +406,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathSupercapStudy4Complete"
+                    "fabPathSupercapStudy28Complete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -399,7 +419,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathSupercapStudy4Complete",
+                        "fabPathSupercapStudy28Complete",
                         "true"
                     );
 

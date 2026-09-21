@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Reading a CV Curve | Fab Path</title>
-    <meta name="description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <title>Stability, Self-Discharge &amp; Honest Reporting | Fab Path</title>
+    <meta name="description" content="Stability, Self-Discharge &amp; Honest Reporting: illustrated study slides from the Supercapacitors course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Reading a CV Curve | Fab Path">
-    <meta property="og:description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <meta property="og:title" content="Stability, Self-Discharge &amp; Honest Reporting | Fab Path">
+    <meta property="og:description" content="Stability, Self-Discharge &amp; Honest Reporting: illustrated study slides from the Supercapacitors course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 4
+                    1 / 6
                 </span>
 
             </div>
@@ -86,31 +86,24 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    TESTING IT
+                    CYCLE LIFE
                 </p>
 
                 <h1>
-                    Cyclic voltammetry, briefly
+                    How long does it last?
                 </h1>
 
-                <div class="module-visual">
-                    📈
+                <div class="module-visual module-visual-text">
+                    retention = Cₙ / C₁
                 </div>
 
                 <p>
-                    Cyclic voltammetry (CV) sweeps voltage up and back
-                    down while measuring current, tracing out a loop.
-                    The area inside that loop is where areal charge
-                    storage comes from. The height of the peaks on
-                    that curve is the peak current — and it tells you
-                    a lot about what's happening at the electrode.
+                    Cycle the device thousands of times at a fixed current and track its capacitance. Capacitance retention is the fraction left after n cycles, reported with coulombic efficiency. A common end-of-life definition is a 20% loss of capacitance or a doubling of ESR.
                 </p>
 
                 <div class="module-takeaway">
 
-                    You'll read real CV curves from this thesis later
-                    in the course — this is the tool that produces
-                    them.
+                    Long-life claims need thousands of cycles, not a few hundred.
 
                 </div>
 
@@ -121,30 +114,24 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE RANDLES-ŠEVČÍK EQUATION
+                    SELF-DISCHARGE
                 </p>
 
                 <h1>
-                    What sets peak current
+                    Holding a charge at rest
                 </h1>
 
                 <div class="module-visual module-visual-text">
-                    <span class="math-visual">i<sub>p</sub> = (2.69×10⁵) n<sup>3/2</sup> A D₀<sup>1/2</sup> C₀* v<sup>1/2</sup></span>
+                    charge → rest → watch V
                 </div>
 
                 <p>
-                    This equation predicts the peak current (i<sub>p</sub>) on a
-                    CV curve from the number of electrons transferred
-                    (n), electrode area (A), the redox species'
-                    diffusion coefficient (D₀) and concentration (C₀*),
-                    and the scan rate (v) — how fast the voltage is
-                    swept.
+                    Charge the device, disconnect it, and watch the open-circuit voltage decay. Real cells sag over hours from leakage currents and unwanted reactions. Self-discharge decides whether a supercapacitor can power a sensor that wakes up once a day.
                 </p>
 
                 <div class="module-takeaway">
 
-                    Peak current is a direct readout of how a redox
-                    reaction responds to your test conditions.
+                    Fast delivery is only half the story: holding the charge matters too.
 
                 </div>
 
@@ -155,37 +142,149 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    READING THE VARIABLES
+                    WHY THE VOLTAGE DECAYS
                 </p>
 
                 <h1>
-                    Bigger electrode, bigger peak
+                    Three usual suspects
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>↑ Electrode area (A)</strong>
-                        <span>More surface for the reaction → higher peak current</span>
+                        <strong>Ohmic leakage</strong>
+                        <span>A small current through the separator or around the cell</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Scan rate (v)</strong>
-                        <span>Faster voltage sweep → higher peak current</span>
+                        <strong>Faradaic leakage</strong>
+                        <span>Impurities or dissolved redox species react and drain charge</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Concentration (C₀*)</strong>
-                        <span>More redox-active species available → higher peak current</span>
+                        <strong>Charge redistribution</strong>
+                        <span>Charge relaxes into deeper pores, so the terminal voltage sags at first</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    Every one of these variables scales peak current
-                    up — none of them scale it down. That's why CV
-                    curves are so sensitive to test setup.
+                    
+
+                    Redox-active electrolytes and very high voltages tend to speed up self-discharge.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SPOTTING SHAKY NUMBERS
+                </p>
+
+                <h1>
+                    Red flags in a supercapacitor paper
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Material data sold as device data</strong>
+                        <span>A symmetric full cell may deliver about a quarter of it</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Only active-material mass counted</strong>
+                        <span>A real device weighs far more once collectors and packaging are included</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Only the slowest scan rate</strong>
+                        <span>Ask for the rate capability across scan rates or currents</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Plateaus called capacitance</strong>
+                        <span>Redox plateaus are better quoted as capacity, in mAh/g or C/g</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>A few hundred cycles as proof</strong>
+                        <span>Look for thousands of cycles, with coulombic efficiency</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>A vague voltage window</strong>
+                        <span>Energy scales with V², so how the window was chosen matters</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    A bold number with no method behind it deserves a second look.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    A TESTING CHECKLIST
+                </p>
+
+                <h1>
+                    Match the claim to the test
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>A device-level claim</strong>
+                        <span>Two-electrode cell</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Capacitance</strong>
+                        <span>GCD or CV, with the current or scan rate and the normalization stated</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Resistance</strong>
+                        <span>IR drop from GCD, plus the Nyquist intercept</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Energy and power</strong>
+                        <span>GCD at several currents, summarized on a Ragone plot</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Lifetime</strong>
+                        <span>Thousands of cycles: retention and coulombic efficiency</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Storage</strong>
+                        <span>Self-discharge at open circuit</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    <strong>Key idea</strong>
+
+                    Good results show the method, the rate, and the denominator.
 
                 </div>
 
@@ -196,11 +295,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 4 STUDY COMPLETE
+                    UNIT 30 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    ⚡
+                    📊
                 </div>
 
                 <h1>
@@ -208,13 +307,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered the Randles-Ševčík equation and what a cyclic voltammogram's peak current tells you.
+                    You've covered cycle life, leakage, and a checklist for spotting shaky claims.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeSupercapUnit4Button"
+                    id="completeSupercapUnit30Button"
                 >
                     Complete Module
                 </button>
@@ -276,7 +375,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeSupercapUnit4Button");
+            document.getElementById("completeSupercapUnit30Button");
 
 
         let currentSlide = 0;
@@ -386,7 +485,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathSupercapStudy4Complete"
+                    "fabPathSupercapStudy30Complete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -399,7 +498,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathSupercapStudy4Complete",
+                        "fabPathSupercapStudy30Complete",
                         "true"
                     );
 

@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Reading a CV Curve | Fab Path</title>
-    <meta name="description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <title>Where Supercapacitors Win | Fab Path</title>
+    <meta name="description" content="Where Supercapacitors Win: illustrated study slides from the Supercapacitors course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Reading a CV Curve | Fab Path">
-    <meta property="og:description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <meta property="og:title" content="Where Supercapacitors Win | Fab Path">
+    <meta property="og:description" content="Where Supercapacitors Win: illustrated study slides from the Supercapacitors course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 4
+                    1 / 5
                 </span>
 
             </div>
@@ -86,31 +86,52 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    TESTING IT
+                    THE SCORECARD
                 </p>
 
                 <h1>
-                    Cyclic voltammetry, briefly
+                    Supercapacitor versus lithium-ion battery
                 </h1>
 
-                <div class="module-visual">
-                    📈
-                </div>
+                <div class="scale-stack">
 
-                <p>
-                    Cyclic voltammetry (CV) sweeps voltage up and back
-                    down while measuring current, tracing out a loop.
-                    The area inside that loop is where areal charge
-                    storage comes from. The height of the peaks on
-                    that curve is the peak current — and it tells you
-                    a lot about what's happening at the electrode.
-                </p>
+                    <div class="scale-row">
+                        <strong>Power</strong>
+                        <span>Very high: often ten times a battery's, or more</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Energy</strong>
+                        <span>Much lower: roughly 5 Wh/kg versus 100–250 Wh/kg</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Cycle life</strong>
+                        <span>Hundreds of thousands to millions of cycles, versus about a thousand to a few thousand</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Charge time</strong>
+                        <span>Seconds to minutes, versus around an hour</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Temperature</strong>
+                        <span>Often −40 to 65 °C, wider than most batteries</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Self-discharge</strong>
+                        <span>Faster: a charged cell drifts down over days to weeks</span>
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    You'll read real CV curves from this thesis later
-                    in the course — this is the tool that produces
-                    them.
+                    
+
+                    Batteries win on energy; supercapacitors win on power and endurance.
 
                 </div>
 
@@ -121,30 +142,24 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE RANDLES-ŠEVČÍK EQUATION
+                    DUTY CYCLE
                 </p>
 
                 <h1>
-                    What sets peak current
+                    Read the load, not the label
                 </h1>
 
                 <div class="module-visual module-visual-text">
-                    <span class="math-visual">i<sub>p</sub> = (2.69×10⁵) n<sup>3/2</sup> A D₀<sup>1/2</sup> C₀* v<sup>1/2</sup></span>
+                    kW or kWh?
                 </div>
 
                 <p>
-                    This equation predicts the peak current (i<sub>p</sub>) on a
-                    CV curve from the number of electrons transferred
-                    (n), electrode area (A), the redox species'
-                    diffusion coefficient (D₀) and concentration (C₀*),
-                    and the scan rate (v) — how fast the voltage is
-                    swept.
+                    Ask two questions: how much energy in total, and how fast must it move? A phone needs plenty of energy delivered slowly, which suits a battery. A crane lowering a load needs a burst of power for a few seconds, again and again, which suits a supercapacitor.
                 </p>
 
                 <div class="module-takeaway">
 
-                    Peak current is a direct readout of how a redox
-                    reaction responds to your test conditions.
+                    Total energy points to batteries. Fast, repeated bursts point to supercapacitors.
 
                 </div>
 
@@ -155,37 +170,108 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    READING THE VARIABLES
+                    CYCLES ARE MONEY
                 </p>
 
                 <h1>
-                    Bigger electrode, bigger peak
+                    Cost per cycle, not per kWh
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>↑ Electrode area (A)</strong>
-                        <span>More surface for the reaction → higher peak current</span>
+                        <strong>Per kWh</strong>
+                        <span>Supercapacitors cost much more for each unit of energy stored</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Scan rate (v)</strong>
-                        <span>Faster voltage sweep → higher peak current</span>
+                        <strong>Per kW</strong>
+                        <span>For each unit of power delivered, they can be cheaper</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Concentration (C₀*)</strong>
-                        <span>More redox-active species available → higher peak current</span>
+                        <strong>Per cycle</strong>
+                        <span>Over a million cycles, the price of each cycle becomes tiny</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Maintenance</strong>
+                        <span>A device that outlives the equipment saves replacements and downtime</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    Every one of these variables scales peak current
-                    up — none of them scale it down. That's why CV
-                    curves are so sensitive to test setup.
+                    
+
+                    For frequent cycling, lifetime cost beats sticker price.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHEN THEY LOSE
+                </p>
+
+                <h1>
+                    Limits, not flaws
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ⏳
+                        </div>
+
+                        <h3>Long, slow energy</h3>
+
+                        <p>
+                            Hours of runtime need an energy density supercapacitors can't offer
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            💤
+                        </div>
+
+                        <h3>Idle for months</h3>
+
+                        <p>
+                            Self-discharge leaks a stored charge away when nothing is using it
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            📉
+                        </div>
+
+                        <h3>Sagging voltage</h3>
+
+                        <p>
+                            Voltage falls in step with the charge, so electronics may need a converter
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    These limits are why hybrids exist, which we'll meet in the last unit.
 
                 </div>
 
@@ -196,11 +282,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 4 STUDY COMPLETE
+                    UNIT 37 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    ⚡
+                    🌍
                 </div>
 
                 <h1>
@@ -208,13 +294,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered the Randles-Ševčík equation and what a cyclic voltammogram's peak current tells you.
+                    You've covered power, cycle life, and cost per cycle, compared with batteries.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeSupercapUnit4Button"
+                    id="completeSupercapUnit37Button"
                 >
                     Complete Module
                 </button>
@@ -276,7 +362,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeSupercapUnit4Button");
+            document.getElementById("completeSupercapUnit37Button");
 
 
         let currentSlide = 0;
@@ -386,7 +472,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathSupercapStudy4Complete"
+                    "fabPathSupercapStudy37Complete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -399,7 +485,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathSupercapStudy4Complete",
+                        "fabPathSupercapStudy37Complete",
                         "true"
                     );
 

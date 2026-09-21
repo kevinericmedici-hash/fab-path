@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Reading a CV Curve | Fab Path</title>
-    <meta name="description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <title>Deposition, Etching &amp; Templates | Fab Path</title>
+    <meta name="description" content="Deposition, Etching &amp; Templates: illustrated study slides from the Supercapacitors course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Reading a CV Curve | Fab Path">
-    <meta property="og:description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <meta property="og:title" content="Deposition, Etching &amp; Templates | Fab Path">
+    <meta property="og:description" content="Deposition, Etching &amp; Templates: illustrated study slides from the Supercapacitors course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 4
+                    1 / 6
                 </span>
 
             </div>
@@ -86,31 +86,24 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    TESTING IT
+                    DEPOSITION
                 </p>
 
                 <h1>
-                    Cyclic voltammetry, briefly
+                    Building films atom by atom
                 </h1>
 
-                <div class="module-visual">
-                    📈
+                <div class="module-visual module-visual-text">
+                    PVD · CVD · ALD
                 </div>
 
                 <p>
-                    Cyclic voltammetry (CV) sweeps voltage up and back
-                    down while measuring current, tracing out a loop.
-                    The area inside that loop is where areal charge
-                    storage comes from. The height of the peaks on
-                    that curve is the peak current — and it tells you
-                    a lot about what's happening at the electrode.
+                    Deposition tools lay down thin films. Sputtering and evaporation release material from a source onto the substrate. Chemical vapor deposition (CVD) grows films from reacting gases. Atomic layer deposition (ALD) adds one atomic layer per cycle. They make current collectors, oxide layers, and conformal coatings.
                 </p>
 
                 <div class="module-takeaway">
 
-                    You'll read real CV curves from this thesis later
-                    in the course — this is the tool that produces
-                    them.
+                    The same deposition tools as MEMS, aimed at energy storage.
 
                 </div>
 
@@ -121,30 +114,42 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE RANDLES-ŠEVČÍK EQUATION
+                    WHAT EACH BRINGS
                 </p>
 
                 <h1>
-                    What sets peak current
+                    Choosing a deposition method
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    <span class="math-visual">i<sub>p</sub> = (2.69×10⁵) n<sup>3/2</sup> A D₀<sup>1/2</sup> C₀* v<sup>1/2</sup></span>
-                </div>
+                <div class="scale-stack">
 
-                <p>
-                    This equation predicts the peak current (i<sub>p</sub>) on a
-                    CV curve from the number of electrons transferred
-                    (n), electrode area (A), the redox species'
-                    diffusion coefficient (D₀) and concentration (C₀*),
-                    and the scan rate (v) — how fast the voltage is
-                    swept.
-                </p>
+                    <div class="scale-row">
+                        <strong>Sputtering, evaporation</strong>
+                        <span>Metal current collectors and thin oxide or nitride films</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>CVD</strong>
+                        <span>Graphene, nanotube forests, and diamond-like films</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>ALD</strong>
+                        <span>Ultra-thin, even coatings on 3D structures, even inside pores</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The catch</strong>
+                        <span>Vacuum equipment, slow rates, and high cost per area</span>
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    Peak current is a direct readout of how a redox
-                    reaction responds to your test conditions.
+                    
+
+                    ALD and CVD can coat 3D scaffolds where line-of-sight methods can't.
 
                 </div>
 
@@ -155,37 +160,118 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    READING THE VARIABLES
+                    LIFT-OFF
                 </p>
 
                 <h1>
-                    Bigger electrode, bigger peak
+                    Patterning without etching
                 </h1>
 
-                <div class="scale-stack">
+                <div class="module-visual module-visual-text">
+                    resist → metal → lift
+                </div>
 
-                    <div class="scale-row">
-                        <strong>↑ Electrode area (A)</strong>
-                        <span>More surface for the reaction → higher peak current</span>
+                <p>
+                    For metals that are hard to etch, pattern the resist first, deposit metal over everything, then dissolve the resist. The metal sitting on the resist lifts away, and only the metal that touched the substrate remains. It's a common way to make thin-film current collectors, such as interleaved gold fingers.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Pattern the negative space, then let the resist carry the excess away.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    ETCHING
+                </p>
+
+                <h1>
+                    Carving out surface area
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧪
+                        </div>
+
+                        <h3>Wet etching</h3>
+
+                        <p>
+                            A chemical bath removes material. Cheap and simple, but it usually cuts sideways too
+                        </p>
+
                     </div>
 
-                    <div class="scale-row">
-                        <strong>↑ Scan rate (v)</strong>
-                        <span>Faster voltage sweep → higher peak current</span>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ⚡
+                        </div>
+
+                        <h3>Plasma etching (RIE)</h3>
+
+                        <p>
+                            Ions and reactive gas remove material with much more directional control
+                        </p>
+
                     </div>
 
-                    <div class="scale-row">
-                        <strong>↑ Concentration (C₀*)</strong>
-                        <span>More redox-active species available → higher peak current</span>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🏛️
+                        </div>
+
+                        <h3>Deep RIE (DRIE)</h3>
+
+                        <p>
+                            Cuts tall, near-vertical trenches and pillars deep into silicon
+                        </p>
+
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    Every one of these variables scales peak current
-                    up — none of them scale it down. That's why CV
-                    curves are so sensitive to test setup.
+                    Etching can turn flat silicon into towers, trenches, or pores, which are then coated with storage material.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    TEMPLATES
+                </p>
+
+                <h1>
+                    Let a template set the geometry
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    aluminum → nanopores
+                </div>
+
+                <p>
+                    Anodizing aluminum in acid grows a regular honeycomb of nanoscale pores, called anodic aluminum oxide. Filling those pores with carbon or a conductor, or anodizing titanium into an array of nanotubes, gives ordered, high-area electrodes without lithography.
+                </p>
+
+                <div class="module-takeaway">
+
+                    The template sets the geometry; the coating sets the chemistry.
 
                 </div>
 
@@ -196,11 +282,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 4 STUDY COMPLETE
+                    UNIT 33 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    ⚡
+                    🏭
                 </div>
 
                 <h1>
@@ -208,13 +294,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered the Randles-Ševčík equation and what a cyclic voltammogram's peak current tells you.
+                    You've covered thin films, lift-off, deep etching, and anodized templates.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeSupercapUnit4Button"
+                    id="completeSupercapUnit33Button"
                 >
                     Complete Module
                 </button>
@@ -276,7 +362,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeSupercapUnit4Button");
+            document.getElementById("completeSupercapUnit33Button");
 
 
         let currentSlide = 0;
@@ -386,7 +472,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathSupercapStudy4Complete"
+                    "fabPathSupercapStudy33Complete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -399,7 +485,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathSupercapStudy4Complete",
+                        "fabPathSupercapStudy33Complete",
                         "true"
                     );
 

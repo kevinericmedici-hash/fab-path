@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Testing &amp; Metrics | Fab Path</title>
-    <meta name="description" content="Testing &amp; Metrics: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <title>The Electric Double Layer | Fab Path</title>
+    <meta name="description" content="The Electric Double Layer: illustrated study slides from the Supercapacitors course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Testing &amp; Metrics | Fab Path">
-    <meta property="og:description" content="Testing &amp; Metrics: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <meta property="og:title" content="The Electric Double Layer | Fab Path">
+    <meta property="og:description" content="The Electric Double Layer: illustrated study slides from the Supercapacitors course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 29
+                    1 / 4
                 </span>
 
             </div>
@@ -82,1130 +82,117 @@
 
             <!-- SLIDE 1 -->
 
+                        <!-- SLIDE 1 -->
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    UNIT 6 • TESTING &amp; METRICS
+                    MECHANISM 1 • EDLC
                 </p>
 
                 <h1>
-                    Numbers you can trust
+                    The electric double layer
                 </h1>
 
-                <p class="module-lead">
-                    A supercapacitor is only as good as the test behind its numbers. Three techniques and a handful of formulas cover almost everything.
-                </p>
-
                 <div class="module-visual">
-                    📊
+                    🧲
                 </div>
 
                 <p>
-                    Nearly every figure in a supercapacitor paper (capacitance, energy, power, lifetime) comes from cyclic voltammetry, charge–discharge cycling, or impedance spectroscopy. Learn to read them and you can sanity-check any claim.
+                    An electric double-layer capacitor stores energy
+                    electrostatically, by physically separating ions.
+                    When a voltage is applied, ions in the electrolyte
+                    move through the liquid and adhere to the surface
+                    of the electrodes, forming a thin, dense layer of
+                    stored charge.
                 </p>
 
                 <div class="module-takeaway">
 
-                    <strong>Key idea</strong>
-
-                    Know how a number was measured before you believe it.
+                    No electrons cross the interface — the ions just
+                    line up at the surface.
 
                 </div>
 
             </section>
-
 
 
             <!-- SLIDE 2 -->
-
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE INSTRUMENT
+                    MECHANISM 1 • EDLC
                 </p>
 
                 <h1>
-                    One workstation, three ways to poke a device
+                    Porous carbon, huge surface
                 </h1>
 
-                <div class="module-card-grid">
+                <p>
+                    EDLC electrodes are typically highly porous
+                    activated carbon, chosen for its enormous surface
+                    area — more surface means more room for ions to
+                    line up. Ions accumulate at the microscopic
+                    boundary between the solid electrode and the liquid
+                    electrolyte, forming two thin dense regions of
+                    charge known as the Helmholtz double layer.
+                </p>
 
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            〰️
-                        </div>
-
-                        <h3>Sweep the voltage</h3>
-
-                        <p>
-                            A potentiostat controls the voltage and measures the current. This is cyclic voltammetry (CV)
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            ➡️
-                        </div>
-
-                        <h3>Hold the current</h3>
-
-                        <p>
-                            A galvanostat controls the current and measures the voltage. This is galvanostatic charge–discharge (GCD)
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            📡
-                        </div>
-
-                        <h3>Ping with AC</h3>
-
-                        <p>
-                            A tiny AC signal sweeps across frequencies and the response is recorded. This is impedance spectroscopy (EIS)
-                        </p>
-
-                    </div>
-
+                <div class="module-visual module-visual-text">
+                    solid electrode | Helmholtz double layer | electrolyte
                 </div>
 
                 <div class="module-takeaway">
 
-                    Most electrochemical workstations do all three, so one device can be tested every way.
+                    Capacitance here scales with how much surface the
+                    ions can reach.
 
                 </div>
 
             </section>
-
 
 
             <!-- SLIDE 3 -->
-
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THREE-ELECTRODE CELL
+                    MECHANISM 1 • EDLC
                 </p>
 
                 <h1>
-                    Testing a material on its own
-                </h1>
-
-                <div class="module-card-grid">
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🎯
-                        </div>
-
-                        <h3>Working electrode</h3>
-
-                        <p>
-                            The material under test. Its potential is what you control and study
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            📏
-                        </div>
-
-                        <h3>Reference electrode</h3>
-
-                        <p>
-                            Holds a steady, known potential, so the working electrode can be measured against it
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🔌
-                        </div>
-
-                        <h3>Counter electrode</h3>
-
-                        <p>
-                            Completes the circuit and carries the current, usually with a larger area than the working electrode
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    A three-electrode cell tells you about a material. It doesn't tell you what a finished device will do.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- SLIDE 4 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    TWO-ELECTRODE CELL
-                </p>
-
-                <h1>
-                    Testing the real device
-                </h1>
-
-                <div class="module-visual module-visual-text">
-                    (+) | separator | (−)
-                </div>
-
-                <p>
-                    A two-electrode cell is the device itself: the full cell voltage is applied across both electrodes with no reference. It captures the separator, the electrolyte, the contacts, and both electrodes working together, so device claims should come from this setup.
-                </p>
-
-                <div class="module-takeaway">
-
-                    Materials: three-electrode. Devices: two-electrode.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- SLIDE 5 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    THE FACTOR OF FOUR
-                </p>
-
-                <h1>
-                    Why one carbon can give two numbers
-                </h1>
-
-                <div class="module-visual module-visual-text">
-                    <span class="math-visual">C<sub>cell</sub> = ½ C<sub>electrode</sub></span>
-                </div>
-
-                <p>
-                    In a symmetric cell the two electrodes act as capacitors in series, so the cell holds half of one electrode's capacitance, and it carries the mass of both electrodes. Dividing by the total mass gives one quarter of the single-electrode value: the same carbon might be quoted at 200 F/g or 50 F/g, depending on the setup.
-                </p>
-
-                <div class="module-takeaway">
-
-                    Always check whether a specific capacitance is per electrode or per device.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- SLIDE 6 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    CV, REVISITED
-                </p>
-
-                <h1>
-                    Why an ideal capacitor draws a rectangle
-                </h1>
-
-                <div class="module-visual module-visual-text">
-                    I = C · dV/dt = C · v
-                </div>
-
-                <p>
-                    Unit 1 introduced the CV loop. For an ideal capacitor, the current is the capacitance times the rate the voltage changes, which is the scan rate v. The current sits flat at +C·v on the way up and −C·v on the way down, tracing a rectangle.
-                </p>
-
-                <div class="module-takeaway">
-
-                    Rectangle means capacitor: capacitance sets the height, and scan rate scales it.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- SLIDE 7 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    READING THE SHAPE
-                </p>
-
-                <h1>
-                    What a CV's outline tells you
+                    What EDLCs are good at
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>Near-perfect rectangle</strong>
-                        <span>Ideal double-layer behavior</span>
+                        <strong>Charge / discharge</strong>
+                        <span>Typically in seconds</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Rectangle with broad humps</strong>
-                        <span>Pseudocapacitive redox reactions are contributing</span>
+                        <strong>Cycle life</strong>
+                        <span>Millions of cycles with virtually no degradation</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Tilted, leaf-like parallelogram</strong>
-                        <span>High series resistance is slowing the charging</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Sharp current rise at the ends</strong>
-                        <span>The electrolyte is breaking down at the window's edge</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Shape bends at fast scans</strong>
-                        <span>Ions can't keep up with the faster sweep</span>
+                        <strong>Power</strong>
+                        <span>Massive bursts of current thanks to low internal resistance</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    
-
-                    Shape is the fastest diagnostic you have, before any number is calculated.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- SLIDE 8 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    CAPACITANCE FROM A CV
-                </p>
-
-                <h1>
-                    Turning a loop into farads
-                </h1>
-
-                <div class="module-visual module-visual-text">
-                    C = ∮ I dV / (2 v ΔV)
-                </div>
-
-                <p>
-                    Integrate the current around the whole loop to find the charge exchanged. Divide by two, since the loop holds a charging half and a discharging half, then divide by the scan rate v and the window width ΔV. Divide again by mass, area, or volume to normalize.
-                </p>
-
-                <div class="module-takeaway">
-
-                    One loop, one capacitance, but only at that scan rate.
+                    When the ions release from the surface and disperse
+                    back into the electrolyte, the stored energy is
+                    delivered — and nothing has been used up.
 
                 </div>
 
             </section>
-
-
-
-            <!-- SLIDE 9 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    SCAN RATE IS A DIAL
-                </p>
-
-                <h1>
-                    Capacitance depends on how fast you sweep
-                </h1>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Slow scan</strong>
-                        <span>Ions have time to reach deep pores, so capacitance looks larger</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Fast scan</strong>
-                        <span>Only outer surfaces respond, so capacitance drops and the shape bends</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Rate capability</strong>
-                        <span>How much capacitance survives as the scan rate climbs</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Reporting</strong>
-                        <span>A capacitance quoted without its scan rate is incomplete</span>
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    
-
-                    Good papers show capacitance across a range of scan rates, not just the flattering one.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- SLIDE 10 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    CAPACITIVE OR DIFFUSION-LIMITED?
-                </p>
-
-                <h1>
-                    The b-value fingerprint
-                </h1>
-
-                <div class="module-visual module-visual-text">
-                    i = a · vᵇ
-                </div>
-
-                <p>
-                    Plot peak current against scan rate on log–log axes; the slope is b. A slope near 1 means capacitive, surface-controlled storage, since current scales with v. A slope near 0.5 means diffusion-limited storage, like the √v dependence in the Randles-Ševčík equation from Unit 1. Values in between suggest a mix.
-                </p>
-
-                <div class="module-takeaway">
-
-                    One slope separates surface storage from bulk, diffusion-limited storage.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- SLIDE 11 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    GALVANOSTATIC CYCLING
-                </p>
-
-                <h1>
-                    Constant current, watch the voltage
-                </h1>
-
-                <div class="module-visual module-visual-text">
-                    constant I → watch V
-                </div>
-
-                <p>
-                    Push a fixed current in until the voltage hits its upper limit, then pull the same current out until it falls to the lower limit, and repeat. It's the closest test to how a real device gets used, and the usual source of capacitance, resistance, energy, and cycle life.
-                </p>
-
-                <div class="module-takeaway">
-
-                    GCD is the workhorse test for device performance.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- SLIDE 12 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    THE TRIANGLE
-                </p>
-
-                <h1>
-                    Capacitance from the slope
-                </h1>
-
-                <div class="module-visual module-visual-text">
-                    C = I · Δt / ΔV
-                </div>
-
-                <p>
-                    At constant current an ideal capacitor's voltage ramps in a straight line, so the charge–discharge curve is a symmetric triangle. On discharge, C = I·Δt/ΔV, where Δt is the discharge time and ΔV the voltage change during it, leaving out the initial drop.
-                </p>
-
-                <div class="module-takeaway">
-
-                    A straight, symmetric line means capacitive. A bent or plateaued line means redox is at work.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- SLIDE 13 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    READING A GCD CURVE
-                </p>
-
-                <h1>
-                    What the curve's features mean
-                </h1>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Straight, symmetric triangle</strong>
-                        <span>Ideal double-layer behavior</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Sudden drop as discharge begins</strong>
-                        <span>IR drop from series resistance: ESR ≈ ΔV<sub>drop</sub> / (2I)</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Curved or plateau sections</strong>
-                        <span>Pseudocapacitive or battery-like reactions</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Discharge shorter than charge</strong>
-                        <span>Charge is being lost, so coulombic efficiency is below 100%</span>
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    
-
-                    The drop's size, divided by twice the current, gives the resistance directly.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- SLIDE 14 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    COULOMBIC EFFICIENCY
-                </p>
-
-                <h1>
-                    Does the charge come back?
-                </h1>
-
-                <div class="module-visual module-visual-text">
-                    <span class="math-visual">η = t<sub>dis</sub> / t<sub>charge</sub></span>
-                </div>
-
-                <p>
-                    At constant current, charge is proportional to time, so discharge time divided by charge time is the coulombic efficiency. Near 100% means almost all stored charge is recovered. Well below means side reactions or leakage are eating charge.
-                </p>
-
-                <div class="module-takeaway">
-
-                    A clean triangle and near-100% efficiency signal a healthy device.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- SLIDE 15 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    IMPEDANCE SPECTROSCOPY
-                </p>
-
-                <h1>
-                    Small signals, many timescales
-                </h1>
-
-                <div class="module-visual module-visual-text">
-                    small AC, sweep f
-                </div>
-
-                <p>
-                    Electrochemical impedance spectroscopy applies a tiny AC voltage (often about 10 mV) across a range of frequencies, from perhaps 100 kHz down to 10 mHz, and records the size and timing of the current. The signal is small enough not to change the device, so it simply reveals how each process responds at each speed.
-                </p>
-
-                <div class="module-takeaway">
-
-                    Fast processes show up at high frequency, slow ones at low frequency.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- SLIDE 16 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    THE NYQUIST PLOT
-                </p>
-
-                <h1>
-                    One point per frequency
-                </h1>
-
-                <div class="module-visual module-visual-text">
-                    Z′ vs −Z″
-                </div>
-
-                <p>
-                    Each frequency becomes one point. Real impedance Z′ (resistance) runs along the horizontal axis, and imaginary impedance −Z″ (capacitive reactance) up the vertical axis. An ideal capacitor is a vertical line, and any series resistance slides that line to the right.
-                </p>
-
-                <div class="module-takeaway">
-
-                    Resistance moves the plot sideways; capacitance lifts it upward.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- SLIDE 17 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    READ IT LEFT TO RIGHT
-                </p>
-
-                <h1>
-                    Parts of a Nyquist plot
-                </h1>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>High-frequency intercept</strong>
-                        <span>Series resistance (ESR): electrolyte, contacts, and electrodes</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Semicircle</strong>
-                        <span>Charge-transfer resistance at the electrode interface</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>45° line (Warburg region)</strong>
-                        <span>Ions diffusing into pores or the bulk</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Near-vertical line</strong>
-                        <span>Capacitive behavior at low frequency</span>
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    
-
-                    Same physics as CV and GCD, sorted by timescale.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- SLIDE 18 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    KNEE FREQUENCY
-                </p>
-
-                <h1>
-                    How fast can it really go?
-                </h1>
-
-                <div class="module-visual module-visual-text">
-                    τ ≈ R · C
-                </div>
-
-                <p>
-                    Where the 45° region turns into the vertical line is the knee frequency. Below it the device behaves like a capacitor; above it, resistance dominates. Roughly, the device's response time is its resistance times its capacitance (τ ≈ R·C), so a low-resistance device can be large and still fast.
-                </p>
-
-                <div class="module-takeaway">
-
-                    A smaller time constant means a device that keeps up with faster loads.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- SLIDE 19 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    ENERGY
-                </p>
-
-                <h1>
-                    From farads to watt-hours
-                </h1>
-
-                <div class="module-visual module-visual-text">
-                    Wh = ½ C V² / 3600
-                </div>
-
-                <p>
-                    Energy in joules is ½CV². To quote it in watt-hours, divide by 3600. Then divide by mass, volume, or area to get an energy density in Wh/kg, Wh/L, or µWh/cm².
-                </p>
-
-                <div class="module-takeaway">
-
-                    Energy density needs both a numerator and a denominator.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- SLIDE 20 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    POWER
-                </p>
-
-                <h1>
-                    Maximum versus average
-                </h1>
-
-                <div class="module-visual module-visual-text">
-                    <span class="math-visual">P<sub>max</sub> = V² / (4 · ESR)</span>
-                </div>
-
-                <p>
-                    Maximum power depends on the voltage squared and the ESR, as in Unit 5. Average power from a discharge is simply the energy delivered divided by the discharge time. Papers use both, so check which one is being quoted.
-                </p>
-
-                <div class="module-takeaway">
-
-                    A wide voltage window and a low ESR both push power up.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- SLIDE 21 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    WHICH DENOMINATOR
-                </p>
-
-                <h1>
-                    Normalize to what matters
-                </h1>
-
-                <div class="module-card-grid">
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            ⚖️
-                        </div>
-
-                        <h3>Gravimetric</h3>
-
-                        <p>
-                            Per gram: F/g, Wh/kg. Common for bulk cells and material studies
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🧊
-                        </div>
-
-                        <h3>Volumetric</h3>
-
-                        <p>
-                            Per cm³: F/cm³, Wh/L. Matters when space is tight
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            📐
-                        </div>
-
-                        <h3>Areal</h3>
-
-                        <p>
-                            Per cm² of footprint: mF/cm², µWh/cm². Matters for on-chip micro devices
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    Pick the denominator that matches the constraint of the application.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- SLIDE 22 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    NORMALIZATION TRAPS
-                </p>
-
-                <h1>
-                    How good numbers get inflated
-                </h1>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Active material only</strong>
-                        <span>Ignores collectors, separator, electrolyte, and packaging, so a real device looks worse</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Thin films</strong>
-                        <span>A tiny active mass makes per-gram values look huge, so quote area or volume instead</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Single electrode vs. device</strong>
-                        <span>Remember the factor of four from the first lesson of this unit</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Mixed units</strong>
-                        <span>F/g, mF/cm², and F/cm³ cannot be compared with each other</span>
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    
-
-                    A number without its denominator is not a result.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- SLIDE 23 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    BUILDING A RAGONE PLOT
-                </p>
-
-                <h1>
-                    From charge–discharge to a curve
-                </h1>
-
-                <div class="module-visual module-visual-text">
-                    each current → a point
-                </div>
-
-                <p>
-                    Run GCD at several currents. At each one, compute energy density and power density. Plot energy against power on log–log axes, one point per current. Higher current gives higher power but lower energy, tracing the tradeoff from Unit 1's Ragone plot for your own device.
-                </p>
-
-                <div class="module-takeaway">
-
-                    A Ragone curve shows what a device does across its whole operating range, not at one favorable point.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- SLIDE 24 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    CYCLE LIFE
-                </p>
-
-                <h1>
-                    How long does it last?
-                </h1>
-
-                <div class="module-visual module-visual-text">
-                    retention = Cₙ / C₁
-                </div>
-
-                <p>
-                    Cycle the device thousands of times at a fixed current and track its capacitance. Capacitance retention is the fraction left after n cycles, reported with coulombic efficiency. A common end-of-life definition is a 20% loss of capacitance or a doubling of ESR.
-                </p>
-
-                <div class="module-takeaway">
-
-                    Long-life claims need thousands of cycles, not a few hundred.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- SLIDE 25 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    SELF-DISCHARGE
-                </p>
-
-                <h1>
-                    Holding a charge at rest
-                </h1>
-
-                <div class="module-visual module-visual-text">
-                    charge → rest → watch V
-                </div>
-
-                <p>
-                    Charge the device, disconnect it, and watch the open-circuit voltage decay. Real cells sag over hours from leakage currents and unwanted reactions. Self-discharge decides whether a supercapacitor can power a sensor that wakes up once a day.
-                </p>
-
-                <div class="module-takeaway">
-
-                    Fast delivery is only half the story: holding the charge matters too.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- SLIDE 26 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    WHY THE VOLTAGE DECAYS
-                </p>
-
-                <h1>
-                    Three usual suspects
-                </h1>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Ohmic leakage</strong>
-                        <span>A small current through the separator or around the cell</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Faradaic leakage</strong>
-                        <span>Impurities or dissolved redox species react and drain charge</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Charge redistribution</strong>
-                        <span>Charge relaxes into deeper pores, so the terminal voltage sags at first</span>
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    
-
-                    Redox-active electrolytes and very high voltages tend to speed up self-discharge.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- SLIDE 27 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    SPOTTING SHAKY NUMBERS
-                </p>
-
-                <h1>
-                    Red flags in a supercapacitor paper
-                </h1>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Material data sold as device data</strong>
-                        <span>A symmetric full cell may deliver about a quarter of it</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Only active-material mass counted</strong>
-                        <span>A real device weighs far more once collectors and packaging are included</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Only the slowest scan rate</strong>
-                        <span>Ask for the rate capability across scan rates or currents</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Plateaus called capacitance</strong>
-                        <span>Redox plateaus are better quoted as capacity, in mAh/g or C/g</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>A few hundred cycles as proof</strong>
-                        <span>Look for thousands of cycles, with coulombic efficiency</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>A vague voltage window</strong>
-                        <span>Energy scales with V², so how the window was chosen matters</span>
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    
-
-                    A bold number with no method behind it deserves a second look.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- SLIDE 28 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    A TESTING CHECKLIST
-                </p>
-
-                <h1>
-                    Match the claim to the test
-                </h1>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>A device-level claim</strong>
-                        <span>Two-electrode cell</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Capacitance</strong>
-                        <span>GCD or CV, with the current or scan rate and the normalization stated</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Resistance</strong>
-                        <span>IR drop from GCD, plus the Nyquist intercept</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Energy and power</strong>
-                        <span>GCD at several currents, summarized on a Ragone plot</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Lifetime</strong>
-                        <span>Thousands of cycles: retention and coulombic efficiency</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Storage</strong>
-                        <span>Self-discharge at open circuit</span>
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    <strong>Key idea</strong>
-
-                    Good results show the method, the rate, and the denominator.
-
-                </div>
-
-            </section>
-
 
 
             <!-- COMPLETION SLIDE -->
-
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
@@ -1213,16 +200,15 @@
                 </p>
 
                 <div class="module-visual">
-                    📊 → ⚡
+                    🧲
                 </div>
 
                 <h1>
-                    Ready for the Fab Challenges?
+                    Ready for the Fab Challenge?
                 </h1>
 
                 <p class="module-lead">
-                    You can now read a CV, a charge–discharge curve, and a Nyquist plot,
-                    and spot the shaky numbers in a supercapacitor paper.
+                    You've covered how ions pile up at an electrode surface to store charge electrostatically.
                 </p>
 
                 <button
@@ -1236,7 +222,7 @@
             </section>
 
 
-        </div>
+</div>
 
 
 
@@ -1400,7 +386,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathSupercapUnit6StudyComplete"
+                    "fabPathSupercapStudy6Complete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -1413,7 +399,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathSupercapUnit6StudyComplete",
+                        "fabPathSupercapStudy6Complete",
                         "true"
                     );
 

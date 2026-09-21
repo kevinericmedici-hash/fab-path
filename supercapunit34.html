@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Reading a CV Curve | Fab Path</title>
-    <meta name="description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <title>Printing &amp; Laser Writing | Fab Path</title>
+    <meta name="description" content="Printing &amp; Laser Writing: illustrated study slides from the Supercapacitors course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Reading a CV Curve | Fab Path">
-    <meta property="og:description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <meta property="og:title" content="Printing &amp; Laser Writing | Fab Path">
+    <meta property="og:description" content="Printing &amp; Laser Writing: illustrated study slides from the Supercapacitors course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 4
+                    1 / 6
                 </span>
 
             </div>
@@ -86,31 +86,24 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    TESTING IT
+                    DIRECT WRITING
                 </p>
 
                 <h1>
-                    Cyclic voltammetry, briefly
+                    No mask, no cleanroom
                 </h1>
 
-                <div class="module-visual">
-                    📈
+                <div class="module-visual module-visual-text">
+                    file → nozzle → device
                 </div>
 
                 <p>
-                    Cyclic voltammetry (CV) sweeps voltage up and back
-                    down while measuring current, tracing out a loop.
-                    The area inside that loop is where areal charge
-                    storage comes from. The height of the peaks on
-                    that curve is the peak current — and it tells you
-                    a lot about what's happening at the electrode.
+                    Printing methods deposit electrode inks exactly where they're needed. A design file replaces the photomask, so changing the pattern is as quick as changing the file. That suits prototypes, small runs, and unusual substrates like paper, plastic, and fabric.
                 </p>
 
                 <div class="module-takeaway">
 
-                    You'll read real CV curves from this thesis later
-                    in the course — this is the tool that produces
-                    them.
+                    The design lives in software, not in a mask.
 
                 </div>
 
@@ -121,30 +114,42 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE RANDLES-ŠEVČÍK EQUATION
+                    THE PRINTING FAMILY
                 </p>
 
                 <h1>
-                    What sets peak current
+                    Four ways to lay down ink
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    <span class="math-visual">i<sub>p</sub> = (2.69×10⁵) n<sup>3/2</sup> A D₀<sup>1/2</sup> C₀* v<sup>1/2</sup></span>
-                </div>
+                <div class="scale-stack">
 
-                <p>
-                    This equation predicts the peak current (i<sub>p</sub>) on a
-                    CV curve from the number of electrons transferred
-                    (n), electrode area (A), the redox species'
-                    diffusion coefficient (D₀) and concentration (C₀*),
-                    and the scan rate (v) — how fast the voltage is
-                    swept.
-                </p>
+                    <div class="scale-row">
+                        <strong>Screen printing</strong>
+                        <span>A squeegee pushes thick ink through a patterned mesh. Fast and simple, with features of roughly 100 µm</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Inkjet printing</strong>
+                        <span>Tiny droplets from a nozzle. Fine detail and thin layers, but the ink must be runny</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Direct ink writing</strong>
+                        <span>A paste is extruded layer by layer, building thick or even tall electrodes</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Roll-to-roll</strong>
+                        <span>A long flexible sheet runs past printing and drying stations, for high volume</span>
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    Peak current is a direct readout of how a redox
-                    reaction responds to your test conditions.
+                    
+
+                    Pick the method by feature size, layer thickness, and volume.
 
                 </div>
 
@@ -155,37 +160,136 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    READING THE VARIABLES
+                    INK DESIGN
                 </p>
 
                 <h1>
-                    Bigger electrode, bigger peak
+                    The ink is half the device
                 </h1>
 
-                <div class="scale-stack">
+                <div class="module-card-grid">
 
-                    <div class="scale-row">
-                        <strong>↑ Electrode area (A)</strong>
-                        <span>More surface for the reaction → higher peak current</span>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            💧
+                        </div>
+
+                        <h3>Viscosity</h3>
+
+                        <p>
+                            Inkjet needs a runny ink; screen printing and extrusion need thicker pastes
+                        </p>
+
                     </div>
 
-                    <div class="scale-row">
-                        <strong>↑ Scan rate (v)</strong>
-                        <span>Faster voltage sweep → higher peak current</span>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔬
+                        </div>
+
+                        <h3>Particle size</h3>
+
+                        <p>
+                            Particles must be far smaller than the nozzle or mesh opening, or they clog it
+                        </p>
+
                     </div>
 
-                    <div class="scale-row">
-                        <strong>↑ Concentration (C₀*)</strong>
-                        <span>More redox-active species available → higher peak current</span>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔥
+                        </div>
+
+                        <h3>Post-treatment</h3>
+
+                        <p>
+                            Printed layers are dried, cured, or sintered, at a temperature the substrate can survive
+                        </p>
+
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    Every one of these variables scales peak current
-                    up — none of them scale it down. That's why CV
-                    curves are so sensitive to test setup.
+                    Great printing depends on an ink tuned to the method.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    LASER SCRIBING
+                </p>
+
+                <h1>
+                    Burning a pattern into carbon
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    laser + polyimide
+                </div>
+
+                <p>
+                    A focused infrared laser scans a polymer film such as polyimide, and the heat converts the surface into porous graphene, called laser-induced graphene, in a single step. Scan the laser in a comb pattern and you have interleaved electrodes in minutes, with no mask or furnace.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Draw a design, and the laser writes conductive carbon.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    LASER WRITING TRADE-OFFS
+                </p>
+
+                <h1>
+                    Fast, but not the finest
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Speed</strong>
+                        <span>A pattern goes from drawing to device in minutes</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Substrate</strong>
+                        <span>Works on plastic films, so devices can be flexible</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Resolution</strong>
+                        <span>Limited by the laser spot and heat spread, so features are wider than lithography's</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Reproducibility</strong>
+                        <span>Rough, porous surfaces need tight control of laser power and speed</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Ideal for fast prototyping, less so for micron-scale precision.
 
                 </div>
 
@@ -196,11 +300,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 4 STUDY COMPLETE
+                    UNIT 34 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    ⚡
+                    🏭
                 </div>
 
                 <h1>
@@ -208,13 +312,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered the Randles-Ševčík equation and what a cyclic voltammogram's peak current tells you.
+                    You've covered mask-free inks, laser-written graphene, and roll-to-roll production.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeSupercapUnit4Button"
+                    id="completeSupercapUnit34Button"
                 >
                     Complete Module
                 </button>
@@ -276,7 +380,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeSupercapUnit4Button");
+            document.getElementById("completeSupercapUnit34Button");
 
 
         let currentSlide = 0;
@@ -386,7 +490,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathSupercapStudy4Complete"
+                    "fabPathSupercapStudy34Complete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -399,7 +503,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathSupercapStudy4Complete",
+                        "fabPathSupercapStudy34Complete",
                         "true"
                     );
 

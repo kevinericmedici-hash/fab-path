@@ -69,66 +69,6 @@ const supercapLesson1Questions = [
 const supercapLesson2Questions = [
 
     {
-        question: "Capacitance is mathematically defined as the ratio of what to what?",
-        answers: [
-            "Stored charge to applied voltage",
-            "Current to total resistance",
-            "Stored energy to power output",
-            "Electrode area to its volume"
-        ],
-        correct: 0
-    },
-
-    {
-        question: "In C = εA/d, what happens to capacitance if the electrode spacing (d) decreases?",
-        answers: [
-            "It decreases",
-            "It increases",
-            "It is unchanged",
-            "It drops to zero"
-        ],
-        correct: 1
-    },
-
-    {
-        question: "Areal capacitance normalizes charge storage by which two things?",
-        answers: [
-            "Elapsed time and operating temperature",
-            "Voltage window and electrode area",
-            "Total mass and electrode volume",
-            "Peak current and internal resistance"
-        ],
-        correct: 1
-    },
-
-    {
-        question: "How does stored energy scale with voltage in E = ½C(ΔV)²?",
-        answers: [
-            "Linearly, in direct proportion",
-            "Inversely with the voltage",
-            "With the square of voltage",
-            "It doesn't depend on voltage"
-        ],
-        correct: 2
-    },
-
-    {
-        question: "Which of these is NOT one of the four ways to raise capacitance discussed in this unit?",
-        answers: [
-            "Increasing electrode surface area",
-            "Reducing the spacing between electrodes",
-            "Raising the dielectric's melting point",
-            "Adding reversible redox reactions"
-        ],
-        correct: 2
-    }
-
-];
-
-
-const supercapLesson3Questions = [
-
-    {
         question: "What separates the two conductive plates in a capacitor?",
         answers: [
             "A sealed vacuum-filled tube",
@@ -181,6 +121,66 @@ const supercapLesson3Questions = [
             "They rely on rare, expensive metals for the plates"
         ],
         correct: 1
+    }
+
+];
+
+
+const supercapLesson3Questions = [
+
+    {
+        question: "Capacitance is mathematically defined as the ratio of what to what?",
+        answers: [
+            "Stored charge to applied voltage",
+            "Current to total resistance",
+            "Stored energy to power output",
+            "Electrode area to its volume"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "In C = εA/d, what happens to capacitance if the electrode spacing (d) decreases?",
+        answers: [
+            "It decreases",
+            "It increases",
+            "It is unchanged",
+            "It drops to zero"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Areal capacitance normalizes charge storage by which two things?",
+        answers: [
+            "Elapsed time and operating temperature",
+            "Voltage window and electrode area",
+            "Total mass and electrode volume",
+            "Peak current and internal resistance"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "How does stored energy scale with voltage in E = ½C(ΔV)²?",
+        answers: [
+            "Linearly, in direct proportion",
+            "Inversely with the voltage",
+            "With the square of voltage",
+            "It doesn't depend on voltage"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Which of these is NOT one of the four ways to raise capacitance discussed in this unit?",
+        answers: [
+            "Increasing electrode surface area",
+            "Reducing the spacing between electrodes",
+            "Raising the dielectric's melting point",
+            "Adding reversible redox reactions"
+        ],
+        correct: 2
     }
 
 ];

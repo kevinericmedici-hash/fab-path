@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Reading a CV Curve | Fab Path</title>
-    <meta name="description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <title>Interdigitated Micro Architectures | Fab Path</title>
+    <meta name="description" content="Interdigitated Micro Architectures: illustrated study slides from the Supercapacitors course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Reading a CV Curve | Fab Path">
-    <meta property="og:description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <meta property="og:title" content="Interdigitated Micro Architectures | Fab Path">
+    <meta property="og:description" content="Interdigitated Micro Architectures: illustrated study slides from the Supercapacitors course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -86,31 +86,30 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    TESTING IT
+                    MICRO • INTERDIGITATED
                 </p>
 
                 <h1>
-                    Cyclic voltammetry, briefly
+                    Two combs, interleaved
                 </h1>
 
-                <div class="module-visual">
-                    📈
+                <div class="module-visual module-visual-text">
+                    ┃┃┃ ⇄ ┃┃┃
                 </div>
 
                 <p>
-                    Cyclic voltammetry (CV) sweeps voltage up and back
-                    down while measuring current, tracing out a loop.
-                    The area inside that loop is where areal charge
-                    storage comes from. The height of the peaks on
-                    that curve is the peak current — and it tells you
-                    a lot about what's happening at the electrode.
+                    The classic in-plane layout: a positive comb and a
+                    negative comb whose fingers interleave. Every finger
+                    faces a neighbor of the opposite polarity, so ions
+                    only cross one small gap.
                 </p>
 
-                <div class="module-takeaway">
+                <div class="scale-stack">
 
-                    You'll read real CV curves from this thesis later
-                    in the course — this is the tool that produces
-                    them.
+                    <div class="scale-row">
+                        <strong>Design knobs</strong>
+                        <span>Finger width, gap, length, number of fingers, and height</span>
+                    </div>
 
                 </div>
 
@@ -121,30 +120,41 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE RANDLES-ŠEVČÍK EQUATION
+                    MICRO • BEYOND STRAIGHT COMBS
                 </p>
 
                 <h1>
-                    What sets peak current
+                    Patterns with more edge
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    <span class="math-visual">i<sub>p</sub> = (2.69×10⁵) n<sup>3/2</sup> A D₀<sup>1/2</sup> C₀* v<sup>1/2</sup></span>
-                </div>
+                <div class="module-card-grid">
 
-                <p>
-                    This equation predicts the peak current (i<sub>p</sub>) on a
-                    CV curve from the number of electrons transferred
-                    (n), electrode area (A), the redox species'
-                    diffusion coefficient (D₀) and concentration (C₀*),
-                    and the scan rate (v) — how fast the voltage is
-                    swept.
-                </p>
+                    <div class="module-card">
+                        <h3>Concentric rings</h3>
+                        <p>Round layouts that suit circular chips and coin-like devices</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Spirals</h3>
+                        <p>Two intertwined spiral arms packed into a small round footprint</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Serpentine</h3>
+                        <p>Winding, meandering fingers that can also flex</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Fractal-style</h3>
+                        <p>Space-filling curves explored to pack long facing edges into little area</p>
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    Peak current is a direct readout of how a redox
-                    reaction responds to your test conditions.
+                    The goal is more electrode-to-electrode edge per
+                    footprint, where ions have short paths.
 
                 </div>
 
@@ -155,37 +165,42 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    READING THE VARIABLES
+                    MICRO • GOING 3D
                 </p>
 
                 <h1>
-                    Bigger electrode, bigger peak
+                    Grow upward, not outward
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>↑ Electrode area (A)</strong>
-                        <span>More surface for the reaction → higher peak current</span>
+                        <strong>Tall walls</strong>
+                        <span>High-aspect-ratio fingers add sidewall area</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Scan rate (v)</strong>
-                        <span>Faster voltage sweep → higher peak current</span>
+                        <strong>Pillar arrays</strong>
+                        <span>Forests of posts or rods with a lot of surface</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Concentration (C₀*)</strong>
-                        <span>More redox-active species available → higher peak current</span>
+                        <strong>Etched trenches</strong>
+                        <span>Deep wells or trenches carved into silicon, then coated</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Porous scaffolds</strong>
+                        <span>Foams and sponges as 3D skeletons for active material</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    Every one of these variables scales peak current
-                    up — none of them scale it down. That's why CV
-                    curves are so sensitive to test setup.
+                    The footprint stays fixed while the active area
+                    grows, but deep electrodes can starve for ions if
+                    they get too tall or dense.
 
                 </div>
 
@@ -196,11 +211,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 4 STUDY COMPLETE
+                    UNIT 15 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    ⚡
+                    🧩
                 </div>
 
                 <h1>
@@ -208,13 +223,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered the Randles-Ševčík equation and what a cyclic voltammogram's peak current tells you.
+                    You've covered combs, spirals, and 3D fingers for on-chip energy storage.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeSupercapUnit4Button"
+                    id="completeSupercapUnit15Button"
                 >
                     Complete Module
                 </button>
@@ -276,7 +291,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeSupercapUnit4Button");
+            document.getElementById("completeSupercapUnit15Button");
 
 
         let currentSlide = 0;
@@ -386,7 +401,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathSupercapStudy4Complete"
+                    "fabPathSupercapStudy15Complete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -399,7 +414,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathSupercapStudy4Complete",
+                        "fabPathSupercapStudy15Complete",
                         "true"
                     );
 

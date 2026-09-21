@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Reading a CV Curve | Fab Path</title>
-    <meta name="description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <title>Organic Electrolytes &amp; Ionic Liquids | Fab Path</title>
+    <meta name="description" content="Organic Electrolytes &amp; Ionic Liquids: illustrated study slides from the Supercapacitors course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Reading a CV Curve | Fab Path">
-    <meta property="og:description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <meta property="og:title" content="Organic Electrolytes &amp; Ionic Liquids | Fab Path">
+    <meta property="og:description" content="Organic Electrolytes &amp; Ionic Liquids: illustrated study slides from the Supercapacitors course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 4
+                    1 / 6
                 </span>
 
             </div>
@@ -86,31 +86,24 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    TESTING IT
+                    ORGANIC ELECTROLYTES
                 </p>
 
                 <h1>
-                    Cyclic voltammetry, briefly
+                    Solvents that don't split
                 </h1>
 
-                <div class="module-visual">
-                    📈
+                <div class="module-visual module-visual-text">
+                    TEABF₄ in acetonitrile
                 </div>
 
                 <p>
-                    Cyclic voltammetry (CV) sweeps voltage up and back
-                    down while measuring current, tracing out a loop.
-                    The area inside that loop is where areal charge
-                    storage comes from. The height of the peaks on
-                    that curve is the peak current — and it tells you
-                    a lot about what's happening at the electrode.
+                    Organic electrolytes dissolve a salt such as tetraethylammonium tetrafluoroborate (TEABF₄) in a solvent like acetonitrile or propylene carbonate. With no water to split, the window reaches about 2.5 to 2.7 V. This is the electrolyte in most commercial carbon supercapacitors.
                 </p>
 
                 <div class="module-takeaway">
 
-                    You'll read real CV curves from this thesis later
-                    in the course — this is the tool that produces
-                    them.
+                    More than double the voltage of water means several times the energy.
 
                 </div>
 
@@ -121,30 +114,40 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE RANDLES-ŠEVČÍK EQUATION
+                    THE PRICE OF VOLTAGE
                 </p>
 
                 <h1>
-                    What sets peak current
+                    Organic: strengths and catches
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    <span class="math-visual">i<sub>p</sub> = (2.69×10⁵) n<sup>3/2</sup> A D₀<sup>1/2</sup> C₀* v<sup>1/2</sup></span>
-                </div>
+                <div class="module-card-grid">
 
-                <p>
-                    This equation predicts the peak current (i<sub>p</sub>) on a
-                    CV curve from the number of electrons transferred
-                    (n), electrode area (A), the redox species'
-                    diffusion coefficient (D₀) and concentration (C₀*),
-                    and the scan rate (v) — how fast the voltage is
-                    swept.
-                </p>
+                    <div class="module-card">
+
+                        <h3>Strengths</h3>
+
+                        <p>
+                            A wide window near 2.7 V, good low-temperature behavior, and a mature commercial supply chain
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <h3>Catches</h3>
+
+                        <p>
+                            Lower conductivity than water, flammable and sometimes toxic solvents, and trace moisture that causes gas and aging, so cells need dry assembly and tight seals
+                        </p>
+
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    Peak current is a direct readout of how a redox
-                    reaction responds to your test conditions.
+                    Bulkier ions and lower conductivity also mean more resistance per cell than in water.
 
                 </div>
 
@@ -155,37 +158,116 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    READING THE VARIABLES
+                    IONIC LIQUIDS
                 </p>
 
                 <h1>
-                    Bigger electrode, bigger peak
+                    Salts that are liquid on their own
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    EMIM⁺ TFSI⁻: no solvent
+                </div>
+
+                <p>
+                    An ionic liquid is a salt that stays molten at or near room temperature. Its bulky, lopsided ions (imidazolium or pyrrolidinium cations paired with anions such as BF₄⁻ or TFSI⁻) don't pack into a crystal easily. No solvent is needed: the liquid is the ions.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Ions with no solvent shell, at very high concentration.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WIDE WINDOW, THICK SYRUP
+                </p>
+
+                <h1>
+                    Ionic liquids: what you gain and give up
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>↑ Electrode area (A)</strong>
-                        <span>More surface for the reaction → higher peak current</span>
+                        <strong>Voltage window</strong>
+                        <span>Often 3 to 4 V, the widest of the liquids</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Scan rate (v)</strong>
-                        <span>Faster voltage sweep → higher peak current</span>
+                        <strong>Safety and stability</strong>
+                        <span>Negligible vapor pressure, non-flammable, and stable at high temperature</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Concentration (C₀*)</strong>
-                        <span>More redox-active species available → higher peak current</span>
+                        <strong>Speed</strong>
+                        <span>Viscous, with conductivity often around 10 mS/cm or lower at room temperature</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Cold</strong>
+                        <span>They thicken sharply as it cools, so power drops</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Cost and ion size</strong>
+                        <span>Expensive, and their large ions need large enough pores</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    Every one of these variables scales peak current
-                    up — none of them scale it down. That's why CV
-                    curves are so sensitive to test setup.
+                    
+
+                    A trade of speed and price for voltage and safety.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    LIQUIDS COMPARED
+                </p>
+
+                <h1>
+                    Three liquid families at a glance
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Aqueous</strong>
+                        <span>About 1 V (up to about 3 V water-in-salt) · highest conductivity · cheapest · non-flammable</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Organic</strong>
+                        <span>About 2.5–2.7 V · moderate conductivity · flammable, needs dry assembly</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Ionic liquid</strong>
+                        <span>About 3–4 V · lowest conductivity · costly · non-flammable</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Families can be mixed: an ionic liquid diluted in acetonitrile, for example, cuts viscosity while keeping a wide window.
 
                 </div>
 
@@ -196,11 +278,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 4 STUDY COMPLETE
+                    UNIT 22 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    ⚡
+                    💧
                 </div>
 
                 <h1>
@@ -208,13 +290,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered the Randles-Ševčík equation and what a cyclic voltammogram's peak current tells you.
+                    You've covered wider windows from solvents that don't split and salts that stay liquid.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeSupercapUnit4Button"
+                    id="completeSupercapUnit22Button"
                 >
                     Complete Module
                 </button>
@@ -276,7 +358,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeSupercapUnit4Button");
+            document.getElementById("completeSupercapUnit22Button");
 
 
         let currentSlide = 0;
@@ -386,7 +468,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathSupercapStudy4Complete"
+                    "fabPathSupercapStudy22Complete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -399,7 +481,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathSupercapStudy4Complete",
+                        "fabPathSupercapStudy22Complete",
                         "true"
                     );
 

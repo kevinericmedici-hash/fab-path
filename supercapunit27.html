@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Reading a CV Curve | Fab Path</title>
-    <meta name="description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <title>Charge–Discharge Curves | Fab Path</title>
+    <meta name="description" content="Charge–Discharge Curves: illustrated study slides from the Supercapacitors course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Reading a CV Curve | Fab Path">
-    <meta property="og:description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <meta property="og:title" content="Charge–Discharge Curves | Fab Path">
+    <meta property="og:description" content="Charge–Discharge Curves: illustrated study slides from the Supercapacitors course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 4
+                    1 / 5
                 </span>
 
             </div>
@@ -86,31 +86,24 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    TESTING IT
+                    GALVANOSTATIC CYCLING
                 </p>
 
                 <h1>
-                    Cyclic voltammetry, briefly
+                    Constant current, watch the voltage
                 </h1>
 
-                <div class="module-visual">
-                    📈
+                <div class="module-visual module-visual-text">
+                    constant I → watch V
                 </div>
 
                 <p>
-                    Cyclic voltammetry (CV) sweeps voltage up and back
-                    down while measuring current, tracing out a loop.
-                    The area inside that loop is where areal charge
-                    storage comes from. The height of the peaks on
-                    that curve is the peak current — and it tells you
-                    a lot about what's happening at the electrode.
+                    Push a fixed current in until the voltage hits its upper limit, then pull the same current out until it falls to the lower limit, and repeat. It's the closest test to how a real device gets used, and the usual source of capacitance, resistance, energy, and cycle life.
                 </p>
 
                 <div class="module-takeaway">
 
-                    You'll read real CV curves from this thesis later
-                    in the course — this is the tool that produces
-                    them.
+                    GCD is the workhorse test for device performance.
 
                 </div>
 
@@ -121,30 +114,24 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE RANDLES-ŠEVČÍK EQUATION
+                    THE TRIANGLE
                 </p>
 
                 <h1>
-                    What sets peak current
+                    Capacitance from the slope
                 </h1>
 
                 <div class="module-visual module-visual-text">
-                    <span class="math-visual">i<sub>p</sub> = (2.69×10⁵) n<sup>3/2</sup> A D₀<sup>1/2</sup> C₀* v<sup>1/2</sup></span>
+                    C = I · Δt / ΔV
                 </div>
 
                 <p>
-                    This equation predicts the peak current (i<sub>p</sub>) on a
-                    CV curve from the number of electrons transferred
-                    (n), electrode area (A), the redox species'
-                    diffusion coefficient (D₀) and concentration (C₀*),
-                    and the scan rate (v) — how fast the voltage is
-                    swept.
+                    At constant current an ideal capacitor's voltage ramps in a straight line, so the charge–discharge curve is a symmetric triangle. On discharge, C = I·Δt/ΔV, where Δt is the discharge time and ΔV the voltage change during it, leaving out the initial drop.
                 </p>
 
                 <div class="module-takeaway">
 
-                    Peak current is a direct readout of how a redox
-                    reaction responds to your test conditions.
+                    A straight, symmetric line means capacitive. A bent or plateaued line means redox is at work.
 
                 </div>
 
@@ -155,37 +142,70 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    READING THE VARIABLES
+                    READING A GCD CURVE
                 </p>
 
                 <h1>
-                    Bigger electrode, bigger peak
+                    What the curve's features mean
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>↑ Electrode area (A)</strong>
-                        <span>More surface for the reaction → higher peak current</span>
+                        <strong>Straight, symmetric triangle</strong>
+                        <span>Ideal double-layer behavior</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Scan rate (v)</strong>
-                        <span>Faster voltage sweep → higher peak current</span>
+                        <strong>Sudden drop as discharge begins</strong>
+                        <span>IR drop from series resistance: ESR ≈ ΔV<sub>drop</sub> / (2I)</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Concentration (C₀*)</strong>
-                        <span>More redox-active species available → higher peak current</span>
+                        <strong>Curved or plateau sections</strong>
+                        <span>Pseudocapacitive or battery-like reactions</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Discharge shorter than charge</strong>
+                        <span>Charge is being lost, so coulombic efficiency is below 100%</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    Every one of these variables scales peak current
-                    up — none of them scale it down. That's why CV
-                    curves are so sensitive to test setup.
+                    
+
+                    The drop's size, divided by twice the current, gives the resistance directly.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    COULOMBIC EFFICIENCY
+                </p>
+
+                <h1>
+                    Does the charge come back?
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    <span class="math-visual">η = t<sub>dis</sub> / t<sub>charge</sub></span>
+                </div>
+
+                <p>
+                    At constant current, charge is proportional to time, so discharge time divided by charge time is the coulombic efficiency. Near 100% means almost all stored charge is recovered. Well below means side reactions or leakage are eating charge.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A clean triangle and near-100% efficiency signal a healthy device.
 
                 </div>
 
@@ -196,11 +216,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 4 STUDY COMPLETE
+                    UNIT 27 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    ⚡
+                    📊
                 </div>
 
                 <h1>
@@ -208,13 +228,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered the Randles-Ševčík equation and what a cyclic voltammogram's peak current tells you.
+                    You've covered constant-current cycling: capacitance, IR drop, and coulombic efficiency.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeSupercapUnit4Button"
+                    id="completeSupercapUnit27Button"
                 >
                     Complete Module
                 </button>
@@ -276,7 +296,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeSupercapUnit4Button");
+            document.getElementById("completeSupercapUnit27Button");
 
 
         let currentSlide = 0;
@@ -386,7 +406,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathSupercapStudy4Complete"
+                    "fabPathSupercapStudy27Complete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -399,7 +419,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathSupercapStudy4Complete",
+                        "fabPathSupercapStudy27Complete",
                         "true"
                     );
 

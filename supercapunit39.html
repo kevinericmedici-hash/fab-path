@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Reading a CV Curve | Fab Path</title>
-    <meta name="description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <title>Electronics, IoT &amp; Harvesting | Fab Path</title>
+    <meta name="description" content="Electronics, IoT &amp; Harvesting: illustrated study slides from the Supercapacitors course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Reading a CV Curve | Fab Path">
-    <meta property="og:description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <meta property="og:title" content="Electronics, IoT &amp; Harvesting | Fab Path">
+    <meta property="og:description" content="Electronics, IoT &amp; Harvesting: illustrated study slides from the Supercapacitors course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 4
+                    1 / 7
                 </span>
 
             </div>
@@ -86,31 +86,24 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    TESTING IT
+                    BURSTS FROM SMALL CELLS
                 </p>
 
                 <h1>
-                    Cyclic voltammetry, briefly
+                    The pulse-load problem
                 </h1>
 
-                <div class="module-visual">
-                    📈
+                <div class="module-visual module-visual-text">
+                    µA sleep · mA burst
                 </div>
 
                 <p>
-                    Cyclic voltammetry (CV) sweeps voltage up and back
-                    down while measuring current, tracing out a loop.
-                    The area inside that loop is where areal charge
-                    storage comes from. The height of the peaks on
-                    that curve is the peak current — and it tells you
-                    a lot about what's happening at the electrode.
+                    Many gadgets sleep on microamps and then burst for a moment, like a wireless sensor sending a packet. A small coin cell struggles with sharp pulses and loses capacity. A supercapacitor placed across the battery supplies the burst and lets the battery deliver a gentle average.
                 </p>
 
                 <div class="module-takeaway">
 
-                    You'll read real CV curves from this thesis later
-                    in the course — this is the tool that produces
-                    them.
+                    Peak power comes from the supercapacitor; average power comes from the battery.
 
                 </div>
 
@@ -121,30 +114,47 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE RANDLES-ŠEVČÍK EQUATION
+                    EVERYDAY ELECTRONICS
                 </p>
 
                 <h1>
-                    What sets peak current
+                    Small-scale uses
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    <span class="math-visual">i<sub>p</sub> = (2.69×10⁵) n<sup>3/2</sup> A D₀<sup>1/2</sup> C₀* v<sup>1/2</sup></span>
-                </div>
+                <div class="scale-stack">
 
-                <p>
-                    This equation predicts the peak current (i<sub>p</sub>) on a
-                    CV curve from the number of electrons transferred
-                    (n), electrode area (A), the redox species'
-                    diffusion coefficient (D₀) and concentration (C₀*),
-                    and the scan rate (v) — how fast the voltage is
-                    swept.
-                </p>
+                    <div class="scale-row">
+                        <strong>Memory and clock backup</strong>
+                        <span>Keep settings alive through short power loss</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Power-loss protection</strong>
+                        <span>Give drives and servers a moment to finish writing data</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Camera flash and LED bursts</strong>
+                        <span>Dump charge quickly into a bright pulse</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Smart meters and trackers</strong>
+                        <span>Supply radio bursts while a small cell trickles in energy</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Power tools and toys</strong>
+                        <span>Recharge in seconds for a short burst of use</span>
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    Peak current is a direct readout of how a redox
-                    reaction responds to your test conditions.
+                    
+
+                    Whenever a device needs a quick burst, a supercapacitor is a candidate.
 
                 </div>
 
@@ -155,37 +165,144 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    READING THE VARIABLES
+                    ENERGY HARVESTING
                 </p>
 
                 <h1>
-                    Bigger electrode, bigger peak
+                    Living off tiny trickles
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    harvest → store → use
+                </div>
+
+                <p>
+                    Solar cells under room light, vibration harvesters, thermoelectric generators on warm surfaces, and radio-frequency harvesters all make small, uneven power, from microwatts to milliwatts. A supercapacitor stores that trickle and releases it in bursts big enough to sense, compute, and transmit.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Harvester plus supercapacitor: a node that can outlast any battery swap.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHAT THE STORAGE MUST DO
+                </p>
+
+                <h1>
+                    Harvesting demands
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>↑ Electrode area (A)</strong>
-                        <span>More surface for the reaction → higher peak current</span>
+                        <strong>Low leakage</strong>
+                        <span>A tiny harvest is easily lost to self-discharge</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Scan rate (v)</strong>
-                        <span>Faster voltage sweep → higher peak current</span>
+                        <strong>Cold start</strong>
+                        <span>It must fill up from empty when the source returns</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Concentration (C₀*)</strong>
-                        <span>More redox-active species available → higher peak current</span>
+                        <strong>Right voltage</strong>
+                        <span>A range wide enough for the electronics, or a converter to step it</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Small footprint</strong>
+                        <span>Micro-supercapacitors can sit on the same chip</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    Every one of these variables scales peak current
-                    up — none of them scale it down. That's why CV
-                    curves are so sensitive to test setup.
+                    
+
+                    For harvesters, leakage matters as much as capacitance.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    A SENSOR NODE'S DAY
+                </p>
+
+                <h1>
+                    Sleep, wake, send, repeat
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Sleep</strong>
+                        <span>Microamps, for nearly all of the time</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Wake and sense</strong>
+                        <span>Milliamps for a few milliseconds</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Transmit</strong>
+                        <span>Tens of milliamps for a few hundred milliseconds</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Recharge</strong>
+                        <span>The harvester refills the supercapacitor between bursts</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Average power is tiny, but peaks aren't, and peaks are where supercapacitors shine.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 6 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    ON-CHIP STORAGE
+                </p>
+
+                <h1>
+                    Where geometry meets fabrication
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    chip + micro-supercap
+                </div>
+
+                <p>
+                    Micro-supercapacitors made with the routes from Part 7, whether in-plane, interdigitated, printed, or laser-written, can share a chip or flexible sheet with harvesters and sensors. They store far less than a coin cell, but enough for burst operation, and they survive huge numbers of cycles.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Part 4's shapes and Part 7's methods come together in on-chip power.
 
                 </div>
 
@@ -196,11 +313,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 4 STUDY COMPLETE
+                    UNIT 39 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    ⚡
+                    🌍
                 </div>
 
                 <h1>
@@ -208,13 +325,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered the Randles-Ševčík equation and what a cyclic voltammogram's peak current tells you.
+                    You've covered pulse loads, backup power, and buffering tiny harvested energy.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeSupercapUnit4Button"
+                    id="completeSupercapUnit39Button"
                 >
                     Complete Module
                 </button>
@@ -276,7 +393,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeSupercapUnit4Button");
+            document.getElementById("completeSupercapUnit39Button");
 
 
         let currentSlide = 0;
@@ -386,7 +503,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathSupercapStudy4Complete"
+                    "fabPathSupercapStudy39Complete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -399,7 +516,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathSupercapStudy4Complete",
+                        "fabPathSupercapStudy39Complete",
                         "true"
                     );
 

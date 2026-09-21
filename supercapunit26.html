@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Reading a CV Curve | Fab Path</title>
-    <meta name="description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <title>Cyclic Voltammetry in Depth | Fab Path</title>
+    <meta name="description" content="Cyclic Voltammetry in Depth: illustrated study slides from the Supercapacitors course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Reading a CV Curve | Fab Path">
-    <meta property="og:description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <meta property="og:title" content="Cyclic Voltammetry in Depth | Fab Path">
+    <meta property="og:description" content="Cyclic Voltammetry in Depth: illustrated study slides from the Supercapacitors course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 4
+                    1 / 6
                 </span>
 
             </div>
@@ -86,31 +86,24 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    TESTING IT
+                    CV, REVISITED
                 </p>
 
                 <h1>
-                    Cyclic voltammetry, briefly
+                    Why an ideal capacitor draws a rectangle
                 </h1>
 
-                <div class="module-visual">
-                    📈
+                <div class="module-visual module-visual-text">
+                    I = C · dV/dt = C · v
                 </div>
 
                 <p>
-                    Cyclic voltammetry (CV) sweeps voltage up and back
-                    down while measuring current, tracing out a loop.
-                    The area inside that loop is where areal charge
-                    storage comes from. The height of the peaks on
-                    that curve is the peak current — and it tells you
-                    a lot about what's happening at the electrode.
+                    Part 1 introduced the CV loop. For an ideal capacitor, the current is the capacitance times the rate the voltage changes, which is the scan rate v. The current sits flat at +C·v on the way up and −C·v on the way down, tracing a rectangle.
                 </p>
 
                 <div class="module-takeaway">
 
-                    You'll read real CV curves from this thesis later
-                    in the course — this is the tool that produces
-                    them.
+                    Rectangle means capacitor: capacitance sets the height, and scan rate scales it.
 
                 </div>
 
@@ -121,30 +114,47 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE RANDLES-ŠEVČÍK EQUATION
+                    READING THE SHAPE
                 </p>
 
                 <h1>
-                    What sets peak current
+                    What a CV's outline tells you
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    <span class="math-visual">i<sub>p</sub> = (2.69×10⁵) n<sup>3/2</sup> A D₀<sup>1/2</sup> C₀* v<sup>1/2</sup></span>
-                </div>
+                <div class="scale-stack">
 
-                <p>
-                    This equation predicts the peak current (i<sub>p</sub>) on a
-                    CV curve from the number of electrons transferred
-                    (n), electrode area (A), the redox species'
-                    diffusion coefficient (D₀) and concentration (C₀*),
-                    and the scan rate (v) — how fast the voltage is
-                    swept.
-                </p>
+                    <div class="scale-row">
+                        <strong>Near-perfect rectangle</strong>
+                        <span>Ideal double-layer behavior</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Rectangle with broad humps</strong>
+                        <span>Pseudocapacitive redox reactions are contributing</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Tilted, leaf-like parallelogram</strong>
+                        <span>High series resistance is slowing the charging</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Sharp current rise at the ends</strong>
+                        <span>The electrolyte is breaking down at the window's edge</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Shape bends at fast scans</strong>
+                        <span>Ions can't keep up with the faster sweep</span>
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    Peak current is a direct readout of how a redox
-                    reaction responds to your test conditions.
+                    
+
+                    Shape is the fastest diagnostic you have, before any number is calculated.
 
                 </div>
 
@@ -155,37 +165,98 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    READING THE VARIABLES
+                    CAPACITANCE FROM A CV
                 </p>
 
                 <h1>
-                    Bigger electrode, bigger peak
+                    Turning a loop into farads
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    C = ∮ I dV / (2 v ΔV)
+                </div>
+
+                <p>
+                    Integrate the current around the whole loop to find the charge exchanged. Divide by two, since the loop holds a charging half and a discharging half, then divide by the scan rate v and the window width ΔV. Divide again by mass, area, or volume to normalize.
+                </p>
+
+                <div class="module-takeaway">
+
+                    One loop, one capacitance, but only at that scan rate.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SCAN RATE IS A DIAL
+                </p>
+
+                <h1>
+                    Capacitance depends on how fast you sweep
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>↑ Electrode area (A)</strong>
-                        <span>More surface for the reaction → higher peak current</span>
+                        <strong>Slow scan</strong>
+                        <span>Ions have time to reach deep pores, so capacitance looks larger</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Scan rate (v)</strong>
-                        <span>Faster voltage sweep → higher peak current</span>
+                        <strong>Fast scan</strong>
+                        <span>Only outer surfaces respond, so capacitance drops and the shape bends</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Concentration (C₀*)</strong>
-                        <span>More redox-active species available → higher peak current</span>
+                        <strong>Rate capability</strong>
+                        <span>How much capacitance survives as the scan rate climbs</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Reporting</strong>
+                        <span>A capacitance quoted without its scan rate is incomplete</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    Every one of these variables scales peak current
-                    up — none of them scale it down. That's why CV
-                    curves are so sensitive to test setup.
+                    
+
+                    Good papers show capacitance across a range of scan rates, not just the flattering one.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CAPACITIVE OR DIFFUSION-LIMITED?
+                </p>
+
+                <h1>
+                    The b-value fingerprint
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    i = a · vᵇ
+                </div>
+
+                <p>
+                    Plot peak current against scan rate on log–log axes; the slope is b. A slope near 1 means capacitive, surface-controlled storage, since current scales with v. A slope near 0.5 means diffusion-limited storage, like the √v dependence in the Randles-Ševčík equation from Part 1. Values in between suggest a mix.
+                </p>
+
+                <div class="module-takeaway">
+
+                    One slope separates surface storage from bulk, diffusion-limited storage.
 
                 </div>
 
@@ -196,11 +267,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 4 STUDY COMPLETE
+                    UNIT 26 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    ⚡
+                    📊
                 </div>
 
                 <h1>
@@ -208,13 +279,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered the Randles-Ševčík equation and what a cyclic voltammogram's peak current tells you.
+                    You've covered reading CV shapes, computing capacitance, and scan-rate fingerprints.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeSupercapUnit4Button"
+                    id="completeSupercapUnit26Button"
                 >
                     Complete Module
                 </button>
@@ -276,7 +347,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeSupercapUnit4Button");
+            document.getElementById("completeSupercapUnit26Button");
 
 
         let currentSlide = 0;
@@ -386,7 +457,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathSupercapStudy4Complete"
+                    "fabPathSupercapStudy26Complete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -399,7 +470,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathSupercapStudy4Complete",
+                        "fabPathSupercapStudy26Complete",
                         "true"
                     );
 

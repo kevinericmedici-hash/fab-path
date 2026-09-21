@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Reading a CV Curve | Fab Path</title>
-    <meta name="description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <title>Energy, Power &amp; Normalization | Fab Path</title>
+    <meta name="description" content="Energy, Power &amp; Normalization: illustrated study slides from the Supercapacitors course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Reading a CV Curve | Fab Path">
-    <meta property="og:description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <meta property="og:title" content="Energy, Power &amp; Normalization | Fab Path">
+    <meta property="og:description" content="Energy, Power &amp; Normalization: illustrated study slides from the Supercapacitors course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 4
+                    1 / 6
                 </span>
 
             </div>
@@ -86,31 +86,24 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    TESTING IT
+                    ENERGY
                 </p>
 
                 <h1>
-                    Cyclic voltammetry, briefly
+                    From farads to watt-hours
                 </h1>
 
-                <div class="module-visual">
-                    📈
+                <div class="module-visual module-visual-text">
+                    Wh = ½ C V² / 3600
                 </div>
 
                 <p>
-                    Cyclic voltammetry (CV) sweeps voltage up and back
-                    down while measuring current, tracing out a loop.
-                    The area inside that loop is where areal charge
-                    storage comes from. The height of the peaks on
-                    that curve is the peak current — and it tells you
-                    a lot about what's happening at the electrode.
+                    Energy in joules is ½CV². To quote it in watt-hours, divide by 3600. Then divide by mass, volume, or area to get an energy density in Wh/kg, Wh/L, or µWh/cm².
                 </p>
 
                 <div class="module-takeaway">
 
-                    You'll read real CV curves from this thesis later
-                    in the course — this is the tool that produces
-                    them.
+                    Energy density needs both a numerator and a denominator.
 
                 </div>
 
@@ -121,30 +114,24 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE RANDLES-ŠEVČÍK EQUATION
+                    POWER
                 </p>
 
                 <h1>
-                    What sets peak current
+                    Maximum versus average
                 </h1>
 
                 <div class="module-visual module-visual-text">
-                    <span class="math-visual">i<sub>p</sub> = (2.69×10⁵) n<sup>3/2</sup> A D₀<sup>1/2</sup> C₀* v<sup>1/2</sup></span>
+                    <span class="math-visual">P<sub>max</sub> = V² / (4 · ESR)</span>
                 </div>
 
                 <p>
-                    This equation predicts the peak current (i<sub>p</sub>) on a
-                    CV curve from the number of electrons transferred
-                    (n), electrode area (A), the redox species'
-                    diffusion coefficient (D₀) and concentration (C₀*),
-                    and the scan rate (v) — how fast the voltage is
-                    swept.
+                    Maximum power depends on the voltage squared and the ESR, as in Part 5. Average power from a discharge is simply the energy delivered divided by the discharge time. Papers use both, so check which one is being quoted.
                 </p>
 
                 <div class="module-takeaway">
 
-                    Peak current is a direct readout of how a redox
-                    reaction responds to your test conditions.
+                    A wide voltage window and a low ESR both push power up.
 
                 </div>
 
@@ -155,37 +142,136 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    READING THE VARIABLES
+                    WHICH DENOMINATOR
                 </p>
 
                 <h1>
-                    Bigger electrode, bigger peak
+                    Normalize to what matters
                 </h1>
 
-                <div class="scale-stack">
+                <div class="module-card-grid">
 
-                    <div class="scale-row">
-                        <strong>↑ Electrode area (A)</strong>
-                        <span>More surface for the reaction → higher peak current</span>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ⚖️
+                        </div>
+
+                        <h3>Gravimetric</h3>
+
+                        <p>
+                            Per gram: F/g, Wh/kg. Common for bulk cells and material studies
+                        </p>
+
                     </div>
 
-                    <div class="scale-row">
-                        <strong>↑ Scan rate (v)</strong>
-                        <span>Faster voltage sweep → higher peak current</span>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧊
+                        </div>
+
+                        <h3>Volumetric</h3>
+
+                        <p>
+                            Per cm³: F/cm³, Wh/L. Matters when space is tight
+                        </p>
+
                     </div>
 
-                    <div class="scale-row">
-                        <strong>↑ Concentration (C₀*)</strong>
-                        <span>More redox-active species available → higher peak current</span>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            📐
+                        </div>
+
+                        <h3>Areal</h3>
+
+                        <p>
+                            Per cm² of footprint: mF/cm², µWh/cm². Matters for on-chip micro devices
+                        </p>
+
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    Every one of these variables scales peak current
-                    up — none of them scale it down. That's why CV
-                    curves are so sensitive to test setup.
+                    Pick the denominator that matches the constraint of the application.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    NORMALIZATION TRAPS
+                </p>
+
+                <h1>
+                    How good numbers get inflated
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Active material only</strong>
+                        <span>Ignores collectors, separator, electrolyte, and packaging, so a real device looks worse</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Thin films</strong>
+                        <span>A tiny active mass makes per-gram values look huge, so quote area or volume instead</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Single electrode vs. device</strong>
+                        <span>Remember the factor of four from the first unit of this part</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Mixed units</strong>
+                        <span>F/g, mF/cm², and F/cm³ cannot be compared with each other</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    A number without its denominator is not a result.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    BUILDING A RAGONE PLOT
+                </p>
+
+                <h1>
+                    From charge–discharge to a curve
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    each current → a point
+                </div>
+
+                <p>
+                    Run GCD at several currents. At each one, compute energy density and power density. Plot energy against power on log–log axes, one point per current. Higher current gives higher power but lower energy, tracing the tradeoff from Part 1's Ragone plot for your own device.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A Ragone curve shows what a device does across its whole operating range, not at one favorable point.
 
                 </div>
 
@@ -196,11 +282,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 4 STUDY COMPLETE
+                    UNIT 29 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    ⚡
+                    📊
                 </div>
 
                 <h1>
@@ -208,13 +294,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered the Randles-Ševčík equation and what a cyclic voltammogram's peak current tells you.
+                    You've covered turning data into Wh, W, and Ragone points, per gram, per cm², or per cm³.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeSupercapUnit4Button"
+                    id="completeSupercapUnit29Button"
                 >
                     Complete Module
                 </button>
@@ -276,7 +362,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeSupercapUnit4Button");
+            document.getElementById("completeSupercapUnit29Button");
 
 
         let currentSlide = 0;
@@ -386,7 +472,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathSupercapStudy4Complete"
+                    "fabPathSupercapStudy29Complete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -399,7 +485,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathSupercapStudy4Complete",
+                        "fabPathSupercapStudy29Complete",
                         "true"
                     );
 

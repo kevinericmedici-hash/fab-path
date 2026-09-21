@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Reading a CV Curve | Fab Path</title>
-    <meta name="description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <title>Vehicles &amp; the Grid | Fab Path</title>
+    <meta name="description" content="Vehicles &amp; the Grid: illustrated study slides from the Supercapacitors course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Reading a CV Curve | Fab Path">
-    <meta property="og:description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <meta property="og:title" content="Vehicles &amp; the Grid | Fab Path">
+    <meta property="og:description" content="Vehicles &amp; the Grid: illustrated study slides from the Supercapacitors course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 4
+                    1 / 5
                 </span>
 
             </div>
@@ -86,31 +86,24 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    TESTING IT
+                    REGENERATIVE BRAKING
                 </p>
 
                 <h1>
-                    Cyclic voltammetry, briefly
+                    Catching the energy of stopping
                 </h1>
 
-                <div class="module-visual">
-                    📈
+                <div class="module-visual module-visual-text">
+                    brake → store → launch
                 </div>
 
                 <p>
-                    Cyclic voltammetry (CV) sweeps voltage up and back
-                    down while measuring current, tracing out a loop.
-                    The area inside that loop is where areal charge
-                    storage comes from. The height of the peaks on
-                    that curve is the peak current — and it tells you
-                    a lot about what's happening at the electrode.
+                    When a bus, tram, crane, or elevator slows down, its motor can act as a generator. That energy arrives in seconds and is too fast and too frequent for many batteries. A supercapacitor absorbs it, then gives it back to accelerate again, stop after stop.
                 </p>
 
                 <div class="module-takeaway">
 
-                    You'll read real CV curves from this thesis later
-                    in the course — this is the tool that produces
-                    them.
+                    The same charge is recycled thousands of times a day.
 
                 </div>
 
@@ -121,30 +114,47 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE RANDLES-ŠEVČÍK EQUATION
+                    TRANSPORT USES
                 </p>
 
                 <h1>
-                    What sets peak current
+                    Where you'll find them
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    <span class="math-visual">i<sub>p</sub> = (2.69×10⁵) n<sup>3/2</sup> A D₀<sup>1/2</sup> C₀* v<sup>1/2</sup></span>
-                </div>
+                <div class="scale-stack">
 
-                <p>
-                    This equation predicts the peak current (i<sub>p</sub>) on a
-                    CV curve from the number of electrons transferred
-                    (n), electrode area (A), the redox species'
-                    diffusion coefficient (D₀) and concentration (C₀*),
-                    and the scan rate (v) — how fast the voltage is
-                    swept.
-                </p>
+                    <div class="scale-row">
+                        <strong>Buses and trams</strong>
+                        <span>Store braking energy, and some vehicles recharge in seconds at stops</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Cranes and port equipment</strong>
+                        <span>Capture energy from lowered loads and smooth engine peaks</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Elevators and lifts</strong>
+                        <span>Recover energy on the way down and help starts</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Start-stop engines</strong>
+                        <span>Help crank the engine, especially in cold weather, sparing the battery</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Motorsport hybrids</strong>
+                        <span>Deliver short power boosts on demand</span>
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    Peak current is a direct readout of how a redox
-                    reaction responds to your test conditions.
+                    
+
+                    The pattern is always the same: frequent, short, powerful events.
 
                 </div>
 
@@ -155,37 +165,75 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    READING THE VARIABLES
+                    HYBRID PACK
                 </p>
 
                 <h1>
-                    Bigger electrode, bigger peak
+                    Battery for the miles, supercap for the moments
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    battery + supercap
+                </div>
+
+                <p>
+                    In a hybrid energy storage system, the battery supplies steady energy and the supercapacitor takes the sharp peaks. That shields the battery from harsh current spikes, which can extend its life, and can let the pack be smaller.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Two storage types, each doing the job it's best at.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE GRID
+                </p>
+
+                <h1>
+                    Smoothing a power system
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>↑ Electrode area (A)</strong>
-                        <span>More surface for the reaction → higher peak current</span>
+                        <strong>Frequency regulation</strong>
+                        <span>Absorb or inject power in seconds to keep the grid steady</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Scan rate (v)</strong>
-                        <span>Faster voltage sweep → higher peak current</span>
+                        <strong>Ride-through</strong>
+                        <span>Cover a brief voltage sag so equipment doesn't reset</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Concentration (C₀*)</strong>
-                        <span>More redox-active species available → higher peak current</span>
+                        <strong>Uninterruptible power</strong>
+                        <span>Bridge the seconds between an outage and a generator starting</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Wind turbines</strong>
+                        <span>Power blade-pitch systems so blades can turn to safety in a fault</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Renewable smoothing</strong>
+                        <span>Even out sudden drops and surges from solar or wind</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    Every one of these variables scales peak current
-                    up — none of them scale it down. That's why CV
-                    curves are so sensitive to test setup.
+                    
+
+                    In every case, storage does many small jobs, quickly, forever.
 
                 </div>
 
@@ -196,11 +244,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 4 STUDY COMPLETE
+                    UNIT 38 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    ⚡
+                    🌍
                 </div>
 
                 <h1>
@@ -208,13 +256,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered the Randles-Ševčík equation and what a cyclic voltammogram's peak current tells you.
+                    You've covered regenerative braking, hybrid packs, and grid support.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeSupercapUnit4Button"
+                    id="completeSupercapUnit38Button"
                 >
                     Complete Module
                 </button>
@@ -276,7 +324,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeSupercapUnit4Button");
+            document.getElementById("completeSupercapUnit38Button");
 
 
         let currentSlide = 0;
@@ -386,7 +434,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathSupercapStudy4Complete"
+                    "fabPathSupercapStudy38Complete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -399,7 +447,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathSupercapStudy4Complete",
+                        "fabPathSupercapStudy38Complete",
                         "true"
                     );
 

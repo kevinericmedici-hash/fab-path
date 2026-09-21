@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Reading a CV Curve | Fab Path</title>
-    <meta name="description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <title>Assembly &amp; Choosing a Method | Fab Path</title>
+    <meta name="description" content="Assembly &amp; Choosing a Method: illustrated study slides from the Supercapacitors course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Reading a CV Curve | Fab Path">
-    <meta property="og:description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <meta property="og:title" content="Assembly &amp; Choosing a Method | Fab Path">
+    <meta property="og:description" content="Assembly &amp; Choosing a Method: illustrated study slides from the Supercapacitors course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 4
+                    1 / 6
                 </span>
 
             </div>
@@ -86,31 +86,24 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    TESTING IT
+                    ASSEMBLY
                 </p>
 
                 <h1>
-                    Cyclic voltammetry, briefly
+                    Fabrication doesn't end at the electrode
                 </h1>
 
-                <div class="module-visual">
-                    📈
+                <div class="module-visual module-visual-text">
+                    assemble · fill · seal
                 </div>
 
                 <p>
-                    Cyclic voltammetry (CV) sweeps voltage up and back
-                    down while measuring current, tracing out a loop.
-                    The area inside that loop is where areal charge
-                    storage comes from. The height of the peaks on
-                    that curve is the peak current — and it tells you
-                    a lot about what's happening at the electrode.
+                    Electrodes still need to be paired, wetted with electrolyte, and sealed. Details matter: stacks must be aligned, the separator must not let the electrodes touch, electrolyte must soak the pores fully, and moisture and oxygen must be kept out.
                 </p>
 
                 <div class="module-takeaway">
 
-                    You'll read real CV curves from this thesis later
-                    in the course — this is the tool that produces
-                    them.
+                    Many failures come from assembly, not from the electrode material.
 
                 </div>
 
@@ -121,30 +114,42 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE RANDLES-ŠEVČÍK EQUATION
+                    ASSEMBLY BY FORMAT
                 </p>
 
                 <h1>
-                    What sets peak current
+                    Different shapes, different final steps
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    <span class="math-visual">i<sub>p</sub> = (2.69×10⁵) n<sup>3/2</sup> A D₀<sup>1/2</sup> C₀* v<sup>1/2</sup></span>
-                </div>
+                <div class="scale-stack">
 
-                <p>
-                    This equation predicts the peak current (i<sub>p</sub>) on a
-                    CV curve from the number of electrons transferred
-                    (n), electrode area (A), the redox species'
-                    diffusion coefficient (D₀) and concentration (C₀*),
-                    and the scan rate (v) — how fast the voltage is
-                    swept.
-                </p>
+                    <div class="scale-row">
+                        <strong>Coin cell</strong>
+                        <span>Punch discs, stack them with a separator, add electrolyte, and crimp shut</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Pouch or wound cell</strong>
+                        <span>Cut, stack or wind, add tabs, fill, and heat-seal the foil</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>In-plane micro device</strong>
+                        <span>Pattern electrodes, then add a gel or liquid under a cover</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Fiber device</strong>
+                        <span>Coat, twist or wrap, then encapsulate in a polymer sleeve</span>
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    Peak current is a direct readout of how a redox
-                    reaction responds to your test conditions.
+                    
+
+                    The shape from Part 4 decides the final steps.
 
                 </div>
 
@@ -155,37 +160,154 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    READING THE VARIABLES
+                    SCALE, COST, AND YIELD
                 </p>
 
                 <h1>
-                    Bigger electrode, bigger peak
+                    What changes as volume grows
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>↑ Electrode area (A)</strong>
-                        <span>More surface for the reaction → higher peak current</span>
+                        <strong>Yield</strong>
+                        <span>One short or defect ruins a device, so cleanliness and alignment matter</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Scan rate (v)</strong>
-                        <span>Faster voltage sweep → higher peak current</span>
+                        <strong>Cost per device</strong>
+                        <span>Cleanroom time is costly at low volume but cheap per chip at high volume</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Concentration (C₀*)</strong>
-                        <span>More redox-active species available → higher peak current</span>
+                        <strong>Reproducibility</strong>
+                        <span>Printed and laser-written devices need tight process control to match</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Material cost</strong>
+                        <span>Costly precursors or vacuum steps can dominate the price</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    Every one of these variables scales peak current
-                    up — none of them scale it down. That's why CV
-                    curves are so sensitive to test setup.
+                    
+
+                    The cheapest method for ten devices is rarely the cheapest for a million.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    FABRICATION AT A GLANCE
+                </p>
+
+                <h1>
+                    Six routes compared
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Slurry casting</strong>
+                        <span>Cheap and scalable · limited resolution · needs a binder</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Photolithography + pyrolysis</strong>
+                        <span>Micron precision, 3D · cleanroom and furnace</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Deposition and etching</strong>
+                        <span>Thin, conformal, precise · vacuum tools, high cost</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Printing</strong>
+                        <span>Mask-free, flexible substrates · ink tuning, lower resolution</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Laser writing</strong>
+                        <span>Fast, one step · rough features, limited materials</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Growth and spinning</strong>
+                        <span>Binder-free, high area · slower, more chemistry</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    No single method wins on everything.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    A DECISION GUIDE
+                </p>
+
+                <h1>
+                    Match the method to the goal
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Cheap, large-format cells</strong>
+                        <span>Slurry casting and roll-to-roll coating</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Small, precise, on-chip</strong>
+                        <span>Photolithography with pyrolysis, or thin films</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Rapid flexible prototypes</strong>
+                        <span>Inkjet, screen printing, or laser scribing</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Tall electrodes, small footprint</strong>
+                        <span>Direct ink writing or lithographic 3D structures</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Fibers and textiles</strong>
+                        <span>Wet spinning and dip coating</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Binder-free, high area</strong>
+                        <span>Direct growth, electrospinning, or self-assembly</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    <strong>Key idea</strong>
+
+                    The best method is the one that produces the geometry, material, and volume the application needs.
 
                 </div>
 
@@ -196,11 +318,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 4 STUDY COMPLETE
+                    UNIT 36 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    ⚡
+                    🏭
                 </div>
 
                 <h1>
@@ -208,13 +330,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered the Randles-Ševčík equation and what a cyclic voltammogram's peak current tells you.
+                    You've covered sealing devices, scale-up trade-offs, and a guide to picking a method.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeSupercapUnit4Button"
+                    id="completeSupercapUnit36Button"
                 >
                     Complete Module
                 </button>
@@ -276,7 +398,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeSupercapUnit4Button");
+            document.getElementById("completeSupercapUnit36Button");
 
 
         let currentSlide = 0;
@@ -386,7 +508,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathSupercapStudy4Complete"
+                    "fabPathSupercapStudy36Complete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -399,7 +521,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathSupercapStudy4Complete",
+                        "fabPathSupercapStudy36Complete",
                         "true"
                     );
 

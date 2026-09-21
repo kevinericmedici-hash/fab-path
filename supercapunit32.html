@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Three Kinds of Supercapacitor | Fab Path</title>
-    <meta name="description" content="Three Kinds of Supercapacitor: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <title>Photolithography &amp; Pyrolysis | Fab Path</title>
+    <meta name="description" content="Photolithography &amp; Pyrolysis: illustrated study slides from the Supercapacitors course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Three Kinds of Supercapacitor | Fab Path">
-    <meta property="og:description" content="Three Kinds of Supercapacitor: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <meta property="og:title" content="Photolithography &amp; Pyrolysis | Fab Path">
+    <meta property="og:description" content="Photolithography &amp; Pyrolysis: illustrated study slides from the Supercapacitors course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 5
+                    1 / 7
                 </span>
 
             </div>
@@ -86,52 +86,24 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    THE INTERFACE
+                    TOP-DOWN MICROFABRICATION
                 </p>
 
                 <h1>
-                    Electrode meets electrolyte
+                    Draw the electrodes with light
                 </h1>
 
-                <div class="module-card-grid">
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🔌
-                        </div>
-
-                        <h3>Conventional capacitor</h3>
-
-                        <p>
-                            Stores energy across a solid dielectric
-                            layer between two plates.
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            ⚡
-                        </div>
-
-                        <h3>Supercapacitor</h3>
-
-                        <p>
-                            Stores energy at the interface between an
-                            electrode and an electrolyte.
-                        </p>
-
-                    </div>
-
+                <div class="module-visual module-visual-text">
+                    mask → light → pattern
                 </div>
+
+                <p>
+                    In photolithography, a light-sensitive polymer called photoresist is spun onto a substrate, exposed to UV light through a patterned mask, and developed so only part of it remains. It's the tool behind computer chips and MEMS devices, here used to define electrodes.
+                </p>
 
                 <div class="module-takeaway">
 
-                    That interface can hold capacitance several orders
-                    of magnitude greater than a conventional
-                    capacitor.
+                    Light draws the pattern; the mask holds the design.
 
                 </div>
 
@@ -142,32 +114,42 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    SURFACE VS. BULK
+                    CHOOSING A RESIST
                 </p>
 
                 <h1>
-                    Not a battery
+                    Photoresists for building structures
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>Battery</strong>
-                        <span>Energy stored by diffusion-controlled chemical reactions throughout the bulk of the electrode</span>
+                        <strong>Positive resist</strong>
+                        <span>Exposed areas dissolve in the developer</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Supercapacitor</strong>
-                        <span>Energy stored by surface-based processes at the electrode-electrolyte interface</span>
+                        <strong>Negative resist</strong>
+                        <span>Exposed areas cross-link and stay behind</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>SU-8</strong>
+                        <span>An epoxy-based negative resist that forms thick, tall, steep-walled structures</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Why tall matters</strong>
+                        <span>Tall pillars and combs add surface area without a bigger footprint</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    Surface processes are fast and gentle on the
-                    material — that's why supercapacitors charge
-                    quickly and last so many cycles.
+                    
+
+                    SU-8 is a common starting point for tall polymer structures.
 
                 </div>
 
@@ -178,30 +160,52 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    CHARGING, STEP BY STEP
+                    THE FLOW
                 </p>
 
                 <h1>
-                    Electrons out, ions in
+                    Pattern first, then bake
                 </h1>
 
-                <p>
-                    During charging, an external circuit supplies
-                    electrons to one electrode and removes them from
-                    the other. Ions in the electrolyte then migrate
-                    toward the oppositely charged electrode surfaces
-                    to keep everything electrically neutral. The
-                    resulting charge separation is the stored energy.
-                </p>
+                <div class="scale-stack">
 
-                <div class="module-visual module-visual-text">
-                    e⁻ → electrode &nbsp;|&nbsp; ions → surface
+                    <div class="scale-row">
+                        <strong>1 · Clean</strong>
+                        <span>Prepare the substrate, such as silicon or oxidized silicon</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>2 · Spin</strong>
+                        <span>Coat resist to a set thickness</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>3 · Soft bake</strong>
+                        <span>Drive off the solvent</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>4 · Expose</strong>
+                        <span>Shine UV through the mask</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>5 · Develop</strong>
+                        <span>Bake after exposure, then wash away the unwanted resist</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>6 · Pyrolyze</strong>
+                        <span>Heat in an inert gas so the polymer becomes carbon</span>
+                    </div>
+
                 </div>
 
                 <div class="module-takeaway">
 
-                    Discharging simply runs the process in reverse,
-                    releasing that stored energy to a load.
+                    
+
+                    Steps 1 to 5 make a polymer structure. Step 6 turns it into carbon.
 
                 </div>
 
@@ -212,37 +216,141 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THREE CATEGORIES
+                    PYROLYSIS
                 </p>
 
                 <h1>
-                    Sorted by mechanism
+                    Turning polymer into carbon
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    N₂ + 900 °C → carbon
+                </div>
+
+                <p>
+                    In a tube furnace under nitrogen or forming gas, the structure is heated in stages, often first to a few hundred degrees and then to roughly 900 to 1000 °C. Hydrogen, oxygen, and nitrogen leave as gases, and what remains is glassy carbon in the same pattern.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Same shape, new material: an insulating polymer becomes conductive carbon.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SHRINKAGE
+                </p>
+
+                <h1>
+                    Design for the shrink
                 </h1>
 
                 <div class="module-card-grid">
 
                     <div class="module-card">
-                        <h3>EDLC</h3>
-                        <p>Electrostatic ion accumulation at the interface</p>
+
+                        <div class="module-card-icon">
+                            📉
+                        </div>
+
+                        <h3>Big change</h3>
+
+                        <p>
+                            Pyrolysis removes much of the mass, so features can lose around half their size or more
+                        </p>
+
                     </div>
 
                     <div class="module-card">
-                        <h3>Pseudocapacitor</h3>
-                        <p>Fast, reversible faradaic redox reactions at the surface</p>
+
+                        <div class="module-card-icon">
+                            ✏️
+                        </div>
+
+                        <h3>Predictable</h3>
+
+                        <p>
+                            Shrinkage is fairly uniform, so the mask can be drawn larger to compensate
+                        </p>
+
                     </div>
 
                     <div class="module-card">
-                        <h3>Hybrid</h3>
-                        <p>Combines both mechanisms in a single device</p>
+
+                        <div class="module-card-icon">
+                            🧷
+                        </div>
+
+                        <h3>Adhesion risk</h3>
+
+                        <p>
+                            A shrinking film can crack or peel, so adhesion and gentle heating ramps help
+                        </p>
+
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    EDLCs tend to win on power and cycle life;
-                    pseudocapacitors tend to win on capacitance and
-                    energy density.
+                    Shrinkage is a design input, not a surprise.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 6 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    STRENGTHS AND CATCHES
+                </p>
+
+                <h1>
+                    Photolithography with pyrolysis
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Precision</strong>
+                        <span>Micrometer-scale features and gaps, set by the mask</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>3D structures</strong>
+                        <span>Tall pillars and combs raise area without growing the footprint</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Parallel</strong>
+                        <span>A whole wafer is patterned at once, so devices match</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Cost</strong>
+                        <span>Needs cleanroom tools and a high-temperature furnace</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Substrate</strong>
+                        <span>It has to survive the furnace, which rules out most plastics</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Best for small, precise, repeatable devices, not cheap large ones.
 
                 </div>
 
@@ -253,11 +361,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 5 STUDY COMPLETE
+                    UNIT 32 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    🧲
+                    🏭
                 </div>
 
                 <h1>
@@ -265,13 +373,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered EDLCs, pseudocapacitors, and hybrids — and how surface storage differs from a battery.
+                    You've covered patterning polymer with light, then baking it into 3D glassy carbon.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeSupercapUnit5Button"
+                    id="completeSupercapUnit32Button"
                 >
                     Complete Module
                 </button>
@@ -333,7 +441,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeSupercapUnit5Button");
+            document.getElementById("completeSupercapUnit32Button");
 
 
         let currentSlide = 0;
@@ -443,7 +551,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathSupercapStudy5Complete"
+                    "fabPathSupercapStudy32Complete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -456,7 +564,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathSupercapStudy5Complete",
+                        "fabPathSupercapStudy32Complete",
                         "true"
                     );
 

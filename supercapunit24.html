@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Reading a CV Curve | Fab Path</title>
-    <meta name="description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <title>Choosing an Electrolyte | Fab Path</title>
+    <meta name="description" content="Choosing an Electrolyte: illustrated study slides from the Supercapacitors course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Reading a CV Curve | Fab Path">
-    <meta property="og:description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <meta property="og:title" content="Choosing an Electrolyte | Fab Path">
+    <meta property="og:description" content="Choosing an Electrolyte: illustrated study slides from the Supercapacitors course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 4
+                    1 / 5
                 </span>
 
             </div>
@@ -86,31 +86,24 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    TESTING IT
+                    IONS HAVE SIZE
                 </p>
 
                 <h1>
-                    Cyclic voltammetry, briefly
+                    Ion size versus pore size
                 </h1>
 
-                <div class="module-visual">
-                    📈
+                <div class="module-visual module-visual-text">
+                    ion ≈ pore?
                 </div>
 
                 <p>
-                    Cyclic voltammetry (CV) sweeps voltage up and back
-                    down while measuring current, tracing out a loop.
-                    The area inside that loop is where areal charge
-                    storage comes from. The height of the peaks on
-                    that curve is the peak current — and it tells you
-                    a lot about what's happening at the electrode.
+                    In water, an ion carries a shell of water molecules, so a small ion can act large. Pores have to be big enough for ions to enter, or the surface inside is wasted. In very small pores (under about a nanometer), ions can shed part of their shell and pack tightly, and capacitance per area can actually rise.
                 </p>
 
                 <div class="module-takeaway">
 
-                    You'll read real CV curves from this thesis later
-                    in the course — this is the tool that produces
-                    them.
+                    Choose the pores for the ions, or choose the ions for the pores.
 
                 </div>
 
@@ -121,30 +114,42 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE RANDLES-ŠEVČÍK EQUATION
+                    TEMPERATURE
                 </p>
 
                 <h1>
-                    What sets peak current
+                    Hot, cold, and everything between
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    <span class="math-visual">i<sub>p</sub> = (2.69×10⁵) n<sup>3/2</sup> A D₀<sup>1/2</sup> C₀* v<sup>1/2</sup></span>
-                </div>
+                <div class="scale-stack">
 
-                <p>
-                    This equation predicts the peak current (i<sub>p</sub>) on a
-                    CV curve from the number of electrons transferred
-                    (n), electrode area (A), the redox species'
-                    diffusion coefficient (D₀) and concentration (C₀*),
-                    and the scan rate (v) — how fast the voltage is
-                    swept.
-                </p>
+                    <div class="scale-row">
+                        <strong>Aqueous</strong>
+                        <span>Freezes near 0 °C (salt lowers it) and dries out when hot</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Organic</strong>
+                        <span>Typically about −40 °C to 65 °C, limited by volatility and flammability</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Ionic liquid</strong>
+                        <span>Stable when hot, but viscous and slow in the cold</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Gel</strong>
+                        <span>Hydrogels can dry out or freeze, so packaging must hold water in</span>
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    Peak current is a direct readout of how a redox
-                    reaction responds to your test conditions.
+                    
+
+                    Match the electrolyte to where the device will actually live.
 
                 </div>
 
@@ -155,37 +160,80 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    READING THE VARIABLES
+                    REDOX-ACTIVE ELECTROLYTES
                 </p>
 
                 <h1>
-                    Bigger electrode, bigger peak
+                    When the electrolyte stores charge too
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    I⁻ ⇄ I₃⁻
+                </div>
+
+                <p>
+                    Some electrolytes carry a dissolved redox couple, such as iodide and triiodide, hydroquinone, or vanadium salts. The couple reacts quickly and reversibly at the electrode surface, adding pseudocapacitance from the liquid itself. It's the same redox idea behind the current amplification in Part 2, used here for storage.
+                </p>
+
+                <div class="module-takeaway">
+
+                    The catch: dissolved redox species can wander to the other electrode and discharge it, so self-discharge rises.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    A DECISION GUIDE
+                </p>
+
+                <h1>
+                    Pick the electrolyte for the job
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>↑ Electrode area (A)</strong>
-                        <span>More surface for the reaction → higher peak current</span>
+                        <strong>Cheap, safe, moderate energy</strong>
+                        <span>Neutral or acidic aqueous</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Scan rate (v)</strong>
-                        <span>Faster voltage sweep → higher peak current</span>
+                        <strong>Pseudocapacitive oxides</strong>
+                        <span>An aqueous electrolyte matched to the oxide, such as alkaline or neutral salts</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>↑ Concentration (C₀*)</strong>
-                        <span>More redox-active species available → higher peak current</span>
+                        <strong>Highest energy in a big cell</strong>
+                        <span>Organic, around 2.7 V</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Extreme heat or strict safety</strong>
+                        <span>Ionic liquid</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Flexible, thin, or wearable</strong>
+                        <span>Gel electrolyte</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Thinnest, safest, slowest</strong>
+                        <span>Solid electrolyte</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    Every one of these variables scales peak current
-                    up — none of them scale it down. That's why CV
-                    curves are so sensitive to test setup.
+                    <strong>Key idea</strong>
+
+                    There is no best electrolyte. Choose the one whose window, speed, and packaging fit the device.
 
                 </div>
 
@@ -196,11 +244,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 4 STUDY COMPLETE
+                    UNIT 24 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    ⚡
+                    💧
                 </div>
 
                 <h1>
@@ -208,13 +256,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered the Randles-Ševčík equation and what a cyclic voltammogram's peak current tells you.
+                    You've covered ion and pore size, temperature, redox-active electrolytes, and a decision guide.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeSupercapUnit4Button"
+                    id="completeSupercapUnit24Button"
                 >
                     Complete Module
                 </button>
@@ -276,7 +324,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeSupercapUnit4Button");
+            document.getElementById("completeSupercapUnit24Button");
 
 
         let currentSlide = 0;
@@ -386,7 +434,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathSupercapStudy4Complete"
+                    "fabPathSupercapStudy24Complete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -399,7 +447,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathSupercapStudy4Complete",
+                        "fabPathSupercapStudy24Complete",
                         "true"
                     );
 

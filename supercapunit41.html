@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Reading a CV Curve | Fab Path</title>
-    <meta name="description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <title>Wearables &amp; Biomedical | Fab Path</title>
+    <meta name="description" content="Wearables &amp; Biomedical: illustrated study slides from the Supercapacitors course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Reading a CV Curve | Fab Path">
-    <meta property="og:description" content="Reading a CV Curve: illustrated study slides from the Supercapacitors course on Fab Path.">
+    <meta property="og:title" content="Wearables &amp; Biomedical | Fab Path">
+    <meta property="og:description" content="Wearables &amp; Biomedical: illustrated study slides from the Supercapacitors course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 4
+                    1 / 6
                 </span>
 
             </div>
@@ -86,31 +86,24 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    TESTING IT
+                    POWERING THE BODY
                 </p>
 
                 <h1>
-                    Cyclic voltammetry, briefly
+                    Why bodies are a tough place
                 </h1>
 
-                <div class="module-visual">
-                    📈
+                <div class="module-visual module-visual-text">
+                    small · safe · soft
                 </div>
 
                 <p>
-                    Cyclic voltammetry (CV) sweeps voltage up and back
-                    down while measuring current, tracing out a loop.
-                    The area inside that loop is where areal charge
-                    storage comes from. The height of the peaks on
-                    that curve is the peak current — and it tells you
-                    a lot about what's happening at the electrode.
+                    Devices on or in the body must be tiny, safe, and often flexible. Body fluids are salty water, so electrolytes must be compatible, and any leak or toxic material is unacceptable. At the millimeter scale, a battery stores very little.
                 </p>
 
                 <div class="module-takeaway">
 
-                    You'll read real CV curves from this thesis later
-                    in the course — this is the tool that produces
-                    them.
+                    Size, safety, and softness all come first.
 
                 </div>
 
@@ -121,30 +114,42 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE RANDLES-ŠEVČÍK EQUATION
+                    WEARABLES
                 </p>
 
                 <h1>
-                    What sets peak current
+                    Power that moves with you
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    <span class="math-visual">i<sub>p</sub> = (2.69×10⁵) n<sup>3/2</sup> A D₀<sup>1/2</sup> C₀* v<sup>1/2</sup></span>
-                </div>
+                <div class="scale-stack">
 
-                <p>
-                    This equation predicts the peak current (i<sub>p</sub>) on a
-                    CV curve from the number of electrons transferred
-                    (n), electrode area (A), the redox species'
-                    diffusion coefficient (D₀) and concentration (C₀*),
-                    and the scan rate (v) — how fast the voltage is
-                    swept.
-                </p>
+                    <div class="scale-row">
+                        <strong>Smart textiles</strong>
+                        <span>Woven and fiber supercapacitors from Part 4 power sensors in clothing</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Skin patches</strong>
+                        <span>Thin, stretchable films that follow the skin's motion</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Fitness trackers</strong>
+                        <span>Bursts for radios and displays between slow recharges</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Wearable harvesters</strong>
+                        <span>Motion, heat, or light harvesters paired with a small supercapacitor</span>
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    Peak current is a direct readout of how a redox
-                    reaction responds to your test conditions.
+                    
+
+                    Flexibility and safe electrolytes matter as much as capacity.
 
                 </div>
 
@@ -155,37 +160,159 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    READING THE VARIABLES
+                    IMPLANTS
                 </p>
 
                 <h1>
-                    Bigger electrode, bigger peak
+                    Inside the body: the constraints
                 </h1>
 
-                <div class="scale-stack">
+                <div class="module-card-grid">
 
-                    <div class="scale-row">
-                        <strong>↑ Electrode area (A)</strong>
-                        <span>More surface for the reaction → higher peak current</span>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧬
+                        </div>
+
+                        <h3>Safe materials</h3>
+
+                        <p>
+                            Biocompatible, non-toxic materials, with nothing that can leak into tissue
+                        </p>
+
                     </div>
 
-                    <div class="scale-row">
-                        <strong>↑ Scan rate (v)</strong>
-                        <span>Faster voltage sweep → higher peak current</span>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            💧
+                        </div>
+
+                        <h3>Neutral electrolyte</h3>
+
+                        <p>
+                            Saline-like or gel electrolytes, not strong acids or bases
+                        </p>
+
                     </div>
 
-                    <div class="scale-row">
-                        <strong>↑ Concentration (C₀*)</strong>
-                        <span>More redox-active species available → higher peak current</span>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ♾️
+                        </div>
+
+                        <h3>Long life</h3>
+
+                        <p>
+                            Replacing an implant means surgery, so long cycle life is valuable
+                        </p>
+
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    Every one of these variables scales peak current
-                    up — none of them scale it down. That's why CV
-                    curves are so sensitive to test setup.
+                    The durability that suits grids suits implants too.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    BODY-FRIENDLY ELECTROLYTES
+                </p>
+
+                <h1>
+                    Working in physiological fluid
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Saline and PBS</strong>
+                        <span>About 0.15 M salt water: safe, but only moderately conductive</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Voltage window</strong>
+                        <span>Aqueous limits of roughly 1 V apply, as in Part 5</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Inert carbons</strong>
+                        <span>Glassy carbon and similar carbons resist corrosion and biofouling in saline</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Sterilization</strong>
+                        <span>Materials must survive it, and the seal must stay intact</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Testing</strong>
+                        <span>Biocompatibility and leakage checks come before any approval</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Physiological fluids trade voltage for safety.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    HOW THEY RECHARGE
+                </p>
+
+                <h1>
+                    Pairing with a power source
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Wireless power</strong>
+                        <span>Inductive coupling charges a small buffer through the skin</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Motion and heat</strong>
+                        <span>Harvesters turn body movement or body heat into a trickle</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Biofuel cells</strong>
+                        <span>Enzymes and fuels like glucose make small currents</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Pulsed loads</strong>
+                        <span>Stimulation or sensing bursts draw on the supercapacitor's fast output</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    The supercapacitor turns weak, steady input into strong, brief output.
 
                 </div>
 
@@ -196,11 +323,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 4 STUDY COMPLETE
+                    UNIT 41 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    ⚡
+                    🌍
                 </div>
 
                 <h1>
@@ -208,13 +335,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered the Randles-Ševčík equation and what a cyclic voltammogram's peak current tells you.
+                    You've covered flexible, body-safe power, and how wearables and implants recharge.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeSupercapUnit4Button"
+                    id="completeSupercapUnit41Button"
                 >
                     Complete Module
                 </button>
@@ -276,7 +403,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeSupercapUnit4Button");
+            document.getElementById("completeSupercapUnit41Button");
 
 
         let currentSlide = 0;
@@ -386,7 +513,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathSupercapStudy4Complete"
+                    "fabPathSupercapStudy41Complete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -399,7 +526,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathSupercapStudy4Complete",
+                        "fabPathSupercapStudy41Complete",
                         "true"
                     );
 

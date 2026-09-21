@@ -6,7 +6,7 @@
 
 const supercapGameData = {
 
-    /* ---------- UNIT 2: EDLC, pseudocapacitor, or hybrid? ---------- */
+    /* ---------- PART 2: EDLC, pseudocapacitor, or hybrid? ---------- */
 
     mechanisms: {
 
@@ -43,7 +43,7 @@ const supercapGameData = {
     },
 
 
-    /* ---------- UNIT 3: which electrode family? ---------- */
+    /* ---------- PART 3: which electrode family? ---------- */
 
     electrodes: {
 
@@ -79,7 +79,7 @@ const supercapGameData = {
     },
 
 
-    /* ---------- UNIT 4: shape for the job ---------- */
+    /* ---------- PART 4: shape for the job ---------- */
 
     geometry: {
 
@@ -115,7 +115,7 @@ const supercapGameData = {
     },
 
 
-    /* ---------- UNIT 5: pick the electrolyte ---------- */
+    /* ---------- PART 5: pick the electrolyte ---------- */
 
     electrolytes: {
 
@@ -152,7 +152,7 @@ const supercapGameData = {
     },
 
 
-    /* ---------- UNIT 7: order the process ---------- */
+    /* ---------- PART 7: order the process ---------- */
 
     fabrication: {
 
@@ -229,7 +229,7 @@ const supercapGameData = {
     },
 
 
-    /* ---------- UNIT 1: find the spot on the Ragone plot ---------- */
+    /* ---------- PART 1: find the spot on the Ragone plot ---------- */
 
     ragone: {
 
@@ -262,7 +262,7 @@ const supercapGameData = {
     },
 
 
-    /* ---------- UNIT 6: name that curve ---------- */
+    /* ---------- PART 6: name that curve ---------- */
 
     curves: {
 
@@ -326,7 +326,7 @@ const supercapGameData = {
     },
 
 
-    /* ---------- UNIT 8: size the supercapacitor ---------- */
+    /* ---------- PART 8: size the supercapacitor ---------- */
 
     sizing: {
 
