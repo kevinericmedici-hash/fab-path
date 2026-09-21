@@ -1,8 +1,8 @@
 /* ========================================
    BIOFETS & MOSFETS COURSE DATA
-   Parts 1 (MOSFET Fundamentals), 2 (Sensing Ions), and
-   3 (Biofunctionalization) are built. Later parts
-   (biosensing) are added here as they go live.
+   All four parts are built: 1 (MOSFET Fundamentals),
+   2 (Sensing Ions), 3 (Biofunctionalization), and
+   4 (Biosensing).
 
    Structure: every unit is a short study module
    (a few slides) followed by one Fab Challenge
@@ -37,6 +37,15 @@ const fetCourseParts = [
         lastUnitId: 19,
         description:
             "Give the gate a recognition layer: receptors, silane and thiol chemistry, linkers, blocking, binding equilibrium, and how to prove each step worked."
+    },
+
+    {
+        id: 4,
+        title: "Biosensing: From Molecules to Measurements",
+        firstUnitId: 20,
+        lastUnitId: 25,
+        description:
+            "Put the sensor to work: Debye screening, protein and DNA detection, limit of detection, device formats, and what it takes to measure real samples."
     }
 
 ];
@@ -513,6 +522,156 @@ const fetCourseData = [
                 title: "Verifying the Layer",
                 description:
                     "How to prove each chemical step worked before trusting the sensor."
+            }
+
+        ]
+    },
+
+    {
+        id: 20,
+
+        title: "Debye Screening & Charge Detection",
+
+        description:
+            "Why salty samples hide bound charge, and what designers do about it.",
+
+        studyModule: {
+            title: "Debye Screening & Charge Detection",
+            href: "fetunit20.html"
+        },
+
+        lessons: [
+
+            {
+                id: 20,
+                title: "Debye Screening & Charge Detection",
+                description:
+                    "Why salty samples hide bound charge, and what designers do about it."
+            }
+
+        ]
+    },
+
+    {
+        id: 21,
+
+        title: "Protein Detection",
+
+        description:
+            "How antibody-based BioFETs read a protein, and why buffer pH matters.",
+
+        studyModule: {
+            title: "Protein Detection",
+            href: "fetunit21.html"
+        },
+
+        lessons: [
+
+            {
+                id: 21,
+                title: "Protein Detection",
+                description:
+                    "How antibody-based BioFETs read a protein, and why buffer pH matters."
+            }
+
+        ]
+    },
+
+    {
+        id: 22,
+
+        title: "DNA Hybridization Sensing",
+
+        description:
+            "How a probe strand captures its match, and why DNA is a natural charge signal.",
+
+        studyModule: {
+            title: "DNA Hybridization Sensing",
+            href: "fetunit22.html"
+        },
+
+        lessons: [
+
+            {
+                id: 22,
+                title: "DNA Hybridization Sensing",
+                description:
+                    "How a probe strand captures its match, and why DNA is a natural charge signal."
+            }
+
+        ]
+    },
+
+    {
+        id: 23,
+
+        title: "Signal, Noise & Limit of Detection",
+
+        description:
+            "How small a concentration a BioFET can see, and what limits it.",
+
+        studyModule: {
+            title: "Signal, Noise & Limit of Detection",
+            href: "fetunit23.html"
+        },
+
+        lessons: [
+
+            {
+                id: 23,
+                title: "Signal, Noise & Limit of Detection",
+                description:
+                    "How small a concentration a BioFET can see, and what limits it."
+            }
+
+        ]
+    },
+
+    {
+        id: 24,
+
+        title: "Nanowires, Graphene & Arrays",
+
+        description:
+            "Beyond the planar FET: the device designs used for biosensing.",
+
+        studyModule: {
+            title: "Nanowires, Graphene & Arrays",
+            href: "fetunit24.html"
+        },
+
+        lessons: [
+
+            {
+                id: 24,
+                title: "Nanowires, Graphene & Arrays",
+                description:
+                    "Beyond the planar FET: the device designs used for biosensing."
+            }
+
+        ]
+    },
+
+    {
+        id: 25,
+
+        title: "Real Samples & Reliability",
+
+        description:
+            "What it takes to turn a working prototype into a dependable measurement.",
+
+        studyModule: {
+            title: "Real Samples & Reliability",
+            href: "fetunit25.html"
+        },
+
+        lessons: [
+
+            {
+                id: 25,
+                title: "Real Samples & Reliability",
+                description:
+                    "What it takes to turn a working prototype into a dependable measurement."
             }
 
         ]

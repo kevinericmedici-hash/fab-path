@@ -1147,6 +1147,367 @@ const fetLesson19Questions = [
 ];
 
 
+
+const fetLesson20Questions = [
+
+    {
+        question: "As a bound charge sits higher above the surface, how does its effect on the gate change?",
+        answers: [
+            "It falls off exponentially",
+            "It grows exponentially",
+            "It stays constant at every height",
+            "It flips sign after one nanometer"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "About what is the Debye length in 150 mM saline?",
+        answers: [
+            "About 8 nm",
+            "About 0.8 nm",
+            "About 80 nm",
+            "About 0.08 nm"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Which change lengthens the Debye length?",
+        answers: [
+            "Adding more salt to the sample",
+            "Making the receptor larger",
+            "Diluting the sample's salt",
+            "Raising the gate voltage"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Why do Fab fragments and nanobodies help BioFET sensing?",
+        answers: [
+            "They carry a much larger charge",
+            "They remove ions from the sample",
+            "They lengthen the Debye length directly",
+            "They hold targets nearer the surface"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "A charge sits 5 nm up in 10 mM salt, where λ_D ≈ 3 nm. About how much of its effect does it keep?",
+        answers: [
+            "About 19%",
+            "About 2%",
+            "About 50%",
+            "About 90%"
+        ],
+        correct: 0
+    }
+
+];
+
+
+const fetLesson21Questions = [
+
+    {
+        question: "What is a protein's isoelectric point, pI?",
+        answers: [
+            "The pH where it falls apart",
+            "The salt level where it precipitates",
+            "The temperature where it binds best",
+            "The pH where its net charge is zero"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "A protein with pI 5 binds to an NMOS BioFET in pH 7.4 buffer. What happens to Vth?",
+        answers: [
+            "It rises, because the protein is net negative",
+            "It falls, because the protein is net positive",
+            "It stays constant, because the protein is neutral",
+            "It flips sign, because binding is reversible"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Why is biotin–streptavidin a common test system?",
+        answers: [
+            "The pair carries no electric charge",
+            "The binding is strong and highly specific",
+            "The pair only binds at very high salt",
+            "The pair replaces the receptor layer"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "If ΔV_max = 80 mV and c = K_D, what shift do you expect?",
+        answers: [
+            "About 80 mV",
+            "About 8 mV",
+            "About 40 mV",
+            "About 160 mV"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What should you check when a paper claims femtomolar detection?",
+        answers: [
+            "Which brand of chip the authors used",
+            "How many authors wrote the paper",
+            "Whether the plots use a log axis",
+            "The sample and salt it was measured in"
+        ],
+        correct: 3
+    }
+
+];
+
+
+const fetLesson22Questions = [
+
+    {
+        question: "What decides whether a DNA target binds a probe strongly?",
+        answers: [
+            "How long the wafer was baked beforehand",
+            "The color of the target strand's label",
+            "How closely the two sequences pair up",
+            "The thickness of the gate oxide alone"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "About how much charge does a 20-nucleotide DNA strand add?",
+        answers: [
+            "About 20 positive charges",
+            "About 2 negative charges",
+            "About 200 positive charges",
+            "About 20 negative charges"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Why are measured DNA signals far smaller than the unscreened estimate?",
+        answers: [
+            "Ions in the sample screen the charge",
+            "DNA loses its charge when it binds",
+            "The gate oxide cancels the charge",
+            "Hybridization removes charge from the probe"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What does lowering the salt do to hybridization stringency?",
+        answers: [
+            "It lowers it, strengthening loose pairing",
+            "It raises it, weakening loose pairing",
+            "It has no effect on pairing",
+            "It makes every strand neutral"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What is a benefit of a PNA probe?",
+        answers: [
+            "Its extra negative charge doubles the signal",
+            "It dissolves the gate insulator layer",
+            "Its uncharged backbone suits low salt",
+            "It only binds proteins and never DNA"
+        ],
+        correct: 2
+    }
+
+];
+
+
+const fetLesson23Questions = [
+
+    {
+        question: "How is the limit of detection usually defined?",
+        answers: [
+            "The highest concentration the sensor can ever measure",
+            "The concentration giving three times the blank noise",
+            "The concentration that fills exactly half the receptors",
+            "The noise level measured while the chip is unpowered"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "ΔV_max = 60 mV and σ = 0.5 mV. What fraction of receptors must be bound to reach 3σ?",
+        answers: [
+            "0.25",
+            "0.0025",
+            "0.025",
+            "0.5"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "With K_D = 1 nM, a bound fraction of 0.025 corresponds to about what concentration?",
+        answers: [
+            "About 25 nM",
+            "About 2.6 pM",
+            "About 260 pM",
+            "About 26 pM"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What is the main source of low-frequency noise in FET sensors?",
+        answers: [
+            "Charge traps at the oxide (flicker noise)",
+            "Thermal expansion of the silicon wafer",
+            "Light reflecting off the gate metal",
+            "Magnetic fields from the reference electrode"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "How does a larger gate area change flicker noise?",
+        answers: [
+            "It raises the noise level",
+            "It lowers the noise level",
+            "It leaves the noise unchanged",
+            "It turns noise into drift"
+        ],
+        correct: 1
+    }
+
+];
+
+
+const fetLesson24Questions = [
+
+    {
+        question: "Why are nanowire FETs sensitive to bound charge?",
+        answers: [
+            "Almost the whole channel is near the surface",
+            "Their gates are made of solid gold metal",
+            "They operate with no oxide layer at all",
+            "They carry far more current than planar FETs"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What is special about graphene as a FET channel?",
+        answers: [
+            "It is a thick block of doped silicon",
+            "One atom thick, so all of it is surface",
+            "It is a polymer gel between electrodes",
+            "It is a metal wire buried in oxide"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What is the main idea of an extended-gate design?",
+        answers: [
+            "The transistor is submerged in the sample",
+            "The gate is extended into the drain",
+            "A sensing pad in liquid wired to a dry gate",
+            "The reference electrode replaces the transistor"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "How do semiconductor DNA sequencers detect a nucleotide being added?",
+        answers: [
+            "A camera records a bright fluorescent flash",
+            "A laser measures the length of the strand",
+            "A magnet lifts a tagged bead off the chip",
+            "An ISFET senses the hydrogen ion released"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Why can CMOS ISFET arrays hold so many sensors?",
+        answers: [
+            "They use standard chip manufacturing",
+            "Each sensor is just a single molecule",
+            "They need neither source nor drain",
+            "They are printed on plain paper sheets"
+        ],
+        correct: 0
+    }
+
+];
+
+
+const fetLesson25Questions = [
+
+    {
+        question: "Why is blood serum harder for a BioFET than clean buffer?",
+        answers: [
+            "It has no ions to conduct any current at all",
+            "It is far too cold for any receptor to work",
+            "It strips the oxide layer off the gate",
+            "It adds proteins and salts as background"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Which prep step lowers both the salt and the background proteins?",
+        answers: [
+            "Diluting the sample",
+            "Concentrating the sample",
+            "Filtering out particles",
+            "Boiling the sample"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Why put reference sensors on the same chip?",
+        answers: [
+            "They generate the gate voltage",
+            "They track shared drift and variation",
+            "They remove the need for any calibration",
+            "They make the chip waterproof"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What do the ASSURED criteria describe?",
+        answers: [
+            "How to grow a clean gate oxide layer",
+            "How to choose the right silane",
+            "What a good point-of-care test needs",
+            "How to build a reference electrode"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Which result best shows a BioFET responds to the target itself?",
+        answers: [
+            "A large signal for every sample tested",
+            "A signal that appears only after the chip dries",
+            "A signal that tracks the gate voltage exactly",
+            "A signal for the target but not for blanks"
+        ],
+        correct: 3
+    }
+
+];
+
+
 /*
     Looked up by numeric lesson id, the same
     pattern the other courses use.
@@ -1171,5 +1532,11 @@ const fetAllLessonQuestions = {
     16: fetLesson16Questions,
     17: fetLesson17Questions,
     18: fetLesson18Questions,
-    19: fetLesson19Questions
+    19: fetLesson19Questions,
+    20: fetLesson20Questions,
+    21: fetLesson21Questions,
+    22: fetLesson22Questions,
+    23: fetLesson23Questions,
+    24: fetLesson24Questions,
+    25: fetLesson25Questions
 };

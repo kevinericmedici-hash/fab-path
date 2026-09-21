@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Signal, Noise &amp; Limit of Detection | Fab Path</title>
+    <meta name="description" content="Signal, Noise &amp; Limit of Detection: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Signal, Noise &amp; Limit of Detection | Fab Path">
+    <meta property="og:description" content="Signal, Noise &amp; Limit of Detection: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="fet-learn.html">Learn</a>
+            <a href="fet-games.html">Games</a>
+            <a href="fet-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="fet-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+                        <!-- SLIDE 1 -->
+                        <!-- SLIDE 1 -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    LIMIT OF DETECTION
+                </p>
+
+                <h1>
+                    The smallest signal you can trust
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    LOD: signal = 3σ
+                </div>
+
+                <p>
+                    The limit of detection is the concentration whose signal just clears three times the noise σ of a blank measurement. Below it, you cannot tell the target from random fluctuation. A lower LOD needs a bigger signal, less noise, or both.
+                </p>
+
+                <div class="module-takeaway">
+
+                    LOD is set by signal size and noise together.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 2 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WORKED EXAMPLE
+                </p>
+
+                <h1>
+                    From noise to concentration
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    <span class="math-visual">c<sub>LOD</sub> ≈ 0.026 K<sub>D</sub></span>
+                </div>
+
+                <p>
+                    Take ΔV<sub>max</sub> = 60 mV and noise σ = 0.5 mV. Then 3σ = 1.5 mV, so θ = 1.5/60 = 0.025. Solving θ = c/(c + K<sub>D</sub>) gives c ≈ 0.026 K<sub>D</sub>. With K<sub>D</sub> = 1 nM, the LOD is about 26 pM.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A tight binder and a quiet transistor reach low concentrations.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 3 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE NOISE FLOOR
+                </p>
+
+                <h1>
+                    Where the curve meets the noise
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 214" role="img" aria-label="Binding curve on a log axis with the 3 sigma noise floor and the resulting limit of detection">
+<rect x="44" y="172.2" width="278" height="3.8" style="fill:rgba(255,105,120,0.14)"/>
+<line class="fd-axis" x1="44" y1="176" x2="322" y2="176"/>
+<line class="fd-axis" x1="44" y1="176" x2="44" y2="18"/>
+<line class="fd-grid" x1="44" y1="100.0" x2="322" y2="100.0"/>
+<text class="fd-sub" x="40" y="103.0" text-anchor="end">0.5</text>
+<line class="fd-grid" x1="44" y1="24.0" x2="322" y2="24.0"/>
+<text class="fd-sub" x="40" y="27.0" text-anchor="end">1</text>
+<text class="fd-sub" x="44.0" y="188" text-anchor="middle">10⁻³</text>
+<text class="fd-sub" x="99.6" y="188" text-anchor="middle">10⁻²</text>
+<text class="fd-sub" x="155.2" y="188" text-anchor="middle">0.1</text>
+<text class="fd-sub" x="210.8" y="188" text-anchor="middle">1</text>
+<text class="fd-sub" x="266.4" y="188" text-anchor="middle">10</text>
+<text class="fd-sub" x="322.0" y="188" text-anchor="middle">100</text>
+<path class="fd-curve" d="M44.0 175.8 L46.8 175.8 L49.6 175.8 L52.3 175.8 L55.1 175.8 L57.9 175.7 L60.7 175.7 L63.5 175.7 L66.2 175.6 L69.0 175.6 L71.8 175.5 L74.6 175.5 L77.4 175.4 L80.1 175.3 L82.9 175.2 L85.7 175.2 L88.5 175.0 L91.3 174.9 L94.0 174.8 L96.8 174.7 L99.6 174.5 L102.4 174.3 L105.2 174.1 L107.9 173.9 L110.7 173.6 L113.5 173.3 L116.3 173.0 L119.1 172.7 L121.8 172.3 L124.6 171.8 L127.4 171.3 L130.2 170.8 L133.0 170.2 L135.7 169.5 L138.5 168.7 L141.3 167.9 L144.1 167.0 L146.9 166.0 L149.6 164.8 L152.4 163.6 L155.2 162.2 L158.0 160.7 L160.8 159.0 L163.5 157.2 L166.3 155.2 L169.1 153.1 L171.9 150.7 L174.7 148.2 L177.4 145.5 L180.2 142.6 L183.0 139.5 L185.8 136.2 L188.6 132.7 L191.3 129.1 L194.1 125.3 L196.9 121.3 L199.7 117.2 L202.5 113.0 L205.2 108.7 L208.0 104.4 L210.8 100.0 L213.6 95.6 L216.4 91.3 L219.1 87.0 L221.9 82.8 L224.7 78.7 L227.5 74.7 L230.3 70.9 L233.0 67.3 L235.8 63.8 L238.6 60.5 L241.4 57.4 L244.2 54.5 L246.9 51.8 L249.7 49.3 L252.5 46.9 L255.3 44.8 L258.1 42.8 L260.8 41.0 L263.6 39.3 L266.4 37.8 L269.2 36.4 L272.0 35.2 L274.7 34.0 L277.5 33.0 L280.3 32.1 L283.1 31.3 L285.9 30.5 L288.6 29.8 L291.4 29.2 L294.2 28.7 L297.0 28.2 L299.8 27.7 L302.5 27.3 L305.3 27.0 L308.1 26.7 L310.9 26.4 L313.7 26.1 L316.4 25.9 L319.2 25.7 L322.0 25.5"/>
+<line class="fd-dash" x1="44" y1="172.2" x2="322" y2="172.2" style="stroke:#ff6978"/>
+<line class="fd-dash" x1="122.3" y1="176" x2="122.3" y2="172.2"/>
+<circle class="fd-electron" cx="122.3" cy="172.2" r="3"/>
+<text class="fd-sub" x="322" y="167.2" text-anchor="end" style="fill:#ff6978;font-weight:700">3σ noise floor</text>
+<line class="fd-dash" x1="122.3" y1="172.2" x2="122.3" y2="148.2"/>
+<text class="fd-accent" x="122.3" y="144.2" text-anchor="middle">LOD ≈ 0.026 KD</text>
+<text class="fd-sub" x="322" y="204" text-anchor="end">c / KD →</text>
+<text class="fd-sub" x="50" y="14">fraction bound ↑</text>
+</svg>
+                </div>
+
+                <p>
+                    On a log axis, the binding curve is an S shape. The dashed line marks 3σ. The concentration where the curve crosses it is the LOD, and everything to its left is lost in the noise.
+                </p>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Lowering the noise slides the crossing point to the left.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    NOISE SOURCES
+                </p>
+
+                <h1>
+                    What limits a transistor
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            〰️
+                        </div>
+
+                        <h3>Flicker noise</h3>
+
+                        <p>
+                            1/f noise from charge traps at the oxide; it grows at low frequency
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🌡️
+                        </div>
+
+                        <h3>Thermal noise</h3>
+
+                        <p>
+                            Random motion of charges in the channel and contacts
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🐌
+                        </div>
+
+                        <h3>Drift</h3>
+
+                        <p>
+                            Slow changes that look like signal, as seen with ISFETs
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            📏
+                        </div>
+
+                        <h3>Gate area</h3>
+
+                        <p>
+                            Flicker noise falls as the gate area grows
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Traps at the oxide surface are usually the main source of noise.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    TRADE-OFFS
+                </p>
+
+                <h1>
+                    Sensitivity versus noise
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Bigger gate</strong>
+                        <span>Lower flicker noise, but the targets spread over more surface</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Nanowire</strong>
+                        <span>Tiny area, so each bound charge matters more, but the noise is higher</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Subthreshold</strong>
+                        <span>Current changes about 10× per 60 to 100 mV, so a small shift is easy to read</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Averaging</strong>
+                        <span>Repeated readings cut random noise, at the cost of time</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Gains in one place usually cost something in another.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 23 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🔬
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've covered how small a concentration a BioFET can see, and what limits it.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeFetUnit23Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+</div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeFetUnit23Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathFetUnit23StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathFetUnit23StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "fet-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+</body>
+</html>

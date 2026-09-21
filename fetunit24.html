@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nanowires, Graphene &amp; Arrays | Fab Path</title>
+    <meta name="description" content="Nanowires, Graphene &amp; Arrays: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Nanowires, Graphene &amp; Arrays | Fab Path">
+    <meta property="og:description" content="Nanowires, Graphene &amp; Arrays: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="fet-learn.html">Learn</a>
+            <a href="fet-games.html">Games</a>
+            <a href="fet-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="fet-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+                        <!-- SLIDE 1 -->
+                        <!-- SLIDE 1 -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    NANOWIRE FETS
+                </p>
+
+                <h1>
+                    Thin channels, big response
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧵
+                        </div>
+
+                        <h3>Tiny cross-section</h3>
+
+                        <p>
+                            A silicon nanowire is tens of nanometers across
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            📐
+                        </div>
+
+                        <h3>High surface-to-volume</h3>
+
+                        <p>
+                            Nearly the whole channel is close to the surface, so bound charge affects all of it
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔬
+                        </div>
+
+                        <h3>An early landmark</h3>
+
+                        <p>
+                            Nanowire sensors detected proteins and DNA at very low concentrations in the early 2000s
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The channel is so thin that surface charge controls all of it.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 2 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    GRAPHENE AND 2D FETS
+                </p>
+
+                <h1>
+                    Atomically thin channels
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧱
+                        </div>
+
+                        <h3>One atom thick</h3>
+
+                        <p>
+                            Graphene's channel is entirely surface
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ↔️
+                        </div>
+
+                        <h3>Ambipolar</h3>
+
+                        <p>
+                            It conducts both electrons and holes, with a minimum at the Dirac point
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            📐
+                        </div>
+
+                        <h3>Shift readout</h3>
+
+                        <p>
+                            Binding shifts the Dirac point, much as it shifts Vth
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    A one-atom channel has nowhere for charge to hide.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 3 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    EXTENDED GATE
+                </p>
+
+                <h1>
+                    Keep the transistor dry
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 214" role="img" aria-label="Extended-gate design: a sensing pad in the sample wired to the gate of a dry transistor">
+<rect class="fd-p" x="16" y="128" width="108" height="56" rx="4"/>
+<rect class="fd-n" x="26" y="128" width="30" height="20"/>
+<rect class="fd-n" x="84" y="128" width="30" height="20"/>
+<rect class="fd-ox" x="52" y="118" width="36" height="10"/>
+<rect class="fd-metal" x="52" y="102" width="36" height="16"/>
+<path class="fd-axis" d="M70 102 L70 30 L250 30 L250 150"/>
+<rect style="fill:rgba(90,160,255,0.16);stroke:rgba(90,160,255,0.6);stroke-width:1.2" x="190" y="72" width="136" height="110" rx="4"/>
+<rect class="fd-metal" x="226" y="150" width="72" height="10" rx="2"/>
+<rect class="fd-metal" x="304" y="52" width="10" height="88" rx="2"/>
+<text class="fd-sub" x="70" y="200" text-anchor="middle">standard MOSFET, kept dry</text>
+<text class="fd-sub" x="160" y="24" text-anchor="middle">wire to the gate</text>
+<text class="fd-label" x="196" y="92">Sample</text>
+<text class="fd-accent" x="262" y="174" text-anchor="middle">pad + receptors</text>
+<text class="fd-sub" x="330" y="48" text-anchor="end">reference electrode</text>
+</svg>
+                </div>
+
+                <p>
+                    In an extended-gate design, the sensing pad sits in the liquid and is wired to the gate of a standard transistor placed away from it. The transistor stays dry and can be an ordinary, mass-produced MOSFET.
+                </p>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Separating the sensor from the transistor makes both easier to build.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CMOS ARRAYS
+                </p>
+
+                <h1>
+                    Millions of sensors on one chip
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    ISFET array → sequencing
+                </div>
+
+                <p>
+                    Because ISFETs can be built in standard CMOS, millions can share a chip. Semiconductor DNA sequencers use this: when a nucleotide joins a growing strand, it releases a hydrogen ion, and an ISFET under each well reads the pH change.
+                </p>
+
+                <div class="module-takeaway">
+
+                    The ISFET pH sensor became a genome-reading tool.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CHOOSING A FORMAT
+                </p>
+
+                <h1>
+                    Match the device to the job
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Planar FET</strong>
+                        <span>Well understood and easy to make in a fab</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Nanowire</strong>
+                        <span>Highest charge sensitivity per molecule</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Graphene</strong>
+                        <span>An atomically thin channel, with a different fabrication path</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Extended gate</strong>
+                        <span>A cheap, replaceable sensing pad</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>CMOS array</strong>
+                        <span>Thousands to millions of sensors read in parallel</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    There is no single best format: the application decides.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 24 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🔬
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've covered beyond the planar FET: the device designs used for biosensing.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeFetUnit24Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+</div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeFetUnit24Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathFetUnit24StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathFetUnit24StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "fet-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+</body>
+</html>

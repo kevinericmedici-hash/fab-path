@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Debye Screening &amp; Charge Detection | Fab Path</title>
+    <meta name="description" content="Debye Screening &amp; Charge Detection: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Debye Screening &amp; Charge Detection | Fab Path">
+    <meta property="og:description" content="Debye Screening &amp; Charge Detection: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="fet-learn.html">Learn</a>
+            <a href="fet-games.html">Games</a>
+            <a href="fet-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="fet-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+                        <!-- SLIDE 1 -->
+                        <!-- SLIDE 1 -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    THE CATCH
+                </p>
+
+                <h1>
+                    Ions hide the charge you want to see
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    <span class="math-visual">e<sup>−d/λ<sub>D</sub></sup></span>
+                </div>
+
+                <p>
+                    A bound molecule's charge is screened by the mobile ions around it. The gate feels a charge at height d above the surface reduced by about e<sup>−d/λ<sub>D</sub></sup>, where λ<sub>D</sub> is the Debye length. Charge farther than a few λ<sub>D</sub> away is nearly invisible to the transistor.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Only charge within a few Debye lengths reaches the channel.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 2 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SCREENING IN NUMBERS
+                </p>
+
+                <h1>
+                    Signal fades with height
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 214" role="img" aria-label="Fraction of a bound charge that the gate senses against its height above the surface, for three salt levels">
+<line class="fd-axis" x1="44" y1="176" x2="322" y2="176"/>
+<line class="fd-axis" x1="44" y1="176" x2="44" y2="18"/>
+<line class="fd-grid" x1="44" y1="100.0" x2="322" y2="100.0"/>
+<text class="fd-sub" x="40" y="103.0" text-anchor="end">0.5</text>
+<line class="fd-grid" x1="44" y1="24.0" x2="322" y2="24.0"/>
+<text class="fd-sub" x="40" y="27.0" text-anchor="end">1</text>
+<text class="fd-sub" x="44.0" y="188" text-anchor="middle">0</text>
+<text class="fd-sub" x="90.3" y="188" text-anchor="middle">2</text>
+<text class="fd-sub" x="136.7" y="188" text-anchor="middle">4</text>
+<text class="fd-sub" x="183.0" y="188" text-anchor="middle">6</text>
+<text class="fd-sub" x="229.3" y="188" text-anchor="middle">8</text>
+<text class="fd-sub" x="275.7" y="188" text-anchor="middle">10</text>
+<text class="fd-sub" x="322.0" y="188" text-anchor="middle">12</text>
+<path class="fd-curve" style="stroke:#ff6978" d="M44.0 24.0 L46.3 25.6 L48.6 27.1 L51.0 28.7 L53.3 30.2 L55.6 31.7 L57.9 33.2 L60.2 34.7 L62.5 36.2 L64.8 37.6 L67.2 39.0 L69.5 40.5 L71.8 41.9 L74.1 43.3 L76.4 44.6 L78.8 46.0 L81.1 47.3 L83.4 48.7 L85.7 50.0 L88.0 51.3 L90.3 52.6 L92.7 53.9 L95.0 55.1 L97.3 56.4 L99.6 57.6 L101.9 58.8 L104.2 60.1 L106.6 61.3 L108.9 62.5 L111.2 63.6 L113.5 64.8 L115.8 65.9 L118.1 67.1 L120.5 68.2 L122.8 69.3 L125.1 70.4 L127.4 71.5 L129.7 72.6 L132.0 73.7 L134.4 74.7 L136.7 75.8 L139.0 76.8 L141.3 77.9 L143.6 78.9 L145.9 79.9 L148.2 80.9 L150.6 81.9 L152.9 82.8 L155.2 83.8 L157.5 84.8 L159.8 85.7 L162.1 86.6 L164.5 87.6 L166.8 88.5 L169.1 89.4 L171.4 90.3 L173.7 91.2 L176.0 92.1 L178.4 92.9 L180.7 93.8 L183.0 94.6 L185.3 95.5 L187.6 96.3 L189.9 97.1 L192.3 98.0 L194.6 98.8 L196.9 99.6 L199.2 100.4 L201.5 101.1 L203.8 101.9 L206.2 102.7 L208.5 103.4 L210.8 104.2 L213.1 104.9 L215.4 105.7 L217.7 106.4 L220.1 107.1 L222.4 107.8 L224.7 108.6 L227.0 109.2 L229.3 109.9 L231.6 110.6 L234.0 111.3 L236.3 112.0 L238.6 112.6 L240.9 113.3 L243.2 113.9 L245.5 114.6 L247.9 115.2 L250.2 115.9 L252.5 116.5 L254.8 117.1 L257.1 117.7 L259.4 118.3 L261.8 118.9 L264.1 119.5 L266.4 120.1 L268.7 120.7 L271.0 121.2 L273.3 121.8 L275.7 122.4 L278.0 122.9 L280.3 123.5 L282.6 124.0 L284.9 124.6 L287.2 125.1 L289.6 125.6 L291.9 126.1 L294.2 126.7 L296.5 127.2 L298.8 127.7 L301.1 128.2 L303.5 128.7 L305.8 129.2 L308.1 129.6 L310.4 130.1 L312.7 130.6 L315.0 131.1 L317.4 131.5 L319.7 132.0 L322.0 132.5"/>
+<path class="fd-curve-alt" d="M44.0 24.0 L46.3 28.9 L48.6 33.7 L51.0 38.3 L53.3 42.7 L55.6 47.1 L57.9 51.2 L60.2 55.3 L62.5 59.2 L64.8 63.0 L67.2 66.6 L69.5 70.1 L71.8 73.6 L74.1 76.9 L76.4 80.1 L78.8 83.2 L81.1 86.2 L83.4 89.1 L85.7 91.9 L88.0 94.6 L90.3 97.3 L92.7 99.8 L95.0 102.3 L97.3 104.7 L99.6 107.0 L101.9 109.2 L104.2 111.4 L106.6 113.5 L108.9 115.5 L111.2 117.4 L113.5 119.3 L115.8 121.2 L118.1 122.9 L120.5 124.7 L122.8 126.3 L125.1 127.9 L127.4 129.5 L129.7 131.0 L132.0 132.5 L134.4 133.9 L136.7 135.2 L139.0 136.5 L141.3 137.8 L143.6 139.1 L145.9 140.3 L148.2 141.4 L150.6 142.5 L152.9 143.6 L155.2 144.7 L157.5 145.7 L159.8 146.7 L162.1 147.6 L164.5 148.5 L166.8 149.4 L169.1 150.3 L171.4 151.1 L173.7 151.9 L176.0 152.7 L178.4 153.4 L180.7 154.2 L183.0 154.9 L185.3 155.6 L187.6 156.2 L189.9 156.9 L192.3 157.5 L194.6 158.1 L196.9 158.7 L199.2 159.2 L201.5 159.8 L203.8 160.3 L206.2 160.8 L208.5 161.3 L210.8 161.8 L213.1 162.2 L215.4 162.7 L217.7 163.1 L220.1 163.5 L222.4 163.9 L224.7 164.3 L227.0 164.7 L229.3 165.1 L231.6 165.4 L234.0 165.8 L236.3 166.1 L238.6 166.4 L240.9 166.7 L243.2 167.0 L245.5 167.3 L247.9 167.6 L250.2 167.9 L252.5 168.1 L254.8 168.4 L257.1 168.6 L259.4 168.9 L261.8 169.1 L264.1 169.3 L266.4 169.5 L268.7 169.7 L271.0 169.9 L273.3 170.1 L275.7 170.3 L278.0 170.5 L280.3 170.7 L282.6 170.9 L284.9 171.0 L287.2 171.2 L289.6 171.3 L291.9 171.5 L294.2 171.6 L296.5 171.8 L298.8 171.9 L301.1 172.1 L303.5 172.2 L305.8 172.3 L308.1 172.4 L310.4 172.5 L312.7 172.7 L315.0 172.8 L317.4 172.9 L319.7 173.0 L322.0 173.1"/>
+<path class="fd-curve" d="M44.0 24.0 L46.3 42.2 L48.6 58.2 L51.0 72.3 L53.3 84.7 L55.6 95.6 L57.9 105.2 L60.2 113.7 L62.5 121.1 L64.8 127.7 L67.2 133.5 L69.5 138.6 L71.8 143.0 L74.1 147.0 L76.4 150.5 L78.8 153.5 L81.1 156.2 L83.4 158.6 L85.7 160.7 L88.0 162.5 L90.3 164.1 L92.7 165.5 L95.0 166.8 L97.3 167.9 L99.6 168.9 L101.9 169.7 L104.2 170.5 L106.6 171.1 L108.9 171.7 L111.2 172.2 L113.5 172.7 L115.8 173.1 L118.1 173.4 L120.5 173.7 L122.8 174.0 L125.1 174.2 L127.4 174.5 L129.7 174.6 L132.0 174.8 L134.4 174.9 L136.7 175.1 L139.0 175.2 L141.3 175.3 L143.6 175.4 L145.9 175.4 L148.2 175.5 L150.6 175.6 L152.9 175.6 L155.2 175.7 L157.5 175.7 L159.8 175.7 L162.1 175.8 L164.5 175.8 L166.8 175.8 L169.1 175.8 L171.4 175.9 L173.7 175.9 L176.0 175.9 L178.4 175.9 L180.7 175.9 L183.0 175.9 L185.3 175.9 L187.6 175.9 L189.9 176.0 L192.3 176.0 L194.6 176.0 L196.9 176.0 L199.2 176.0 L201.5 176.0 L203.8 176.0 L206.2 176.0 L208.5 176.0 L210.8 176.0 L213.1 176.0 L215.4 176.0 L217.7 176.0 L220.1 176.0 L222.4 176.0 L224.7 176.0 L227.0 176.0 L229.3 176.0 L231.6 176.0 L234.0 176.0 L236.3 176.0 L238.6 176.0 L240.9 176.0 L243.2 176.0 L245.5 176.0 L247.9 176.0 L250.2 176.0 L252.5 176.0 L254.8 176.0 L257.1 176.0 L259.4 176.0 L261.8 176.0 L264.1 176.0 L266.4 176.0 L268.7 176.0 L271.0 176.0 L273.3 176.0 L275.7 176.0 L278.0 176.0 L280.3 176.0 L282.6 176.0 L284.9 176.0 L287.2 176.0 L289.6 176.0 L291.9 176.0 L294.2 176.0 L296.5 176.0 L298.8 176.0 L301.1 176.0 L303.5 176.0 L305.8 176.0 L308.1 176.0 L310.4 176.0 L312.7 176.0 L315.0 176.0 L317.4 176.0 L319.7 176.0 L322.0 176.0"/>
+<line class="fd-dash" x1="159.8" y1="176" x2="159.8" y2="85.7"/>
+<circle cx="159.8" cy="146.7" r="3" style="fill:#ffd666"/>
+<text class="fd-sub" x="164.8" y="142.7" style="fill:#ffd666;font-weight:700">19% at 5 nm</text>
+<text class="fd-sub" x="322" y="34" text-anchor="end" style="fill:#ff6978;font-weight:700">1 mM: λD ≈ 10 nm</text>
+<text class="fd-sub" x="322" y="47" text-anchor="end" style="fill:#ffd666;font-weight:700">10 mM: λD ≈ 3 nm</text>
+<text class="fd-sub" x="322" y="60" text-anchor="end" style="fill:var(--accent);font-weight:700">150 mM: λD ≈ 0.8 nm</text>
+<text class="fd-sub" x="322" y="204" text-anchor="end">height of the charge above the surface (nm) →</text>
+<text class="fd-sub" x="50" y="14">fraction sensed ↑</text>
+</svg>
+                </div>
+
+                <p>
+                    In 150 mM saline, λ<sub>D</sub> is about 0.8 nm, so a charge 5 nm up keeps about 0.2% of its effect. In 10 mM salt, λ<sub>D</sub> is about 3 nm and the same charge keeps about 19%. Lower salt means a longer reach.
+                </p>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Diluting the sample lengthens the Debye length and revives the signal.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 3 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SIZE MISMATCH
+                </p>
+
+                <h1>
+                    Receptors can be taller than the reach
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Antibody</strong>
+                        <span>About 10 nm tall: most of its bound charge sits beyond a Debye length in saline</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Fab fragment</strong>
+                        <span>About 5 nm: half an antibody, and closer to the surface</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Nanobody</strong>
+                        <span>About 2–4 nm: a single small binding domain</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Aptamer or DNA probe</strong>
+                        <span>A few nm, and their charge is on the strand itself</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Smaller receptors keep the target inside the Debye length.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WORKAROUNDS
+                </p>
+
+                <h1>
+                    Getting around screening
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧂
+                        </div>
+
+                        <h3>Dilute the sample</h3>
+
+                        <p>
+                            Lower the salt so λ<sub>D</sub> grows, as long as the receptor still binds
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧫
+                        </div>
+
+                        <h3>Small receptors</h3>
+
+                        <p>
+                            Fab fragments, nanobodies, or aptamers keep the target close
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            〰️
+                        </div>
+
+                        <h3>High-frequency readout</h3>
+
+                        <p>
+                            Some designs measure fast, where ions cannot follow, so charge farther out is less screened
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧴
+                        </div>
+
+                        <h3>Polymer layer</h3>
+
+                        <p>
+                            A PEG brush can stretch the effective sensing distance
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Each fix attacks the problem from a different side.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    A WORKED CHOICE
+                </p>
+
+                <h1>
+                    Trade sensitivity for reach
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    <span class="math-visual">1 mM: λ<sub>D</sub> ≈ 10 nm</span>
+                </div>
+
+                <p>
+                    Diluting saline from 150 mM to 1 mM stretches λ<sub>D</sub> from about 0.8 nm to about 10 nm. An antibody's charge at 8 nm then keeps about 43% of its effect, instead of well under 0.1%. The price: the sample is now diluted, and binding may be weaker at low salt.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Dilution helps the signal but changes the chemistry.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 20 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🔬
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've covered why salty samples hide bound charge, and what designers do about it.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeFetUnit20Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+</div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeFetUnit20Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathFetUnit20StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathFetUnit20StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "fet-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+</body>
+</html>

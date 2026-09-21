@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Protein Detection | Fab Path</title>
+    <meta name="description" content="Protein Detection: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Protein Detection | Fab Path">
+    <meta property="og:description" content="Protein Detection: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="fet-learn.html">Learn</a>
+            <a href="fet-games.html">Games</a>
+            <a href="fet-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="fet-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+                        <!-- SLIDE 1 -->
+                        <!-- SLIDE 1 -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    PROTEIN CHARGE
+                </p>
+
+                <h1>
+                    A protein's charge depends on pH
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    pH &gt; pI → net negative
+                </div>
+
+                <p>
+                    Each protein has an isoelectric point, pI, the pH at which its net charge is zero. Above the pI it carries net negative charge, and below it net positive. A protein with pI 5 is negative in pH 7.4 buffer, which raises an NMOS threshold when it binds.
+                </p>
+
+                <div class="module-takeaway">
+
+                    The sign of the signal depends on the target's pI and the buffer pH.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 2 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    PICK THE CONDITIONS
+                </p>
+
+                <h1>
+                    Match the buffer to the target
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>pI below the pH</strong>
+                        <span>Net negative: an NMOS threshold rises on binding</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>pI above the pH</strong>
+                        <span>Net positive: an NMOS threshold falls on binding</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>pI near the pH</strong>
+                        <span>Almost no net charge, so almost no signal</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Buffer pH</strong>
+                        <span>It also has to keep the receptor working, so choose a compromise</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Both the sign and the size of the signal come from pI versus pH.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 3 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    A MODEL SYSTEM
+                </p>
+
+                <h1>
+                    Biotin and streptavidin
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    biotin + streptavidin
+                </div>
+
+                <p>
+                    Streptavidin binding to a biotin-coated gate is a classic test of a new BioFET. The bond is strong and highly specific, so it isolates the sensor's behavior from the chemistry's. Streptavidin has a pI near 5 to 6, so in neutral buffer it adds negative charge.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A well-understood pair separates sensor problems from chemistry problems.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    DOSE RESPONSE
+                </p>
+
+                <h1>
+                    Signal rises with concentration
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    <span class="math-visual">ΔVth = ΔV<sub>max</sub> · c / (c + K<sub>D</sub>)</span>
+                </div>
+
+                <p>
+                    Combine the Langmuir curve with the charge signal: ΔVth = ΔV<sub>max</sub> · c/(c + K<sub>D</sub>), where ΔV<sub>max</sub> is the shift with every receptor occupied. Plotting ΔVth against concentration gives a calibration curve you can invert to read an unknown sample.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A calibration curve turns millivolts into concentration.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    REPORTED PERFORMANCE
+                </p>
+
+                <h1>
+                    What published devices claim
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            📉
+                        </div>
+
+                        <h3>Wide range</h3>
+
+                        <p>
+                            Many reports span several decades of concentration
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔬
+                        </div>
+
+                        <h3>Low limits</h3>
+
+                        <p>
+                            Femtomolar to picomolar detection is often reported, usually in diluted buffer
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ⚠️
+                        </div>
+
+                        <h3>Read carefully</h3>
+
+                        <p>
+                            Results in low-salt buffer may not carry over to blood or serum
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Always ask what sample the claimed limit was measured in.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 21 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🔬
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've covered how antibody-based BioFETs read a protein, and why buffer pH matters.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeFetUnit21Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+</div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeFetUnit21Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathFetUnit21StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathFetUnit21StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "fet-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+</body>
+</html>

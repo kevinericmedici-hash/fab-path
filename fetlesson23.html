@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Signal, Noise &amp; Limit of Detection | Fab Path</title>
+    <meta name="description" content="Signal, Noise &amp; Limit of Detection: a practice quiz from the BioFETs &amp; MOSFETs course on Fab Path, a free interactive course on semiconductors and microfabrication.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Signal, Noise &amp; Limit of Detection | Fab Path">
+    <meta property="og:description" content="Signal, Noise &amp; Limit of Detection: a practice quiz from the BioFETs &amp; MOSFETs course on Fab Path, a free interactive course on semiconductors and microfabrication.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="lesson-body">
+
+    <main class="lesson-page">
+
+        <div class="lesson-topbar">
+
+            <a href="fet-learn.html" class="exit-lesson">
+                ✕
+            </a>
+
+            <div class="lesson-progress-track">
+                <div class="lesson-progress-fill" id="fetLessonProgress"></div>
+            </div>
+
+            <div class="lesson-xp">
+                ⚡ <span id="fetXpDisplay">0</span> XP
+            </div>
+
+        </div>
+
+
+        <section class="question-card">
+
+            <p class="question-number" id="fetQuestionNumber">
+                QUESTION 1 OF 5
+            </p>
+
+            <h1 id="fetQuestionText">
+            </h1>
+
+            <p class="question-instruction">
+                Choose the best answer.
+            </p>
+
+
+            <div class="answer-grid" id="fetAnswerGrid">
+            </div>
+
+        </section>
+
+
+        <div class="lesson-footer">
+
+            <div class="feedback-message" id="fetFeedbackMessage">
+                Select an answer to continue.
+            </div>
+
+            <button class="check-button" id="fetCheckButton" disabled>
+                Check Answer
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <script src="fet-questions-data.js"></script>
+    <script src="script.js"></script>
+    <script src="fet-script.js"></script>
+
+    <script>
+
+        initFetLessonQuiz(23, fetLesson23Questions);
+
+    </script>
+
+</body>
+
+</html>
