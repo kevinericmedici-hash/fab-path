@@ -545,6 +545,12 @@ function initSupercapLessonQuiz(lessonId, questions) {
 
             localStorage.setItem(completionKey, "true");
 
+            /* The streak is shared across all courses. */
+
+            if (typeof updateStreakOnLessonComplete === "function") {
+                updateStreakOnLessonComplete();
+            }
+
             window.location.href = "supercap-learn.html";
         }
     });
