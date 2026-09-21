@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Transistors: Switches &amp; Amplifiers | Fab Path</title>
-    <meta name="description" content="Transistors: Switches &amp; Amplifiers: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <title>Threshold Voltage | Fab Path</title>
+    <meta name="description" content="Threshold Voltage: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Transistors: Switches &amp; Amplifiers | Fab Path">
-    <meta property="og:description" content="Transistors: Switches &amp; Amplifiers: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <meta property="og:title" content="Threshold Voltage | Fab Path">
+    <meta property="og:description" content="Threshold Voltage: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 5
+                    1 / 7
                 </span>
 
             </div>
@@ -86,62 +86,42 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    THREE TERMINALS
+                    THE DEPLETION LAYER
                 </p>
 
                 <h1>
-                    One control, two ends of a path
+                    How deep does it reach?
                 </h1>
 
-                <div class="module-card-grid">
+                <div class="scale-stack">
 
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🎛️
-                        </div>
-
-                        <h3>Gate</h3>
-
-                        <p>
-                            The control terminal. Its voltage decides how much current can flow
-                        </p>
-
+                    <div class="scale-row">
+                        <strong>Exposed ions</strong>
+                        <span>The depletion layer is the region of uncovered dopant ions under the gate</span>
                     </div>
 
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🚪
-                        </div>
-
-                        <h3>Source</h3>
-
-                        <p>
-                            Where the current-carrying charges enter the channel
-                        </p>
-
+                    <div class="scale-row">
+                        <strong>Charge balance</strong>
+                        <span>Gate charge equals depletion charge plus inversion charge</span>
                     </div>
 
-                    <div class="module-card">
+                    <div class="scale-row">
+                        <strong>Maximum depth</strong>
+                        <span>Once inverted, extra gate voltage adds electrons, not depth</span>
+                    </div>
 
-                        <div class="module-card-icon">
-                            🏁
-                        </div>
-
-                        <h3>Drain</h3>
-
-                        <p>
-                            Where those charges leave the channel
-                        </p>
-
+                    <div class="scale-row">
+                        <strong>A number</strong>
+                        <span>For N<sub>A</sub> = 10¹⁶ cm⁻³ the maximum depth is about 0.3 µm</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    A fourth connection, the body, also exists. We'll meet it in lesson 3.
+                    
+
+                    Heavier doping means a shallower depletion layer, and a higher threshold.
 
                 </div>
 
@@ -152,37 +132,24 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THREE JOBS
+                    THE SWITCH POINT
                 </p>
 
                 <h1>
-                    What a transistor can be
+                    What Vth means
                 </h1>
 
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Switch</strong>
-                        <span>Gate high means on, gate low means off: the basis of digital logic</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Amplifier</strong>
-                        <span>A small change in gate voltage makes a larger change in current</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Sensor</strong>
-                        <span>Anything that changes the gate's effective voltage changes the current</span>
-                    </div>
-
+                <div class="module-visual module-visual-text">
+                    VGS = Vth
                 </div>
+
+                <p>
+                    The threshold voltage is the gate-to-source voltage at which a conducting inversion channel forms. In an enhancement-mode NMOS, it's positive, commonly 0.3 to 1 V. Well below it the transistor is essentially off.
+                </p>
 
                 <div class="module-takeaway">
 
-                    
-
-                    The sensor job is why this course exists.
+                    Vth is the gate voltage where the switch turns on.
 
                 </div>
 
@@ -193,24 +160,24 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    FIELD EFFECT
+                    THE RECIPE
                 </p>
 
                 <h1>
-                    Current controlled by a field
+                    Three ingredients of Vth
                 </h1>
 
                 <div class="module-visual module-visual-text">
-                    field → current
+                    Vth = VFB+2φF+Qd/Cox
                 </div>
 
                 <p>
-                    In a field-effect transistor, the gate's electric field, not a current, controls how many charges sit in the channel. The gate is insulated by an oxide, so almost no DC current flows into it. That makes it cheap to hold in a state and a very sensitive voltage probe.
+                    The flat-band voltage V<sub>FB</sub> accounts for the work-function difference and any oxide charge. The 2φF term supplies the band bending for inversion. Q<sub>d</sub> / C<sub>ox</sub> is the extra voltage needed to support the depletion charge across the oxide.
                 </p>
 
                 <div class="module-takeaway">
 
-                    The insulated gate is what makes a MOSFET both efficient and a good sensor.
+                    Every knob that sets Vth acts on one of these three terms.
 
                 </div>
 
@@ -221,33 +188,43 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE FET FAMILY
+                    WHAT MOVES Vth
                 </p>
 
                 <h1>
-                    Where the MOSFET fits
+                    Six knobs
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>MOSFET</strong>
-                        <span>Insulated gate: an oxide separates the gate from the channel</span>
+                        <strong>Doping N<sub>A</sub></strong>
+                        <span>More doping raises Vth</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>JFET</strong>
-                        <span>The gate is a reverse-biased p–n junction instead of an oxide</span>
+                        <strong>Oxide thickness</strong>
+                        <span>A thinner oxide lowers the depletion term</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>MESFET, HEMT</strong>
-                        <span>Metal-semiconductor gates, used mostly in high-frequency circuits</span>
+                        <strong>Gate material</strong>
+                        <span>Its work function shifts the flat-band voltage</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>BJT</strong>
-                        <span>Not a FET at all: a small input current controls a larger one</span>
+                        <strong>Oxide charge</strong>
+                        <span>Trapped or nearby charge shifts Vth by −Q / Cox</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Body bias</strong>
+                        <span>A reverse-biased source-body junction raises Vth</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Temperature</strong>
+                        <span>Vth falls as the device heats up</span>
                     </div>
 
                 </div>
@@ -256,7 +233,76 @@
 
                     
 
-                    We focus on the MOSFET, because its oxide surface is what sensing builds on.
+                    Oxide charge is the knob that biosensors will turn.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CHARGE SHIFTS THE THRESHOLD
+                </p>
+
+                <h1>
+                    The transistor as a charge detector
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    ΔVth = −Q / Cox
+                </div>
+
+                <p>
+                    Put positive charge Q per unit area at the oxide-silicon interface, and the gate needs less positive voltage to invert the surface, so Vth drops by Q/C<sub>ox</sub>. Negative charge raises it. Example: 10¹² elementary charges per cm² on a 0.345 µF/cm² oxide moves Vth by about 0.46 V.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Sensing with a FET means measuring how far a surface charge moves the threshold.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 6 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    TWO MODES
+                </p>
+
+                <h1>
+                    Enhancement and depletion
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Enhancement mode</strong>
+                        <span>Normally off: an NMOS has Vth &gt; 0 and needs gate voltage to form a channel</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Depletion mode</strong>
+                        <span>Normally on: a channel exists at VGS = 0 and a gate voltage pinches it off</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Where each is used</strong>
+                        <span>Logic uses enhancement mode; some sensors, like doped nanowires, use depletion mode</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Both respond to charge the same way: the threshold shifts.
 
                 </div>
 
@@ -267,7 +313,7 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 1 STUDY COMPLETE
+                    UNIT 5 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
@@ -279,13 +325,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered what a transistor does, and why the field-effect version dominates.
+                    You've covered what sets the switch-on voltage, and how charge shifts it.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeFetUnit1Button"
+                    id="completeFetUnit5Button"
                 >
                     Complete Module
                 </button>
@@ -347,7 +393,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeFetUnit1Button");
+            document.getElementById("completeFetUnit5Button");
 
 
         let currentSlide = 0;
@@ -457,7 +503,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathFetUnit1StudyComplete"
+                    "fabPathFetUnit5StudyComplete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -470,7 +516,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathFetUnit1StudyComplete",
+                        "fabPathFetUnit5StudyComplete",
                         "true"
                     );
 

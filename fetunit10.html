@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Transistors: Switches &amp; Amplifiers | Fab Path</title>
-    <meta name="description" content="Transistors: Switches &amp; Amplifiers: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <title>The Electrical Double Layer | Fab Path</title>
+    <meta name="description" content="The Electrical Double Layer: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Transistors: Switches &amp; Amplifiers | Fab Path">
-    <meta property="og:description" content="Transistors: Switches &amp; Amplifiers: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <meta property="og:title" content="The Electrical Double Layer | Fab Path">
+    <meta property="og:description" content="The Electrical Double Layer: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 5
+                    1 / 6
                 </span>
 
             </div>
@@ -83,65 +83,61 @@
             <!-- SLIDE 1 -->
 
                         <!-- SLIDE 1 -->
+                        <!-- SLIDE 1 -->
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    THREE TERMINALS
+                    THE DOUBLE LAYER
                 </p>
 
                 <h1>
-                    One control, two ends of a path
+                    Charge on the surface, counter-charge in the liquid
                 </h1>
 
-                <div class="module-card-grid">
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🎛️
-                        </div>
-
-                        <h3>Gate</h3>
-
-                        <p>
-                            The control terminal. Its voltage decides how much current can flow
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🚪
-                        </div>
-
-                        <h3>Source</h3>
-
-                        <p>
-                            Where the current-carrying charges enter the channel
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🏁
-                        </div>
-
-                        <h3>Drain</h3>
-
-                        <p>
-                            Where those charges leave the channel
-                        </p>
-
-                    </div>
-
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 226" role="img" aria-label="Potential falling from the charged surface, across the Stern layer and the diffuse layer">
+<line class="fd-axis" x1="48" y1="168" x2="322" y2="168"/>
+<rect class="fd-ox" x="48" y="26" width="26" height="142"/>
+<text class="fd-sym" x="61" y="47" text-anchor="middle" style="fill:#ff6978">−</text>
+<text class="fd-sym" x="61" y="77" text-anchor="middle" style="fill:#ff6978">−</text>
+<text class="fd-sym" x="61" y="107" text-anchor="middle" style="fill:#ff6978">−</text>
+<text class="fd-sym" x="61" y="137" text-anchor="middle" style="fill:#ff6978">−</text>
+<rect x="74" y="26" width="30" height="142" style="fill:rgba(255,214,102,0.10)"/>
+<circle class="fd-hole" cx="84" cy="48" r="3.2"/>
+<circle class="fd-hole" cx="88" cy="80" r="3.2"/>
+<circle class="fd-hole" cx="85" cy="112" r="3.2"/>
+<circle class="fd-hole" cx="90" cy="146" r="3.2"/>
+<circle class="fd-hole" cx="118" cy="60" r="2.6" opacity="0.7"/>
+<circle class="fd-hole" cx="126" cy="96" r="2.6" opacity="0.7"/>
+<circle class="fd-hole" cx="122" cy="132" r="2.6" opacity="0.7"/>
+<circle class="fd-hole" cx="150" cy="78" r="2.6" opacity="0.7"/>
+<circle class="fd-hole" cx="170" cy="118" r="2.6" opacity="0.7"/>
+<circle class="fd-hole" cx="210" cy="62" r="2.6" opacity="0.7"/>
+<circle class="fd-hole" cx="240" cy="132" r="2.6" opacity="0.7"/>
+<circle class="fd-electron" cx="190" cy="90" r="2.6" opacity="0.7"/>
+<circle class="fd-electron" cx="260" cy="104" r="2.6" opacity="0.7"/>
+<circle class="fd-electron" cx="232" cy="150" r="2.6" opacity="0.7"/>
+<path class="fd-curve" d="M74 38 L104 70 L104 70.0 L108 78.2 L112 85.6 L116 92.5 L120 98.8 L124 104.6 L128 109.8 L132 114.7 L136 119.1 L140 123.2 L144 126.9 L148 130.3 L152 133.5 L156 136.4 L160 139.0 L164 141.4 L168 143.6 L172 145.7 L176 147.5 L180 149.2 L184 150.8 L188 152.2 L192 153.5 L196 154.7 L200 155.8 L204 156.9 L208 157.8 L212 158.6 L216 159.4 L220 160.1 L224 160.8 L228 161.4 L232 161.9 L236 162.4 L240 162.9 L244 163.3 L248 163.7 L252 164.1 L256 164.4 L260 164.7 L264 165.0 L268 165.2 L272 165.5 L276 165.7 L280 165.9 L284 166.0 L288 166.2 L292 166.4 L296 166.5 L300 166.6 L304 166.7 L308 166.8 L312 166.9 L316 167.0 L320 167.1"/>
+<line class="fd-dash" x1="150" y1="168" x2="150" y2="125.9"/>
+<text class="fd-accent" x="154" y="156">λD</text>
+<text class="fd-label" x="86" y="30" text-anchor="middle">ψ₀</text>
+<text class="fd-sub" x="89" y="184" text-anchor="middle">Stern</text>
+<text class="fd-sub" x="200" y="184" text-anchor="middle">diffuse layer</text>
+<text class="fd-sub" x="61" y="184" text-anchor="middle">oxide</text>
+<text class="fd-sub" x="322" y="204" text-anchor="end">distance from the surface →</text>
+<text class="fd-sub" x="54" y="16">potential ↑</text>
+</svg>
                 </div>
+
+                <p>
+                    A charged surface attracts ions of the opposite sign from the solution. The result is two sheets of charge, one on the surface and a screening cloud in the liquid, and the potential falls from ψ₀ back to zero across the cloud.
+                </p>
 
                 <div class="module-takeaway">
 
-                    A fourth connection, the body, also exists. We'll meet it in lesson 3.
+                    
+
+                    The double layer is how a solution hides a charged surface from far away.
 
                 </div>
 
@@ -152,37 +148,62 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THREE JOBS
+                    THREE ZONES
                 </p>
 
                 <h1>
-                    What a transistor can be
+                    From surface to bulk
                 </h1>
 
-                <div class="scale-stack">
+                <div class="module-card-grid">
 
-                    <div class="scale-row">
-                        <strong>Switch</strong>
-                        <span>Gate high means on, gate low means off: the basis of digital logic</span>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧱
+                        </div>
+
+                        <h3>Surface</h3>
+
+                        <p>
+                            Fixed charge from site binding, at potential ψ₀
+                        </p>
+
                     </div>
 
-                    <div class="scale-row">
-                        <strong>Amplifier</strong>
-                        <span>A small change in gate voltage makes a larger change in current</span>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            📏
+                        </div>
+
+                        <h3>Stern layer</h3>
+
+                        <p>
+                            A compact layer of ions held within a fraction of a nanometer
+                        </p>
+
                     </div>
 
-                    <div class="scale-row">
-                        <strong>Sensor</strong>
-                        <span>Anything that changes the gate's effective voltage changes the current</span>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ☁️
+                        </div>
+
+                        <h3>Diffuse layer</h3>
+
+                        <p>
+                            Mobile ions spread out by thermal motion, thinning with distance
+                        </p>
+
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    
-
-                    The sensor job is why this course exists.
+                    The potential drops across the Stern layer first, then fades through the diffuse layer.
 
                 </div>
 
@@ -193,24 +214,24 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    FIELD EFFECT
+                    DEBYE LENGTH
                 </p>
 
                 <h1>
-                    Current controlled by a field
+                    How far the screening reaches
                 </h1>
 
                 <div class="module-visual module-visual-text">
-                    field → current
+                    <span class="math-visual">λ<sub>D</sub> ≈ 0.3 nm ÷ √c</span>
                 </div>
 
                 <p>
-                    In a field-effect transistor, the gate's electric field, not a current, controls how many charges sit in the channel. The gate is insulated by an oxide, so almost no DC current flows into it. That makes it cheap to hold in a state and a very sensitive voltage probe.
+                    The Debye length λ<sub>D</sub> is the distance over which the potential falls to 1/e of its value. For a simple salt in water at 25 °C, λ<sub>D</sub> is about 0.3 nm divided by the square root of the concentration c in mol/L. More salt means more mobile ions, so screening is quicker and the reach is shorter.
                 </p>
 
                 <div class="module-takeaway">
 
-                    The insulated gate is what makes a MOSFET both efficient and a good sensor.
+                    The Debye length shrinks as the square root of the concentration grows.
 
                 </div>
 
@@ -221,33 +242,33 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE FET FAMILY
+                    DEBYE LENGTH IN PRACTICE
                 </p>
 
                 <h1>
-                    Where the MOSFET fits
+                    Salt sets the reach
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>MOSFET</strong>
-                        <span>Insulated gate: an oxide separates the gate from the channel</span>
+                        <strong>1 mM</strong>
+                        <span>about 10 nm</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>JFET</strong>
-                        <span>The gate is a reverse-biased p–n junction instead of an oxide</span>
+                        <strong>10 mM</strong>
+                        <span>about 3 nm</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>MESFET, HEMT</strong>
-                        <span>Metal-semiconductor gates, used mostly in high-frequency circuits</span>
+                        <strong>100 mM</strong>
+                        <span>about 1 nm</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>BJT</strong>
-                        <span>Not a FET at all: a small input current controls a larger one</span>
+                        <strong>150 mM</strong>
+                        <span>about 0.8 nm, like physiological saline</span>
                     </div>
 
                 </div>
@@ -256,7 +277,35 @@
 
                     
 
-                    We focus on the MOSFET, because its oxide surface is what sensing builds on.
+                    In body-like salt, the double layer is under a nanometer thick.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SERIES CAPACITORS
+                </p>
+
+                <h1>
+                    The double layer is stiff
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    <span class="math-visual">C<sub>dl</sub> ≫ C<sub>ox</sub></span>
+                </div>
+
+                <p>
+                    In typical salt, the double layer holds tens of µF/cm², against about 0.35 µF/cm² for a 10 nm oxide. Capacitors in series are dominated by the smaller one, so the gate stack behaves almost like the oxide alone, and the interface potential passes through to the channel.
+                </p>
+
+                <div class="module-takeaway">
+
+                    The liquid side adds little to the gate capacitance, so the oxide sets it.
 
                 </div>
 
@@ -267,11 +316,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 1 STUDY COMPLETE
+                    UNIT 10 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    🔲
+                    🧪
                 </div>
 
                 <h1>
@@ -279,13 +328,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered what a transistor does, and why the field-effect version dominates.
+                    You've covered how ions in the solution screen the surface charge, and how far the screening reaches.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeFetUnit1Button"
+                    id="completeFetUnit10Button"
                 >
                     Complete Module
                 </button>
@@ -347,7 +396,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeFetUnit1Button");
+            document.getElementById("completeFetUnit10Button");
 
 
         let currentSlide = 0;
@@ -457,7 +506,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathFetUnit1StudyComplete"
+                    "fabPathFetUnit10StudyComplete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -470,7 +519,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathFetUnit1StudyComplete",
+                        "fabPathFetUnit10StudyComplete",
                         "true"
                     );
 

@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Transistors: Switches &amp; Amplifiers | Fab Path</title>
-    <meta name="description" content="Transistors: Switches &amp; Amplifiers: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <title>A Semiconductor Refresher | Fab Path</title>
+    <meta name="description" content="A Semiconductor Refresher: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Transistors: Switches &amp; Amplifiers | Fab Path">
-    <meta property="og:description" content="Transistors: Switches &amp; Amplifiers: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <meta property="og:title" content="A Semiconductor Refresher | Fab Path">
+    <meta property="og:description" content="A Semiconductor Refresher: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 5
+                    1 / 6
                 </span>
 
             </div>
@@ -86,62 +86,24 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    THREE TERMINALS
+                    SILICON
                 </p>
 
                 <h1>
-                    One control, two ends of a path
+                    A conductor you can tune
                 </h1>
 
-                <div class="module-card-grid">
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🎛️
-                        </div>
-
-                        <h3>Gate</h3>
-
-                        <p>
-                            The control terminal. Its voltage decides how much current can flow
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🚪
-                        </div>
-
-                        <h3>Source</h3>
-
-                        <p>
-                            Where the current-carrying charges enter the channel
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🏁
-                        </div>
-
-                        <h3>Drain</h3>
-
-                        <p>
-                            Where those charges leave the channel
-                        </p>
-
-                    </div>
-
+                <div class="module-visual module-visual-text">
+                    Si · 1.12 eV
                 </div>
+
+                <p>
+                    Silicon's conductivity sits between a metal's and an insulator's. Its band gap is 1.12 eV, so at room temperature only about 10¹⁰ electrons per cm³ are free, compared with roughly 5×10²² silicon atoms per cm³. Adding impurities changes that by many orders of magnitude.
+                </p>
 
                 <div class="module-takeaway">
 
-                    A fourth connection, the body, also exists. We'll meet it in lesson 3.
+                    Pure silicon barely conducts. Doping makes it useful.
 
                 </div>
 
@@ -152,37 +114,62 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THREE JOBS
+                    DOPING
                 </p>
 
                 <h1>
-                    What a transistor can be
+                    Choose your carrier
                 </h1>
 
-                <div class="scale-stack">
+                <div class="module-card-grid">
 
-                    <div class="scale-row">
-                        <strong>Switch</strong>
-                        <span>Gate high means on, gate low means off: the basis of digital logic</span>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ➖
+                        </div>
+
+                        <h3>n-type</h3>
+
+                        <p>
+                            Donors such as phosphorus or arsenic add free electrons
+                        </p>
+
                     </div>
 
-                    <div class="scale-row">
-                        <strong>Amplifier</strong>
-                        <span>A small change in gate voltage makes a larger change in current</span>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ➕
+                        </div>
+
+                        <h3>p-type</h3>
+
+                        <p>
+                            Acceptors such as boron leave mobile holes behind
+                        </p>
+
                     </div>
 
-                    <div class="scale-row">
-                        <strong>Sensor</strong>
-                        <span>Anything that changes the gate's effective voltage changes the current</span>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ⚖️
+                        </div>
+
+                        <h3>Majority and minority</h3>
+
+                        <p>
+                            The dominant carrier is the majority; the other is the minority
+                        </p>
+
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    
-
-                    The sensor job is why this course exists.
+                    Typical doping runs from about 10¹⁵ to 10²⁰ atoms per cm³.
 
                 </div>
 
@@ -193,24 +180,24 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    FIELD EFFECT
+                    MASS ACTION
                 </p>
 
                 <h1>
-                    Current controlled by a field
+                    Fewer holes, more electrons
                 </h1>
 
                 <div class="module-visual module-visual-text">
-                    field → current
+                    n · p = nᵢ²
                 </div>
 
                 <p>
-                    In a field-effect transistor, the gate's electric field, not a current, controls how many charges sit in the channel. The gate is insulated by an oxide, so almost no DC current flows into it. That makes it cheap to hold in a state and a very sensitive voltage probe.
+                    In equilibrium the electron and hole concentrations multiply to a constant, nᵢ². In p-type silicon doped with 10¹⁶ boron atoms per cm³, holes number about 10¹⁶ per cm³, so electrons drop to (10¹⁰)² / 10¹⁶ = 10⁴ per cm³.
                 </p>
 
                 <div class="module-takeaway">
 
-                    The insulated gate is what makes a MOSFET both efficient and a good sensor.
+                    Minority carriers in the substrate are nearly absent, until a gate field pulls them in.
 
                 </div>
 
@@ -221,33 +208,113 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE FET FAMILY
+                    THE P–N JUNCTION
                 </p>
 
                 <h1>
-                    Where the MOSFET fits
+                    Where n meets p
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 168" role="img" aria-label="A p-n junction with its depletion region">
+<rect class="fd-p" x="20" y="30" width="150" height="90"/>
+<rect class="fd-n" x="170" y="30" width="150" height="90"/>
+<rect class="fd-depl" x="130" y="30" width="80" height="90"/>
+<circle class="fd-hole" cx="34" cy="48" r="3.6"/>
+<circle class="fd-hole" cx="34" cy="76" r="3.6"/>
+<circle class="fd-hole" cx="34" cy="104" r="3.6"/>
+<circle class="fd-hole" cx="54" cy="48" r="3.6"/>
+<circle class="fd-hole" cx="54" cy="76" r="3.6"/>
+<circle class="fd-hole" cx="54" cy="104" r="3.6"/>
+<circle class="fd-hole" cx="74" cy="48" r="3.6"/>
+<circle class="fd-hole" cx="74" cy="76" r="3.6"/>
+<circle class="fd-hole" cx="74" cy="104" r="3.6"/>
+<circle class="fd-hole" cx="94" cy="48" r="3.6"/>
+<circle class="fd-hole" cx="94" cy="76" r="3.6"/>
+<circle class="fd-hole" cx="94" cy="104" r="3.6"/>
+<circle class="fd-hole" cx="114" cy="48" r="3.6"/>
+<circle class="fd-hole" cx="114" cy="76" r="3.6"/>
+<circle class="fd-hole" cx="114" cy="104" r="3.6"/>
+<circle class="fd-electron" cx="226" cy="48" r="3.6"/>
+<circle class="fd-electron" cx="226" cy="76" r="3.6"/>
+<circle class="fd-electron" cx="226" cy="104" r="3.6"/>
+<circle class="fd-electron" cx="246" cy="48" r="3.6"/>
+<circle class="fd-electron" cx="246" cy="76" r="3.6"/>
+<circle class="fd-electron" cx="246" cy="104" r="3.6"/>
+<circle class="fd-electron" cx="266" cy="48" r="3.6"/>
+<circle class="fd-electron" cx="266" cy="76" r="3.6"/>
+<circle class="fd-electron" cx="266" cy="104" r="3.6"/>
+<circle class="fd-electron" cx="286" cy="48" r="3.6"/>
+<circle class="fd-electron" cx="286" cy="76" r="3.6"/>
+<circle class="fd-electron" cx="286" cy="104" r="3.6"/>
+<circle class="fd-electron" cx="306" cy="48" r="3.6"/>
+<circle class="fd-electron" cx="306" cy="76" r="3.6"/>
+<circle class="fd-electron" cx="306" cy="104" r="3.6"/>
+<text class="fd-ion fd-sym" x="140" y="55" text-anchor="middle">−</text>
+<text class="fd-ion fd-sym" x="140" y="83" text-anchor="middle">−</text>
+<text class="fd-ion fd-sym" x="140" y="111" text-anchor="middle">−</text>
+<text class="fd-ion fd-sym" x="156" y="55" text-anchor="middle">−</text>
+<text class="fd-ion fd-sym" x="156" y="83" text-anchor="middle">−</text>
+<text class="fd-ion fd-sym" x="156" y="111" text-anchor="middle">−</text>
+<text class="fd-ion fd-sym" x="184" y="55" text-anchor="middle">+</text>
+<text class="fd-ion fd-sym" x="184" y="83" text-anchor="middle">+</text>
+<text class="fd-ion fd-sym" x="184" y="111" text-anchor="middle">+</text>
+<text class="fd-ion fd-sym" x="200" y="55" text-anchor="middle">+</text>
+<text class="fd-ion fd-sym" x="200" y="83" text-anchor="middle">+</text>
+<text class="fd-ion fd-sym" x="200" y="111" text-anchor="middle">+</text>
+<text class="fd-label" x="80" y="22" text-anchor="middle">p-type · holes</text>
+<text class="fd-label" x="260" y="22" text-anchor="middle">n-type · electrons</text>
+<text class="fd-label" x="170" y="138" text-anchor="middle">depletion region</text>
+<text class="fd-sub" x="170" y="152" text-anchor="middle">fixed ions, few free carriers, built-in field</text>
+</svg>
+                </div>
+
+                <p>
+                    Electrons diffuse from the n side into the p side, and holes go the other way. That leaves behind fixed, charged dopant ions, forming a depletion region with a built-in electric field. Reverse bias widens it; forward bias narrows it.
+                </p>
+
+                <div class="module-takeaway">
+
+                    
+
+                    A reverse-biased junction blocks current, and that's how a MOSFET's source and drain stay isolated from the body.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    MOVING CHARGE
+                </p>
+
+                <h1>
+                    Drift, diffusion, and mobility
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>MOSFET</strong>
-                        <span>Insulated gate: an oxide separates the gate from the channel</span>
+                        <strong>Drift</strong>
+                        <span>Charges pushed along by an electric field</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>JFET</strong>
-                        <span>The gate is a reverse-biased p–n junction instead of an oxide</span>
+                        <strong>Diffusion</strong>
+                        <span>Charges spreading from high concentration to low</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>MESFET, HEMT</strong>
-                        <span>Metal-semiconductor gates, used mostly in high-frequency circuits</span>
+                        <strong>Mobility</strong>
+                        <span>How easily a carrier moves: about 1400 cm²/V·s for bulk electrons, 450 for holes</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>BJT</strong>
-                        <span>Not a FET at all: a small input current controls a larger one</span>
+                        <strong>Inversion layers</strong>
+                        <span>Mobility at the surface is lower, often a few hundred</span>
                     </div>
 
                 </div>
@@ -256,7 +323,7 @@
 
                     
 
-                    We focus on the MOSFET, because its oxide surface is what sensing builds on.
+                    Electrons move faster than holes, which is why NMOS transistors beat PMOS in speed.
 
                 </div>
 
@@ -267,7 +334,7 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 1 STUDY COMPLETE
+                    UNIT 2 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
@@ -279,13 +346,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered what a transistor does, and why the field-effect version dominates.
+                    You've covered electrons, holes, doping, and the p–n junction.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeFetUnit1Button"
+                    id="completeFetUnit2Button"
                 >
                     Complete Module
                 </button>
@@ -347,7 +414,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeFetUnit1Button");
+            document.getElementById("completeFetUnit2Button");
 
 
         let currentSlide = 0;
@@ -457,7 +524,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathFetUnit1StudyComplete"
+                    "fabPathFetUnit2StudyComplete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -470,7 +537,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathFetUnit1StudyComplete",
+                        "fabPathFetUnit2StudyComplete",
                         "true"
                     );
 

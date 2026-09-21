@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Transistors: Switches &amp; Amplifiers | Fab Path</title>
-    <meta name="description" content="Transistors: Switches &amp; Amplifiers: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <title>pH Response &amp; the Nernst Limit | Fab Path</title>
+    <meta name="description" content="pH Response &amp; the Nernst Limit: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Transistors: Switches &amp; Amplifiers | Fab Path">
-    <meta property="og:description" content="Transistors: Switches &amp; Amplifiers: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <meta property="og:title" content="pH Response &amp; the Nernst Limit | Fab Path">
+    <meta property="og:description" content="pH Response &amp; the Nernst Limit: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 5
+                    1 / 6
                 </span>
 
             </div>
@@ -83,65 +83,28 @@
             <!-- SLIDE 1 -->
 
                         <!-- SLIDE 1 -->
+                        <!-- SLIDE 1 -->
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    THREE TERMINALS
+                    FROM CHEMISTRY TO VOLTAGE
                 </p>
 
                 <h1>
-                    One control, two ends of a path
+                    pH becomes surface potential
                 </h1>
 
-                <div class="module-card-grid">
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🎛️
-                        </div>
-
-                        <h3>Gate</h3>
-
-                        <p>
-                            The control terminal. Its voltage decides how much current can flow
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🚪
-                        </div>
-
-                        <h3>Source</h3>
-
-                        <p>
-                            Where the current-carrying charges enter the channel
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🏁
-                        </div>
-
-                        <h3>Drain</h3>
-
-                        <p>
-                            Where those charges leave the channel
-                        </p>
-
-                    </div>
-
+                <div class="module-visual module-visual-text">
+                    Δψ₀ = −2.3 · (kT/q) · α · ΔpH
                 </div>
+
+                <p>
+                    Each pH unit moves the surface potential by at most 2.3·kT/q. The factor α, between 0 and 1, says how completely the surface follows the solution, and 1 is an ideal, fully responsive surface. Because Vth = constants − ψ₀, a rising pH raises the threshold of an NMOS ISFET.
+                </p>
 
                 <div class="module-takeaway">
 
-                    A fourth connection, the body, also exists. We'll meet it in lesson 3.
+                    Higher pH gives a more negative surface and a higher NMOS threshold.
 
                 </div>
 
@@ -152,37 +115,24 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THREE JOBS
+                    THE NERNST LIMIT
                 </p>
 
                 <h1>
-                    What a transistor can be
+                    The ceiling: 59 mV per pH
                 </h1>
 
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Switch</strong>
-                        <span>Gate high means on, gate low means off: the basis of digital logic</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Amplifier</strong>
-                        <span>A small change in gate voltage makes a larger change in current</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Sensor</strong>
-                        <span>Anything that changes the gate's effective voltage changes the current</span>
-                    </div>
-
+                <div class="module-visual module-visual-text">
+                    2.3 kT/q = 59.2 mV per pH
                 </div>
+
+                <p>
+                    At 25 °C, kT/q is 25.7 mV, so 2.3·kT/q is 59.2 mV per pH unit. That is the Nernst limit for a simple surface, where α = 1. Real insulators fall short, so measured sensitivity is α × 59.2 mV per pH unit.
+                </p>
 
                 <div class="module-takeaway">
 
-                    
-
-                    The sensor job is why this course exists.
+                    α tells you how close a real insulator gets to the ceiling.
 
                 </div>
 
@@ -193,24 +143,42 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    FIELD EFFECT
+                    SENSING INSULATORS
                 </p>
 
                 <h1>
-                    Current controlled by a field
+                    Materials differ a lot
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    field → current
-                </div>
+                <div class="scale-stack">
 
-                <p>
-                    In a field-effect transistor, the gate's electric field, not a current, controls how many charges sit in the channel. The gate is insulated by an oxide, so almost no DC current flows into it. That makes it cheap to hold in a state and a very sensitive voltage probe.
-                </p>
+                    <div class="scale-row">
+                        <strong>SiO₂</strong>
+                        <span>roughly 20–40 mV/pH: a weak response, and it hydrates over time</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Si₃N₄</strong>
+                        <span>roughly 45–55 mV/pH: a common, reasonable choice</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Al₂O₃</strong>
+                        <span>roughly 53–58 mV/pH: near the limit</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Ta₂O₅</strong>
+                        <span>roughly 55–59 mV/pH: near the limit, and stable</span>
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    The insulated gate is what makes a MOSFET both efficient and a good sensor.
+                    
+
+                    Insulators with more active surface sites sit closer to the Nernst limit.
 
                 </div>
 
@@ -221,42 +189,73 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE FET FAMILY
+                    WORKED EXAMPLE
                 </p>
 
                 <h1>
-                    Where the MOSFET fits
+                    How far does Vth move?
                 </h1>
 
-                <div class="scale-stack">
+                <div class="module-visual module-visual-text">
+                    0.9 × 59.2 ≈ 53 mV per pH
+                </div>
 
-                    <div class="scale-row">
-                        <strong>MOSFET</strong>
-                        <span>Insulated gate: an oxide separates the gate from the channel</span>
-                    </div>
+                <p>
+                    An ISFET with α = 0.9 responds at about 53 mV per pH unit at 25 °C. If the solution moves from pH 7.0 to 7.4, that is 0.4 units, so Vth shifts by about 0.4 × 53 = 21 mV.
+                </p>
 
-                    <div class="scale-row">
-                        <strong>JFET</strong>
-                        <span>The gate is a reverse-biased p–n junction instead of an oxide</span>
-                    </div>
+                <div class="module-takeaway">
 
-                    <div class="scale-row">
-                        <strong>MESFET, HEMT</strong>
-                        <span>Metal-semiconductor gates, used mostly in high-frequency circuits</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>BJT</strong>
-                        <span>Not a FET at all: a small input current controls a larger one</span>
-                    </div>
+                    Multiply the pH change by α × 59.2 mV to predict the shift.
 
                 </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SENSITIVITY LINES
+                </p>
+
+                <h1>
+                    The slope is the sensitivity
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 214" role="img" aria-label="Threshold shift against pH for an ideal surface and a weaker one">
+<line class="fd-axis" x1="44" y1="186" x2="322" y2="186"/>
+<line class="fd-axis" x1="44" y1="186" x2="44" y2="18"/>
+<line class="fd-grid" x1="44" y1="100.0" x2="322" y2="100.0"/>
+<text class="fd-sub" x="44.0" y="200" text-anchor="middle">4</text>
+<text class="fd-sub" x="90.3" y="200" text-anchor="middle">5</text>
+<text class="fd-sub" x="136.7" y="200" text-anchor="middle">6</text>
+<text class="fd-sub" x="183.0" y="200" text-anchor="middle">7</text>
+<text class="fd-sub" x="229.3" y="200" text-anchor="middle">8</text>
+<text class="fd-sub" x="275.7" y="200" text-anchor="middle">9</text>
+<text class="fd-sub" x="322.0" y="200" text-anchor="middle">10</text>
+<path class="fd-curve" d="M44.0 174.6 L322.0 25.4"/>
+<path class="fd-curve-alt" d="M44.0 137.3 L322.0 62.7"/>
+<circle class="fd-electron" cx="183.0" cy="100.0" r="3"/>
+<text class="fd-accent" x="52" y="34">ideal: 59 mV per pH</text>
+<text class="fd-sub" x="322" y="156" text-anchor="end" style="fill:#ffd666;font-weight:700">α ≈ 0.5: about 30 mV per pH</text>
+<text class="fd-sub" x="322" y="212" text-anchor="end">pH →</text>
+<text class="fd-sub" x="50" y="14">Vth shift ↑</text>
+<text class="fd-sub" x="175.0" y="92.0" text-anchor="end">pH 7, no shift</text>
+</svg>
+                </div>
+
+                <p>
+                    Both lines pass through zero shift at pH 7. The ideal surface climbs 59 mV per pH unit. A weaker surface, with α of about 0.5, climbs about half as fast, so the same pH change gives a smaller signal.
+                </p>
 
                 <div class="module-takeaway">
 
                     
 
-                    We focus on the MOSFET, because its oxide surface is what sensing builds on.
+                    A steeper line means a larger signal for the same pH change.
 
                 </div>
 
@@ -267,11 +266,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 1 STUDY COMPLETE
+                    UNIT 11 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    🔲
+                    🧪
                 </div>
 
                 <h1>
@@ -279,13 +278,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered what a transistor does, and why the field-effect version dominates.
+                    You've covered how much threshold shift you get per pH unit, and why 59 mV is the ceiling.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeFetUnit1Button"
+                    id="completeFetUnit11Button"
                 >
                     Complete Module
                 </button>
@@ -347,7 +346,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeFetUnit1Button");
+            document.getElementById("completeFetUnit11Button");
 
 
         let currentSlide = 0;
@@ -457,7 +456,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathFetUnit1StudyComplete"
+                    "fabPathFetUnit11StudyComplete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -470,7 +469,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathFetUnit1StudyComplete",
+                        "fabPathFetUnit11StudyComplete",
                         "true"
                     );
 

@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Transistors: Switches &amp; Amplifiers | Fab Path</title>
-    <meta name="description" content="Transistors: Switches &amp; Amplifiers: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <title>Drift, Hysteresis &amp; Noise | Fab Path</title>
+    <meta name="description" content="Drift, Hysteresis &amp; Noise: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Transistors: Switches &amp; Amplifiers | Fab Path">
-    <meta property="og:description" content="Transistors: Switches &amp; Amplifiers: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <meta property="og:title" content="Drift, Hysteresis &amp; Noise | Fab Path">
+    <meta property="og:description" content="Drift, Hysteresis &amp; Noise: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 5
+                    1 / 6
                 </span>
 
             </div>
@@ -83,14 +83,15 @@
             <!-- SLIDE 1 -->
 
                         <!-- SLIDE 1 -->
+                        <!-- SLIDE 1 -->
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    THREE TERMINALS
+                    REAL-WORLD LIMITS
                 </p>
 
                 <h1>
-                    One control, two ends of a path
+                    Three ways a reading goes wrong
                 </h1>
 
                 <div class="module-card-grid">
@@ -98,13 +99,13 @@
                     <div class="module-card">
 
                         <div class="module-card-icon">
-                            🎛️
+                            🐌
                         </div>
 
-                        <h3>Gate</h3>
+                        <h3>Drift</h3>
 
                         <p>
-                            The control terminal. Its voltage decides how much current can flow
+                            A slow, one-way creep of the output even at constant pH
                         </p>
 
                     </div>
@@ -112,13 +113,13 @@
                     <div class="module-card">
 
                         <div class="module-card-icon">
-                            🚪
+                            ↩️
                         </div>
 
-                        <h3>Source</h3>
+                        <h3>Hysteresis</h3>
 
                         <p>
-                            Where the current-carrying charges enter the channel
+                            The reading depends on which pH the sensor saw before
                         </p>
 
                     </div>
@@ -126,13 +127,13 @@
                     <div class="module-card">
 
                         <div class="module-card-icon">
-                            🏁
+                            📈
                         </div>
 
-                        <h3>Drain</h3>
+                        <h3>Noise</h3>
 
                         <p>
-                            Where those charges leave the channel
+                            Random fluctuations that set the smallest change you can detect
                         </p>
 
                     </div>
@@ -141,7 +142,7 @@
 
                 <div class="module-takeaway">
 
-                    A fourth connection, the body, also exists. We'll meet it in lesson 3.
+                    A good sensor manages all three, not just sensitivity.
 
                 </div>
 
@@ -152,37 +153,24 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THREE JOBS
+                    DRIFT
                 </p>
 
                 <h1>
-                    What a transistor can be
+                    A slow creep in the threshold
                 </h1>
 
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Switch</strong>
-                        <span>Gate high means on, gate low means off: the basis of digital logic</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Amplifier</strong>
-                        <span>A small change in gate voltage makes a larger change in current</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Sensor</strong>
-                        <span>Anything that changes the gate's effective voltage changes the current</span>
-                    </div>
-
+                <div class="module-visual module-visual-text">
+                    2 mV/h ÷ 53 mV/pH ≈ 0.04 pH/h
                 </div>
+
+                <p>
+                    Water slowly hydrates the top of the insulator and ions diffuse in, so the threshold creeps one way even in a fixed buffer. A few millivolts per hour is common for bare SiO₂ or Si₃N₄, and denser oxides drift less. At 2 mV per hour and 53 mV per pH unit, the error grows about 0.04 pH per hour.
+                </p>
 
                 <div class="module-takeaway">
 
-                    
-
-                    The sensor job is why this course exists.
+                    Over a 10-hour run, that drift adds up to about 0.4 pH of error.
 
                 </div>
 
@@ -193,24 +181,42 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    FIELD EFFECT
+                    HYSTERESIS
                 </p>
 
                 <h1>
-                    Current controlled by a field
+                    The sensor remembers
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    field → current
-                </div>
+                <div class="scale-stack">
 
-                <p>
-                    In a field-effect transistor, the gate's electric field, not a current, controls how many charges sit in the channel. The gate is insulated by an oxide, so almost no DC current flows into it. That makes it cheap to hold in a state and a very sensitive voltage probe.
-                </p>
+                    <div class="scale-row">
+                        <strong>The test</strong>
+                        <span>Go from pH 7 to 4 and back to 7: the reading does not return to its start</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The cause</strong>
+                        <span>Slow, deeper sites in the hydrated insulator respond late</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The size</strong>
+                        <span>Measured in millivolts: the gap between the up and down readings</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The fix</strong>
+                        <span>Dense insulators, settling time, and a known pH history</span>
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    The insulated gate is what makes a MOSFET both efficient and a good sensor.
+                    
+
+                    Hysteresis limits accuracy when pH swings back and forth.
 
                 </div>
 
@@ -221,42 +227,90 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE FET FAMILY
+                    TEMPERATURE
                 </p>
 
                 <h1>
-                    Where the MOSFET fits
+                    The slope depends on temperature
                 </h1>
 
-                <div class="scale-stack">
+                <div class="module-visual module-visual-text">
+                    25 °C → 37 °C: 59.2 → 61.5 mV/pH
+                </div>
 
-                    <div class="scale-row">
-                        <strong>MOSFET</strong>
-                        <span>Insulated gate: an oxide separates the gate from the channel</span>
+                <p>
+                    The Nernst slope grows with kT/q. Body temperature gives 61.5 mV per pH unit, against 59.2 at 25 °C. The threshold and mobility also shift with temperature, so measurements should be calibrated at, or corrected to, the temperature of use.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Calibrate at the temperature you plan to measure at.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    TAMING THE LIMITS
+                </p>
+
+                <h1>
+                    Practical fixes
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            👯
+                        </div>
+
+                        <h3>ISFET–REFET pair</h3>
+
+                        <p>
+                            A twin transistor with a pH-insensitive surface. Subtracting it cancels shared drift and temperature effects
+                        </p>
+
                     </div>
 
-                    <div class="scale-row">
-                        <strong>JFET</strong>
-                        <span>The gate is a reverse-biased p–n junction instead of an oxide</span>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            📐
+                        </div>
+
+                        <h3>Two-point calibration</h3>
+
+                        <p>
+                            Two known buffers fix both the slope and the offset
+                        </p>
+
                     </div>
 
-                    <div class="scale-row">
-                        <strong>MESFET, HEMT</strong>
-                        <span>Metal-semiconductor gates, used mostly in high-frequency circuits</span>
-                    </div>
+                    <div class="module-card">
 
-                    <div class="scale-row">
-                        <strong>BJT</strong>
-                        <span>Not a FET at all: a small input current controls a larger one</span>
+                        <div class="module-card-icon">
+                            🧱
+                        </div>
+
+                        <h3>Stable insulators</h3>
+
+                        <p>
+                            Al₂O₃, Ta₂O₅, and HfO₂ drift less than bare SiO₂
+                        </p>
+
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    
-
-                    We focus on the MOSFET, because its oxide surface is what sensing builds on.
+                    Pairing a sensor with a blind twin is the standard trick for cancelling shared errors.
 
                 </div>
 
@@ -267,11 +321,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 1 STUDY COMPLETE
+                    UNIT 13 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    🔲
+                    🧪
                 </div>
 
                 <h1>
@@ -279,13 +333,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered what a transistor does, and why the field-effect version dominates.
+                    You've covered the real-world limits that separate a lab demo from a dependable sensor.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeFetUnit1Button"
+                    id="completeFetUnit13Button"
                 >
                     Complete Module
                 </button>
@@ -347,7 +401,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeFetUnit1Button");
+            document.getElementById("completeFetUnit13Button");
 
 
         let currentSlide = 0;
@@ -457,7 +511,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathFetUnit1StudyComplete"
+                    "fabPathFetUnit13StudyComplete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -470,7 +524,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathFetUnit1StudyComplete",
+                        "fabPathFetUnit13StudyComplete",
                         "true"
                     );
 

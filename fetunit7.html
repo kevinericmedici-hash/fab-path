@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Transistors: Switches &amp; Amplifiers | Fab Path</title>
-    <meta name="description" content="Transistors: Switches &amp; Amplifiers: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <title>Transfer Curves &amp; Sensitivity | Fab Path</title>
+    <meta name="description" content="Transfer Curves &amp; Sensitivity: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Transistors: Switches &amp; Amplifiers | Fab Path">
-    <meta property="og:description" content="Transistors: Switches &amp; Amplifiers: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <meta property="og:title" content="Transfer Curves &amp; Sensitivity | Fab Path">
+    <meta property="og:description" content="Transfer Curves &amp; Sensitivity: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 5
+                    1 / 4
                 </span>
 
             </div>
@@ -86,62 +86,48 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    THREE TERMINALS
+                    TRANSFER CURVES
                 </p>
 
                 <h1>
-                    One control, two ends of a path
+                    ID versus VGS, and the sideways shift
                 </h1>
 
-                <div class="module-card-grid">
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🎛️
-                        </div>
-
-                        <h3>Gate</h3>
-
-                        <p>
-                            The control terminal. Its voltage decides how much current can flow
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🚪
-                        </div>
-
-                        <h3>Source</h3>
-
-                        <p>
-                            Where the current-carrying charges enter the channel
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🏁
-                        </div>
-
-                        <h3>Drain</h3>
-
-                        <p>
-                            Where those charges leave the channel
-                        </p>
-
-                    </div>
-
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 226" role="img" aria-label="Transfer curves before and after charge binds to the gate">
+<line class="fd-axis" x1="44" y1="180" x2="322" y2="180"/>
+<line class="fd-axis" x1="44" y1="180" x2="44" y2="18"/>
+<line class="fd-grid" x1="44" y1="144.0" x2="322" y2="144.0"/>
+<text class="fd-sub" x="40" y="147.0" text-anchor="end">10⁻¹²</text>
+<line class="fd-grid" x1="44" y1="108.0" x2="322" y2="108.0"/>
+<text class="fd-sub" x="40" y="111.0" text-anchor="end">10⁻⁹</text>
+<line class="fd-grid" x1="44" y1="72.0" x2="322" y2="72.0"/>
+<text class="fd-sub" x="40" y="75.0" text-anchor="end">10⁻⁶</text>
+<line class="fd-grid" x1="44" y1="36.0" x2="322" y2="36.0"/>
+<text class="fd-sub" x="40" y="39.0" text-anchor="end">10⁻³</text>
+<path class="fd-curve" d="M44.0 175.2 L46.8 172.3 L49.5 169.4 L52.3 166.6 L55.0 163.7 L57.8 160.8 L60.6 157.9 L63.3 155.0 L66.1 152.2 L68.8 149.3 L71.6 146.4 L74.4 143.5 L77.1 140.6 L79.9 137.8 L82.6 134.9 L85.4 132.0 L88.2 129.1 L90.9 126.3 L93.7 123.4 L96.4 120.5 L99.2 117.6 L102.0 114.7 L104.7 111.9 L107.5 109.0 L110.2 106.1 L113.0 103.3 L115.8 100.4 L118.5 97.6 L121.3 94.7 L124.0 91.9 L126.8 89.1 L129.6 86.3 L132.3 83.6 L135.1 80.9 L137.8 78.2 L140.6 75.6 L143.4 73.0 L146.1 70.6 L148.9 68.2 L151.6 66.0 L154.4 63.8 L157.2 61.8 L159.9 59.9 L162.7 58.2 L165.4 56.6 L168.2 55.1 L171.0 53.7 L173.7 52.4 L176.5 51.3 L179.2 50.2 L182.0 49.2 L184.8 48.3 L187.5 47.4 L190.3 46.6 L193.0 45.8 L195.8 45.1 L198.6 44.5 L201.3 43.9 L204.1 43.3 L206.8 42.7 L209.6 42.2 L212.4 41.7 L215.1 41.2 L217.9 40.7 L220.6 40.3 L223.4 39.9 L226.2 39.4 L228.9 39.1 L231.7 38.7 L234.4 38.3 L237.2 38.0 L240.0 37.6 L242.7 37.3 L245.5 37.0 L248.2 36.7 L251.0 36.3 L253.8 36.1 L256.5 35.8 L259.3 35.5 L262.0 35.2 L264.8 35.0 L267.6 34.7 L270.3 34.4 L273.1 34.2 L275.8 34.0 L278.6 33.7 L281.4 33.5 L284.1 33.3 L286.9 33.1 L289.6 32.8 L292.4 32.6 L295.2 32.4 L297.9 32.2 L300.7 32.0 L303.4 31.8 L306.2 31.6 L309.0 31.4 L311.7 31.3 L314.5 31.1 L317.2 30.9 L320.0 30.7"/>
+<path class="fd-curve-alt" d="M44.0 139.2 L46.8 136.3 L49.5 133.4 L52.3 130.6 L55.0 127.7 L57.8 124.8 L60.6 121.9 L63.3 119.1 L66.1 116.2 L68.8 113.3 L71.6 110.4 L74.4 107.6 L77.1 104.7 L79.9 101.9 L82.6 99.0 L85.4 96.2 L88.2 93.3 L90.9 90.5 L93.7 87.7 L96.4 85.0 L99.2 82.2 L102.0 79.5 L104.7 76.9 L107.5 74.3 L110.2 71.8 L113.0 69.4 L115.8 67.1 L118.5 64.9 L121.3 62.8 L124.0 60.8 L126.8 59.0 L129.6 57.4 L132.3 55.8 L135.1 54.4 L137.8 53.0 L140.6 51.8 L143.4 50.7 L146.1 49.7 L148.9 48.7 L151.6 47.8 L154.4 47.0 L157.2 46.2 L159.9 45.5 L162.7 44.8 L165.4 44.2 L168.2 43.6 L171.0 43.0 L173.7 42.4 L176.5 41.9 L179.2 41.4 L182.0 41.0 L184.8 40.5 L187.5 40.1 L190.3 39.6 L193.0 39.2 L195.8 38.9 L198.6 38.5 L201.3 38.1 L204.1 37.8 L206.8 37.4 L209.6 37.1 L212.4 36.8 L215.1 36.5 L217.9 36.2 L220.6 35.9 L223.4 35.6 L226.2 35.4 L228.9 35.1 L231.7 34.8 L234.4 34.6 L237.2 34.3 L240.0 34.1 L242.7 33.8 L245.5 33.6 L248.2 33.4 L251.0 33.2 L253.8 32.9 L256.5 32.7 L259.3 32.5 L262.0 32.3 L264.8 32.1 L267.6 31.9 L270.3 31.7 L273.1 31.5 L275.8 31.4 L278.6 31.2 L281.4 31.0 L284.1 30.8 L286.9 30.6 L289.6 30.5 L292.4 30.3 L295.2 30.1 L297.9 30.0 L300.7 29.8 L303.4 29.7 L306.2 29.5 L309.0 29.3 L311.7 29.2 L314.5 29.0 L317.2 28.9 L320.0 28.8"/>
+<line class="fd-dash" x1="140.6" y1="180" x2="140.6" y2="24"/>
+<line class="fd-arrow" style="stroke:var(--text);stroke-width:1.4" x1="108.5" y1="108.0" x2="79.0" y2="108.0"/>
+<polygon class="fd-arrow" points="74.0,108.0 81.0,104.5 81.0,111.5"/>
+<text class="fd-label" x="91.2" y="102.0" text-anchor="middle">ΔVth</text>
+<text class="fd-sub" x="144.6" y="34">fixed VGS</text>
+<text class="fd-sub" x="322" y="198" text-anchor="end">VGS →</text>
+<text class="fd-sub" x="50" y="18">log ID ↑</text>
+<text class="fd-accent" x="60" y="212">before</text>
+<text class="fd-sub" x="112" y="212" style="fill:#ffd666;font-weight:700">after surface charge binds</text>
+</svg>
                 </div>
+
+                <p>
+                    Now hold VDS fixed and sweep the gate. Above threshold the current follows the square law. Below it, the current falls exponentially, which is a straight line on a log axis. When charge binds at the gate, the whole curve slides sideways by ΔVth.
+                </p>
 
                 <div class="module-takeaway">
 
-                    A fourth connection, the body, also exists. We'll meet it in lesson 3.
+                    <strong>Key idea</strong>
+
+                    A sensing event slides the curve sideways.
 
                 </div>
 
@@ -152,37 +138,24 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THREE JOBS
+                    TRANSCONDUCTANCE
                 </p>
 
                 <h1>
-                    What a transistor can be
+                    Gain, in one number
                 </h1>
 
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Switch</strong>
-                        <span>Gate high means on, gate low means off: the basis of digital logic</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Amplifier</strong>
-                        <span>A small change in gate voltage makes a larger change in current</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Sensor</strong>
-                        <span>Anything that changes the gate's effective voltage changes the current</span>
-                    </div>
-
+                <div class="module-visual module-visual-text">
+                    gm = ∂ID / ∂VGS
                 </div>
+
+                <p>
+                    Transconductance is how much drain current changes per volt of gate change. In saturation g<sub>m</sub> = k·(VGS − Vth). With the numbers from before, that's 100 µA/V² × 10 × 0.5 V = 0.5 mS. A larger g<sub>m</sub> means a bigger current change for the same shift.
+                </p>
 
                 <div class="module-takeaway">
 
-                    
-
-                    The sensor job is why this course exists.
+                    Higher g<sub>m</sub> turns a small voltage shift into a larger, easier-to-read current.
 
                 </div>
 
@@ -193,70 +166,24 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    FIELD EFFECT
+                    SUBTHRESHOLD
                 </p>
 
                 <h1>
-                    Current controlled by a field
+                    The most sensitive region
                 </h1>
 
                 <div class="module-visual module-visual-text">
-                    field → current
+                    S ≥ 60 mV/decade
                 </div>
 
                 <p>
-                    In a field-effect transistor, the gate's electric field, not a current, controls how many charges sit in the channel. The gate is insulated by an oxide, so almost no DC current flows into it. That makes it cheap to hold in a state and a very sensitive voltage probe.
+                    Below threshold the current changes exponentially. The subthreshold swing S = n·(kT/q)·ln 10 cannot be better than about 60 mV per decade at room temperature, since n ≥ 1. So every 60 mV of gate shift changes the current tenfold at best, which is why sensors love this region.
                 </p>
 
                 <div class="module-takeaway">
 
-                    The insulated gate is what makes a MOSFET both efficient and a good sensor.
-
-                </div>
-
-            </section>
-
-
-            <!-- SLIDE 4 -->
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    THE FET FAMILY
-                </p>
-
-                <h1>
-                    Where the MOSFET fits
-                </h1>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>MOSFET</strong>
-                        <span>Insulated gate: an oxide separates the gate from the channel</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>JFET</strong>
-                        <span>The gate is a reverse-biased p–n junction instead of an oxide</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>MESFET, HEMT</strong>
-                        <span>Metal-semiconductor gates, used mostly in high-frequency circuits</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>BJT</strong>
-                        <span>Not a FET at all: a small input current controls a larger one</span>
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    
-
-                    We focus on the MOSFET, because its oxide surface is what sensing builds on.
+                    Small charge, small ΔVth, but a big change in current.
 
                 </div>
 
@@ -267,7 +194,7 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 1 STUDY COMPLETE
+                    UNIT 7 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
@@ -279,13 +206,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered what a transistor does, and why the field-effect version dominates.
+                    You've covered transconductance, subthreshold swing, and why sensing lives on the transfer curve.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeFetUnit1Button"
+                    id="completeFetUnit7Button"
                 >
                     Complete Module
                 </button>
@@ -347,7 +274,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeFetUnit1Button");
+            document.getElementById("completeFetUnit7Button");
 
 
         let currentSlide = 0;
@@ -457,7 +384,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathFetUnit1StudyComplete"
+                    "fabPathFetUnit7StudyComplete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -470,7 +397,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathFetUnit1StudyComplete",
+                        "fabPathFetUnit7StudyComplete",
                         "true"
                     );
 

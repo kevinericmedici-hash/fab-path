@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Transistors: Switches &amp; Amplifiers | Fab Path</title>
-    <meta name="description" content="Transistors: Switches &amp; Amplifiers: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <title>Surface Charge &amp; Site Binding | Fab Path</title>
+    <meta name="description" content="Surface Charge &amp; Site Binding: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Transistors: Switches &amp; Amplifiers | Fab Path">
-    <meta property="og:description" content="Transistors: Switches &amp; Amplifiers: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <meta property="og:title" content="Surface Charge &amp; Site Binding | Fab Path">
+    <meta property="og:description" content="Surface Charge &amp; Site Binding: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 5
+                    1 / 6
                 </span>
 
             </div>
@@ -83,14 +83,15 @@
             <!-- SLIDE 1 -->
 
                         <!-- SLIDE 1 -->
+                        <!-- SLIDE 1 -->
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    THREE TERMINALS
+                    SURFACE SITES
                 </p>
 
                 <h1>
-                    One control, two ends of a path
+                    An oxide in water grows hydroxyls
                 </h1>
 
                 <div class="module-card-grid">
@@ -98,13 +99,13 @@
                     <div class="module-card">
 
                         <div class="module-card-icon">
-                            🎛️
+                            💧
                         </div>
 
-                        <h3>Gate</h3>
+                        <h3>Hydroxyl groups</h3>
 
                         <p>
-                            The control terminal. Its voltage decides how much current can flow
+                            Water reacts with the oxide surface and leaves –OH groups on it
                         </p>
 
                     </div>
@@ -112,13 +113,13 @@
                     <div class="module-card">
 
                         <div class="module-card-icon">
-                            🚪
+                            🔁
                         </div>
 
-                        <h3>Source</h3>
+                        <h3>Amphoteric</h3>
 
                         <p>
-                            Where the current-carrying charges enter the channel
+                            Each site can give up a proton or take one
                         </p>
 
                     </div>
@@ -126,13 +127,13 @@
                     <div class="module-card">
 
                         <div class="module-card-icon">
-                            🏁
+                            🔢
                         </div>
 
-                        <h3>Drain</h3>
+                        <h3>Three states</h3>
 
                         <p>
-                            Where those charges leave the channel
+                            Negative SiO⁻, neutral SiOH, or positive SiOH₂⁺
                         </p>
 
                     </div>
@@ -141,7 +142,7 @@
 
                 <div class="module-takeaway">
 
-                    A fourth connection, the body, also exists. We'll meet it in lesson 3.
+                    The surface charge is set by how many sites are in each state.
 
                 </div>
 
@@ -152,37 +153,24 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THREE JOBS
+                    SITE BINDING
                 </p>
 
                 <h1>
-                    What a transistor can be
+                    Two reactions set the charge
                 </h1>
 
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Switch</strong>
-                        <span>Gate high means on, gate low means off: the basis of digital logic</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Amplifier</strong>
-                        <span>A small change in gate voltage makes a larger change in current</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Sensor</strong>
-                        <span>Anything that changes the gate's effective voltage changes the current</span>
-                    </div>
-
+                <div class="module-visual module-visual-text">
+                    SiOH ⇌ SiO⁻ + H⁺
                 </div>
+
+                <p>
+                    The site-binding model describes each site with two equilibria. SiOH can lose a proton to become SiO⁻, or gain one to become SiOH₂⁺. Which way it leans depends on the proton concentration next to the surface.
+                </p>
 
                 <div class="module-takeaway">
 
-                    
-
-                    The sensor job is why this course exists.
+                    More protons push sites positive; fewer push them negative.
 
                 </div>
 
@@ -193,24 +181,42 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    FIELD EFFECT
+                    POINT OF ZERO CHARGE
                 </p>
 
                 <h1>
-                    Current controlled by a field
+                    Where the surface is neutral
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    field → current
-                </div>
+                <div class="scale-stack">
 
-                <p>
-                    In a field-effect transistor, the gate's electric field, not a current, controls how many charges sit in the channel. The gate is insulated by an oxide, so almost no DC current flows into it. That makes it cheap to hold in a state and a very sensitive voltage probe.
-                </p>
+                    <div class="scale-row">
+                        <strong>Below the pzc</strong>
+                        <span>Acidic solution: net positive surface</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>At the pzc</strong>
+                        <span>Positive and negative sites balance: net zero charge</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Above the pzc</strong>
+                        <span>Basic solution: net negative surface</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Typical values</strong>
+                        <span>SiO₂ near pH 2–3, Al₂O₃ near pH 8–9</span>
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    The insulated gate is what makes a MOSFET both efficient and a good sensor.
+                    
+
+                    In neutral water, silica is negative and alumina is positive.
 
                 </div>
 
@@ -221,42 +227,52 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE FET FAMILY
+                    SURFACE VS BULK
                 </p>
 
                 <h1>
-                    Where the MOSFET fits
+                    The surface has its own pH
                 </h1>
 
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>MOSFET</strong>
-                        <span>Insulated gate: an oxide separates the gate from the channel</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>JFET</strong>
-                        <span>The gate is a reverse-biased p–n junction instead of an oxide</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>MESFET, HEMT</strong>
-                        <span>Metal-semiconductor gates, used mostly in high-frequency circuits</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>BJT</strong>
-                        <span>Not a FET at all: a small input current controls a larger one</span>
-                    </div>
-
+                <div class="module-visual module-visual-text">
+                    <span class="math-visual">[H⁺]surface = [H⁺]bulk · e<sup>−qψ₀/kT</sup></span>
                 </div>
+
+                <p>
+                    A charged surface sets up a potential ψ₀, and protons feel it through a Boltzmann factor. A negative ψ₀ crowds protons near the surface, and a positive one pushes them away. The pH at the surface can differ from the bulk by a unit or more.
+                </p>
 
                 <div class="module-takeaway">
 
-                    
+                    The sites respond to the surface pH, which in turn feeds back on ψ₀.
 
-                    We focus on the MOSFET, because its oxide surface is what sensing builds on.
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SITE DENSITY
+                </p>
+
+                <h1>
+                    How many sites?
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    ≈ 5 sites per nm²
+                </div>
+
+                <p>
+                    A fully hydroxylated silica surface holds roughly 5 sites per square nanometer, or 5×10¹⁴ per cm². Only a fraction are charged at any pH. Change the pH and that fraction changes, and with it the surface charge.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A pH change becomes a charge change, and a charge change moves Vth.
 
                 </div>
 
@@ -267,11 +283,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 1 STUDY COMPLETE
+                    UNIT 9 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    🔲
+                    🧪
                 </div>
 
                 <h1>
@@ -279,13 +295,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered what a transistor does, and why the field-effect version dominates.
+                    You've covered how an oxide in water picks up charge, and why that charge depends on pH.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeFetUnit1Button"
+                    id="completeFetUnit9Button"
                 >
                     Complete Module
                 </button>
@@ -347,7 +363,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeFetUnit1Button");
+            document.getElementById("completeFetUnit9Button");
 
 
         let currentSlide = 0;
@@ -457,7 +473,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathFetUnit1StudyComplete"
+                    "fabPathFetUnit9StudyComplete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -470,7 +486,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathFetUnit1StudyComplete",
+                        "fabPathFetUnit9StudyComplete",
                         "true"
                     );
 

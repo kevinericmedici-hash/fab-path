@@ -425,6 +425,367 @@ const fetLesson7Questions = [
 ];
 
 
+
+const fetLesson8Questions = [
+
+    {
+        question: "What replaces the metal gate in an ISFET?",
+        answers: [
+            "A solution with a reference electrode",
+            "A second layer of doped silicon",
+            "A thin film of pure water alone",
+            "A vacuum gap with a metal probe"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What sets the gate voltage in an ISFET measurement?",
+        answers: [
+            "A metal plate bonded to the drain",
+            "A reference electrode in solution",
+            "The solution's pH by itself",
+            "The source's own doping profile"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Which part of an ISFET touches the solution?",
+        answers: [
+            "The heavily doped source junction",
+            "The silicon body contact",
+            "The sensing insulator surface",
+            "The metal drain interconnect"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Which term in an ISFET's threshold voltage depends on the solution's pH?",
+        answers: [
+            "The silicon's intrinsic work function",
+            "The fixed thickness of the oxide",
+            "The channel length of the device",
+            "The surface potential ψ_0 at the oxide"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Why can ordinary MOSFET equations still describe an ISFET?",
+        answers: [
+            "The channel is the same; only the gate differs",
+            "The solution behaves as a perfect metal wire",
+            "ISFETs have no threshold voltage of any kind",
+            "The equations never depend on the gate voltage"
+        ],
+        correct: 0
+    }
+
+];
+
+
+const fetLesson9Questions = [
+
+    {
+        question: "What covers an oxide surface in water?",
+        answers: [
+            "Bare silicon atoms with no bonds at all",
+            "A dense layer of free surface electrons",
+            "A film of frozen water molecules only",
+            "Hydroxyl groups that gain or lose protons"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Above its point of zero charge, an oxide surface is on average what?",
+        answers: [
+            "Negatively charged",
+            "Positively charged",
+            "Electrically neutral",
+            "Fully hydrogen-terminated"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Compared with the bulk, what is the proton concentration next to a negatively charged surface?",
+        answers: [
+            "Lower, because protons are repelled",
+            "Higher, because protons are attracted",
+            "Exactly the same as the bulk",
+            "Zero, because protons cannot enter"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Which reaction gives a silica surface a negative charge?",
+        answers: [
+            "SiOH + H⁺ → SiOH₂⁺",
+            "SiO⁻ + H⁺ → SiOH",
+            "SiOH → SiO⁻ + H⁺",
+            "SiOH₂⁺ → SiOH + H⁺"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "About how many hydroxyl sites does a fully hydroxylated silica surface hold per square nanometer?",
+        answers: [
+            "About 500",
+            "About 0.05",
+            "Exactly 1",
+            "About 5"
+        ],
+        correct: 3
+    }
+
+];
+
+
+const fetLesson10Questions = [
+
+    {
+        question: "What does the Debye length describe?",
+        answers: [
+            "The thickness of the insulating gate oxide",
+            "The distance between source and drain contacts",
+            "The reach of a surface's potential in solution",
+            "The depth of the silicon depletion region"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What happens to the Debye length as the salt concentration rises?",
+        answers: [
+            "It gets longer",
+            "It stays the same",
+            "It flips sign",
+            "It gets shorter"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "At room temperature, about what is the Debye length in a 100 mM solution of a simple 1:1 salt?",
+        answers: [
+            "About 1 nm",
+            "About 10 nm",
+            "About 100 nm",
+            "About 0.01 nm"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which part of the double layer is the compact layer of ions right at the surface?",
+        answers: [
+            "The diffuse layer",
+            "The Stern layer",
+            "The depletion layer",
+            "The inversion layer"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Why does the double layer add little to an ISFET's total gate capacitance?",
+        answers: [
+            "Its capacitance is far smaller than the oxide's",
+            "It carries no electric charge whatsoever",
+            "Its capacitance is far larger than the oxide's",
+            "It is wired in parallel with the source"
+        ],
+        correct: 2
+    }
+
+];
+
+
+const fetLesson11Questions = [
+
+    {
+        question: "What is the Nernst limit for pH sensitivity at 25 °C?",
+        answers: [
+            "About 5.9 mV per pH unit",
+            "About 59 mV per pH unit",
+            "About 590 mV per pH unit",
+            "About 1.2 V per pH unit"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "An ISFET has α = 0.8. About how sensitive is it at 25 °C?",
+        answers: [
+            "About 74 mV per pH unit",
+            "About 59 mV per pH unit",
+            "About 47 mV per pH unit",
+            "About 0.8 mV per pH unit"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "For an NMOS ISFET, what happens to the threshold voltage as pH rises?",
+        answers: [
+            "It falls, as the surface turns more positive",
+            "It stays at one fixed value at every pH",
+            "It flips sign as the pH crosses 7",
+            "It rises, as the surface turns more negative"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "A sensor responds at 53 mV per pH unit. How far does Vth move when pH goes from 7.0 to 7.4?",
+        answers: [
+            "About 21 mV",
+            "About 53 mV",
+            "About 130 mV",
+            "About 2 mV"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which sensing insulator typically responds closest to the Nernst limit?",
+        answers: [
+            "Silicon dioxide, SiO₂",
+            "Tantalum pentoxide, Ta₂O₅",
+            "Bare, unoxidized silicon",
+            "A thick polymer film"
+        ],
+        correct: 1
+    }
+
+];
+
+
+const fetLesson12Questions = [
+
+    {
+        question: "What is the reference electrode's job in an ISFET measurement?",
+        answers: [
+            "Hold the solution at a stable, known potential",
+            "Supply the current that flows to the drain",
+            "Measure the temperature of the solution",
+            "Grow a fresh oxide layer on the gate"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which electrode is a common stable reference?",
+        answers: [
+            "Copper/copper oxide (Cu/CuO)",
+            "Silver/silver chloride (Ag/AgCl)",
+            "Aluminum/aluminum oxide (Al/Al₂O₃)",
+            "Carbon/carbon dioxide (C/CO₂)"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "In constant-current mode, what does the circuit report?",
+        answers: [
+            "The drain current at a fixed gate voltage",
+            "The temperature of the sample chip",
+            "The gate voltage needed to hold ID fixed",
+            "The thickness of the sensing insulator"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Why is a bare-wire pseudo-reference attractive despite being less stable?",
+        answers: [
+            "It is more stable than Ag/AgCl",
+            "It is immune to chloride changes",
+            "It needs no solution to work",
+            "It is tiny and easy to integrate"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "With a swing of 70 mV per decade, a 21 mV threshold shift changes ID by about what factor?",
+        answers: [
+            "About 2×",
+            "About 20×",
+            "About 200×",
+            "About 1.02×"
+        ],
+        correct: 0
+    }
+
+];
+
+
+const fetLesson13Questions = [
+
+    {
+        question: "What is drift in an ISFET?",
+        answers: [
+            "A sudden jump when the pH changes",
+            "Random noise on the drain current",
+            "A shift in the sensor's color",
+            "A slow one-way creep at constant pH"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What does hysteresis mean for a pH reading?",
+        answers: [
+            "The reading depends on the pH the sensor saw before",
+            "The reading is the same whichever way pH moves",
+            "The reading is always exactly 59 mV per pH",
+            "The reading disappears in buffered water"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "A sensor drifts 2 mV per hour and responds at 53 mV per pH unit. About how much pH error builds up over 10 hours?",
+        answers: [
+            "About 4 pH units",
+            "About 0.4 pH units",
+            "About 0.04 pH units",
+            "About 40 pH units"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "How does the Nernst slope change from 25 °C to 37 °C?",
+        answers: [
+            "It falls from about 61.5 to 59 mV/pH",
+            "It stays at exactly 59.2 mV/pH",
+            "It rises from about 59 to 61.5 mV/pH",
+            "It reverses sign above 30 °C"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "How does an ISFET–REFET pair reduce drift?",
+        answers: [
+            "The REFET doubles the sensor's pH sensitivity",
+            "The REFET replaces the reference electrode",
+            "The REFET heats the sensor to burn off drift",
+            "The REFET ignores pH, so subtracting cancels drift"
+        ],
+        correct: 3
+    }
+
+];
+
+
 /*
     Looked up by numeric lesson id, the same
     pattern the other courses use.
@@ -437,5 +798,11 @@ const fetAllLessonQuestions = {
     4: fetLesson4Questions,
     5: fetLesson5Questions,
     6: fetLesson6Questions,
-    7: fetLesson7Questions
+    7: fetLesson7Questions,
+    8: fetLesson8Questions,
+    9: fetLesson9Questions,
+    10: fetLesson10Questions,
+    11: fetLesson11Questions,
+    12: fetLesson12Questions,
+    13: fetLesson13Questions
 };

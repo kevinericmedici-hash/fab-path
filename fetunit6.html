@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Transistors: Switches &amp; Amplifiers | Fab Path</title>
-    <meta name="description" content="Transistors: Switches &amp; Amplifiers: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <title>Current–Voltage Behavior | Fab Path</title>
+    <meta name="description" content="Current–Voltage Behavior: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Transistors: Switches &amp; Amplifiers | Fab Path">
-    <meta property="og:description" content="Transistors: Switches &amp; Amplifiers: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <meta property="og:title" content="Current–Voltage Behavior | Fab Path">
+    <meta property="og:description" content="Current–Voltage Behavior: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -86,62 +86,42 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    THREE TERMINALS
+                    OUTPUT CURVES
                 </p>
 
                 <h1>
-                    One control, two ends of a path
+                    ID versus VDS
                 </h1>
 
-                <div class="module-card-grid">
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🎛️
-                        </div>
-
-                        <h3>Gate</h3>
-
-                        <p>
-                            The control terminal. Its voltage decides how much current can flow
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🚪
-                        </div>
-
-                        <h3>Source</h3>
-
-                        <p>
-                            Where the current-carrying charges enter the channel
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🏁
-                        </div>
-
-                        <h3>Drain</h3>
-
-                        <p>
-                            Where those charges leave the channel
-                        </p>
-
-                    </div>
-
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 214" role="img" aria-label="MOSFET output curves">
+<line class="fd-axis" x1="44" y1="176" x2="322" y2="176"/>
+<line class="fd-axis" x1="44" y1="176" x2="44" y2="18"/>
+<path class="fd-curve" d="M44.0 176.0 L48.6 174.2 L53.2 172.6 L57.8 171.2 L62.4 169.9 L67.0 168.9 L71.6 168.0 L76.2 167.4 L80.8 166.9 L85.4 166.6 L90.0 166.5 L94.6 166.5 L99.2 166.5 L103.8 166.5 L108.4 166.5 L113.0 166.5 L117.6 166.5 L122.2 166.5 L126.8 166.5 L131.4 166.5 L136.0 166.5 L140.6 166.5 L145.2 166.5 L149.8 166.5 L154.4 166.5 L159.0 166.5 L163.6 166.5 L168.2 166.5 L172.8 166.5 L177.4 166.5 L182.0 166.5 L186.6 166.5 L191.2 166.5 L195.8 166.5 L200.4 166.5 L205.0 166.5 L209.6 166.5 L214.2 166.5 L218.8 166.5 L223.4 166.5 L228.0 166.5 L232.6 166.5 L237.2 166.5 L241.8 166.5 L246.4 166.5 L251.0 166.5 L255.6 166.5 L260.2 166.5 L264.8 166.5 L269.4 166.5 L274.0 166.5 L278.6 166.5 L283.2 166.5 L287.8 166.5 L292.4 166.5 L297.0 166.5 L301.6 166.5 L306.2 166.5 L310.8 166.5 L315.4 166.5 L320.0 166.5"/>
+<path class="fd-curve" d="M44.0 176.0 L48.6 172.3 L53.2 168.8 L57.8 165.5 L62.4 162.3 L67.0 159.4 L71.6 156.6 L76.2 154.1 L80.8 151.7 L85.4 149.5 L90.0 147.5 L94.6 145.7 L99.2 144.1 L103.8 142.7 L108.4 141.4 L113.0 140.4 L117.6 139.5 L122.2 138.9 L126.8 138.4 L131.4 138.1 L136.0 138.0 L140.6 138.0 L145.2 138.0 L149.8 138.0 L154.4 138.0 L159.0 138.0 L163.6 138.0 L168.2 138.0 L172.8 138.0 L177.4 138.0 L182.0 138.0 L186.6 138.0 L191.2 138.0 L195.8 138.0 L200.4 138.0 L205.0 138.0 L209.6 138.0 L214.2 138.0 L218.8 138.0 L223.4 138.0 L228.0 138.0 L232.6 138.0 L237.2 138.0 L241.8 138.0 L246.4 138.0 L251.0 138.0 L255.6 138.0 L260.2 138.0 L264.8 138.0 L269.4 138.0 L274.0 138.0 L278.6 138.0 L283.2 138.0 L287.8 138.0 L292.4 138.0 L297.0 138.0 L301.6 138.0 L306.2 138.0 L310.8 138.0 L315.4 138.0 L320.0 138.0"/>
+<path class="fd-curve" d="M44.0 176.0 L48.6 170.4 L53.2 165.0 L57.8 159.8 L62.4 154.7 L67.0 149.9 L71.6 145.2 L76.2 140.8 L80.8 136.5 L85.4 132.4 L90.0 128.5 L94.6 124.8 L99.2 121.3 L103.8 118.0 L108.4 114.8 L113.0 111.9 L117.6 109.1 L122.2 106.6 L126.8 104.2 L131.4 102.0 L136.0 100.0 L140.6 98.2 L145.2 96.6 L149.8 95.2 L154.4 93.9 L159.0 92.9 L163.6 92.0 L168.2 91.4 L172.8 90.9 L177.4 90.6 L182.0 90.5 L186.6 90.5 L191.2 90.5 L195.8 90.5 L200.4 90.5 L205.0 90.5 L209.6 90.5 L214.2 90.5 L218.8 90.5 L223.4 90.5 L228.0 90.5 L232.6 90.5 L237.2 90.5 L241.8 90.5 L246.4 90.5 L251.0 90.5 L255.6 90.5 L260.2 90.5 L264.8 90.5 L269.4 90.5 L274.0 90.5 L278.6 90.5 L283.2 90.5 L287.8 90.5 L292.4 90.5 L297.0 90.5 L301.6 90.5 L306.2 90.5 L310.8 90.5 L315.4 90.5 L320.0 90.5"/>
+<path class="fd-curve" d="M44.0 176.0 L48.6 168.5 L53.2 161.2 L57.8 154.1 L62.4 147.1 L67.0 140.4 L71.6 133.8 L76.2 127.5 L80.8 121.3 L85.4 115.3 L90.0 109.5 L94.6 103.9 L99.2 98.5 L103.8 93.3 L108.4 88.2 L113.0 83.4 L117.6 78.7 L122.2 74.3 L126.8 70.0 L131.4 65.9 L136.0 62.0 L140.6 58.3 L145.2 54.8 L149.8 51.5 L154.4 48.3 L159.0 45.4 L163.6 42.6 L168.2 40.1 L172.8 37.7 L177.4 35.5 L182.0 33.5 L186.6 31.7 L191.2 30.1 L195.8 28.7 L200.4 27.4 L205.0 26.4 L209.6 25.5 L214.2 24.9 L218.8 24.4 L223.4 24.1 L228.0 24.0 L232.6 24.0 L237.2 24.0 L241.8 24.0 L246.4 24.0 L251.0 24.0 L255.6 24.0 L260.2 24.0 L264.8 24.0 L269.4 24.0 L274.0 24.0 L278.6 24.0 L283.2 24.0 L287.8 24.0 L292.4 24.0 L297.0 24.0 L301.6 24.0 L306.2 24.0 L310.8 24.0 L315.4 24.0 L320.0 24.0"/>
+<path class="fd-dash" d="M44.0 176.0 L48.6 175.9 L53.2 175.6 L57.8 175.1 L62.4 174.5 L67.0 173.6 L71.6 172.6 L76.2 171.3 L80.8 169.9 L85.4 168.3 L90.0 166.5 L94.6 164.5 L99.2 162.3 L103.8 159.9 L108.4 157.4 L113.0 154.6 L117.6 151.7 L122.2 148.5 L126.8 145.2 L131.4 141.7 L136.0 138.0 L140.6 134.1 L145.2 130.0 L149.8 125.7 L154.4 121.3 L159.0 116.6 L163.6 111.8 L168.2 106.7 L172.8 101.5 L177.4 96.1 L182.0 90.5 L186.6 84.7 L191.2 78.7 L195.8 72.5 L200.4 66.2 L205.0 59.6 L209.6 52.9 L214.2 45.9 L218.8 38.8 L223.4 31.5 L228.0 24.0"/>
+<text class="fd-accent" x="62" y="44">triode</text>
+<text class="fd-accent" x="322" y="40" text-anchor="end">saturation</text>
+<text class="fd-sub" x="322" y="192" text-anchor="end">VDS →</text>
+<text class="fd-sub" x="50" y="18">ID ↑</text>
+<text class="fd-sub" x="322" y="57" text-anchor="end">boundary:</text>
+<text class="fd-sub" x="322" y="69" text-anchor="end">VDS = VGS − Vth</text>
+<text class="fd-sub" x="190" y="154">each curve = one VGS</text>
+<text class="fd-sub" x="170" y="208" text-anchor="middle">Below Vth (cutoff) the current is near zero, so no curve is drawn.</text>
+</svg>
                 </div>
+
+                <p>
+                    Fix the gate voltage, sweep the drain voltage, and record the drain current. Each curve is one gate voltage. Current first rises along a curve, then flattens once the channel pinches off near the drain.
+                </p>
 
                 <div class="module-takeaway">
 
-                    A fourth connection, the body, also exists. We'll meet it in lesson 3.
+                    
+
+                    Higher gate voltage, taller curve: that's the gate controlling the current.
 
                 </div>
 
@@ -152,28 +132,28 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THREE JOBS
+                    THREE REGIONS
                 </p>
 
                 <h1>
-                    What a transistor can be
+                    Cutoff, triode, saturation
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>Switch</strong>
-                        <span>Gate high means on, gate low means off: the basis of digital logic</span>
+                        <strong>Cutoff · VGS &lt; Vth</strong>
+                        <span>No inversion channel, only a tiny leakage current</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Amplifier</strong>
-                        <span>A small change in gate voltage makes a larger change in current</span>
+                        <strong>Triode · VDS &lt; VGS − Vth</strong>
+                        <span>The channel spans source to drain, acting like a voltage-controlled resistor</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Sensor</strong>
-                        <span>Anything that changes the gate's effective voltage changes the current</span>
+                        <strong>Saturation · VDS ≥ VGS − Vth</strong>
+                        <span>The channel pinches off near the drain and the current flattens</span>
                     </div>
 
                 </div>
@@ -182,7 +162,7 @@
 
                     
 
-                    The sensor job is why this course exists.
+                    VGS − Vth is called the overdrive voltage.
 
                 </div>
 
@@ -193,24 +173,24 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    FIELD EFFECT
+                    TRIODE REGION
                 </p>
 
                 <h1>
-                    Current controlled by a field
+                    A tunable resistor
                 </h1>
 
                 <div class="module-visual module-visual-text">
-                    field → current
+                    ID = k(VGS−Vth)VDS
                 </div>
 
                 <p>
-                    In a field-effect transistor, the gate's electric field, not a current, controls how many charges sit in the channel. The gate is insulated by an oxide, so almost no DC current flows into it. That makes it cheap to hold in a state and a very sensitive voltage probe.
+                    For small VDS the current is proportional to VDS, with k = μ·C<sub>ox</sub>·(W/L). The full expression is ID = k[(VGS − Vth)·VDS − VDS²/2]. More gate overdrive lowers the effective resistance, so the gate tunes the resistance.
                 </p>
 
                 <div class="module-takeaway">
 
-                    The insulated gate is what makes a MOSFET both efficient and a good sensor.
+                    In triode, the MOSFET is a resistor whose value the gate sets.
 
                 </div>
 
@@ -221,42 +201,24 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE FET FAMILY
+                    SATURATION REGION
                 </p>
 
                 <h1>
-                    Where the MOSFET fits
+                    A gate-controlled current source
                 </h1>
 
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>MOSFET</strong>
-                        <span>Insulated gate: an oxide separates the gate from the channel</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>JFET</strong>
-                        <span>The gate is a reverse-biased p–n junction instead of an oxide</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>MESFET, HEMT</strong>
-                        <span>Metal-semiconductor gates, used mostly in high-frequency circuits</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>BJT</strong>
-                        <span>Not a FET at all: a small input current controls a larger one</span>
-                    </div>
-
+                <div class="module-visual module-visual-text">
+                    ID = ½k(VGS−Vth)²
                 </div>
+
+                <p>
+                    Once the channel pinches off, the current depends on the gate, not the drain. Example: with μC<sub>ox</sub> = 100 µA/V², W/L = 10, and an overdrive of 0.5 V, the saturation current is ½ × 100 µA/V² × 10 × 0.25 V² = 125 µA.
+                </p>
 
                 <div class="module-takeaway">
 
-                    
-
-                    We focus on the MOSFET, because its oxide surface is what sensing builds on.
+                    Square law: doubling the overdrive quadruples the current.
 
                 </div>
 
@@ -267,7 +229,7 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 1 STUDY COMPLETE
+                    UNIT 6 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
@@ -279,13 +241,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered what a transistor does, and why the field-effect version dominates.
+                    You've covered cutoff, triode, and saturation, with the square-law equations.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeFetUnit1Button"
+                    id="completeFetUnit6Button"
                 >
                     Complete Module
                 </button>
@@ -347,7 +309,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeFetUnit1Button");
+            document.getElementById("completeFetUnit6Button");
 
 
         let currentSlide = 0;
@@ -457,7 +419,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathFetUnit1StudyComplete"
+                    "fabPathFetUnit6StudyComplete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -470,7 +432,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathFetUnit1StudyComplete",
+                        "fabPathFetUnit6StudyComplete",
                         "true"
                     );
 

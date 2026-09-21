@@ -1,7 +1,8 @@
 /* ========================================
    BIOFETS & MOSFETS PRACTICE PAGE
    One "questions you miss most" session
-   per unit, scoped to this course's own
+   per part of the course (a part is a group
+   of units), scoped to this course's own
    progress and mistake data.
 ======================================== */
 
@@ -28,6 +29,30 @@ function shuffleFetPractice(items) {
     }
 
     return result;
+}
+
+
+function fetPartAsUnit(part) {
+
+    const lessons = [];
+
+    fetCourseData.forEach(function (unit) {
+
+        if (
+            unit.id >= part.firstUnitId &&
+            unit.id <= part.lastUnitId
+        ) {
+            unit.lessons.forEach(function (lesson) {
+                lessons.push(lesson);
+            });
+        }
+    });
+
+    return {
+        id: part.id,
+        title: part.title,
+        lessons: lessons
+    };
 }
 
 
@@ -115,7 +140,7 @@ function renderFetPracticeHub() {
     }
 
     grid.innerHTML =
-        fetCourseData.map(function (unit) {
+        fetCourseParts.map(fetPartAsUnit).map(function (unit) {
 
             const completedCount =
                 fetUnitCompletedLessonCount(unit);
@@ -134,13 +159,13 @@ function renderFetPracticeHub() {
             } else if (completedCount === 0) {
 
                 statusText =
-                    "No lessons finished yet — practice pulls from the full unit.";
+                    "No lessons finished yet — practice pulls from the whole part.";
             }
 
             return `
                 <div class="practice-card">
 
-                    <span>UNIT ${unit.id}</span>
+                    <span>PART ${unit.id}</span>
 
                     <h2>${unit.title}</h2>
 
@@ -151,7 +176,7 @@ function renderFetPracticeHub() {
                         class="practice-button"
                         data-unit-id="${unit.id}"
                     >
-                        Practice this unit
+                        Practice this part
                     </button>
 
                 </div>
@@ -173,14 +198,16 @@ function renderFetPracticeHub() {
 
 function startFetPracticeSession(unitId) {
 
-    const unit =
-        fetCourseData.find(function (u) {
-            return u.id === unitId;
+    const part =
+        fetCourseParts.find(function (p) {
+            return p.id === unitId;
         });
 
-    if (!unit) {
+    if (!part) {
         return;
     }
+
+    const unit = fetPartAsUnit(part);
 
     fetPracticeQuestions =
         buildFetPracticePool(unit);
@@ -194,7 +221,7 @@ function startFetPracticeSession(unitId) {
     document.getElementById("fetPracticeSessionComplete").hidden = true;
 
     document.getElementById("fetPracticeSessionTitle").textContent =
-        `UNIT ${unit.id}`;
+        `PART ${unit.id}`;
 
     loadFetPracticeQuestion();
 }

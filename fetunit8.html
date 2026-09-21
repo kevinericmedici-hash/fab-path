@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Transistors: Switches &amp; Amplifiers | Fab Path</title>
-    <meta name="description" content="Transistors: Switches &amp; Amplifiers: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <title>From MOSFET to ISFET | Fab Path</title>
+    <meta name="description" content="From MOSFET to ISFET: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Transistors: Switches &amp; Amplifiers | Fab Path">
-    <meta property="og:description" content="Transistors: Switches &amp; Amplifiers: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <meta property="og:title" content="From MOSFET to ISFET | Fab Path">
+    <meta property="og:description" content="From MOSFET to ISFET: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 5
+                    1 / 6
                 </span>
 
             </div>
@@ -83,65 +83,28 @@
             <!-- SLIDE 1 -->
 
                         <!-- SLIDE 1 -->
+                        <!-- SLIDE 1 -->
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    THREE TERMINALS
+                    THE BIG SWAP
                 </p>
 
                 <h1>
-                    One control, two ends of a path
+                    Replace the metal gate with a liquid
                 </h1>
 
-                <div class="module-card-grid">
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🎛️
-                        </div>
-
-                        <h3>Gate</h3>
-
-                        <p>
-                            The control terminal. Its voltage decides how much current can flow
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🚪
-                        </div>
-
-                        <h3>Source</h3>
-
-                        <p>
-                            Where the current-carrying charges enter the channel
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🏁
-                        </div>
-
-                        <h3>Drain</h3>
-
-                        <p>
-                            Where those charges leave the channel
-                        </p>
-
-                    </div>
-
+                <div class="module-visual module-visual-text">
+                    Gate metal → solution
                 </div>
+
+                <p>
+                    An ion-sensitive field-effect transistor, or ISFET, removes the metal gate. The insulator's surface is exposed to a water-based solution, and a reference electrode dipped into that solution supplies the gate voltage. Piet Bergveld introduced the idea in 1970.
+                </p>
 
                 <div class="module-takeaway">
 
-                    A fourth connection, the body, also exists. We'll meet it in lesson 3.
+                    It is the same transistor with a different gate: a liquid.
 
                 </div>
 
@@ -152,37 +115,44 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THREE JOBS
+                    ISFET CROSS-SECTION
                 </p>
 
                 <h1>
-                    What a transistor can be
+                    The gate stack, rebuilt
                 </h1>
 
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Switch</strong>
-                        <span>Gate high means on, gate low means off: the basis of digital logic</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Amplifier</strong>
-                        <span>A small change in gate voltage makes a larger change in current</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Sensor</strong>
-                        <span>Anything that changes the gate's effective voltage changes the current</span>
-                    </div>
-
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 226" role="img" aria-label="Cross-section of an ISFET: silicon, sensing insulator, solution, and reference electrode">
+<rect class="fd-p" x="20" y="150" width="300" height="60" rx="4"/>
+<rect class="fd-n" x="50" y="150" width="70" height="28"/>
+<rect class="fd-n" x="220" y="150" width="70" height="28"/>
+<rect class="fd-ox" x="20" y="136" width="300" height="14"/>
+<rect style="fill:rgba(90,160,255,0.16);stroke:rgba(90,160,255,0.6);stroke-width:1.2" x="20" y="58" width="300" height="78"/>
+<rect class="fd-metal" x="164" y="26" width="12" height="86" rx="2"/>
+<line class="fd-axis" x1="170" y1="26" x2="170" y2="12"/>
+<line class="fd-channel" x1="118" y1="154" x2="222" y2="154"/>
+<text class="fd-label" x="184" y="22">Reference electrode</text>
+<text class="fd-label" x="34" y="84">Electrolyte</text>
+<text class="fd-sub" x="34" y="97">ions in water</text>
+<text class="fd-sub" x="170" y="146" text-anchor="middle">sensing insulator</text>
+<text class="fd-label" x="85" y="169" text-anchor="middle">n⁺ source</text>
+<text class="fd-label" x="255" y="169" text-anchor="middle">n⁺ drain</text>
+<text class="fd-accent" x="170" y="171" text-anchor="middle">channel</text>
+<text class="fd-label" x="170" y="196" text-anchor="middle">p-type body</text>
+<text class="fd-sub" x="170" y="218" text-anchor="middle">Gate voltage is applied to the reference electrode.</text>
+</svg>
                 </div>
+
+                <p>
+                    Source, drain, and body are unchanged. Going up from the silicon, the gate stack is now an insulator, then an electrolyte, then a reference electrode. The gate voltage goes to the reference electrode, and the solution passes it down to the insulator surface.
+                </p>
 
                 <div class="module-takeaway">
 
                     
 
-                    The sensor job is why this course exists.
+                    The channel cannot tell whether its gate is metal or liquid, only what potential it sees.
 
                 </div>
 
@@ -193,24 +163,62 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    FIELD EFFECT
+                    THREE NEW PARTS
                 </p>
 
                 <h1>
-                    Current controlled by a field
+                    What the gate stack contains
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    field → current
-                </div>
+                <div class="module-card-grid">
 
-                <p>
-                    In a field-effect transistor, the gate's electric field, not a current, controls how many charges sit in the channel. The gate is insulated by an oxide, so almost no DC current flows into it. That makes it cheap to hold in a state and a very sensitive voltage probe.
-                </p>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧪
+                        </div>
+
+                        <h3>Electrolyte</h3>
+
+                        <p>
+                            Water with dissolved ions. It conducts, so it can carry the gate voltage
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔌
+                        </div>
+
+                        <h3>Reference electrode</h3>
+
+                        <p>
+                            Holds the solution at a stable, known potential
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧱
+                        </div>
+
+                        <h3>Sensing insulator</h3>
+
+                        <p>
+                            The oxide surface that touches the liquid and reacts with it
+                        </p>
+
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    The insulated gate is what makes a MOSFET both efficient and a good sensor.
+                    The reaction at that last surface is where the sensing happens.
 
                 </div>
 
@@ -221,33 +229,33 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE FET FAMILY
+                    WHAT STAYS THE SAME
                 </p>
 
                 <h1>
-                    Where the MOSFET fits
+                    The MOSFET rules still apply
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>MOSFET</strong>
-                        <span>Insulated gate: an oxide separates the gate from the channel</span>
+                        <strong>Channel</strong>
+                        <span>Forms and conducts exactly as in a MOSFET</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>JFET</strong>
-                        <span>The gate is a reverse-biased p–n junction instead of an oxide</span>
+                        <strong>I–V behavior</strong>
+                        <span>Cutoff, triode, and saturation, with the same equations</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>MESFET, HEMT</strong>
-                        <span>Metal-semiconductor gates, used mostly in high-frequency circuits</span>
+                        <strong>Threshold logic</strong>
+                        <span>A shifted threshold is still a shifted curve</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>BJT</strong>
-                        <span>Not a FET at all: a small input current controls a larger one</span>
+                        <strong>Readout</strong>
+                        <span>Transfer curves and transconductance work unchanged</span>
                     </div>
 
                 </div>
@@ -256,7 +264,35 @@
 
                     
 
-                    We focus on the MOSFET, because its oxide surface is what sensing builds on.
+                    Everything you know about MOSFETs is now a tool for reading a solution.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE KEY IDEA
+                </p>
+
+                <h1>
+                    One term depends on the solution
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    Vth = constants − ψ₀
+                </div>
+
+                <p>
+                    An ISFET's threshold has many fixed terms: the reference electrode, the silicon work function, oxide charge, and more. Only ψ₀, the potential at the insulator surface in contact with the solution, responds to the chemistry. A threshold shift is therefore a direct reading of ψ₀.
+                </p>
+
+                <div class="module-takeaway">
+
+                    The transistor turns a surface potential into a current.
 
                 </div>
 
@@ -267,11 +303,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 1 STUDY COMPLETE
+                    UNIT 8 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    🔲
+                    🧪
                 </div>
 
                 <h1>
@@ -279,13 +315,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered what a transistor does, and why the field-effect version dominates.
+                    You've covered swap the metal gate for a solution and a reference electrode.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeFetUnit1Button"
+                    id="completeFetUnit8Button"
                 >
                     Complete Module
                 </button>
@@ -347,7 +383,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeFetUnit1Button");
+            document.getElementById("completeFetUnit8Button");
 
 
         let currentSlide = 0;
@@ -457,7 +493,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathFetUnit1StudyComplete"
+                    "fabPathFetUnit8StudyComplete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -470,7 +506,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathFetUnit1StudyComplete",
+                        "fabPathFetUnit8StudyComplete",
                         "true"
                     );
 

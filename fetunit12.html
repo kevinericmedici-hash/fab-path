@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Transistors: Switches &amp; Amplifiers | Fab Path</title>
-    <meta name="description" content="Transistors: Switches &amp; Amplifiers: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <title>Reference Electrodes &amp; Readout | Fab Path</title>
+    <meta name="description" content="Reference Electrodes &amp; Readout: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Transistors: Switches &amp; Amplifiers | Fab Path">
-    <meta property="og:description" content="Transistors: Switches &amp; Amplifiers: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <meta property="og:title" content="Reference Electrodes &amp; Readout | Fab Path">
+    <meta property="og:description" content="Reference Electrodes &amp; Readout: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 5
+                    1 / 6
                 </span>
 
             </div>
@@ -83,65 +83,28 @@
             <!-- SLIDE 1 -->
 
                         <!-- SLIDE 1 -->
+                        <!-- SLIDE 1 -->
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    THREE TERMINALS
+                    WHY A REFERENCE
                 </p>
 
                 <h1>
-                    One control, two ends of a path
+                    Anchoring the solution
                 </h1>
 
-                <div class="module-card-grid">
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🎛️
-                        </div>
-
-                        <h3>Gate</h3>
-
-                        <p>
-                            The control terminal. Its voltage decides how much current can flow
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🚪
-                        </div>
-
-                        <h3>Source</h3>
-
-                        <p>
-                            Where the current-carrying charges enter the channel
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🏁
-                        </div>
-
-                        <h3>Drain</h3>
-
-                        <p>
-                            Where those charges leave the channel
-                        </p>
-
-                    </div>
-
+                <div class="module-visual module-visual-text">
+                    <span class="math-visual">E<sub>ref</sub> must stay fixed</span>
                 </div>
+
+                <p>
+                    The reference electrode sets the solution's potential, and the gate voltage is applied between it and the source. If the reference potential wanders, the threshold appears to move exactly as if the pH had changed. The sensor can only be as stable as its reference.
+                </p>
 
                 <div class="module-takeaway">
 
-                    A fourth connection, the body, also exists. We'll meet it in lesson 3.
+                    A drifting reference looks identical to a changing pH.
 
                 </div>
 
@@ -152,37 +115,62 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THREE JOBS
+                    REFERENCE OPTIONS
                 </p>
 
                 <h1>
-                    What a transistor can be
+                    Stable, small, or both
                 </h1>
 
-                <div class="scale-stack">
+                <div class="module-card-grid">
 
-                    <div class="scale-row">
-                        <strong>Switch</strong>
-                        <span>Gate high means on, gate low means off: the basis of digital logic</span>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🥈
+                        </div>
+
+                        <h3>Ag/AgCl</h3>
+
+                        <p>
+                            A silver wire coated with silver chloride in a fixed chloride solution. Stable and well defined
+                        </p>
+
                     </div>
 
-                    <div class="scale-row">
-                        <strong>Amplifier</strong>
-                        <span>A small change in gate voltage makes a larger change in current</span>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            📍
+                        </div>
+
+                        <h3>Pseudo-reference</h3>
+
+                        <p>
+                            A bare Ag/AgCl or Pt wire in the sample. Tiny, but its potential shifts with the sample's chloride
+                        </p>
+
                     </div>
 
-                    <div class="scale-row">
-                        <strong>Sensor</strong>
-                        <span>Anything that changes the gate's effective voltage changes the current</span>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔬
+                        </div>
+
+                        <h3>Miniaturized</h3>
+
+                        <p>
+                            On-chip versions trade some stability for size, for portable devices
+                        </p>
+
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    
-
-                    The sensor job is why this course exists.
+                    The choice is a trade between stability and size.
 
                 </div>
 
@@ -193,24 +181,32 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    FIELD EFFECT
+                    TWO WAYS TO READ
                 </p>
 
                 <h1>
-                    Current controlled by a field
+                    What the circuit measures
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    field → current
-                </div>
+                <div class="scale-stack">
 
-                <p>
-                    In a field-effect transistor, the gate's electric field, not a current, controls how many charges sit in the channel. The gate is insulated by an oxide, so almost no DC current flows into it. That makes it cheap to hold in a state and a very sensitive voltage probe.
-                </p>
+                    <div class="scale-row">
+                        <strong>Constant current</strong>
+                        <span>A feedback loop holds ID fixed and reports the gate voltage it needs. The output is ΔVth in millivolts</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Constant voltage</strong>
+                        <span>Hold VGS and VDS fixed and read the drain current. Simple, but the output is nonlinear</span>
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    The insulated gate is what makes a MOSFET both efficient and a good sensor.
+                    
+
+                    Constant-current output is in millivolts and tracks pH almost linearly.
 
                 </div>
 
@@ -221,42 +217,90 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE FET FAMILY
+                    SUBTHRESHOLD READOUT
                 </p>
 
                 <h1>
-                    Where the MOSFET fits
+                    Reading the current directly
                 </h1>
 
-                <div class="scale-stack">
+                <div class="module-visual module-visual-text">
+                    <span class="math-visual">10<sup>21/70</sup> ≈ 2×</span>
+                </div>
 
-                    <div class="scale-row">
-                        <strong>MOSFET</strong>
-                        <span>Insulated gate: an oxide separates the gate from the channel</span>
+                <p>
+                    Below threshold, the current changes about 10× for every 60 to 100 mV of gate shift. With a swing of 70 mV per decade, a 21 mV threshold shift changes the current by 10<sup>21/70</sup>, or about 2×. So a 0.4 pH change doubles the current.
+                </p>
+
+                <div class="module-takeaway">
+
+                    In subthreshold, a small pH change becomes a large, easy-to-read current change.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    A REAL MEASUREMENT
+                </p>
+
+                <h1>
+                    Putting it together
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            1
+                        </div>
+
+                        <h3>Dip</h3>
+
+                        <p>
+                            The sensor and the reference electrode sit in the sample
+                        </p>
+
                     </div>
 
-                    <div class="scale-row">
-                        <strong>JFET</strong>
-                        <span>The gate is a reverse-biased p–n junction instead of an oxide</span>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            2
+                        </div>
+
+                        <h3>Bias</h3>
+
+                        <p>
+                            Set VDS and hold the gate bias through the reference electrode
+                        </p>
+
                     </div>
 
-                    <div class="scale-row">
-                        <strong>MESFET, HEMT</strong>
-                        <span>Metal-semiconductor gates, used mostly in high-frequency circuits</span>
-                    </div>
+                    <div class="module-card">
 
-                    <div class="scale-row">
-                        <strong>BJT</strong>
-                        <span>Not a FET at all: a small input current controls a larger one</span>
+                        <div class="module-card-icon">
+                            3
+                        </div>
+
+                        <h3>Read</h3>
+
+                        <p>
+                            Record ΔVth or ΔID, then convert to pH with a calibration line
+                        </p>
+
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    
-
-                    We focus on the MOSFET, because its oxide surface is what sensing builds on.
+                    Calibrating in known buffers turns millivolts into pH.
 
                 </div>
 
@@ -267,11 +311,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 1 STUDY COMPLETE
+                    UNIT 12 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    🔲
+                    🧪
                 </div>
 
                 <h1>
@@ -279,13 +323,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered what a transistor does, and why the field-effect version dominates.
+                    You've covered the stable reference that sets the gate potential, and the two ways to read the signal.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeFetUnit1Button"
+                    id="completeFetUnit12Button"
                 >
                     Complete Module
                 </button>
@@ -347,7 +391,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeFetUnit1Button");
+            document.getElementById("completeFetUnit12Button");
 
 
         let currentSlide = 0;
@@ -457,7 +501,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathFetUnit1StudyComplete"
+                    "fabPathFetUnit12StudyComplete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -470,7 +514,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathFetUnit1StudyComplete",
+                        "fabPathFetUnit12StudyComplete",
                         "true"
                     );
 

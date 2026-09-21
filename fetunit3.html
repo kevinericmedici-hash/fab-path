@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Transistors: Switches &amp; Amplifiers | Fab Path</title>
-    <meta name="description" content="Transistors: Switches &amp; Amplifiers: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <title>Anatomy of a MOSFET | Fab Path</title>
+    <meta name="description" content="Anatomy of a MOSFET: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Transistors: Switches &amp; Amplifiers | Fab Path">
-    <meta property="og:description" content="Transistors: Switches &amp; Amplifiers: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <meta property="og:title" content="Anatomy of a MOSFET | Fab Path">
+    <meta property="og:description" content="Anatomy of a MOSFET: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -69,7 +69,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 5
+                    1 / 6
                 </span>
 
             </div>
@@ -86,11 +86,66 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    THREE TERMINALS
+                    STRUCTURE
                 </p>
 
                 <h1>
-                    One control, two ends of a path
+                    The layers, from the top
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 214" role="img" aria-label="Cross-section of an NMOS transistor">
+<text class="fd-sub" x="20" y="20">W runs into the page</text>
+<line class="fd-axis" x1="105" y1="48" x2="235" y2="48"/>
+<line class="fd-axis" x1="105" y1="43" x2="105" y2="53"/>
+<line class="fd-axis" x1="235" y1="43" x2="235" y2="53"/>
+<text class="fd-label" x="170" y="42" text-anchor="middle">L</text>
+<rect class="fd-p" x="20" y="100" width="300" height="80" rx="4"/>
+<rect class="fd-n" x="50" y="100" width="70" height="30"/>
+<rect class="fd-n" x="220" y="100" width="70" height="30"/>
+<rect class="fd-ox" x="105" y="84" width="130" height="16"/>
+<rect class="fd-metal" x="105" y="62" width="130" height="22"/>
+<rect class="fd-metal" x="62" y="84" width="36" height="16"/>
+<rect class="fd-metal" x="242" y="84" width="36" height="16"/>
+<rect class="fd-metal" x="150" y="180" width="40" height="10"/>
+<line class="fd-channel" x1="118" y1="104" x2="222" y2="104"/>
+<text class="fd-label" x="170" y="77" text-anchor="middle">Gate</text>
+<text class="fd-sub" x="170" y="95" text-anchor="middle">gate oxide</text>
+<text class="fd-label" x="80" y="76" text-anchor="middle">Source</text>
+<text class="fd-label" x="260" y="76" text-anchor="middle">Drain</text>
+<text class="fd-label" x="85" y="121" text-anchor="middle">n⁺</text>
+<text class="fd-label" x="255" y="121" text-anchor="middle">n⁺</text>
+<text class="fd-accent" x="170" y="120" text-anchor="middle">channel</text>
+<text class="fd-label" x="170" y="152" text-anchor="middle">p-type body</text>
+<text class="fd-sub" x="170" y="165" text-anchor="middle">(silicon substrate)</text>
+<text class="fd-label" x="170" y="205" text-anchor="middle">Body</text>
+</svg>
+                </div>
+
+                <p>
+                    An n-channel MOSFET is built on a p-type silicon body. Two heavily doped n⁺ regions form the source and drain. Between them, a thin oxide separates the gate from the silicon surface, where the channel will form when the gate is on.
+                </p>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Gate, oxide, silicon: the metal-oxide-semiconductor stack that gives the MOSFET its name.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 2 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    FOUR TERMINALS
+                </p>
+
+                <h1>
+                    Gate, source, drain, body
                 </h1>
 
                 <div class="module-card-grid">
@@ -104,7 +159,7 @@
                         <h3>Gate</h3>
 
                         <p>
-                            The control terminal. Its voltage decides how much current can flow
+                            Sets the field that creates or removes the channel
                         </p>
 
                     </div>
@@ -118,7 +173,7 @@
                         <h3>Source</h3>
 
                         <p>
-                            Where the current-carrying charges enter the channel
+                            The reference end: gate voltage is measured against it
                         </p>
 
                     </div>
@@ -132,7 +187,21 @@
                         <h3>Drain</h3>
 
                         <p>
-                            Where those charges leave the channel
+                            Collects the current, usually held at a higher voltage in NMOS
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧱
+                        </div>
+
+                        <h3>Body</h3>
+
+                        <p>
+                            The substrate, usually tied to the source or to ground
                         </p>
 
                     </div>
@@ -141,48 +210,7 @@
 
                 <div class="module-takeaway">
 
-                    A fourth connection, the body, also exists. We'll meet it in lesson 3.
-
-                </div>
-
-            </section>
-
-
-            <!-- SLIDE 2 -->
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    THREE JOBS
-                </p>
-
-                <h1>
-                    What a transistor can be
-                </h1>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Switch</strong>
-                        <span>Gate high means on, gate low means off: the basis of digital logic</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Amplifier</strong>
-                        <span>A small change in gate voltage makes a larger change in current</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Sensor</strong>
-                        <span>Anything that changes the gate's effective voltage changes the current</span>
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    
-
-                    The sensor job is why this course exists.
+                    Most circuit diagrams tie the body to the source and show three terminals.
 
                 </div>
 
@@ -193,24 +221,47 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    FIELD EFFECT
+                    THE MATERIALS
                 </p>
 
                 <h1>
-                    Current controlled by a field
+                    What each part is made of
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    field → current
-                </div>
+                <div class="scale-stack">
 
-                <p>
-                    In a field-effect transistor, the gate's electric field, not a current, controls how many charges sit in the channel. The gate is insulated by an oxide, so almost no DC current flows into it. That makes it cheap to hold in a state and a very sensitive voltage probe.
-                </p>
+                    <div class="scale-row">
+                        <strong>Gate</strong>
+                        <span>Heavily doped polysilicon, or a metal in modern high-k metal gates</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Gate oxide</strong>
+                        <span>Thermally grown SiO₂, or a high-k dielectric such as HfO₂</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Channel</strong>
+                        <span>A very thin layer of silicon just under the oxide</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Source and drain</strong>
+                        <span>Heavily doped regions, n⁺ for NMOS and p⁺ for PMOS</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Body</strong>
+                        <span>A lightly doped silicon wafer</span>
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    The insulated gate is what makes a MOSFET both efficient and a good sensor.
+                    
+
+                    The oxide interface is the most carefully engineered layer in the device.
 
                 </div>
 
@@ -221,42 +272,90 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE FET FAMILY
+                    SIZE MATTERS
                 </p>
 
                 <h1>
-                    Where the MOSFET fits
+                    The W/L ratio
                 </h1>
 
-                <div class="scale-stack">
+                <div class="module-visual module-visual-text">
+                    I ∝ W / L
+                </div>
 
-                    <div class="scale-row">
-                        <strong>MOSFET</strong>
-                        <span>Insulated gate: an oxide separates the gate from the channel</span>
+                <p>
+                    The channel length L runs from source to drain, and the width W runs across it. A wider channel carries more current in parallel, and a shorter one adds less resistance. The ratio W/L is the designer's main knob, with L ranging from micrometers in classic devices to tens of nanometers in leading-edge chips.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Wider and shorter means more current, at the same voltages.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    TWO FLAVORS
+                </p>
+
+                <h1>
+                    NMOS and PMOS
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🟢
+                        </div>
+
+                        <h3>NMOS</h3>
+
+                        <p>
+                            p-type body, n⁺ source and drain, electron channel. Turns on with a positive gate voltage
+                        </p>
+
                     </div>
 
-                    <div class="scale-row">
-                        <strong>JFET</strong>
-                        <span>The gate is a reverse-biased p–n junction instead of an oxide</span>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🟡
+                        </div>
+
+                        <h3>PMOS</h3>
+
+                        <p>
+                            n-type body, p⁺ source and drain, hole channel. Turns on with a negative gate voltage
+                        </p>
+
                     </div>
 
-                    <div class="scale-row">
-                        <strong>MESFET, HEMT</strong>
-                        <span>Metal-semiconductor gates, used mostly in high-frequency circuits</span>
-                    </div>
+                    <div class="module-card">
 
-                    <div class="scale-row">
-                        <strong>BJT</strong>
-                        <span>Not a FET at all: a small input current controls a larger one</span>
+                        <div class="module-card-icon">
+                            🤝
+                        </div>
+
+                        <h3>CMOS</h3>
+
+                        <p>
+                            Both kinds on one chip, so almost no current flows when idle
+                        </p>
+
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    
-
-                    We focus on the MOSFET, because its oxide surface is what sensing builds on.
+                    This unit follows the NMOS. The PMOS mirrors it with signs and carriers flipped.
 
                 </div>
 
@@ -267,7 +366,7 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 1 STUDY COMPLETE
+                    UNIT 3 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
@@ -279,13 +378,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered what a transistor does, and why the field-effect version dominates.
+                    You've covered gate, oxide, source, drain, body, and the NMOS and PMOS pair.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeFetUnit1Button"
+                    id="completeFetUnit3Button"
                 >
                     Complete Module
                 </button>
@@ -347,7 +446,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeFetUnit1Button");
+            document.getElementById("completeFetUnit3Button");
 
 
         let currentSlide = 0;
@@ -457,7 +556,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathFetUnit1StudyComplete"
+                    "fabPathFetUnit3StudyComplete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -470,7 +569,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathFetUnit1StudyComplete",
+                        "fabPathFetUnit3StudyComplete",
                         "true"
                     );
 
