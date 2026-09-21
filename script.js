@@ -8343,6 +8343,11 @@ loadIndexPage();
    next slide or question. Every page now
    starts at the top, and moving to the next
    slide or question scrolls back up.
+
+   The one exception is a course's learning path:
+   it opens on the next thing to do, so finishing
+   a study module or a Fab Challenge drops you
+   right back where you left off.
 ======================================== */
 
 function fabScrollToTop() {
@@ -8359,16 +8364,82 @@ if ("scrollRestoration" in history) {
     history.scrollRestoration = "manual";
 }
 
+/*
+    On a learning path, scroll to the first available
+    node (the next study module or Fab Challenge).
+    Near the top of the path there is nothing to skip,
+    so the course header stays in view.
+*/
+
+function fabScrollToCurrentNode() {
+
+    const path =
+        document.querySelector(".learning-path");
+
+    if (!path) {
+
+        return false;
+    }
+
+    const node =
+        path.querySelector(".path-node.available");
+
+    if (!node) {
+
+        return false;
+    }
+
+    const rect =
+        node.getBoundingClientRect();
+
+    const nodeTop =
+        rect.top + window.scrollY;
+
+    if (nodeTop < window.innerHeight * 0.9) {
+
+        fabScrollToTop();
+
+        return true;
+    }
+
+    window.scrollTo({
+        top: Math.max(
+            0,
+            nodeTop - (window.innerHeight - rect.height) / 2
+        ),
+        left: 0,
+        behavior: "instant"
+    });
+
+    return true;
+}
+
 if (!window.location.hash) {
 
     fabScrollToTop();
 }
 
+/*
+    The course scripts draw the path while the page
+    loads, so wait for the load event.
+*/
+
+window.addEventListener("load", function () {
+
+    if (!window.location.hash) {
+
+        fabScrollToCurrentNode();
+    }
+});
+
 window.addEventListener("pageshow", function (event) {
 
     if (event.persisted && !window.location.hash) {
 
-        fabScrollToTop();
+        if (!fabScrollToCurrentNode()) {
+
+            fabScrollToTop();
+        }
     }
 });
 
