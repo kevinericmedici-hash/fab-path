@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>From ICs to MEMS &amp; Semiconductors | Fab Path</title>
-    <meta name="description" content="From ICs to MEMS &amp; Semiconductors: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
+    <title>Sensing Physics, Sensitivity &amp; Noise | Fab Path</title>
+    <meta name="description" content="Sensing Physics, Sensitivity &amp; Noise: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="From ICs to MEMS &amp; Semiconductors | Fab Path">
-    <meta property="og:description" content="From ICs to MEMS &amp; Semiconductors: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
+    <meta property="og:title" content="Sensing Physics, Sensitivity &amp; Noise | Fab Path">
+    <meta property="og:description" content="Sensing Physics, Sensitivity &amp; Noise: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -68,7 +68,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 5
+                    1 / 7
                 </span>
 
             </div>
@@ -87,42 +87,33 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    PART 3 • MICROFABRICATION TECHNOLOGY
+                    THE CORE IDEA
                 </p>
 
                 <h1>
-                    From ICs to MEMS
+                    A mass on a spring
                 </h1>
 
                 <p class="module-lead">
-                    Modern MEMS fabrication grew from many of the
-                    same technologies used to manufacture integrated
-                    circuits.
+                    Every accelerometer starts with the same basic
+                    structure: a proof mass suspended from a spring.
                 </p>
 
                 <div class="module-visual">
-                    💻 → ⚙️
+                    ⚖️
                 </div>
 
                 <p>
-                    Integrated circuits are fabricated by repeatedly
-                    adding, modifying, patterning, and removing
-                    materials on a silicon wafer.
-                </p>
-
-                <p>
-                    MEMS uses many of those same fabrication
-                    techniques, but extends them to create
-                    mechanical structures as well as electronics.
+                    When the sensor accelerates, the proof mass lags
+                    behind and is displaced in the direction of
+                    sensing. That displacement can be measured
+                    piezoelectrically or capacitively.
                 </p>
 
                 <div class="module-takeaway">
 
-                    <strong>Key idea:</strong>
-
-                    MEMS builds on semiconductor manufacturing,
-                    but uses those tools to create mechanical
-                    structures too.
+                    Measure the displacement, and — because you know
+                    the spring — you know the acceleration.
 
                 </div>
 
@@ -133,48 +124,28 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    SILICON WAFERS
+                    THE PHYSICS
                 </p>
 
                 <h1>
-                    Start with the substrate.
+                    A mass-spring-damper system
                 </h1>
 
                 <p>
-                    Silicon used in microfabrication begins as a
-                    large single crystal.
+                    Newton's second law, F = ma, is the starting
+                    point. The proof mass (m) is held by a spring
+                    with constant k, and its motion is damped by a
+                    factor b.
                 </p>
 
-                <p>
-                    Thin wafers are cut from the crystal and become
-                    the substrate on which devices are fabricated.
-                </p>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Raw silicon</strong>
-                        <span>Starting material</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Single crystal</strong>
-                        <span>Crystal growth</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Silicon wafer</strong>
-                        <span>Device substrate</span>
-                    </div>
-
+                <div class="module-visual module-visual-text">
+                    m &middot; x'' + b &middot; x' + k &middot; x = F(t)
                 </div>
 
                 <div class="module-takeaway">
 
-                    The wafer is not just a holder.
-
-                    In many MEMS devices, the silicon itself becomes
-                    part of the mechanical structure.
+                    This is a classic second-order system — the same
+                    math behind car suspensions and shock absorbers.
 
                 </div>
 
@@ -185,33 +156,37 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    SEMICONDUCTORS
+                    NATURAL FREQUENCY & Q
                 </p>
 
                 <h1>
-                    What is a semiconductor?
+                    How the mass wants to move
                 </h1>
 
-                <p class="module-lead">
-                    Silicon is a semiconductor whose electrical
-                    behavior can be deliberately modified.
-                </p>
+                <div class="scale-stack">
 
-                <div class="module-visual">
-                    Si
+                    <div class="scale-row">
+                        <strong>Natural frequency</strong>
+                        <span>&omega;&#8320; = &radic;(k / m)</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Quality factor (Q)</strong>
+                        <span>Describes how underdamped the system is</span>
+                    </div>
+
                 </div>
 
                 <p>
-                    By introducing selected impurity atoms into
-                    silicon, engineers can change the concentration
-                    and type of charge carriers available in the
-                    material.
+                    A stiffer spring or a lighter mass raises the
+                    natural frequency. A higher Q means the system
+                    rings longer once disturbed.
                 </p>
 
                 <div class="module-takeaway">
 
-                    This controlled introduction of impurities
-                    is called <strong>doping</strong>.
+                    Natural frequency and damping are the two knobs
+                    that shape everything else about the sensor.
 
                 </div>
 
@@ -222,57 +197,101 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    DOPING
+                    SENSITIVITY
                 </p>
 
                 <h1>
-                    P-type vs. N-type silicon
+                    Sensitivity vs. bandwidth
                 </h1>
 
-                <div class="module-card-grid">
+                <div class="module-visual module-visual-text">
+                    <span class="math-visual">S = x<sub>static</sub> / a = m / k = 1 / &omega;&#8320;&sup2;</span>
+                </div>
 
-                    <div class="module-card">
+                <p>
+                    A softer spring or heavier mass gives more
+                    displacement per g of acceleration — higher
+                    sensitivity. But that also lowers the natural
+                    frequency and shrinks the usable bandwidth.
+                </p>
 
-                        <h3>P-Type</h3>
+                <p>
+                    Example: a 50g ADI accelerometer at 24.7 kHz has
+                    a maximum static displacement of just 20 nm. At a
+                    lower 1 kHz design, that displacement grows to
+                    about 1.2 µm.
+                </p>
 
-                        <p>
-                            Group III dopants such as boron increase
-                            the concentration of positive charge
-                            carriers called holes.
-                        </p>
+                <div class="module-takeaway">
 
-                        <strong>
-                            Majority carrier: holes
-                        </strong>
+                    Sensitivity and bandwidth pull in opposite
+                    directions. Every design is a trade-off between
+                    them.
 
-                    </div>
+                </div>
+
+            </section>
 
 
-                    <div class="module-card">
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
 
-                        <h3>N-Type</h3>
+                <p class="eyebrow">
+                    NOISE
+                </p>
 
-                        <p>
-                            Group V dopants such as phosphorus
-                            increase the concentration of mobile
-                            electrons.
-                        </p>
+                <h1>
+                    The noise floor: TNEA
+                </h1>
 
-                        <strong>
-                            Majority carrier: electrons
-                        </strong>
+                <p class="module-lead">
+                    TNEA stands for Total Noise Equivalent
+                    Acceleration — the fundamental noise floor of the
+                    measurement.
+                </p>
 
-                    </div>
+                <p>
+                    It's caused by air molecules randomly colliding
+                    with the proof mass. A real ADXL accelerometer has
+                    a noise floor around 0.005 g/&radic;Hz.
+                </p>
 
+                <div class="module-takeaway">
+
+                    To reduce mechanical noise, increase the quality
+                    factor and increase the proof mass.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 6 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    DESIGN RULE OF THUMB
+                </p>
+
+                <h1>
+                    Stay above resonance
+                </h1>
+
+                <p class="module-lead">
+                    Design your accelerometer's resonant frequency to
+                    be higher than the highest frequency component of
+                    the acceleration signal you want to measure.
+                </p>
+
+                <div class="module-visual">
+                    📈
                 </div>
 
                 <div class="module-takeaway">
 
-                    <strong>P-type → holes</strong>
-
-                    <br><br>
-
-                    <strong>N-type → electrons</strong>
+                    Get too close to resonance, and the sensor's own
+                    response distorts the very signal you're trying
+                    to measure.
 
                 </div>
 
@@ -283,11 +302,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 7 STUDY COMPLETE
+                    UNIT 18 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    🧱
+                    📈
                 </div>
 
                 <h1>
@@ -295,13 +314,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered From ICs to MEMS &amp; Semiconductors.
+                    You've covered Sensing Physics, Sensitivity &amp; Noise.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeUnit7Button"
+                    id="completeUnit18Button"
                 >
                     Complete Module
                 </button>
@@ -362,7 +381,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeUnit7Button");
+            document.getElementById("completeUnit18Button");
 
 
         let currentSlide = 0;
@@ -474,7 +493,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathStudy7Complete",
+                        "fabPathStudy18Complete",
                         "true"
                     );
 

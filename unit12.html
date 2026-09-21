@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>From ICs to MEMS &amp; Semiconductors | Fab Path</title>
-    <meta name="description" content="From ICs to MEMS &amp; Semiconductors: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
+    <title>Process Integration &amp; a MEMS Build | Fab Path</title>
+    <meta name="description" content="Process Integration &amp; a MEMS Build: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="From ICs to MEMS &amp; Semiconductors | Fab Path">
-    <meta property="og:description" content="From ICs to MEMS &amp; Semiconductors: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
+    <meta property="og:title" content="Process Integration &amp; a MEMS Build | Fab Path">
+    <meta property="og:description" content="Process Integration &amp; a MEMS Build: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -87,42 +87,39 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    PART 3 • MICROFABRICATION TECHNOLOGY
+                    PROCESS INTEGRATION
                 </p>
 
                 <h1>
-                    From ICs to MEMS
+                    Planarization
                 </h1>
 
-                <p class="module-lead">
-                    Modern MEMS fabrication grew from many of the
-                    same technologies used to manufacture integrated
-                    circuits.
+                <p>
+                    Planarization is included among the pattern-transfer
+                    and micromachining methods in this part's fabrication
+                    toolbox.
                 </p>
 
-                <div class="module-visual">
-                    💻 → ⚙️
+                <div class="module-visual module-visual-text">
+                    ╱╲╱╲╱╲
+                    <br>
+                    ↓
+                    <br>
+                    ━━━━━━━━━━━
                 </div>
 
                 <p>
-                    Integrated circuits are fabricated by repeatedly
-                    adding, modifying, patterning, and removing
-                    materials on a silicon wafer.
-                </p>
-
-                <p>
-                    MEMS uses many of those same fabrication
-                    techniques, but extends them to create
-                    mechanical structures as well as electronics.
+                    For now, the important concept is that
+                    multi-layer fabrication must manage the
+                    surface geometry produced by earlier steps.
                 </p>
 
                 <div class="module-takeaway">
 
-                    <strong>Key idea:</strong>
+                    Fabrication is not a collection of isolated steps.
 
-                    MEMS builds on semiconductor manufacturing,
-                    but uses those tools to create mechanical
-                    structures too.
+                    Each layer changes the starting condition
+                    for the next layer.
 
                 </div>
 
@@ -133,48 +130,55 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    SILICON WAFERS
+                    PROCESS THINKING
                 </p>
 
                 <h1>
-                    Start with the substrate.
+                    Add. Pattern. Remove. Repeat.
                 </h1>
-
-                <p>
-                    Silicon used in microfabrication begins as a
-                    large single crystal.
-                </p>
-
-                <p>
-                    Thin wafers are cut from the crystal and become
-                    the substrate on which devices are fabricated.
-                </p>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>Raw silicon</strong>
-                        <span>Starting material</span>
+                        <strong>Deposit</strong>
+                        <span>Add a material layer</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Single crystal</strong>
-                        <span>Crystal growth</span>
+                        <strong>Pattern</strong>
+                        <span>Define selected regions</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Silicon wafer</strong>
-                        <span>Device substrate</span>
+                        <strong>Etch</strong>
+                        <span>Remove selected material</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Modify</strong>
+                        <span>Oxidize or dope material</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Repeat</strong>
+                        <span>Build complexity layer by layer</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    The wafer is not just a holder.
+                    This is the mindset you should begin using
+                    when looking at any MEMS fabrication sequence:
 
-                    In many MEMS devices, the silicon itself becomes
-                    part of the mechanical structure.
+                    <br><br>
+
+                    <strong>
+                        What material exists now?
+                        What should remain?
+                        What should be removed?
+                        What must be added next?
+                    </strong>
 
                 </div>
 
@@ -185,33 +189,76 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    SEMICONDUCTORS
+                    LAYER-BY-LAYER MEMS
                 </p>
 
                 <h1>
-                    What is a semiconductor?
+                    Build a free-standing structure.
                 </h1>
 
                 <p class="module-lead">
-                    Silicon is a semiconductor whose electrical
-                    behavior can be deliberately modified.
+                    Follow the logic of surface micromachining.
                 </p>
 
-                <div class="module-visual">
-                    Si
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Step 1</strong>
+                        <span>Start with silicon substrate</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Step 2</strong>
+                        <span>Deposit process layer</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Step 3</strong>
+                        <span>Add sacrificial material</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Step 4</strong>
+                        <span>Add and pattern structural layer</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Step 5</strong>
+                        <span>Remove sacrificial material</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Result</strong>
+                        <span>Free-standing mechanical structure</span>
+                    </div>
+
                 </div>
 
-                <p>
-                    By introducing selected impurity atoms into
-                    silicon, engineers can change the concentration
-                    and type of charge carriers available in the
-                    material.
-                </p>
+
+                <div class="module-visual module-visual-text">
+
+                    STRUCTURE
+                    <br>
+                    ███████████
+                    <br><br>
+                    &nbsp;&nbsp;&nbsp; AIR GAP
+                    <br><br>
+                    ━━━━━━━━━━━
+                    <br>
+                    SILICON
+
+                </div>
+
 
                 <div class="module-takeaway">
 
-                    This controlled introduction of impurities
-                    is called <strong>doping</strong>.
+                    <strong>This is the major transition:</strong>
+
+                    You're no longer memorizing process names.
+
+                    You're learning how to use processes together
+                    to manufacture a device.
 
                 </div>
 
@@ -222,57 +269,68 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    DOPING
+                    WORKED EXAMPLE
                 </p>
 
                 <h1>
-                    P-type vs. N-type silicon
+                    Inside the cleanroom
                 </h1>
 
-                <div class="module-card-grid">
+                <p class="module-lead">
+                    Here's how a real device moves through a
+                    fabrication run, start to finish.
+                </p>
 
-                    <div class="module-card">
+                <div class="scale-stack">
 
-                        <h3>P-Type</h3>
-
-                        <p>
-                            Group III dopants such as boron increase
-                            the concentration of positive charge
-                            carriers called holes.
-                        </p>
-
-                        <strong>
-                            Majority carrier: holes
-                        </strong>
-
+                    <div class="scale-row">
+                        <strong>1. Design &amp; layout</strong>
+                        <span>CAD layout converted to GDSII, sent to a mask shop</span>
                     </div>
 
+                    <div class="scale-row">
+                        <strong>2. Gown up</strong>
+                        <span>Enter the cleanroom in a bunny suit and gloves</span>
+                    </div>
 
-                    <div class="module-card">
+                    <div class="scale-row">
+                        <strong>3. Wafer clean</strong>
+                        <span>RCA clean removes organic and metallic contamination</span>
+                    </div>
 
-                        <h3>N-Type</h3>
+                    <div class="scale-row">
+                        <strong>4. Deposit</strong>
+                        <span>LPCVD grows nitride, polysilicon, and PSG films</span>
+                    </div>
 
-                        <p>
-                            Group V dopants such as phosphorus
-                            increase the concentration of mobile
-                            electrons.
-                        </p>
+                    <div class="scale-row">
+                        <strong>5. Coat &amp; expose</strong>
+                        <span>Spin-coat photoresist, expose through the mask</span>
+                    </div>
 
-                        <strong>
-                            Majority carrier: electrons
-                        </strong>
+                    <div class="scale-row">
+                        <strong>6. Etch &amp; strip</strong>
+                        <span>Pattern is etched into the film, resist is stripped</span>
+                    </div>
 
+                    <div class="scale-row">
+                        <strong>7. Inspect</strong>
+                        <span>SEM checks the pattern at high magnification</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>8. Metallize</strong>
+                        <span>Au/Cr contacts deposited, then lifted off</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    <strong>P-type → holes</strong>
-
-                    <br><br>
-
-                    <strong>N-type → electrons</strong>
+                    This is the same
+                    <strong>add → pattern → remove</strong>
+                    cycle you've been learning, run inside a real
+                    cleanroom, wafer by wafer.
 
                 </div>
 
@@ -283,7 +341,7 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 7 STUDY COMPLETE
+                    UNIT 12 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
@@ -295,13 +353,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered From ICs to MEMS &amp; Semiconductors.
+                    You've covered Process Integration &amp; a MEMS Build.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeUnit7Button"
+                    id="completeUnit12Button"
                 >
                     Complete Module
                 </button>
@@ -362,7 +420,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeUnit7Button");
+            document.getElementById("completeUnit12Button");
 
 
         let currentSlide = 0;
@@ -474,7 +532,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathStudy7Complete",
+                        "fabPathStudy12Complete",
                         "true"
                     );
 

@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>From ICs to MEMS &amp; Semiconductors | Fab Path</title>
-    <meta name="description" content="From ICs to MEMS &amp; Semiconductors: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
+    <title>Lithography &amp; Etching | Fab Path</title>
+    <meta name="description" content="Lithography &amp; Etching: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="From ICs to MEMS &amp; Semiconductors | Fab Path">
-    <meta property="og:description" content="From ICs to MEMS &amp; Semiconductors: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
+    <meta property="og:title" content="Lithography &amp; Etching | Fab Path">
+    <meta property="og:description" content="Lithography &amp; Etching: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -68,7 +68,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 5
+                    1 / 4
                 </span>
 
             </div>
@@ -87,42 +87,59 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    PART 3 • MICROFABRICATION TECHNOLOGY
+                    PATTERN TRANSFER
                 </p>
 
                 <h1>
-                    From ICs to MEMS
+                    Optical lithography
                 </h1>
 
-                <p class="module-lead">
-                    Modern MEMS fabrication grew from many of the
-                    same technologies used to manufacture integrated
-                    circuits.
+                <p>
+                    Lithography defines where later fabrication
+                    operations should occur.
                 </p>
 
-                <div class="module-visual">
-                    💻 → ⚙️
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>1. Film</strong>
+                        <span>Material on substrate</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>2. Photoresist</strong>
+                        <span>Light-sensitive layer</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>3. Exposure</strong>
+                        <span>Pattern through mask</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>4. Development</strong>
+                        <span>Create resist pattern</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>5. Etch</strong>
+                        <span>Transfer pattern</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>6. Resist Removal</strong>
+                        <span>Leave patterned material</span>
+                    </div>
+
                 </div>
-
-                <p>
-                    Integrated circuits are fabricated by repeatedly
-                    adding, modifying, patterning, and removing
-                    materials on a silicon wafer.
-                </p>
-
-                <p>
-                    MEMS uses many of those same fabrication
-                    techniques, but extends them to create
-                    mechanical structures as well as electronics.
-                </p>
 
                 <div class="module-takeaway">
 
-                    <strong>Key idea:</strong>
+                    Lithography does not usually create the final
+                    mechanical structure by itself.
 
-                    MEMS builds on semiconductor manufacturing,
-                    but uses those tools to create mechanical
-                    structures too.
+                    It tells later processes
+                    <strong>where to act</strong>.
 
                 </div>
 
@@ -133,48 +150,62 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    SILICON WAFERS
+                    PHOTORESIST
                 </p>
 
                 <h1>
-                    Start with the substrate.
+                    Positive vs. negative photoresist
                 </h1>
 
-                <p>
-                    Silicon used in microfabrication begins as a
-                    large single crystal.
+                <p class="module-lead">
+                    Not all photoresists respond to light the same way.
                 </p>
 
-                <p>
-                    Thin wafers are cut from the crystal and become
-                    the substrate on which devices are fabricated.
-                </p>
+                <div class="module-card-grid">
 
-                <div class="scale-stack">
+                    <div class="module-card">
 
-                    <div class="scale-row">
-                        <strong>Raw silicon</strong>
-                        <span>Starting material</span>
+                        <h3>Positive Resist</h3>
+
+                        <p>
+                            Exposed regions become soluble and wash
+                            away during development. Shipley resist
+                            is a common example.
+                        </p>
+
+                        <strong>
+                            Pattern matches the mask
+                        </strong>
+
                     </div>
 
-                    <div class="scale-row">
-                        <strong>Single crystal</strong>
-                        <span>Crystal growth</span>
-                    </div>
 
-                    <div class="scale-row">
-                        <strong>Silicon wafer</strong>
-                        <span>Device substrate</span>
+                    <div class="module-card">
+
+                        <h3>Negative Resist</h3>
+
+                        <p>
+                            Exposed regions become insoluble and
+                            remain after development, while
+                            unexposed resist washes away. SU-8 is
+                            a common example.
+                        </p>
+
+                        <strong>
+                            Pattern is inverted from the mask
+                        </strong>
+
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    The wafer is not just a holder.
+                    <strong>Positive → matches the mask.</strong>
 
-                    In many MEMS devices, the silicon itself becomes
-                    part of the mechanical structure.
+                    <br><br>
+
+                    <strong>Negative → inverts the mask.</strong>
 
                 </div>
 
@@ -185,94 +216,50 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    SEMICONDUCTORS
+                    MATERIAL REMOVAL
                 </p>
 
                 <h1>
-                    What is a semiconductor?
-                </h1>
-
-                <p class="module-lead">
-                    Silicon is a semiconductor whose electrical
-                    behavior can be deliberately modified.
-                </p>
-
-                <div class="module-visual">
-                    Si
-                </div>
-
-                <p>
-                    By introducing selected impurity atoms into
-                    silicon, engineers can change the concentration
-                    and type of charge carriers available in the
-                    material.
-                </p>
-
-                <div class="module-takeaway">
-
-                    This controlled introduction of impurities
-                    is called <strong>doping</strong>.
-
-                </div>
-
-            </section>
-
-
-            <!-- SLIDE 4 -->
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    DOPING
-                </p>
-
-                <h1>
-                    P-type vs. N-type silicon
+                    Wet etching vs. dry etching
                 </h1>
 
                 <div class="module-card-grid">
 
                     <div class="module-card">
 
-                        <h3>P-Type</h3>
+                        <h3>Wet Etching</h3>
 
                         <p>
-                            Group III dopants such as boron increase
-                            the concentration of positive charge
-                            carriers called holes.
+                            Uses liquid chemistry to remove
+                            selected material.
                         </p>
-
-                        <strong>
-                            Majority carrier: holes
-                        </strong>
 
                     </div>
 
 
                     <div class="module-card">
 
-                        <h3>N-Type</h3>
+                        <h3>Dry Etching</h3>
 
                         <p>
-                            Group V dopants such as phosphorus
-                            increase the concentration of mobile
-                            electrons.
+                            Uses gas or plasma-based processes
+                            to remove selected material.
                         </p>
-
-                        <strong>
-                            Majority carrier: electrons
-                        </strong>
 
                     </div>
 
                 </div>
 
+                <p>
+                    Both appear as important micromachining
+                    methods for pattern transfer and silicon
+                    material removal.
+                </p>
+
                 <div class="module-takeaway">
 
-                    <strong>P-type → holes</strong>
-
-                    <br><br>
-
-                    <strong>N-type → electrons</strong>
+                    Choosing how material is removed affects the
+                    geometry that can be fabricated.
 
                 </div>
 
@@ -283,7 +270,7 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 7 STUDY COMPLETE
+                    UNIT 11 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
@@ -295,13 +282,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered From ICs to MEMS &amp; Semiconductors.
+                    You've covered Lithography &amp; Etching.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeUnit7Button"
+                    id="completeUnit11Button"
                 >
                     Complete Module
                 </button>
@@ -362,7 +349,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeUnit7Button");
+            document.getElementById("completeUnit11Button");
 
 
         let currentSlide = 0;
@@ -474,7 +461,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathStudy7Complete",
+                        "fabPathStudy11Complete",
                         "true"
                     );
 

@@ -6396,47 +6396,6 @@ const lesson54Questions = [
 
 ];
 
-function loadUnit1StudyModule() {
-
-    const completeButton =
-        document.getElementById("completeUnit1Button");
-
-
-    if (!completeButton) {
-        return;
-    }
-
-
-    const alreadyComplete =
-        localStorage.getItem(
-            "fabPathUnit1StudyComplete"
-        ) === "true";
-
-
-    if (alreadyComplete) {
-
-        completeButton.textContent =
-            "Module Complete ✓";
-    }
-
-
-    completeButton.addEventListener(
-        "click",
-        function () {
-
-            localStorage.setItem(
-                "fabPathUnit1StudyComplete",
-                "true"
-            );
-
-            window.location.href =
-                "learn.html";
-        }
-    );
-}
-
-
-loadUnit1StudyModule();
 
 /*
     Looked up by numeric lesson id - lets the practice
@@ -7299,7 +7258,7 @@ function getLessonCompletionKey(lessonId) {
 
 function getUnitStudyCompletionKey(unitId) {
 
-    return `fabPathUnit${unitId}StudyComplete`;
+    return `fabPathStudy${unitId}Complete`;
 }
 
 
@@ -7315,9 +7274,50 @@ function isLessonComplete(lessonId) {
 
 function isUnitStudyComplete(unitId) {
 
-    return (
+    if (
         localStorage.getItem(
             getUnitStudyCompletionKey(unitId)
+        ) === "true"
+    ) {
+        return true;
+    }
+
+    /*
+        Study modules were split into shorter units after
+        some progress was saved. Finished lessons count as a
+        finished study module, and so does the old
+        whole-part study module.
+    */
+
+    const unit =
+        courseData.find(function (u) {
+            return u.id === unitId;
+        });
+
+    if (!unit) {
+
+        return false;
+    }
+
+    if (
+        unit.lessons.some(function (lesson) {
+            return isLessonComplete(lesson.id);
+        })
+    ) {
+        return true;
+    }
+
+    const part =
+        typeof courseParts === "undefined"
+            ? null
+            : courseParts.find(function (p) {
+                return unitId >= p.firstUnitId && unitId <= p.lastUnitId;
+            });
+
+    return (
+        !!part &&
+        localStorage.getItem(
+            `fabPathUnit${part.id}StudyComplete`
         ) === "true"
     );
 }
@@ -7508,7 +7508,7 @@ function createStudyNode(
             <div class="node-info">
 
                 <span>
-                    STUDY MODULE
+                    UNIT ${unit.id} · STUDY
                 </span>
 
                 <h3>
@@ -7516,8 +7516,8 @@ function createStudyNode(
                 </h3>
 
                 <p>
-                    Learn the concepts you need
-                    before beginning this unit.
+                    A few quick slides, then the
+                    Fab Challenge${unit.lessons.length > 1 ? "s" : ""}.
                 </p>
 
             </div>
@@ -7613,7 +7613,7 @@ function createLessonNode(
             <div class="node-info">
 
                 <span>
-                    LESSON ${lesson.id}
+                    FAB CHALLENGE ${lesson.id}
                 </span>
 
                 <h3>
@@ -7660,23 +7660,37 @@ function renderLearningPath() {
                 UNIT BANNER
             */
 
-            html += `
-                <div class="unit-banner">
+            const part =
+                typeof courseParts === "undefined"
+                    ? null
+                    : courseParts.find(function (p) {
+                        return p.firstUnitId === unit.id;
+                    });
 
-                    <span>
-                        UNIT ${unit.id}
-                    </span>
+            if (part) {
 
-                    <h2>
-                        ${unit.title}
-                    </h2>
+                html += `
+                    <div class="unit-banner">
 
-                    <p>
-                        ${unit.description}
-                    </p>
+                        <span>
+                            PART ${part.id} · UNITS ${part.firstUnitId}–${part.lastUnitId}
+                        </span>
 
-                </div>
-            `;
+                        <h2>
+                            ${part.title}
+                        </h2>
+
+                        <p>
+                            ${part.description}
+                        </p>
+
+                    </div>
+                `;
+
+            } else {
+
+                html += `<div class="vertical-path"></div>`;
+            }
 
 
             /*
@@ -7788,375 +7802,6 @@ function updateCourseProgress() {
 
 renderLearningPath();
 
-/* ========================================
-   LEARN PAGE PROGRESS
-   Units 1 and 2
-======================================== */
-
-function loadLearnPageProgress() {
-
-    const totalXPDisplay =
-        document.getElementById("totalXPDisplay");
-
-    const courseProgressFill =
-        document.getElementById("courseProgressFill");
-
-    const courseProgressText =
-        document.getElementById("courseProgressText");
-
-
-    /* =====================================
-       XP
-    ===================================== */
-
-    const savedXP =
-        parseInt(
-            localStorage.getItem("fabPathXP")
-        ) || 0;
-
-    if (totalXPDisplay) {
-        totalXPDisplay.textContent =
-            savedXP;
-    }
-
-
-    /* =====================================
-       HELPERS
-    ===================================== */
-
-    function lessonComplete(id) {
-
-        return (
-            localStorage.getItem(
-                `fabPathLesson${id}Complete`
-            ) === "true"
-        );
-    }
-
-
-    function unlockLesson(id) {
-
-        const node =
-            document.getElementById(
-                `lesson${id}Node`
-            );
-
-        const circle =
-            document.getElementById(
-                `lesson${id}Circle`
-            );
-
-
-        if (!node || !circle) {
-            return;
-        }
-
-
-        /*
-            Don't overwrite a completed lesson.
-        */
-
-        if (lessonComplete(id)) {
-            return;
-        }
-
-
-        node.classList.remove("locked");
-        node.classList.add("available");
-
-        node.href =
-            `lesson${id}.html`;
-
-        circle.textContent =
-            id;
-    }
-
-
-    function completeLessonNode(id) {
-
-        const node =
-            document.getElementById(
-                `lesson${id}Node`
-            );
-
-        const circle =
-            document.getElementById(
-                `lesson${id}Circle`
-            );
-
-
-        if (!node || !circle) {
-            return;
-        }
-
-
-        node.classList.remove(
-            "locked",
-            "available"
-        );
-
-        node.classList.add("complete");
-
-        node.href =
-            `lesson${id}.html`;
-
-        circle.textContent =
-            "✓";
-    }
-
-
-    /* =====================================
-       COMPLETED LESSONS
-    ===================================== */
-
-    let completedLessons = 0;
-
-
-    for (let id = 1; id <= 8; id++) {
-
-        if (lessonComplete(id)) {
-
-            completedLessons++;
-
-            completeLessonNode(id);
-        }
-
-    }
-
-
-    /* =====================================
-       UNIT 1 STUDY MODULE
-    ===================================== */
-
-    const unit1StudyComplete =
-        localStorage.getItem(
-            "fabPathUnit1StudyComplete"
-        ) === "true";
-
-
-    const unit1StudyNode =
-        document.getElementById(
-            "unit1StudyNode"
-        );
-
-    const unit1StudyCircle =
-        document.getElementById(
-            "unit1StudyCircle"
-        );
-
-
-    if (unit1StudyComplete) {
-
-        if (unit1StudyNode) {
-
-            unit1StudyNode.classList.remove(
-                "locked",
-                "available"
-            );
-
-            unit1StudyNode.classList.add(
-                "complete"
-            );
-
-            unit1StudyNode.href =
-                "unit1.html";
-        }
-
-
-        if (unit1StudyCircle) {
-
-            unit1StudyCircle.textContent =
-                "✓";
-        }
-
-
-        unlockLesson(1);
-    }
-
-
-    /* =====================================
-       UNIT 1 LESSON CHAIN
-    ===================================== */
-
-    if (lessonComplete(1)) {
-        unlockLesson(2);
-    }
-
-    if (lessonComplete(2)) {
-        unlockLesson(3);
-    }
-
-    if (lessonComplete(3)) {
-        unlockLesson(4);
-    }
-
-
-    /* =====================================
-       UNIT 2 STUDY MODULE
-    ===================================== */
-
-    const unit2StudyNode =
-        document.getElementById(
-            "unit2StudyNode"
-        );
-
-    const unit2StudyCircle =
-        document.getElementById(
-            "unit2StudyCircle"
-        );
-
-    const unit2StudyComplete =
-        localStorage.getItem(
-            "fabPathUnit2StudyComplete"
-        ) === "true";
-
-
-    /*
-        Lesson 4 unlocks Unit 2.
-    */
-
-    if (
-        lessonComplete(4) &&
-        !unit2StudyComplete
-    ) {
-
-        if (unit2StudyNode) {
-
-            unit2StudyNode.classList.remove(
-                "locked"
-            );
-
-            unit2StudyNode.classList.add(
-                "available"
-            );
-
-            unit2StudyNode.href =
-                "unit2.html";
-        }
-
-
-        if (unit2StudyCircle) {
-
-            unit2StudyCircle.textContent =
-                "📖";
-        }
-
-    }
-
-
-    if (unit2StudyComplete) {
-
-        if (unit2StudyNode) {
-
-            unit2StudyNode.classList.remove(
-                "locked",
-                "available"
-            );
-
-            unit2StudyNode.classList.add(
-                "complete"
-            );
-
-            unit2StudyNode.href =
-                "unit2.html";
-        }
-
-
-        if (unit2StudyCircle) {
-
-            unit2StudyCircle.textContent =
-                "✓";
-        }
-
-
-        unlockLesson(5);
-    }
-
-
-    /* =====================================
-       UNIT 2 LESSON CHAIN
-    ===================================== */
-
-    if (lessonComplete(5)) {
-        unlockLesson(6);
-    }
-
-    if (lessonComplete(6)) {
-        unlockLesson(7);
-    }
-
-    if (lessonComplete(7)) {
-        unlockLesson(8);
-    }
-
-
-    /* =====================================
-       COURSE PROGRESS
-    ===================================== */
-
-    let totalLessons = 8;
-
-
-    /*
-        Once course-data.js exists,
-        use the real total automatically.
-    */
-
-    if (typeof courseData !== "undefined") {
-
-        totalLessons =
-            courseData.reduce(
-                function (total, unit) {
-
-                    return (
-                        total +
-                        unit.lessons.length
-                    );
-                },
-                0
-            );
-    }
-
-
-    /*
-        The loop above only checks lessons 1-8, a leftover
-        from before later units existed. Use the real count
-        across every unit for the progress bar.
-    */
-
-    if (typeof courseData !== "undefined") {
-
-        completedLessons =
-            getCompletedLessonCount();
-    }
-
-
-    const percent =
-        Math.round(
-            (
-                completedLessons /
-                totalLessons
-            ) * 100
-        );
-
-
-    if (courseProgressFill) {
-
-        courseProgressFill.style.width =
-            `${percent}%`;
-    }
-
-
-    if (courseProgressText) {
-
-        courseProgressText.textContent =
-            `${percent}% complete`;
-    }
-
-}
-
-
-loadLearnPageProgress();
 
 /* ========================================
    FAB PATH STREAK SYSTEM
@@ -8455,827 +8100,6 @@ function loadProgressPage() {
 
 loadProgressPage();
 
-function renderUnit3() {
-
-    const container =
-        document.getElementById("unit3Container");
-
-    if (!container) {
-        return;
-    }
-
-    const unit =
-        courseData.find(function (item) {
-            return item.id === 3;
-        });
-
-    if (!unit) {
-        return;
-    }
-
-    const unitUnlocked =
-        localStorage.getItem("fabPathLesson8Complete") === "true";
-
-    const studyComplete =
-        localStorage.getItem("fabPathUnit3StudyComplete") === "true";
-
-    let html = `
-        <div class="unit-banner">
-            <span>UNIT 3</span>
-            <h2>${unit.title}</h2>
-            <p>${unit.description}</p>
-        </div>
-    `;
-
-    let studyClass = "locked";
-    let studyIcon = "🔒";
-    let studyHref = "#";
-
-    if (studyComplete) {
-        studyClass = "complete";
-        studyIcon = "✓";
-        studyHref = unit.studyModule.href;
-    } else if (unitUnlocked) {
-        studyClass = "available";
-        studyIcon = "📖";
-        studyHref = unit.studyModule.href;
-    }
-
-    html += `
-        <a href="${studyHref}"
-           class="path-node node-left ${studyClass} lesson-link">
-
-            <div class="node-circle">
-                ${studyIcon}
-            </div>
-
-            <div class="node-info">
-                <span>STUDY MODULE</span>
-                <h3>${unit.studyModule.title}</h3>
-                <p>Learn the concepts before beginning Unit 3.</p>
-            </div>
-
-        </a>
-
-        <div class="vertical-path"></div>
-    `;
-
-    unit.lessons.forEach(function (lesson, index) {
-
-        const lessonComplete =
-            localStorage.getItem(
-                `fabPathLesson${lesson.id}Complete`
-            ) === "true";
-
-        let unlocked = false;
-
-        if (index === 0) {
-            unlocked = studyComplete;
-        } else {
-            const previousLesson =
-                unit.lessons[index - 1];
-
-            unlocked =
-                localStorage.getItem(
-                    `fabPathLesson${previousLesson.id}Complete`
-                ) === "true";
-        }
-
-        let statusClass = "locked";
-        let icon = "🔒";
-        let href = "#";
-
-        if (lessonComplete) {
-            statusClass = "complete";
-            icon = "✓";
-            href = `lesson${lesson.id}.html`;
-        } else if (unlocked) {
-            statusClass = "available";
-            icon = lesson.id;
-            href = `lesson${lesson.id}.html`;
-        }
-
-        const positionClass =
-            index % 2 === 0
-                ? "node-right"
-                : "node-left";
-
-        html += `
-            <a href="${href}"
-               class="path-node ${positionClass} ${statusClass} lesson-link"
-               id="lesson${lesson.id}Node">
-
-                <div class="node-circle"
-                     id="lesson${lesson.id}Circle">
-                    ${icon}
-                </div>
-
-                <div class="node-info">
-                    <span>FAB CHALLENGE ${lesson.id}</span>
-                    <h3>${lesson.title}</h3>
-                    <p>${lesson.description}</p>
-                </div>
-
-            </a>
-        `;
-
-        if (index < unit.lessons.length - 1) {
-            html += `
-                <div class="vertical-path"></div>
-            `;
-        }
-
-    });
-
-    container.innerHTML = html;
-}
-
-renderUnit3();
-
-function renderUnit4() {
-
-    const container =
-        document.getElementById("unit4Container");
-
-    if (!container) {
-        return;
-    }
-
-    const unit =
-        courseData.find(function (item) {
-            return item.id === 4;
-        });
-
-    if (!unit) {
-        return;
-    }
-
-    const unitUnlocked =
-        localStorage.getItem("fabPathLesson19Complete") === "true";
-
-    const studyComplete =
-        localStorage.getItem("fabPathUnit4StudyComplete") === "true";
-
-    let html = `
-        <div class="unit-banner">
-            <span>UNIT 4</span>
-            <h2>${unit.title}</h2>
-            <p>${unit.description}</p>
-        </div>
-    `;
-
-    let studyClass = "locked";
-    let studyIcon = "🔒";
-    let studyHref = "#";
-
-    if (studyComplete) {
-        studyClass = "complete";
-        studyIcon = "✓";
-        studyHref = unit.studyModule.href;
-    } else if (unitUnlocked) {
-        studyClass = "available";
-        studyIcon = "📖";
-        studyHref = unit.studyModule.href;
-    }
-
-    html += `
-        <a href="${studyHref}"
-           class="path-node node-left ${studyClass} lesson-link">
-
-            <div class="node-circle">
-                ${studyIcon}
-            </div>
-
-            <div class="node-info">
-                <span>STUDY MODULE</span>
-                <h3>${unit.studyModule.title}</h3>
-                <p>Learn the concepts before beginning Unit 4.</p>
-            </div>
-
-        </a>
-
-        <div class="vertical-path"></div>
-    `;
-
-    unit.lessons.forEach(function (lesson, index) {
-
-        const lessonComplete =
-            localStorage.getItem(
-                `fabPathLesson${lesson.id}Complete`
-            ) === "true";
-
-        let unlocked = false;
-
-        if (index === 0) {
-            unlocked = studyComplete;
-        } else {
-            const previousLesson =
-                unit.lessons[index - 1];
-
-            unlocked =
-                localStorage.getItem(
-                    `fabPathLesson${previousLesson.id}Complete`
-                ) === "true";
-        }
-
-        let statusClass = "locked";
-        let icon = "🔒";
-        let href = "#";
-
-        if (lessonComplete) {
-            statusClass = "complete";
-            icon = "✓";
-            href = `lesson${lesson.id}.html`;
-        } else if (unlocked) {
-            statusClass = "available";
-            icon = lesson.id;
-            href = `lesson${lesson.id}.html`;
-        }
-
-        const positionClass =
-            index % 2 === 0
-                ? "node-right"
-                : "node-left";
-
-        html += `
-            <a href="${href}"
-               class="path-node ${positionClass} ${statusClass} lesson-link"
-               id="lesson${lesson.id}Node">
-
-                <div class="node-circle"
-                     id="lesson${lesson.id}Circle">
-                    ${icon}
-                </div>
-
-                <div class="node-info">
-                    <span>FAB CHALLENGE ${lesson.id}</span>
-                    <h3>${lesson.title}</h3>
-                    <p>${lesson.description}</p>
-                </div>
-
-            </a>
-        `;
-
-        if (index < unit.lessons.length - 1) {
-            html += `
-                <div class="vertical-path"></div>
-            `;
-        }
-
-    });
-
-    container.innerHTML = html;
-}
-
-renderUnit4();
-
-function renderUnit5() {
-
-    const container =
-        document.getElementById("unit5Container");
-
-    if (!container) {
-        return;
-    }
-
-    const unit =
-        courseData.find(function (item) {
-            return item.id === 5;
-        });
-
-    if (!unit) {
-        return;
-    }
-
-    const unitUnlocked =
-        localStorage.getItem("fabPathLesson26Complete") === "true";
-
-    const studyComplete =
-        localStorage.getItem("fabPathUnit5StudyComplete") === "true";
-
-    let html = `
-        <div class="unit-banner">
-            <span>UNIT 5</span>
-            <h2>${unit.title}</h2>
-            <p>${unit.description}</p>
-        </div>
-    `;
-
-    let studyClass = "locked";
-    let studyIcon = "🔒";
-    let studyHref = "#";
-
-    if (studyComplete) {
-        studyClass = "complete";
-        studyIcon = "✓";
-        studyHref = unit.studyModule.href;
-    } else if (unitUnlocked) {
-        studyClass = "available";
-        studyIcon = "📖";
-        studyHref = unit.studyModule.href;
-    }
-
-    html += `
-        <a href="${studyHref}"
-           class="path-node node-left ${studyClass} lesson-link">
-
-            <div class="node-circle">
-                ${studyIcon}
-            </div>
-
-            <div class="node-info">
-                <span>STUDY MODULE</span>
-                <h3>${unit.studyModule.title}</h3>
-                <p>Learn the concepts before beginning Unit 5.</p>
-            </div>
-
-        </a>
-
-        <div class="vertical-path"></div>
-    `;
-
-    unit.lessons.forEach(function (lesson, index) {
-
-        const lessonComplete =
-            localStorage.getItem(
-                `fabPathLesson${lesson.id}Complete`
-            ) === "true";
-
-        let unlocked = false;
-
-        if (index === 0) {
-            unlocked = studyComplete;
-        } else {
-            const previousLesson =
-                unit.lessons[index - 1];
-
-            unlocked =
-                localStorage.getItem(
-                    `fabPathLesson${previousLesson.id}Complete`
-                ) === "true";
-        }
-
-        let statusClass = "locked";
-        let icon = "🔒";
-        let href = "#";
-
-        if (lessonComplete) {
-            statusClass = "complete";
-            icon = "✓";
-            href = `lesson${lesson.id}.html`;
-        } else if (unlocked) {
-            statusClass = "available";
-            icon = lesson.id;
-            href = `lesson${lesson.id}.html`;
-        }
-
-        const positionClass =
-            index % 2 === 0
-                ? "node-right"
-                : "node-left";
-
-        html += `
-            <a href="${href}"
-               class="path-node ${positionClass} ${statusClass} lesson-link"
-               id="lesson${lesson.id}Node">
-
-                <div class="node-circle"
-                     id="lesson${lesson.id}Circle">
-                    ${icon}
-                </div>
-
-                <div class="node-info">
-                    <span>FAB CHALLENGE ${lesson.id}</span>
-                    <h3>${lesson.title}</h3>
-                    <p>${lesson.description}</p>
-                </div>
-
-            </a>
-        `;
-
-        if (index < unit.lessons.length - 1) {
-            html += `
-                <div class="vertical-path"></div>
-            `;
-        }
-
-    });
-
-    container.innerHTML = html;
-}
-
-renderUnit5();
-
-function renderUnit6() {
-
-    const container =
-        document.getElementById("unit6Container");
-
-    if (!container) {
-        return;
-    }
-
-    const unit =
-        courseData.find(function (item) {
-            return item.id === 6;
-        });
-
-    if (!unit) {
-        return;
-    }
-
-    const unitUnlocked =
-        localStorage.getItem("fabPathLesson33Complete") === "true";
-
-    const studyComplete =
-        localStorage.getItem("fabPathUnit6StudyComplete") === "true";
-
-    let html = `
-        <div class="unit-banner">
-            <span>UNIT 6</span>
-            <h2>${unit.title}</h2>
-            <p>${unit.description}</p>
-        </div>
-    `;
-
-    let studyClass = "locked";
-    let studyIcon = "🔒";
-    let studyHref = "#";
-
-    if (studyComplete) {
-        studyClass = "complete";
-        studyIcon = "✓";
-        studyHref = unit.studyModule.href;
-    } else if (unitUnlocked) {
-        studyClass = "available";
-        studyIcon = "📖";
-        studyHref = unit.studyModule.href;
-    }
-
-    html += `
-        <a href="${studyHref}"
-           class="path-node node-left ${studyClass} lesson-link">
-
-            <div class="node-circle">
-                ${studyIcon}
-            </div>
-
-            <div class="node-info">
-                <span>STUDY MODULE</span>
-                <h3>${unit.studyModule.title}</h3>
-                <p>Learn the concepts before beginning Unit 6.</p>
-            </div>
-
-        </a>
-
-        <div class="vertical-path"></div>
-    `;
-
-    unit.lessons.forEach(function (lesson, index) {
-
-        const lessonComplete =
-            localStorage.getItem(
-                `fabPathLesson${lesson.id}Complete`
-            ) === "true";
-
-        let unlocked = false;
-
-        if (index === 0) {
-            unlocked = studyComplete;
-        } else {
-            const previousLesson =
-                unit.lessons[index - 1];
-
-            unlocked =
-                localStorage.getItem(
-                    `fabPathLesson${previousLesson.id}Complete`
-                ) === "true";
-        }
-
-        let statusClass = "locked";
-        let icon = "🔒";
-        let href = "#";
-
-        if (lessonComplete) {
-            statusClass = "complete";
-            icon = "✓";
-            href = `lesson${lesson.id}.html`;
-        } else if (unlocked) {
-            statusClass = "available";
-            icon = lesson.id;
-            href = `lesson${lesson.id}.html`;
-        }
-
-        const positionClass =
-            index % 2 === 0
-                ? "node-right"
-                : "node-left";
-
-        html += `
-            <a href="${href}"
-               class="path-node ${positionClass} ${statusClass} lesson-link"
-               id="lesson${lesson.id}Node">
-
-                <div class="node-circle"
-                     id="lesson${lesson.id}Circle">
-                    ${icon}
-                </div>
-
-                <div class="node-info">
-                    <span>FAB CHALLENGE ${lesson.id}</span>
-                    <h3>${lesson.title}</h3>
-                    <p>${lesson.description}</p>
-                </div>
-
-            </a>
-        `;
-
-        if (index < unit.lessons.length - 1) {
-            html += `
-                <div class="vertical-path"></div>
-            `;
-        }
-
-    });
-
-    container.innerHTML = html;
-}
-
-renderUnit6();
-
-function renderUnit7() {
-
-    const container =
-        document.getElementById("unit7Container");
-
-    if (!container) {
-        return;
-    }
-
-    const unit =
-        courseData.find(function (item) {
-            return item.id === 7;
-        });
-
-    if (!unit) {
-        return;
-    }
-
-    const unitUnlocked =
-        localStorage.getItem("fabPathLesson40Complete") === "true";
-
-    const studyComplete =
-        localStorage.getItem("fabPathUnit7StudyComplete") === "true";
-
-    let html = `
-        <div class="unit-banner">
-            <span>UNIT 7</span>
-            <h2>${unit.title}</h2>
-            <p>${unit.description}</p>
-        </div>
-    `;
-
-    let studyClass = "locked";
-    let studyIcon = "🔒";
-    let studyHref = "#";
-
-    if (studyComplete) {
-        studyClass = "complete";
-        studyIcon = "✓";
-        studyHref = unit.studyModule.href;
-    } else if (unitUnlocked) {
-        studyClass = "available";
-        studyIcon = "📖";
-        studyHref = unit.studyModule.href;
-    }
-
-    html += `
-        <a href="${studyHref}"
-           class="path-node node-left ${studyClass} lesson-link">
-
-            <div class="node-circle">
-                ${studyIcon}
-            </div>
-
-            <div class="node-info">
-                <span>STUDY MODULE</span>
-                <h3>${unit.studyModule.title}</h3>
-                <p>Learn the concepts before beginning Unit 7.</p>
-            </div>
-
-        </a>
-
-        <div class="vertical-path"></div>
-    `;
-
-    unit.lessons.forEach(function (lesson, index) {
-
-        const lessonComplete =
-            localStorage.getItem(
-                `fabPathLesson${lesson.id}Complete`
-            ) === "true";
-
-        let unlocked = false;
-
-        if (index === 0) {
-            unlocked = studyComplete;
-        } else {
-            const previousLesson =
-                unit.lessons[index - 1];
-
-            unlocked =
-                localStorage.getItem(
-                    `fabPathLesson${previousLesson.id}Complete`
-                ) === "true";
-        }
-
-        let statusClass = "locked";
-        let icon = "🔒";
-        let href = "#";
-
-        if (lessonComplete) {
-            statusClass = "complete";
-            icon = "✓";
-            href = `lesson${lesson.id}.html`;
-        } else if (unlocked) {
-            statusClass = "available";
-            icon = lesson.id;
-            href = `lesson${lesson.id}.html`;
-        }
-
-        const positionClass =
-            index % 2 === 0
-                ? "node-right"
-                : "node-left";
-
-        html += `
-            <a href="${href}"
-               class="path-node ${positionClass} ${statusClass} lesson-link"
-               id="lesson${lesson.id}Node">
-
-                <div class="node-circle"
-                     id="lesson${lesson.id}Circle">
-                    ${icon}
-                </div>
-
-                <div class="node-info">
-                    <span>FAB CHALLENGE ${lesson.id}</span>
-                    <h3>${lesson.title}</h3>
-                    <p>${lesson.description}</p>
-                </div>
-
-            </a>
-        `;
-
-        if (index < unit.lessons.length - 1) {
-            html += `
-                <div class="vertical-path"></div>
-            `;
-        }
-
-    });
-
-    container.innerHTML = html;
-}
-
-renderUnit7();
-
-function renderUnit8() {
-
-    const container =
-        document.getElementById("unit8Container");
-
-    if (!container) {
-        return;
-    }
-
-    const unit =
-        courseData.find(function (item) {
-            return item.id === 8;
-        });
-
-    if (!unit) {
-        return;
-    }
-
-    const unitUnlocked =
-        localStorage.getItem("fabPathLesson47Complete") === "true";
-
-    const studyComplete =
-        localStorage.getItem("fabPathUnit8StudyComplete") === "true";
-
-    let html = `
-        <div class="unit-banner">
-            <span>UNIT 8</span>
-            <h2>${unit.title}</h2>
-            <p>${unit.description}</p>
-        </div>
-    `;
-
-    let studyClass = "locked";
-    let studyIcon = "🔒";
-    let studyHref = "#";
-
-    if (studyComplete) {
-        studyClass = "complete";
-        studyIcon = "✓";
-        studyHref = unit.studyModule.href;
-    } else if (unitUnlocked) {
-        studyClass = "available";
-        studyIcon = "📖";
-        studyHref = unit.studyModule.href;
-    }
-
-    html += `
-        <a href="${studyHref}"
-           class="path-node node-left ${studyClass} lesson-link">
-
-            <div class="node-circle">
-                ${studyIcon}
-            </div>
-
-            <div class="node-info">
-                <span>STUDY MODULE</span>
-                <h3>${unit.studyModule.title}</h3>
-                <p>Learn the concepts before beginning Unit 8.</p>
-            </div>
-
-        </a>
-
-        <div class="vertical-path"></div>
-    `;
-
-    unit.lessons.forEach(function (lesson, index) {
-
-        const lessonComplete =
-            localStorage.getItem(
-                `fabPathLesson${lesson.id}Complete`
-            ) === "true";
-
-        let unlocked = false;
-
-        if (index === 0) {
-            unlocked = studyComplete;
-        } else {
-            const previousLesson =
-                unit.lessons[index - 1];
-
-            unlocked =
-                localStorage.getItem(
-                    `fabPathLesson${previousLesson.id}Complete`
-                ) === "true";
-        }
-
-        let statusClass = "locked";
-        let icon = "🔒";
-        let href = "#";
-
-        if (lessonComplete) {
-            statusClass = "complete";
-            icon = "✓";
-            href = `lesson${lesson.id}.html`;
-        } else if (unlocked) {
-            statusClass = "available";
-            icon = lesson.id;
-            href = `lesson${lesson.id}.html`;
-        }
-
-        const positionClass =
-            index % 2 === 0
-                ? "node-right"
-                : "node-left";
-
-        html += `
-            <a href="${href}"
-               class="path-node ${positionClass} ${statusClass} lesson-link"
-               id="lesson${lesson.id}Node">
-
-                <div class="node-circle"
-                     id="lesson${lesson.id}Circle">
-                    ${icon}
-                </div>
-
-                <div class="node-info">
-                    <span>FAB CHALLENGE ${lesson.id}</span>
-                    <h3>${lesson.title}</h3>
-                    <p>${lesson.description}</p>
-                </div>
-
-            </a>
-        `;
-
-        if (index < unit.lessons.length - 1) {
-            html += `
-                <div class="vertical-path"></div>
-            `;
-        }
-
-    });
-
-    container.innerHTML = html;
-}
-
-renderUnit8();
 
 /* ========================================
    GAMES HUB PAGE

@@ -10,11 +10,11 @@ devices, built for students heading into the chip industry.
   oxidation, deposition, etch, and CMP (Units 1 and 2 live; lithography, the
   CMOS process flow, yield, and packaging are planned).
 - **MEMS & Microfabrication**: cleanroom practice, lithography, deposition,
-  etching, real MEMS processes, and packaging (54 lessons, 8 games).
+  etching, real MEMS processes, and packaging (54 lessons in 33 short units, 8 games).
 - **Supercapacitors**: charge storage, materials, geometries, electrolytes,
   testing, fabrication, and applications (42 lessons, 8 games).
 - **BioFETs & MOSFETs**: how a transistor works, building toward biosensing
-  (Unit 1 live; more units coming).
+  (all four parts live, 25 short units).
 
 Each course follows the same loop: illustrated study slides, quizzes,
 hands-on games, and practice that targets the questions you miss.

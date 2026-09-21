@@ -1,7 +1,8 @@
 /* ========================================
    PRACTICE PAGE
    One "questions you miss most" session
-   per unit.
+   per part of the course (a part is a group
+   of units).
 ======================================== */
 
 const PRACTICE_SESSION_SIZE = 8;
@@ -27,6 +28,30 @@ function shufflePractice(items) {
     }
 
     return result;
+}
+
+
+function partAsUnit(part) {
+
+    const lessons = [];
+
+    courseData.forEach(function (unit) {
+
+        if (
+            unit.id >= part.firstUnitId &&
+            unit.id <= part.lastUnitId
+        ) {
+            unit.lessons.forEach(function (lesson) {
+                lessons.push(lesson);
+            });
+        }
+    });
+
+    return {
+        id: part.id,
+        title: part.title,
+        lessons: lessons
+    };
 }
 
 
@@ -114,7 +139,7 @@ function renderPracticeHub() {
     }
 
     grid.innerHTML =
-        courseData.map(function (unit) {
+        courseParts.map(partAsUnit).map(function (unit) {
 
             const completedCount =
                 unitCompletedLessonCount(unit);
@@ -133,13 +158,13 @@ function renderPracticeHub() {
             } else if (completedCount === 0) {
 
                 statusText =
-                    "No lessons finished yet — practice pulls from the full unit.";
+                    "No lessons finished yet — practice pulls from the whole part.";
             }
 
             return `
                 <div class="practice-card">
 
-                    <span>UNIT ${unit.id}</span>
+                    <span>PART ${unit.id}</span>
 
                     <h2>${unit.title}</h2>
 
@@ -150,7 +175,7 @@ function renderPracticeHub() {
                         class="practice-button"
                         data-unit-id="${unit.id}"
                     >
-                        Practice this unit
+                        Practice this part
                     </button>
 
                 </div>
@@ -172,14 +197,16 @@ function renderPracticeHub() {
 
 function startPracticeSession(unitId) {
 
-    const unit =
-        courseData.find(function (u) {
-            return u.id === unitId;
+    const part =
+        courseParts.find(function (p) {
+            return p.id === unitId;
         });
 
-    if (!unit) {
+    if (!part) {
         return;
     }
+
+    const unit = partAsUnit(part);
 
     practiceQuestions =
         buildPracticePool(unit);
@@ -193,7 +220,7 @@ function startPracticeSession(unitId) {
     document.getElementById("practiceSessionComplete").hidden = true;
 
     document.getElementById("practiceSessionTitle").textContent =
-        `UNIT ${unit.id}`;
+        `PART ${unit.id}`;
 
     loadPracticeQuestion();
 }

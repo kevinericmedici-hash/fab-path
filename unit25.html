@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>From ICs to MEMS &amp; Semiconductors | Fab Path</title>
-    <meta name="description" content="From ICs to MEMS &amp; Semiconductors: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
+    <title>Microfluidics &amp; Sorting Cells with Sound | Fab Path</title>
+    <meta name="description" content="Microfluidics &amp; Sorting Cells with Sound: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="From ICs to MEMS &amp; Semiconductors | Fab Path">
-    <meta property="og:description" content="From ICs to MEMS &amp; Semiconductors: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
+    <meta property="og:title" content="Microfluidics &amp; Sorting Cells with Sound | Fab Path">
+    <meta property="og:description" content="Microfluidics &amp; Sorting Cells with Sound: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -68,7 +68,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 5
+                    1 / 7
                 </span>
 
             </div>
@@ -87,42 +87,36 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    PART 3 • MICROFABRICATION TECHNOLOGY
+                    PART 7 • MICROFLUIDICS DEVICE DESIGN
                 </p>
 
                 <h1>
-                    From ICs to MEMS
+                    Fluids at the scale of cells
                 </h1>
 
                 <p class="module-lead">
-                    Modern MEMS fabrication grew from many of the
-                    same technologies used to manufacture integrated
-                    circuits.
+                    A red blood cell is about 6-8 µm across. So is a
+                    typical MEMS structure.
                 </p>
 
                 <div class="module-visual">
-                    💻 → ⚙️
+                    🧫 → 🔬
                 </div>
 
                 <p>
-                    Integrated circuits are fabricated by repeatedly
-                    adding, modifying, patterning, and removing
-                    materials on a silicon wafer.
-                </p>
-
-                <p>
-                    MEMS uses many of those same fabrication
-                    techniques, but extends them to create
-                    mechanical structures as well as electronics.
+                    That match in scale is what makes microfluidics
+                    possible — channels, electrodes, and sound waves
+                    small enough to sort, move, and study individual
+                    cells.
                 </p>
 
                 <div class="module-takeaway">
 
                     <strong>Key idea:</strong>
 
-                    MEMS builds on semiconductor manufacturing,
-                    but uses those tools to create mechanical
-                    structures too.
+                    When your device and your target are the same
+                    size, you can interact with it directly instead
+                    of just observing it from a distance.
 
                 </div>
 
@@ -133,48 +127,37 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    SILICON WAFERS
+                    WHY MICROFLUIDICS?
                 </p>
 
                 <h1>
-                    Start with the substrate.
+                    Built to match biology's scale
                 </h1>
-
-                <p>
-                    Silicon used in microfabrication begins as a
-                    large single crystal.
-                </p>
-
-                <p>
-                    Thin wafers are cut from the crystal and become
-                    the substrate on which devices are fabricated.
-                </p>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>Raw silicon</strong>
-                        <span>Starting material</span>
+                        <strong>Red & white blood cells, platelets</strong>
+                        <span>6 – 8 µm in diameter</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Single crystal</strong>
-                        <span>Crystal growth</span>
+                        <strong>Neuron cells</strong>
+                        <span>4 – 100 µm</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Silicon wafer</strong>
-                        <span>Device substrate</span>
+                        <strong>Typical microelectrode</strong>
+                        <span>~100 µm in diameter</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    The wafer is not just a holder.
-
-                    In many MEMS devices, the silicon itself becomes
-                    part of the mechanical structure.
+                    Because MEMS devices sit at the same scale as
+                    cells, they're a natural fit for interfacing with
+                    and interrogating them — with minimal damage.
 
                 </div>
 
@@ -185,33 +168,51 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    SEMICONDUCTORS
+                    BIOMEMS TOOLBOX
                 </p>
 
                 <h1>
-                    What is a semiconductor?
+                    Six ways to move a cell
                 </h1>
 
-                <p class="module-lead">
-                    Silicon is a semiconductor whose electrical
-                    behavior can be deliberately modified.
-                </p>
+                <div class="module-card-grid">
 
-                <div class="module-visual">
-                    Si
+                    <div class="module-card">
+                        <h3>Electroosmosis</h3>
+                        <p>Fluid flow driven by an electric field</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Electrophoresis</h3>
+                        <p>Charged particles driven by an electric field</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Dielectrophoresis</h3>
+                        <p>Particles polarized and moved by a non-uniform field</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Acoustophoresis</h3>
+                        <p>Particles moved by acoustic waves</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Capillary action</h3>
+                        <p>Fluid drawn through channels by surface tension</p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Electromagnetics</h3>
+                        <p>Particles moved by magnetic or electromagnetic fields</p>
+                    </div>
+
                 </div>
-
-                <p>
-                    By introducing selected impurity atoms into
-                    silicon, engineers can change the concentration
-                    and type of charge carriers available in the
-                    material.
-                </p>
 
                 <div class="module-takeaway">
 
-                    This controlled introduction of impurities
-                    is called <strong>doping</strong>.
+                    Beyond silicon, BioMEMS chips are also built on
+                    plastics, glass, and carbon substrates.
 
                 </div>
 
@@ -222,57 +223,107 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    DOPING
+                    CASE STUDY
                 </p>
 
                 <h1>
-                    P-type vs. N-type silicon
+                    Sorting cells with sound
                 </h1>
 
-                <div class="module-card-grid">
+                <div class="module-visual">
+                    🔊
+                </div>
 
-                    <div class="module-card">
+                <p class="module-lead">
+                    Acoustophoresis uses sound — not chemicals, not
+                    filters — to separate cells by size.
+                </p>
 
-                        <h3>P-Type</h3>
+                <p>
+                    This part walks through a real acoustophoresis
+                    cell-separation chip, from the physics that make
+                    it work to the fabrication steps that build it.
+                </p>
 
-                        <p>
-                            Group III dopants such as boron increase
-                            the concentration of positive charge
-                            carriers called holes.
-                        </p>
+                <div class="module-takeaway">
 
-                        <strong>
-                            Majority carrier: holes
-                        </strong>
+                    A piezoelectric substrate, a pair of electrodes,
+                    and a plastic channel — that's the entire device.
 
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE CORE IDEA
+                </p>
+
+                <h1>
+                    Standing waves sort by size
+                </h1>
+
+                <p>
+                    Two surface acoustic waves (SAWs), traveling
+                    toward each other across a piezoelectric
+                    substrate, combine to form a standing surface
+                    acoustic wave (SSAW) — alternating pressure
+                    nodes and antinodes.
+                </p>
+
+                <div class="module-visual module-visual-text">
+                    antinode | node | antinode | node | antinode
+                </div>
+
+                <div class="module-takeaway">
+
+                    Larger particles get funneled into the pressure
+                    node at the center of the channel. Smaller
+                    particles stay out near the antinodes.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 6 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    ANATOMY OF THE DEVICE
+                </p>
+
+                <h1>
+                    Three parts, one chip
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Piezoelectric substrate</strong>
+                        <span>Lithium niobate — generates the acoustic wave</span>
                     </div>
 
+                    <div class="scale-row">
+                        <strong>Interdigitated transducer (IDT)</strong>
+                        <span>Comb-shaped electrodes that launch the SAW</span>
+                    </div>
 
-                    <div class="module-card">
-
-                        <h3>N-Type</h3>
-
-                        <p>
-                            Group V dopants such as phosphorus
-                            increase the concentration of mobile
-                            electrons.
-                        </p>
-
-                        <strong>
-                            Majority carrier: electrons
-                        </strong>
-
+                    <div class="scale-row">
+                        <strong>PDMS microchannel</strong>
+                        <span>Polymer channel bonded on top, carrying the cells</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    <strong>P-type → holes</strong>
-
-                    <br><br>
-
-                    <strong>N-type → electrons</strong>
+                    The wave is generated in the substrate below;
+                    the cells flow through the channel above. The
+                    two only need to line up.
 
                 </div>
 
@@ -283,11 +334,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 7 STUDY COMPLETE
+                    UNIT 25 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    🧱
+                    💧
                 </div>
 
                 <h1>
@@ -295,13 +346,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered From ICs to MEMS &amp; Semiconductors.
+                    You've covered Microfluidics &amp; Sorting Cells with Sound.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeUnit7Button"
+                    id="completeUnit25Button"
                 >
                     Complete Module
                 </button>
@@ -362,7 +413,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeUnit7Button");
+            document.getElementById("completeUnit25Button");
 
 
         let currentSlide = 0;
@@ -474,7 +525,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathStudy7Complete",
+                        "fabPathStudy25Complete",
                         "true"
                     );
 

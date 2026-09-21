@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>From ICs to MEMS &amp; Semiconductors | Fab Path</title>
-    <meta name="description" content="From ICs to MEMS &amp; Semiconductors: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
+    <title>Inside the ADXL150 | Fab Path</title>
+    <meta name="description" content="Inside the ADXL150: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="From ICs to MEMS &amp; Semiconductors | Fab Path">
-    <meta property="og:description" content="From ICs to MEMS &amp; Semiconductors: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
+    <meta property="og:title" content="Inside the ADXL150 | Fab Path">
+    <meta property="og:description" content="Inside the ADXL150: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -68,7 +68,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 5
+                    1 / 6
                 </span>
 
             </div>
@@ -87,42 +87,34 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    PART 3 • MICROFABRICATION TECHNOLOGY
+                    CASE STUDY
                 </p>
 
                 <h1>
-                    From ICs to MEMS
+                    Meet the ADXL150
                 </h1>
 
                 <p class="module-lead">
-                    Modern MEMS fabrication grew from many of the
-                    same technologies used to manufacture integrated
-                    circuits.
+                    A real, commercially shipped accelerometer from
+                    Analog Devices.
                 </p>
 
                 <div class="module-visual">
-                    💻 → ⚙️
+                    🔬
                 </div>
 
                 <p>
-                    Integrated circuits are fabricated by repeatedly
-                    adding, modifying, patterning, and removing
-                    materials on a silicon wafer.
-                </p>
-
-                <p>
-                    MEMS uses many of those same fabrication
-                    techniques, but extends them to create
-                    mechanical structures as well as electronics.
+                    A comb-like plate suspended from folded springs
+                    forms the inertial mass. Stationary polysilicon
+                    finger electrodes interleave with fingers on the
+                    moving mass, and the displacement between them is
+                    measured capacitively.
                 </p>
 
                 <div class="module-takeaway">
 
-                    <strong>Key idea:</strong>
-
-                    MEMS builds on semiconductor manufacturing,
-                    but uses those tools to create mechanical
-                    structures too.
+                    The die measures 1.94 mm × 1.94 mm, with an
+                    8-signal-port sensor region of 753 µm × 657 µm.
 
                 </div>
 
@@ -133,48 +125,42 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    SILICON WAFERS
+                    INSIDE THE SENSOR CELL
                 </p>
 
                 <h1>
-                    Start with the substrate.
+                    Anchors, mass, and fingers
                 </h1>
-
-                <p>
-                    Silicon used in microfabrication begins as a
-                    large single crystal.
-                </p>
-
-                <p>
-                    Thin wafers are cut from the crystal and become
-                    the substrate on which devices are fabricated.
-                </p>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>Raw silicon</strong>
-                        <span>Starting material</span>
+                        <strong>Anchor</strong>
+                        <span>Fixes the spring structure to the substrate</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Single crystal</strong>
-                        <span>Crystal growth</span>
+                        <strong>Proof mass</strong>
+                        <span>The suspended comb structure that moves</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Silicon wafer</strong>
-                        <span>Device substrate</span>
+                        <strong>Position sense region</strong>
+                        <span>42 cells, measuring displacement</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Self-test region</strong>
+                        <span>12 cells, electrostatically shake the mass to test it</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    The wafer is not just a holder.
-
-                    In many MEMS devices, the silicon itself becomes
-                    part of the mechanical structure.
+                    The related ADXL-50 uses 3 sets of 2 µm-thick
+                    polysilicon fingers — 2 fixed, and 1 movable set
+                    suspended just 1 µm above the base.
 
                 </div>
 
@@ -185,33 +171,47 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    SEMICONDUCTORS
+                    SPEC SHEET
                 </p>
 
                 <h1>
-                    What is a semiconductor?
+                    ADXL150 design specifications
                 </h1>
 
-                <p class="module-lead">
-                    Silicon is a semiconductor whose electrical
-                    behavior can be deliberately modified.
-                </p>
+                <div class="scale-stack">
 
-                <div class="module-visual">
-                    Si
+                    <div class="scale-row">
+                        <strong>Resonant frequency</strong>
+                        <span>24 kHz</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Bandwidth</strong>
+                        <span>400 to 1000 Hz</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Sensitivity</strong>
+                        <span>38 mV/g</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Full-scale range</strong>
+                        <span>&plusmn;50g</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Supply voltage</strong>
+                        <span>4&ndash;6 V</span>
+                    </div>
+
                 </div>
-
-                <p>
-                    By introducing selected impurity atoms into
-                    silicon, engineers can change the concentration
-                    and type of charge carriers available in the
-                    material.
-                </p>
 
                 <div class="module-takeaway">
 
-                    This controlled introduction of impurities
-                    is called <strong>doping</strong>.
+                    Notice the resonant frequency (24 kHz) sits well
+                    above the bandwidth (up to 1000 Hz) — exactly the
+                    design rule from earlier.
 
                 </div>
 
@@ -222,57 +222,82 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    DOPING
+                    WORKED EXAMPLE
                 </p>
 
                 <h1>
-                    P-type vs. N-type silicon
+                    Designing the springs
                 </h1>
 
-                <div class="module-card-grid">
+                <div class="scale-stack">
 
-                    <div class="module-card">
-
-                        <h3>P-Type</h3>
-
-                        <p>
-                            Group III dopants such as boron increase
-                            the concentration of positive charge
-                            carriers called holes.
-                        </p>
-
-                        <strong>
-                            Majority carrier: holes
-                        </strong>
-
+                    <div class="scale-row">
+                        <strong>Geometry</strong>
+                        <span>2 µm poly thickness, 1.3 µm finger gap, 104 µm overlap</span>
                     </div>
 
+                    <div class="scale-row">
+                        <strong>Capacitance</strong>
+                        <span>≈ 100 fF across 42 parallel sensor cells</span>
+                    </div>
 
-                    <div class="module-card">
+                    <div class="scale-row">
+                        <strong>Spring constant</strong>
+                        <span>k ≈ 5.6 N/m from beam geometry (ADI measured 5.4 N/m)</span>
+                    </div>
 
-                        <h3>N-Type</h3>
+                    <div class="scale-row">
+                        <strong>Resonant frequency</strong>
+                        <span>≈ 24.7 kHz, from k and the proof mass</span>
+                    </div>
 
-                        <p>
-                            Group V dopants such as phosphorus
-                            increase the concentration of mobile
-                            electrons.
-                        </p>
-
-                        <strong>
-                            Majority carrier: electrons
-                        </strong>
-
+                    <div class="scale-row">
+                        <strong>Quality factor</strong>
+                        <span>≈ 120, from air damping under the proof mass (Couette flow)</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    <strong>P-type → holes</strong>
+                    Hand calculations from beam bending and gas
+                    damping land within a couple percent of ADI's own
+                    measured numbers — the physics really does predict
+                    the chip.
 
-                    <br><br>
+                </div>
 
-                    <strong>N-type → electrons</strong>
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    BACK TO FABRICATION
+                </p>
+
+                <h1>
+                    Built with what you already know
+                </h1>
+
+                <p>
+                    Once the mechanical design is set, the ADXL150 is
+                    built with the same tools you learned in earlier
+                    units: deposition, patterning, CVD oxide and
+                    nitride, and a final metallization step — then
+                    released, just like a PolyMUMPs device.
+                </p>
+
+                <div class="module-visual">
+                    ⚙️ → 📈
+                </div>
+
+                <div class="module-takeaway">
+
+                    Accelerometer design isn't a separate skill from
+                    fabrication — it's the same fabrication knowledge,
+                    aimed at a specific mechanical goal.
 
                 </div>
 
@@ -283,11 +308,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 7 STUDY COMPLETE
+                    UNIT 20 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    🧱
+                    📈
                 </div>
 
                 <h1>
@@ -295,13 +320,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered From ICs to MEMS &amp; Semiconductors.
+                    You've covered Inside the ADXL150.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeUnit7Button"
+                    id="completeUnit20Button"
                 >
                     Complete Module
                 </button>
@@ -362,7 +387,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeUnit7Button");
+            document.getElementById("completeUnit20Button");
 
 
         let currentSlide = 0;
@@ -474,7 +499,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathStudy7Complete",
+                        "fabPathStudy20Complete",
                         "true"
                     );
 

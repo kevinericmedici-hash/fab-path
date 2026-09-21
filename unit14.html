@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>From ICs to MEMS &amp; Semiconductors | Fab Path</title>
-    <meta name="description" content="From ICs to MEMS &amp; Semiconductors: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
+    <title>Building the Base &amp; Sacrificial Layers | Fab Path</title>
+    <meta name="description" content="Building the Base &amp; Sacrificial Layers: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="From ICs to MEMS &amp; Semiconductors | Fab Path">
-    <meta property="og:description" content="From ICs to MEMS &amp; Semiconductors: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
+    <meta property="og:title" content="Building the Base &amp; Sacrificial Layers | Fab Path">
+    <meta property="og:description" content="Building the Base &amp; Sacrificial Layers: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -68,7 +68,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 5
+                    1 / 7
                 </span>
 
             </div>
@@ -87,42 +87,32 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    PART 3 • MICROFABRICATION TECHNOLOGY
+                    STEP 1 • THE WAFER
                 </p>
 
                 <h1>
-                    From ICs to MEMS
+                    Start with silicon
                 </h1>
 
-                <p class="module-lead">
-                    Modern MEMS fabrication grew from many of the
-                    same technologies used to manufacture integrated
-                    circuits.
+                <p>
+                    Every PolyMUMPs run starts from the same wafer
+                    specification, so every customer's design shares
+                    the same electrical starting point.
                 </p>
 
-                <div class="module-visual">
-                    💻 → ⚙️
+                <div class="module-visual module-visual-text">
+                    150 mm
+                    <br>
+                    n-type (100)
+                    <br>
+                    1&ndash;2 &Omega;&middot;cm
                 </div>
-
-                <p>
-                    Integrated circuits are fabricated by repeatedly
-                    adding, modifying, patterning, and removing
-                    materials on a silicon wafer.
-                </p>
-
-                <p>
-                    MEMS uses many of those same fabrication
-                    techniques, but extends them to create
-                    mechanical structures as well as electronics.
-                </p>
 
                 <div class="module-takeaway">
 
-                    <strong>Key idea:</strong>
-
-                    MEMS builds on semiconductor manufacturing,
-                    but uses those tools to create mechanical
-                    structures too.
+                    The wafer is 150 mm across, n-type silicon with
+                    a (100) crystal orientation, and 1&ndash;2 Ohm-cm
+                    resistivity.
 
                 </div>
 
@@ -133,48 +123,37 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    SILICON WAFERS
+                    STEP 2 • DOPE & INSULATE
                 </p>
 
                 <h1>
-                    Start with the substrate.
+                    Doping and the nitride layer
                 </h1>
 
                 <p>
-                    Silicon used in microfabrication begins as a
-                    large single crystal.
+                    The wafer surface is first doped with phosphorous
+                    using standard diffusion. This reduces charge
+                    feed-through to the substrate from electrostatic
+                    devices built on the surface.
                 </p>
 
                 <p>
-                    Thin wafers are cut from the crystal and become
-                    the substrate on which devices are fabricated.
+                    Next, a 0.6 µm low-stress silicon nitride layer is
+                    deposited by LPCVD for electrical insulation.
                 </p>
 
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Raw silicon</strong>
-                        <span>Starting material</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Single crystal</strong>
-                        <span>Crystal growth</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Silicon wafer</strong>
-                        <span>Device substrate</span>
-                    </div>
-
+                <div class="module-visual module-visual-text">
+                    SiN &mdash; 0.6 µm
+                    <br>
+                    ━━━━━━━━━━━
+                    <br>
+                    Si (doped)
                 </div>
 
                 <div class="module-takeaway">
 
-                    The wafer is not just a holder.
-
-                    In many MEMS devices, the silicon itself becomes
-                    part of the mechanical structure.
+                    Silicon nitride keeps your structures electrically
+                    separate from the substrate underneath them.
 
                 </div>
 
@@ -185,33 +164,32 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    SEMICONDUCTORS
+                    STEP 3 • POLY 0
                 </p>
 
                 <h1>
-                    What is a semiconductor?
+                    Poly 0: the ground plane
                 </h1>
 
-                <p class="module-lead">
-                    Silicon is a semiconductor whose electrical
-                    behavior can be deliberately modified.
-                </p>
-
-                <div class="module-visual">
-                    Si
-                </div>
-
                 <p>
-                    By introducing selected impurity atoms into
-                    silicon, engineers can change the concentration
-                    and type of charge carriers available in the
-                    material.
+                    A 0.5 µm polysilicon film, called Poly 0, is
+                    deposited by LPCVD and patterned with the first
+                    mask. It's commonly used for wiring and as
+                    stationary electrodes underneath moving structures.
                 </p>
+
+                <div class="module-visual module-visual-text">
+                    Poly0 &mdash; 0.5 µm
+                    <br>
+                    ━━━━━━━━━━━
+                    <br>
+                    SiN &mdash; 0.6 µm
+                </div>
 
                 <div class="module-takeaway">
 
-                    This controlled introduction of impurities
-                    is called <strong>doping</strong>.
+                    Poly 0 doesn't move. It's the fixed electrode
+                    layer that later moving parts will act against.
 
                 </div>
 
@@ -222,57 +200,143 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    DOPING
+                    STEP 4 • FIRST OXIDE
                 </p>
 
                 <h1>
-                    P-type vs. N-type silicon
+                    PSG1: the first sacrificial layer
                 </h1>
+
+                <p>
+                    A 2.0 µm PSG (phosphosilicate glass) layer —
+                    called First Oxide — is deposited by LPCVD and
+                    annealed at 1050°C for 1 hour in argon. It's
+                    removed at the very end of the process to free
+                    the first mechanical layer.
+                </p>
 
                 <div class="module-card-grid">
 
                     <div class="module-card">
-
-                        <h3>P-Type</h3>
-
+                        <h3>DIMPLES mask</h3>
                         <p>
-                            Group III dopants such as boron increase
-                            the concentration of positive charge
-                            carriers called holes.
+                            Etches shallow dimples (about 750 nm deep)
+                            into the PSG, creating small standoffs so
+                            beams don't stick flat against Poly 0.
                         </p>
-
-                        <strong>
-                            Majority carrier: holes
-                        </strong>
-
                     </div>
 
-
                     <div class="module-card">
-
-                        <h3>N-Type</h3>
-
+                        <h3>ANCHOR1 mask</h3>
                         <p>
-                            Group V dopants such as phosphorus
-                            increase the concentration of mobile
-                            electrons.
+                            Etches holes through the PSG down to
+                            Poly 0, later filled by Poly 1 to anchor
+                            it in place.
                         </p>
-
-                        <strong>
-                            Majority carrier: electrons
-                        </strong>
-
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    <strong>P-type → holes</strong>
+                    Everything about this oxide is temporary — it
+                    just holds the shape until release.
 
-                    <br><br>
+                </div>
 
-                    <strong>N-type → electrons</strong>
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    STEP 5 • POLY 1
+                </p>
+
+                <h1>
+                    Poly 1: the first moving layer
+                </h1>
+
+                <p>
+                    A 2.0 µm polysilicon layer is deposited and capped
+                    with a thin 200 nm PSG layer. The wafer is
+                    annealed at 1050°C for 1 hour — doping Poly 1 with
+                    phosphorous from the PSG above and below, and
+                    relieving internal stress at the same time.
+                </p>
+
+                <p>
+                    The PSG cap then acts as a hard mask, giving a
+                    cleaner pattern transfer than photoresist alone
+                    when Poly 1 is etched.
+                </p>
+
+                <div class="module-visual module-visual-text">
+                    Poly1 &mdash; 2.0 µm
+                    <br>
+                    PSG1 (sacrificial) &mdash; 2.0 µm
+                    <br>
+                    Poly0 &mdash; 0.5 µm
+                    <br>
+                    SiN &mdash; 0.6 µm
+                </div>
+
+                <div class="module-takeaway">
+
+                    Poly 1 fills the ANCHOR1 holes from the last step,
+                    locking it to Poly 0 wherever you designed an
+                    anchor.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 6 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    STEP 6 • SECOND OXIDE
+                </p>
+
+                <h1>
+                    PSG2: connecting Poly 1 to Poly 2
+                </h1>
+
+                <p>
+                    A second, 0.75 µm PSG layer — Second Oxide — is
+                    deposited and annealed. Two separate masks pattern
+                    it, each with a different job.
+                </p>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+                        <h3>POLY1_POLY2_VIA</h3>
+                        <p>
+                            Etches holes down to Poly 1, creating a
+                            mechanical and electrical connection
+                            between Poly 1 and Poly 2.
+                        </p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>ANCHOR2</h3>
+                        <p>
+                            Etches through both First and Second
+                            Oxide in one step, so Poly 2 can anchor
+                            straight down without misalignment.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Cutting ANCHOR2 through both oxides in a single
+                    etch avoids misalignment between two separately
+                    aligned holes.
 
                 </div>
 
@@ -283,11 +347,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 7 STUDY COMPLETE
+                    UNIT 14 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    🧱
+                    🧩
                 </div>
 
                 <h1>
@@ -295,13 +359,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered From ICs to MEMS &amp; Semiconductors.
+                    You've covered Building the Base &amp; Sacrificial Layers.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeUnit7Button"
+                    id="completeUnit14Button"
                 >
                     Complete Module
                 </button>
@@ -362,7 +426,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeUnit7Button");
+            document.getElementById("completeUnit14Button");
 
 
         let currentSlide = 0;
@@ -474,7 +538,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathStudy7Complete",
+                        "fabPathStudy14Complete",
                         "true"
                     );
 

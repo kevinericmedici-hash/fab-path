@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>MEMS Accelerometer Design | Fab Path</title>
-    <meta name="description" content="MEMS Accelerometer Design: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
+    <title>Gowning &amp; Wafer Handling | Fab Path</title>
+    <meta name="description" content="Gowning &amp; Wafer Handling: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="MEMS Accelerometer Design | Fab Path">
-    <meta property="og:description" content="MEMS Accelerometer Design: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
+    <meta property="og:title" content="Gowning &amp; Wafer Handling | Fab Path">
+    <meta property="og:description" content="Gowning &amp; Wafer Handling: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -68,7 +68,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 21
+                    1 / 3
                 </span>
 
             </div>
@@ -83,611 +83,147 @@
                  SLIDE 1
             ====================================== -->
 
+                        <!-- SLIDE 1 -->
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    UNIT 5 • MEMS ACCELEROMETER DESIGN
+                    GOWNING
                 </p>
 
                 <h1>
-                    The sensor in everything
+                    The operator is a contamination source.
                 </h1>
 
                 <p class="module-lead">
-                    About 50 million MEMS accelerometers ship every
-                    year — in phones, airbags, drones, and game
-                    controllers.
-                </p>
-
-                <div class="module-visual">
-                    📱 💥 🚁
-                </div>
-
-                <p>
-                    In this unit, you'll learn how a structure smaller
-                    than a grain of sand turns motion into a
-                    measurable electrical signal, and walk through the
-                    real design of a commercial accelerometer chip.
-                </p>
-
-                <div class="module-takeaway">
-
-                    <strong>Key idea:</strong>
-
-                    Every accelerometer is the same basic idea:
-                    a mass on a spring, watched very, very closely.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 2
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    THE BASICS
-                </p>
-
-                <h1>
-                    What is an accelerometer?
-                </h1>
-
-                <p class="module-lead">
-                    An accelerometer is a sensor that measures the
-                    change in velocity over time — acceleration.
-                </p>
-
-                <div class="module-visual">
-                    🎢
-                </div>
-
-                <p>
-                    They're used in airbags, inertial guidance systems
-                    (including missiles), smartphones, and laptops —
-                    anywhere a device needs to know how it's moving.
-                </p>
-
-                <div class="module-takeaway">
-
-                    If it needs to sense motion, shock, tilt, or
-                    vibration, there's a good chance an accelerometer
-                    is involved.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 3
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    A BRIEF HISTORY
-                </p>
-
-                <h1>
-                    From lab curiosity to every pocket
-                </h1>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>1979</strong>
-                        <span>First MEMS accelerometer, micromachined at Stanford</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>~20 years later</strong>
-                        <span>Commercial breakthrough in automotive and avionics</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Today</strong>
-                        <span>Standard component in nearly every smartphone</span>
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    The Stanford device (Roylance and Angell,
-                    "A Batch-Fabricated Silicon Accelerometer") was
-                    one of the earliest MEMS products ever made.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 4
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    IN YOUR POCKET
-                </p>
-
-                <h1>
-                    Accelerometers you've actually used
-                </h1>
-
-                <div class="module-card-grid">
-
-                    <div class="module-card">
-                        <h3>iPhone 4s</h3>
-                        <p>
-                            STMicroelectronics 3-axis accelerometer
-                            and 3-axis gyroscope.
-                        </p>
-                    </div>
-
-                    <div class="module-card">
-                        <h3>iPhone 6</h3>
-                        <p>
-                            An InvenSense 6-axis gyro-accelerometer
-                            plus a Bosch BMA280 3-axis accelerometer.
-                        </p>
-                    </div>
-
-                    <div class="module-card">
-                        <h3>iPhone 13</h3>
-                        <p>
-                            3-axis gyro and accelerometer, alongside
-                            a LiDAR scanner and barometer.
-                        </p>
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    You've been carrying several MEMS accelerometers
-                    in your pocket for over a decade.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 5
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    A MASSIVE, TINY MARKET
-                </p>
-
-                <h1>
-                    Small sensor, big business
-                </h1>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>~50 million</strong>
-                        <span>MEMS accelerometers produced per year</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>$3 – $10</strong>
-                        <span>Typical cost per unit</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>~$10 billion (2018)</strong>
-                        <span>MEMS accelerometer market size</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>~$30 billion (2024, projected)</strong>
-                        <span>Total MEMS market, per Yole Research</span>
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    A sensor that costs a few dollars, produced by
-                    the tens of millions — that's the MEMS business
-                    model.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 6
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    APPLICATIONS
-                </p>
-
-                <h1>
-                    Where accelerometers show up
-                </h1>
-
-                <div class="module-card-grid">
-
-                    <div class="module-card">
-                        <h3>Automotive</h3>
-                        <p>Crash sensing, braking, swerve and roll detection</p>
-                    </div>
-
-                    <div class="module-card">
-                        <h3>Navigation</h3>
-                        <p>Inertial measurement and object positioning</p>
-                    </div>
-
-                    <div class="module-card">
-                        <h3>Medical</h3>
-                        <p>Activity sensing for pacemaker control</p>
-                    </div>
-
-                    <div class="module-card">
-                        <h3>Industrial</h3>
-                        <p>Vibration monitoring on engines and machinery</p>
-                    </div>
-
-                    <div class="module-card">
-                        <h3>Structural</h3>
-                        <p>Seismic activity sensing in buildings and bridges</p>
-                    </div>
-
-                    <div class="module-card">
-                        <h3>Consumer</h3>
-                        <p>Tilt sensing, game controllers, and drones</p>
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 7
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    THE CORE IDEA
-                </p>
-
-                <h1>
-                    A mass on a spring
-                </h1>
-
-                <p class="module-lead">
-                    Every accelerometer starts with the same basic
-                    structure: a proof mass suspended from a spring.
-                </p>
-
-                <div class="module-visual">
-                    ⚖️
-                </div>
-
-                <p>
-                    When the sensor accelerates, the proof mass lags
-                    behind and is displaced in the direction of
-                    sensing. That displacement can be measured
-                    piezoelectrically or capacitively.
-                </p>
-
-                <div class="module-takeaway">
-
-                    Measure the displacement, and — because you know
-                    the spring — you know the acceleration.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 8
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    THE PHYSICS
-                </p>
-
-                <h1>
-                    A mass-spring-damper system
-                </h1>
-
-                <p>
-                    Newton's second law, F = ma, is the starting
-                    point. The proof mass (m) is held by a spring
-                    with constant k, and its motion is damped by a
-                    factor b.
-                </p>
-
-                <div class="module-visual module-visual-text">
-                    m &middot; x'' + b &middot; x' + k &middot; x = F(t)
-                </div>
-
-                <div class="module-takeaway">
-
-                    This is a classic second-order system — the same
-                    math behind car suspensions and shock absorbers.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 9
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    NATURAL FREQUENCY & Q
-                </p>
-
-                <h1>
-                    How the mass wants to move
-                </h1>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Natural frequency</strong>
-                        <span>&omega;&#8320; = &radic;(k / m)</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Quality factor (Q)</strong>
-                        <span>Describes how underdamped the system is</span>
-                    </div>
-
-                </div>
-
-                <p>
-                    A stiffer spring or a lighter mass raises the
-                    natural frequency. A higher Q means the system
-                    rings longer once disturbed.
-                </p>
-
-                <div class="module-takeaway">
-
-                    Natural frequency and damping are the two knobs
-                    that shape everything else about the sensor.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 10
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    SENSITIVITY
-                </p>
-
-                <h1>
-                    Sensitivity vs. bandwidth
-                </h1>
-
-                <div class="module-visual module-visual-text">
-                    <span class="math-visual">S = x<sub>static</sub> / a = m / k = 1 / &omega;&#8320;&sup2;</span>
-                </div>
-
-                <p>
-                    A softer spring or heavier mass gives more
-                    displacement per g of acceleration — higher
-                    sensitivity. But that also lowers the natural
-                    frequency and shrinks the usable bandwidth.
-                </p>
-
-                <p>
-                    Example: a 50g ADI accelerometer at 24.7 kHz has
-                    a maximum static displacement of just 20 nm. At a
-                    lower 1 kHz design, that displacement grows to
-                    about 1.2 µm.
-                </p>
-
-                <div class="module-takeaway">
-
-                    Sensitivity and bandwidth pull in opposite
-                    directions. Every design is a trade-off between
-                    them.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 11
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    NOISE
-                </p>
-
-                <h1>
-                    The noise floor: TNEA
-                </h1>
-
-                <p class="module-lead">
-                    TNEA stands for Total Noise Equivalent
-                    Acceleration — the fundamental noise floor of the
-                    measurement.
-                </p>
-
-                <p>
-                    It's caused by air molecules randomly colliding
-                    with the proof mass. A real ADXL accelerometer has
-                    a noise floor around 0.005 g/&radic;Hz.
-                </p>
-
-                <div class="module-takeaway">
-
-                    To reduce mechanical noise, increase the quality
-                    factor and increase the proof mass.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 12
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    DESIGN RULE OF THUMB
-                </p>
-
-                <h1>
-                    Stay above resonance
-                </h1>
-
-                <p class="module-lead">
-                    Design your accelerometer's resonant frequency to
-                    be higher than the highest frequency component of
-                    the acceleration signal you want to measure.
-                </p>
-
-                <div class="module-visual">
-                    📈
-                </div>
-
-                <div class="module-takeaway">
-
-                    Get too close to resonance, and the sensor's own
-                    response distorts the very signal you're trying
-                    to measure.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 13
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    ELECTRICAL SENSING
-                </p>
-
-                <h1>
-                    Turning motion into a signal
-                </h1>
-
-                <p>
-                    There are several ways to electrically measure
-                    the proof mass's position:
+                    Cleanroom clothing helps isolate the wafer
+                    from particles produced by the human body.
                 </p>
 
                 <div class="module-card-grid">
 
                     <div class="module-card">
-                        <h3>Capacitance change</h3>
-                        <p>The most common method in MEMS accelerometers</p>
+
+                        <div class="module-card-icon">
+                            🥼
+                        </div>
+
+                        <h3>Cleanroom Suit</h3>
+
+                        <p>
+                            Covers normal clothing and helps contain
+                            fibers and particles.
+                        </p>
+
                     </div>
 
-                    <div class="module-card">
-                        <h3>Inductance change</h3>
-                        <p>Based on magnetic coupling</p>
-                    </div>
 
                     <div class="module-card">
-                        <h3>Optical method</h3>
-                        <p>Uses light to detect displacement</p>
+
+                        <div class="module-card-icon">
+                            🧤
+                        </div>
+
+                        <h3>Gloves</h3>
+
+                        <p>
+                            Help prevent oils, salts, and particles
+                            from transferring from hands to wafers.
+                        </p>
+
                     </div>
 
+
                     <div class="module-card">
-                        <h3>Scanning probe tips</h3>
-                        <p>Physical tip-based position sensing</p>
+
+                        <div class="module-card-icon">
+                            😷
+                        </div>
+
+                        <h3>Face & Hair Covering</h3>
+
+                        <p>
+                            Reduces contamination from hair,
+                            skin, and respiratory droplets.
+                        </p>
+
+                    </div>
+
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🥽
+                        </div>
+
+                        <h3>Eye Protection</h3>
+
+                        <p>
+                            Provides protection while working around
+                            chemicals and fabrication equipment.
+                        </p>
+
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    PolyMUMPs-style devices almost always use
-                    capacitance — it's cheap, robust, and easy to
-                    build with polysilicon.
+                    <strong>Cleanroom rule:</strong>
+
+                    Protect the wafer from yourself.
 
                 </div>
 
             </section>
 
 
-
-            <!-- =====================================
-                 SLIDE 14
-            ====================================== -->
-
+            <!-- SLIDE 2 -->
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    CAPACITOR SHAPES
+                    CLEANROOM BEHAVIOR
                 </p>
 
                 <h1>
-                    Parallel plate vs. interdigitated
+                    How you move matters.
                 </h1>
+
+                <p>
+                    Fast movement can disturb particles and increase
+                    contamination inside the work environment.
+                </p>
 
                 <div class="module-card-grid">
 
                     <div class="module-card">
-                        <h3>Parallel Plate</h3>
+                        <h3>✓ Move Carefully</h3>
                         <p>
-                            Two flat plates facing each other;
-                            capacitance changes as the gap changes.
+                            Avoid unnecessary motion around
+                            exposed wafers.
                         </p>
                     </div>
 
                     <div class="module-card">
-                        <h3>Interdigitated (Comb)</h3>
+                        <h3>✓ Handle Correctly</h3>
                         <p>
-                            Interleaved finger electrodes; capacitance
-                            changes as the fingers slide past each
-                            other.
+                            Use appropriate wafer-handling tools
+                            when possible.
+                        </p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>✕ Avoid Bare-Hand Contact</h3>
+                        <p>
+                            Fingerprints contain oils, salts,
+                            and particles.
+                        </p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>✕ Avoid Unnecessary Items</h3>
+                        <p>
+                            Personal items can introduce additional
+                            particles and contamination.
                         </p>
                     </div>
 
@@ -695,314 +231,15 @@
 
                 <div class="module-takeaway">
 
-                    Comb structures are the shape you'll see in most
-                    real capacitive MEMS accelerometers, including
-                    the ADXL150.
+                    Good cleanroom behavior is part of the
+                    fabrication process itself.
 
                 </div>
 
             </section>
 
 
-
-            <!-- =====================================
-                 SLIDE 15
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    FROM CAPACITANCE TO VOLTAGE
-                </p>
-
-                <h1>
-                    Reading the capacitor
-                </h1>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Q = C(x)V</strong>
-                        <span>Charge on the sensing capacitor</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>i<sub>C</sub> = dQ/dt</strong>
-                        <span>Current through the capacitor</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>V<sub>o</sub> = &minus;R<sub>F</sub> &middot; i<sub>C</sub></strong>
-                        <span>Output of a transimpedance amplifier</span>
-                    </div>
-
-                </div>
-
-                <p>
-                    With a DC source, that output ends up proportional
-                    to velocity, not position. Using an AC excitation
-                    source and a feedback capacitor instead makes the
-                    output voltage proportional to C(x) — and
-                    therefore to position.
-                </p>
-
-                <div class="module-takeaway">
-
-                    The circuit design choice — DC vs. AC excitation —
-                    determines whether you're measuring velocity or
-                    position.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 16
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    CASE STUDY
-                </p>
-
-                <h1>
-                    Meet the ADXL150
-                </h1>
-
-                <p class="module-lead">
-                    A real, commercially shipped accelerometer from
-                    Analog Devices.
-                </p>
-
-                <div class="module-visual">
-                    🔬
-                </div>
-
-                <p>
-                    A comb-like plate suspended from folded springs
-                    forms the inertial mass. Stationary polysilicon
-                    finger electrodes interleave with fingers on the
-                    moving mass, and the displacement between them is
-                    measured capacitively.
-                </p>
-
-                <div class="module-takeaway">
-
-                    The die measures 1.94 mm × 1.94 mm, with an
-                    8-signal-port sensor region of 753 µm × 657 µm.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 17
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    INSIDE THE SENSOR CELL
-                </p>
-
-                <h1>
-                    Anchors, mass, and fingers
-                </h1>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Anchor</strong>
-                        <span>Fixes the spring structure to the substrate</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Proof mass</strong>
-                        <span>The suspended comb structure that moves</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Position sense region</strong>
-                        <span>42 cells, measuring displacement</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Self-test region</strong>
-                        <span>12 cells, electrostatically shake the mass to test it</span>
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    The related ADXL-50 uses 3 sets of 2 µm-thick
-                    polysilicon fingers — 2 fixed, and 1 movable set
-                    suspended just 1 µm above the base.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 18
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    SPEC SHEET
-                </p>
-
-                <h1>
-                    ADXL150 design specifications
-                </h1>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Resonant frequency</strong>
-                        <span>24 kHz</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Bandwidth</strong>
-                        <span>400 to 1000 Hz</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Sensitivity</strong>
-                        <span>38 mV/g</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Full-scale range</strong>
-                        <span>&plusmn;50g</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Supply voltage</strong>
-                        <span>4&ndash;6 V</span>
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    Notice the resonant frequency (24 kHz) sits well
-                    above the bandwidth (up to 1000 Hz) — exactly the
-                    design rule from earlier.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 19
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    WORKED EXAMPLE
-                </p>
-
-                <h1>
-                    Designing the springs
-                </h1>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Geometry</strong>
-                        <span>2 µm poly thickness, 1.3 µm finger gap, 104 µm overlap</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Capacitance</strong>
-                        <span>≈ 100 fF across 42 parallel sensor cells</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Spring constant</strong>
-                        <span>k ≈ 5.6 N/m from beam geometry (ADI measured 5.4 N/m)</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Resonant frequency</strong>
-                        <span>≈ 24.7 kHz, from k and the proof mass</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Quality factor</strong>
-                        <span>≈ 120, from air damping under the proof mass (Couette flow)</span>
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    Hand calculations from beam bending and gas
-                    damping land within a couple percent of ADI's own
-                    measured numbers — the physics really does predict
-                    the chip.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 20
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    BACK TO FABRICATION
-                </p>
-
-                <h1>
-                    Built with what you already know
-                </h1>
-
-                <p>
-                    Once the mechanical design is set, the ADXL150 is
-                    built with the same tools you learned in earlier
-                    units: deposition, patterning, CVD oxide and
-                    nitride, and a final metallization step — then
-                    released, just like a PolyMUMPs device.
-                </p>
-
-                <div class="module-visual">
-                    ⚙️ → 📈
-                </div>
-
-                <div class="module-takeaway">
-
-                    Accelerometer design isn't a separate skill from
-                    fabrication — it's the same fabrication knowledge,
-                    aimed at a specific mechanical goal.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 COMPLETION SLIDE
-            ====================================== -->
-
+            <!-- COMPLETION SLIDE -->
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
@@ -1010,17 +247,15 @@
                 </p>
 
                 <div class="module-visual">
-                    ⚖️ → 📊
+                    🧼
                 </div>
 
                 <h1>
-                    Ready to design a sensor?
+                    Ready for the Fab Challenge?
                 </h1>
 
                 <p class="module-lead">
-                    You now understand the physics, sensing, and
-                    real-world design behind the most widely produced
-                    MEMS device ever made.
+                    You've covered Gowning &amp; Wafer Handling.
                 </p>
 
                 <button
@@ -1199,7 +434,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathUnit5StudyComplete",
+                        "fabPathStudy5Complete",
                         "true"
                     );
 

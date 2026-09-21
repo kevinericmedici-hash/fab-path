@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>From ICs to MEMS &amp; Semiconductors | Fab Path</title>
-    <meta name="description" content="From ICs to MEMS &amp; Semiconductors: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
+    <title>Why Optical MEMS &amp; Display Approaches | Fab Path</title>
+    <meta name="description" content="Why Optical MEMS &amp; Display Approaches: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="From ICs to MEMS &amp; Semiconductors | Fab Path">
-    <meta property="og:description" content="From ICs to MEMS &amp; Semiconductors: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
+    <meta property="og:title" content="Why Optical MEMS &amp; Display Approaches | Fab Path">
+    <meta property="og:description" content="Why Optical MEMS &amp; Display Approaches: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -68,7 +68,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 5
+                    1 / 6
                 </span>
 
             </div>
@@ -87,42 +87,37 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    PART 3 • MICROFABRICATION TECHNOLOGY
+                    PART 6 • OPTICAL MEMS DESIGN
                 </p>
 
                 <h1>
-                    From ICs to MEMS
+                    Where microns meet light
                 </h1>
 
                 <p class="module-lead">
-                    Modern MEMS fabrication grew from many of the
-                    same technologies used to manufacture integrated
-                    circuits.
+                    A single MEMS chip can steer over a million
+                    mirrors, each one flipping thousands of times a
+                    second, to project an image onto a screen.
                 </p>
 
                 <div class="module-visual">
-                    💻 → ⚙️
+                    💡 → 🪞
                 </div>
 
                 <p>
-                    Integrated circuits are fabricated by repeatedly
-                    adding, modifying, patterning, and removing
-                    materials on a silicon wafer.
-                </p>
-
-                <p>
-                    MEMS uses many of those same fabrication
-                    techniques, but extends them to create
-                    mechanical structures as well as electronics.
+                    In this part, you'll learn why MEMS and optics
+                    are such a natural fit, and study a real device —
+                    Texas Instruments' Digital Micromirror Device —
+                    down to the physics of a single tilting mirror.
                 </p>
 
                 <div class="module-takeaway">
 
                     <strong>Key idea:</strong>
 
-                    MEMS builds on semiconductor manufacturing,
-                    but uses those tools to create mechanical
-                    structures too.
+                    A tiny mechanical tilt is enough to switch light
+                    on or off — that's the whole idea behind optical
+                    MEMS.
 
                 </div>
 
@@ -133,48 +128,54 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    SILICON WAFERS
+                    WHY MEMS FOR OPTICS?
                 </p>
 
                 <h1>
-                    Start with the substrate.
+                    A natural match
                 </h1>
 
-                <p>
-                    Silicon used in microfabrication begins as a
-                    large single crystal.
-                </p>
+                <div class="module-card-grid">
 
-                <p>
-                    Thin wafers are cut from the crystal and become
-                    the substrate on which devices are fabricated.
-                </p>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Raw silicon</strong>
-                        <span>Starting material</span>
+                    <div class="module-card">
+                        <h3>Right scale</h3>
+                        <p>
+                            The wavelength of light is on the same
+                            order of magnitude as MEMS device
+                            dimensions.
+                        </p>
                     </div>
 
-                    <div class="scale-row">
-                        <strong>Single crystal</strong>
-                        <span>Crystal growth</span>
+                    <div class="module-card">
+                        <h3>Low loss</h3>
+                        <p>
+                            Low optical insertion loss and low
+                            crosstalk between channels.
+                        </p>
                     </div>
 
-                    <div class="scale-row">
-                        <strong>Silicon wafer</strong>
-                        <span>Device substrate</span>
+                    <div class="module-card">
+                        <h3>Scales well</h3>
+                        <p>
+                            Over 1 million mirrors on a single DMD
+                            chip.
+                        </p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Great for switching</h3>
+                        <p>
+                            A small displacement can produce a large
+                            optical effect.
+                        </p>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    The wafer is not just a holder.
-
-                    In many MEMS devices, the silicon itself becomes
-                    part of the mechanical structure.
+                    Optics needs precise, tiny, fast-moving parts.
+                    MEMS was built for exactly that.
 
                 </div>
 
@@ -185,33 +186,29 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    SEMICONDUCTORS
+                    A LONG HISTORY
                 </p>
 
                 <h1>
-                    What is a semiconductor?
+                    40 years of optical MEMS
                 </h1>
 
-                <p class="module-lead">
-                    Silicon is a semiconductor whose electrical
-                    behavior can be deliberately modified.
-                </p>
-
                 <div class="module-visual">
-                    Si
+                    🎥 → 📡
                 </div>
 
                 <p>
-                    By introducing selected impurity atoms into
-                    silicon, engineers can change the concentration
-                    and type of charge carriers available in the
-                    material.
+                    Optical MEMS has spanned four decades of
+                    development — from early tilting-mirror projection
+                    displays to the LiDAR scanners now guiding cars
+                    and mapping rooms in modern smartphones.
                 </p>
 
                 <div class="module-takeaway">
 
-                    This controlled introduction of impurities
-                    is called <strong>doping</strong>.
+                    The same underlying idea — a tiny mirror,
+                    precisely controlled — powers both a 1990s
+                    projector and a 2020s LiDAR sensor.
 
                 </div>
 
@@ -222,57 +219,97 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    DOPING
+                    WHERE THEY SHOW UP
                 </p>
 
                 <h1>
-                    P-type vs. N-type silicon
+                    Three kinds of optical MEMS
                 </h1>
 
                 <div class="module-card-grid">
 
                     <div class="module-card">
-
-                        <h3>P-Type</h3>
-
+                        <h3>Light Control</h3>
                         <p>
-                            Group III dopants such as boron increase
-                            the concentration of positive charge
-                            carriers called holes.
+                            Shutters, scanners, projection displays,
+                            fiber-optic switches, modulators
                         </p>
-
-                        <strong>
-                            Majority carrier: holes
-                        </strong>
-
                     </div>
 
+                    <div class="module-card">
+                        <h3>Sensing</h3>
+                        <p>
+                            Waveguide and fiber-optic sensors,
+                            confocal microscopes, pressure and flow
+                            sensors
+                        </p>
+                    </div>
 
                     <div class="module-card">
-
-                        <h3>N-Type</h3>
-
+                        <h3>Fabrication</h3>
                         <p>
-                            Group V dopants such as phosphorus
-                            increase the concentration of mobile
-                            electrons.
+                            Photostrictive actuators, Fabry-Perot
+                            mirrors, micro-lenses
                         </p>
-
-                        <strong>
-                            Majority carrier: electrons
-                        </strong>
-
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    <strong>P-type → holes</strong>
+                    Optical MEMS isn't just displays — it controls,
+                    senses, and even helps build other optical
+                    components.
 
-                    <br><br>
+                </div>
 
-                    <strong>N-type → electrons</strong>
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THREE APPROACHES
+                </p>
+
+                <h1>
+                    Three ways to build a MEMS display
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+                        <h3>Reflective</h3>
+                        <p>
+                            TI's Digital Micromirror Device (DMD) —
+                            tiny tilting mirrors.
+                        </p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Diffractive</h3>
+                        <p>
+                            The Grating Light Valve (GLV) — moving
+                            diffraction-grating ribbons.
+                        </p>
+                    </div>
+
+                    <div class="module-card">
+                        <h3>Interferometric</h3>
+                        <p>
+                            Qualcomm's mirasol — a resonant optical
+                            cavity.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Three completely different mechanisms, all
+                    solving the same problem: turning an electrical
+                    signal into a controlled point of light.
 
                 </div>
 
@@ -283,11 +320,11 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 7 STUDY COMPLETE
+                    UNIT 21 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    🧱
+                    💡
                 </div>
 
                 <h1>
@@ -295,13 +332,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You've covered From ICs to MEMS &amp; Semiconductors.
+                    You've covered Why Optical MEMS &amp; Display Approaches.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeUnit7Button"
+                    id="completeUnit21Button"
                 >
                     Complete Module
                 </button>
@@ -362,7 +399,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeUnit7Button");
+            document.getElementById("completeUnit21Button");
 
 
         let currentSlide = 0;
@@ -474,7 +511,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathStudy7Complete",
+                        "fabPathStudy21Complete",
                         "true"
                     );
 

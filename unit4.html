@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>PolyMUMPs Fabrication | Fab Path</title>
-    <meta name="description" content="PolyMUMPs Fabrication: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
+    <title>Cleanroom Basics &amp; Wafer Cleaning | Fab Path</title>
+    <meta name="description" content="Cleanroom Basics &amp; Wafer Cleaning: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="PolyMUMPs Fabrication | Fab Path">
-    <meta property="og:description" content="PolyMUMPs Fabrication: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
+    <meta property="og:title" content="Cleanroom Basics &amp; Wafer Cleaning | Fab Path">
+    <meta property="og:description" content="Cleanroom Basics &amp; Wafer Cleaning: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -68,7 +68,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 20
+                    1 / 4
                 </span>
 
             </div>
@@ -83,952 +83,160 @@
                  SLIDE 1
             ====================================== -->
 
+                        <!-- SLIDE 1 -->
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    UNIT 4 • POLYMUMPS FABRICATION
+                    PART 2 • CLEANROOM FUNDAMENTALS
                 </p>
 
                 <h1>
-                    A process you can order
+                    Why do we need cleanrooms?
                 </h1>
 
                 <p class="module-lead">
-                    Not every engineer has their own cleanroom. Most
-                    don't — and PolyMUMPs is how they build MEMS anyway.
+                    Microfabrication works with extremely small
+                    structures, so contamination that seems tiny
+                    to us can become a major fabrication defect.
                 </p>
 
                 <div class="module-visual">
-                    🏭 → 📦
+                    🔬
                 </div>
 
                 <p>
-                    PolyMUMPs is a real, commercially available MEMS
-                    fabrication process. You design a chip, submit it,
-                    and a foundry builds it for you alongside dozens
-                    of other customers' designs on the same wafer.
+                    Dust, fibers, skin particles, oils, chemical
+                    residue, and other contaminants can interfere
+                    with processes such as lithography, deposition,
+                    etching, and bonding.
                 </p>
 
                 <div class="module-takeaway">
 
                     <strong>Key idea:</strong>
 
-                    Everything in this unit is a real process you can
-                    actually order — not a hypothetical.
+                    As device features become smaller,
+                    contamination control becomes more important.
 
                 </div>
 
             </section>
 
 
-
-            <!-- =====================================
-                 SLIDE 2
-            ====================================== -->
-
+            <!-- SLIDE 2 -->
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    MULTI-USER FOUNDRIES
+                    CONTAMINATION
                 </p>
 
                 <h1>
-                    Sharing a wafer with strangers
+                    Where does contamination come from?
                 </h1>
 
-                <p class="module-lead">
-                    MUMPs stands for Multi-User MEMS Processes.
-                </p>
+                <div class="module-card-grid three-column">
 
-                <p>
-                    It's a well-established commercial program,
-                    running since 1992, that gives engineers
-                    economical access to MEMS prototyping without
-                    requiring their own fabrication facility.
-                    Hundreds of complete runs have shipped since then.
-                </p>
+                    <div class="module-card">
 
-                <div class="module-visual">
-                    🧩
-                </div>
+                        <div class="module-card-icon">
+                            🧍
+                        </div>
 
-                <div class="module-takeaway">
+                        <h3>People</h3>
 
-                    Think of it like a shared shipping container:
-                    you don't need to own the ship, you just need
-                    to buy space on the next voyage.
+                        <p>
+                            Skin particles, hair, clothing fibers,
+                            oils, and salts.
+                        </p>
 
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 3
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    HOW IT WORKS
-                </p>
-
-                <h1>
-                    Buy a tile, get a chip
-                </h1>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>1. Reserve a tile</strong>
-                        <span>Purchase a 1 cm × 1 cm die location on a scheduled run</span>
                     </div>
 
-                    <div class="scale-row">
-                        <strong>2. Submit a design</strong>
-                        <span>Following the foundry's process design rules</span>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🌫️
+                        </div>
+
+                        <h3>Airborne Particles</h3>
+
+                        <p>
+                            Dust and other particles can settle
+                            onto wafer surfaces.
+                        </p>
+
                     </div>
 
-                    <div class="scale-row">
-                        <strong>3. Wait</strong>
-                        <span>8 to 12 weeks for the run to complete</span>
-                    </div>
 
-                    <div class="scale-row">
-                        <strong>4. Receive chips</strong>
-                        <span>15 identical copies of your design</span>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧪
+                        </div>
+
+                        <h3>Process Residue</h3>
+
+                        <p>
+                            Chemicals, photoresist, metals,
+                            and previous process materials.
+                        </p>
+
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    You don't need your own fab. You need a design
-                    that follows the rules.
+                    A clean wafer can easily become contaminated
+                    again if it is handled improperly.
 
                 </div>
 
             </section>
 
 
-
-            <!-- =====================================
-                 SLIDE 4
-            ====================================== -->
-
+            <!-- SLIDE 3 -->
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    THE MUMPS FAMILY
+                    WAFER CLEANING
                 </p>
 
                 <h1>
-                    Four processes, one foundry model
-                </h1>
-
-                <div class="module-card-grid">
-
-                    <div class="module-card">
-                        <h3>PolyMUMPs</h3>
-                        <p>
-                            A three-layer polysilicon surface
-                            micromachining process. The most popular
-                            of the four.
-                        </p>
-                    </div>
-
-                    <div class="module-card">
-                        <h3>SOIMUMPs</h3>
-                        <p>
-                            Built on a silicon-on-insulator wafer
-                            instead of deposited polysilicon layers.
-                        </p>
-                    </div>
-
-                    <div class="module-card">
-                        <h3>PiezoMUMPs</h3>
-                        <p>
-                            Adds a piezoelectric material for sensing
-                            and actuation.
-                        </p>
-                    </div>
-
-                    <div class="module-card">
-                        <h3>MetalMUMPs</h3>
-                        <p>
-                            Uses an electroplated metal structural
-                            layer instead of polysilicon.
-                        </p>
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    PolyMUMPs is the one you'll learn in depth here —
-                    it's the most widely used, and the one most
-                    universities teach MEMS design with.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 5
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    POLYMUMPS OVERVIEW
-                </p>
-
-                <h1>
-                    PolyMUMPs by the numbers
-                </h1>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>8 mask levels</strong>
-                        <span>Photolithography steps in the process</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>7 physical layers</strong>
-                        <span>Built from those 8 masks</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>3 polysilicon layers</strong>
-                        <span>Poly0, Poly1, Poly2 — structural material</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>2 sacrificial layers</strong>
-                        <span>PSG, removed at release</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>1 metal layer</strong>
-                        <span>Probing, bonding, and mirrors</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>2 µm</strong>
-                        <span>Minimum feature size</span>
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    Eight masks is a small number of steps to
-                    memorize compared to the hundreds of individual
-                    fabrication operations they represent.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 6
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    APPLICATIONS
-                </p>
-
-                <h1>
-                    What can you build with it?
+                    Start with a clean surface.
                 </h1>
 
                 <div class="module-visual">
-                    🎤 📟 💧 🪞
+                    💿 ✨
                 </div>
 
-                <div class="module-card-grid">
-
-                    <div class="module-card">
-                        <h3>Acoustics</h3>
-                        <p>MEMS microphones</p>
-                    </div>
-
-                    <div class="module-card">
-                        <h3>Sensors</h3>
-                        <p>Accelerometers and other motion sensors</p>
-                    </div>
-
-                    <div class="module-card">
-                        <h3>Micro-fluidics</h3>
-                        <p>Channels and valves for tiny fluid volumes</p>
-                    </div>
-
-                    <div class="module-card">
-                        <h3>Display technology</h3>
-                        <p>Micromirrors and optical devices</p>
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 7
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    WORKED EXAMPLE
-                </p>
-
-                <h1>
-                    An electrostatic micromotor
-                </h1>
-
-                <div class="module-visual">
-                    ⚙️
-                </div>
-
-                <p class="module-lead">
-                    Two classic PolyMUMPs demonstration devices are an
-                    electrostatically driven rotary motor and a MEMS
-                    micromirror.
+                <p>
+                    Before important fabrication steps, wafers
+                    are cleaned to remove contamination from
+                    their surfaces.
                 </p>
 
                 <p>
-                    Both are built from the exact same three-layer
-                    polysilicon process you're about to walk through,
-                    step by step.
+                    Cleaning can target particles, organic residue,
+                    and metallic contamination.
+                </p>
+
+                <p>
+                    One established semiconductor cleaning method
+                    is known as <strong>RCA cleaning</strong>.
                 </p>
 
                 <div class="module-takeaway">
 
-                    We'll build this same kind of device, layer by
-                    layer, over the next several slides.
+                    A contaminated starting surface can create
+                    defects that remain through later processing.
 
                 </div>
 
             </section>
 
 
-
-            <!-- =====================================
-                 SLIDE 8
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    STEP 1 • THE WAFER
-                </p>
-
-                <h1>
-                    Start with silicon
-                </h1>
-
-                <p>
-                    Every PolyMUMPs run starts from the same wafer
-                    specification, so every customer's design shares
-                    the same electrical starting point.
-                </p>
-
-                <div class="module-visual module-visual-text">
-                    150 mm
-                    <br>
-                    n-type (100)
-                    <br>
-                    1&ndash;2 &Omega;&middot;cm
-                </div>
-
-                <div class="module-takeaway">
-
-                    The wafer is 150 mm across, n-type silicon with
-                    a (100) crystal orientation, and 1&ndash;2 Ohm-cm
-                    resistivity.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 9
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    STEP 2 • DOPE & INSULATE
-                </p>
-
-                <h1>
-                    Doping and the nitride layer
-                </h1>
-
-                <p>
-                    The wafer surface is first doped with phosphorous
-                    using standard diffusion. This reduces charge
-                    feed-through to the substrate from electrostatic
-                    devices built on the surface.
-                </p>
-
-                <p>
-                    Next, a 0.6 µm low-stress silicon nitride layer is
-                    deposited by LPCVD for electrical insulation.
-                </p>
-
-                <div class="module-visual module-visual-text">
-                    SiN &mdash; 0.6 µm
-                    <br>
-                    ━━━━━━━━━━━
-                    <br>
-                    Si (doped)
-                </div>
-
-                <div class="module-takeaway">
-
-                    Silicon nitride keeps your structures electrically
-                    separate from the substrate underneath them.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 10
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    STEP 3 • POLY 0
-                </p>
-
-                <h1>
-                    Poly 0: the ground plane
-                </h1>
-
-                <p>
-                    A 0.5 µm polysilicon film, called Poly 0, is
-                    deposited by LPCVD and patterned with the first
-                    mask. It's commonly used for wiring and as
-                    stationary electrodes underneath moving structures.
-                </p>
-
-                <div class="module-visual module-visual-text">
-                    Poly0 &mdash; 0.5 µm
-                    <br>
-                    ━━━━━━━━━━━
-                    <br>
-                    SiN &mdash; 0.6 µm
-                </div>
-
-                <div class="module-takeaway">
-
-                    Poly 0 doesn't move. It's the fixed electrode
-                    layer that later moving parts will act against.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 11
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    STEP 4 • FIRST OXIDE
-                </p>
-
-                <h1>
-                    PSG1: the first sacrificial layer
-                </h1>
-
-                <p>
-                    A 2.0 µm PSG (phosphosilicate glass) layer —
-                    called First Oxide — is deposited by LPCVD and
-                    annealed at 1050°C for 1 hour in argon. It's
-                    removed at the very end of the process to free
-                    the first mechanical layer.
-                </p>
-
-                <div class="module-card-grid">
-
-                    <div class="module-card">
-                        <h3>DIMPLES mask</h3>
-                        <p>
-                            Etches shallow dimples (about 750 nm deep)
-                            into the PSG, creating small standoffs so
-                            beams don't stick flat against Poly 0.
-                        </p>
-                    </div>
-
-                    <div class="module-card">
-                        <h3>ANCHOR1 mask</h3>
-                        <p>
-                            Etches holes through the PSG down to
-                            Poly 0, later filled by Poly 1 to anchor
-                            it in place.
-                        </p>
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    Everything about this oxide is temporary — it
-                    just holds the shape until release.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 12
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    STEP 5 • POLY 1
-                </p>
-
-                <h1>
-                    Poly 1: the first moving layer
-                </h1>
-
-                <p>
-                    A 2.0 µm polysilicon layer is deposited and capped
-                    with a thin 200 nm PSG layer. The wafer is
-                    annealed at 1050°C for 1 hour — doping Poly 1 with
-                    phosphorous from the PSG above and below, and
-                    relieving internal stress at the same time.
-                </p>
-
-                <p>
-                    The PSG cap then acts as a hard mask, giving a
-                    cleaner pattern transfer than photoresist alone
-                    when Poly 1 is etched.
-                </p>
-
-                <div class="module-visual module-visual-text">
-                    Poly1 &mdash; 2.0 µm
-                    <br>
-                    PSG1 (sacrificial) &mdash; 2.0 µm
-                    <br>
-                    Poly0 &mdash; 0.5 µm
-                    <br>
-                    SiN &mdash; 0.6 µm
-                </div>
-
-                <div class="module-takeaway">
-
-                    Poly 1 fills the ANCHOR1 holes from the last step,
-                    locking it to Poly 0 wherever you designed an
-                    anchor.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 13
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    STEP 6 • SECOND OXIDE
-                </p>
-
-                <h1>
-                    PSG2: connecting Poly 1 to Poly 2
-                </h1>
-
-                <p>
-                    A second, 0.75 µm PSG layer — Second Oxide — is
-                    deposited and annealed. Two separate masks pattern
-                    it, each with a different job.
-                </p>
-
-                <div class="module-card-grid">
-
-                    <div class="module-card">
-                        <h3>POLY1_POLY2_VIA</h3>
-                        <p>
-                            Etches holes down to Poly 1, creating a
-                            mechanical and electrical connection
-                            between Poly 1 and Poly 2.
-                        </p>
-                    </div>
-
-                    <div class="module-card">
-                        <h3>ANCHOR2</h3>
-                        <p>
-                            Etches through both First and Second
-                            Oxide in one step, so Poly 2 can anchor
-                            straight down without misalignment.
-                        </p>
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    Cutting ANCHOR2 through both oxides in a single
-                    etch avoids misalignment between two separately
-                    aligned holes.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 14
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    STEP 7 • POLY 2
-                </p>
-
-                <h1>
-                    Poly 2: the second moving layer
-                </h1>
-
-                <p>
-                    A 1.5 µm polysilicon layer is deposited with
-                    another 200 nm PSG cap, annealed for about 1 hour
-                    at 1050°C, then patterned with the seventh mask
-                    and etched by plasma and RIE.
-                </p>
-
-                <div class="module-visual module-visual-text">
-                    Poly2 &mdash; 1.5 µm
-                    <br>
-                    PSG2 (sacrificial) &mdash; 0.75 µm
-                    <br>
-                    Poly1 &mdash; 2.0 µm
-                    <br>
-                    PSG1 (sacrificial) &mdash; 2.0 µm
-                    <br>
-                    Poly0 &mdash; 0.5 µm
-                    <br>
-                    SiN &mdash; 0.6 µm
-                </div>
-
-                <div class="module-takeaway">
-
-                    Two structural layers means you can build things
-                    Poly 1 alone can't — like a moving mirror sitting
-                    on top of a fixed hinge.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 15
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    STEP 8 • METAL
-                </p>
-
-                <h1>
-                    The metal layer
-                </h1>
-
-                <p>
-                    A final 0.5 µm metal layer is patterned with the
-                    eighth mask and deposited using lift-off. It
-                    provides probing pads, wire bonding, electrical
-                    routing, and highly reflective mirror surfaces.
-                </p>
-
-                <div class="module-visual">
-                    🔩
-                </div>
-
-                <div class="module-takeaway">
-
-                    This is the layer that turns a mechanical
-                    structure into something you can wire up, test,
-                    and — for mirrors — actually see light bounce off.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 16
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    THE COMPLETE STACK
-                </p>
-
-                <h1>
-                    Seven layers, eight masks
-                </h1>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Metal</strong>
-                        <span>0.5 µm</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Poly2</strong>
-                        <span>1.5 µm</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>PSG2 (sacrificial)</strong>
-                        <span>0.75 µm</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Poly1</strong>
-                        <span>2.0 µm</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>PSG1 (sacrificial)</strong>
-                        <span>2.0 µm</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Poly0</strong>
-                        <span>0.5 µm</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Silicon Nitride</strong>
-                        <span>0.6 µm</span>
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    From substrate up: insulate, wire, hold, build,
-                    connect, build again, finish.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 17
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    STEP 9 • RELEASE
-                </p>
-
-                <h1>
-                    Dissolving the scaffolding
-                </h1>
-
-                <p>
-                    Wafers are diced, sorted, and shipped to the
-                    customer unreleased. Release is performed by the
-                    customer, dissolving both sacrificial PSG layers.
-                </p>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>1. HF bath</strong>
-                        <span>49% HF, room temperature, 1.5&ndash;2 minutes</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>2. DI water rinse</strong>
-                        <span>Several minutes</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>3. Alcohol rinse</strong>
-                        <span>Reduces stiction</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>4. Oven bake</strong>
-                        <span>100°C for 10 minutes</span>
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    The sacrificial oxide's whole job was to disappear
-                    at this step. Whatever is left afterward is your
-                    device.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 18
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    PROCESS THINKING
-                </p>
-
-                <h1>
-                    Why the order can't change
-                </h1>
-
-                <p>
-                    Anchor holes have to be etched before the layer
-                    that fills them is deposited. Dimples have to
-                    exist before Poly 1 is deposited over them. And
-                    every sacrificial layer has to survive every later
-                    masking step — right up until the moment it's
-                    dissolved in the HF bath.
-                </p>
-
-                <p>
-                    Change the order, and the structure you designed
-                    simply doesn't form the way you intended.
-                </p>
-
-                <div class="module-takeaway">
-
-                    In a fixed multi-mask process like this, sequence
-                    isn't a suggestion — it's the design.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 SLIDE 19
-            ====================================== -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    WORKED EXAMPLE
-                </p>
-
-                <h1>
-                    From substrate to released motor
-                </h1>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>1. Wafer & doping</strong>
-                        <span>150 mm n-type wafer, phosphorus-doped surface</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>2. Nitride</strong>
-                        <span>SiN isolation layer</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>3. Poly0</strong>
-                        <span>Patterned ground plane</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>4. PSG1</strong>
-                        <span>Dimples + ANCHOR1 etched</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>5. Poly1</strong>
-                        <span>Anchored to Poly0</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>6. PSG2</strong>
-                        <span>VIA + ANCHOR2 etched</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>7. Poly2</strong>
-                        <span>Anchored and connected to Poly1</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>8. Metal</strong>
-                        <span>Contacts, routing, mirrors</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>9. Release</strong>
-                        <span>HF dissolves PSG1 & PSG2 — moving parts are free</span>
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    That's a complete PolyMUMPs run — the same nine
-                    steps behind real electrostatic motors and
-                    micromirrors shipped to customers every run.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =====================================
-                 COMPLETION SLIDE
-            ====================================== -->
-
+            <!-- COMPLETION SLIDE -->
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
@@ -1036,18 +244,15 @@
                 </p>
 
                 <div class="module-visual">
-                    🎛️ → 🚀
+                    🧼
                 </div>
 
                 <h1>
-                    Ready to design your own chip?
+                    Ready for the Fab Challenges?
                 </h1>
 
                 <p class="module-lead">
-                    You now understand how a real, commercially
-                    available MEMS foundry process builds a
-                    three-layer polysilicon device — from shared
-                    wafer to released structure.
+                    You've covered Cleanroom Basics &amp; Wafer Cleaning.
                 </p>
 
                 <button
@@ -1226,7 +431,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathUnit4StudyComplete",
+                        "fabPathStudy4Complete",
                         "true"
                     );
 

@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>From ICs to MEMS &amp; Semiconductors | Fab Path</title>
-    <meta name="description" content="From ICs to MEMS &amp; Semiconductors: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
+    <title>The Physics of Acoustic Forces | Fab Path</title>
+    <meta name="description" content="The Physics of Acoustic Forces: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="From ICs to MEMS &amp; Semiconductors | Fab Path">
-    <meta property="og:description" content="From ICs to MEMS &amp; Semiconductors: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
+    <meta property="og:title" content="The Physics of Acoustic Forces | Fab Path">
+    <meta property="og:description" content="The Physics of Acoustic Forces: illustrated study slides from the MEMS &amp; Microfabrication course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -68,7 +68,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 5
+                    1 / 6
                 </span>
 
             </div>
@@ -87,42 +87,30 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    PART 3 • MICROFABRICATION TECHNOLOGY
+                    HOW THE WAVE IS DRIVEN
                 </p>
 
                 <h1>
-                    From ICs to MEMS
+                    Fingers that alternate
                 </h1>
 
-                <p class="module-lead">
-                    Modern MEMS fabrication grew from many of the
-                    same technologies used to manufacture integrated
-                    circuits.
+                <p>
+                    An IDT looks like two interlocking combs of metal
+                    fingers. Driving alternating positive and negative
+                    potential across the fingers launches a traveling
+                    acoustic wave — with a period set by a quarter of
+                    the wavelength.
                 </p>
 
-                <div class="module-visual">
-                    💻 → ⚙️
+                <div class="module-visual module-visual-text">
+                    + − + − + − + −
                 </div>
-
-                <p>
-                    Integrated circuits are fabricated by repeatedly
-                    adding, modifying, patterning, and removing
-                    materials on a silicon wafer.
-                </p>
-
-                <p>
-                    MEMS uses many of those same fabrication
-                    techniques, but extends them to create
-                    mechanical structures as well as electronics.
-                </p>
 
                 <div class="module-takeaway">
 
-                    <strong>Key idea:</strong>
-
-                    MEMS builds on semiconductor manufacturing,
-                    but uses those tools to create mechanical
-                    structures too.
+                    Manufacturing limits and existing chip designs
+                    put a practical floor on wavelength around
+                    240 µm.
 
                 </div>
 
@@ -133,48 +121,28 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    SILICON WAFERS
+                    FREQUENCY
                 </p>
 
                 <h1>
-                    Start with the substrate.
+                    Setting the resonant frequency
                 </h1>
 
-                <p>
-                    Silicon used in microfabrication begins as a
-                    large single crystal.
-                </p>
-
-                <p>
-                    Thin wafers are cut from the crystal and become
-                    the substrate on which devices are fabricated.
-                </p>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Raw silicon</strong>
-                        <span>Starting material</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Single crystal</strong>
-                        <span>Crystal growth</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Silicon wafer</strong>
-                        <span>Device substrate</span>
-                    </div>
-
+                <div class="module-visual module-visual-text">
+                    f = v / &lambda;
                 </div>
+
+                <p>
+                    The resonant frequency depends on the Rayleigh
+                    wave velocity of the substrate (about 3980 m/s for
+                    lithium niobate) divided by the IDT's wavelength.
+                </p>
 
                 <div class="module-takeaway">
 
-                    The wafer is not just a holder.
-
-                    In many MEMS devices, the silicon itself becomes
-                    part of the mechanical structure.
+                    Shrink the wavelength, and the operating frequency
+                    goes up — the same relationship that governs any
+                    wave.
 
                 </div>
 
@@ -185,33 +153,31 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    SEMICONDUCTORS
+                    ACOUSTIC FORCE
                 </p>
 
                 <h1>
-                    What is a semiconductor?
+                    What pushes the particle
                 </h1>
 
-                <p class="module-lead">
-                    Silicon is a semiconductor whose electrical
-                    behavior can be deliberately modified.
-                </p>
+                <div class="scale-stack">
 
-                <div class="module-visual">
-                    Si
+                    <div class="scale-row">
+                        <strong>Traveling wave force</strong>
+                        <span>Depends on absorption coefficient, wave intensity, and speed of sound</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Standing wave (SSAW) force</strong>
+                        <span>Depends on pressure amplitude, particle volume, compressibility, density, and wave number</span>
+                    </div>
+
                 </div>
-
-                <p>
-                    By introducing selected impurity atoms into
-                    silicon, engineers can change the concentration
-                    and type of charge carriers available in the
-                    material.
-                </p>
 
                 <div class="module-takeaway">
 
-                    This controlled introduction of impurities
-                    is called <strong>doping</strong>.
+                    The standing wave version is what actually sorts
+                    particles inside the channel.
 
                 </div>
 
@@ -222,57 +188,70 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    DOPING
+                    ACOUSTIC CONTRAST FACTOR
                 </p>
 
                 <h1>
-                    P-type vs. N-type silicon
+                    Which way does it move?
                 </h1>
+
+                <p class="module-lead">
+                    The acoustic contrast factor decides the
+                    direction a particle migrates.
+                </p>
 
                 <div class="module-card-grid">
 
                     <div class="module-card">
-
-                        <h3>P-Type</h3>
-
-                        <p>
-                            Group III dopants such as boron increase
-                            the concentration of positive charge
-                            carriers called holes.
-                        </p>
-
-                        <strong>
-                            Majority carrier: holes
-                        </strong>
-
+                        <h3>Positive</h3>
+                        <p>Force points from antinodes toward pressure nodes (center)</p>
                     </div>
 
-
                     <div class="module-card">
-
-                        <h3>N-Type</h3>
-
-                        <p>
-                            Group V dopants such as phosphorus
-                            increase the concentration of mobile
-                            electrons.
-                        </p>
-
-                        <strong>
-                            Majority carrier: electrons
-                        </strong>
-
+                        <h3>Negative</h3>
+                        <p>Direction flips — force pushes toward antinodes (outside)</p>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    <strong>P-type → holes</strong>
+                    Whether a particle heads for the center or the
+                    edges of the channel comes down to the sign of a
+                    single factor.
 
-                    <br><br>
+                </div>
 
-                    <strong>N-type → electrons</strong>
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE OPPOSING FORCE
+                </p>
+
+                <h1>
+                    Viscosity pushes back
+                </h1>
+
+                <p>
+                    As a particle moves through the fluid, viscous
+                    drag resists it. That drag force depends on the
+                    particle's radius, its velocity, and the
+                    viscosity of the surrounding medium.
+                </p>
+
+                <div class="module-visual">
+                    🌊
+                </div>
+
+                <div class="module-takeaway">
+
+                    A particle's final position is a balance point —
+                    where acoustic force and viscous drag settle
+                    into equilibrium.
 
                 </div>
 
@@ -283,25 +262,25 @@
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 7 STUDY COMPLETE
+                    UNIT 26 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    🧱
+                    💧
                 </div>
 
                 <h1>
-                    Ready for the Fab Challenges?
+                    Ready for the Fab Challenge?
                 </h1>
 
                 <p class="module-lead">
-                    You've covered From ICs to MEMS &amp; Semiconductors.
+                    You've covered The Physics of Acoustic Forces.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeUnit7Button"
+                    id="completeUnit26Button"
                 >
                     Complete Module
                 </button>
@@ -362,7 +341,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeUnit7Button");
+            document.getElementById("completeUnit26Button");
 
 
         let currentSlide = 0;
@@ -474,7 +453,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathStudy7Complete",
+                        "fabPathStudy26Complete",
                         "true"
                     );
 
