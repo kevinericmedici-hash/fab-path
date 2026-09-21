@@ -786,6 +786,367 @@ const fetLesson13Questions = [
 ];
 
 
+
+const fetLesson14Questions = [
+
+    {
+        question: "What does a receptor layer add to an ISFET?",
+        answers: [
+            "A larger source and drain region",
+            "A second independent reference electrode",
+            "Selectivity for one target molecule",
+            "Extra silicon for the channel"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Which receptor is a Y-shaped protein about 10 nm across?",
+        answers: [
+            "An aptamer",
+            "A DNA probe",
+            "An enzyme",
+            "An antibody"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "In a BioFET, what produces the electrical signal when the target binds?",
+        answers: [
+            "Its charge shifting the threshold voltage",
+            "The target's color changing the oxide",
+            "The target heating the source and drain",
+            "The target dissolving the gate insulator"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "A negatively charged target binds to an NMOS BioFET. What happens to Vth?",
+        answers: [
+            "It falls, since negative charge lowers Vth",
+            "It rises, since negative charge raises Vth",
+            "It stays the same, since the FET ignores charge",
+            "It flips sign, since NMOS becomes PMOS"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "About how much charge does each nucleotide of a DNA strand carry?",
+        answers: [
+            "About one positive charge",
+            "About ten negative charges",
+            "About one negative charge",
+            "No charge at all"
+        ],
+        correct: 2
+    }
+
+];
+
+
+const fetLesson15Questions = [
+
+    {
+        question: "What anchors a silane to an oxide surface?",
+        answers: [
+            "Attraction to free electrons in the oxide",
+            "Reaction with surface hydroxyl groups",
+            "Melting into the oxide at high heat",
+            "Magnetic attraction to the silicon"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What is the reactive tail of APTES?",
+        answers: [
+            "A thiol, –SH",
+            "A carboxyl group, –COOH",
+            "A primary amine, –NH₂",
+            "A methyl group, –CH₃"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Roughly how thick is a single APTES layer?",
+        answers: [
+            "About 100 nm",
+            "About 10 µm",
+            "About 0.01 nm",
+            "About 1 nm"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Which molecules form a self-assembled monolayer on gold?",
+        answers: [
+            "Thiols that bond to the gold",
+            "Silanes that bond to the gold",
+            "Esters that bond to the gold",
+            "Salts that bond to the gold"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "At neutral pH an APTES layer is partly protonated. What does that do to an NMOS threshold?",
+        answers: [
+            "Raises it, from added negative charge",
+            "Lowers it, from added positive charge",
+            "Leaves it exactly unchanged",
+            "Turns the transistor into a PMOS"
+        ],
+        correct: 1
+    }
+
+];
+
+
+const fetLesson16Questions = [
+
+    {
+        question: "What does biotin–streptavidin binding offer as a linker?",
+        answers: [
+            "An extremely strong, near-permanent bond",
+            "A bond that breaks at the slightest rinse",
+            "A bond that only forms at 500 °C",
+            "A bond that carries no specificity"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which crosslinker joins amine groups on the surface to amine groups on the receptor?",
+        answers: [
+            "Bovine serum albumin, a blocker",
+            "Glutaraldehyde, a dialdehyde",
+            "Tween-20, a mild detergent",
+            "A gold–thiol bond, on metal"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Why can amine coupling leave some antibodies facing the wrong way?",
+        answers: [
+            "Every amine sits right at the binding site",
+            "The linker repels every antibody",
+            "It binds at any lysine, not a set site",
+            "Antibodies lack any amine groups at all"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What does Protein A or G do for an antibody layer?",
+        answers: [
+            "Destroys antibodies that face the wrong way",
+            "Adds a negative charge to every antibody",
+            "Turns antibodies into aptamers",
+            "Holds antibodies upright, binding sites out"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What happens if receptors are packed too densely?",
+        answers: [
+            "Targets cannot reach all the binding sites",
+            "The sensor becomes immune to noise",
+            "The threshold voltage becomes exactly zero",
+            "The receptors turn into a solid oxide"
+        ],
+        correct: 0
+    }
+
+];
+
+
+const fetLesson17Questions = [
+
+    {
+        question: "What is non-specific binding?",
+        answers: [
+            "The target binding to its own receptor",
+            "Receptors binding to each other in solution",
+            "The reference electrode sticking to the wall",
+            "Non-target molecules sticking to the surface"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What does BSA do after the receptors are attached?",
+        answers: [
+            "Covers bare spots so less sticks",
+            "Adds more receptors to the surface",
+            "Dissolves the receptor layer",
+            "Increases the target's charge"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which coating forms a hydrated brush that resists proteins?",
+        answers: [
+            "A bare gold film",
+            "PEG or OEG chains",
+            "A dry silane layer",
+            "A thick oxide crust"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "How does a no-receptor twin FET help?",
+        answers: [
+            "It doubles the specific signal it sees",
+            "It replaces the reference electrode",
+            "It shows the background signal, to subtract",
+            "It heats the sample to remove background"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Why is serum harder to measure in than clean buffer?",
+        answers: [
+            "It contains no ions at all in solution",
+            "It has a much longer Debye length",
+            "It cannot conduct any current at all",
+            "It holds many proteins that can stick"
+        ],
+        correct: 3
+    }
+
+];
+
+
+const fetLesson18Questions = [
+
+    {
+        question: "What does a smaller K_D mean?",
+        answers: [
+            "Weaker binding",
+            "Faster drift",
+            "Tighter binding",
+            "A larger sensor"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "At c = K_D, what fraction of receptors is occupied?",
+        answers: [
+            "All of them",
+            "One tenth",
+            "None of them",
+            "One half"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "With K_D = 1 nM and c = 5 nM, about what fraction of receptors is bound?",
+        answers: [
+            "About 83%",
+            "About 20%",
+            "About 50%",
+            "About 99%"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "At very low concentration, the binding time constant is roughly what?",
+        answers: [
+            "1 / k_on",
+            "1 / k_off",
+            "K_D × c",
+            "Zero"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "If a full layer of bound target would shift Vth by 60 mV, what shift does 83% coverage give?",
+        answers: [
+            "About 60 mV",
+            "About 83 mV",
+            "About 50 mV",
+            "About 5 mV"
+        ],
+        correct: 2
+    }
+
+];
+
+
+const fetLesson19Questions = [
+
+    {
+        question: "Why check each functionalization step?",
+        answers: [
+            "Every step changes the color of the chip",
+            "A failed step gives no visible sign",
+            "Regulators forbid skipping any layer",
+            "The transistor cannot switch otherwise"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Roughly what water contact angle does a clean oxide show?",
+        answers: [
+            "About 90°, like a plain film",
+            "About 150°, like a lotus leaf",
+            "Under about 10°, nearly flat",
+            "About 180°, a perfect bead"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Which technique measures layer thickness to a fraction of a nanometer?",
+        answers: [
+            "Contact angle (water droplets)",
+            "Fluorescence microscopy (glow)",
+            "Continuity testing (a meter)",
+            "Ellipsometry (light polarization)"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Why is the FET's own threshold voltage a useful check?",
+        answers: [
+            "Each layer changes charge, so Vth steps",
+            "Vth never changes during functionalization",
+            "Vth only responds to the temperature",
+            "Vth reports the color of each layer"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What does XPS reveal about a surface?",
+        answers: [
+            "The water contact angle",
+            "Which elements are present",
+            "The layer's electrical noise",
+            "The reference electrode potential"
+        ],
+        correct: 1
+    }
+
+];
+
+
 /*
     Looked up by numeric lesson id, the same
     pattern the other courses use.
@@ -804,5 +1165,11 @@ const fetAllLessonQuestions = {
     10: fetLesson10Questions,
     11: fetLesson11Questions,
     12: fetLesson12Questions,
-    13: fetLesson13Questions
+    13: fetLesson13Questions,
+    14: fetLesson14Questions,
+    15: fetLesson15Questions,
+    16: fetLesson16Questions,
+    17: fetLesson17Questions,
+    18: fetLesson18Questions,
+    19: fetLesson19Questions
 };

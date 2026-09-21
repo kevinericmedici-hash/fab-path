@@ -1,8 +1,8 @@
 /* ========================================
    BIOFETS & MOSFETS COURSE DATA
-   Parts 1 (MOSFET Fundamentals) and 2 (Sensing Ions)
-   are built. Later parts (biofunctionalization and
-   biosensing) are added here as they go live.
+   Parts 1 (MOSFET Fundamentals), 2 (Sensing Ions), and
+   3 (Biofunctionalization) are built. Later parts
+   (biosensing) are added here as they go live.
 
    Structure: every unit is a short study module
    (a few slides) followed by one Fab Challenge
@@ -28,6 +28,15 @@ const fetCourseParts = [
         lastUnitId: 13,
         description:
             "Swap the metal gate for a solution: surface charge, the double layer, pH response, reference electrodes, and the real-world limits of an ion-sensitive FET."
+    },
+
+    {
+        id: 3,
+        title: "Biofunctionalization: Teaching the Surface",
+        firstUnitId: 14,
+        lastUnitId: 19,
+        description:
+            "Give the gate a recognition layer: receptors, silane and thiol chemistry, linkers, blocking, binding equilibrium, and how to prove each step worked."
     }
 
 ];
@@ -354,6 +363,156 @@ const fetCourseData = [
                 title: "Drift, Hysteresis & Noise",
                 description:
                     "The real-world limits that separate a lab demo from a dependable sensor."
+            }
+
+        ]
+    },
+
+    {
+        id: 14,
+
+        title: "Receptors on the Gate",
+
+        description:
+            "How a recognition layer turns an ISFET into a sensor for molecules.",
+
+        studyModule: {
+            title: "Receptors on the Gate",
+            href: "fetunit14.html"
+        },
+
+        lessons: [
+
+            {
+                id: 14,
+                title: "Receptors on the Gate",
+                description:
+                    "How a recognition layer turns an ISFET into a sensor for molecules."
+            }
+
+        ]
+    },
+
+    {
+        id: 15,
+
+        title: "Silanes & Self-Assembled Monolayers",
+
+        description:
+            "How a bare oxide gets a chemical handle, one molecular layer thick.",
+
+        studyModule: {
+            title: "Silanes & Self-Assembled Monolayers",
+            href: "fetunit15.html"
+        },
+
+        lessons: [
+
+            {
+                id: 15,
+                title: "Silanes & Self-Assembled Monolayers",
+                description:
+                    "How a bare oxide gets a chemical handle, one molecular layer thick."
+            }
+
+        ]
+    },
+
+    {
+        id: 16,
+
+        title: "Linkers & Immobilization",
+
+        description:
+            "The crosslinkers that tie receptors to the surface, and why orientation matters.",
+
+        studyModule: {
+            title: "Linkers & Immobilization",
+            href: "fetunit16.html"
+        },
+
+        lessons: [
+
+            {
+                id: 16,
+                title: "Linkers & Immobilization",
+                description:
+                    "The crosslinkers that tie receptors to the surface, and why orientation matters."
+            }
+
+        ]
+    },
+
+    {
+        id: 17,
+
+        title: "Blocking & Non-Specific Binding",
+
+        description:
+            "How to keep everything except the target off the surface.",
+
+        studyModule: {
+            title: "Blocking & Non-Specific Binding",
+            href: "fetunit17.html"
+        },
+
+        lessons: [
+
+            {
+                id: 17,
+                title: "Blocking & Non-Specific Binding",
+                description:
+                    "How to keep everything except the target off the surface."
+            }
+
+        ]
+    },
+
+    {
+        id: 18,
+
+        title: "Binding Affinity & Kinetics",
+
+        description:
+            "How much target binds at a given concentration, and how fast.",
+
+        studyModule: {
+            title: "Binding Affinity & Kinetics",
+            href: "fetunit18.html"
+        },
+
+        lessons: [
+
+            {
+                id: 18,
+                title: "Binding Affinity & Kinetics",
+                description:
+                    "How much target binds at a given concentration, and how fast."
+            }
+
+        ]
+    },
+
+    {
+        id: 19,
+
+        title: "Verifying the Layer",
+
+        description:
+            "How to prove each chemical step worked before trusting the sensor.",
+
+        studyModule: {
+            title: "Verifying the Layer",
+            href: "fetunit19.html"
+        },
+
+        lessons: [
+
+            {
+                id: 19,
+                title: "Verifying the Layer",
+                description:
+                    "How to prove each chemical step worked before trusting the sensor."
             }
 
         ]

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Blocking &amp; Non-Specific Binding | Fab Path</title>
+    <meta name="description" content="Blocking &amp; Non-Specific Binding: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blocking &amp; Non-Specific Binding | Fab Path">
+    <meta property="og:description" content="Blocking &amp; Non-Specific Binding: illustrated study slides from the BioFETs &amp; MOSFETs course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="fet-learn.html">Learn</a>
+            <a href="fet-games.html">Games</a>
+            <a href="fet-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="fet-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+                        <!-- SLIDE 1 -->
+                        <!-- SLIDE 1 -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    THE PROBLEM
+                </p>
+
+                <h1>
+                    Sticky surfaces
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    Everything sticks to something
+                </div>
+
+                <p>
+                    Proteins and other molecules stick to surfaces through weak, non-specific forces. In a real sample, thousands of species could land on the sensor and add charge that is not your target. That false signal can swamp a real one.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A sensor is only as good as its ability to ignore the rest.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 2 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    BLOCKING
+                </p>
+
+                <h1>
+                    Fill the gaps
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🥛
+                        </div>
+
+                        <h3>BSA</h3>
+
+                        <p>
+                            Bovine serum albumin coats bare spots with a harmless protein
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧽
+                        </div>
+
+                        <h3>Antifouling polymers</h3>
+
+                        <p>
+                            PEG or OEG chains form a hydrated brush that resists proteins
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🚿
+                        </div>
+
+                        <h3>Wash buffers</h3>
+
+                        <p>
+                            A mild detergent such as Tween-20 rinses off loosely stuck molecules
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Blocking happens after the receptors are attached and before the sample arrives.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 3 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CONTROLS
+                </p>
+
+                <h1>
+                    Ways to expose false signals
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Blank sample</strong>
+                        <span>Buffer alone should give no threshold shift</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Wrong target</strong>
+                        <span>An unrelated molecule should give no shift</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>No-receptor twin</strong>
+                        <span>A FET with no receptors, like the REFET, shows the non-specific signal alone</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Difference</strong>
+                        <span>Signal minus twin isolates the specific binding</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Controls turn "it responded" into "it responded to the target".
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SIGNAL VS BACKGROUND
+                </p>
+
+                <h1>
+                    How selective is the surface?
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    specific ÷ non-specific
+                </div>
+
+                <p>
+                    A useful summary is the response to the target divided by the response to a wrong or blank sample. A ratio near 1 means the surface cannot tell them apart. Well-blocked surfaces push that ratio as high as they can.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Blocking and washing raise the ratio.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    REAL SAMPLES
+                </p>
+
+                <h1>
+                    Serum is harder than buffer
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    More species, more background
+                </div>
+
+                <p>
+                    Blood serum carries roughly 60 to 80 mg of protein per mL, mostly albumin, so it is much harder on a surface than clean buffer. BioFETs are often shown in buffer first and then tested in diluted or processed serum.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A good result in buffer does not guarantee one in a real sample.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 17 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🧬
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've covered how to keep everything except the target off the surface.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeFetUnit17Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+</div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeFetUnit17Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathFetUnit17StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathFetUnit17StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "fet-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+</body>
+</html>
