@@ -122,5 +122,118 @@ const chipGameData = {
                         ]
                 }
         ]
-}
+},
+
+    buildingLayers: {
+            "key": "fabPathChipGame2Complete",
+            "xp": 50,
+            "rounds": [
+                    {
+                            "icon": "🕳️",
+                            "title": "Shallow trench isolation",
+                            "lead": "Build oxide walls between transistors, the modern way.",
+                            "steps": [
+                                    {
+                                            "icon": "🧱",
+                                            "name": "Grow pad oxide and deposit nitride",
+                                            "why": "the nitride will act as a polish stop."
+                                    },
+                                    {
+                                            "icon": "⛏️",
+                                            "name": "Pattern and etch the trench",
+                                            "why": "plasma etching cuts down into the silicon."
+                                    },
+                                    {
+                                            "icon": "🔥",
+                                            "name": "Grow a thin liner oxide",
+                                            "why": "it heals etch damage on the trench walls."
+                                    },
+                                    {
+                                            "icon": "🫗",
+                                            "name": "Overfill with CVD oxide",
+                                            "why": "the trench must be filled completely."
+                                    },
+                                    {
+                                            "icon": "🪞",
+                                            "name": "Polish flat with CMP",
+                                            "why": "the nitride layer stops the polish."
+                                    },
+                                    {
+                                            "icon": "🧴",
+                                            "name": "Strip the nitride",
+                                            "why": "hot phosphoric acid removes it."
+                                    }
+                            ]
+                    },
+                    {
+                            "icon": "🪙",
+                            "title": "Copper damascene",
+                            "lead": "Copper is hard to etch, so cut the trench first and fill it after.",
+                            "steps": [
+                                    {
+                                            "icon": "🧱",
+                                            "name": "Deposit the insulator",
+                                            "why": "CVD oxide sits between metal layers."
+                                    },
+                                    {
+                                            "icon": "⛏️",
+                                            "name": "Etch trenches into it",
+                                            "why": "the trenches become the wires."
+                                    },
+                                    {
+                                            "icon": "🛡️",
+                                            "name": "Sputter a barrier and copper seed",
+                                            "why": "the barrier blocks copper diffusion."
+                                    },
+                                    {
+                                            "icon": "⚡",
+                                            "name": "Electroplate copper",
+                                            "why": "copper fills the trenches and overflows."
+                                    },
+                                    {
+                                            "icon": "🪞",
+                                            "name": "Polish off the excess with CMP",
+                                            "why": "copper stays only inside the trenches."
+                                    }
+                            ]
+                    },
+                    {
+                            "icon": "🚪",
+                            "title": "Polysilicon gate",
+                            "lead": "Make the classic transistor gate: oxide, poly, then shape it.",
+                            "steps": [
+                                    {
+                                            "icon": "🫧",
+                                            "name": "Clean the wafer surface",
+                                            "why": "particles and native oxide must go first."
+                                    },
+                                    {
+                                            "icon": "🔥",
+                                            "name": "Grow a thin gate oxide",
+                                            "why": "dry oxidation gives the best insulator."
+                                    },
+                                    {
+                                            "icon": "☁️",
+                                            "name": "Deposit polysilicon by LPCVD",
+                                            "why": "the poly becomes the gate electrode."
+                                    },
+                                    {
+                                            "icon": "🖨️",
+                                            "name": "Pattern photoresist on top",
+                                            "why": "the resist marks where the gate stays."
+                                    },
+                                    {
+                                            "icon": "⛏️",
+                                            "name": "Etch the exposed polysilicon",
+                                            "why": "the etch stops on the thin gate oxide."
+                                    },
+                                    {
+                                            "icon": "🧹",
+                                            "name": "Strip the resist",
+                                            "why": "oxygen plasma ashes away the mask."
+                                    }
+                            ]
+                    }
+            ]
+    }
 };

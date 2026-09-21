@@ -1,0 +1,2264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Building the Layers | Fab Path</title>
+    <meta name="description" content="Building the Layers: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Building the Layers | Fab Path">
+    <meta property="og:description" content="Building the Layers: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="chip-learn.html">Learn</a>
+            <a href="chip-games.html">Games</a>
+            <a href="chip-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="chip-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 40
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                UNIT 2 • BUILDING THE LAYERS
+                </p>
+
+                <h1>
+                A chip is a stack of thin films
+                </h1>
+
+                <p class="module-lead">
+                Unit 1 delivered a flawless wafer. Now the fab starts building on it.
+                </p>
+
+                <div class="module-visual">
+                🧱
+                </div>
+
+                <p>
+                A finished chip is dozens of patterned layers: insulators, semiconductors, and metals, some only a few nanometers thick. Unit 2 covers the tools that add, remove, and smooth those layers. Patterning them, deciding where everything goes, comes later in the course.
+                </p>
+
+                <div class="module-takeaway">
+
+                <strong>Key idea</strong>
+
+                Almost every step in a fab adds a film, removes a film, or flattens the surface for the next one.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 2 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                THE TOOLBOX
+                </p>
+
+                <h1>
+                Grow, deposit, etch, polish
+                </h1>
+
+                <div class="module-card-grid">
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🔥
+                </div>
+
+                <h3>Grow</h3>
+
+                <p>
+                React the silicon surface with oxygen to make its own insulator, SiO₂
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                ☁️
+                </div>
+
+                <h3>Deposit</h3>
+
+                <p>
+                Add a new film on top from reacting gases, sputtered atoms, or plating
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                ✂️
+                </div>
+
+                <h3>Etch</h3>
+
+                <p>
+                Remove material wherever a mask leaves it exposed
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🪞
+                </div>
+
+                <h3>Polish</h3>
+
+                <p>
+                Grind the surface flat again with chemical mechanical polishing (CMP)
+                </p>
+
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Patterning and doping get their own units later. Here you meet the four workhorses that shape every layer.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 3 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                THERMAL OXIDATION
+                </p>
+
+                <h1>
+                Heat silicon in oxygen and it grows its own glass
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                Si + O₂ → SiO₂
+                </div>
+
+                <p>
+                At roughly 800 to 1,200 °C, oxygen or steam reacts with the silicon surface and turns it into silicon dioxide, a glass. Because the oxide is made from the wafer itself, the interface between them is clean and nearly free of defects. That is a big part of why silicon won (Unit 1).
+                </p>
+
+                <div class="module-takeaway">
+
+                Thermal oxide is the best insulator on silicon because it is made of silicon.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 4 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                WHAT OXIDE DOES
+                </p>
+
+                <h1>
+                Three jobs for one glass
+                </h1>
+
+                <div class="module-card-grid">
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🚪
+                </div>
+
+                <h3>Gate insulator</h3>
+
+                <p>
+                A thin film between the gate and the channel of a transistor
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🧱
+                </div>
+
+                <h3>Isolation</h3>
+
+                <p>
+                Thick oxide separates neighboring transistors so they do not short together
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🛡️
+                </div>
+
+                <h3>Mask and shield</h3>
+
+                <p>
+                Blocks dopants and etch chemicals from parts of the wafer
+                </p>
+
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                The same material works as an insulator, a fence, and a shield.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 5 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                IT GROWS IN AND OUT
+                </p>
+
+                <h1>
+                Oxide eats silicon
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 190" role="img" aria-label="A silicon wafer with an oxide layer grown on it; the oxide extends 56 percent above the original surface and 44 percent below it">
+                <text class="fd-accent" x="170" y="26" text-anchor="middle">silicon used up ≈ 0.44 × oxide thickness</text>
+                <rect class="fd-p" x="20" y="112" width="210" height="68" rx="3"/>
+                <rect class="fd-ox" x="20" y="62" width="210" height="50"/>
+                <line class="fd-dash" x1="20" y1="90" x2="250" y2="90"/>
+                <text class="fd-label" x="125" y="80" text-anchor="middle">SiO₂</text>
+                <text class="fd-sub" x="125" y="106" text-anchor="middle">grown oxide</text>
+                <text class="fd-sub" x="125" y="150" text-anchor="middle">silicon wafer</text>
+                <path class="fd-axis" d="M238 62 L244 62 L244 90 L238 90"/>
+                <text class="fd-label" x="252" y="79">56%</text><text class="fd-sub" x="252" y="90">above</text>
+                <path class="fd-axis" d="M238 90 L244 90 L244 112 L238 112"/>
+                <text class="fd-label" x="252" y="104">44%</text><text class="fd-sub" x="252" y="115">below</text>
+                <text class="fd-sub" x="250" y="132">dashed line =</text><text class="fd-sub" x="250" y="143">original surface</text>
+                </svg>
+                </div>
+
+                <p>
+                Growing oxide consumes silicon. SiO₂ takes up about 2.3 times the volume of the silicon it replaces, so about 44% of the final thickness lies below the original surface and 56% above it. Grow 100 nm of oxide and about 44 nm of silicon disappears.
+                </p>
+
+                <div class="module-takeaway">
+
+                Oxidation moves the silicon surface, and later steps have to allow for that.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 6 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                DRY VS WET
+                </p>
+
+                <h1>
+                Pick dry for quality, wet for thickness
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>Dry oxidation</strong>
+                <span>Uses O₂. Slow, but the oxide is dense with the best electrical quality, so it is used for gate oxides</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Wet oxidation</strong>
+                <span>Uses steam (H₂O). Much faster but slightly less dense, so it suits thick isolation oxide</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Temperature</strong>
+                <span>Typically 800 to 1,200 °C in a furnace tube. Hotter means faster growth</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Native oxide</strong>
+                <span>Bare silicon grows about 1 to 2 nm of oxide just sitting in air, so fabs strip it right before critical steps</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Speed and quality trade off: the fast oxide is not the best oxide.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 7 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                HOW THICK?
+                </p>
+
+                <h1>
+                Growth slows as the oxide thickens
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                <span class="math-visual">x ≈ √(B · t)</span>
+                </div>
+
+                <p>
+                Oxygen has to diffuse through the oxide that already exists to reach fresh silicon, so growth keeps slowing. Once the film is thick, its thickness x grows roughly as the square root of time t. Twice as thick takes about four times as long.
+                </p>
+
+                <div class="module-takeaway">
+
+                Doubling an oxide's thickness costs about four times the furnace time.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 8 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                WHEN OXIDE GETS TOO THIN
+                </p>
+
+                <h1>
+                The gate oxide hit a wall
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>Around 1 to 2 nm</strong>
+                <span>Electrons tunnel straight through a film this thin, so current leaks</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Why it matters</strong>
+                <span>Leakage wastes power and heats the chip even when it is idle</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>The fix</strong>
+                <span>A high-k dielectric such as hafnium oxide (HfO₂) can be physically thicker for the same electrical effect</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>When</strong>
+                <span>High-k metal gates entered volume production around the 45 nm generation, in 2007</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Thermal oxide still rules isolation, but atomic layer deposition took over the gate.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 9 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                GROW VS DEPOSIT
+                </p>
+
+                <h1>
+                Growing uses up the wafer. Deposition adds to it
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>Growth</strong>
+                <span>Reacts with the surface and consumes silicon. It only works if the wafer already holds the ingredients, so it makes oxide and a few other films</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Deposition</strong>
+                <span>Adds material on top of any surface without consuming it, and can make oxides, nitrides, silicon, and metals</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>The trade</strong>
+                <span>Growth gives the cleanest interface. Deposition gives freedom to build almost any stack</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Growth needs the wafer to supply the material, but deposition can add almost anything.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 10 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                CHEMICAL VAPOR DEPOSITION
+                </p>
+
+                <h1>
+                Build the film from a gas
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 190" role="img" aria-label="A CVD chamber: precursor gases flow down onto a heated wafer, a solid film grows, and by-product gases are pumped out">
+                <rect class="fd-dash" x="26" y="8" width="288" height="176" rx="8"/>
+                <text class="fd-accent" x="170" y="24" text-anchor="middle">precursor gases in</text>
+                <line class="fd-axis" x1="110" y1="30" x2="110" y2="71"/><polygon class="fd-arrow" points="110,76 106.5,69 113.5,69"/>
+                <line class="fd-axis" x1="170" y1="30" x2="170" y2="71"/><polygon class="fd-arrow" points="170,76 166.5,69 173.5,69"/>
+                <line class="fd-axis" x1="230" y1="30" x2="230" y2="71"/><polygon class="fd-arrow" points="230,76 226.5,69 233.5,69"/>
+                <rect class="fd-n" x="70" y="118" width="200" height="8"/>
+                <text class="fd-accent" x="170" y="112" text-anchor="middle">growing film</text>
+                <rect class="fd-p" x="70" y="126" width="200" height="12"/>
+                <text class="fd-sub" x="170" y="135.5" text-anchor="middle">wafer</text>
+                <rect class="fd-melt" x="56" y="138" width="228" height="20" rx="3"/>
+                <text class="fd-label" x="170" y="152" text-anchor="middle">heated susceptor</text>
+                <line class="fd-axis" x1="290" y1="110" x2="290" y2="71"/><polygon class="fd-arrow" points="290,66 286.5,73 293.5,73"/>
+                <text class="fd-sub" x="304" y="46" text-anchor="end">by-products</text>
+                <text class="fd-sub" x="304" y="58" text-anchor="end">to the pump</text>
+                <text class="fd-sub" x="170" y="176" text-anchor="middle">example: SiH₄ → Si + 2 H₂ (polysilicon)</text>
+                </svg>
+                </div>
+
+                <p>
+                Precursor gases flow over a heated wafer. They react or decompose on the hot surface, leaving a solid film behind while volatile by-products are pumped away. The gases choose the material, not the wafer.
+                </p>
+
+                <div class="module-takeaway">
+
+                Gas in, solid film out, waste pumped away.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 11 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                CVD FLAVORS
+                </p>
+
+                <h1>
+                Pressure and plasma change what CVD can do
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>APCVD</strong>
+                <span>Atmospheric pressure. Simple and fast, but the film is less uniform</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>LPCVD</strong>
+                <span>Low pressure and about 600 to 800 °C. Excellent uniformity, and a whole boat of wafers coats at once</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>PECVD</strong>
+                <span>A plasma supplies the reaction energy, so films deposit at roughly 200 to 400 °C</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>The trade</strong>
+                <span>Hotter usually means better film quality, but only if everything already on the wafer can survive the heat</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                What is already on the wafer sets the temperature limit, and the limit picks the method.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 12 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                WHAT CVD MAKES
+                </p>
+
+                <h1>
+                Four workhorse films
+                </h1>
+
+                <div class="module-card-grid">
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🧱
+                </div>
+
+                <h3>Polysilicon</h3>
+
+                <p>
+                From silane (SiH₄). The transistor gate material for decades
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🟧
+                </div>
+
+                <h3>Silicon nitride</h3>
+
+                <p>
+                Si₃N₄, a hard, dense film used as a barrier and polish stop
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🪟
+                </div>
+
+                <h3>Silicon dioxide</h3>
+
+                <p>
+                Insulation between metal layers, often made from TEOS or silane
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🔩
+                </div>
+
+                <h3>Tungsten</h3>
+
+                <p>
+                From WF₆ gas. Fills the tiny contact plugs that reach the transistors
+                </p>
+
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Poly, nitride, oxide, and tungsten cover most of what a fab deposits by CVD.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 13 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                STEP COVERAGE
+                </p>
+
+                <h1>
+                Can the film reach the bottom of a trench?
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 190" role="img" aria-label="Two trenches: on the left a conformal film coats the top, walls and floor evenly; on the right a line-of-sight film is thick on top and thin on the walls">
+                <path class="fd-p" d="M10 60 H60 V120 H100 V60 H150 V166 H10 Z"/>
+                <path class="fd-curve" style="fill:none;stroke-linejoin:round;stroke-width:5" d="M10 57.5 H62.5 V117.5 H97.5 V57.5 H150"/>
+                <text class="fd-label" x="80" y="26" text-anchor="middle">Conformal</text>
+                <text class="fd-sub" x="80" y="38" text-anchor="middle">CVD, ALD</text>
+                <text class="fd-sub" x="80" y="182" text-anchor="middle">even on top, walls, floor</text>
+                <path class="fd-p" d="M190 60 H240 V120 H280 V60 H330 V166 H190 Z"/>
+                <path class="fd-curve" style="fill:none;stroke-linejoin:round;stroke-width:8" d="M190 55 H252 M268 55 H330"/>
+                <path class="fd-curve" style="fill:none;stroke-linejoin:round;stroke-width:1.6" d="M241 66 V116 M279 66 V116"/>
+                <path class="fd-curve" style="fill:none;stroke-linejoin:round;stroke-width:3.4" d="M243 118.3 H277"/>
+                <text class="fd-label" x="260" y="26" text-anchor="middle">Line-of-sight</text>
+                <text class="fd-sub" x="260" y="38" text-anchor="middle">sputtering, evaporation</text>
+                <text class="fd-sub" x="260" y="182" text-anchor="middle">thick on top, thin below</text>
+                </svg>
+                </div>
+
+                <p>
+                Step coverage compares the film thickness on a trench's walls and floor with the thickness on top. A conformal film coats everything equally. A line-of-sight film piles up at the top and can pinch the opening shut, leaving a hidden void.
+                </p>
+
+                <div class="module-takeaway">
+
+                As features get deeper, conformality matters more than speed.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 14 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                EPITAXY
+                </p>
+
+                <h1>
+                A new crystal, grown on the old one
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                same lattice, new layer
+                </div>
+
+                <p>
+                Epitaxy deposits silicon, or silicon-germanium, so the new atoms continue the wafer's crystal pattern. Fabs use it for clean, precisely doped surface layers. Silicon-germanium in transistor source and drain regions also squeezes the channel and helps current flow faster.
+                </p>
+
+                <div class="module-takeaway">
+
+                Epitaxy is CVD with a crystal template, and it can tune the crystal itself.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 15 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                PHYSICAL VAPOR DEPOSITION
+                </p>
+
+                <h1>
+                Sputtering: knock metal off a target
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 218" role="img" aria-label="A sputtering chamber: argon ions from a plasma hit a metal target, knocking metal atoms loose that land on the wafer as a thin film">
+                <rect class="fd-dash" x="10" y="6" width="240" height="206" rx="8"/>
+                <rect class="fd-metal" x="30" y="16" width="200" height="14" rx="2"/>
+                <text class="fd-sub" x="130" y="26" text-anchor="middle" style="fill:#f5f7ff">metal target</text>
+                <rect class="fd-dash" x="30" y="44" width="200" height="96" rx="6"/>
+                <circle class="fd-ion" cx="56" cy="92" r="3.2"/>
+                <circle class="fd-ion" cx="90" cy="116" r="3.2"/>
+                <circle class="fd-ion" cx="192" cy="92" r="3.2"/>
+                <circle class="fd-ion" cx="212" cy="120" r="3.2"/>
+                <line class="fd-axis" x1="56" y1="86" x2="56" y2="51"/><polygon class="fd-arrow" points="56,46 52.5,53 59.5,53"/>
+                <line class="fd-axis" x1="212" y1="114" x2="212" y2="51"/><polygon class="fd-arrow" points="212,46 208.5,53 215.5,53"/>
+                <line class="fd-dash" x1="110" y1="34" x2="110" y2="152"/>
+                <polygon class="fd-arrow" points="110,160 106.5,153 113.5,153"/>
+                <line class="fd-dash" x1="140" y1="34" x2="140" y2="152"/>
+                <polygon class="fd-arrow" points="140,160 136.5,153 143.5,153"/>
+                <line class="fd-dash" x1="170" y1="34" x2="170" y2="152"/>
+                <polygon class="fd-arrow" points="170,160 166.5,153 173.5,153"/>
+                <circle class="fd-electron" cx="110" cy="82" r="2.6"/>
+                <circle class="fd-electron" cx="140" cy="102" r="2.6"/>
+                <circle class="fd-electron" cx="170" cy="86" r="2.6"/>
+                <circle class="fd-electron" cx="140" cy="126" r="2.6"/>
+                <circle class="fd-electron" cx="110" cy="130" r="2.6"/>
+                <circle class="fd-electron" cx="170" cy="128" r="2.6"/>
+                <rect class="fd-n" x="30" y="170" width="200" height="6"/>
+                <rect class="fd-p" x="30" y="176" width="200" height="14" rx="2"/>
+                <text class="fd-sub" x="130" y="186.5" text-anchor="middle">wafer</text>
+                <text class="fd-sub" x="130" y="204" text-anchor="middle">high vacuum chamber</text>
+                <rect class="fd-dash" x="263" y="46" width="10" height="8" rx="2"/><text class="fd-sub" x="277" y="53">plasma</text>
+                <circle class="fd-ion" cx="268" cy="72" r="3.2"/><text class="fd-sub" x="277" y="75">Ar⁺ ion</text>
+                <circle class="fd-electron" cx="268" cy="90" r="2.6"/><text class="fd-sub" x="277" y="93">metal atom</text>
+                </svg>
+                </div>
+
+                <p>
+                In a vacuum chamber, a plasma of argon ions is driven into a block of metal, the target. Each impact knocks atoms loose, and they fly across and land on the wafer as a thin film. No chemical reaction is needed, so any metal or alloy that can be made into a target can be deposited.
+                </p>
+
+                <div class="module-takeaway">
+
+                Sputtering is atomic-scale billiards, and it works for almost any metal.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 16 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                WHAT GETS SPUTTERED
+                </p>
+
+                <h1>
+                The metals a fab lays down
+                </h1>
+
+                <div class="module-card-grid">
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                ⚙️
+                </div>
+
+                <h3>Aluminum</h3>
+
+                <p>
+                Classic chip wiring for decades, and still used for bond pads and top layers
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🔗
+                </div>
+
+                <h3>Titanium and TiN</h3>
+
+                <p>
+                Thin adhesion and barrier layers under tungsten and aluminum
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🛡️
+                </div>
+
+                <h3>Tantalum and TaN</h3>
+
+                <p>
+                Barrier that keeps copper from wandering into silicon and insulators
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🪙
+                </div>
+
+                <h3>Copper seed</h3>
+
+                <p>
+                A thin copper skin that copper plating grows from
+                </p>
+
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Many of the thinnest metal layers in a chip are sputtered.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 17 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                EVAPORATION
+                </p>
+
+                <h1>
+                Evaporation vs sputtering
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>Evaporation</strong>
+                <span>Heat a source in vacuum until it vaporizes and coats the wafer</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Sputtering</strong>
+                <span>Knock atoms loose with a plasma. Better adhesion and coverage, and the production workhorse</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Lift-off</strong>
+                <span>Evaporation's straight-line beam suits lift-off patterning in research labs and MEMS</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Shared limit</strong>
+                <span>Both are line-of-sight, so both struggle to coat deep, narrow trenches evenly</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Good for flat surfaces and lab work, but they cannot reach into the deepest features.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 18 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                COPPER PLATING
+                </p>
+
+                <h1>
+                Fill the wires by electroplating
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                <span class="math-visual">Cu<sup>2+</sup> + 2e<sup>−</sup> → Cu</span>
+                </div>
+
+                <p>
+                Copper wiring is deposited by dipping the wafer in a copper sulfate bath. A sputtered copper seed layer carries the current, and copper ions plate onto it. Chemical additives make the fill start at the bottom of each trench and climb upward, so the wires fill without voids.
+                </p>
+
+                <div class="module-takeaway">
+
+                Plating fills the copper wires from the bottom up.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 19 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                ATOMIC LAYER DEPOSITION
+                </p>
+
+                <h1>
+                One atomic layer per cycle
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 194" role="img" aria-label="The four steps of an atomic layer deposition cycle: pulse gas A, purge, pulse gas B, purge, then repeat">
+                <rect class="fd-n" x="20" y="16" width="130" height="58" rx="6"/><text class="fd-label" x="85" y="40" text-anchor="middle">1 · Pulse gas A</text><text class="fd-sub" x="85" y="56" text-anchor="middle">coats the surface</text>
+                <rect class="fd-p" x="190" y="16" width="130" height="58" rx="6"/><text class="fd-label" x="255" y="40" text-anchor="middle">2 · Purge</text><text class="fd-sub" x="255" y="56" text-anchor="middle">sweep out extra gas</text>
+                <rect class="fd-n" x="190" y="106" width="130" height="58" rx="6"/><text class="fd-label" x="255" y="130" text-anchor="middle">3 · Pulse gas B</text><text class="fd-sub" x="255" y="146" text-anchor="middle">reacts with layer A</text>
+                <rect class="fd-p" x="20" y="106" width="130" height="58" rx="6"/><text class="fd-label" x="85" y="130" text-anchor="middle">4 · Purge</text><text class="fd-sub" x="85" y="146" text-anchor="middle">sweep out by-products</text>
+                <line class="fd-axis" x1="150" y1="45" x2="183" y2="45"/><polygon class="fd-arrow" points="188,45 181,41.5 181,48.5"/>
+                <line class="fd-axis" x1="255" y1="74" x2="255" y2="99"/><polygon class="fd-arrow" points="255,104 251.5,97 258.5,97"/>
+                <line class="fd-axis" x1="190" y1="135" x2="157" y2="135"/><polygon class="fd-arrow" points="152,135 159,131.5 159,138.5"/>
+                <line class="fd-axis" x1="85" y1="106" x2="85" y2="81"/><polygon class="fd-arrow" points="85,76 81.5,83 88.5,83"/>
+                <text class="fd-accent" x="170" y="93" text-anchor="middle">repeat</text>
+                <text class="fd-sub" x="170" y="184" text-anchor="middle">one full cycle ≈ 0.1 nm of film</text>
+                </svg>
+                </div>
+
+                <p>
+                ALD alternates two gases with purges in between. Each gas reacts only with the surface until every site is used up, then the reaction stops by itself. Every cycle therefore adds one uniform layer, and you repeat cycles until the film is thick enough.
+                </p>
+
+                <div class="module-takeaway">
+
+                Self-limiting reactions give ALD its atomic-level control.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 20 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                ALD TRADEOFFS
+                </p>
+
+                <h1>
+                Perfect films, slowly
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>Thickness control</strong>
+                <span>About 0.1 nm per cycle, so roughly 20 cycles make a 2 nm film</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Conformality</strong>
+                <span>Coats deep, narrow trenches and the sides of 3D fin transistors evenly</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Speed</strong>
+                <span>Slow, so it is reserved for thin films that must be perfect</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Used for</strong>
+                <span>High-k gate dielectrics like HfO₂, spacers, and thin barrier layers</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                ALD trades speed for control, and modern transistors are worth the trade.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 21 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                ETCH
+                </p>
+
+                <h1>
+                Remove what the mask does not protect
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>1 · Mask</strong>
+                <span>A patterned layer, usually photoresist, covers the areas to keep</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>2 · Etch</strong>
+                <span>Chemistry attacks the exposed film and removes it</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>3 · Strip</strong>
+                <span>The mask is removed, leaving the pattern in the film below</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Coming later</strong>
+                <span>How the mask gets its pattern is the job of lithography</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                An etch copies the mask's pattern into the film beneath it.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 22 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                PROFILES
+                </p>
+
+                <h1>
+                Two ways an etch can eat
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 216" role="img" aria-label="Two etch profiles: an isotropic etch eats sideways under the mask; an anisotropic etch cuts straight down with vertical walls">
+                <rect class="fd-p" x="10" y="140" width="150" height="30"/>
+                <path class="fd-ox" d="M10 80 H25 A60 60 0 0 0 145 80 H160 V140 H10 Z"/>
+                <rect class="fd-melt" x="10" y="68" width="50" height="12"/><rect class="fd-melt" x="110" y="68" width="50" height="12"/>
+                <text class="fd-sub" x="85" y="60" text-anchor="middle">mask opening</text>
+                <path class="fd-axis" d="M60 76 L60 90 M110 76 L110 90"/>
+                <text class="fd-label" x="85" y="188" text-anchor="middle">Isotropic</text>
+                <text class="fd-sub" x="85" y="200" text-anchor="middle">undercuts the mask</text>
+                <text class="fd-sub" x="85" y="211" text-anchor="middle">typical of wet etches</text>
+                <rect class="fd-p" x="180" y="140" width="150" height="30"/>
+                <path class="fd-ox" d="M180 80 H230 V140 H280 V80 H330 V140 H180 Z"/>
+                <rect class="fd-melt" x="180" y="68" width="50" height="12"/><rect class="fd-melt" x="280" y="68" width="50" height="12"/>
+                <line class="fd-axis" x1="242" y1="28" x2="242" y2="57"/><polygon class="fd-arrow" points="242,62 238.5,55 245.5,55"/>
+                <line class="fd-axis" x1="255" y1="28" x2="255" y2="57"/><polygon class="fd-arrow" points="255,62 251.5,55 258.5,55"/>
+                <line class="fd-axis" x1="268" y1="28" x2="268" y2="57"/><polygon class="fd-arrow" points="268,62 264.5,55 271.5,55"/>
+                <text class="fd-sub" x="255" y="22" text-anchor="middle">ions</text>
+                <text class="fd-label" x="255" y="188" text-anchor="middle">Anisotropic</text>
+                <text class="fd-sub" x="255" y="200" text-anchor="middle">vertical walls</text>
+                <text class="fd-sub" x="255" y="211" text-anchor="middle">typical of plasma etches</text>
+                </svg>
+                </div>
+
+                <p>
+                An isotropic etch attacks in every direction, so it undercuts the mask by about as much as it goes deep. An anisotropic etch attacks mainly straight down and leaves vertical walls. Tiny, closely spaced features need anisotropic etching.
+                </p>
+
+                <div class="module-takeaway">
+
+                Undercut is the enemy of small features.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 23 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                WET ETCHING
+                </p>
+
+                <h1>
+                Chemistry in a bath
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>HF (hydrofluoric acid)</strong>
+                <span>Dissolves SiO₂ quickly and barely touches silicon</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Hot phosphoric acid</strong>
+                <span>Strips silicon nitride while leaving oxide mostly alone</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>KOH</strong>
+                <span>Etches silicon along its crystal planes. Common in MEMS, and an exception to the isotropic rule</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Character</strong>
+                <span>Very selective and cheap, but most wet etches are isotropic and hard to control at small sizes</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Safety</strong>
+                <span>HF is highly toxic and burns deeply, so fabs handle it with special training</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Wet etches are selective and simple, and they undercut.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 24 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                DRY ETCHING
+                </p>
+
+                <h1>
+                Plasma etching: chemistry plus bombardment
+                </h1>
+
+                <div class="module-card-grid">
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                ⚡
+                </div>
+
+                <h3>Plasma</h3>
+
+                <p>
+                Splits a gas into reactive radicals and ions
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                ⬇️
+                </div>
+
+                <h3>Ion bombardment</h3>
+
+                <p>
+                An electric field drives ions straight down, so the walls come out vertical
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🧪
+                </div>
+
+                <h3>Chemistry</h3>
+
+                <p>
+                Radicals react with the film to form volatile products that are pumped away
+                </p>
+
+                </div>
+
+                </div>
+
+                <p>
+                Reactive ion etching (RIE) combines a chemical reaction with physical ion impact.
+                </p>
+
+                <div class="module-takeaway">
+
+                RIE is both chemical and physical, which is why it can be both selective and directional.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 25 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                SELECTIVITY
+                </p>
+
+                <h1>
+                How well does the etch spare what you want to keep?
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                <span class="math-visual">selectivity = R<sub>target</sub> / R<sub>kept</sub></span>
+                </div>
+
+                <p>
+                Here R is an etch rate: the target film versus the layer you want to keep. A 20:1 selectivity means the etch removes the target 20 times faster than the layer beneath it, so that layer loses 1 nm for every 20 nm etched. Gate etches need very high selectivity because the oxide underneath can be only a nanometer or two thick.
+                </p>
+
+                <div class="module-takeaway">
+
+                High selectivity is what lets an etch stop cleanly.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 26 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                ETCH GASES AND ENDPOINT
+                </p>
+
+                <h1>
+                Match the gas to the film, then watch the plasma
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>Fluorine gases (CF₄, CHF₃)</strong>
+                <span>Etch silicon dioxide and silicon nitride</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Chlorine or bromine (Cl₂, HBr)</strong>
+                <span>Etch silicon, polysilicon, and aluminum</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Oxygen plasma</strong>
+                <span>Ashes away photoresist after the etch</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Endpoint</strong>
+                <span>Sensors watch the color of the plasma's light, which changes when the film clears</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Choose gas by film, and use the plasma itself to know when to stop.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 27 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                WHY POLISH
+                </p>
+
+                <h1>
+                Layers pile up bumps
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 62 340 134" role="img" aria-label="Two wafer cross-sections: without polishing the oxide layer copies the bumps of the metal lines beneath it; after CMP the surface is flat">
+                <rect class="fd-p" x="10" y="150" width="150" height="16"/>
+                <rect class="fd-p" x="180" y="150" width="150" height="16"/>
+                <rect class="fd-metal" x="36" y="122" width="32" height="28"/><rect class="fd-metal" x="98" y="122" width="32" height="28"/>
+                <path class="fd-lost" style="fill:none;stroke:#ffd666;stroke-width:9;stroke-opacity:.75;stroke-linejoin:round" d="M10 145.5 H31.5 V117.5 H72.5 V145.5 H93.5 V117.5 H134.5 V145.5 H160"/>
+                <text class="fd-label" x="85" y="78" text-anchor="middle">Without CMP</text>
+                <text class="fd-sub" x="85" y="182" text-anchor="middle">layers copy the bumps</text>
+                <line class="fd-dash" x1="10" y1="104" x2="160" y2="104"/>
+                <text class="fd-sub" x="85" y="98" text-anchor="middle">focus plane</text>
+                <rect class="fd-ox" x="180" y="112" width="150" height="38"/>
+                <rect class="fd-metal" x="206" y="122" width="32" height="28"/><rect class="fd-metal" x="268" y="122" width="32" height="28"/>
+                <text class="fd-label" x="255" y="78" text-anchor="middle">After CMP</text>
+                <text class="fd-sub" x="255" y="182" text-anchor="middle">flat, easy to focus on</text>
+                <line class="fd-dash" x1="180" y1="104" x2="330" y2="104"/>
+                <text class="fd-sub" x="255" y="98" text-anchor="middle">focus plane</text>
+                </svg>
+                </div>
+
+                <p>
+                Every patterned layer leaves topography behind. Left alone, bumps stack up, thin wires crack when they cross steps, and lithography cannot keep a bumpy surface in focus, because its depth of focus is only a fraction of a micron and shrinking.
+                </p>
+
+                <div class="module-takeaway">
+
+                A flat wafer is a lithography requirement, not a cosmetic one.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 28 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                CHEMICAL MECHANICAL POLISHING
+                </p>
+
+                <h1>
+                Grind flat with chemistry and grit
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 192" role="img" aria-label="A chemical mechanical polishing tool: a carrier presses a wafer face down onto a spinning pad while slurry flows between them">
+                <line class="fd-axis" x1="100" y1="10" x2="100" y2="55"/><polygon class="fd-arrow" points="100,60 96.5,53 103.5,53"/>
+                <line class="fd-axis" x1="170" y1="10" x2="170" y2="55"/><polygon class="fd-arrow" points="170,60 166.5,53 173.5,53"/>
+                <text class="fd-accent" x="135" y="20" text-anchor="middle">down-force</text>
+                <rect class="fd-metal" x="70" y="62" width="130" height="26" rx="3"/>
+                <text class="fd-label" x="135" y="79" text-anchor="middle">carrier</text>
+                <rect class="fd-p" x="80" y="88" width="110" height="8"/>
+                <rect class="fd-ox" x="80" y="96" width="110" height="5"/>
+                <rect class="fd-crystal" x="20" y="101" width="210" height="10"/>
+                <rect class="fd-p" x="20" y="111" width="210" height="26" rx="3"/>
+                <text class="fd-sub" x="125" y="128" text-anchor="middle">rotating platen</text>
+                <text class="fd-sub" x="238" y="96">wafer, face down</text>
+                <text class="fd-sub" x="238" y="110">polishing pad</text>
+                <text class="fd-sub" x="238" y="128">platen</text>
+                <rect class="fd-metal" x="24" y="56" width="26" height="7" rx="2"/>
+                <circle class="fd-hole" cx="34" cy="72" r="2.6"/>
+                <circle class="fd-hole" cx="38" cy="84" r="2.6"/>
+                <circle class="fd-hole" cx="46" cy="94" r="2.6"/>
+                <text class="fd-accent" x="24" y="49">slurry</text>
+                <path class="fd-axis" d="M50 150 Q125 176 200 150"/><polygon class="fd-arrow" points="204,148 194,146 196,155"/>
+                <text class="fd-sub" x="125" y="172" text-anchor="middle">everything spins</text>
+                <text class="fd-sub" x="125" y="186" text-anchor="middle">high spots wear away first</text>
+                </svg>
+                </div>
+
+                <p>
+                The wafer is pressed face down onto a spinning polyurethane pad while a slurry of tiny abrasive particles in a chemical solution flows between them. The chemistry softens the surface, the abrasive removes it, and high points wear away faster than low ones.
+                </p>
+
+                <div class="module-takeaway">
+
+                CMP levels a surface by wearing down the high spots first.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 29 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                CMP INGREDIENTS
+                </p>
+
+                <h1>
+                Four things set the polish
+                </h1>
+
+                <div class="module-card-grid">
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🔵
+                </div>
+
+                <h3>Pad</h3>
+
+                <p>
+                Porous polyurethane that carries slurry across the wafer
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                💧
+                </div>
+
+                <h3>Slurry</h3>
+
+                <p>
+                Abrasive particles (silica, ceria, alumina) in a tuned chemical solution
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                ⚖️
+                </div>
+
+                <h3>Pressure and speed</h3>
+
+                <p>
+                Down-force and rotation set how fast material comes off
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                📡
+                </div>
+
+                <h3>Endpoint</h3>
+
+                <p>
+                Motor current or optical sensors show when the film has cleared
+                </p>
+
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Recipe, pad, and slurry decide how flat and how fast.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 30 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                CMP IN THE FAB
+                </p>
+
+                <h1>
+                Where the polish happens
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>Shallow trench isolation</strong>
+                <span>Polishes the oxide overfill flat and stops on a silicon nitride layer</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Copper damascene</strong>
+                <span>Removes the excess copper, leaving metal only in the trenches</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Tungsten plugs</strong>
+                <span>Polishes tungsten off the surface, leaving plugs in the contact holes</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Interlayer dielectric</strong>
+                <span>Flattens the insulator before the next metal layer goes on</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                CMP is what makes many stacked wiring layers possible.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 31 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                DISHING AND EROSION
+                </p>
+
+                <h1>
+                How polishing goes slightly wrong
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 68 340 132" role="img" aria-label="Cross-section after polishing: a wide copper line sits lower than the surrounding insulator (dishing) and a dense array of thin lines sits lower than the ideal surface (erosion)">
+                <path class="fd-ox" d="M20 90 H40 V106 H120 V90 H160 V102 H310 V90 H320 V160 H20 Z"/>
+                <rect class="fd-metal" x="40" y="106" width="80" height="44"/>
+                <rect class="fd-metal" x="200" y="102" width="8" height="42"/>
+                <rect class="fd-metal" x="216" y="102" width="8" height="42"/>
+                <rect class="fd-metal" x="232" y="102" width="8" height="42"/>
+                <rect class="fd-metal" x="248" y="102" width="8" height="42"/>
+                <rect class="fd-metal" x="264" y="102" width="8" height="42"/>
+                <line class="fd-dash" x1="20" y1="90" x2="320" y2="90"/>
+                <text class="fd-sub" x="24" y="82">ideal flat surface</text>
+                <line class="fd-accent" x1="80" y1="91" x2="80" y2="100"/><polygon class="fd-arrow" points="80,105 76.5,98 83.5,98"/>
+                <line class="fd-accent" x1="185" y1="91" x2="185" y2="96"/><polygon class="fd-arrow" points="185,101 181.5,94 188.5,94"/>
+                <text class="fd-label" x="80" y="178" text-anchor="middle">Dishing</text>
+                <text class="fd-sub" x="80" y="190" text-anchor="middle">wide copper line dips</text>
+                <text class="fd-label" x="235" y="178" text-anchor="middle">Erosion</text>
+                <text class="fd-sub" x="235" y="190" text-anchor="middle">dense array wears down</text>
+                </svg>
+                </div>
+
+                <p>
+                Soft copper in a wide line polishes lower than the surrounding insulator, which is called dishing. Dense arrays of lines wear the insulator away faster than open areas, which is called erosion. Designers add dummy fill patterns so the pattern density stays even across the die.
+                </p>
+
+                <div class="module-takeaway">
+
+                Even pattern density gives even polishing.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 32 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                CMP DEFECTS
+                </p>
+
+                <h1>
+                Polishing leaves a mess
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>Scratches</strong>
+                <span>Hard particles or pad debris gouge the surface</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Residual slurry</strong>
+                <span>Abrasive left behind becomes a particle defect</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Corrosion</strong>
+                <span>Slurry chemistry can attack exposed copper</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Post-CMP clean</strong>
+                <span>Scrubbing and rinsing right after polishing removes slurry before it dries</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Every polish is followed by a clean.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 33 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                CLEANING
+                </p>
+
+                <h1>
+                A clean surface before every layer
+                </h1>
+
+                <div class="module-card-grid">
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                ⚪
+                </div>
+
+                <h3>SC-1</h3>
+
+                <p>
+                Ammonia, hydrogen peroxide, and water. Removes particles and organic residue
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🧲
+                </div>
+
+                <h3>SC-2</h3>
+
+                <p>
+                Hydrochloric acid, hydrogen peroxide, and water. Removes metal ions
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🔥
+                </div>
+
+                <h3>Piranha or plasma</h3>
+
+                <p>
+                Sulfuric acid and peroxide, or oxygen plasma, strip heavy organics and resist
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🫧
+                </div>
+
+                <h3>Dilute HF dip</h3>
+
+                <p>
+                Removes native oxide right before the next step
+                </p>
+
+                </div>
+
+                </div>
+
+                <p>
+                The RCA clean, developed at RCA in the 1960s, is still the backbone of wafer cleaning.
+                </p>
+
+                <div class="module-takeaway">
+
+                Fabs clean the wafer over and over, because a stray particle or metal ion can kill a die.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 34 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                SHALLOW TRENCH ISOLATION
+                </p>
+
+                <h1>
+                One isolation step uses four tools
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>1 · Pad oxide and nitride</strong>
+                <span>Grow a thin oxide, then deposit silicon nitride by LPCVD</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>2 · Etch the trench</strong>
+                <span>Pattern, then plasma-etch through the nitride and into the silicon</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>3 · Liner and fill</strong>
+                <span>Grow a thin liner oxide, then overfill the trench with CVD oxide</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>4 · Polish</strong>
+                <span>CMP flattens the oxide and stops on the nitride</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>5 · Strip the nitride</strong>
+                <span>Hot phosphoric acid removes it, leaving oxide-filled isolation</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Growth, CVD, etch, and CMP team up to isolate neighboring transistors.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 35 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                COPPER DAMASCENE
+                </p>
+
+                <h1>
+                Cannot etch copper? Fill a trench instead
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>1 · Insulator</strong>
+                <span>Deposit the interlayer dielectric by CVD</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>2 · Etch</strong>
+                <span>Pattern and etch trenches, and via holes, into it</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>3 · Barrier and seed</strong>
+                <span>Sputter a Ta/TaN barrier, then a thin copper seed</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>4 · Plate</strong>
+                <span>Electroplate copper until it overfills the trenches</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>5 · Polish</strong>
+                <span>CMP removes the excess, leaving copper only in the trenches</span>
+                </div>
+
+                </div>
+
+                <p>
+                Copper forms no volatile compounds that a plasma etch can pump away, so fabs etch the trench in the insulator and fill it instead.
+                </p>
+
+                <div class="module-takeaway">
+
+                Damascene turns 'copper cannot be etched' into 'fill the trench.'
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 36 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                MATCHING TOOL TO FILM
+                </p>
+
+                <h1>
+                Which tool builds which layer
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>Gate and isolation oxide</strong>
+                <span>Furnace oxidation</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Polysilicon and nitride</strong>
+                <span>LPCVD</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Oxide between metal layers</strong>
+                <span>PECVD</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Aluminum, Ti, Ta, copper seed</strong>
+                <span>Sputtering (PVD)</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Copper wiring</strong>
+                <span>Electroplating</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Tungsten plugs</strong>
+                <span>CVD</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>High-k gate dielectric</strong>
+                <span>ALD</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                The film, its thickness, and the temperature limit together pick the tool.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 37 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                THERMAL BUDGET
+                </p>
+
+                <h1>
+                Hot first, gentle last
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                furnace first, gentle last
+                </div>
+
+                <p>
+                Steps early in the flow can use furnace heat above 1,000 °C. Once metal wiring is on the wafer, later steps must stay below roughly 400 °C, or the copper and delicate insulators would be damaged. That is why a flow runs from hot to cool, and why PECVD exists.
+                </p>
+
+                <div class="module-takeaway">
+
+                Every step has to survive everything already built on the wafer.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 38 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                HOW THIN?
+                </p>
+
+                <h1>
+                A ladder of layer thicknesses
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>Isolation oxide</strong>
+                <span>Hundreds of nanometers</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Polysilicon gate (classic)</strong>
+                <span>Roughly 100 to 200 nm</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Copper wiring</strong>
+                <span>Tens to hundreds of nanometers</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Barrier layer</strong>
+                <span>A few nanometers</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>High-k gate dielectric</strong>
+                <span>About 1 to 2 nm</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Native oxide</strong>
+                <span>About 1 to 2 nm</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Fabs control films from hundreds of nanometers down to a handful of atoms.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 39 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                WHAT IS NEXT
+                </p>
+
+                <h1>
+                Layers still need shapes
+                </h1>
+
+                <div class="module-visual">
+                ✏️
+                </div>
+
+                <p>
+                Growing, depositing, etching, and polishing build up a stack, but none of them decides where things go. That is the job of lithography: printing the pattern that tells every etch and deposition where to act.
+                </p>
+
+                <div class="module-takeaway">
+
+                Next in the course: light, masks, and printing features smaller than a virus.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- COMPLETION SLIDE -->
+
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 2 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🔥 → 🪞
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenges?
+                </h1>
+
+                <p class="module-lead">
+                    You can now explain how a fab grows, deposits, etches, and polishes the layers of a chip,
+                    and pick the right tool for each film.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeChipUnit2Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+</div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeChipUnit2Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathChipUnit2StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathChipUnit2StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "chip-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+</body>
+</html>

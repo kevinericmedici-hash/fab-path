@@ -6,8 +6,9 @@ devices, built for students heading into the chip industry.
 **Courses**
 
 - **Sand to Chip**: how a chip gets made, from quartz sand, purification, crystal
-  growth, and wafers to the cleanroom (Unit 1 live; lithography, the CMOS
-  process flow, yield, and packaging are planned).
+  growth, and wafers to the cleanroom, then the layer-building tools:
+  oxidation, deposition, etch, and CMP (Units 1 and 2 live; lithography, the
+  CMOS process flow, yield, and packaging are planned).
 - **MEMS & Microfabrication**: cleanroom practice, lithography, deposition,
   etching, real MEMS processes, and packaging (54 lessons, 8 games).
 - **Supercapacitors**: charge storage, materials, geometries, electrolytes,
