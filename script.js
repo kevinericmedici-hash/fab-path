@@ -9493,3 +9493,75 @@ function loadIndexPage() {
 }
 
 loadIndexPage();
+
+
+/* ========================================
+   START EVERY PAGE AT THE TOP
+   The site has smooth scrolling turned on,
+   and browsers like to restore the old scroll
+   position. Together those left learners stuck
+   partway down a page after leaving a unit or
+   a Fab Challenge, and on the middle of the
+   next slide or question. Every page now
+   starts at the top, and moving to the next
+   slide or question scrolls back up.
+======================================== */
+
+function fabScrollToTop() {
+
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "instant"
+    });
+}
+
+if ("scrollRestoration" in history) {
+
+    history.scrollRestoration = "manual";
+}
+
+if (!window.location.hash) {
+
+    fabScrollToTop();
+}
+
+window.addEventListener("pageshow", function (event) {
+
+    if (event.persisted && !window.location.hash) {
+
+        fabScrollToTop();
+    }
+});
+
+/*
+    Capture phase, so the button's label is read
+    before its own handler changes it. "Check Answer"
+    stays where it is, so the feedback is still in
+    view; "Continue" and "Finish" move on.
+*/
+
+document.addEventListener("click", function (event) {
+
+    const button =
+        event.target.closest &&
+        event.target.closest(
+            "#moduleNextButton, #moduleBackButton, .check-button"
+        );
+
+    if (!button) {
+
+        return;
+    }
+
+    if (
+        button.classList.contains("check-button") &&
+        !/^(Continue|Finish)/.test(button.textContent.trim())
+    ) {
+
+        return;
+    }
+
+    fabScrollToTop();
+
+}, true);
