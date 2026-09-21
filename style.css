@@ -3987,3 +3987,10 @@ svg text {
     stroke: rgba(255, 184, 107, 0.7);
     stroke-width: 1;
 }
+
+
+/* Part banners sit clear of the last node above them. */
+
+.learning-path .unit-banner:not(:first-child) {
+    margin-top: 50px;
+}

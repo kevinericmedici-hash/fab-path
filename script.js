@@ -7451,7 +7451,8 @@ function isLessonUnlocked(
 
 function createStudyNode(
     unit,
-    unitIndex
+    unitIndex,
+    positionClass
 ) {
 
     const complete =
@@ -7498,7 +7499,7 @@ function createStudyNode(
     return `
         <a
             href="${href}"
-            class="path-node node-left ${statusClass} lesson-link"
+            class="path-node ${positionClass} ${statusClass} lesson-link"
         >
 
             <div class="node-circle">
@@ -7536,7 +7537,8 @@ function createStudyNode(
 function createLessonNode(
     unit,
     lesson,
-    lessonIndex
+    lessonIndex,
+    positionClass
 ) {
 
     const complete =
@@ -7583,17 +7585,6 @@ function createLessonNode(
         href =
             `lesson${lesson.id}.html`;
     }
-
-
-    /*
-        Automatically alternate
-        left / right.
-    */
-
-    const positionClass =
-        lessonIndex % 2 === 0
-            ? "node-right"
-            : "node-left";
 
 
     return `
@@ -7652,6 +7643,27 @@ function renderLearningPath() {
     let html = "";
 
 
+    /*
+        Zig and zag down the whole path: every study
+        module and every Fab Challenge alternates sides,
+        whatever the size of the unit before it.
+    */
+
+    let nodeCount = 0;
+
+    function nextPositionClass() {
+
+        const positionClass =
+            nodeCount % 2 === 0
+                ? "node-left"
+                : "node-right";
+
+        nodeCount++;
+
+        return positionClass;
+    }
+
+
     courseData.forEach(
         function (unit, unitIndex) {
 
@@ -7700,7 +7712,8 @@ function renderLearningPath() {
             html +=
                 createStudyNode(
                     unit,
-                    unitIndex
+                    unitIndex,
+                    nextPositionClass()
                 );
 
 
@@ -7718,7 +7731,8 @@ function renderLearningPath() {
                         createLessonNode(
                             unit,
                             lesson,
-                            lessonIndex
+                            lessonIndex,
+                            nextPositionClass()
                         );
 
 
