@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Planarization (CMP) | Fab Path</title>
+    <meta name="description" content="Planarization (CMP): illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Planarization (CMP) | Fab Path">
+    <meta property="og:description" content="Planarization (CMP): illustrated study slides from the Sand to Chip course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="chip-learn.html">Learn</a>
+            <a href="chip-games.html">Games</a>
+            <a href="chip-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="chip-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 7
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                UNIT 11 • PLANARIZATION (CMP)
+                </p>
+
+                <h1>
+                Layers pile up bumps
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 62 340 134" role="img" aria-label="Two wafer cross-sections: without polishing the oxide layer copies the bumps of the metal lines beneath it; after CMP the surface is flat">
+                <rect class="fd-p" x="10" y="150" width="150" height="16"/>
+                <rect class="fd-p" x="180" y="150" width="150" height="16"/>
+                <rect class="fd-metal" x="36" y="122" width="32" height="28"/><rect class="fd-metal" x="98" y="122" width="32" height="28"/>
+                <path class="fd-lost" style="fill:none;stroke:#ffd666;stroke-width:9;stroke-opacity:.75;stroke-linejoin:round" d="M10 145.5 H31.5 V117.5 H72.5 V145.5 H93.5 V117.5 H134.5 V145.5 H160"/>
+                <text class="fd-label" x="85" y="78" text-anchor="middle">Without CMP</text>
+                <text class="fd-sub" x="85" y="182" text-anchor="middle">layers copy the bumps</text>
+                <line class="fd-dash" x1="10" y1="104" x2="160" y2="104"/>
+                <text class="fd-sub" x="85" y="98" text-anchor="middle">focus plane</text>
+                <rect class="fd-ox" x="180" y="112" width="150" height="38"/>
+                <rect class="fd-metal" x="206" y="122" width="32" height="28"/><rect class="fd-metal" x="268" y="122" width="32" height="28"/>
+                <text class="fd-label" x="255" y="78" text-anchor="middle">After CMP</text>
+                <text class="fd-sub" x="255" y="182" text-anchor="middle">flat, easy to focus on</text>
+                <line class="fd-dash" x1="180" y1="104" x2="330" y2="104"/>
+                <text class="fd-sub" x="255" y="98" text-anchor="middle">focus plane</text>
+                </svg>
+                </div>
+
+                <p>
+                Every patterned layer leaves topography behind. Left alone, bumps stack up, thin wires crack when they cross steps, and lithography cannot keep a bumpy surface in focus, because its depth of focus is only a fraction of a micron and shrinking.
+                </p>
+
+                <div class="module-takeaway">
+
+                A flat wafer is a lithography requirement, not a cosmetic one.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 2 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                CHEMICAL MECHANICAL POLISHING
+                </p>
+
+                <h1>
+                Grind flat with chemistry and grit
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 192" role="img" aria-label="A chemical mechanical polishing tool: a carrier presses a wafer face down onto a spinning pad while slurry flows between them">
+                <line class="fd-axis" x1="100" y1="10" x2="100" y2="55"/><polygon class="fd-arrow" points="100,60 96.5,53 103.5,53"/>
+                <line class="fd-axis" x1="170" y1="10" x2="170" y2="55"/><polygon class="fd-arrow" points="170,60 166.5,53 173.5,53"/>
+                <text class="fd-accent" x="135" y="20" text-anchor="middle">down-force</text>
+                <rect class="fd-metal" x="70" y="62" width="130" height="26" rx="3"/>
+                <text class="fd-label" x="135" y="79" text-anchor="middle">carrier</text>
+                <rect class="fd-p" x="80" y="88" width="110" height="8"/>
+                <rect class="fd-ox" x="80" y="96" width="110" height="5"/>
+                <rect class="fd-crystal" x="20" y="101" width="210" height="10"/>
+                <rect class="fd-p" x="20" y="111" width="210" height="26" rx="3"/>
+                <text class="fd-sub" x="125" y="128" text-anchor="middle">rotating platen</text>
+                <text class="fd-sub" x="238" y="96">wafer, face down</text>
+                <text class="fd-sub" x="238" y="110">polishing pad</text>
+                <text class="fd-sub" x="238" y="128">platen</text>
+                <rect class="fd-metal" x="24" y="56" width="26" height="7" rx="2"/>
+                <circle class="fd-hole" cx="34" cy="72" r="2.6"/>
+                <circle class="fd-hole" cx="38" cy="84" r="2.6"/>
+                <circle class="fd-hole" cx="46" cy="94" r="2.6"/>
+                <text class="fd-accent" x="24" y="49">slurry</text>
+                <path class="fd-axis" d="M50 150 Q125 176 200 150"/><polygon class="fd-arrow" points="204,148 194,146 196,155"/>
+                <text class="fd-sub" x="125" y="172" text-anchor="middle">everything spins</text>
+                <text class="fd-sub" x="125" y="186" text-anchor="middle">high spots wear away first</text>
+                </svg>
+                </div>
+
+                <p>
+                The wafer is pressed face down onto a spinning polyurethane pad while a slurry of tiny abrasive particles in a chemical solution flows between them. The chemistry softens the surface, the abrasive removes it, and high points wear away faster than low ones.
+                </p>
+
+                <div class="module-takeaway">
+
+                CMP levels a surface by wearing down the high spots first.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 3 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                CMP INGREDIENTS
+                </p>
+
+                <h1>
+                Four things set the polish
+                </h1>
+
+                <div class="module-card-grid">
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🔵
+                </div>
+
+                <h3>Pad</h3>
+
+                <p>
+                Porous polyurethane that carries slurry across the wafer
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                💧
+                </div>
+
+                <h3>Slurry</h3>
+
+                <p>
+                Abrasive particles (silica, ceria, alumina) in a tuned chemical solution
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                ⚖️
+                </div>
+
+                <h3>Pressure and speed</h3>
+
+                <p>
+                Down-force and rotation set how fast material comes off
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                📡
+                </div>
+
+                <h3>Endpoint</h3>
+
+                <p>
+                Motor current or optical sensors show when the film has cleared
+                </p>
+
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Recipe, pad, and slurry decide how flat and how fast.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                CMP IN THE FAB
+                </p>
+
+                <h1>
+                Where the polish happens
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>Shallow trench isolation</strong>
+                <span>Polishes the oxide overfill flat and stops on a silicon nitride layer</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Copper damascene</strong>
+                <span>Removes the excess copper, leaving metal only in the trenches</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Tungsten plugs</strong>
+                <span>Polishes tungsten off the surface, leaving plugs in the contact holes</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Interlayer dielectric</strong>
+                <span>Flattens the insulator before the next metal layer goes on</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                CMP is what makes many stacked wiring layers possible.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                DISHING AND EROSION
+                </p>
+
+                <h1>
+                How polishing goes slightly wrong
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 68 340 132" role="img" aria-label="Cross-section after polishing: a wide copper line sits lower than the surrounding insulator (dishing) and a dense array of thin lines sits lower than the ideal surface (erosion)">
+                <path class="fd-ox" d="M20 90 H40 V106 H120 V90 H160 V102 H310 V90 H320 V160 H20 Z"/>
+                <rect class="fd-metal" x="40" y="106" width="80" height="44"/>
+                <rect class="fd-metal" x="200" y="102" width="8" height="42"/>
+                <rect class="fd-metal" x="216" y="102" width="8" height="42"/>
+                <rect class="fd-metal" x="232" y="102" width="8" height="42"/>
+                <rect class="fd-metal" x="248" y="102" width="8" height="42"/>
+                <rect class="fd-metal" x="264" y="102" width="8" height="42"/>
+                <line class="fd-dash" x1="20" y1="90" x2="320" y2="90"/>
+                <text class="fd-sub" x="24" y="82">ideal flat surface</text>
+                <line class="fd-accent" x1="80" y1="91" x2="80" y2="100"/><polygon class="fd-arrow" points="80,105 76.5,98 83.5,98"/>
+                <line class="fd-accent" x1="185" y1="91" x2="185" y2="96"/><polygon class="fd-arrow" points="185,101 181.5,94 188.5,94"/>
+                <text class="fd-label" x="80" y="178" text-anchor="middle">Dishing</text>
+                <text class="fd-sub" x="80" y="190" text-anchor="middle">wide copper line dips</text>
+                <text class="fd-label" x="235" y="178" text-anchor="middle">Erosion</text>
+                <text class="fd-sub" x="235" y="190" text-anchor="middle">dense array wears down</text>
+                </svg>
+                </div>
+
+                <p>
+                Soft copper in a wide line polishes lower than the surrounding insulator, which is called dishing. Dense arrays of lines wear the insulator away faster than open areas, which is called erosion. Designers add dummy fill patterns so the pattern density stays even across the die.
+                </p>
+
+                <div class="module-takeaway">
+
+                Even pattern density gives even polishing.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 6 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                CMP DEFECTS
+                </p>
+
+                <h1>
+                Polishing leaves a mess
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>Scratches</strong>
+                <span>Hard particles or pad debris gouge the surface</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Residual slurry</strong>
+                <span>Abrasive left behind becomes a particle defect</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Corrosion</strong>
+                <span>Slurry chemistry can attack exposed copper</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Post-CMP clean</strong>
+                <span>Scrubbing and rinsing right after polishing removes slurry before it dries</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Every polish is followed by a clean.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 7 -->
+
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 11 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🪞
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You can explain why wafers are polished flat and how CMP can go wrong.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeChipUnit11Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+</div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeChipUnit11Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathChipUnit11StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathChipUnit11StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "chip-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

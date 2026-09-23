@@ -846,10 +846,796 @@ const chipLesson12Questions = [
 ];
 
 
+const chipLesson13Questions = [
+
+    {
+        question: "What does photoresist do after it is exposed to light?",
+        answers: [
+            "Its solubility in developer changes",
+            "It grows a layer of silicon dioxide",
+            "It becomes a permanent metal film",
+            "It evaporates and leaves the wafer"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What is the pattern-carrying plate in a scanner called?",
+        answers: [
+            "A reticle, or photomask",
+            "A gas-distribution plate",
+            "A vacuum wafer chuck",
+            "A polishing carrier"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "With a positive resist, which part dissolves in the developer?",
+        answers: [
+            "Only the very top surface layer",
+            "The area that stayed in the dark",
+            "The area that was exposed to light",
+            "The whole coating in every case"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Why does a fab use a different reticle for each layer?",
+        answers: [
+            "Each layer needs its own pattern",
+            "A reticle can hold only one chip",
+            "Reticles wear out after one exposure",
+            "Each layer uses a different wavelength"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Besides etching, what is a resist pattern used for?",
+        answers: [
+            "Sawing the wafers into separate dies",
+            "Blocking dopant ions during implantation",
+            "Growing epitaxial silicon layers on top",
+            "Polishing copper flat after plating"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What does the 'develop' step do?",
+        answers: [
+            "Washes away the soluble resist",
+            "Bakes the wafer until it turns black",
+            "Bonds the wafer to a carrier plate",
+            "Grows more resist under the mask"
+        ],
+        correct: 0
+    }
+
+];
+
+
+const chipLesson14Questions = [
+
+    {
+        question: "Why is HMDS applied before the resist is spun on?",
+        answers: [
+            "It helps the resist stick to the wafer",
+            "It etches away the native oxide",
+            "It cools the wafer before baking",
+            "It makes the resist sensitive to light"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What mainly sets the resist thickness in spin coating?",
+        answers: [
+            "The temperature of the cleanroom air",
+            "The size of the reticle image",
+            "Spin speed and resist viscosity",
+            "The wavelength of the exposure light"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What does a post-exposure bake do in chemically amplified resists?",
+        answers: [
+            "Hardens the resist before it is exposed",
+            "Grows a thin oxide under the resist",
+            "Washes away the unexposed regions",
+            "Lets photoacid spread and amplify the change"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Which is the standard developer for most positive resists?",
+        answers: [
+            "Piranha solution",
+            "Dilute TMAH solution",
+            "Buffered oxide etch",
+            "Hot phosphoric acid"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What is the 'track' in a lithography cell?",
+        answers: [
+            "The rails the reticle stage slides on",
+            "The path light takes through the lens",
+            "The belt that carries finished dies off",
+            "The coater and developer line by the scanner"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "How is leftover resist usually removed after etching?",
+        answers: [
+            "Polishing it off with slurry",
+            "Baking it until it turns to metal",
+            "Oxygen plasma ashing plus a wet clean",
+            "Growing oxide over the top of it"
+        ],
+        correct: 2
+    }
+
+];
+
+
+const chipLesson15Questions = [
+
+    {
+        question: "In CD = k₁λ/NA, what does a shorter wavelength do?",
+        answers: [
+            "It enlarges the reticle pattern",
+            "It raises the depth of focus",
+            "It shrinks the smallest printable feature",
+            "It makes the lens numerical aperture bigger"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Which wavelength does ArF immersion lithography use?",
+        answers: [
+            "365 nm",
+            "193 nm",
+            "436 nm",
+            "13.5 nm"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What does numerical aperture (NA) describe?",
+        answers: [
+            "How wide a cone of light the lens collects",
+            "How thick the resist film has to be",
+            "How fast the wafer stage is able to move",
+            "How brightly the light source is burning"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Why does immersion lithography put water under the lens?",
+        answers: [
+            "Water cools the reticle while it scans",
+            "Water dissolves the exposed resist",
+            "Water's higher index allows a larger NA",
+            "Water rinses particles off the mask"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What happens to depth of focus as NA increases?",
+        answers: [
+            "It gets larger",
+            "It gets smaller",
+            "It stays the same",
+            "It becomes unlimited"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What is the theoretical minimum k₁ for a single exposure?",
+        answers: [
+            "0.05",
+            "2.50",
+            "1.00",
+            "0.25"
+        ],
+        correct: 3
+    }
+
+];
+
+
+const chipLesson16Questions = [
+
+    {
+        question: "Why is the reticle image four times larger than what prints?",
+        answers: [
+            "Light travels four times faster there",
+            "The resist enlarges the image by 4×",
+            "The wafer is four times thicker",
+            "The lens shrinks it 4× onto the wafer"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "During a scan with 4× reduction, how do the two stages move?",
+        answers: [
+            "The reticle moves four times faster",
+            "Only the projection lens moves",
+            "Both stay perfectly still",
+            "Both spin like a record"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What is overlay?",
+        answers: [
+            "How accurately one layer aligns to the last",
+            "How much light the projection lens absorbs",
+            "How thick the finished resist coating is",
+            "How many separate layers a chip contains"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What does optical proximity correction (OPC) do?",
+        answers: [
+            "Speeds up the post-exposure resist bake",
+            "Aligns the wafer to the scanner stage",
+            "Cleans particles off the reticle surface",
+            "Pre-distorts mask shapes to print correctly"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Why is a pellicle placed over a reticle?",
+        answers: [
+            "It reflects the light back onto the wafer",
+            "It cools the chrome pattern on the mask",
+            "It focuses the light into a finer spot",
+            "Dust lands out of focus and does not print"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Why can one reticle defect be so costly?",
+        answers: [
+            "It stops the scanner permanently",
+            "It only affects the first exposure",
+            "It prints on every die of every wafer",
+            "It changes the wafer's crystal orientation"
+        ],
+        correct: 2
+    }
+
+];
+
+
+const chipLesson17Questions = [
+
+    {
+        question: "About what limits single-exposure 193 nm immersion lithography?",
+        answers: [
+            "About 400 nm half-pitch",
+            "About 4 nm half-pitch",
+            "About 40 nm half-pitch",
+            "It has no real limit at all"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What is the idea of multi-patterning?",
+        answers: [
+            "Build a dense pattern in simpler steps",
+            "Use a larger reticle for every layer",
+            "Expose the same layer with longer light",
+            "Print each die at a separate time"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "In self-aligned double patterning, what sets the final line spacing?",
+        answers: [
+            "The size of the scanner's main lens",
+            "A second reticle stacked on the first",
+            "Spacers formed on the sides of mandrels",
+            "The temperature of the developer bath"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "How is EUV light made in a production scanner?",
+        answers: [
+            "An LED array emits extreme ultraviolet",
+            "A laser hits tin droplets to form a plasma",
+            "A mercury lamp is filtered to 13.5 nm",
+            "Sunlight is focused through a lens"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Why does an EUV scanner use mirrors in a vacuum?",
+        answers: [
+            "Mirrors are always cheaper than lenses",
+            "Air and glass absorb 13.5 nm light",
+            "Lenses cannot be made larger than 300 mm",
+            "Vacuum makes the resist more sensitive"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "About what fraction of EUV source light reaches the wafer?",
+        answers: [
+            "Nearly all of it",
+            "About half of it",
+            "More than the source emits",
+            "Only a small fraction"
+        ],
+        correct: 3
+    }
+
+];
+
+
+const chipLesson18Questions = [
+
+    {
+        question: "What is a lithography process window?",
+        answers: [
+            "The time a wafer spends in the track",
+            "The focus and dose range that stays in spec",
+            "The size of the scanner's exposure field",
+            "The opening in the reticle pellicle"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Which instrument commonly measures printed feature size?",
+        answers: [
+            "A mass spectrometer",
+            "A four-point probe",
+            "A profilometer stylus",
+            "A CD-SEM"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Why is EUV prone to stochastic defects?",
+        answers: [
+            "Fewer photons per dose means random noise",
+            "The reticle is drawn on cheap paper stock",
+            "The light is too dim for detectors to see",
+            "EUV resist never manages to fully develop"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What is unique about lithography compared with etch or implant?",
+        answers: [
+            "Bad resist patterns can be stripped, redone",
+            "It can never be inspected after printing",
+            "It only ever needs doing once per chip",
+            "It changes the wafer permanently, like etch"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What is e-beam direct writing mainly used for today?",
+        answers: [
+            "Growing epitaxial silicon layers",
+            "Making masks and research patterns",
+            "High-volume wafer production lines",
+            "Cleaning resist residue off wafers"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What is line-edge roughness (LER)?",
+        answers: [
+            "The tilt of a wafer in the scanner",
+            "Random waviness along a printed line's edge",
+            "The thickness variation across a wafer",
+            "The overlay error between two layers"
+        ],
+        correct: 1
+    }
+
+];
+
+
 /*
     Looked up by numeric lesson id, the same
     pattern the other courses use.
 */
+
+
+const chipLesson19Questions = [
+
+    {
+        question: "Why does a fab purify silicon to nine nines before doping it?",
+        answers: [
+            "So the finished wafer weighs noticeably less than before",
+            "So the only impurity present is the kind added on purpose",
+            "So the crystal no longer needs any doping at all",
+            "So the wafer conducts current on its own, unaided"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What does an n-type dopant such as phosphorus add to silicon?",
+        answers: [
+            "An extra hole that is free to move",
+            "A neutral atom with no charge",
+            "An extra electron that is free to move",
+            "A second, identical silicon atom"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "In p-type silicon, which carrier is the minority carrier?",
+        answers: [
+            "Holes, present only in trace amounts",
+            "Phosphorus ions fixed in the lattice",
+            "Photons absorbed at the surface",
+            "Electrons, present only in trace amounts"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What forms at the boundary between p-type and n-type silicon?",
+        answers: [
+            "A depletion region with almost no carriers",
+            "A region with double the usual carriers",
+            "A layer of pure, undoped silicon",
+            "A permanent short between the sides"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What kind of well does a MOSFET's source and drain sit inside?",
+        answers: [
+            "A well of the matching doping type",
+            "A well of the opposite doping type",
+            "A layer of pure silicon dioxide",
+            "A block of undoped polysilicon"
+        ],
+        correct: 1
+    }
+
+];
+
+
+const chipLesson20Questions = [
+
+    {
+        question: "What drives dopant atoms into silicon during diffusion doping?",
+        answers: [
+            "Heat, carrying dopant from high to low concentration",
+            "A beam of ions accelerated through a field",
+            "A strong magnetic field placed near the wafer",
+            "Vacuum pressure pulling steadily on the surface"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What is the purpose of the predeposition step?",
+        answers: [
+            "Push the loaded dopant to its final depth",
+            "Load a fixed dose of dopant at the surface",
+            "Strip the patterned photoresist mask off",
+            "Anneal out damage left in the lattice"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What does drive-in do that predeposition does not?",
+        answers: [
+            "Set the total dose that will be delivered",
+            "Filter out the wrong dopant species entirely",
+            "Push the dopant deeper and shape its profile",
+            "Tilt the wafer for the whole implant step"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What shape does a diffused dopant profile have?",
+        answers: [
+            "A sharp, box-like step at one fixed depth",
+            "A flat line that is even at every depth",
+            "A single spike at just one exact point",
+            "A smooth gradient, peaking at the surface"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Why did ion implantation replace diffusion for small transistors?",
+        answers: [
+            "Diffusion spreads sideways as much as down",
+            "Diffusion only works on n-type silicon",
+            "Diffusion needs a sealed vacuum chamber",
+            "Diffusion cannot dope silicon at all"
+        ],
+        correct: 0
+    }
+
+];
+
+
+const chipLesson21Questions = [
+
+    {
+        question: "What does an ion implanter's mass-analyzing magnet do?",
+        answers: [
+            "Heats the wafer to activate the dopant",
+            "Strips the patterned resist mask off",
+            "Grows a fresh oxide layer on top",
+            "Bends the beam so only the right ion passes"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What does implant dose control?",
+        answers: [
+            "How much dopant lands, per square centimeter",
+            "How deep the dopant finally comes to rest",
+            "Which element is being implanted today",
+            "How long the later anneal runs for"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What does implant energy control?",
+        answers: [
+            "How many ions land in total",
+            "How deep the ions come to rest",
+            "Which material masks the implant",
+            "The tilt angle of the wafer"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Why does a thick layer of resist mask an implant?",
+        answers: [
+            "It reflects the ions back to the source",
+            "It chemically neutralizes the dopant",
+            "It physically blocks the ions from silicon",
+            "It cools the wafer during the implant"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Why is the wafer tilted a few degrees during implantation?",
+        answers: [
+            "To make the beam spot noticeably larger",
+            "To keep the whole wafer from overheating",
+            "To match the fixed tilt of the mask",
+            "To keep ions from channeling down the lattice"
+        ],
+        correct: 3
+    }
+
+];
+
+
+const chipLesson22Questions = [
+
+    {
+        question: "What does implantation do to the lattice besides add dopant?",
+        answers: [
+            "It polishes the surface smoother",
+            "It removes the native oxide film",
+            "It knocks silicon atoms out of place",
+            "It cools the wafer below room heat"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What does 'activating' a dopant atom actually mean?",
+        answers: [
+            "Removing it from the silicon entirely for good",
+            "Turning it into an entirely different element",
+            "Bonding it permanently to the gate oxide",
+            "Moving it into a substitutional lattice site"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What is the main risk of annealing at high temperature?",
+        answers: [
+            "The dopant diffuses and smears the profile",
+            "The wafer turns electrically neutral",
+            "The silicon reverts back into sand",
+            "The implant dose doubles by itself"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What makes a spike anneal different from a furnace anneal?",
+        answers: [
+            "It never rises above plain room temperature",
+            "It sits at peak temperature for about a second",
+            "It uses an ion beam instead of any heat",
+            "It only anneals the wafer's outer edge"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Why do smaller transistors generally need faster anneals?",
+        answers: [
+            "Smaller transistors hold no dopant at all",
+            "Faster anneals are simply cheaper to run",
+            "The same spread eats more of a short channel",
+            "Smaller wafers heat up more slowly"
+        ],
+        correct: 2
+    }
+
+];
+
+
+const chipLesson23Questions = [
+
+    {
+        question: "Why does CMOS fabrication need both n-wells and p-wells?",
+        answers: [
+            "Wells are decorative and don't affect it",
+            "NMOS and PMOS need opposite well types",
+            "One well type covers both transistors",
+            "Wells replace the need for a gate"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What sits between the source and drain in a MOSFET?",
+        answers: [
+            "A second, entirely unconnected transistor",
+            "A solid, uninterrupted block of metal",
+            "The channel, controlled by the gate above",
+            "An open, completely empty vacuum gap"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What does a lightly-doped drain (LDD) implant do?",
+        answers: [
+            "Doubles the drain's total doping level",
+            "Removes the need for a gate oxide",
+            "Insulates the drain from the channel",
+            "Softens the electric field at the drain"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What is a halo implant's doping type relative to its well?",
+        answers: [
+            "The same type as the well it sits in",
+            "The opposite type of the well",
+            "Always intrinsic, undoped silicon",
+            "The same type as the source and drain"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Why is the gate stack built before the source and drain?",
+        answers: [
+            "Because the gate can't be patterned later",
+            "So the gate aligns the implants to itself",
+            "Because implants would damage the oxide",
+            "Because wells are implanted after it"
+        ],
+        correct: 1
+    }
+
+];
+
+
+const chipLesson24Questions = [
+
+    {
+        question: "Which comes first: the well implant or the gate stack?",
+        answers: [
+            "The well implant",
+            "The gate stack",
+            "Both happen in one step",
+            "Neither one is doped"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Why can the LDD implant skip an extra alignment mask?",
+        answers: [
+            "LDD implants never need any mask",
+            "It aligns to the edge the gate defines",
+            "It happens before the gate exists",
+            "Resist aligns itself automatically"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What does the sidewall spacer do before the deeper implant?",
+        answers: [
+            "Insulates the gate from the well for good",
+            "Takes the place of the anneal step",
+            "Sets that implant back from the gate",
+            "Removes the gate oxide completely"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Roughly how short can a modern logic transistor's gate be?",
+        answers: [
+            "About 1 millimeter across",
+            "About 500 micrometers across",
+            "About 1 centimeter across",
+            "Well under 20 nanometers"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Why does a few-nanometer error matter so much at that scale?",
+        answers: [
+            "It is a large share of the device's margin",
+            "It has no effect at such small sizes",
+            "Transistors at that size tolerate anything",
+            "Errors that small always cancel out"
+        ],
+        correct: 0
+    }
+
+];
 
 const chipAllLessonQuestions = {
     1: chipLesson1Questions,
@@ -863,5 +1649,17 @@ const chipAllLessonQuestions = {
     9: chipLesson9Questions,
     10: chipLesson10Questions,
     11: chipLesson11Questions,
-    12: chipLesson12Questions
+    12: chipLesson12Questions,
+    13: chipLesson13Questions,
+    14: chipLesson14Questions,
+    15: chipLesson15Questions,
+    16: chipLesson16Questions,
+    17: chipLesson17Questions,
+    18: chipLesson18Questions,
+    19: chipLesson19Questions,
+    20: chipLesson20Questions,
+    21: chipLesson21Questions,
+    22: chipLesson22Questions,
+    23: chipLesson23Questions,
+    24: chipLesson24Questions
 };

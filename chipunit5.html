@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Why Silicon? | Fab Path</title>
-    <meta name="description" content="Why Silicon?: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <title>Ingot to Wafer | Fab Path</title>
+    <meta name="description" content="Ingot to Wafer: illustrated study slides from the Sand to Chip course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Why Silicon? | Fab Path">
-    <meta property="og:description" content="Why Silicon?: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta property="og:title" content="Ingot to Wafer | Fab Path">
+    <meta property="og:description" content="Ingot to Wafer: illustrated study slides from the Sand to Chip course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -72,7 +72,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 6
+                    1 / 7
                 </span>
 
             </div>
@@ -88,24 +88,45 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    UNIT 2 • WHY SILICON?
+                    UNIT 5 • INGOT TO WAFER
                 </p>
 
                 <h1>
-                    Silicon by the numbers
+                    From ingot to wafers
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    ≈ 28% of the crust
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 176" role="img" aria-label="An ingot is sliced into thin wafers">
+<path class="fd-crystal" d="M22 48 L22 118 A46 12 0 0 0 114 118 L114 48 Z"/>
+<ellipse class="fd-crystal" cx="68" cy="48" rx="46" ry="12"/>
+<path class="fd-dash" d="M22 68 A46 12 0 0 0 114 68"/>
+<path class="fd-dash" d="M22 88 A46 12 0 0 0 114 88"/>
+<path class="fd-dash" d="M22 106 A46 12 0 0 0 114 106"/>
+<text class="fd-label" x="68" y="152" text-anchor="middle">Ingot</text>
+<text class="fd-sub" x="68" y="166" text-anchor="middle">≈ 300 mm × ~2 m</text>
+<line class="fd-axis" x1="128" y1="84" x2="173" y2="84"/><polygon class="fd-arrow" points="178,84 171,80.5 171,87.5"/>
+<text class="fd-accent" x="153" y="72" text-anchor="middle">wire saw</text>
+<ellipse class="fd-p" cx="250" cy="44" rx="52" ry="11" style="stroke:#54e0c7"/>
+<ellipse class="fd-p" cx="250" cy="62" rx="52" ry="11" style="stroke:#54e0c7"/>
+<ellipse class="fd-p" cx="250" cy="80" rx="52" ry="11" style="stroke:#54e0c7"/>
+<ellipse class="fd-p" cx="250" cy="98" rx="52" ry="11" style="stroke:#54e0c7"/>
+<ellipse class="fd-p" cx="250" cy="116" rx="52" ry="11" style="stroke:#54e0c7"/>
+<ellipse class="fd-n" cx="250" cy="44" rx="52" ry="11"/>
+<path d="M247 53 Q250 49 253 53 Z" fill="#0b1020" stroke="#54e0c7" stroke-width="1"/>
+<text class="fd-label" x="250" y="152" text-anchor="middle">Wafers</text>
+<text class="fd-sub" x="250" y="166" text-anchor="middle">≈ 775 µm thick each</text>
+</svg>
                 </div>
 
                 <p>
-                    Silicon is the second most abundant element in Earth's crust after oxygen, at roughly 28 percent by mass. It is found bound to oxygen in sand and quartz, so the raw material is essentially free.
+                    The ingot is trimmed, ground to an exact diameter, marked with a notch, and sliced into thin discs by a diamond-coated wire saw. Each slice becomes one wafer.
                 </p>
 
                 <div class="module-takeaway">
 
-                    The hard part isn't finding silicon. It's purifying it.
+                    
+
+                    One ingot yields hundreds of wafers.
 
                 </div>
 
@@ -117,38 +138,48 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    BAND GAPS
+                    THE FINISHING LINE
                 </p>
 
                 <h1>
-                    How the semiconductors compare
+                    A typical order of steps
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>Germanium</strong>
-                        <span>0.66 eV · the first transistors, but leaky at room temperature</span>
+                        <strong>Crop and test</strong>
+                        <span>Remove the ends and check resistivity and crystal quality</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Silicon</strong>
-                        <span>1.12 eV · the balanced workhorse</span>
+                        <strong>Grind and mark</strong>
+                        <span>Grind to exact diameter and add the notch</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Gallium arsenide</strong>
-                        <span>1.42 eV · fast electrons and good light emission</span>
+                        <strong>Slice</strong>
+                        <span>A diamond wire saw cuts the ingot into wafers</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Silicon carbide</strong>
-                        <span>about 3.3 eV · high-voltage, high-temperature power</span>
+                        <strong>Round and lap</strong>
+                        <span>Round the edges to prevent chipping, then lap flat</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Gallium nitride</strong>
-                        <span>about 3.4 eV · power, radio, and blue LEDs</span>
+                        <strong>Etch</strong>
+                        <span>Chemistry removes the damaged surface layer</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Polish</strong>
+                        <span>Chemical-mechanical polishing gives a mirror finish</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Clean and inspect</strong>
+                        <span>Remove particles and check flatness and defects</span>
                     </div>
 
                 </div>
@@ -157,7 +188,7 @@
 
                     
 
-                    A wider band gap tolerates more voltage and heat; a narrower one switches at lower energy but leaks more.
+                    Each step removes damage caused by the one before it.
 
                 </div>
 
@@ -169,62 +200,24 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    SILICON'S SUPERPOWERS
+                    NOTCH AND FLATS
                 </p>
 
                 <h1>
-                    Why it won
+                    A mark that says which way is up
                 </h1>
 
-                <div class="module-card-grid">
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🧱
-                        </div>
-
-                        <h3>A native oxide</h3>
-
-                        <p>
-                            Heating silicon in oxygen grows SiO₂, a stable, high-quality insulator that bonds cleanly to the crystal
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🔥
-                        </div>
-
-                        <h3>A wide processing window</h3>
-
-                        <p>
-                            It melts at 1,414 °C and tolerates the high temperatures that oxidation and doping need
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🎚️
-                        </div>
-
-                        <h3>Controllable conductivity</h3>
-
-                        <p>
-                            Tiny amounts of boron or phosphorus set how well it conducts
-                        </p>
-
-                    </div>
-
+                <div class="module-visual module-visual-text">
+                    notch → orientation
                 </div>
+
+                <p>
+                    300 mm wafers carry a tiny notch that tells equipment how the crystal lattice is oriented; smaller wafers use a flat edge instead. Tools use it to align each wafer so that layers and cuts line up with the crystal.
+                </p>
 
                 <div class="module-takeaway">
 
-                    The best transistor material is the one you can build a whole ecosystem around.
+                    Every wafer, in every tool, is aligned to its notch.
 
                 </div>
 
@@ -236,28 +229,38 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    WHERE OTHERS WIN
+                    WAFER SIZES
                 </p>
 
                 <h1>
-                    What silicon can't do well
+                    Bigger wafers, more chips
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>Emitting light</strong>
-                        <span>Silicon's indirect band gap makes a poor light source, so LEDs and lasers use III-V compounds</span>
+                        <strong>150 mm · 6 inch</strong>
+                        <span>About 675 µm thick</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Very fast radio</strong>
-                        <span>Gallium arsenide and related compounds move electrons faster, for some RF uses</span>
+                        <strong>200 mm · 8 inch</strong>
+                        <span>About 725 µm thick</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>High-voltage power</strong>
-                        <span>Silicon carbide and gallium nitride handle more voltage and heat</span>
+                        <strong>300 mm · 12 inch</strong>
+                        <span>About 775 µm thick</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Area jump</strong>
+                        <span>A 300 mm wafer has about 2.25 times the area of a 200 mm wafer</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>450 mm</strong>
+                        <span>Proposed, but the industry never adopted it</span>
                     </div>
 
                 </div>
@@ -266,7 +269,7 @@
 
                     
 
-                    Silicon wins on cost and ecosystem, so it's used unless something else is essential.
+                    Thickness grows with diameter so the wafer stays strong enough to handle.
 
                 </div>
 
@@ -278,24 +281,62 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    GERMANIUM'S FALL
+                    SPECIAL WAFERS
                 </p>
 
                 <h1>
-                    Why the first material lost
+                    Not every wafer is plain
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    Ge oxide: water-soluble
-                </div>
+                <div class="module-card-grid">
 
-                <p>
-                    The first transistor in 1947 used germanium. But germanium's oxide is unstable and dissolves in water, and its small band gap makes it leak heavily at room temperature. Silicon's robust oxide made reliable integrated circuits possible.
-                </p>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            💿
+                        </div>
+
+                        <h3>Polished (prime)</h3>
+
+                        <p>
+                            The standard starting wafer: polished and cleaned, ready for the fab
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🌱
+                        </div>
+
+                        <h3>Epitaxial</h3>
+
+                        <p>
+                            A thin, extra-perfect crystal layer grown on top, for demanding devices
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🥪
+                        </div>
+
+                        <h3>SOI</h3>
+
+                        <p>
+                            Silicon on insulator: a buried oxide layer under a thin silicon film, to cut leakage
+                        </p>
+
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    The oxide, not just the crystal, made silicon the winner.
+                    The starting wafer can already contain a layer that helps the device.
 
                 </div>
 
@@ -304,14 +345,43 @@
 
             <!-- SLIDE 6 -->
 
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    HOW FLAT IS FLAT?
+                </p>
+
+                <h1>
+                    Smooth beyond belief
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    sub-nanometer smooth
+                </div>
+
+                <p>
+                    A polished wafer is smooth to well under a nanometer, and flat to within a tiny fraction of a micrometer across each exposure site. Lithography focuses light very precisely, so any bump would blur the pattern.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Flatness isn't cosmetic: it's what lets tiny patterns print sharply.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 7 -->
+
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 2 STUDY COMPLETE
+                    UNIT 5 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    🔬
+                    💿
                 </div>
 
                 <h1>
@@ -319,13 +389,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You can explain why silicon beat the alternatives, and where other materials still win.
+                    You can trace an ingot through slicing, lapping, polishing, and inspection.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeChipUnit2Button"
+                    id="completeChipUnit5Button"
                 >
                     Complete Module
                 </button>
@@ -387,7 +457,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeChipUnit2Button");
+            document.getElementById("completeChipUnit5Button");
 
 
         let currentSlide = 0;
@@ -497,7 +567,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathChipUnit2StudyComplete"
+                    "fabPathChipUnit5StudyComplete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -510,7 +580,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathChipUnit2StudyComplete",
+                        "fabPathChipUnit5StudyComplete",
                         "true"
                     );
 

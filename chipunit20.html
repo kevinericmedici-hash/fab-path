@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Why Silicon? | Fab Path</title>
-    <meta name="description" content="Why Silicon?: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <title>Diffusion Doping | Fab Path</title>
+    <meta name="description" content="Diffusion Doping: illustrated study slides from the Sand to Chip course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Why Silicon? | Fab Path">
-    <meta property="og:description" content="Why Silicon?: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta property="og:title" content="Diffusion Doping | Fab Path">
+    <meta property="og:description" content="Diffusion Doping: illustrated study slides from the Sand to Chip course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -85,95 +85,46 @@
 
             <!-- SLIDE 1 -->
 
+                        <!-- SLIDE 1 -->
+            
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    UNIT 2 • WHY SILICON?
+                    THE OLDEST METHOD
                 </p>
 
                 <h1>
-                    Silicon by the numbers
+                    Push dopant in with heat
                 </h1>
 
                 <div class="module-visual module-visual-text">
-                    ≈ 28% of the crust
+                    1000+ degrees C, minutes to hours
                 </div>
 
                 <p>
-                    Silicon is the second most abundant element in Earth's crust after oxygen, at roughly 28 percent by mass. It is found bound to oxygen in sand and quartz, so the raw material is essentially free.
+                    Diffusion doping heats the wafer with a dopant source at its surface. Dopant atoms wander into the crystal the way a drop of ink spreads through water, moving from high concentration toward low. It was the standard doping method for decades, and it is still used where fine depth control does not matter.
                 </p>
 
                 <div class="module-takeaway">
 
-                    The hard part isn't finding silicon. It's purifying it.
+                    Given enough heat and time, dopant atoms find their own way into the crystal.
 
                 </div>
 
             </section>
+
 
 
             <!-- SLIDE 2 -->
-
+            
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    BAND GAPS
+                    DOPANT SOURCES
                 </p>
 
                 <h1>
-                    How the semiconductors compare
-                </h1>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Germanium</strong>
-                        <span>0.66 eV · the first transistors, but leaky at room temperature</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Silicon</strong>
-                        <span>1.12 eV · the balanced workhorse</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Gallium arsenide</strong>
-                        <span>1.42 eV · fast electrons and good light emission</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Silicon carbide</strong>
-                        <span>about 3.3 eV · high-voltage, high-temperature power</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Gallium nitride</strong>
-                        <span>about 3.4 eV · power, radio, and blue LEDs</span>
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    
-
-                    A wider band gap tolerates more voltage and heat; a narrower one switches at lower energy but leaks more.
-
-                </div>
-
-            </section>
-
-
-            <!-- SLIDE 3 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    SILICON'S SUPERPOWERS
-                </p>
-
-                <h1>
-                    Why it won
+                    Three ways to supply the surface
                 </h1>
 
                 <div class="module-card-grid">
@@ -181,13 +132,13 @@
                     <div class="module-card">
 
                         <div class="module-card-icon">
-                            🧱
+                            🧪
                         </div>
 
-                        <h3>A native oxide</h3>
+                        <h3>Solid source</h3>
 
                         <p>
-                            Heating silicon in oxygen grows SiO₂, a stable, high-quality insulator that bonds cleanly to the crystal
+                            A disc of dopant-glass sits face to face with the wafer in a furnace
                         </p>
 
                     </div>
@@ -195,13 +146,13 @@
                     <div class="module-card">
 
                         <div class="module-card-icon">
-                            🔥
+                            💧
                         </div>
 
-                        <h3>A wide processing window</h3>
+                        <h3>Liquid source</h3>
 
                         <p>
-                            It melts at 1,414 °C and tolerates the high temperatures that oxidation and doping need
+                            A carrier gas bubbles through a liquid dopant compound
                         </p>
 
                     </div>
@@ -209,13 +160,13 @@
                     <div class="module-card">
 
                         <div class="module-card-icon">
-                            🎚️
+                            💨
                         </div>
 
-                        <h3>Controllable conductivity</h3>
+                        <h3>Gas source</h3>
 
                         <p>
-                            Tiny amounts of boron or phosphorus set how well it conducts
+                            A gas such as phosphine or diborane flows over the wafer directly
                         </p>
 
                     </div>
@@ -224,40 +175,41 @@
 
                 <div class="module-takeaway">
 
-                    The best transistor material is the one you can build a whole ecosystem around.
+                    All three do the same job: keep the surface supplied while heat does the work.
 
                 </div>
 
             </section>
 
 
-            <!-- SLIDE 4 -->
 
+            <!-- SLIDE 3 -->
+            
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    WHERE OTHERS WIN
+                    TWO STEPS
                 </p>
 
                 <h1>
-                    What silicon can't do well
+                    Predeposition, then drive-in
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>Emitting light</strong>
-                        <span>Silicon's indirect band gap makes a poor light source, so LEDs and lasers use III-V compounds</span>
+                        <strong>Predeposition</strong>
+                        <span>A shorter, lower-temperature step that loads a fixed dose at the surface</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Very fast radio</strong>
-                        <span>Gallium arsenide and related compounds move electrons faster, for some RF uses</span>
+                        <strong>Drive-in</strong>
+                        <span>A longer, hotter step that pushes that dose deeper and shapes its profile</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>High-voltage power</strong>
-                        <span>Silicon carbide and gallium nitride handle more voltage and heat</span>
+                        <strong>Why split it</strong>
+                        <span>Predep controls the total dose; drive-in controls the final depth</span>
                     </div>
 
                 </div>
@@ -266,52 +218,96 @@
 
                     
 
-                    Silicon wins on cost and ecosystem, so it's used unless something else is essential.
+                    Two separate steps give independent control of dose and depth.
 
                 </div>
 
             </section>
 
 
-            <!-- SLIDE 5 -->
 
+            <!-- SLIDE 4 -->
+            
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    GERMANIUM'S FALL
+                    THE PROFILE
                 </p>
 
                 <h1>
-                    Why the first material lost
+                    Concentration fades smoothly with depth
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    Ge oxide: water-soluble
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 214" role="img" aria-label="Dopant concentration falling smoothly with depth below the surface, from drive-in diffusion">
+<line class="fd-axis" x1="44" y1="176" x2="322" y2="176"/>
+<line class="fd-axis" x1="44" y1="176" x2="44" y2="18"/>
+<path class="fd-curve" d="M44.0 36.0 L47.7 36.3 L51.4 37.4 L55.1 39.1 L58.8 41.5 L62.5 44.5 L66.2 48.0 L69.9 52.1 L73.7 56.7 L77.4 61.7 L81.1 67.0 L84.8 72.5 L88.5 78.3 L92.2 84.2 L95.9 90.2 L99.6 96.2 L103.3 102.2 L107.0 108.0 L110.7 113.7 L114.4 119.2 L118.1 124.5 L121.8 129.5 L125.5 134.3 L129.3 138.7 L133.0 142.8 L136.7 146.7 L140.4 150.2 L144.1 153.4 L147.8 156.3 L151.5 158.9 L155.2 161.2 L158.9 163.3 L162.6 165.2 L166.3 166.8 L170.0 168.2 L173.7 169.5 L177.4 170.5 L181.1 171.4 L184.9 172.2 L188.6 172.9 L192.3 173.4 L196.0 173.9 L199.7 174.3 L203.4 174.6 L207.1 174.9 L210.8 175.1 L214.5 175.3 L218.2 175.4 L221.9 175.6 L225.6 175.7 L229.3 175.7 L233.0 175.8 L236.7 175.8 L240.5 175.9 L244.2 175.9 L247.9 175.9 L251.6 175.9 L255.3 176.0 L259.0 176.0 L262.7 176.0 L266.4 176.0 L270.1 176.0 L273.8 176.0 L277.5 176.0 L281.2 176.0 L284.9 176.0 L288.6 176.0 L292.3 176.0 L296.1 176.0 L299.8 176.0 L303.5 176.0 L307.2 176.0 L310.9 176.0 L314.6 176.0 L318.3 176.0 L322.0 176.0"/>
+<line class="fd-dash" x1="44" y1="162.0" x2="322" y2="162.0"/>
+<line class="fd-dash" x1="156.5" y1="176" x2="156.5" y2="162.0"/>
+<circle class="fd-electron" cx="156.5" cy="162.0" r="3"/>
+<text class="fd-accent" x="162.5" y="156.0">junction depth</text>
+<text class="fd-sub" x="322" y="204" text-anchor="end">depth below the surface →</text>
+<text class="fd-sub" x="50" y="14">dopant concentration ↑</text>
+<text class="fd-sub" x="54" y="34">peak at the surface</text>
+</svg>
                 </div>
 
                 <p>
-                    The first transistor in 1947 used germanium. But germanium's oxide is unstable and dissolves in water, and its small band gap makes it leak heavily at room temperature. Silicon's robust oxide made reliable integrated circuits possible.
+                    Diffusion leaves a graded profile: concentration peaks at the surface and falls off smoothly with depth. The junction depth is where the falling dopant concentration crosses the silicon's original background doping.
                 </p>
 
                 <div class="module-takeaway">
 
-                    The oxide, not just the crystal, made silicon the winner.
+                    
+
+                    A diffused junction has no sharp edge: it's a gradient, not a step.
 
                 </div>
 
             </section>
 
 
-            <!-- SLIDE 6 -->
 
+            <!-- SLIDE 5 -->
+            
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHY IT FADED
+                </p>
+
+                <h1>
+                    Heat spreads sideways too
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    same heat, same spread, every direction
+                </div>
+
+                <p>
+                    Diffusion pushes dopant sideways under a mask edge by roughly as much as it pushes down, which was fine when features were microns wide. At the width of a modern transistor gate, that sideways spread eats into space the design can't spare, which is why ion implantation replaced diffusion for defining transistors.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Diffusion doesn't know which direction is 'down': it spreads every way at once.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- COMPLETION SLIDE -->
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 2 STUDY COMPLETE
+                    UNIT 20 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    🔬
+                    🌡️
                 </div>
 
                 <h1>
@@ -319,13 +315,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You can explain why silicon beat the alternatives, and where other materials still win.
+                    You can the oldest way to move dopant into silicon: predeposition and drive-in.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeChipUnit2Button"
+                    id="completeChipUnit20Button"
                 >
                     Complete Module
                 </button>
@@ -387,7 +383,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeChipUnit2Button");
+            document.getElementById("completeChipUnit20Button");
 
 
         let currentSlide = 0;
@@ -497,7 +493,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathChipUnit2StudyComplete"
+                    "fabPathChipUnit20StudyComplete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -510,7 +506,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathChipUnit2StudyComplete",
+                        "fabPathChipUnit20StudyComplete",
                         "true"
                     );
 

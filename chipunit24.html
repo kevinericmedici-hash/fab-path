@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Why Silicon? | Fab Path</title>
-    <meta name="description" content="Why Silicon?: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <title>Build a Transistor | Fab Path</title>
+    <meta name="description" content="Build a Transistor: illustrated study slides from the Sand to Chip course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Why Silicon? | Fab Path">
-    <meta property="og:description" content="Why Silicon?: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta property="og:title" content="Build a Transistor | Fab Path">
+    <meta property="og:description" content="Build a Transistor: illustrated study slides from the Sand to Chip course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -72,7 +72,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 6
+                    1 / 4
                 </span>
 
             </div>
@@ -85,70 +85,83 @@
 
             <!-- SLIDE 1 -->
 
+                        <!-- SLIDE 1 -->
+            
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    UNIT 2 • WHY SILICON?
+                    FROM BARE WAFER TO SWITCH
                 </p>
 
                 <h1>
-                    Silicon by the numbers
+                    Every part of this course, in one device
                 </h1>
 
                 <div class="module-visual module-visual-text">
-                    ≈ 28% of the crust
+                    wafer, wells, gate, implants, anneal
                 </div>
 
                 <p>
-                    Silicon is the second most abundant element in Earth's crust after oxygen, at roughly 28 percent by mass. It is found bound to oxygen in sand and quartz, so the raw material is essentially free.
+                    A single transistor pulls in nearly everything covered so far: a pure wafer, a grown or deposited gate oxide, a patterned and etched gate, implants placed and masked by lithography, and an anneal that activates them without smearing the profile.
                 </p>
 
                 <div class="module-takeaway">
 
-                    The hard part isn't finding silicon. It's purifying it.
+                    One finished transistor is the whole course, compressed into a few square micrometers.
 
                 </div>
 
             </section>
+
 
 
             <!-- SLIDE 2 -->
-
+            
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    BAND GAPS
+                    THE BUILD, IN ORDER
                 </p>
 
                 <h1>
-                    How the semiconductors compare
+                    Seven steps, roughly
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>Germanium</strong>
-                        <span>0.66 eV · the first transistors, but leaky at room temperature</span>
+                        <strong>Well implant</strong>
+                        <span>n-well or p-well, doped and annealed first</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Silicon</strong>
-                        <span>1.12 eV · the balanced workhorse</span>
+                        <strong>Gate oxide</strong>
+                        <span>Grown thermally, a few nanometers thick</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Gallium arsenide</strong>
-                        <span>1.42 eV · fast electrons and good light emission</span>
+                        <strong>Gate poly</strong>
+                        <span>Deposited, then patterned and etched by lithography</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Silicon carbide</strong>
-                        <span>about 3.3 eV · high-voltage, high-temperature power</span>
+                        <strong>LDD implant</strong>
+                        <span>Self-aligned to the gate's edge, no extra mask needed</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Gallium nitride</strong>
-                        <span>about 3.4 eV · power, radio, and blue LEDs</span>
+                        <strong>Spacer</strong>
+                        <span>A deposited film etched back to a sidewall on the gate</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Source/drain implant</strong>
+                        <span>The heavier, deeper implant, set back by the spacer</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Spike anneal</strong>
+                        <span>Activates every implant made so far, all at once</span>
                     </div>
 
                 </div>
@@ -157,157 +170,49 @@
 
                     
 
-                    A wider band gap tolerates more voltage and heat; a narrower one switches at lower energy but leaks more.
+                    Notice how few extra masks this needs: the gate itself does most of the aligning.
 
                 </div>
 
             </section>
+
 
 
             <!-- SLIDE 3 -->
-
+            
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    SILICON'S SUPERPOWERS
+                    A REAL NUMBER
                 </p>
 
                 <h1>
-                    Why it won
-                </h1>
-
-                <div class="module-card-grid">
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🧱
-                        </div>
-
-                        <h3>A native oxide</h3>
-
-                        <p>
-                            Heating silicon in oxygen grows SiO₂, a stable, high-quality insulator that bonds cleanly to the crystal
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🔥
-                        </div>
-
-                        <h3>A wide processing window</h3>
-
-                        <p>
-                            It melts at 1,414 °C and tolerates the high temperatures that oxidation and doping need
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🎚️
-                        </div>
-
-                        <h3>Controllable conductivity</h3>
-
-                        <p>
-                            Tiny amounts of boron or phosphorus set how well it conducts
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    The best transistor material is the one you can build a whole ecosystem around.
-
-                </div>
-
-            </section>
-
-
-            <!-- SLIDE 4 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    WHERE OTHERS WIN
-                </p>
-
-                <h1>
-                    What silicon can't do well
-                </h1>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Emitting light</strong>
-                        <span>Silicon's indirect band gap makes a poor light source, so LEDs and lasers use III-V compounds</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Very fast radio</strong>
-                        <span>Gallium arsenide and related compounds move electrons faster, for some RF uses</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>High-voltage power</strong>
-                        <span>Silicon carbide and gallium nitride handle more voltage and heat</span>
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    
-
-                    Silicon wins on cost and ecosystem, so it's used unless something else is essential.
-
-                </div>
-
-            </section>
-
-
-            <!-- SLIDE 5 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    GERMANIUM'S FALL
-                </p>
-
-                <h1>
-                    Why the first material lost
+                    How small is small?
                 </h1>
 
                 <div class="module-visual module-visual-text">
-                    Ge oxide: water-soluble
+                    gate length: tens of nanometers
                 </div>
 
                 <p>
-                    The first transistor in 1947 used germanium. But germanium's oxide is unstable and dissolves in water, and its small band gap makes it leak heavily at room temperature. Silicon's robust oxide made reliable integrated circuits possible.
+                    A modern logic transistor's gate can be well under 20 nanometers long, a few hundred silicon atoms. At that scale, an LDD implant only a few nanometers deeper than intended, or an anneal a few degrees too hot, can measurably change how the device switches.
                 </p>
 
                 <div class="module-takeaway">
 
-                    The oxide, not just the crystal, made silicon the winner.
+                    At this scale, doping isn't approximate: a few nanometers is the whole margin.
 
                 </div>
 
             </section>
 
 
-            <!-- SLIDE 6 -->
 
+            <!-- COMPLETION SLIDE -->
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 2 STUDY COMPLETE
+                    UNIT 24 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
@@ -319,13 +224,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You can explain why silicon beat the alternatives, and where other materials still win.
+                    You can putting doping, implantation, and the gate stack together into one transistor.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeChipUnit2Button"
+                    id="completeChipUnit24Button"
                 >
                     Complete Module
                 </button>
@@ -387,7 +292,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeChipUnit2Button");
+            document.getElementById("completeChipUnit24Button");
 
 
         let currentSlide = 0;
@@ -497,7 +402,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathChipUnit2StudyComplete"
+                    "fabPathChipUnit24StudyComplete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -510,7 +415,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathChipUnit2StudyComplete",
+                        "fabPathChipUnit24StudyComplete",
                         "true"
                     );
 

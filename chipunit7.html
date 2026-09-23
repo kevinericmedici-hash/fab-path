@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Growing Oxide | Fab Path</title>
+    <meta name="description" content="Growing Oxide: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Growing Oxide | Fab Path">
+    <meta property="og:description" content="Growing Oxide: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="chip-learn.html">Learn</a>
+            <a href="chip-games.html">Games</a>
+            <a href="chip-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="chip-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 8
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                PART 2 • BUILDING THE LAYERS
+                </p>
+
+                <h1>
+                Grow, deposit, etch, polish
+                </h1>
+
+                <div class="module-card-grid">
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🔥
+                </div>
+
+                <h3>Grow</h3>
+
+                <p>
+                React the silicon surface with oxygen to make its own insulator, SiO₂
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                ☁️
+                </div>
+
+                <h3>Deposit</h3>
+
+                <p>
+                Add a new film on top from reacting gases, sputtered atoms, or plating
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                ✂️
+                </div>
+
+                <h3>Etch</h3>
+
+                <p>
+                Remove material wherever a mask leaves it exposed
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🪞
+                </div>
+
+                <h3>Polish</h3>
+
+                <p>
+                Grind the surface flat again with chemical mechanical polishing (CMP)
+                </p>
+
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Patterning and doping get their own units later. Here you meet the four workhorses that shape every layer.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 2 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                UNIT 7 • GROWING OXIDE
+                </p>
+
+                <h1>
+                Heat silicon in oxygen and it grows its own glass
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                Si + O₂ → SiO₂
+                </div>
+
+                <p>
+                At roughly 800 to 1,200 °C, oxygen or steam reacts with the silicon surface and turns it into silicon dioxide, a glass. Because the oxide is made from the wafer itself, the interface between them is clean and nearly free of defects. That is a big part of why silicon won (Unit 1).
+                </p>
+
+                <div class="module-takeaway">
+
+                Thermal oxide is the best insulator on silicon because it is made of silicon.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 3 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                WHAT OXIDE DOES
+                </p>
+
+                <h1>
+                Three jobs for one glass
+                </h1>
+
+                <div class="module-card-grid">
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🚪
+                </div>
+
+                <h3>Gate insulator</h3>
+
+                <p>
+                A thin film between the gate and the channel of a transistor
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🧱
+                </div>
+
+                <h3>Isolation</h3>
+
+                <p>
+                Thick oxide separates neighboring transistors so they do not short together
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🛡️
+                </div>
+
+                <h3>Mask and shield</h3>
+
+                <p>
+                Blocks dopants and etch chemicals from parts of the wafer
+                </p>
+
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                The same material works as an insulator, a fence, and a shield.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                IT GROWS IN AND OUT
+                </p>
+
+                <h1>
+                Oxide eats silicon
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 190" role="img" aria-label="A silicon wafer with an oxide layer grown on it; the oxide extends 56 percent above the original surface and 44 percent below it">
+                <text class="fd-accent" x="170" y="26" text-anchor="middle">silicon used up ≈ 0.44 × oxide thickness</text>
+                <rect class="fd-p" x="20" y="112" width="210" height="68" rx="3"/>
+                <rect class="fd-ox" x="20" y="62" width="210" height="50"/>
+                <line class="fd-dash" x1="20" y1="90" x2="250" y2="90"/>
+                <text class="fd-label" x="125" y="80" text-anchor="middle">SiO₂</text>
+                <text class="fd-sub" x="125" y="106" text-anchor="middle">grown oxide</text>
+                <text class="fd-sub" x="125" y="150" text-anchor="middle">silicon wafer</text>
+                <path class="fd-axis" d="M238 62 L244 62 L244 90 L238 90"/>
+                <text class="fd-label" x="252" y="79">56%</text><text class="fd-sub" x="252" y="90">above</text>
+                <path class="fd-axis" d="M238 90 L244 90 L244 112 L238 112"/>
+                <text class="fd-label" x="252" y="104">44%</text><text class="fd-sub" x="252" y="115">below</text>
+                <text class="fd-sub" x="250" y="132">dashed line =</text><text class="fd-sub" x="250" y="143">original surface</text>
+                </svg>
+                </div>
+
+                <p>
+                Growing oxide consumes silicon. SiO₂ takes up about 2.3 times the volume of the silicon it replaces, so about 44% of the final thickness lies below the original surface and 56% above it. Grow 100 nm of oxide and about 44 nm of silicon disappears.
+                </p>
+
+                <div class="module-takeaway">
+
+                Oxidation moves the silicon surface, and later steps have to allow for that.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                DRY VS WET
+                </p>
+
+                <h1>
+                Pick dry for quality, wet for thickness
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>Dry oxidation</strong>
+                <span>Uses O₂. Slow, but the oxide is dense with the best electrical quality, so it is used for gate oxides</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Wet oxidation</strong>
+                <span>Uses steam (H₂O). Much faster but slightly less dense, so it suits thick isolation oxide</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Temperature</strong>
+                <span>Typically 800 to 1,200 °C in a furnace tube. Hotter means faster growth</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Native oxide</strong>
+                <span>Bare silicon grows about 1 to 2 nm of oxide just sitting in air, so fabs strip it right before critical steps</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Speed and quality trade off: the fast oxide is not the best oxide.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 6 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                HOW THICK?
+                </p>
+
+                <h1>
+                Growth slows as the oxide thickens
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                <span class="math-visual">x ≈ √(B · t)</span>
+                </div>
+
+                <p>
+                Oxygen has to diffuse through the oxide that already exists to reach fresh silicon, so growth keeps slowing. Once the film is thick, its thickness x grows roughly as the square root of time t. Twice as thick takes about four times as long.
+                </p>
+
+                <div class="module-takeaway">
+
+                Doubling an oxide's thickness costs about four times the furnace time.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 7 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                WHEN OXIDE GETS TOO THIN
+                </p>
+
+                <h1>
+                The gate oxide hit a wall
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>Around 1 to 2 nm</strong>
+                <span>Electrons tunnel straight through a film this thin, so current leaks</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Why it matters</strong>
+                <span>Leakage wastes power and heats the chip even when it is idle</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>The fix</strong>
+                <span>A high-k dielectric such as hafnium oxide (HfO₂) can be physically thicker for the same electrical effect</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>When</strong>
+                <span>High-k metal gates entered volume production around the 45 nm generation, in 2007</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Thermal oxide still rules isolation, but atomic layer deposition took over the gate.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 8 -->
+
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 7 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🔥
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You can explain how oxide grows and why the gate oxide had to change.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeChipUnit7Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+</div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeChipUnit7Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathChipUnit7StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathChipUnit7StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "chip-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

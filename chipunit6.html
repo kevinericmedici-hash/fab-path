@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inside the Fab | Fab Path</title>
+    <meta name="description" content="Inside the Fab: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Inside the Fab | Fab Path">
+    <meta property="og:description" content="Inside the Fab: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="chip-learn.html">Learn</a>
+            <a href="chip-games.html">Games</a>
+            <a href="chip-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="chip-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 7
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    UNIT 6 • INSIDE THE FAB
+                </p>
+
+                <h1>
+                    Air ten thousand times cleaner
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    ISO 5 ≈ 3,520 / m³
+                </div>
+
+                <p>
+                    Ordinary room air holds tens of millions of particles per cubic meter. In an ISO Class 5 cleanroom, particles of 0.5 µm and larger are limited to about 3,520 per cubic meter, roughly ten thousand times cleaner. Critical areas run cleaner still.
+                </p>
+
+                <div class="module-takeaway">
+
+                    One particle on the wrong spot can kill a transistor, so the air is engineered.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 2 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    KEEPING IT CLEAN
+                </p>
+
+                <h1>
+                    Air, people, and wafers
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🌬️
+                        </div>
+
+                        <h3>Filtered airflow</h3>
+
+                        <p>
+                            Ceiling filters push air down in a steady, laminar flow that carries particles away
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧑‍🔬
+                        </div>
+
+                        <h3>Gowning</h3>
+
+                        <p>
+                            Suits cover skin and hair, the biggest particle source in the room
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🤖
+                        </div>
+
+                        <h3>Sealed pods</h3>
+
+                        <p>
+                            300 mm wafers travel in sealed pods called FOUPs, moved by overhead robots, so people rarely touch them
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The best cleanroom strategy is to keep people and wafers apart.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 3 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    YELLOW LIGHT
+                </p>
+
+                <h1>
+                    Why lithography rooms glow yellow
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    no UV, no blue
+                </div>
+
+                <p>
+                    Photoresist reacts to shorter wavelengths: ultraviolet and blue light. Lithography areas are lit in yellow, which lacks them, so wafers can be handled without accidentally exposing the resist.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Even the lighting is part of the process.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE VERTICAL STACK
+                </p>
+
+                <h1>
+                    From transistors up to wiring
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 232" role="img" aria-label="Cross-section of a chip: transistors in the silicon with layers of metal wiring stacked above">
+<rect class="fd-ox" x="20" y="34" width="238" height="140" style="fill:rgba(255,214,102,.06);stroke:none"/>
+<rect class="fd-metal" x="30" y="146" width="54" height="5" rx="1"/>
+<rect class="fd-metal" x="104" y="146" width="62" height="5" rx="1"/>
+<rect class="fd-metal" x="186" y="146" width="62" height="5" rx="1"/>
+<rect class="fd-metal" x="55" y="130" width="4" height="16"/>
+<rect class="fd-metal" x="213" y="130" width="4" height="16"/>
+<rect class="fd-metal" x="30" y="124" width="54" height="6" rx="1"/>
+<rect class="fd-metal" x="104" y="124" width="62" height="6" rx="1"/>
+<rect class="fd-metal" x="186" y="124" width="62" height="6" rx="1"/>
+<rect class="fd-metal" x="133" y="108" width="4" height="16"/>
+<rect class="fd-metal" x="233" y="108" width="4" height="16"/>
+<rect class="fd-metal" x="30" y="100" width="54" height="8" rx="1"/>
+<rect class="fd-metal" x="104" y="100" width="62" height="8" rx="1"/>
+<rect class="fd-metal" x="186" y="100" width="62" height="8" rx="1"/>
+<rect class="fd-metal" x="55" y="85" width="4" height="15"/>
+<rect class="fd-metal" x="213" y="85" width="4" height="15"/>
+<rect class="fd-metal" x="30" y="74" width="54" height="11" rx="1"/>
+<rect class="fd-metal" x="104" y="74" width="62" height="11" rx="1"/>
+<rect class="fd-metal" x="186" y="74" width="62" height="11" rx="1"/>
+<rect class="fd-metal" x="133" y="58" width="4" height="16"/>
+<rect class="fd-metal" x="233" y="58" width="4" height="16"/>
+<rect class="fd-metal" x="30" y="44" width="54" height="14" rx="1"/>
+<rect class="fd-metal" x="104" y="44" width="62" height="14" rx="1"/>
+<rect class="fd-metal" x="186" y="44" width="62" height="14" rx="1"/>
+<rect class="fd-metal" x="46" y="152" width="4" height="16"/>
+<rect class="fd-metal" x="94" y="152" width="4" height="16"/>
+<rect class="fd-metal" x="150" y="152" width="4" height="16"/>
+<rect class="fd-metal" x="198" y="152" width="4" height="16"/>
+<rect class="fd-metal" x="234" y="152" width="4" height="16"/>
+<rect class="fd-p" x="20" y="176" width="238" height="44" rx="3"/>
+<rect class="fd-n" x="36" y="172" width="14" height="8"/>
+<rect class="fd-n" x="74" y="172" width="14" height="8"/>
+<rect class="fd-metal" x="52" y="164" width="20" height="8" rx="1"/>
+<rect class="fd-n" x="148" y="172" width="14" height="8"/>
+<rect class="fd-n" x="186" y="172" width="14" height="8"/>
+<rect class="fd-metal" x="164" y="164" width="20" height="8" rx="1"/>
+<rect class="fd-n" x="210" y="172" width="12" height="8"/>
+<path class="fd-axis" d="M262 40 L268 40 L268 142 L262 142"/><text class="fd-label" x="274" y="90.0">BEOL</text><text class="fd-sub" x="274" y="103.0">wiring</text>
+<path class="fd-axis" d="M262 148 L268 148 L268 170 L262 170"/><text class="fd-label" x="274" y="158.0">MOL</text><text class="fd-sub" x="274" y="171.0">contacts</text>
+<path class="fd-axis" d="M262 174 L268 174 L268 218 L262 218"/><text class="fd-label" x="274" y="195.0">FEOL</text><text class="fd-sub" x="274" y="208.0">transistors</text>
+<text class="fd-sub" x="139" y="230" text-anchor="middle">silicon wafer</text>
+</svg>
+                </div>
+
+                <p>
+                    A chip is built bottom-up. Front-end-of-line (FEOL) makes the transistors in the silicon. Middle-of-line adds contacts. Back-end-of-line (BEOL) stacks many layers of copper wiring, separated by insulator, to connect billions of transistors.
+                </p>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Don't confuse this with a factory's 'back end': assembly and test come later.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE LOOP
+                </p>
+
+                <h1>
+                    How long a chip takes
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Layers</strong>
+                        <span>Dozens of mask layers, each patterned with lithography</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Steps</strong>
+                        <span>Hundreds to well over a thousand process steps</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Time</strong>
+                        <span>Roughly two to three months from bare wafer to finished wafer</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Repeat</strong>
+                        <span>Add, pattern, remove, modify, again and again</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    A chip is a stack of layers built one at a time.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 6 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    DIES PER WAFER
+                </p>
+
+                <h1>
+                    How many chips fit?
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 352" role="img" aria-label="A wafer covered in square dies; complete dies are good, partial dies at the edge are lost">
+<defs><clipPath id="wclip"><circle cx="170" cy="174" r="160"/></clipPath></defs>
+<circle class="fd-p" cx="170" cy="174" r="160"/>
+<g clip-path="url(#wclip)">
+<rect class="fd-lost" x="-5.0" y="95.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="-5.0" y="127.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="-5.0" y="159.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="-5.0" y="191.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="-5.0" y="223.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="27.0" y="31.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="27.0" y="63.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="27.0" y="95.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="27.0" y="223.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="27.0" y="255.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="27.0" y="287.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="59.0" y="31.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="59.0" y="63.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="59.0" y="255.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="59.0" y="287.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="91.0" y="-1.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="91.0" y="31.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="91.0" y="287.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="91.0" y="319.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="123.0" y="-1.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="123.0" y="319.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="155.0" y="-1.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="155.0" y="319.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="187.0" y="-1.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="187.0" y="319.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="219.0" y="-1.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="219.0" y="31.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="219.0" y="287.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="219.0" y="319.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="251.0" y="31.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="251.0" y="63.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="251.0" y="255.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="251.0" y="287.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="283.0" y="31.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="283.0" y="63.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="283.0" y="95.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="283.0" y="223.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="283.0" y="255.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="283.0" y="287.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="315.0" y="95.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="315.0" y="127.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="315.0" y="159.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="315.0" y="191.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-lost" x="315.0" y="223.0" width="30.0" height="30.0" rx="2"/>
+</g>
+<rect class="fd-n" x="27.0" y="127.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="27.0" y="159.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="27.0" y="191.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="59.0" y="95.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="59.0" y="127.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="59.0" y="159.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="59.0" y="191.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="59.0" y="223.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="91.0" y="63.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="91.0" y="95.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="91.0" y="127.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="91.0" y="159.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="91.0" y="191.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="91.0" y="223.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="91.0" y="255.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="123.0" y="31.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="123.0" y="63.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="123.0" y="95.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="123.0" y="127.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="123.0" y="159.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="123.0" y="191.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="123.0" y="223.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="123.0" y="255.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="123.0" y="287.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="155.0" y="31.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="155.0" y="63.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="155.0" y="95.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="155.0" y="127.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="155.0" y="159.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="155.0" y="191.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="155.0" y="223.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="155.0" y="255.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="155.0" y="287.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="187.0" y="31.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="187.0" y="63.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="187.0" y="95.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="187.0" y="127.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="187.0" y="159.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="187.0" y="191.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="187.0" y="223.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="187.0" y="255.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="187.0" y="287.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="219.0" y="63.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="219.0" y="95.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="219.0" y="127.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="219.0" y="159.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="219.0" y="191.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="219.0" y="223.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="219.0" y="255.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="251.0" y="95.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="251.0" y="127.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="251.0" y="159.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="251.0" y="191.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="251.0" y="223.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="283.0" y="127.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="283.0" y="159.0" width="30.0" height="30.0" rx="2"/>
+<rect class="fd-n" x="283.0" y="191.0" width="30.0" height="30.0" rx="2"/>
+<rect x="130" y="152" width="80" height="52" rx="10" fill="#0b1020" opacity=".88"/>
+<text class="fd-label" x="170" y="182" text-anchor="middle" style="font-size:24px">57</text>
+<text class="fd-sub" x="170" y="198" text-anchor="middle">full dies</text>
+<text class="fd-sub" x="6" y="348">teal = complete die</text>
+<text class="fd-sub" x="334" y="348" text-anchor="end" style="fill:#ffb86b">amber = lost at the edge</text>
+</svg>
+                </div>
+
+                <p>
+                    A rough formula: dies per wafer ≈ π d<sup>2</sup> / (4 A) − π d / √(2 A), where d is the wafer diameter and A the die area. A 100 mm² die on a 300 mm wafer gives about 640 dies. Dies cut by the edge are incomplete and wasted. In this picture, 30 × 30 mm dies leave 57 full dies.
+                </p>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Bigger dies waste more of the wafer's edge, which is one reason small dies are cheaper.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 7 -->
+
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 6 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🏭
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You can describe how a cleanroom and the FEOL-to-BEOL stack fit together.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeChipUnit6Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+</div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeChipUnit6Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathChipUnit6StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathChipUnit6StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "chip-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

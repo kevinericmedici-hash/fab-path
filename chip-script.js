@@ -22,10 +22,27 @@ function isChipLessonComplete(lessonId) {
 
 function isChipUnitStudyComplete(unitId) {
 
-    return (
+    if (
         localStorage.getItem(
             `fabPathChipUnit${unitId}StudyComplete`
         ) === "true"
+    ) {
+        return true;
+    }
+
+    /* Units were split into smaller ones after some progress was saved,
+       so a finished lesson also counts as a finished study module. */
+
+    const unit =
+        chipCourseData.find(function (u) {
+            return u.id === unitId;
+        });
+
+    return (
+        !!unit &&
+        unit.lessons.some(function (lesson) {
+            return isChipLessonComplete(lesson.id);
+        })
     );
 }
 
@@ -172,9 +189,9 @@ function createChipStudyNode(unit, unitIndex) {
             </div>
 
             <div class="node-info">
-                <span>STUDY MODULE</span>
+                <span>UNIT ${unit.id} · STUDY</span>
                 <h3>${unit.studyModule.title}</h3>
-                <p>Learn the core concepts before starting the lessons.</p>
+                <p>A few quick slides, then the Fab Challenge.</p>
             </div>
 
         </a>
@@ -243,13 +260,25 @@ function renderChipLearningPath() {
 
     chipCourseData.forEach(function (unit, unitIndex) {
 
-        html += `
-            <div class="unit-banner">
-                <span>UNIT ${unit.id}</span>
-                <h2>${unit.title}</h2>
-                <p>${unit.description}</p>
-            </div>
-        `;
+        const part =
+            chipCourseParts.find(function (p) {
+                return p.firstUnitId === unit.id;
+            });
+
+        if (part) {
+
+            html += `
+                <div class="unit-banner">
+                    <span>PART ${part.id} · UNITS ${part.firstUnitId}–${part.lastUnitId}</span>
+                    <h2>${part.title}</h2>
+                    <p>${part.description}</p>
+                </div>
+            `;
+
+        } else {
+
+            html += `<div class="vertical-path"></div>`;
+        }
 
         html += createChipStudyNode(unit, unitIndex);
         html += `<div class="vertical-path"></div>`;
@@ -515,6 +544,12 @@ function initChipLessonQuiz(lessonId, questions) {
             }
 
             localStorage.setItem(completionKey, "true");
+
+            /* The streak is shared across all courses. */
+
+            if (typeof updateStreakOnLessonComplete === "function") {
+                updateStreakOnLessonComplete();
+            }
 
             window.location.href = "chip-learn.html";
         }

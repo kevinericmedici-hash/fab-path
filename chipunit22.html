@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Why Silicon? | Fab Path</title>
-    <meta name="description" content="Why Silicon?: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <title>Annealing &amp; Activation | Fab Path</title>
+    <meta name="description" content="Annealing &amp; Activation: illustrated study slides from the Sand to Chip course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Why Silicon? | Fab Path">
-    <meta property="og:description" content="Why Silicon?: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta property="og:title" content="Annealing &amp; Activation | Fab Path">
+    <meta property="og:description" content="Annealing &amp; Activation: illustrated study slides from the Sand to Chip course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -72,7 +72,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 6
+                    1 / 5
                 </span>
 
             </div>
@@ -85,70 +85,63 @@
 
             <!-- SLIDE 1 -->
 
+                        <!-- SLIDE 1 -->
+            
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    UNIT 2 • WHY SILICON?
+                    REPAIRING THE DAMAGE
                 </p>
 
                 <h1>
-                    Silicon by the numbers
+                    Implantation leaves a mess
                 </h1>
 
                 <div class="module-visual module-visual-text">
-                    ≈ 28% of the crust
+                    knocked-out atoms + misplaced dopant
                 </div>
 
                 <p>
-                    Silicon is the second most abundant element in Earth's crust after oxygen, at roughly 28 percent by mass. It is found bound to oxygen in sand and quartz, so the raw material is essentially free.
+                    An ion striking the lattice at speed knocks silicon atoms out of place, leaving a damaged, partly amorphous layer. Worse, a freshly implanted dopant atom usually isn't sitting in a lattice site where it can contribute a carrier. Annealing fixes both problems with heat.
                 </p>
 
                 <div class="module-takeaway">
 
-                    The hard part isn't finding silicon. It's purifying it.
+                    Implantation places the dopant; annealing is what makes it actually work.
 
                 </div>
 
             </section>
+
 
 
             <!-- SLIDE 2 -->
-
+            
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    BAND GAPS
+                    TWO JOBS, ONE STEP
                 </p>
 
                 <h1>
-                    How the semiconductors compare
+                    What the anneal accomplishes
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>Germanium</strong>
-                        <span>0.66 eV · the first transistors, but leaky at room temperature</span>
+                        <strong>Recrystallization</strong>
+                        <span>Heat lets damaged silicon regrow into an ordered lattice</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Silicon</strong>
-                        <span>1.12 eV · the balanced workhorse</span>
+                        <strong>Activation</strong>
+                        <span>Dopant atoms move into substitutional lattice sites, where they donate or accept a carrier</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Gallium arsenide</strong>
-                        <span>1.42 eV · fast electrons and good light emission</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Silicon carbide</strong>
-                        <span>about 3.3 eV · high-voltage, high-temperature power</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Gallium nitride</strong>
-                        <span>about 3.4 eV · power, radio, and blue LEDs</span>
+                        <strong>The catch</strong>
+                        <span>Heat that repairs and activates also lets dopant diffuse, undoing implantation's precision</span>
                     </div>
 
                 </div>
@@ -157,161 +150,94 @@
 
                     
 
-                    A wider band gap tolerates more voltage and heat; a narrower one switches at lower energy but leaks more.
+                    Every anneal is a race between fixing the crystal and not smearing the profile.
 
                 </div>
 
             </section>
+
 
 
             <!-- SLIDE 3 -->
-
+            
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    SILICON'S SUPERPOWERS
+                    THE SPIKE ANNEAL
                 </p>
 
                 <h1>
-                    Why it won
+                    Get in and out fast
                 </h1>
 
-                <div class="module-card-grid">
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🧱
-                        </div>
-
-                        <h3>A native oxide</h3>
-
-                        <p>
-                            Heating silicon in oxygen grows SiO₂, a stable, high-quality insulator that bonds cleanly to the crystal
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🔥
-                        </div>
-
-                        <h3>A wide processing window</h3>
-
-                        <p>
-                            It melts at 1,414 °C and tolerates the high temperatures that oxidation and doping need
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🎚️
-                        </div>
-
-                        <h3>Controllable conductivity</h3>
-
-                        <p>
-                            Tiny amounts of boron or phosphorus set how well it conducts
-                        </p>
-
-                    </div>
-
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 214" role="img" aria-label="Temperature against time: a spike anneal rises and falls in about a second, a furnace anneal stays warm for a long, slow ramp">
+<line class="fd-axis" x1="44" y1="176" x2="322" y2="176"/>
+<line class="fd-axis" x1="44" y1="176" x2="44" y2="18"/>
+<path class="fd-curve" d="M44.0 173.4 L105.2 173.4 L127.4 35.6 L138.5 35.6 L160.8 173.4 L322.0 173.4"/>
+<path class="fd-curve-alt" d="M44.0 173.4 L71.8 173.4 L169.1 59.0 L252.5 59.0 L322.0 150.0"/>
+<text class="fd-accent" x="133.0" y="27.6" text-anchor="middle">spike: ~1 s at peak</text>
+<text class="fd-sub" x="210.8" y="51.0" text-anchor="middle" style="fill:#ffd666;font-weight:700">furnace: minutes to hours</text>
+<text class="fd-sub" x="322" y="204" text-anchor="end">time →</text>
+<text class="fd-sub" x="50" y="14">temperature ↑</text>
+</svg>
                 </div>
 
-                <div class="module-takeaway">
-
-                    The best transistor material is the one you can build a whole ecosystem around.
-
-                </div>
-
-            </section>
-
-
-            <!-- SLIDE 4 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    WHERE OTHERS WIN
+                <p>
+                    A furnace anneal holds the wafer warm for minutes to hours, which activates dopant well but lets it diffuse. A spike anneal instead ramps to a high peak temperature and back down in about a second, activating dopant while barely giving it time to move.
                 </p>
-
-                <h1>
-                    What silicon can't do well
-                </h1>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Emitting light</strong>
-                        <span>Silicon's indirect band gap makes a poor light source, so LEDs and lasers use III-V compounds</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Very fast radio</strong>
-                        <span>Gallium arsenide and related compounds move electrons faster, for some RF uses</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>High-voltage power</strong>
-                        <span>Silicon carbide and gallium nitride handle more voltage and heat</span>
-                    </div>
-
-                </div>
 
                 <div class="module-takeaway">
 
                     
 
-                    Silicon wins on cost and ecosystem, so it's used unless something else is essential.
+                    High temperature for a very short time beats moderate temperature held a long time.
 
                 </div>
 
             </section>
 
 
-            <!-- SLIDE 5 -->
 
+            <!-- SLIDE 4 -->
+            
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    GERMANIUM'S FALL
+                    THE TRADE-OFF
                 </p>
 
                 <h1>
-                    Why the first material lost
+                    Why speed matters more at small nodes
                 </h1>
 
                 <div class="module-visual module-visual-text">
-                    Ge oxide: water-soluble
+                    shorter gate means less room to spread
                 </div>
 
                 <p>
-                    The first transistor in 1947 used germanium. But germanium's oxide is unstable and dissolves in water, and its small band gap makes it leak heavily at room temperature. Silicon's robust oxide made reliable integrated circuits possible.
+                    A junction that can tolerate a little diffusion at a relaxed feature size can't at a tight one: the same nanometers of sideways spread eat a much bigger fraction of a short transistor. That pressure is what pushed anneal times down from minutes to about a second.
                 </p>
 
                 <div class="module-takeaway">
 
-                    The oxide, not just the crystal, made silicon the winner.
+                    As transistors shrink, the anneal has to get faster just to stand still.
 
                 </div>
 
             </section>
 
 
-            <!-- SLIDE 6 -->
 
+            <!-- COMPLETION SLIDE -->
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 2 STUDY COMPLETE
+                    UNIT 22 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    🔬
+                    ♨️
                 </div>
 
                 <h1>
@@ -319,13 +245,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You can explain why silicon beat the alternatives, and where other materials still win.
+                    You can repairing implant damage and activating dopants without letting them spread.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeChipUnit2Button"
+                    id="completeChipUnit22Button"
                 >
                     Complete Module
                 </button>
@@ -387,7 +313,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeChipUnit2Button");
+            document.getElementById("completeChipUnit22Button");
 
 
         let currentSlide = 0;
@@ -497,7 +423,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathChipUnit2StudyComplete"
+                    "fabPathChipUnit22StudyComplete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -510,7 +436,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathChipUnit2StudyComplete",
+                        "fabPathChipUnit22StudyComplete",
                         "true"
                     );
 

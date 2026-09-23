@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Layers in Action | Fab Path</title>
+    <meta name="description" content="Layers in Action: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Layers in Action | Fab Path">
+    <meta property="og:description" content="Layers in Action: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="chip-learn.html">Learn</a>
+            <a href="chip-games.html">Games</a>
+            <a href="chip-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="chip-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 7
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                UNIT 12 • LAYERS IN ACTION
+                </p>
+
+                <h1>
+                A clean surface before every layer
+                </h1>
+
+                <div class="module-card-grid">
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                ⚪
+                </div>
+
+                <h3>SC-1</h3>
+
+                <p>
+                Ammonia, hydrogen peroxide, and water. Removes particles and organic residue
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🧲
+                </div>
+
+                <h3>SC-2</h3>
+
+                <p>
+                Hydrochloric acid, hydrogen peroxide, and water. Removes metal ions
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🔥
+                </div>
+
+                <h3>Piranha or plasma</h3>
+
+                <p>
+                Sulfuric acid and peroxide, or oxygen plasma, strip heavy organics and resist
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🫧
+                </div>
+
+                <h3>Dilute HF dip</h3>
+
+                <p>
+                Removes native oxide right before the next step
+                </p>
+
+                </div>
+
+                </div>
+
+                <p>
+                The RCA clean, developed at RCA in the 1960s, is still the backbone of wafer cleaning.
+                </p>
+
+                <div class="module-takeaway">
+
+                Fabs clean the wafer over and over, because a stray particle or metal ion can kill a die.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 2 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                SHALLOW TRENCH ISOLATION
+                </p>
+
+                <h1>
+                One isolation step uses four tools
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>1 · Pad oxide and nitride</strong>
+                <span>Grow a thin oxide, then deposit silicon nitride by LPCVD</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>2 · Etch the trench</strong>
+                <span>Pattern, then plasma-etch through the nitride and into the silicon</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>3 · Liner and fill</strong>
+                <span>Grow a thin liner oxide, then overfill the trench with CVD oxide</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>4 · Polish</strong>
+                <span>CMP flattens the oxide and stops on the nitride</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>5 · Strip the nitride</strong>
+                <span>Hot phosphoric acid removes it, leaving oxide-filled isolation</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Growth, CVD, etch, and CMP team up to isolate neighboring transistors.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 3 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                COPPER DAMASCENE
+                </p>
+
+                <h1>
+                Cannot etch copper? Fill a trench instead
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>1 · Insulator</strong>
+                <span>Deposit the interlayer dielectric by CVD</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>2 · Etch</strong>
+                <span>Pattern and etch trenches, and via holes, into it</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>3 · Barrier and seed</strong>
+                <span>Sputter a Ta/TaN barrier, then a thin copper seed</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>4 · Plate</strong>
+                <span>Electroplate copper until it overfills the trenches</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>5 · Polish</strong>
+                <span>CMP removes the excess, leaving copper only in the trenches</span>
+                </div>
+
+                </div>
+
+                <p>
+                Copper forms no volatile compounds that a plasma etch can pump away, so fabs etch the trench in the insulator and fill it instead.
+                </p>
+
+                <div class="module-takeaway">
+
+                Damascene turns 'copper cannot be etched' into 'fill the trench.'
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                MATCHING TOOL TO FILM
+                </p>
+
+                <h1>
+                Which tool builds which layer
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>Gate and isolation oxide</strong>
+                <span>Furnace oxidation</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Polysilicon and nitride</strong>
+                <span>LPCVD</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Oxide between metal layers</strong>
+                <span>PECVD</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Aluminum, Ti, Ta, copper seed</strong>
+                <span>Sputtering (PVD)</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Copper wiring</strong>
+                <span>Electroplating</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Tungsten plugs</strong>
+                <span>CVD</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>High-k gate dielectric</strong>
+                <span>ALD</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                The film, its thickness, and the temperature limit together pick the tool.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                THERMAL BUDGET
+                </p>
+
+                <h1>
+                Hot first, gentle last
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                furnace first, gentle last
+                </div>
+
+                <p>
+                Steps early in the flow can use furnace heat above 1,000 °C. Once metal wiring is on the wafer, later steps must stay below roughly 400 °C, or the copper and delicate insulators would be damaged. That is why a flow runs from hot to cool, and why PECVD exists.
+                </p>
+
+                <div class="module-takeaway">
+
+                Every step has to survive everything already built on the wafer.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 6 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                HOW THIN?
+                </p>
+
+                <h1>
+                A ladder of layer thicknesses
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>Isolation oxide</strong>
+                <span>Hundreds of nanometers</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Polysilicon gate (classic)</strong>
+                <span>Roughly 100 to 200 nm</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Copper wiring</strong>
+                <span>Tens to hundreds of nanometers</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Barrier layer</strong>
+                <span>A few nanometers</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>High-k gate dielectric</strong>
+                <span>About 1 to 2 nm</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Native oxide</strong>
+                <span>About 1 to 2 nm</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Fabs control films from hundreds of nanometers down to a handful of atoms.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 7 -->
+
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 12 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🧱
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You can walk through shallow trench isolation and copper damascene.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeChipUnit12Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+</div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeChipUnit12Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathChipUnit12StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathChipUnit12StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "chip-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

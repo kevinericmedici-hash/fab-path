@@ -235,5 +235,231 @@ const chipGameData = {
                             ]
                     }
             ]
+    },
+
+    printThePattern: {
+            "key": "fabPathChipGame3Complete",
+            "xp": 50,
+            "rounds": [
+                    {
+                            "icon": "🧴",
+                            "title": "The litho loop",
+                            "lead": "Coat, expose, and develop a wafer, in the order the process needs.",
+                            "steps": [
+                                    {
+                                            "icon": "💨",
+                                            "name": "Prime the wafer with HMDS",
+                                            "why": "it helps the resist stick."
+                                    },
+                                    {
+                                            "icon": "🌀",
+                                            "name": "Spin coat the photoresist",
+                                            "why": "spinning spreads a thin, even film."
+                                    },
+                                    {
+                                            "icon": "♨️",
+                                            "name": "Soft bake the resist",
+                                            "why": "it drives off the solvent."
+                                    },
+                                    {
+                                            "icon": "🔦",
+                                            "name": "Align and expose through the reticle",
+                                            "why": "light prints the pattern."
+                                    },
+                                    {
+                                            "icon": "🔥",
+                                            "name": "Post-exposure bake",
+                                            "why": "photoacid spreads and amplifies the change."
+                                    },
+                                    {
+                                            "icon": "🧪",
+                                            "name": "Develop in TMAH",
+                                            "why": "the soluble resist washes away."
+                                    }
+                            ]
+                    },
+                    {
+                            "icon": "✌️",
+                            "title": "Self-aligned double patterning",
+                            "lead": "Turn a coarse printed pattern into twice as many lines.",
+                            "steps": [
+                                    {
+                                            "icon": "🖨️",
+                                            "name": "Print and etch the mandrels",
+                                            "why": "they are a coarse pattern of lines."
+                                    },
+                                    {
+                                            "icon": "🧴",
+                                            "name": "Deposit a conformal spacer film",
+                                            "why": "it coats the top and both sidewalls."
+                                    },
+                                    {
+                                            "icon": "⛏️",
+                                            "name": "Etch back the spacer film",
+                                            "why": "only the sidewall spacers remain."
+                                    },
+                                    {
+                                            "icon": "🧹",
+                                            "name": "Remove the mandrels",
+                                            "why": "the spacers are left standing."
+                                    },
+                                    {
+                                            "icon": "🎯",
+                                            "name": "Etch the layer using the spacers",
+                                            "why": "twice as many lines at half the pitch."
+                                    }
+                            ]
+                    },
+                    {
+                            "icon": "✨",
+                            "title": "The EUV light path",
+                            "lead": "Follow 13.5 nm light from a tin droplet to the wafer.",
+                            "steps": [
+                                    {
+                                            "icon": "🔫",
+                                            "name": "A CO₂ laser hits a tin droplet",
+                                            "why": "it turns the droplet into plasma."
+                                    },
+                                    {
+                                            "icon": "💥",
+                                            "name": "The plasma emits 13.5 nm light",
+                                            "why": "this is the EUV source."
+                                    },
+                                    {
+                                            "icon": "🥄",
+                                            "name": "The collector mirror gathers it",
+                                            "why": "the light is sent into the scanner."
+                                    },
+                                    {
+                                            "icon": "🔆",
+                                            "name": "Illuminator mirrors shape the beam",
+                                            "why": "they aim it at the reticle."
+                                    },
+                                    {
+                                            "icon": "🎭",
+                                            "name": "It reflects off the reticle",
+                                            "why": "the mask is a mirror, too."
+                                    },
+                                    {
+                                            "icon": "🔭",
+                                            "name": "Projection mirrors shrink the image",
+                                            "why": "the pattern lands on the wafer."
+                                    }
+                            ]
+                    }
+            ]
+    },
+
+    dopingTransistor: {
+        "key": "fabPathChipGame4Complete",
+        "xp": 50,
+        "rounds": [
+                {
+                        "icon": "🌡️",
+                        "title": "Diffusion doping",
+                        "lead": "Push dopant into a wafer the oldest way, with heat.",
+                        "steps": [
+                                {
+                                        "icon": "🧼",
+                                        "name": "Clean the wafer surface",
+                                        "why": "any residue would block even, uniform doping."
+                                },
+                                {
+                                        "icon": "🧪",
+                                        "name": "Load the dopant source",
+                                        "why": "a solid, liquid, or gas source supplies the surface."
+                                },
+                                {
+                                        "icon": "🌡️",
+                                        "name": "Predeposit at moderate heat",
+                                        "why": "this step loads a fixed, controlled dose."
+                                },
+                                {
+                                        "icon": "🔥",
+                                        "name": "Drive in at higher heat",
+                                        "why": "longer, hotter heat pushes dopant to its final depth."
+                                },
+                                {
+                                        "icon": "🧴",
+                                        "name": "Strip the leftover glass",
+                                        "why": "the used dopant source must come off before the next step."
+                                }
+                        ]
+                },
+                {
+                        "icon": "⚡",
+                        "title": "Ion implantation",
+                        "lead": "Fire dopant in as a beam, the way modern fabs do it.",
+                        "steps": [
+                                {
+                                        "icon": "🎭",
+                                        "name": "Pattern the resist mask",
+                                        "why": "lithography decides where dopant is allowed to land."
+                                },
+                                {
+                                        "icon": "🔋",
+                                        "name": "Generate ions at the source",
+                                        "why": "dopant atoms are stripped of electrons first."
+                                },
+                                {
+                                        "icon": "🚀",
+                                        "name": "Accelerate and mass-select them",
+                                        "why": "a magnet filters out every ion but the right one."
+                                },
+                                {
+                                        "icon": "📐",
+                                        "name": "Implant into the tilted wafer",
+                                        "why": "tilting avoids channeling down the open lattice."
+                                },
+                                {
+                                        "icon": "🧴",
+                                        "name": "Strip the resist mask",
+                                        "why": "its job is done once the beam has passed."
+                                }
+                        ]
+                },
+                {
+                        "icon": "🔌",
+                        "title": "Build a transistor",
+                        "lead": "Put doping, the gate, and an anneal together into one device.",
+                        "steps": [
+                                {
+                                        "icon": "🧫",
+                                        "name": "Implant the well",
+                                        "why": "the well sets up the opposite type for source and drain."
+                                },
+                                {
+                                        "icon": "🧱",
+                                        "name": "Grow the gate oxide",
+                                        "why": "this thin film insulates the gate from the channel."
+                                },
+                                {
+                                        "icon": "🎭",
+                                        "name": "Deposit and pattern the gate",
+                                        "why": "the gate will align every implant that follows."
+                                },
+                                {
+                                        "icon": "📏",
+                                        "name": "Implant the LDD",
+                                        "why": "it self-aligns to the gate edge, softening the field."
+                                },
+                                {
+                                        "icon": "🧊",
+                                        "name": "Form the sidewall spacer",
+                                        "why": "it sets back the deeper implant that comes next."
+                                },
+                                {
+                                        "icon": "🧫",
+                                        "name": "Implant the source and drain",
+                                        "why": "these heavier, deeper implants form the switch itself."
+                                },
+                                {
+                                        "icon": "♨️",
+                                        "name": "Spike-anneal the whole device",
+                                        "why": "one fast anneal activates every implant made so far."
+                                }
+                        ]
+                }
+        ]
     }
 };

@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Why Silicon? | Fab Path</title>
-    <meta name="description" content="Why Silicon?: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <title>The Photoresist Process | Fab Path</title>
+    <meta name="description" content="The Photoresist Process: illustrated study slides from the Sand to Chip course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Why Silicon? | Fab Path">
-    <meta property="og:description" content="Why Silicon?: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta property="og:title" content="The Photoresist Process | Fab Path">
+    <meta property="og:description" content="The Photoresist Process: illustrated study slides from the Sand to Chip course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -72,7 +72,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 6
+                    1 / 7
                 </span>
 
             </div>
@@ -88,24 +88,37 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    UNIT 2 • WHY SILICON?
+                UNIT 14 • THE PHOTORESIST PROCESS
                 </p>
 
                 <h1>
-                    Silicon by the numbers
+                Spin on a film thinner than a hair's width
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    ≈ 28% of the crust
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 248" role="img" aria-label="Spin coating: a small puddle of photoresist is dropped at the center of a wafer on a vacuum chuck, and spinning spreads it into a thin uniform film">
+                <rect class="fd-metal" x="150" y="150" width="40" height="22"/>
+                <text class="fd-sub" x="196" y="164">vacuum chuck</text>
+                <rect class="fd-p" x="60" y="138" width="220" height="12" rx="2"/>
+                <path class="fd-melt" d="M60 138 Q170 120 280 138 Z"/>
+                <text class="fd-sub" x="70" y="130">wafer</text>
+                <rect class="fd-metal" x="163" y="20" width="14" height="30" rx="2"/>
+                <rect class="fd-melt" x="166" y="50" width="8" height="46"/>
+                <text class="fd-label" x="188" y="36">resist nozzle</text>
+                <text class="fd-sub" x="188" y="48">a small puddle at the center</text>
+                <path class="fd-axis" d="M96 184 Q170 214 244 184"/><polygon class="fd-arrow" points="248,181 238,180 240,189"/>
+                <text class="fd-accent" x="170" y="226" text-anchor="middle">spins at thousands of rpm</text>
+                <text class="fd-sub" x="170" y="240" text-anchor="middle">centrifugal force spreads a thin, even film</text>
+                </svg>
                 </div>
 
                 <p>
-                    Silicon is the second most abundant element in Earth's crust after oxygen, at roughly 28 percent by mass. It is found bound to oxygen in sand and quartz, so the raw material is essentially free.
+                A small puddle of resist is dropped at the wafer's center, and the wafer spins at thousands of rpm. Centrifugal force spreads the resist into a uniform film. Faster spinning gives a thinner film: from about 50 nm for EUV to a few micrometers for thick MEMS and packaging resists.
                 </p>
 
                 <div class="module-takeaway">
 
-                    The hard part isn't finding silicon. It's purifying it.
+                Spin speed and resist thickness trade off: faster spinning makes thinner films.
 
                 </div>
 
@@ -117,47 +130,40 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    BAND GAPS
+                PREPARING THE WAFER
                 </p>
 
                 <h1>
-                    How the semiconductors compare
+                Prime, coat, then bake
                 </h1>
 
                 <div class="scale-stack">
 
-                    <div class="scale-row">
-                        <strong>Germanium</strong>
-                        <span>0.66 eV · the first transistors, but leaky at room temperature</span>
-                    </div>
+                <div class="scale-row">
+                <strong>Dehydration bake</strong>
+                <span>Drives off surface moisture so the resist can stick</span>
+                </div>
 
-                    <div class="scale-row">
-                        <strong>Silicon</strong>
-                        <span>1.12 eV · the balanced workhorse</span>
-                    </div>
+                <div class="scale-row">
+                <strong>Adhesion promoter</strong>
+                <span>A vapor of HMDS (hexamethyldisilazane) makes the surface hold resist better</span>
+                </div>
 
-                    <div class="scale-row">
-                        <strong>Gallium arsenide</strong>
-                        <span>1.42 eV · fast electrons and good light emission</span>
-                    </div>
+                <div class="scale-row">
+                <strong>Coat</strong>
+                <span>Spin on the resist and let the excess fly off the edge</span>
+                </div>
 
-                    <div class="scale-row">
-                        <strong>Silicon carbide</strong>
-                        <span>about 3.3 eV · high-voltage, high-temperature power</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Gallium nitride</strong>
-                        <span>about 3.4 eV · power, radio, and blue LEDs</span>
-                    </div>
+                <div class="scale-row">
+                <strong>Soft bake</strong>
+                <span>About 90 to 110 °C drives out most of the solvent and leaves a solid film</span>
+                </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    
-
-                    A wider band gap tolerates more voltage and heat; a narrower one switches at lower energy but leaks more.
+                Resist that will not stick or is still wet will not print cleanly.
 
                 </div>
 
@@ -169,62 +175,66 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    SILICON'S SUPERPOWERS
+                EXPOSE AND BAKE
                 </p>
 
                 <h1>
-                    Why it won
+                Light starts a chemical reaction
                 </h1>
 
                 <div class="module-card-grid">
 
-                    <div class="module-card">
+                <div class="module-card">
 
-                        <div class="module-card-icon">
-                            🧱
-                        </div>
+                <div class="module-card-icon">
+                🔦
+                </div>
 
-                        <h3>A native oxide</h3>
+                <h3>Expose</h3>
 
-                        <p>
-                            Heating silicon in oxygen grows SiO₂, a stable, high-quality insulator that bonds cleanly to the crystal
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🔥
-                        </div>
-
-                        <h3>A wide processing window</h3>
-
-                        <p>
-                            It melts at 1,414 °C and tolerates the high temperatures that oxidation and doping need
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🎚️
-                        </div>
-
-                        <h3>Controllable conductivity</h3>
-
-                        <p>
-                            Tiny amounts of boron or phosphorus set how well it conducts
-                        </p>
-
-                    </div>
+                <p>
+                The scanner aligns the wafer and flashes the pattern onto the resist
+                </p>
 
                 </div>
 
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🧪
+                </div>
+
+                <h3>Photoacid</h3>
+
+                <p>
+                Modern resists contain a photoacid generator that makes acid where light lands
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                ♨️
+                </div>
+
+                <h3>Post-exposure bake</h3>
+
+                <p>
+                Heat lets that acid spread and change many resist molecules, amplifying the effect
+                </p>
+
+                </div>
+
+                </div>
+
+                <p>
+                Such chemically amplified resists need only a small dose of light, which speeds up printing.
+                </p>
+
                 <div class="module-takeaway">
 
-                    The best transistor material is the one you can build a whole ecosystem around.
+                One photon can trigger many chemical changes, so the resist responds to a small dose.
 
                 </div>
 
@@ -236,37 +246,40 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    WHERE OTHERS WIN
+                DEVELOP
                 </p>
 
                 <h1>
-                    What silicon can't do well
+                Wash away the soft part
                 </h1>
 
                 <div class="scale-stack">
 
-                    <div class="scale-row">
-                        <strong>Emitting light</strong>
-                        <span>Silicon's indirect band gap makes a poor light source, so LEDs and lasers use III-V compounds</span>
-                    </div>
+                <div class="scale-row">
+                <strong>The developer</strong>
+                <span>A dilute water-based base, most often TMAH (tetramethylammonium hydroxide)</span>
+                </div>
 
-                    <div class="scale-row">
-                        <strong>Very fast radio</strong>
-                        <span>Gallium arsenide and related compounds move electrons faster, for some RF uses</span>
-                    </div>
+                <div class="scale-row">
+                <strong>Positive tone</strong>
+                <span>The exposed, now-soluble resist dissolves in the developer</span>
+                </div>
 
-                    <div class="scale-row">
-                        <strong>High-voltage power</strong>
-                        <span>Silicon carbide and gallium nitride handle more voltage and heat</span>
-                    </div>
+                <div class="scale-row">
+                <strong>Rinse and dry</strong>
+                <span>Deionized water stops development and removes dissolved resist</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Hard bake</strong>
+                <span>An optional extra bake toughens the resist for a harsh etch or implant</span>
+                </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    
-
-                    Silicon wins on cost and ecosystem, so it's used unless something else is essential.
+                Development turns a chemical image into a physical stencil.
 
                 </div>
 
@@ -278,24 +291,24 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    GERMANIUM'S FALL
+                THE TRACK
                 </p>
 
                 <h1>
-                    Why the first material lost
+                Coater, scanner, developer: one connected line
                 </h1>
 
                 <div class="module-visual module-visual-text">
-                    Ge oxide: water-soluble
+                track + scanner
                 </div>
 
                 <p>
-                    The first transistor in 1947 used germanium. But germanium's oxide is unstable and dissolves in water, and its small band gap makes it leak heavily at room temperature. Silicon's robust oxide made reliable integrated circuits possible.
+                In a modern fab, a robotic 'track' coats and bakes the wafer, hands it to the scanner for exposure, then takes it back for post-exposure baking and development. Scanners handle roughly 100 to 300 wafers per hour, so the track has to keep pace.
                 </p>
 
                 <div class="module-takeaway">
 
-                    The oxide, not just the crystal, made silicon the winner.
+                The scanner is the star, but the track makes a wafer ready for it.
 
                 </div>
 
@@ -304,14 +317,59 @@
 
             <!-- SLIDE 6 -->
 
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                STRIPPING
+                </p>
+
+                <h1>
+                Remove the stencil and clean up
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>After the etch or implant</strong>
+                <span>The resist has done its job and must go completely</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Oxygen plasma ashing</strong>
+                <span>Burns the organic resist away as gas</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Wet strip and clean</strong>
+                <span>Solvents or acid mixtures lift off any residue</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Then</strong>
+                <span>The clean wafer is ready for the next layer's coat</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Resist is temporary: it is removed once its pattern has been copied.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 7 -->
+
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 2 STUDY COMPLETE
+                    UNIT 14 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    🔬
+                    🧴
                 </div>
 
                 <h1>
@@ -319,13 +377,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You can explain why silicon beat the alternatives, and where other materials still win.
+                    You can follow a wafer through coat, bake, expose, develop, and strip.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeChipUnit2Button"
+                    id="completeChipUnit14Button"
                 >
                     Complete Module
                 </button>
@@ -387,7 +445,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeChipUnit2Button");
+            document.getElementById("completeChipUnit14Button");
 
 
         let currentSlide = 0;
@@ -497,7 +555,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathChipUnit2StudyComplete"
+                    "fabPathChipUnit14StudyComplete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -510,7 +568,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathChipUnit2StudyComplete",
+                        "fabPathChipUnit14StudyComplete",
                         "true"
                     );
 

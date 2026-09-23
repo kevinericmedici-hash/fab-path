@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Why Silicon? | Fab Path</title>
-    <meta name="description" content="Why Silicon?: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <title>Why Dope Silicon? | Fab Path</title>
+    <meta name="description" content="Why Dope Silicon?: illustrated study slides from the Sand to Chip course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Why Silicon? | Fab Path">
-    <meta property="og:description" content="Why Silicon?: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta property="og:title" content="Why Dope Silicon? | Fab Path">
+    <meta property="og:description" content="Why Dope Silicon?: illustrated study slides from the Sand to Chip course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -72,7 +72,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 6
+                    1 / 7
                 </span>
 
             </div>
@@ -85,27 +85,66 @@
 
             <!-- SLIDE 1 -->
 
+                        <!-- SLIDE 1 -->
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    UNIT 2 • WHY SILICON?
+                PART 4 • DOPING AND THE TRANSISTOR
                 </p>
 
                 <h1>
-                    Silicon by the numbers
+                Doping and the Transistor
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    ≈ 28% of the crust
+                <div class="module-card-grid">
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🌡️
                 </div>
 
+                <h3>Diffusion</h3>
+
                 <p>
-                    Silicon is the second most abundant element in Earth's crust after oxygen, at roughly 28 percent by mass. It is found bound to oxygen in sand and quartz, so the raw material is essentially free.
+                The oldest way to move dopant into silicon: heat and time
                 </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                ⚡
+                </div>
+
+                <h3>Implantation</h3>
+
+                <p>
+                The modern way: fire dopant atoms in as a beam of ions
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🔌
+                </div>
+
+                <h3>The transistor</h3>
+
+                <p>
+                Wells, junctions, and a gate stack, put together
+                </p>
+
+                </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    The hard part isn't finding silicon. It's purifying it.
+                By the end of this part, you can explain how a bare silicon wafer becomes a working switch.
 
                 </div>
 
@@ -113,67 +152,45 @@
 
 
             <!-- SLIDE 2 -->
-
+            
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    BAND GAPS
+                    A CRYSTAL THAT BARELY CONDUCTS
                 </p>
 
                 <h1>
-                    How the semiconductors compare
+                    The whole point of all that purity
                 </h1>
 
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Germanium</strong>
-                        <span>0.66 eV · the first transistors, but leaky at room temperature</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Silicon</strong>
-                        <span>1.12 eV · the balanced workhorse</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Gallium arsenide</strong>
-                        <span>1.42 eV · fast electrons and good light emission</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Silicon carbide</strong>
-                        <span>about 3.3 eV · high-voltage, high-temperature power</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Gallium nitride</strong>
-                        <span>about 3.4 eV · power, radio, and blue LEDs</span>
-                    </div>
-
+                <div class="module-visual module-visual-text">
+                    9 nines pure, on purpose
                 </div>
+
+                <p>
+                    Part 1 spent six units getting silicon to nine nines pure, because an impurity anywhere in the crystal is a defect you can't control. Doping flips that: once the crystal is flawless, a fab adds back a tiny, exact, deliberate amount of a different element, in only the spots it wants.
+                </p>
 
                 <div class="module-takeaway">
 
-                    
-
-                    A wider band gap tolerates more voltage and heat; a narrower one switches at lower energy but leaks more.
+                    Purity first, so the impurities that follow are the only ones there.
 
                 </div>
 
             </section>
 
 
-            <!-- SLIDE 3 -->
 
+            <!-- SLIDE 3 -->
+            
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    SILICON'S SUPERPOWERS
+                    TWO FLAVORS
                 </p>
 
                 <h1>
-                    Why it won
+                    Pick your carrier
                 </h1>
 
                 <div class="module-card-grid">
@@ -181,13 +198,13 @@
                     <div class="module-card">
 
                         <div class="module-card-icon">
-                            🧱
+                            ➖
                         </div>
 
-                        <h3>A native oxide</h3>
+                        <h3>n-type</h3>
 
                         <p>
-                            Heating silicon in oxygen grows SiO₂, a stable, high-quality insulator that bonds cleanly to the crystal
+                            Phosphorus or arsenic donates a free electron to the lattice
                         </p>
 
                     </div>
@@ -195,13 +212,13 @@
                     <div class="module-card">
 
                         <div class="module-card-icon">
-                            🔥
+                            ➕
                         </div>
 
-                        <h3>A wide processing window</h3>
+                        <h3>p-type</h3>
 
                         <p>
-                            It melts at 1,414 °C and tolerates the high temperatures that oxidation and doping need
+                            Boron accepts an electron, leaving a mobile hole behind
                         </p>
 
                     </div>
@@ -209,13 +226,13 @@
                     <div class="module-card">
 
                         <div class="module-card-icon">
-                            🎚️
+                            🎯
                         </div>
 
-                        <h3>Controllable conductivity</h3>
+                        <h3>Typical dose</h3>
 
                         <p>
-                            Tiny amounts of boron or phosphorus set how well it conducts
+                            As few as one dopant atom per 10,000 to 100,000 silicon atoms
                         </p>
 
                     </div>
@@ -224,40 +241,41 @@
 
                 <div class="module-takeaway">
 
-                    The best transistor material is the one you can build a whole ecosystem around.
+                    A handful of dopant atoms per hundred thousand is enough to change how silicon conducts.
 
                 </div>
 
             </section>
 
 
-            <!-- SLIDE 4 -->
 
+            <!-- SLIDE 4 -->
+            
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    WHERE OTHERS WIN
+                    CARRIERS
                 </p>
 
                 <h1>
-                    What silicon can't do well
+                    Majority and minority
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>Emitting light</strong>
-                        <span>Silicon's indirect band gap makes a poor light source, so LEDs and lasers use III-V compounds</span>
+                        <strong>Majority carrier</strong>
+                        <span>The one doping put there in abundance: electrons in n-type, holes in p-type</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Very fast radio</strong>
-                        <span>Gallium arsenide and related compounds move electrons faster, for some RF uses</span>
+                        <strong>Minority carrier</strong>
+                        <span>The opposite type, present in trace amounts</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>High-voltage power</strong>
-                        <span>Silicon carbide and gallium nitride handle more voltage and heat</span>
+                        <strong>Mass action</strong>
+                        <span>n times p is a constant, so more of one type means less of the other</span>
                     </div>
 
                 </div>
@@ -266,52 +284,96 @@
 
                     
 
-                    Silicon wins on cost and ecosystem, so it's used unless something else is essential.
+                    Doping sets which carrier does almost all the conducting.
 
                 </div>
 
             </section>
 
 
-            <!-- SLIDE 5 -->
 
+            <!-- SLIDE 5 -->
+            
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    GERMANIUM'S FALL
+                    THE P-N JUNCTION
                 </p>
 
                 <h1>
-                    Why the first material lost
+                    Where two doped regions meet
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    Ge oxide: water-soluble
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 216" role="img" aria-label="A p-n junction: p-type silicon on the left, n-type on the right, with a depletion region at the boundary">
+<rect class="fd-p" x="20" y="60" width="140" height="100" rx="3"/>
+<rect class="fd-n" x="160" y="60" width="140" height="100" rx="3"/>
+<rect class="fd-depl" x="140" y="60" width="40" height="100"/>
+<text class="fd-label" x="90" y="45" text-anchor="middle">p-type</text>
+<text class="fd-sub" x="90" y="180" text-anchor="middle">boron acceptors, mobile holes</text>
+<text class="fd-label" x="230" y="45" text-anchor="middle">n-type</text>
+<text class="fd-sub" x="230" y="180" text-anchor="middle">phosphorus donors, mobile electrons</text>
+<text class="fd-accent" x="160" y="200" text-anchor="middle">depletion region</text>
+<circle class="fd-hole" cx="45" cy="90" r="4"/><circle class="fd-hole" cx="70" cy="130" r="4"/><circle class="fd-hole" cx="105" cy="100" r="4"/>
+<circle class="fd-electron" cx="235" cy="95" r="4"/><circle class="fd-electron" cx="270" cy="130" r="4"/><circle class="fd-electron" cx="200" cy="105" r="4"/>
+</svg>
                 </div>
 
                 <p>
-                    The first transistor in 1947 used germanium. But germanium's oxide is unstable and dissolves in water, and its small band gap makes it leak heavily at room temperature. Silicon's robust oxide made reliable integrated circuits possible.
+                    Put p-type and n-type silicon side by side and the boundary between them becomes a p-n junction. Mobile carriers near the boundary diffuse across and cancel out, leaving a depletion region with almost no free carriers and a built-in electric field.
                 </p>
 
                 <div class="module-takeaway">
 
-                    The oxide, not just the crystal, made silicon the winner.
+                    
+
+                    A p-n junction blocks current one way and passes it the other: the basis of a diode, and of a transistor's source and drain.
 
                 </div>
 
             </section>
 
 
-            <!-- SLIDE 6 -->
 
+            <!-- SLIDE 6 -->
+            
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    FROM JUNCTION TO TRANSISTOR
+                </p>
+
+                <h1>
+                    A MOSFET is built from junctions
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    well + source + drain
+                </div>
+
+                <p>
+                    A transistor's source and drain are doped regions of one type, sitting inside a well of the opposite type. That arrangement is two back-to-back junctions, held off by a gate. The rest of this part covers how a fab actually places that doping: diffusion, implantation, and the finished device.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Every transistor on the chip is, underneath, a careful arrangement of doped regions.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- COMPLETION SLIDE -->
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 2 STUDY COMPLETE
+                    UNIT 19 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    🔬
+                    ⚛️
                 </div>
 
                 <h1>
@@ -319,13 +381,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You can explain why silicon beat the alternatives, and where other materials still win.
+                    You can why pure silicon needs controlled impurities, and what a p-n junction does.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeChipUnit2Button"
+                    id="completeChipUnit19Button"
                 >
                     Complete Module
                 </button>
@@ -387,7 +449,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeChipUnit2Button");
+            document.getElementById("completeChipUnit19Button");
 
 
         let currentSlide = 0;
@@ -497,7 +559,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathChipUnit2StudyComplete"
+                    "fabPathChipUnit19StudyComplete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -510,7 +572,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathChipUnit2StudyComplete",
+                        "fabPathChipUnit19StudyComplete",
                         "true"
                     );
 

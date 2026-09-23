@@ -44,6 +44,9 @@
                 ⚡ <span id="totalXPDisplay">0</span> XP
             </span>
 
+        
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
         </div>
 
     </header>
@@ -62,7 +65,7 @@
             </h1>
 
             <p>
-                Every unit gets its own hands-on game. Jump into any
+                One hands-on game for each stretch of the course. Jump into any
                 of them, any time. More arrive as more units go live.
             </p>
 
@@ -87,7 +90,7 @@
                 <h3>Sand to Wafer</h3>
 
                 <p>
-                    Unit 1 · Put the steps of silicon purification, crystal
+                    Units 1–6 · Put the steps of silicon purification, crystal
                     growth, and wafer making in the right order.
                 </p>
 
@@ -113,11 +116,63 @@
                 <h3>Building the Layers</h3>
 
                 <p>
-                    Unit 2 · Put the steps of trench isolation, copper wiring,
+                    Units 7–12 · Put the steps of trench isolation, copper wiring,
                     and a transistor gate in the right order.
                 </p>
 
                 <span class="game-hub-cta" id="chipGame2CTA">
+                    Play now →
+                </span>
+
+            </a>
+
+            <a
+                href="chip-game3.html"
+                class="game-hub-card playable lesson-link"
+                id="chipGame3Card"
+            >
+                <span class="game-hub-badge" id="chipGame3Badge">
+                    PLAY
+                </span>
+
+                <div class="game-hub-icon">
+                    🔦
+                </div>
+
+                <h3>Printing the Pattern</h3>
+
+                <p>
+                    Units 13–18 · Put the steps of the resist loop, double
+                    patterning, and the EUV light path in the right order.
+                </p>
+
+                <span class="game-hub-cta" id="chipGame3CTA">
+                    Play now →
+                </span>
+
+            </a>
+
+            <a
+                href="chip-game4.html"
+                class="game-hub-card playable lesson-link"
+                id="chipGame4Card"
+            >
+                <span class="game-hub-badge" id="chipGame4Badge">
+                    PLAY
+                </span>
+
+                <div class="game-hub-icon">
+                    ⚛️
+                </div>
+
+                <h3>Doping and the Transistor</h3>
+
+                <p>
+                    Units 19–24 · Put the steps of diffusion doping, ion
+                    implantation, and a full transistor build in the right order.
+                </p>
+
+                <span class="game-hub-cta" id="chipGame4CTA">
                     Play now →
                 </span>
 
@@ -132,7 +187,7 @@
 
     <script>
 
-        for (let n = 1; n <= 2; n++) {
+        for (let n = 1; n <= 4; n++) {
 
             let done = false;
 
@@ -162,6 +217,8 @@
 
     </script>
 
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
 </body>
 
 </html>

@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Why Silicon? | Fab Path</title>
-    <meta name="description" content="Why Silicon?: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <title>Growing the Crystal | Fab Path</title>
+    <meta name="description" content="Growing the Crystal: illustrated study slides from the Sand to Chip course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Why Silicon? | Fab Path">
-    <meta property="og:description" content="Why Silicon?: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta property="og:title" content="Growing the Crystal | Fab Path">
+    <meta property="og:description" content="Growing the Crystal: illustrated study slides from the Sand to Chip course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -72,7 +72,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 6
+                    1 / 8
                 </span>
 
             </div>
@@ -88,24 +88,24 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    UNIT 2 • WHY SILICON?
+                    UNIT 4 • GROWING THE CRYSTAL
                 </p>
 
                 <h1>
-                    Silicon by the numbers
+                    One lattice, no boundaries
                 </h1>
 
                 <div class="module-visual module-visual-text">
-                    ≈ 28% of the crust
+                    grain boundaries ✗
                 </div>
 
                 <p>
-                    Silicon is the second most abundant element in Earth's crust after oxygen, at roughly 28 percent by mass. It is found bound to oxygen in sand and quartz, so the raw material is essentially free.
+                    Polysilicon is a jumble of tiny crystal grains. At every boundary between grains, atoms are misaligned, and those defects scatter charges and ruin transistors. Chips need one continuous crystal, with every atom sitting where the lattice says it should.
                 </p>
 
                 <div class="module-takeaway">
 
-                    The hard part isn't finding silicon. It's purifying it.
+                    A transistor built on a grain boundary is a broken transistor.
 
                 </div>
 
@@ -117,47 +117,50 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    BAND GAPS
+                    THE CZOCHRALSKI METHOD
                 </p>
 
                 <h1>
-                    How the semiconductors compare
+                    Pulling a crystal from a melt
                 </h1>
 
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Germanium</strong>
-                        <span>0.66 eV · the first transistors, but leaky at room temperature</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Silicon</strong>
-                        <span>1.12 eV · the balanced workhorse</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Gallium arsenide</strong>
-                        <span>1.42 eV · fast electrons and good light emission</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Silicon carbide</strong>
-                        <span>about 3.3 eV · high-voltage, high-temperature power</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Gallium nitride</strong>
-                        <span>about 3.4 eV · power, radio, and blue LEDs</span>
-                    </div>
-
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 262" role="img" aria-label="A Czochralski crystal puller: a seed pulls a growing ingot out of molten silicon in a crucible">
+<rect class="fd-axis" x="5" y="14" width="190" height="228" rx="10" style="fill:rgba(255,255,255,.02)"/>
+<line class="fd-axis" x1="100" y1="14" x2="100" y2="66"/>
+<polygon class="fd-arrow" points="100,5 93,18 107,18"/>
+<path class="fd-crystal" d="M97 66 L103 66 L103 92 L127 116 L127 168 L73 168 L73 116 L97 92 Z"/>
+<path class="fd-metal" d="M29 150 L45 226 L155 226 L171 150 Z" style="fill:rgba(245,247,255,.10)"/>
+<path class="fd-melt" d="M34 168 L166 168 L152 214 L48 214 Z"/>
+<rect class="fd-melt" x="11" y="150" width="9" height="76" rx="2" style="fill:rgba(255,105,120,.25);stroke:#ff6978"/>
+<rect class="fd-melt" x="180" y="150" width="9" height="76" rx="2" style="fill:rgba(255,105,120,.25);stroke:#ff6978"/>
+<line class="fd-dash" x1="103" y1="40" x2="199" y2="40"/>
+<text class="fd-sub" x="204" y="44">seed, pulled up</text>
+<line class="fd-dash" x1="103" y1="80" x2="199" y2="78"/>
+<text class="fd-sub" x="204" y="82">thin neck</text>
+<line class="fd-dash" x1="127" y1="138" x2="199" y2="116"/>
+<text class="fd-label" x="204" y="114">single-crystal</text>
+<text class="fd-label" x="204" y="128">ingot</text>
+<line class="fd-dash" x1="150" y1="190" x2="199" y2="178"/>
+<text class="fd-label" x="204" y="176">molten silicon</text>
+<text class="fd-sub" x="204" y="190">about 1,420 °C</text>
+<line class="fd-dash" x1="189" y1="214" x2="199" y2="226"/>
+<text class="fd-sub" x="204" y="230">heater</text>
+<line class="fd-dash" x1="100" y1="226" x2="100" y2="246"/>
+<text class="fd-sub" x="100" y="258" text-anchor="middle">quartz crucible</text>
+<text class="fd-sub" x="100" y="142" text-anchor="middle" style="fill:#9ef2e2">rotating</text>
+</svg>
                 </div>
+
+                <p>
+                    Polysilicon is melted in a quartz crucible just above 1,414 °C in an argon atmosphere. A small seed crystal is dipped in and pulled upward slowly while rotating. Silicon freezes onto the seed atom by atom, copying its crystal orientation.
+                </p>
 
                 <div class="module-takeaway">
 
                     
 
-                    A wider band gap tolerates more voltage and heat; a narrower one switches at lower energy but leaks more.
+                    The seed sets the crystal orientation; pull rate and temperature set the diameter.
 
                 </div>
 
@@ -169,62 +172,52 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    SILICON'S SUPERPOWERS
+                    THE PULL, STEP BY STEP
                 </p>
 
                 <h1>
-                    Why it won
+                    From melt to ingot
                 </h1>
 
-                <div class="module-card-grid">
+                <div class="scale-stack">
 
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🧱
-                        </div>
-
-                        <h3>A native oxide</h3>
-
-                        <p>
-                            Heating silicon in oxygen grows SiO₂, a stable, high-quality insulator that bonds cleanly to the crystal
-                        </p>
-
+                    <div class="scale-row">
+                        <strong>Melt</strong>
+                        <span>Polysilicon and dopant melt in a quartz crucible</span>
                     </div>
 
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🔥
-                        </div>
-
-                        <h3>A wide processing window</h3>
-
-                        <p>
-                            It melts at 1,414 °C and tolerates the high temperatures that oxidation and doping need
-                        </p>
-
+                    <div class="scale-row">
+                        <strong>Dip</strong>
+                        <span>The seed touches the melt surface</span>
                     </div>
 
-                    <div class="module-card">
+                    <div class="scale-row">
+                        <strong>Neck</strong>
+                        <span>A thin neck of a few millimeters is pulled first, to shed dislocations</span>
+                    </div>
 
-                        <div class="module-card-icon">
-                            🎚️
-                        </div>
+                    <div class="scale-row">
+                        <strong>Crown</strong>
+                        <span>The crystal widens out to full diameter</span>
+                    </div>
 
-                        <h3>Controllable conductivity</h3>
+                    <div class="scale-row">
+                        <strong>Body</strong>
+                        <span>The constant-diameter body grows at roughly a millimeter per minute</span>
+                    </div>
 
-                        <p>
-                            Tiny amounts of boron or phosphorus set how well it conducts
-                        </p>
-
+                    <div class="scale-row">
+                        <strong>Tail</strong>
+                        <span>The diameter tapers so the ingot can cool safely</span>
                     </div>
 
                 </div>
 
                 <div class="module-takeaway">
 
-                    The best transistor material is the one you can build a whole ecosystem around.
+                    
+
+                    Every step is controlled to keep the crystal flawless.
 
                 </div>
 
@@ -236,37 +229,24 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    WHERE OTHERS WIN
+                    THE PAYOFF
                 </p>
 
                 <h1>
-                    What silicon can't do well
+                    An ingot the size of a person
                 </h1>
 
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Emitting light</strong>
-                        <span>Silicon's indirect band gap makes a poor light source, so LEDs and lasers use III-V compounds</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Very fast radio</strong>
-                        <span>Gallium arsenide and related compounds move electrons faster, for some RF uses</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>High-voltage power</strong>
-                        <span>Silicon carbide and gallium nitride handle more voltage and heat</span>
-                    </div>
-
+                <div class="module-visual module-visual-text">
+                    ⌀ 300 mm × ~2 m
                 </div>
+
+                <p>
+                    A finished 300 mm ingot can be around two meters long and weigh hundreds of kilograms, and one pull takes days. Its entire volume is one continuous crystal.
+                </p>
 
                 <div class="module-takeaway">
 
-                    
-
-                    Silicon wins on cost and ecosystem, so it's used unless something else is essential.
+                    One seed crystal's atoms, copied hundreds of kilograms deep.
 
                 </div>
 
@@ -278,24 +258,62 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    GERMANIUM'S FALL
+                    DOPING THE INGOT
                 </p>
 
                 <h1>
-                    Why the first material lost
+                    Setting n-type or p-type
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    Ge oxide: water-soluble
-                </div>
+                <div class="module-card-grid">
 
-                <p>
-                    The first transistor in 1947 used germanium. But germanium's oxide is unstable and dissolves in water, and its small band gap makes it leak heavily at room temperature. Silicon's robust oxide made reliable integrated circuits possible.
-                </p>
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧪
+                        </div>
+
+                        <h3>Add to the melt</h3>
+
+                        <p>
+                            Boron makes p-type; phosphorus or arsenic make n-type. They're mixed into the melt before pulling
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            📉
+                        </div>
+
+                        <h3>Segregation</h3>
+
+                        <p>
+                            Dopants prefer the melt over the crystal, so their concentration drifts along the ingot
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            📏
+                        </div>
+
+                        <h3>Resistivity spec</h3>
+
+                        <p>
+                            Wafers are sorted by resistivity, in ohm-centimeters, to match what customers ordered
+                        </p>
+
+                    </div>
+
+                </div>
 
                 <div class="module-takeaway">
 
-                    The oxide, not just the crystal, made silicon the winner.
+                    Starting doping sets the background the transistors are built into.
 
                 </div>
 
@@ -304,14 +322,85 @@
 
             <!-- SLIDE 6 -->
 
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    OXYGEN
+                </p>
+
+                <h1>
+                    A crucible that dissolves
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    quartz → oxygen
+                </div>
+
+                <p>
+                    The quartz crucible slowly dissolves into the melt, so Czochralski silicon carries oxygen, typically on the order of 10<sup>18</sup> atoms per cm³. Some of it forms tiny clusters that trap metal impurities away from the transistors, but too much causes defects.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Oxygen is both a helpful and a harmful passenger.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 7 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CZ VERSUS FLOAT ZONE
+                </p>
+
+                <h1>
+                    Two ways to grow a crystal
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Czochralski (CZ)</strong>
+                        <span>Melt in a crucible · large diameters · some oxygen · the workhorse for chips</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Float zone (FZ)</strong>
+                        <span>A moving molten zone, no crucible · very low oxygen · smaller diameters · power devices and detectors</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Which is common</strong>
+                        <span>CZ makes the large majority of wafers for logic and memory</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Pick the method by the diameter and purity the device needs.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 8 -->
+
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 2 STUDY COMPLETE
+                    UNIT 4 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    🔬
+                    🧊
                 </div>
 
                 <h1>
@@ -319,13 +408,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You can explain why silicon beat the alternatives, and where other materials still win.
+                    You can describe how a crystal is pulled from a melt and how it gets doped.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeChipUnit2Button"
+                    id="completeChipUnit4Button"
                 >
                     Complete Module
                 </button>
@@ -387,7 +476,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeChipUnit2Button");
+            document.getElementById("completeChipUnit4Button");
 
 
         let currentSlide = 0;
@@ -497,7 +586,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathChipUnit2StudyComplete"
+                    "fabPathChipUnit4StudyComplete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -510,7 +599,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathChipUnit2StudyComplete",
+                        "fabPathChipUnit4StudyComplete",
                         "true"
                     );
 

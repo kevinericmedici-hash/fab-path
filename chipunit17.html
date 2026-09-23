@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Immersion, Multi-Patterning, and EUV | Fab Path</title>
+    <meta name="description" content="Immersion, Multi-Patterning, and EUV: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Immersion, Multi-Patterning, and EUV | Fab Path">
+    <meta property="og:description" content="Immersion, Multi-Patterning, and EUV: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="chip-learn.html">Learn</a>
+            <a href="chip-games.html">Games</a>
+            <a href="chip-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="chip-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 7
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                UNIT 17 • IMMERSION, MULTI-PATTERNING, AND EUV
+                </p>
+
+                <h1>
+                Single exposure ran out of room
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>The limit</strong>
+                <span>ArF immersion with one exposure resolves about 40 nm half-pitch</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>The demand</strong>
+                <span>Chip makers wanted features far smaller than that</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>The options</strong>
+                <span>Split the pattern across multiple exposures, or move to a much shorter wavelength</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>What fabs did</strong>
+                <span>Both, in sequence: multi-patterning first, then EUV</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                When the light cannot shrink further, the process must get more clever.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 2 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                MULTI-PATTERNING
+                </p>
+
+                <h1>
+                Print half the pattern at a time
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 20 340 170" role="img" aria-label="Self-aligned double patterning: print mandrels, coat them with a conformal spacer film, etch the film back to leave spacers on the sidewalls, then strip the mandrels so twice as many lines remain">
+                <rect class="fd-p" x="2" y="110" width="80" height="14"/>
+                <rect class="fd-melt" x="10" y="84" width="10" height="26"/>
+                <rect class="fd-melt" x="38" y="84" width="10" height="26"/>
+                <rect class="fd-melt" x="66" y="84" width="10" height="26"/>
+                <text class="fd-label" x="42" y="144" text-anchor="middle">1 Mandrels</text>
+                <text class="fd-sub" x="42" y="156" text-anchor="middle">print lines</text>
+                <rect class="fd-p" x="86" y="110" width="80" height="14"/>
+                <rect class="fd-n" x="90" y="80" width="18" height="30"/>
+                <rect class="fd-melt" x="94" y="84" width="10" height="26"/>
+                <rect class="fd-n" x="118" y="80" width="18" height="30"/>
+                <rect class="fd-melt" x="122" y="84" width="10" height="26"/>
+                <rect class="fd-n" x="146" y="80" width="18" height="30"/>
+                <rect class="fd-melt" x="150" y="84" width="10" height="26"/>
+                <rect class="fd-n" x="86" y="106" width="80" height="4"/>
+                <text class="fd-label" x="126" y="144" text-anchor="middle">2 Spacers</text>
+                <text class="fd-sub" x="126" y="156" text-anchor="middle">conformal film</text>
+                <rect class="fd-p" x="170" y="110" width="80" height="14"/>
+                <rect class="fd-n" x="174" y="84" width="4" height="26"/><rect class="fd-n" x="188" y="84" width="4" height="26"/>
+                <rect class="fd-melt" x="178" y="84" width="10" height="26"/>
+                <rect class="fd-n" x="202" y="84" width="4" height="26"/><rect class="fd-n" x="216" y="84" width="4" height="26"/>
+                <rect class="fd-melt" x="206" y="84" width="10" height="26"/>
+                <rect class="fd-n" x="230" y="84" width="4" height="26"/><rect class="fd-n" x="244" y="84" width="4" height="26"/>
+                <rect class="fd-melt" x="234" y="84" width="10" height="26"/>
+                <text class="fd-label" x="210" y="144" text-anchor="middle">3 Etch back</text>
+                <text class="fd-sub" x="210" y="156" text-anchor="middle">sidewalls stay</text>
+                <rect class="fd-p" x="254" y="110" width="80" height="14"/>
+                <rect class="fd-n" x="258" y="84" width="4" height="26"/><rect class="fd-n" x="272" y="84" width="4" height="26"/>
+                <rect class="fd-n" x="286" y="84" width="4" height="26"/><rect class="fd-n" x="300" y="84" width="4" height="26"/>
+                <rect class="fd-n" x="314" y="84" width="4" height="26"/><rect class="fd-n" x="328" y="84" width="4" height="26"/>
+                <text class="fd-label" x="294" y="144" text-anchor="middle">4 Strip</text>
+                <text class="fd-sub" x="294" y="156" text-anchor="middle">spacers remain</text>
+                <text class="fd-sub" x="170" y="40" text-anchor="middle">orange = printed resist lines (mandrels)</text>
+                <text class="fd-sub" x="170" y="52" text-anchor="middle">teal = spacer film grown on their sides</text>
+                <text class="fd-accent" x="170" y="178" text-anchor="middle">3 printed lines become 6: pitch is halved</text>
+                </svg>
+                </div>
+
+                <p>
+                In self-aligned double patterning, a coarse pattern of mandrels is printed. A thin spacer film is deposited over them and etched back, leaving spacers on each sidewall. The mandrels are removed, and the spacers form twice as many lines at half the pitch. Repeating the trick gives quadruple patterning.
+                </p>
+
+                <div class="module-takeaway">
+
+                Deposition and etch can double a pattern that lithography alone cannot print.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 3 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                THE PRICE OF MORE STEPS
+                </p>
+
+                <h1>
+                Multi-patterning is not free
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>Extra steps</strong>
+                <span>Every extra exposure, etch, and clean adds cost and cycle time</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Overlay risk</strong>
+                <span>Multiple exposures must align to each other very precisely</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Yield</strong>
+                <span>More steps mean more chances for a defect</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>The pull toward EUV</strong>
+                <span>One EUV exposure can replace several immersion exposures</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                EUV was worth developing partly because multi-patterning got so complicated.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                EXTREME ULTRAVIOLET
+                </p>
+
+                <h1>
+                Printing with 13.5 nm light
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 346" role="img" aria-label="The path of extreme ultraviolet light: a laser hits tin droplets, the plasma emits 13.5 nanometer light, mirrors collect and shape it, it reflects off the reticle, and projection mirrors shrink the image onto the wafer, all inside a vacuum">
+                <rect class="fd-melt" x="70" y="4" width="240" height="36" rx="5"/>
+                <text class="fd-label" x="190" y="19" text-anchor="middle">CO₂ laser hits a tin droplet</text>
+                <text class="fd-sub" x="190" y="32" text-anchor="middle">about 50,000 droplets per second</text>
+                <line class="fd-axis" x1="190" y1="40" x2="190" y2="49"/><polygon class="fd-arrow" points="190,54 186.5,47 193.5,47"/>
+                <rect class="fd-melt" x="70" y="54" width="240" height="36" rx="5"/>
+                <text class="fd-label" x="190" y="69" text-anchor="middle">Tin plasma emits 13.5 nm light</text>
+                <text class="fd-sub" x="190" y="82" text-anchor="middle">a tiny, very hot flash</text>
+                <line class="fd-axis" x1="190" y1="90" x2="190" y2="99"/><polygon class="fd-arrow" points="190,104 186.5,97 193.5,97"/>
+                <rect class="fd-p" x="70" y="104" width="240" height="36" rx="5"/>
+                <text class="fd-label" x="190" y="119" text-anchor="middle">Collector mirror</text>
+                <text class="fd-sub" x="190" y="132" text-anchor="middle">gathers the light</text>
+                <line class="fd-axis" x1="190" y1="140" x2="190" y2="149"/><polygon class="fd-arrow" points="190,154 186.5,147 193.5,147"/>
+                <rect class="fd-p" x="70" y="154" width="240" height="36" rx="5"/>
+                <text class="fd-label" x="190" y="169" text-anchor="middle">Illuminator mirrors</text>
+                <text class="fd-sub" x="190" y="182" text-anchor="middle">shape and aim the beam</text>
+                <line class="fd-axis" x1="190" y1="190" x2="190" y2="199"/><polygon class="fd-arrow" points="190,204 186.5,197 193.5,197"/>
+                <rect class="fd-n" x="70" y="204" width="240" height="36" rx="5"/>
+                <text class="fd-label" x="190" y="219" text-anchor="middle">Reflective reticle</text>
+                <text class="fd-sub" x="190" y="232" text-anchor="middle">the mask is a mirror, too</text>
+                <line class="fd-axis" x1="190" y1="240" x2="190" y2="249"/><polygon class="fd-arrow" points="190,254 186.5,247 193.5,247"/>
+                <rect class="fd-p" x="70" y="254" width="240" height="36" rx="5"/>
+                <text class="fd-label" x="190" y="269" text-anchor="middle">Projection mirrors</text>
+                <text class="fd-sub" x="190" y="282" text-anchor="middle">shrink the image about 4×</text>
+                <line class="fd-axis" x1="190" y1="290" x2="190" y2="299"/><polygon class="fd-arrow" points="190,304 186.5,297 193.5,297"/>
+                <rect class="fd-n" x="70" y="304" width="240" height="36" rx="5"/>
+                <text class="fd-label" x="190" y="319" text-anchor="middle">Wafer</text>
+                <text class="fd-sub" x="190" y="332" text-anchor="middle">resist is exposed</text>
+                <path class="fd-axis" d="M60 6 L52 6 L52 340 L60 340"/>
+                <text class="fd-accent" x="14" y="172" style="writing-mode:tb">all inside a vacuum</text>
+                </svg>
+                </div>
+
+                <p>
+                EUV light has a wavelength about 14 times shorter than 193 nm light. Almost everything absorbs it, including glass and air, so EUV scanners use only mirrors and operate in a vacuum. Even the reticle is a mirror.
+                </p>
+
+                <div class="module-takeaway">
+
+                EUV changes almost everything about the machine: source, optics, and mask.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                MAKING EUV LIGHT
+                </p>
+
+                <h1>
+                Tin plasma, 50,000 times a second
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>The droplets</strong>
+                <span>Tiny tin droplets stream through the source chamber</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>The lasers</strong>
+                <span>A CO₂ laser hits each droplet twice, flattening it and then vaporizing it into a hot plasma</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>The result</strong>
+                <span>The plasma radiates EUV light, and a collector mirror gathers it</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>The efficiency</strong>
+                <span>Hundreds of watts of laser-produced light are made, but only a small fraction reaches the wafer</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                EUV light is expensive to make and mostly lost before it prints.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 6 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                EUV OPTICS
+                </p>
+
+                <h1>
+                Mirrors, mirrors, mirrors
+                </h1>
+
+                <div class="module-card-grid">
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🪞
+                </div>
+
+                <h3>Multilayer mirrors</h3>
+
+                <p>
+                Alternating molybdenum and silicon layers, roughly 40 pairs, reflect about 70% each
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🎯
+                </div>
+
+                <h3>Atomic smoothness</h3>
+
+                <p>
+                Mirrors are polished so smooth that errors are measured in fractions of a nanometer
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🏭
+                </div>
+
+                <h3>One supplier</h3>
+
+                <p>
+                ASML in the Netherlands is today the only company that builds production EUV scanners
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                💶
+                </div>
+
+                <h3>The cost</h3>
+
+                <p>
+                A scanner costs well over 150 million dollars, and high-NA models cost far more
+                </p>
+
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                EUV works because of some of the most precise optics ever made.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 7 -->
+
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 17 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    ✨
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You can explain immersion, multi-patterning, and how EUV light is made.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeChipUnit17Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+</div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeChipUnit17Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathChipUnit17StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathChipUnit17StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "chip-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

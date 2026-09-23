@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Why Silicon? | Fab Path</title>
-    <meta name="description" content="Why Silicon?: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <title>Ion Implantation | Fab Path</title>
+    <meta name="description" content="Ion Implantation: illustrated study slides from the Sand to Chip course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Why Silicon? | Fab Path">
-    <meta property="og:description" content="Why Silicon?: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta property="og:title" content="Ion Implantation | Fab Path">
+    <meta property="og:description" content="Ion Implantation: illustrated study slides from the Sand to Chip course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -85,70 +85,111 @@
 
             <!-- SLIDE 1 -->
 
+                        <!-- SLIDE 1 -->
+            
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    UNIT 2 • WHY SILICON?
+                    THE MODERN METHOD
                 </p>
 
                 <h1>
-                    Silicon by the numbers
+                    Fire the dopant in
                 </h1>
 
                 <div class="module-visual module-visual-text">
-                    ≈ 28% of the crust
+                    ions, not heat, do the work
                 </div>
 
                 <p>
-                    Silicon is the second most abundant element in Earth's crust after oxygen, at roughly 28 percent by mass. It is found bound to oxygen in sand and quartz, so the raw material is essentially free.
+                    Ion implantation strips electrons off dopant atoms, accelerates the resulting ions through a strong electric field, and steers them into the wafer as a beam. Unlike diffusion, implantation places dopant mostly straight down, which is what a small transistor needs.
                 </p>
 
                 <div class="module-takeaway">
 
-                    The hard part isn't finding silicon. It's purifying it.
+                    A beam of ions goes where it's aimed, instead of spreading in every direction.
 
                 </div>
 
             </section>
 
 
-            <!-- SLIDE 2 -->
 
+            <!-- SLIDE 2 -->
+            
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    BAND GAPS
+                    INSIDE THE IMPLANTER
                 </p>
 
                 <h1>
-                    How the semiconductors compare
+                    Source, accelerator, magnet, target
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 216" role="img" aria-label="An ion implanter: an ion source, an accelerator, a mass-analyzing magnet, and a tilted wafer target">
+<rect class="fd-metal" x="14" y="86" width="40" height="28" rx="3"/>
+<text class="fd-sub" x="34" y="128" text-anchor="middle">ion source</text>
+<rect class="fd-ox" x="64" y="94" width="70" height="12"/>
+<text class="fd-sub" x="99" y="122" text-anchor="middle">accelerator</text>
+<path class="fd-p" d="M150 70 L210 70 L230 100 L210 130 L150 130 Z"/>
+<text class="fd-sub" x="190" y="150" text-anchor="middle">mass analyzer</text>
+<text class="fd-sub" x="190" y="162" text-anchor="middle">(selects the right ion)</text>
+<line class="fd-channel" x1="230" y1="100" x2="270" y2="100"/>
+<g transform="translate(270,60) rotate(7)">
+<rect class="fd-n" x="0" y="40" width="60" height="14"/>
+<rect class="fd-ox" x="18" y="24" width="24" height="10"/>
+<text class="fd-sub" x="30" y="70" text-anchor="middle">wafer, tilted ~7°</text>
+</g>
+<polygon class="fd-arrow" points="266,100 256,96 256,104"/>
+<text class="fd-accent" x="34" y="70" text-anchor="middle">+</text>
+</svg>
+                </div>
+
+                <p>
+                    An ion source makes dopant ions, an accelerator gives them energy, and a mass-analyzing magnet bends the beam so only ions of the right mass reach the wafer, filtering out contamination. The wafer itself is tilted a few degrees so the beam doesn't run straight down open channels in the crystal lattice.
+                </p>
+
+                <div class="module-takeaway">
+
+                    
+
+                    The magnet is a filter: only the dopant you asked for reaches the wafer.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 3 -->
+            
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    DOSE AND ENERGY
+                </p>
+
+                <h1>
+                    Two independent knobs
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>Germanium</strong>
-                        <span>0.66 eV · the first transistors, but leaky at room temperature</span>
+                        <strong>Dose</strong>
+                        <span>Ions per square centimeter: sets how much dopant lands, roughly 10<sup>11</sup> to 10<sup>16</sup> per cm²</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Silicon</strong>
-                        <span>1.12 eV · the balanced workhorse</span>
+                        <strong>Energy</strong>
+                        <span>Kilo-electron-volts: sets how deep the ions stop, from nanometers to a micron</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Gallium arsenide</strong>
-                        <span>1.42 eV · fast electrons and good light emission</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Silicon carbide</strong>
-                        <span>about 3.3 eV · high-voltage, high-temperature power</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Gallium nitride</strong>
-                        <span>about 3.4 eV · power, radio, and blue LEDs</span>
+                        <strong>Independent control</strong>
+                        <span>Change one without disturbing the other, unlike a diffusion profile</span>
                     </div>
 
                 </div>
@@ -157,23 +198,24 @@
 
                     
 
-                    A wider band gap tolerates more voltage and heat; a narrower one switches at lower energy but leaks more.
+                    Dose and energy are set separately, which is the real advantage over diffusion.
 
                 </div>
 
             </section>
 
 
-            <!-- SLIDE 3 -->
 
+            <!-- SLIDE 4 -->
+            
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    SILICON'S SUPERPOWERS
+                    MASKING THE BEAM
                 </p>
 
                 <h1>
-                    Why it won
+                    Dopant only where you want it
                 </h1>
 
                 <div class="module-card-grid">
@@ -181,13 +223,27 @@
                     <div class="module-card">
 
                         <div class="module-card-icon">
+                            🧴
+                        </div>
+
+                        <h3>Photoresist</h3>
+
+                        <p>
+                            A thick enough layer of patterned resist stops the ions completely
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
                             🧱
                         </div>
 
-                        <h3>A native oxide</h3>
+                        <h3>Oxide or nitride</h3>
 
                         <p>
-                            Heating silicon in oxygen grows SiO₂, a stable, high-quality insulator that bonds cleanly to the crystal
+                            A hard mask survives higher-energy implants that would punch through resist
                         </p>
 
                     </div>
@@ -195,27 +251,13 @@
                     <div class="module-card">
 
                         <div class="module-card-icon">
-                            🔥
+                            🎭
                         </div>
 
-                        <h3>A wide processing window</h3>
+                        <h3>The pattern</h3>
 
                         <p>
-                            It melts at 1,414 °C and tolerates the high temperatures that oxidation and doping need
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🎚️
-                        </div>
-
-                        <h3>Controllable conductivity</h3>
-
-                        <p>
-                            Tiny amounts of boron or phosphorus set how well it conducts
+                            Whatever lithography defined in Part 3 decides where the dopant lands
                         </p>
 
                     </div>
@@ -224,94 +266,53 @@
 
                 <div class="module-takeaway">
 
-                    The best transistor material is the one you can build a whole ecosystem around.
+                    Implantation inherits its precision from the mask lithography already printed.
 
                 </div>
 
             </section>
 
-
-            <!-- SLIDE 4 -->
-
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    WHERE OTHERS WIN
-                </p>
-
-                <h1>
-                    What silicon can't do well
-                </h1>
-
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Emitting light</strong>
-                        <span>Silicon's indirect band gap makes a poor light source, so LEDs and lasers use III-V compounds</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Very fast radio</strong>
-                        <span>Gallium arsenide and related compounds move electrons faster, for some RF uses</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>High-voltage power</strong>
-                        <span>Silicon carbide and gallium nitride handle more voltage and heat</span>
-                    </div>
-
-                </div>
-
-                <div class="module-takeaway">
-
-                    
-
-                    Silicon wins on cost and ecosystem, so it's used unless something else is essential.
-
-                </div>
-
-            </section>
 
 
             <!-- SLIDE 5 -->
-
+            
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    GERMANIUM'S FALL
+                    CHANNELING
                 </p>
 
                 <h1>
-                    Why the first material lost
+                    Why the wafer sits tilted
                 </h1>
 
                 <div class="module-visual module-visual-text">
-                    Ge oxide: water-soluble
+                    tilt of about 7 degrees
                 </div>
 
                 <p>
-                    The first transistor in 1947 used germanium. But germanium's oxide is unstable and dissolves in water, and its small band gap makes it leak heavily at room temperature. Silicon's robust oxide made reliable integrated circuits possible.
+                    Silicon atoms line up in a crystal lattice, and an ion aimed straight down a row can skip along open channels far deeper than intended. Tilting the wafer a few degrees, commonly about 7 degrees, points the beam off-axis from those channels, so ions stop at a predictable, repeatable depth.
                 </p>
 
                 <div class="module-takeaway">
 
-                    The oxide, not just the crystal, made silicon the winner.
+                    A few degrees of tilt keeps the implant depth from becoming a matter of luck.
 
                 </div>
 
             </section>
 
 
-            <!-- SLIDE 6 -->
 
+            <!-- COMPLETION SLIDE -->
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 2 STUDY COMPLETE
+                    UNIT 21 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    🔬
+                    ⚡
                 </div>
 
                 <h1>
@@ -319,13 +320,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You can explain why silicon beat the alternatives, and where other materials still win.
+                    You can the modern way to dope silicon: firing dopant atoms in as a beam of ions.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeChipUnit2Button"
+                    id="completeChipUnit21Button"
                 >
                     Complete Module
                 </button>
@@ -387,7 +388,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeChipUnit2Button");
+            document.getElementById("completeChipUnit21Button");
 
 
         let currentSlide = 0;
@@ -497,7 +498,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathChipUnit2StudyComplete"
+                    "fabPathChipUnit21StudyComplete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -510,7 +511,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathChipUnit2StudyComplete",
+                        "fabPathChipUnit21StudyComplete",
                         "true"
                     );
 

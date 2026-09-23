@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chemical Vapor Deposition | Fab Path</title>
+    <meta name="description" content="Chemical Vapor Deposition: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Chemical Vapor Deposition | Fab Path">
+    <meta property="og:description" content="Chemical Vapor Deposition: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="chip-learn.html">Learn</a>
+            <a href="chip-games.html">Games</a>
+            <a href="chip-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="chip-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 7
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                UNIT 8 • CHEMICAL VAPOR DEPOSITION
+                </p>
+
+                <h1>
+                Growing uses up the wafer. Deposition adds to it
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>Growth</strong>
+                <span>Reacts with the surface and consumes silicon. It only works if the wafer already holds the ingredients, so it makes oxide and a few other films</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Deposition</strong>
+                <span>Adds material on top of any surface without consuming it, and can make oxides, nitrides, silicon, and metals</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>The trade</strong>
+                <span>Growth gives the cleanest interface. Deposition gives freedom to build almost any stack</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Growth needs the wafer to supply the material, but deposition can add almost anything.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 2 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                CHEMICAL VAPOR DEPOSITION
+                </p>
+
+                <h1>
+                Build the film from a gas
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 190" role="img" aria-label="A CVD chamber: precursor gases flow down onto a heated wafer, a solid film grows, and by-product gases are pumped out">
+                <rect class="fd-dash" x="26" y="8" width="288" height="176" rx="8"/>
+                <text class="fd-accent" x="170" y="24" text-anchor="middle">precursor gases in</text>
+                <line class="fd-axis" x1="110" y1="30" x2="110" y2="71"/><polygon class="fd-arrow" points="110,76 106.5,69 113.5,69"/>
+                <line class="fd-axis" x1="170" y1="30" x2="170" y2="71"/><polygon class="fd-arrow" points="170,76 166.5,69 173.5,69"/>
+                <line class="fd-axis" x1="230" y1="30" x2="230" y2="71"/><polygon class="fd-arrow" points="230,76 226.5,69 233.5,69"/>
+                <rect class="fd-n" x="70" y="118" width="200" height="8"/>
+                <text class="fd-accent" x="170" y="112" text-anchor="middle">growing film</text>
+                <rect class="fd-p" x="70" y="126" width="200" height="12"/>
+                <text class="fd-sub" x="170" y="135.5" text-anchor="middle">wafer</text>
+                <rect class="fd-melt" x="56" y="138" width="228" height="20" rx="3"/>
+                <text class="fd-label" x="170" y="152" text-anchor="middle">heated susceptor</text>
+                <line class="fd-axis" x1="290" y1="110" x2="290" y2="71"/><polygon class="fd-arrow" points="290,66 286.5,73 293.5,73"/>
+                <text class="fd-sub" x="304" y="46" text-anchor="end">by-products</text>
+                <text class="fd-sub" x="304" y="58" text-anchor="end">to the pump</text>
+                <text class="fd-sub" x="170" y="176" text-anchor="middle">example: SiH₄ → Si + 2 H₂ (polysilicon)</text>
+                </svg>
+                </div>
+
+                <p>
+                Precursor gases flow over a heated wafer. They react or decompose on the hot surface, leaving a solid film behind while volatile by-products are pumped away. The gases choose the material, not the wafer.
+                </p>
+
+                <div class="module-takeaway">
+
+                Gas in, solid film out, waste pumped away.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 3 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                CVD FLAVORS
+                </p>
+
+                <h1>
+                Pressure and plasma change what CVD can do
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>APCVD</strong>
+                <span>Atmospheric pressure. Simple and fast, but the film is less uniform</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>LPCVD</strong>
+                <span>Low pressure and about 600 to 800 °C. Excellent uniformity, and a whole boat of wafers coats at once</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>PECVD</strong>
+                <span>A plasma supplies the reaction energy, so films deposit at roughly 200 to 400 °C</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>The trade</strong>
+                <span>Hotter usually means better film quality, but only if everything already on the wafer can survive the heat</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                What is already on the wafer sets the temperature limit, and the limit picks the method.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                WHAT CVD MAKES
+                </p>
+
+                <h1>
+                Four workhorse films
+                </h1>
+
+                <div class="module-card-grid">
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🧱
+                </div>
+
+                <h3>Polysilicon</h3>
+
+                <p>
+                From silane (SiH₄). The transistor gate material for decades
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🟧
+                </div>
+
+                <h3>Silicon nitride</h3>
+
+                <p>
+                Si₃N₄, a hard, dense film used as a barrier and polish stop
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🪟
+                </div>
+
+                <h3>Silicon dioxide</h3>
+
+                <p>
+                Insulation between metal layers, often made from TEOS or silane
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🔩
+                </div>
+
+                <h3>Tungsten</h3>
+
+                <p>
+                From WF₆ gas. Fills the tiny contact plugs that reach the transistors
+                </p>
+
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Poly, nitride, oxide, and tungsten cover most of what a fab deposits by CVD.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                STEP COVERAGE
+                </p>
+
+                <h1>
+                Can the film reach the bottom of a trench?
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 190" role="img" aria-label="Two trenches: on the left a conformal film coats the top, walls and floor evenly; on the right a line-of-sight film is thick on top and thin on the walls">
+                <path class="fd-p" d="M10 60 H60 V120 H100 V60 H150 V166 H10 Z"/>
+                <path class="fd-curve" style="fill:none;stroke-linejoin:round;stroke-width:5" d="M10 57.5 H62.5 V117.5 H97.5 V57.5 H150"/>
+                <text class="fd-label" x="80" y="26" text-anchor="middle">Conformal</text>
+                <text class="fd-sub" x="80" y="38" text-anchor="middle">CVD, ALD</text>
+                <text class="fd-sub" x="80" y="182" text-anchor="middle">even on top, walls, floor</text>
+                <path class="fd-p" d="M190 60 H240 V120 H280 V60 H330 V166 H190 Z"/>
+                <path class="fd-curve" style="fill:none;stroke-linejoin:round;stroke-width:8" d="M190 55 H252 M268 55 H330"/>
+                <path class="fd-curve" style="fill:none;stroke-linejoin:round;stroke-width:1.6" d="M241 66 V116 M279 66 V116"/>
+                <path class="fd-curve" style="fill:none;stroke-linejoin:round;stroke-width:3.4" d="M243 118.3 H277"/>
+                <text class="fd-label" x="260" y="26" text-anchor="middle">Line-of-sight</text>
+                <text class="fd-sub" x="260" y="38" text-anchor="middle">sputtering, evaporation</text>
+                <text class="fd-sub" x="260" y="182" text-anchor="middle">thick on top, thin below</text>
+                </svg>
+                </div>
+
+                <p>
+                Step coverage compares the film thickness on a trench's walls and floor with the thickness on top. A conformal film coats everything equally. A line-of-sight film piles up at the top and can pinch the opening shut, leaving a hidden void.
+                </p>
+
+                <div class="module-takeaway">
+
+                As features get deeper, conformality matters more than speed.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 6 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                EPITAXY
+                </p>
+
+                <h1>
+                A new crystal, grown on the old one
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                same lattice, new layer
+                </div>
+
+                <p>
+                Epitaxy deposits silicon, or silicon-germanium, so the new atoms continue the wafer's crystal pattern. Fabs use it for clean, precisely doped surface layers. Silicon-germanium in transistor source and drain regions also squeezes the channel and helps current flow faster.
+                </p>
+
+                <div class="module-takeaway">
+
+                Epitaxy is CVD with a crystal template, and it can tune the crystal itself.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 7 -->
+
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 8 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    ☁️
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You can explain how CVD builds films from gas and what step coverage means.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeChipUnit8Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+</div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeChipUnit8Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathChipUnit8StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathChipUnit8StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "chip-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

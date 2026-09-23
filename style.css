@@ -527,8 +527,19 @@ nav a:hover {
 
 @media (max-width: 750px) {
 
-    .user-stats {
+    /* Keep the account button; hide the streak and XP text
+       (the account-menu wrapper carries its own spans too). */
+
+    .user-stats span {
         display: none;
+    }
+
+    .user-stats {
+        gap: 0;
+    }
+
+    .account-modal {
+        padding: 30px 22px;
     }
 
     .node-left,
@@ -1306,6 +1317,13 @@ button.module-exit {
     border-radius: 16px;
 
     background: var(--panel-light);
+}
+
+
+.scale-row strong,
+.scale-row span {
+    min-width: 0;
+    overflow-wrap: break-word;
 }
 
 
@@ -3993,4 +4011,174 @@ svg text {
 
 .learning-path .unit-banner:not(:first-child) {
     margin-top: 50px;
+}
+
+
+/* ========================================
+   ACCOUNTS: SIGN-IN BUTTON & MODAL
+======================================== */
+
+.account-button {
+    border: 1px solid var(--border);
+    border-radius: 999px;
+
+    background: var(--panel-light);
+    color: var(--text);
+
+    padding: 8px 16px;
+
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.account-button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.account-button.signed-in {
+    border-color: rgba(84, 224, 199, 0.4);
+    color: var(--accent);
+}
+
+.account-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(6, 9, 18, 0.72);
+    backdrop-filter: blur(3px);
+}
+
+.account-overlay[hidden] {
+    display: none;
+}
+
+.account-modal {
+    position: relative;
+    width: min(420px, 100%);
+
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+
+    padding: 38px 34px;
+
+    box-shadow: var(--shadow);
+}
+
+.account-modal h2 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+}
+
+.account-modal p {
+    color: var(--muted);
+    font-size: 0.94rem;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.account-modal strong {
+    color: var(--text);
+}
+
+.account-modal-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+
+    border: none;
+    background: none;
+    color: var(--muted);
+
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.account-modal-close:hover {
+    color: var(--text);
+}
+
+.account-input {
+    width: 100%;
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    background: var(--panel-light);
+    color: var(--text);
+
+    padding: 14px 16px;
+
+    font-family: var(--font-sans);
+    font-size: 1rem;
+
+    margin-bottom: 16px;
+}
+
+.account-input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.account-code-input {
+    letter-spacing: 0.3em;
+    font-family: var(--font-mono);
+    text-align: center;
+}
+
+.account-submit {
+    width: 100%;
+    margin-top: 0;
+    text-align: center;
+}
+
+.account-link {
+    display: block;
+    width: 100%;
+
+    margin-top: 14px;
+
+    border: none;
+    background: none;
+    color: var(--muted);
+
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: underline;
+
+    cursor: pointer;
+}
+
+.account-link:hover {
+    color: var(--text);
+}
+
+.account-hint {
+    font-size: 0.85rem;
+}
+
+.account-error {
+    color: #ff6978;
+    font-size: 0.88rem;
+    margin-top: -6px;
+    margin-bottom: 12px;
 }

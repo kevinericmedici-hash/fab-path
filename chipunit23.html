@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Why Silicon? | Fab Path</title>
-    <meta name="description" content="Why Silicon?: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <title>Wells, Junctions &amp; the MOSFET | Fab Path</title>
+    <meta name="description" content="Wells, Junctions &amp; the MOSFET: illustrated study slides from the Sand to Chip course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Why Silicon? | Fab Path">
-    <meta property="og:description" content="Why Silicon?: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta property="og:title" content="Wells, Junctions &amp; the MOSFET | Fab Path">
+    <meta property="og:description" content="Wells, Junctions &amp; the MOSFET: illustrated study slides from the Sand to Chip course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -72,7 +72,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 6
+                    1 / 5
                 </span>
 
             </div>
@@ -85,95 +85,94 @@
 
             <!-- SLIDE 1 -->
 
+                        <!-- SLIDE 1 -->
+            
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    UNIT 2 • WHY SILICON?
+                    BUILDING BOTH FLAVORS
                 </p>
 
                 <h1>
-                    Silicon by the numbers
+                    CMOS needs NMOS and PMOS side by side
                 </h1>
 
                 <div class="module-visual module-visual-text">
-                    ≈ 28% of the crust
+                    n-well and p-well, on one substrate
                 </div>
 
                 <p>
-                    Silicon is the second most abundant element in Earth's crust after oxygen, at roughly 28 percent by mass. It is found bound to oxygen in sand and quartz, so the raw material is essentially free.
+                    Modern chips use CMOS, meaning both n-channel and p-channel transistors on the same wafer. Since a transistor's well must be the opposite type of its source and drain, a fab implants separate n-wells and p-wells into the substrate before building each transistor.
                 </p>
 
                 <div class="module-takeaway">
 
-                    The hard part isn't finding silicon. It's purifying it.
+                    Wells let one wafer host both flavors of transistor at once.
 
                 </div>
 
             </section>
 
 
-            <!-- SLIDE 2 -->
 
+            <!-- SLIDE 2 -->
+            
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    BAND GAPS
+                    A COMPLETE CROSS-SECTION
                 </p>
 
                 <h1>
-                    How the semiconductors compare
+                    Every doped region in one device
                 </h1>
 
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Germanium</strong>
-                        <span>0.66 eV · the first transistors, but leaky at room temperature</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Silicon</strong>
-                        <span>1.12 eV · the balanced workhorse</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Gallium arsenide</strong>
-                        <span>1.42 eV · fast electrons and good light emission</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Silicon carbide</strong>
-                        <span>about 3.3 eV · high-voltage, high-temperature power</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Gallium nitride</strong>
-                        <span>about 3.4 eV · power, radio, and blue LEDs</span>
-                    </div>
-
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 226" role="img" aria-label="A complete NMOS cross-section: p-well in the substrate, n-plus source and drain with halo and LDD implants, and a gate stack on top">
+<rect class="fd-p" x="16" y="128" width="308" height="70" rx="3"/>
+<text class="fd-sub" x="170" y="212" text-anchor="middle">p-well</text>
+<rect class="fd-n" x="56" y="128" width="60" height="26"/>
+<rect class="fd-n" x="224" y="128" width="60" height="26"/>
+<text class="fd-label" x="86" y="118" text-anchor="middle">source (n+)</text>
+<text class="fd-label" x="254" y="118" text-anchor="middle">drain (n+)</text>
+<rect class="fd-depl" x="106" y="128" width="18" height="26"/>
+<rect class="fd-depl" x="216" y="128" width="18" height="26"/>
+<text class="fd-sub" x="115" y="168" text-anchor="middle" style="font-size:7px">LDD</text>
+<text class="fd-sub" x="225" y="168" text-anchor="middle" style="font-size:7px">LDD</text>
+<rect class="fd-ox" x="134" y="114" width="72" height="14"/>
+<rect class="fd-metal" x="134" y="98" width="72" height="16"/>
+<text class="fd-label" x="170" y="90" text-anchor="middle">gate (poly)</text>
+<text class="fd-sub" x="170" y="136" text-anchor="middle">oxide</text>
+<line class="fd-channel" x1="116" y1="128" x2="224" y2="128"/>
+</svg>
                 </div>
+
+                <p>
+                    Inside a p-well, two n-plus source and drain regions sit apart, with the gate stack on top defining the channel between them. Thin LDD implants sit just inside the source and drain edges, tucked under the gate.
+                </p>
 
                 <div class="module-takeaway">
 
                     
 
-                    A wider band gap tolerates more voltage and heat; a narrower one switches at lower energy but leaks more.
+                    Every region here is a separate, precisely placed implant.
 
                 </div>
 
             </section>
 
 
-            <!-- SLIDE 3 -->
 
+            <!-- SLIDE 3 -->
+            
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    SILICON'S SUPERPOWERS
+                    EXTRA IMPLANTS
                 </p>
 
                 <h1>
-                    Why it won
+                    Why one source and drain isn't enough
                 </h1>
 
                 <div class="module-card-grid">
@@ -181,13 +180,13 @@
                     <div class="module-card">
 
                         <div class="module-card-icon">
-                            🧱
+                            📏
                         </div>
 
-                        <h3>A native oxide</h3>
+                        <h3>LDD</h3>
 
                         <p>
-                            Heating silicon in oxygen grows SiO₂, a stable, high-quality insulator that bonds cleanly to the crystal
+                            A lightly-doped drain implant softens the electric field at the drain edge
                         </p>
 
                     </div>
@@ -195,13 +194,13 @@
                     <div class="module-card">
 
                         <div class="module-card-icon">
-                            🔥
+                            🛡️
                         </div>
 
-                        <h3>A wide processing window</h3>
+                        <h3>Halo</h3>
 
                         <p>
-                            It melts at 1,414 °C and tolerates the high temperatures that oxidation and doping need
+                            A tilted implant of the well's own type curls under the edge of the source and drain
                         </p>
 
                     </div>
@@ -209,13 +208,13 @@
                     <div class="module-card">
 
                         <div class="module-card-icon">
-                            🎚️
+                            🎯
                         </div>
 
-                        <h3>Controllable conductivity</h3>
+                        <h3>The goal</h3>
 
                         <p>
-                            Tiny amounts of boron or phosphorus set how well it conducts
+                            Both control short-channel effects that get worse as the gate shrinks
                         </p>
 
                     </div>
@@ -224,40 +223,46 @@
 
                 <div class="module-takeaway">
 
-                    The best transistor material is the one you can build a whole ecosystem around.
+                    A short transistor needs more than a plain source and drain to behave well.
 
                 </div>
 
             </section>
 
 
-            <!-- SLIDE 4 -->
 
+            <!-- SLIDE 4 -->
+            
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    WHERE OTHERS WIN
+                    BUILD ORDER
                 </p>
 
                 <h1>
-                    What silicon can't do well
+                    Doping fits a fixed sequence
                 </h1>
 
                 <div class="scale-stack">
 
                     <div class="scale-row">
-                        <strong>Emitting light</strong>
-                        <span>Silicon's indirect band gap makes a poor light source, so LEDs and lasers use III-V compounds</span>
+                        <strong>1. Wells</strong>
+                        <span>n-well and p-well implants, each masked separately</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>Very fast radio</strong>
-                        <span>Gallium arsenide and related compounds move electrons faster, for some RF uses</span>
+                        <strong>2. Gate stack</strong>
+                        <span>Oxide and poly (or metal) gate patterned first, so it can act as its own mask</span>
                     </div>
 
                     <div class="scale-row">
-                        <strong>High-voltage power</strong>
-                        <span>Silicon carbide and gallium nitride handle more voltage and heat</span>
+                        <strong>3. LDD</strong>
+                        <span>A light implant self-aligned to the gate edge</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>4. Spacer, then source/drain</strong>
+                        <span>A sidewall spacer sets back the heavier implant from the gate</span>
                     </div>
 
                 </div>
@@ -266,52 +271,23 @@
 
                     
 
-                    Silicon wins on cost and ecosystem, so it's used unless something else is essential.
+                    The gate goes down before the source and drain, so it masks its own channel.
 
                 </div>
 
             </section>
 
 
-            <!-- SLIDE 5 -->
 
-            <section class="module-slide">
-
-                <p class="eyebrow">
-                    GERMANIUM'S FALL
-                </p>
-
-                <h1>
-                    Why the first material lost
-                </h1>
-
-                <div class="module-visual module-visual-text">
-                    Ge oxide: water-soluble
-                </div>
-
-                <p>
-                    The first transistor in 1947 used germanium. But germanium's oxide is unstable and dissolves in water, and its small band gap makes it leak heavily at room temperature. Silicon's robust oxide made reliable integrated circuits possible.
-                </p>
-
-                <div class="module-takeaway">
-
-                    The oxide, not just the crystal, made silicon the winner.
-
-                </div>
-
-            </section>
-
-
-            <!-- SLIDE 6 -->
-
+            <!-- COMPLETION SLIDE -->
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 2 STUDY COMPLETE
+                    UNIT 23 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    🔬
+                    🔌
                 </div>
 
                 <h1>
@@ -319,13 +295,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You can explain why silicon beat the alternatives, and where other materials still win.
+                    You can wells, source and drain, and the extra implants a short transistor needs.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeChipUnit2Button"
+                    id="completeChipUnit23Button"
                 >
                     Complete Module
                 </button>
@@ -387,7 +363,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeChipUnit2Button");
+            document.getElementById("completeChipUnit23Button");
 
 
         let currentSlide = 0;
@@ -497,7 +473,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathChipUnit2StudyComplete"
+                    "fabPathChipUnit23StudyComplete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -510,7 +486,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathChipUnit2StudyComplete",
+                        "fabPathChipUnit23StudyComplete",
                         "true"
                     );
 

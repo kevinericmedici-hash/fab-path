@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Process Control and Alternatives | Fab Path</title>
+    <meta name="description" content="Process Control and Alternatives: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Process Control and Alternatives | Fab Path">
+    <meta property="og:description" content="Process Control and Alternatives: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="chip-learn.html">Learn</a>
+            <a href="chip-games.html">Games</a>
+            <a href="chip-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="chip-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 7
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                UNIT 18 • PROCESS CONTROL AND ALTERNATIVES
+                </p>
+
+                <h1>
+                How much can focus and dose wander?
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 200" role="img" aria-label="A process window: a region in the plane of focus and exposure dose where the printed features stay within specification">
+                <line class="fd-axis" x1="50" y1="150" x2="310" y2="150"/><polygon class="fd-arrow" points="316,150 308,146 308,154"/>
+                <line class="fd-axis" x1="50" y1="150" x2="50" y2="14"/><polygon class="fd-arrow" points="50,8 46,16 54,16"/>
+                <line class="fd-grid" x1="90" y1="16" x2="90" y2="150"/>
+                <line class="fd-grid" x1="130" y1="16" x2="130" y2="150"/>
+                <line class="fd-grid" x1="170" y1="16" x2="170" y2="150"/>
+                <line class="fd-grid" x1="210" y1="16" x2="210" y2="150"/>
+                <line class="fd-grid" x1="250" y1="16" x2="250" y2="150"/>
+                <line class="fd-grid" x1="290" y1="16" x2="290" y2="150"/>
+                <line class="fd-grid" x1="52" y1="40" x2="308" y2="40"/>
+                <line class="fd-grid" x1="52" y1="70" x2="308" y2="70"/>
+                <line class="fd-grid" x1="52" y1="100" x2="308" y2="100"/>
+                <line class="fd-grid" x1="52" y1="130" x2="308" y2="130"/>
+                <ellipse class="fd-crystal" cx="185" cy="90" rx="92" ry="40" transform="rotate(-10 185 90)"/>
+                <circle class="fd-electron" cx="185" cy="90" r="3.5"/>
+                <text class="fd-label" x="185" y="72" text-anchor="middle">in spec</text>
+                <text class="fd-sub" x="185" y="112" text-anchor="middle">best focus and dose</text>
+                <text class="fd-sub" x="180" y="166" text-anchor="middle">focus</text>
+                <text class="fd-sub" x="18" y="86" text-anchor="middle" transform="rotate(-90 18 86)">exposure dose</text>
+                <text class="fd-sub" x="62" y="24">outside the region:</text><text class="fd-sub" x="62" y="35">lines pinch, bridge, or shrink</text>
+                <text class="fd-accent" x="170" y="192" text-anchor="middle">bigger window = a more robust process</text>
+                </svg>
+                </div>
+
+                <p>
+                Lithography engineers print test wafers across a grid of focus and exposure dose values, called a focus-exposure matrix. The region where features stay in spec is the process window. A larger window means the process tolerates real-world variation.
+                </p>
+
+                <div class="module-takeaway">
+
+                A wide process window is what makes a litho step manufacturable.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 2 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                MEASURING THE RESULT
+                </p>
+
+                <h1>
+                Check the pattern you printed
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>CD-SEM</strong>
+                <span>A scanning electron microscope measures the critical dimension of printed lines</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Scatterometry</strong>
+                <span>Light bounced off a grating reveals line width and profile without touching it</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Overlay metrology</strong>
+                <span>Special targets show how well one layer lines up with another</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Line-edge roughness</strong>
+                <span>The random waviness along a printed edge, which matters more as lines get narrow</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                You cannot fix what you cannot measure, so every layer is measured.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 3 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                STOCHASTICS
+                </p>
+
+                <h1>
+                Too few photons
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                13.5 nm ≈ 92 eV per photon
+                </div>
+
+                <p>
+                An EUV photon carries about 14 times the energy of a 193 nm photon, so a given dose contains far fewer photons. With so few, random variation in how many land on a spot causes shot noise. This leads to rare, random defects such as missing contacts and merged lines.
+                </p>
+
+                <div class="module-takeaway">
+
+                Stochastic defects are a fundamental limit of small features, not a machine fault.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                REWORK
+                </p>
+
+                <h1>
+                Lithography has an undo button
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>Etch and implant</strong>
+                <span>Permanent: once they change the wafer, they cannot be undone</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Resist patterns</strong>
+                <span>Temporary: a bad pattern can be measured, stripped, and printed again</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Common defects</strong>
+                <span>Bridging, pinching, resist collapse, particles, and misaligned layers</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Why it matters</strong>
+                <span>Fabs inspect right after develop so bad layers are reworked before they become permanent</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Catch mistakes at develop, while there is still time to redo them.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                OTHER WAYS TO PATTERN
+                </p>
+
+                <h1>
+                Beyond projection with light
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>Electron-beam writing</strong>
+                <span>A focused electron beam draws the pattern directly. Very fine but slow, so it is used for masks and research</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Nanoimprint</strong>
+                <span>A patterned mold is pressed into resist. Simple and fine-featured, and used for some memory chips</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Directed self-assembly</strong>
+                <span>Block copolymers form regular patterns on their own and are guided by lithography</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Why light wins</strong>
+                <span>Projection lithography prints huge areas in parallel, which is what volume production needs</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Light-based projection wins on speed, which matters for making chips at scale.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 6 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                LITHOGRAPHY SETS THE PACE
+                </p>
+
+                <h1>
+                Every wafer keeps coming back
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>Re-entrant flow</strong>
+                <span>A wafer returns to the lithography bay once for every patterned layer, dozens of times in all</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Throughput</strong>
+                <span>A scanner exposes roughly 100 to 300 wafers per hour, so a fab needs many of them</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Cost</strong>
+                <span>Scanners are among the most expensive tools in the fab, so they are kept busy around the clock</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Uptime</strong>
+                <span>When a scanner is down, a large slice of the fab's capacity stops with it</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                A fab's output is often limited by how many exposures its scanners can make.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 7 -->
+
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 18 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    📏
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You can explain process windows, stochastic defects, and other ways to pattern.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeChipUnit18Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+</div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeChipUnit18Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathChipUnit18StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathChipUnit18StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "chip-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Why Silicon? | Fab Path</title>
-    <meta name="description" content="Why Silicon?: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <title>Sand to Polysilicon | Fab Path</title>
+    <meta name="description" content="Sand to Polysilicon: illustrated study slides from the Sand to Chip course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Why Silicon? | Fab Path">
-    <meta property="og:description" content="Why Silicon?: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta property="og:title" content="Sand to Polysilicon | Fab Path">
+    <meta property="og:description" content="Sand to Polysilicon: illustrated study slides from the Sand to Chip course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -72,7 +72,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 6
+                    1 / 7
                 </span>
 
             </div>
@@ -88,24 +88,24 @@
             <section class="module-slide active-slide">
 
                 <p class="eyebrow">
-                    UNIT 2 • WHY SILICON?
+                    UNIT 3 • SAND TO POLYSILICON
                 </p>
 
                 <h1>
-                    Silicon by the numbers
+                    Sand is silicon dioxide
                 </h1>
 
                 <div class="module-visual module-visual-text">
-                    ≈ 28% of the crust
+                    SiO₂ → Si
                 </div>
 
                 <p>
-                    Silicon is the second most abundant element in Earth's crust after oxygen, at roughly 28 percent by mass. It is found bound to oxygen in sand and quartz, so the raw material is essentially free.
+                    Quartz sand and quartzite are almost pure silicon dioxide, SiO₂. To get silicon you must strip away the oxygen, then purify what is left far beyond anything found in nature.
                 </p>
 
                 <div class="module-takeaway">
 
-                    The hard part isn't finding silicon. It's purifying it.
+                    Getting the oxygen off is easy. Getting everything else off is the hard part.
 
                 </div>
 
@@ -117,47 +117,45 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    BAND GAPS
+                    THE PIPELINE
                 </p>
 
                 <h1>
-                    How the semiconductors compare
+                    Four steps to electronic-grade silicon
                 </h1>
 
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Germanium</strong>
-                        <span>0.66 eV · the first transistors, but leaky at room temperature</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Silicon</strong>
-                        <span>1.12 eV · the balanced workhorse</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Gallium arsenide</strong>
-                        <span>1.42 eV · fast electrons and good light emission</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Silicon carbide</strong>
-                        <span>about 3.3 eV · high-voltage, high-temperature power</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Gallium nitride</strong>
-                        <span>about 3.4 eV · power, radio, and blue LEDs</span>
-                    </div>
-
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 262" role="img" aria-label="Four steps from quartz sand to electronic-grade polysilicon">
+<rect class="fd-p" x="40" y="4" width="260" height="42" rx="6"/>
+<text class="fd-label" x="170" y="22" text-anchor="middle">Quartz sand</text>
+<text class="fd-sub" x="170" y="37" text-anchor="middle">SiO₂</text>
+<line class="fd-axis" x1="64" y1="46" x2="64" y2="71"/><polygon class="fd-arrow" points="64,76 60.5,69 67.5,69"/>
+<text class="fd-accent" x="78" y="65">+ carbon · about 1,900 °C</text>
+<rect class="fd-p" x="40" y="76" width="260" height="42" rx="6"/>
+<text class="fd-label" x="170" y="94" text-anchor="middle">Metallurgical silicon</text>
+<text class="fd-sub" x="170" y="109" text-anchor="middle">98–99% pure</text>
+<line class="fd-axis" x1="64" y1="118" x2="64" y2="143"/><polygon class="fd-arrow" points="64,148 60.5,141 67.5,141"/>
+<text class="fd-accent" x="78" y="137">+ HCl gas · about 300 °C</text>
+<rect class="fd-p" x="40" y="148" width="260" height="42" rx="6"/>
+<text class="fd-label" x="170" y="166" text-anchor="middle">Trichlorosilane</text>
+<text class="fd-sub" x="170" y="181" text-anchor="middle">SiHCl₃, a liquid</text>
+<line class="fd-axis" x1="64" y1="190" x2="64" y2="215"/><polygon class="fd-arrow" points="64,220 60.5,213 67.5,213"/>
+<text class="fd-accent" x="78" y="209">distill, then + H₂ · about 1,100 °C</text>
+<rect class="fd-n" x="40" y="220" width="260" height="42" rx="6"/>
+<text class="fd-label" x="170" y="238" text-anchor="middle">Electronic-grade polysilicon</text>
+<text class="fd-sub" x="170" y="253" text-anchor="middle">9–11 nines pure</text>
+</svg>
                 </div>
+
+                <p>
+                    Each step raises the purity. A furnace makes rough silicon, a reactor turns it into a liquid compound, distillation cleans that liquid, and a second reactor deposits pure solid silicon from it.
+                </p>
 
                 <div class="module-takeaway">
 
                     
 
-                    A wider band gap tolerates more voltage and heat; a narrower one switches at lower energy but leaks more.
+                    Purification works by changing silicon's form so impurities can be left behind.
 
                 </div>
 
@@ -169,62 +167,24 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    SILICON'S SUPERPOWERS
+                    STEP 1 · THE FURNACE
                 </p>
 
                 <h1>
-                    Why it won
+                    Stripping the oxygen
                 </h1>
 
-                <div class="module-card-grid">
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🧱
-                        </div>
-
-                        <h3>A native oxide</h3>
-
-                        <p>
-                            Heating silicon in oxygen grows SiO₂, a stable, high-quality insulator that bonds cleanly to the crystal
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🔥
-                        </div>
-
-                        <h3>A wide processing window</h3>
-
-                        <p>
-                            It melts at 1,414 °C and tolerates the high temperatures that oxidation and doping need
-                        </p>
-
-                    </div>
-
-                    <div class="module-card">
-
-                        <div class="module-card-icon">
-                            🎚️
-                        </div>
-
-                        <h3>Controllable conductivity</h3>
-
-                        <p>
-                            Tiny amounts of boron or phosphorus set how well it conducts
-                        </p>
-
-                    </div>
-
+                <div class="module-visual module-visual-text">
+                    SiO₂ + 2C → Si + 2CO
                 </div>
+
+                <p>
+                    Sand and carbon (coal or coke) are heated in a submerged-arc furnace at roughly 1,900 °C or more. The carbon takes the oxygen away as carbon monoxide, leaving liquid metallurgical-grade silicon that is about 98 to 99 percent pure.
+                </p>
 
                 <div class="module-takeaway">
 
-                    The best transistor material is the one you can build a whole ecosystem around.
+                    Good enough for aluminum alloys and silicones, nowhere near good enough for chips.
 
                 </div>
 
@@ -236,37 +196,24 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    WHERE OTHERS WIN
+                    STEP 2 · A LIQUID FORM
                 </p>
 
                 <h1>
-                    What silicon can't do well
+                    Turning silicon into a liquid
                 </h1>
 
-                <div class="scale-stack">
-
-                    <div class="scale-row">
-                        <strong>Emitting light</strong>
-                        <span>Silicon's indirect band gap makes a poor light source, so LEDs and lasers use III-V compounds</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>Very fast radio</strong>
-                        <span>Gallium arsenide and related compounds move electrons faster, for some RF uses</span>
-                    </div>
-
-                    <div class="scale-row">
-                        <strong>High-voltage power</strong>
-                        <span>Silicon carbide and gallium nitride handle more voltage and heat</span>
-                    </div>
-
+                <div class="module-visual module-visual-text">
+                    Si + 3HCl → SiHCl₃ + H₂
                 </div>
+
+                <p>
+                    Ground silicon reacts with hydrogen chloride gas at around 300 °C to form trichlorosilane, SiHCl₃, plus hydrogen. Trichlorosilane boils at about 32 °C, so it can be purified by fractional distillation, the same trick used to separate the components of oil.
+                </p>
 
                 <div class="module-takeaway">
 
-                    
-
-                    Silicon wins on cost and ecosystem, so it's used unless something else is essential.
+                    Distillation separates impurities that silicon itself can't shed.
 
                 </div>
 
@@ -278,24 +225,24 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
-                    GERMANIUM'S FALL
+                    STEP 3 · THE SIEMENS REACTOR
                 </p>
 
                 <h1>
-                    Why the first material lost
+                    Growing silicon from gas
                 </h1>
 
                 <div class="module-visual module-visual-text">
-                    Ge oxide: water-soluble
+                    SiHCl₃ + H₂ → Si + 3HCl
                 </div>
 
                 <p>
-                    The first transistor in 1947 used germanium. But germanium's oxide is unstable and dissolves in water, and its small band gap makes it leak heavily at room temperature. Silicon's robust oxide made reliable integrated circuits possible.
+                    Purified trichlorosilane and hydrogen flow over thin silicon rods heated to about 1,100 °C. Silicon deposits on the rods, which grow into thick polycrystalline bars that are broken into chunks. Fluidized-bed reactors that use silane are an alternative route.
                 </p>
 
                 <div class="module-takeaway">
 
-                    The oxide, not just the crystal, made silicon the winner.
+                    The result is polysilicon: ultra-pure, but still a jumble of tiny crystals.
 
                 </div>
 
@@ -304,14 +251,61 @@
 
             <!-- SLIDE 6 -->
 
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    HOW PURE IS PURE?
+                </p>
+
+                <h1>
+                    Purity, counted in nines
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Metallurgical silicon</strong>
+                        <span>98–99% · about two nines</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Solar-grade silicon</strong>
+                        <span>about 99.9999% · six nines</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Electronic-grade silicon</strong>
+                        <span>99.9999999% to 99.999999999% · nine to eleven nines</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>What it means</strong>
+                        <span>Impurities measured in parts per billion or even per trillion</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Parts-per-billion impurities can change how silicon conducts, so they must be kept below that.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 7 -->
+
             <section class="module-slide module-finish-slide">
 
                 <p class="eyebrow">
-                    UNIT 2 STUDY COMPLETE
+                    UNIT 3 STUDY COMPLETE
                 </p>
 
                 <div class="module-visual">
-                    🔬
+                    🏖️ → ⚙️
                 </div>
 
                 <h1>
@@ -319,13 +313,13 @@
                 </h1>
 
                 <p class="module-lead">
-                    You can explain why silicon beat the alternatives, and where other materials still win.
+                    You can follow sand through the furnace, trichlorosilane, and the Siemens reactor to polysilicon.
                 </p>
 
                 <button
                     type="button"
                     class="complete-study-button"
-                    id="completeChipUnit2Button"
+                    id="completeChipUnit3Button"
                 >
                     Complete Module
                 </button>
@@ -387,7 +381,7 @@
             document.getElementById("moduleProgressText");
 
         const completeButton =
-            document.getElementById("completeChipUnit2Button");
+            document.getElementById("completeChipUnit3Button");
 
 
         let currentSlide = 0;
@@ -497,7 +491,7 @@
 
             const alreadyComplete =
                 localStorage.getItem(
-                    "fabPathChipUnit2StudyComplete"
+                    "fabPathChipUnit3StudyComplete"
                 ) === "true";
 
             if (alreadyComplete) {
@@ -510,7 +504,7 @@
                 function () {
 
                     localStorage.setItem(
-                        "fabPathChipUnit2StudyComplete",
+                        "fabPathChipUnit3StudyComplete",
                         "true"
                     );
 

@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Light, Lenses, and Resolution | Fab Path</title>
+    <meta name="description" content="Light, Lenses, and Resolution: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Light, Lenses, and Resolution | Fab Path">
+    <meta property="og:description" content="Light, Lenses, and Resolution: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="chip-learn.html">Learn</a>
+            <a href="chip-games.html">Games</a>
+            <a href="chip-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="chip-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 7
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                UNIT 15 • LIGHT, LENSES, AND RESOLUTION
+                </p>
+
+                <h1>
+                What limits the smallest feature
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                <span class="math-visual">CD = k<sub>1</sub> · λ / NA</span>
+                </div>
+
+                <p>
+                CD is the smallest printable half-pitch, λ is the wavelength of the light, and NA is the lens's numerical aperture. Shorter wavelength and larger NA both shrink the feature. The k<sub>1</sub> factor bundles everything else: the resist, the mask, the illumination, and the process.
+                </p>
+
+                <div class="module-takeaway">
+
+                Print smaller by using shorter light, a bigger lens, or a smarter process.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 2 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                THE WAVELENGTH LADDER
+                </p>
+
+                <h1>
+                Light got shorter to make chips smaller
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>g-line, 436 nm</strong>
+                <span>Mercury lamp light, the workhorse of early chips</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>i-line, 365 nm</strong>
+                <span>Another mercury-lamp line, still used for less demanding layers</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>KrF, 248 nm</strong>
+                <span>Deep ultraviolet from a krypton-fluoride laser</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>ArF, 193 nm</strong>
+                <span>The argon-fluoride laser, the main tool for two decades</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>EUV, 13.5 nm</strong>
+                <span>Extreme ultraviolet, in volume production since around 2019</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Each step down in wavelength opened a new generation of smaller chips.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 3 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                NUMERICAL APERTURE
+                </p>
+
+                <h1>
+                A wider cone of light prints smaller
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 218" role="img" aria-label="A lens focusing a cone of light onto a wafer; the half-angle of the cone theta sets the numerical aperture">
+                <ellipse class="fd-p" cx="170" cy="40" rx="60" ry="16"/>
+                <text class="fd-label" x="170" y="44" text-anchor="middle">lens</text>
+                <line class="fd-dash" x1="170" y1="56" x2="170" y2="150"/>
+                <line class="fd-curve-alt" x1="122" y1="52" x2="170" y2="150"/>
+                <line class="fd-curve-alt" x1="218" y1="52" x2="170" y2="150"/>
+                <path class="fd-accent" style="fill:none;stroke:var(--accent);stroke-width:1.5" d="M162 132 A20 20 0 0 0 178 132"/>
+                <text class="fd-accent" x="186" y="126">θ</text>
+                <rect class="fd-p" x="70" y="150" width="200" height="14" rx="2"/>
+                <circle class="fd-electron" cx="170" cy="150" r="3"/>
+                <text class="fd-sub" x="170" y="176" text-anchor="middle">wafer</text>
+                <text class="fd-sub" x="16" y="100">light rays</text><text class="fd-sub" x="16" y="111">converge to a spot</text>
+                <text class="fd-label" x="170" y="198" text-anchor="middle">NA = n · sin θ</text>
+                <text class="fd-sub" x="170" y="211" text-anchor="middle">a wider cone of light gives a smaller spot</text>
+                </svg>
+                </div>
+
+                <p>
+                The lens gathers light from a wide cone and focuses it onto the wafer. The wider the cone, the sharper the spot. Numerical aperture measures that width: NA is the refractive index n of the medium times sin θ, where θ is the half-angle of the cone.
+                </p>
+
+                <div class="module-takeaway">
+
+                A bigger NA means a tighter focus and smaller features.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                IMMERSION
+                </p>
+
+                <h1>
+                Put water under the lens
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 198" role="img" aria-label="Dry lithography with air under the lens gives a narrow cone of light; immersion lithography fills the gap with water so a wider cone and a higher numerical aperture is possible">
+                <path class="fd-p" d="M30 20 H140 V44 Q85 62 30 44 Z"/>
+                <text class="fd-sub" x="85" y="36" text-anchor="middle">lens</text>
+                <line class="fd-curve-alt" x1="49.9" y1="52" x2="85" y2="116"/>
+                <line class="fd-curve-alt" x1="120.1" y1="52" x2="85" y2="116"/>
+                <rect class="fd-p" x="10" y="116" width="150" height="14" rx="2"/>
+                <text class="fd-sub" x="85" y="142" text-anchor="middle">wafer</text>
+                <text class="fd-label" x="85" y="164" text-anchor="middle">Dry</text>
+                <text class="fd-sub" x="85" y="176" text-anchor="middle">air, n = 1</text>
+                <text class="fd-accent" x="85" y="190" text-anchor="middle">NA below 1 (about 0.93)</text>
+                <path class="fd-p" d="M200 20 H310 V44 Q255 62 200 44 Z"/>
+                <text class="fd-sub" x="255" y="36" text-anchor="middle">lens</text>
+                <path d="M220 56 Q255 70 290 56 L298 116 H212 Z" style="fill:rgba(94,164,255,.28);stroke:#5ea4ff;stroke-width:1.2"/>
+                <line class="fd-curve-alt" x1="198.3" y1="52" x2="255" y2="116"/>
+                <line class="fd-curve-alt" x1="311.7" y1="52" x2="255" y2="116"/>
+                <rect class="fd-p" x="180" y="116" width="150" height="14" rx="2"/>
+                <text class="fd-sub" x="255" y="142" text-anchor="middle">wafer</text>
+                <text class="fd-label" x="255" y="164" text-anchor="middle">Immersion</text>
+                <text class="fd-sub" x="255" y="176" text-anchor="middle">water, n ≈ 1.44</text>
+                <text class="fd-accent" x="255" y="190" text-anchor="middle">NA up to about 1.35</text>
+                </svg>
+                </div>
+
+                <p>
+                With air between lens and wafer, NA cannot reach 1. Filling the gap with ultra-pure water, whose refractive index at 193 nm is about 1.44, lets the lens use a wider cone. Immersion scanners reach an NA of about 1.35 and were the main production tool for years.
+                </p>
+
+                <div class="module-takeaway">
+
+                Water under the lens is a cheap trick that added a whole generation.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                DEPTH OF FOCUS
+                </p>
+
+                <h1>
+                Sharper images have less room for error
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                <span class="math-visual">DOF = k<sub>2</sub> · λ / NA<sup>2</sup></span>
+                </div>
+
+                <p>
+                Depth of focus is how far the wafer surface can be out of focus before the image blurs. Shorter wavelengths and larger NA both shrink it, and NA enters squared. At advanced nodes the depth of focus is only tens to a couple hundred nanometers, which is why wafers must be polished flat.
+                </p>
+
+                <div class="module-takeaway">
+
+                The better the resolution, the flatter the wafer has to be.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 6 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                THE k<sub>1</sub> FACTOR
+                </p>
+
+                <h1>
+                Squeezing more out of the same light
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>The limit</strong>
+                <span>For a single exposure, k<sub>1</sub> cannot go below 0.25</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Example: ArF immersion</strong>
+                <span>0.3 × 193 nm / 1.35 is about 43 nm half-pitch</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Example: EUV at NA 0.33</strong>
+                <span>0.4 × 13.5 nm / 0.33 is about 16 nm half-pitch</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Ways to lower k<sub>1</sub></strong>
+                <span>Better resists, off-axis illumination, phase-shift masks, and optical proximity correction</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Resolution enhancement techniques are how fabs push k<sub>1</sub> down toward its limit.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 7 -->
+
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 15 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🔍
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You can use wavelength, NA, and k₁ to reason about resolution.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeChipUnit15Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+</div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeChipUnit15Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathChipUnit15StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathChipUnit15StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "chip-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

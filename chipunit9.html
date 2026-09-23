@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Metals and Atomic Layers | Fab Path</title>
+    <meta name="description" content="Metals and Atomic Layers: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Metals and Atomic Layers | Fab Path">
+    <meta property="og:description" content="Metals and Atomic Layers: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="chip-learn.html">Learn</a>
+            <a href="chip-games.html">Games</a>
+            <a href="chip-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="chip-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 7
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                UNIT 9 • METALS AND ATOMIC LAYERS
+                </p>
+
+                <h1>
+                Sputtering: knock metal off a target
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 218" role="img" aria-label="A sputtering chamber: argon ions from a plasma hit a metal target, knocking metal atoms loose that land on the wafer as a thin film">
+                <rect class="fd-dash" x="10" y="6" width="240" height="206" rx="8"/>
+                <rect class="fd-metal" x="30" y="16" width="200" height="14" rx="2"/>
+                <text class="fd-sub" x="130" y="26" text-anchor="middle" style="fill:#f5f7ff">metal target</text>
+                <rect class="fd-dash" x="30" y="44" width="200" height="96" rx="6"/>
+                <circle class="fd-ion" cx="56" cy="92" r="3.2"/>
+                <circle class="fd-ion" cx="90" cy="116" r="3.2"/>
+                <circle class="fd-ion" cx="192" cy="92" r="3.2"/>
+                <circle class="fd-ion" cx="212" cy="120" r="3.2"/>
+                <line class="fd-axis" x1="56" y1="86" x2="56" y2="51"/><polygon class="fd-arrow" points="56,46 52.5,53 59.5,53"/>
+                <line class="fd-axis" x1="212" y1="114" x2="212" y2="51"/><polygon class="fd-arrow" points="212,46 208.5,53 215.5,53"/>
+                <line class="fd-dash" x1="110" y1="34" x2="110" y2="152"/>
+                <polygon class="fd-arrow" points="110,160 106.5,153 113.5,153"/>
+                <line class="fd-dash" x1="140" y1="34" x2="140" y2="152"/>
+                <polygon class="fd-arrow" points="140,160 136.5,153 143.5,153"/>
+                <line class="fd-dash" x1="170" y1="34" x2="170" y2="152"/>
+                <polygon class="fd-arrow" points="170,160 166.5,153 173.5,153"/>
+                <circle class="fd-electron" cx="110" cy="82" r="2.6"/>
+                <circle class="fd-electron" cx="140" cy="102" r="2.6"/>
+                <circle class="fd-electron" cx="170" cy="86" r="2.6"/>
+                <circle class="fd-electron" cx="140" cy="126" r="2.6"/>
+                <circle class="fd-electron" cx="110" cy="130" r="2.6"/>
+                <circle class="fd-electron" cx="170" cy="128" r="2.6"/>
+                <rect class="fd-n" x="30" y="170" width="200" height="6"/>
+                <rect class="fd-p" x="30" y="176" width="200" height="14" rx="2"/>
+                <text class="fd-sub" x="130" y="186.5" text-anchor="middle">wafer</text>
+                <text class="fd-sub" x="130" y="204" text-anchor="middle">high vacuum chamber</text>
+                <rect class="fd-dash" x="263" y="46" width="10" height="8" rx="2"/><text class="fd-sub" x="277" y="53">plasma</text>
+                <circle class="fd-ion" cx="268" cy="72" r="3.2"/><text class="fd-sub" x="277" y="75">Ar⁺ ion</text>
+                <circle class="fd-electron" cx="268" cy="90" r="2.6"/><text class="fd-sub" x="277" y="93">metal atom</text>
+                </svg>
+                </div>
+
+                <p>
+                In a vacuum chamber, a plasma of argon ions is driven into a block of metal, the target. Each impact knocks atoms loose, and they fly across and land on the wafer as a thin film. No chemical reaction is needed, so any metal or alloy that can be made into a target can be deposited.
+                </p>
+
+                <div class="module-takeaway">
+
+                Sputtering is atomic-scale billiards, and it works for almost any metal.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 2 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                WHAT GETS SPUTTERED
+                </p>
+
+                <h1>
+                The metals a fab lays down
+                </h1>
+
+                <div class="module-card-grid">
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                ⚙️
+                </div>
+
+                <h3>Aluminum</h3>
+
+                <p>
+                Classic chip wiring for decades, and still used for bond pads and top layers
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🔗
+                </div>
+
+                <h3>Titanium and TiN</h3>
+
+                <p>
+                Thin adhesion and barrier layers under tungsten and aluminum
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🛡️
+                </div>
+
+                <h3>Tantalum and TaN</h3>
+
+                <p>
+                Barrier that keeps copper from wandering into silicon and insulators
+                </p>
+
+                </div>
+
+                <div class="module-card">
+
+                <div class="module-card-icon">
+                🪙
+                </div>
+
+                <h3>Copper seed</h3>
+
+                <p>
+                A thin copper skin that copper plating grows from
+                </p>
+
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Many of the thinnest metal layers in a chip are sputtered.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 3 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                EVAPORATION
+                </p>
+
+                <h1>
+                Evaporation vs sputtering
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>Evaporation</strong>
+                <span>Heat a source in vacuum until it vaporizes and coats the wafer</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Sputtering</strong>
+                <span>Knock atoms loose with a plasma. Better adhesion and coverage, and the production workhorse</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Lift-off</strong>
+                <span>Evaporation's straight-line beam suits lift-off patterning in research labs and MEMS</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Shared limit</strong>
+                <span>Both are line-of-sight, so both struggle to coat deep, narrow trenches evenly</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                Good for flat surfaces and lab work, but they cannot reach into the deepest features.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                COPPER PLATING
+                </p>
+
+                <h1>
+                Fill the wires by electroplating
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                <span class="math-visual">Cu<sup>2+</sup> + 2e<sup>−</sup> → Cu</span>
+                </div>
+
+                <p>
+                Copper wiring is deposited by dipping the wafer in a copper sulfate bath. A sputtered copper seed layer carries the current, and copper ions plate onto it. Chemical additives make the fill start at the bottom of each trench and climb upward, so the wires fill without voids.
+                </p>
+
+                <div class="module-takeaway">
+
+                Plating fills the copper wires from the bottom up.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                ATOMIC LAYER DEPOSITION
+                </p>
+
+                <h1>
+                One atomic layer per cycle
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 194" role="img" aria-label="The four steps of an atomic layer deposition cycle: pulse gas A, purge, pulse gas B, purge, then repeat">
+                <rect class="fd-n" x="20" y="16" width="130" height="58" rx="6"/><text class="fd-label" x="85" y="40" text-anchor="middle">1 · Pulse gas A</text><text class="fd-sub" x="85" y="56" text-anchor="middle">coats the surface</text>
+                <rect class="fd-p" x="190" y="16" width="130" height="58" rx="6"/><text class="fd-label" x="255" y="40" text-anchor="middle">2 · Purge</text><text class="fd-sub" x="255" y="56" text-anchor="middle">sweep out extra gas</text>
+                <rect class="fd-n" x="190" y="106" width="130" height="58" rx="6"/><text class="fd-label" x="255" y="130" text-anchor="middle">3 · Pulse gas B</text><text class="fd-sub" x="255" y="146" text-anchor="middle">reacts with layer A</text>
+                <rect class="fd-p" x="20" y="106" width="130" height="58" rx="6"/><text class="fd-label" x="85" y="130" text-anchor="middle">4 · Purge</text><text class="fd-sub" x="85" y="146" text-anchor="middle">sweep out by-products</text>
+                <line class="fd-axis" x1="150" y1="45" x2="183" y2="45"/><polygon class="fd-arrow" points="188,45 181,41.5 181,48.5"/>
+                <line class="fd-axis" x1="255" y1="74" x2="255" y2="99"/><polygon class="fd-arrow" points="255,104 251.5,97 258.5,97"/>
+                <line class="fd-axis" x1="190" y1="135" x2="157" y2="135"/><polygon class="fd-arrow" points="152,135 159,131.5 159,138.5"/>
+                <line class="fd-axis" x1="85" y1="106" x2="85" y2="81"/><polygon class="fd-arrow" points="85,76 81.5,83 88.5,83"/>
+                <text class="fd-accent" x="170" y="93" text-anchor="middle">repeat</text>
+                <text class="fd-sub" x="170" y="184" text-anchor="middle">one full cycle ≈ 0.1 nm of film</text>
+                </svg>
+                </div>
+
+                <p>
+                ALD alternates two gases with purges in between. Each gas reacts only with the surface until every site is used up, then the reaction stops by itself. Every cycle therefore adds one uniform layer, and you repeat cycles until the film is thick enough.
+                </p>
+
+                <div class="module-takeaway">
+
+                Self-limiting reactions give ALD its atomic-level control.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 6 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                ALD TRADEOFFS
+                </p>
+
+                <h1>
+                Perfect films, slowly
+                </h1>
+
+                <div class="scale-stack">
+
+                <div class="scale-row">
+                <strong>Thickness control</strong>
+                <span>About 0.1 nm per cycle, so roughly 20 cycles make a 2 nm film</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Conformality</strong>
+                <span>Coats deep, narrow trenches and the sides of 3D fin transistors evenly</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Speed</strong>
+                <span>Slow, so it is reserved for thin films that must be perfect</span>
+                </div>
+
+                <div class="scale-row">
+                <strong>Used for</strong>
+                <span>High-k gate dielectrics like HfO₂, spacers, and thin barrier layers</span>
+                </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                ALD trades speed for control, and modern transistors are worth the trade.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 7 -->
+
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 9 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    ⚛️
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You can compare sputtering, copper plating, and atomic layer deposition.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeChipUnit9Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+</div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeChipUnit9Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathChipUnit9StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathChipUnit9StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "chip-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>
