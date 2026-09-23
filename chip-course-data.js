@@ -1,10 +1,10 @@
 /* ========================================
    SAND TO CHIP COURSE DATA
-   Units 1 to 36 are built. Each unit is a short
+   Units 1 to 42 are built. Each unit is a short
    study module followed by one Fab Challenge
    quiz, and lesson ids match unit ids. Units are
-   grouped into six parts. Planned next: packaging
-   and test, and the industry.
+   grouped into seven parts. Planned next: the
+   industry.
 ======================================== */
 
 const chipCourseParts = [
@@ -61,6 +61,15 @@ const chipCourseParts = [
         lastUnitId: 36,
         description:
             "How a fab knows whether it built what it meant to: defects, measurement, wafer maps, statistical control, and the models that turn all of it into a yield number."
+    },
+
+    {
+        id: 7,
+        title: "Packaging and Test",
+        firstUnitId: 37,
+        lastUnitId: 42,
+        description:
+            "How a finished die becomes a chip you can actually use: interconnect, package types, test and burn-in, thermal and reliability, and the chiplets reshaping packaging today."
     }
 
 ];
@@ -962,6 +971,156 @@ const chipCourseData = [
                 title: "Yield Models & the Learning Curve",
                 description:
                     "Turning defect density into a yield number, and how yield improves over time."
+            }
+
+        ]
+    },
+
+    {
+        id: 37,
+
+        title: "From Die to Package",
+
+        description:
+            "Why a bare die needs a package at all: protection, connection, and heat.",
+
+        studyModule: {
+            title: "From Die to Package",
+            href: "chipunit37.html"
+        },
+
+        lessons: [
+
+            {
+                id: 37,
+                title: "From Die to Package",
+                description:
+                    "Why a bare die needs a package at all: protection, connection, and heat."
+            }
+
+        ]
+    },
+
+    {
+        id: 38,
+
+        title: "Wire Bonding vs. Flip-Chip",
+
+        description:
+            "The two main ways to connect a die's pads to the outside world.",
+
+        studyModule: {
+            title: "Wire Bonding vs. Flip-Chip",
+            href: "chipunit38.html"
+        },
+
+        lessons: [
+
+            {
+                id: 38,
+                title: "Wire Bonding vs. Flip-Chip",
+                description:
+                    "The two main ways to connect a die's pads to the outside world."
+            }
+
+        ]
+    },
+
+    {
+        id: 39,
+
+        title: "Package Types: From DIP to BGA",
+
+        description:
+            "How packages evolved from a handful of pins to thousands, and why.",
+
+        studyModule: {
+            title: "Package Types: From DIP to BGA",
+            href: "chipunit39.html"
+        },
+
+        lessons: [
+
+            {
+                id: 39,
+                title: "Package Types: From DIP to BGA",
+                description:
+                    "How packages evolved from a handful of pins to thousands, and why."
+            }
+
+        ]
+    },
+
+    {
+        id: 40,
+
+        title: "Test, Binning & Burn-In",
+
+        description:
+            "How a chip is tested, sorted into bins, and stressed before it ships.",
+
+        studyModule: {
+            title: "Test, Binning & Burn-In",
+            href: "chipunit40.html"
+        },
+
+        lessons: [
+
+            {
+                id: 40,
+                title: "Test, Binning & Burn-In",
+                description:
+                    "How a chip is tested, sorted into bins, and stressed before it ships."
+            }
+
+        ]
+    },
+
+    {
+        id: 41,
+
+        title: "Thermal & Reliability",
+
+        description:
+            "Getting heat out of a package, and proving it survives years of use.",
+
+        studyModule: {
+            title: "Thermal & Reliability",
+            href: "chipunit41.html"
+        },
+
+        lessons: [
+
+            {
+                id: 41,
+                title: "Thermal & Reliability",
+                description:
+                    "Getting heat out of a package, and proving it survives years of use."
+            }
+
+        ]
+    },
+
+    {
+        id: 42,
+
+        title: "Advanced Packaging: Chiplets & 2.5D/3D",
+
+        description:
+            "Interposers, TSVs, and why some chips are now built from several dies.",
+
+        studyModule: {
+            title: "Advanced Packaging: Chiplets & 2.5D/3D",
+            href: "chipunit42.html"
+        },
+
+        lessons: [
+
+            {
+                id: 42,
+                title: "Advanced Packaging: Chiplets & 2.5D/3D",
+                description:
+                    "Interposers, TSVs, and why some chips are now built from several dies."
             }
 
         ]

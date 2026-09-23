@@ -2357,6 +2357,366 @@ const chipLesson36Questions = [
 
 ];
 
+
+const chipLesson37Questions = [
+
+    {
+        question: "What is one of the three main jobs of a chip's package?",
+        answers: [
+            "Increasing the number of transistors on it",
+            "Doping the silicon a second time over",
+            "Growing a fresh new layer of gate oxide",
+            "Protecting the die from damage and moisture"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Why can't a bare die be used directly on a circuit board?",
+        answers: [
+            "Its pads and structure are too fragile and fine",
+            "Bare die contain no electrical connections",
+            "Bare die are electrically identical to sand",
+            "Circuit boards cannot conduct any current"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What does a package mainly provide for heat generated inside a die?",
+        answers: [
+            "A way to generate even more heat",
+            "A path for that heat to escape",
+            "A method to cool the die to freezing",
+            "No effect on heat whatsoever"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "In the overall flow, when does a die typically get its first electrical test?",
+        answers: [
+            "Only after it ships to a customer",
+            "Before any transistors are built",
+            "While still whole, on the wafer",
+            "It is never tested before shipping"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What happens to a die right after wafer-level test and dicing?",
+        answers: [
+            "Every single die is immediately discarded",
+            "The whole wafer is regrown from scratch",
+            "Packaging happens before dicing instead",
+            "Good die move on into packaging"
+        ],
+        correct: 3
+    }
+
+];
+
+
+const chipLesson38Questions = [
+
+    {
+        question: "What does wire bonding connect a die's pads with?",
+        answers: [
+            "A grid of solder bumps underneath",
+            "A direct weld to the package lid",
+            "A fine looped wire to the substrate",
+            "A layer of conductive adhesive only"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What does flip-chip do differently from wire bonding?",
+        answers: [
+            "It removes the die's pads entirely",
+            "It uses no substrate at all",
+            "It bonds two dies directly together",
+            "It flips the die face down onto bumps"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Why can flip-chip support far more connections than wire bonding?",
+        answers: [
+            "Bumps can cover the whole die face",
+            "Wire bonding physically has no pad limit",
+            "Flip-chip uses larger pads than wire bonding",
+            "Flip-chip removes the need for pads"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What is a common electrical advantage of flip-chip over wire bonding?",
+        answers: [
+            "It requires no electrical connection at all",
+            "Shorter connections add less inductance",
+            "It eliminates the need for a substrate",
+            "It always runs at a lower voltage"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Why did high I/O counts push chips toward flip-chip?",
+        answers: [
+            "Wire bonding stopped being physically possible",
+            "Flip-chip is always the cheaper option",
+            "Perimeter pads run out of room around the edge",
+            "I/O count has no effect on package choice"
+        ],
+        correct: 2
+    }
+
+];
+
+
+const chipLesson39Questions = [
+
+    {
+        question: "What limited how many pins a DIP or QFP package could offer?",
+        answers: [
+            "The die itself could hold no more pads",
+            "Connections could only run along the perimeter",
+            "Silicon could not conduct enough current",
+            "Packages were not yet electrically tested"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What makes a ball grid array (BGA) different from a QFP?",
+        answers: [
+            "It carries no electrical connections at all",
+            "It uses only two connections in total",
+            "It spreads connections across the whole underside",
+            "It removes the need for any substrate"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Why does a BGA support more connections than a leaded package?",
+        answers: [
+            "BGAs are always physically much larger",
+            "Leaded packages use no metal connections",
+            "Area has no relationship to connection count",
+            "Its connections scale with area, not just edge"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "If a package's side length doubles, what happens to its area?",
+        answers: [
+            "It roughly quadruples",
+            "It stays exactly the same",
+            "It also roughly doubles",
+            "It is cut in half instead"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What general trend drove packages from DIP toward BGA?",
+        answers: [
+            "A steady decline in I/O connection counts",
+            "Steadily rising I/O connection counts",
+            "A ban on through-hole packages",
+            "Wafers becoming smaller over time"
+        ],
+        correct: 1
+    }
+
+];
+
+
+const chipLesson40Questions = [
+
+    {
+        question: "Why is a die tested both on the wafer and after packaging?",
+        answers: [
+            "Packaging itself can introduce new failures",
+            "Wafer-level testing is purely optional",
+            "Final test replaces wafer sort entirely",
+            "Testing twice is required only by law"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which of these is an example of parametric test?",
+        answers: [
+            "Checking whether the package looks shiny",
+            "Measuring the maximum speed a chip runs at",
+            "Counting how many pins the package has",
+            "Measuring the weight of the finished chip"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What does binning actually do?",
+        answers: [
+            "Physically destroys every failed chip made",
+            "Redesigns the chip for each new customer",
+            "Sorts identical designs into different grades",
+            "Combines several designs into one single part"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What is infant mortality, in this context?",
+        answers: [
+            "A failure that only appears after decades",
+            "A defect found only during initial design",
+            "A type of failure that never actually occurs",
+            "An early failure, soon after first use"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What is the main purpose of burn-in?",
+        answers: [
+            "Force early failures to happen before shipping",
+            "Permanently disable half of every chip",
+            "Increase a chip's clock speed permanently",
+            "Replace final electrical testing entirely"
+        ],
+        correct: 0
+    }
+
+];
+
+
+const chipLesson41Questions = [
+
+    {
+        question: "What path does heat take out of a working chip?",
+        answers: [
+            "Directly from the case back into the junction",
+            "It has no path and just steadily accumulates",
+            "From the ambient air inward into the junction",
+            "From the junction, through the case, to the air"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What does a lower thermal resistance value mean?",
+        answers: [
+            "A smaller temperature rise for the same power",
+            "A larger temperature rise for the same power",
+            "The chip draws less electrical current",
+            "The chip contains fewer total transistors"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What does the HAST reliability test combine?",
+        answers: [
+            "Extreme cold with total vacuum",
+            "High heat and high humidity together",
+            "Bright light with total darkness",
+            "High voltage with zero current"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What does temperature cycling testing mainly stress?",
+        answers: [
+            "The chip's maximum possible clock speed rating",
+            "The wafer's original silicon crystal orientation",
+            "The package's ability to survive repeated swings",
+            "The total number of masks used to build it"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "In the bathtub curve, what does the first, high phase represent?",
+        answers: [
+            "Steady, low failure during useful life",
+            "Wear-out failures very late in life",
+            "A phase where failure is impossible",
+            "Infant mortality, early in the chip's life"
+        ],
+        correct: 3
+    }
+
+];
+
+
+const chipLesson42Questions = [
+
+    {
+        question: "Why might a design be split into several chiplets instead of one large die?",
+        answers: [
+            "Chiplets always run at a higher voltage",
+            "Splitting a die removes it from testing",
+            "Smaller dies yield better than one huge die",
+            "One large die always yields better"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What sits between chiplets in a 2.5D package?",
+        answers: [
+            "Nothing; chiplets touch each other directly",
+            "A second complete package substrate",
+            "A layer of ordinary circuit board material",
+            "A silicon interposer with fine wiring"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What does a through-silicon via (TSV) do?",
+        answers: [
+            "Carries a signal vertically through silicon",
+            "Carries a signal only across the surface",
+            "Removes the need for any wiring at all",
+            "Converts a signal from digital to analog"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What is a practical advantage of 2.5D over true 3D stacking?",
+        answers: [
+            "2.5D packages need no interposer at all",
+            "Each chiplet can be tested independently",
+            "2.5D always has a smaller footprint",
+            "3D stacking cannot use TSVs at all"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What is a practical advantage of 3D stacking over 2.5D?",
+        answers: [
+            "It requires no through-silicon vias at all",
+            "It fully eliminates the need for chiplets",
+            "Shorter connections and a smaller footprint",
+            "It removes the need for any testing at all"
+        ],
+        correct: 2
+    }
+
+];
+
 const chipAllLessonQuestions = {
     1: chipLesson1Questions,
     2: chipLesson2Questions,
@@ -2393,5 +2753,11 @@ const chipAllLessonQuestions = {
     33: chipLesson33Questions,
     34: chipLesson34Questions,
     35: chipLesson35Questions,
-    36: chipLesson36Questions
+    36: chipLesson36Questions,
+    37: chipLesson37Questions,
+    38: chipLesson38Questions,
+    39: chipLesson39Questions,
+    40: chipLesson40Questions,
+    41: chipLesson41Questions,
+    42: chipLesson42Questions
 };

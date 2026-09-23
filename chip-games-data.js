@@ -687,5 +687,113 @@ const chipGameData = {
                         ]
                 }
         ]
+    },
+
+    packagingTest: {
+        "key": "fabPathChipGame7Complete",
+        "xp": 50,
+        "rounds": [
+                {
+                        "icon": "🔗",
+                        "title": "Wire-bond a package",
+                        "lead": "Take a diced die from bare silicon to a finished part.",
+                        "steps": [
+                                {
+                                        "icon": "🧫",
+                                        "name": "Attach the die to the substrate",
+                                        "why": "the die needs something solid to sit on first."
+                                },
+                                {
+                                        "icon": "🔗",
+                                        "name": "Wire bond every pad to the substrate",
+                                        "why": "each pad needs its own path to the outside."
+                                },
+                                {
+                                        "icon": "🧴",
+                                        "name": "Encapsulate in mold compound",
+                                        "why": "the wires and die both need protection now."
+                                },
+                                {
+                                        "icon": "🖊️",
+                                        "name": "Mark the finished package",
+                                        "why": "a label identifies the part before it ships."
+                                },
+                                {
+                                        "icon": "✂️",
+                                        "name": "Singulate into individual units",
+                                        "why": "packages are built in a panel, then separated."
+                                }
+                        ]
+                },
+                {
+                        "icon": "🧱",
+                        "title": "Build a flip-chip BGA",
+                        "lead": "Connect a die face-down, then give it a grid of balls.",
+                        "steps": [
+                                {
+                                        "icon": "🔄",
+                                        "name": "Flip the die and align its bumps",
+                                        "why": "the bumps must land exactly on the substrate pads."
+                                },
+                                {
+                                        "icon": "🔥",
+                                        "name": "Reflow the solder bumps",
+                                        "why": "heat melts the bumps to bond die to substrate."
+                                },
+                                {
+                                        "icon": "🧪",
+                                        "name": "Underfill beneath the die",
+                                        "why": "it spreads stress evenly across every bump."
+                                },
+                                {
+                                        "icon": "⚪",
+                                        "name": "Attach solder balls underneath",
+                                        "why": "this grid is how the package meets the board."
+                                },
+                                {
+                                        "icon": "✂️",
+                                        "name": "Singulate and test the finished part",
+                                        "why": "each unit is separated, then proven to work."
+                                }
+                        ]
+                },
+                {
+                        "icon": "✅",
+                        "title": "Take a chip through test",
+                        "lead": "Follow one chip from wafer sort to a shipped, binned product.",
+                        "steps": [
+                                {
+                                        "icon": "🔬",
+                                        "name": "Wafer sort while still on the wafer",
+                                        "why": "bad die are caught before they're ever packaged."
+                                },
+                                {
+                                        "icon": "✂️",
+                                        "name": "Dice the good die apart",
+                                        "why": "only die that passed sort are worth packaging."
+                                },
+                                {
+                                        "icon": "📦",
+                                        "name": "Package the die",
+                                        "why": "packaging protects it and connects it to a board."
+                                },
+                                {
+                                        "icon": "🔍",
+                                        "name": "Run final test on the finished part",
+                                        "why": "packaging can introduce failures of its own."
+                                },
+                                {
+                                        "icon": "🌡️",
+                                        "name": "Burn it in under stress",
+                                        "why": "this forces early failures out before shipping."
+                                },
+                                {
+                                        "icon": "🏷️",
+                                        "name": "Bin it by measured speed and power",
+                                        "why": "the same design becomes several graded products."
+                                }
+                        ]
+                }
+        ]
     }
 };
