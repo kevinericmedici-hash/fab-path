@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wafer Maps &amp; Spatial Patterns | Fab Path</title>
+    <meta name="description" content="Wafer Maps &amp; Spatial Patterns: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Wafer Maps &amp; Spatial Patterns | Fab Path">
+    <meta property="og:description" content="Wafer Maps &amp; Spatial Patterns: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="chip-learn.html">Learn</a>
+            <a href="chip-games.html">Games</a>
+            <a href="chip-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="chip-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 5
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+                        <!-- SLIDE 1 -->
+            
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    THE WAFER MAP, AGAIN
+                </p>
+
+                <h1>
+                    But this time, look at the shape
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    randomness tells you nothing; patterns tell you everything
+                </div>
+
+                <p>
+                    A wafer map scattered with random failures usually points to particles: unpredictable, spread everywhere. A wafer map with failures clustered in a recognizable shape almost always points to a specific process step, because that shape is the fingerprint of whatever went wrong.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A random map says 'something landed somewhere.' A patterned map says 'something specific happened.'
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 2 -->
+            
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    A CENTER-CLUSTERED PATTERN
+                </p>
+
+                <h1>
+                    A classic CMP signature
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 226" role="img" aria-label="A wafer map with failing die clustered in the center, a classic CMP-uniformity pattern">
+<circle class="fd-axis" cx="170" cy="108" r="99" fill="none"/>
+<rect class="fd-n" x="133.7" y="12.6" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="148.4" y="12.6" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="163.2" y="12.6" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="178.0" y="12.6" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="192.8" y="12.6" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="118.9" y="27.4" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="133.7" y="27.4" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="148.4" y="27.4" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="163.2" y="27.4" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="178.0" y="27.4" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="192.8" y="27.4" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="207.5" y="27.4" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="104.1" y="42.1" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="118.9" y="42.1" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="133.7" y="42.1" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="148.4" y="42.1" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="163.2" y="42.1" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="178.0" y="42.1" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="192.8" y="42.1" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="207.5" y="42.1" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="222.3" y="42.1" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="89.4" y="56.9" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="104.1" y="56.9" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="118.9" y="56.9" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="133.7" y="56.9" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="148.4" y="56.9" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="163.2" y="56.9" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="178.0" y="56.9" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="192.8" y="56.9" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="207.5" y="56.9" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="222.3" y="56.9" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="237.1" y="56.9" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="74.6" y="71.7" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="89.4" y="71.7" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="104.1" y="71.7" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="118.9" y="71.7" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="133.7" y="71.7" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-ion" x="148.4" y="71.7" width="13.6" height="13.6" opacity="0.9"/>
+<rect class="fd-ion" x="163.2" y="71.7" width="13.6" height="13.6" opacity="0.9"/>
+<rect class="fd-ion" x="178.0" y="71.7" width="13.6" height="13.6" opacity="0.9"/>
+<rect class="fd-n" x="192.8" y="71.7" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="207.5" y="71.7" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="222.3" y="71.7" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="237.1" y="71.7" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="251.8" y="71.7" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="74.6" y="86.4" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="89.4" y="86.4" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="104.1" y="86.4" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="118.9" y="86.4" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-ion" x="133.7" y="86.4" width="13.6" height="13.6" opacity="0.9"/>
+<rect class="fd-ion" x="148.4" y="86.4" width="13.6" height="13.6" opacity="0.9"/>
+<rect class="fd-ion" x="163.2" y="86.4" width="13.6" height="13.6" opacity="0.9"/>
+<rect class="fd-ion" x="178.0" y="86.4" width="13.6" height="13.6" opacity="0.9"/>
+<rect class="fd-ion" x="192.8" y="86.4" width="13.6" height="13.6" opacity="0.9"/>
+<rect class="fd-n" x="207.5" y="86.4" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="222.3" y="86.4" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="237.1" y="86.4" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="251.8" y="86.4" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="74.6" y="101.2" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="89.4" y="101.2" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="104.1" y="101.2" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="118.9" y="101.2" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-ion" x="133.7" y="101.2" width="13.6" height="13.6" opacity="0.9"/>
+<rect class="fd-ion" x="148.4" y="101.2" width="13.6" height="13.6" opacity="0.9"/>
+<rect class="fd-ion" x="163.2" y="101.2" width="13.6" height="13.6" opacity="0.9"/>
+<rect class="fd-ion" x="178.0" y="101.2" width="13.6" height="13.6" opacity="0.9"/>
+<rect class="fd-ion" x="192.8" y="101.2" width="13.6" height="13.6" opacity="0.9"/>
+<rect class="fd-n" x="207.5" y="101.2" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="222.3" y="101.2" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="237.1" y="101.2" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="251.8" y="101.2" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="74.6" y="116.0" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="89.4" y="116.0" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="104.1" y="116.0" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="118.9" y="116.0" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-ion" x="133.7" y="116.0" width="13.6" height="13.6" opacity="0.9"/>
+<rect class="fd-ion" x="148.4" y="116.0" width="13.6" height="13.6" opacity="0.9"/>
+<rect class="fd-ion" x="163.2" y="116.0" width="13.6" height="13.6" opacity="0.9"/>
+<rect class="fd-ion" x="178.0" y="116.0" width="13.6" height="13.6" opacity="0.9"/>
+<rect class="fd-ion" x="192.8" y="116.0" width="13.6" height="13.6" opacity="0.9"/>
+<rect class="fd-n" x="207.5" y="116.0" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="222.3" y="116.0" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="237.1" y="116.0" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="251.8" y="116.0" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="74.6" y="130.8" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="89.4" y="130.8" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="104.1" y="130.8" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="118.9" y="130.8" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="133.7" y="130.8" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-ion" x="148.4" y="130.8" width="13.6" height="13.6" opacity="0.9"/>
+<rect class="fd-ion" x="163.2" y="130.8" width="13.6" height="13.6" opacity="0.9"/>
+<rect class="fd-ion" x="178.0" y="130.8" width="13.6" height="13.6" opacity="0.9"/>
+<rect class="fd-n" x="192.8" y="130.8" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="207.5" y="130.8" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="222.3" y="130.8" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="237.1" y="130.8" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="251.8" y="130.8" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="89.4" y="145.5" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="104.1" y="145.5" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="118.9" y="145.5" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="133.7" y="145.5" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="148.4" y="145.5" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="163.2" y="145.5" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="178.0" y="145.5" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="192.8" y="145.5" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="207.5" y="145.5" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="222.3" y="145.5" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="237.1" y="145.5" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="104.1" y="160.3" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="118.9" y="160.3" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="133.7" y="160.3" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="148.4" y="160.3" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="163.2" y="160.3" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="178.0" y="160.3" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="192.8" y="160.3" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="207.5" y="160.3" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="222.3" y="160.3" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="118.9" y="175.1" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="133.7" y="175.1" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="148.4" y="175.1" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="163.2" y="175.1" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="178.0" y="175.1" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="192.8" y="175.1" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="207.5" y="175.1" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="133.7" y="189.8" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="148.4" y="189.8" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="163.2" y="189.8" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="178.0" y="189.8" width="13.6" height="13.6" opacity="0.55"/>
+<rect class="fd-n" x="192.8" y="189.8" width="13.6" height="13.6" opacity="0.55"/>
+<text class="fd-sub" x="170" y="220" text-anchor="middle">each square is one die</text>
+</svg>
+                </div>
+
+                <p>
+                    Failures clustered near the center of the wafer are a common sign of a CMP step that polished unevenly, since many CMP tools naturally remove material a little faster or slower near the center than at the edge.
+                </p>
+
+                <div class="module-takeaway">
+
+                    
+
+                    The shape of the failure points straight at which tool to investigate first.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 3 -->
+            
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    COMMON PATTERNS
+                </p>
+
+                <h1>
+                    A few shapes, a few usual suspects
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🎯
+                        </div>
+
+                        <h3>Center cluster</h3>
+
+                        <p>
+                            Often a CMP or spin-coat uniformity issue
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            💍
+                        </div>
+
+                        <h3>Edge ring</h3>
+
+                        <p>
+                            Often an etch or deposition step that behaves differently near the edge
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            〰️
+                        </div>
+
+                        <h3>Streaks</h3>
+
+                        <p>
+                            Often a mechanical scan or a scratch from wafer handling
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🎲
+                        </div>
+
+                        <h3>Random scatter</h3>
+
+                        <p>
+                            Usually just particles, with no single tool to blame
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Each shape narrows a huge list of possible causes down to a short one.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 4 -->
+            
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    READING THE MAP
+                </p>
+
+                <h1>
+                    The map is a diagnosis, not just a scorecard
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    shape first, then root cause
+                </div>
+
+                <p>
+                    An engineer looking at a new wafer map doesn't start with 'how many die failed.' They start with the shape, because the shape usually points straight at which process step to check first, long before any deeper root-cause investigation begins.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A wafer map turns 'yield dropped' into 'go check that specific tool'.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 34 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🗺️
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You can how the shape of failures across a wafer points back to its cause.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeChipUnit34Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+</div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeChipUnit34Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathChipUnit34StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathChipUnit34StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "chip-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

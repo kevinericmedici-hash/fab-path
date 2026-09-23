@@ -569,5 +569,123 @@ const chipGameData = {
                         ]
                 }
         ]
+    },
+
+    yieldMetrology: {
+        "key": "fabPathChipGame6Complete",
+        "xp": 50,
+        "rounds": [
+                {
+                        "icon": "🗺️",
+                        "title": "Diagnose a wafer map",
+                        "lead": "Go from a drop in yield to a confirmed root cause.",
+                        "steps": [
+                                {
+                                        "icon": "📉",
+                                        "name": "Notice yield has dropped",
+                                        "why": "final test data is what flags the problem first."
+                                },
+                                {
+                                        "icon": "🗺️",
+                                        "name": "Pull up the wafer map",
+                                        "why": "the map shows where on the wafer die are failing."
+                                },
+                                {
+                                        "icon": "🔎",
+                                        "name": "Read the shape of the pattern",
+                                        "why": "a center cluster, edge ring, or scatter points differently."
+                                },
+                                {
+                                        "icon": "🛠️",
+                                        "name": "Match the shape to a likely tool",
+                                        "why": "each shape is a fingerprint for a specific process step."
+                                },
+                                {
+                                        "icon": "📈",
+                                        "name": "Check that tool's control charts",
+                                        "why": "a drifting chart confirms which tool actually slipped."
+                                },
+                                {
+                                        "icon": "✅",
+                                        "name": "Confirm the root cause and fix it",
+                                        "why": "only a confirmed cause tells you what to actually change."
+                                }
+                        ]
+                },
+                {
+                        "icon": "🚨",
+                        "title": "Respond to an SPC alarm",
+                        "lead": "A control chart just went out of limits. Now what?",
+                        "steps": [
+                                {
+                                        "icon": "🚨",
+                                        "name": "A point falls outside the control limits",
+                                        "why": "this is the signal that starts the whole response."
+                                },
+                                {
+                                        "icon": "⏸️",
+                                        "name": "Hold that tool from running more lots",
+                                        "why": "running more wafers now would only risk more of them."
+                                },
+                                {
+                                        "icon": "🔍",
+                                        "name": "Investigate the tool's recent history",
+                                        "why": "something changed, and the history usually shows when."
+                                },
+                                {
+                                        "icon": "🛠️",
+                                        "name": "Find and fix the root cause",
+                                        "why": "the alarm only says something's wrong, not what is."
+                                },
+                                {
+                                        "icon": "✅",
+                                        "name": "Requalify the tool",
+                                        "why": "a test run confirms the fix actually worked."
+                                },
+                                {
+                                        "icon": "▶️",
+                                        "name": "Release the hold and resume",
+                                        "why": "production only continues once the tool is trusted again."
+                                }
+                        ]
+                },
+                {
+                        "icon": "📏",
+                        "title": "Take a wafer through metrology",
+                        "lead": "Check a freshly processed layer before moving on.",
+                        "steps": [
+                                {
+                                        "icon": "🎯",
+                                        "name": "Sample die across the wafer",
+                                        "why": "a few sites stand in for the whole wafer's result."
+                                },
+                                {
+                                        "icon": "📏",
+                                        "name": "Measure critical dimension",
+                                        "why": "this checks whether features printed at the right size."
+                                },
+                                {
+                                        "icon": "🎯",
+                                        "name": "Measure overlay to the layer below",
+                                        "why": "this checks whether the new layer landed in place."
+                                },
+                                {
+                                        "icon": "📐",
+                                        "name": "Measure film thickness",
+                                        "why": "this checks whether the deposition hit its target."
+                                },
+                                {
+                                        "icon": "📊",
+                                        "name": "Compare every result to its control limits",
+                                        "why": "a single number means nothing without a limit to judge it by."
+                                },
+                                {
+                                        "icon": "✅",
+                                        "name": "Pass the lot, or flag it for review",
+                                        "why": "this is the gate that decides if the lot moves forward."
+                                }
+                        ]
+                }
+        ]
     }
 };

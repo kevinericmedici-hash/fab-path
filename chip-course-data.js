@@ -1,11 +1,10 @@
 /* ========================================
    SAND TO CHIP COURSE DATA
-   Units 1 to 30 are built. Each unit is a short
+   Units 1 to 36 are built. Each unit is a short
    study module followed by one Fab Challenge
    quiz, and lesson ids match unit ids. Units are
-   grouped into five parts. Planned next: yield
-   and metrology, packaging and test, and the
-   industry.
+   grouped into six parts. Planned next: packaging
+   and test, and the industry.
 ======================================== */
 
 const chipCourseParts = [
@@ -53,6 +52,15 @@ const chipCourseParts = [
         lastUnitId: 30,
         description:
             "How a finished transistor becomes a working chip: front-end and back-end, contacts, the metal stack, logic gates, design rules, and the whole flow from bare wafer to a tested die."
+    },
+
+    {
+        id: 6,
+        title: "Yield and Metrology",
+        firstUnitId: 31,
+        lastUnitId: 36,
+        description:
+            "How a fab knows whether it built what it meant to: defects, measurement, wafer maps, statistical control, and the models that turn all of it into a yield number."
     }
 
 ];
@@ -804,6 +812,156 @@ const chipCourseData = [
                 title: "The Full Flow: Wafer to Die",
                 description:
                     "The whole build, from bare wafer to a tested, diced chip, in order."
+            }
+
+        ]
+    },
+
+    {
+        id: 31,
+
+        title: "Why Yield Matters",
+
+        description:
+            "What yield means, and why it decides whether a fab makes money.",
+
+        studyModule: {
+            title: "Why Yield Matters",
+            href: "chipunit31.html"
+        },
+
+        lessons: [
+
+            {
+                id: 31,
+                title: "Why Yield Matters",
+                description:
+                    "What yield means, and why it decides whether a fab makes money."
+            }
+
+        ]
+    },
+
+    {
+        id: 32,
+
+        title: "Defects & Their Sources",
+
+        description:
+            "What a defect actually is, where it comes from, and which ones matter.",
+
+        studyModule: {
+            title: "Defects & Their Sources",
+            href: "chipunit32.html"
+        },
+
+        lessons: [
+
+            {
+                id: 32,
+                title: "Defects & Their Sources",
+                description:
+                    "What a defect actually is, where it comes from, and which ones matter."
+            }
+
+        ]
+    },
+
+    {
+        id: 33,
+
+        title: "Metrology: Measuring What You Made",
+
+        description:
+            "The tools that measure critical dimension, overlay, and film thickness.",
+
+        studyModule: {
+            title: "Metrology: Measuring What You Made",
+            href: "chipunit33.html"
+        },
+
+        lessons: [
+
+            {
+                id: 33,
+                title: "Metrology: Measuring What You Made",
+                description:
+                    "The tools that measure critical dimension, overlay, and film thickness."
+            }
+
+        ]
+    },
+
+    {
+        id: 34,
+
+        title: "Wafer Maps & Spatial Patterns",
+
+        description:
+            "How the shape of failures across a wafer points back to its cause.",
+
+        studyModule: {
+            title: "Wafer Maps & Spatial Patterns",
+            href: "chipunit34.html"
+        },
+
+        lessons: [
+
+            {
+                id: 34,
+                title: "Wafer Maps & Spatial Patterns",
+                description:
+                    "How the shape of failures across a wafer points back to its cause."
+            }
+
+        ]
+    },
+
+    {
+        id: 35,
+
+        title: "Statistical Process Control",
+
+        description:
+            "Catching a process drifting out of spec before it ruins a wafer.",
+
+        studyModule: {
+            title: "Statistical Process Control",
+            href: "chipunit35.html"
+        },
+
+        lessons: [
+
+            {
+                id: 35,
+                title: "Statistical Process Control",
+                description:
+                    "Catching a process drifting out of spec before it ruins a wafer."
+            }
+
+        ]
+    },
+
+    {
+        id: 36,
+
+        title: "Yield Models & the Learning Curve",
+
+        description:
+            "Turning defect density into a yield number, and how yield improves over time.",
+
+        studyModule: {
+            title: "Yield Models & the Learning Curve",
+            href: "chipunit36.html"
+        },
+
+        lessons: [
+
+            {
+                id: 36,
+                title: "Yield Models & the Learning Curve",
+                description:
+                    "Turning defect density into a yield number, and how yield improves over time."
             }
 
         ]

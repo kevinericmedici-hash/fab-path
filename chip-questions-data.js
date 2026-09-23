@@ -1997,6 +1997,366 @@ const chipLesson30Questions = [
 
 ];
 
+
+const chipLesson31Questions = [
+
+    {
+        question: "How is yield defined?",
+        answers: [
+            "The total number of die on one wafer",
+            "The fraction of die on a wafer that pass",
+            "The number of wafers made per hour",
+            "The thickness of the finished wafer"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Why does low yield raise the cost of each good chip?",
+        answers: [
+            "Low-yield wafers are simply thicker to make",
+            "Fabs charge more only for low-yield designs",
+            "A wafer costs about the same regardless of yield",
+            "Low yield always means a smaller wafer"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Why do die near the wafer's edge often get discarded?",
+        answers: [
+            "They are always physically the wrong shape",
+            "Edge die are never actually tested at all",
+            "Edge die contain no transistors at all",
+            "Their pattern there is usually incomplete"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Which of these is a parametric failure, not a defect?",
+        answers: [
+            "A working die that runs too slowly",
+            "A particle bridging two metal lines",
+            "A pattern printed with the wrong shape",
+            "A void left inside a deposited film"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What does a wafer map show?",
+        answers: [
+            "The exact chemical formula of the wafer",
+            "Every die, colored by whether it passed",
+            "A single number summarizing the whole lot",
+            "The price paid for that specific wafer"
+        ],
+        correct: 1
+    }
+
+];
+
+
+const chipLesson32Questions = [
+
+    {
+        question: "What makes a physical flaw count as a real defect?",
+        answers: [
+            "It changes the circuit's electrical behavior",
+            "It is visible under an ordinary light microscope",
+            "It appears on more than one die at once",
+            "It happens during the very first process step"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which of these is a common source of defects?",
+        answers: [
+            "A wafer that was cleaned one extra time",
+            "A stray particle landing mid-process",
+            "A mask that was verified before use",
+            "A die that passed every earlier test"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What separates a killer defect from a non-killer one?",
+        answers: [
+            "Killer defects are always larger in size",
+            "Non-killer defects never physically exist",
+            "Whether it sits on a feature that matters",
+            "Killer defects only occur on odd-numbered wafers"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "In the diagram, what does the stray particle cause?",
+        answers: [
+            "A permanent open circuit on one line",
+            "A change in the wafer's overall color",
+            "A new transistor forming by accident",
+            "An unwanted short between two metal lines"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What does D_0 represent?",
+        answers: [
+            "Defects per unit area of wafer",
+            "The total defect count on one die",
+            "The diameter of the wafer itself",
+            "The number of masks used per layer"
+        ],
+        correct: 0
+    }
+
+];
+
+
+const chipLesson33Questions = [
+
+    {
+        question: "What is the main purpose of metrology in a fab?",
+        answers: [
+            "Designing the next generation of chips",
+            "Cleaning particles off the wafer surface",
+            "Cutting the finished wafer into die",
+            "Catching a process drifting off target early"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What does critical dimension (CD) measure?",
+        answers: [
+            "The width of the smallest key features",
+            "The overall diameter of the wafer",
+            "The total number of layers on a chip",
+            "The thickness of the finished package"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What does a CD-SEM use to measure a feature's width?",
+        answers: [
+            "A beam of visible light only",
+            "A scanned beam of electrons",
+            "A physical mechanical probe",
+            "A chemical etch that removes it"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Why does CD-SEM typically sample only a few sites per wafer?",
+        answers: [
+            "It can only measure the wafer's outer edge",
+            "It destroys every die it touches",
+            "Its high resolution comes at the cost of speed",
+            "It only works on unpatterned, bare wafers"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What does overlay measure?",
+        answers: [
+            "How thick a single deposited film is",
+            "How many particles landed on a wafer",
+            "How fast a finished chip runs overall",
+            "How well one layer aligns to the one below"
+        ],
+        correct: 3
+    }
+
+];
+
+
+const chipLesson34Questions = [
+
+    {
+        question: "What does a random scatter of failures on a wafer map usually suggest?",
+        answers: [
+            "A single tool malfunctioning consistently",
+            "A design that is fundamentally too small",
+            "Particles, landing unpredictably",
+            "A wafer that was never actually tested"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What does a center-clustered failure pattern often point to?",
+        answers: [
+            "A particle that landed only once",
+            "A perfectly healthy, on-target process",
+            "A problem with the wafer's packaging",
+            "A CMP step polishing unevenly"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What might an edge-ring failure pattern suggest?",
+        answers: [
+            "A deposition or etch step uneven near the edge",
+            "A defect that occurred at the wafer's center",
+            "A completely random particle event",
+            "A mask that was aligned perfectly"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What do streaks across a wafer map often indicate?",
+        answers: [
+            "A chemical reaction inside the silicon itself",
+            "A mechanical scan issue or handling scratch",
+            "A perfectly uniform, defect-free process",
+            "An error in the final electrical test"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Why does an engineer look at a map's shape before counting failures?",
+        answers: [
+            "Shape has no real diagnostic value at all",
+            "Counting failures is always done first instead",
+            "The shape points toward which tool to check first",
+            "Maps never actually show any shape"
+        ],
+        correct: 2
+    }
+
+];
+
+
+const chipLesson35Questions = [
+
+    {
+        question: "What is the main goal of statistical process control?",
+        answers: [
+            "Replace final testing entirely with charts",
+            "Catch a process drifting before wafers are ruined",
+            "Increase the number of masks used per layer",
+            "Slow down the whole wafer fabrication schedule"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What does a control chart plot?",
+        answers: [
+            "The total cost of the finished wafer",
+            "A single average taken once a year",
+            "A measurement, in the order it was taken",
+            "The names of the engineers on shift"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Where do a control chart's limits come from?",
+        answers: [
+            "A fixed number set once and never changed",
+            "The customer's final product specification",
+            "The price of the raw silicon wafer",
+            "The process's own normal variation"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Which of these would most likely get its own control chart?",
+        answers: [
+            "Film thickness after every deposition step",
+            "The color of the fab's warning lights",
+            "The number of engineers on a shift",
+            "The brand of chemicals in storage"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What does an out-of-control signal actually mean?",
+        answers: [
+            "The wafer is definitely unusable now",
+            "Something changed, and needs investigating",
+            "The chart itself is broken and useless",
+            "No further action is ever required"
+        ],
+        correct: 1
+    }
+
+];
+
+
+const chipLesson36Questions = [
+
+    {
+        question: "How does yield typically behave right after a process launches?",
+        answers: [
+            "It starts lower, then climbs as it matures",
+            "It starts at its highest point immediately",
+            "It stays exactly flat for its entire life",
+            "It has no relationship to process age"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "In the simple yield model, what does a bigger die area do to yield?",
+        answers: [
+            "It has no effect on yield whatsoever",
+            "It lowers the odds of avoiding every defect",
+            "It always raises yield by a fixed amount",
+            "It only matters if D_0 equals zero"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "With D_0 = 0.2 per cm² and a 1 cm² die, roughly what yield results?",
+        answers: [
+            "About 20%",
+            "About 99%",
+            "About 82%",
+            "About 50%"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What happens to yield in that model if the die area doubles?",
+        answers: [
+            "Yield rises to nearly 100% instead",
+            "Yield stays exactly the same as before",
+            "Yield becomes impossible to calculate",
+            "Yield falls further, to around 67%"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What actually drives the yield 'learning curve' upward over time?",
+        answers: [
+            "Repeated cycles of diagnosing and fixing root causes",
+            "Simply waiting, with no process changes made",
+            "Switching to a completely different wafer size",
+            "Ignoring wafer maps once a product ships"
+        ],
+        correct: 0
+    }
+
+];
+
 const chipAllLessonQuestions = {
     1: chipLesson1Questions,
     2: chipLesson2Questions,
@@ -2027,5 +2387,11 @@ const chipAllLessonQuestions = {
     27: chipLesson27Questions,
     28: chipLesson28Questions,
     29: chipLesson29Questions,
-    30: chipLesson30Questions
+    30: chipLesson30Questions,
+    31: chipLesson31Questions,
+    32: chipLesson32Questions,
+    33: chipLesson33Questions,
+    34: chipLesson34Questions,
+    35: chipLesson35Questions,
+    36: chipLesson36Questions
 };
