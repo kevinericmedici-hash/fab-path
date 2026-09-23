@@ -49,7 +49,7 @@ const coursesData = [
             "MOSFET fundamentals, ion-sensitive FETs, biofunctionalization, and how a transistor becomes a biosensor.",
         icon: "🧪",
         status: "live",
-        growing: true,
+        growing: false,
         href: "fet-learn.html"
     },
 
