@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Metal Stack | Fab Path</title>
+    <meta name="description" content="The Metal Stack: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="The Metal Stack | Fab Path">
+    <meta property="og:description" content="The Metal Stack: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="chip-learn.html">Learn</a>
+            <a href="chip-games.html">Games</a>
+            <a href="chip-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="chip-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+                        <!-- SLIDE 1 -->
+            
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    WHY NOT JUST ONE LAYER
+                </p>
+
+                <h1>
+                    Billions of connections, one silicon surface
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    too many wires for one plane
+                </div>
+
+                <p>
+                    A modern chip can hold billions of transistors, and connecting them all would need billions of wires. A single layer of metal can route only so many before wires start crossing each other, which a flat layer can't do. The fix is to stack more layers, each one able to run its own set of wires.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Wires that can't fit on one layer simply move to the next one up.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 2 -->
+            
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE METAL STACK
+                </p>
+
+                <h1>
+                    Layers grow wider with height
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 226" role="img" aria-label="Five metal layers stacked above the transistors, growing wider and farther apart with height, connected by vias">
+<rect class="fd-metal" x="90" y="112" width="160" height="6"/>
+<text class="fd-label" x="16" y="118" text-anchor="end">M1</text>
+<rect class="fd-metal" x="78" y="96" width="184" height="7"/>
+<text class="fd-label" x="16" y="102" text-anchor="end">M2</text>
+<rect class="fd-metal" x="62" y="78" width="216" height="9"/>
+<text class="fd-label" x="16" y="86" text-anchor="end">M3</text>
+<rect class="fd-metal" x="44" y="58" width="252" height="11"/>
+<text class="fd-label" x="16" y="66" text-anchor="end">M4</text>
+<rect class="fd-metal" x="24" y="34" width="292" height="14"/>
+<text class="fd-label" x="16" y="44" text-anchor="end">M5</text>
+<rect class="fd-channel" x="110" y="34" width="5" height="84"/>
+<rect class="fd-channel" x="220" y="34" width="5" height="84"/>
+<rect class="fd-p" x="30" y="176" width="280" height="30" rx="3"/>
+<text class="fd-sub" x="170" y="215" text-anchor="middle">transistors</text>
+<text class="fd-accent" x="326" y="20" text-anchor="end">wider, farther apart, higher up</text>
+</svg>
+                </div>
+
+                <p>
+                    The lowest layers sit close together and carry short, local connections between nearby transistors. Higher layers grow wider and farther apart, and carry longer connections and power across the whole chip. A leading-edge chip can use up to about fifteen metal layers.
+                </p>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Lower layers are dense and local; upper layers are wide and long-range.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 3 -->
+            
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHY WIDTH GROWS WITH HEIGHT
+                </p>
+
+                <h1>
+                    A trade worth making
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Thin, dense wires</strong>
+                        <span>Pack tightly, but resist current more per unit length</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Thick, wide wires</strong>
+                        <span>Resist less, so they suit long runs and shared power</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The result</strong>
+                        <span>Local wiring stays thin; long-range wiring gets thick</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    A wire only needs to be as thick as the distance it has to cover justifies.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 4 -->
+            
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    LOW-K DIELECTRIC
+                </p>
+
+                <h1>
+                    The insulator matters as much as the metal
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    less capacitance, faster signals
+                </div>
+
+                <p>
+                    Every pair of neighboring wires forms an unwanted capacitor through the insulator between them, and that capacitance slows signals down. Fabs use a low-k dielectric, an insulator with a lower dielectric constant than ordinary oxide, specifically to keep that capacitance down as wires pack closer together.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A better insulator between the wires is still an upgrade to the wires.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 5 -->
+            
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    VIAS
+                </p>
+
+                <h1>
+                    The connectors between layers
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔩
+                        </div>
+
+                        <h3>What a via is</h3>
+
+                        <p>
+                            A small metal-filled hole linking one metal layer to the next
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🏗️
+                        </div>
+
+                        <h3>Built with damascene</h3>
+
+                        <p>
+                            Etched into the dielectric, then filled with copper, same as the wires
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔗
+                        </div>
+
+                        <h3>The job</h3>
+
+                        <p>
+                            Every signal that changes layers passes through one
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    A via is a vertical wire, doing between layers what a wire does within one.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 27 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🧵
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You can why a chip needs up to fifteen layers of wiring, and why they grow with height.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeChipUnit27Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+</div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeChipUnit27Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathChipUnit27StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathChipUnit27StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "chip-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

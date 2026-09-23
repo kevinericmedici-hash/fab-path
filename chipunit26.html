@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contacts &amp; Silicide | Fab Path</title>
+    <meta name="description" content="Contacts &amp; Silicide: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contacts &amp; Silicide | Fab Path">
+    <meta property="og:description" content="Contacts &amp; Silicide: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="chip-learn.html">Learn</a>
+            <a href="chip-games.html">Games</a>
+            <a href="chip-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="chip-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 5
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+                        <!-- SLIDE 1 -->
+            
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    WHY RESISTANCE MATTERS HERE
+                </p>
+
+                <h1>
+                    A tiny problem, multiplied by billions
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    bare silicon resists too much
+                </div>
+
+                <p>
+                    A metal wire touching bare, doped silicon or polysilicon meets more electrical resistance than a chip can afford. Multiply that small loss by billions of contacts, and it becomes real wasted power and a real limit on speed. The fix happens right at the surface, before any wire is even built.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A contact that resists too much wastes both power and speed.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 2 -->
+            
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SILICIDE
+                </p>
+
+                <h1>
+                    A metal-silicon alloy, grown on purpose
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    metal + silicon, reacted by heat
+                </div>
+
+                <p>
+                    A thin metal film, often titanium, cobalt, or nickel, is deposited over the whole wafer and heated. It reacts with any exposed silicon or polysilicon to form silicide, a low-resistance compound. Unreacted metal sitting on the oxide is then etched away, leaving silicide only where silicon was exposed.
+                </p>
+
+                <div class="module-takeaway">
+
+                    The reaction is self-aligned: silicide forms only where bare silicon meets the metal.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 3 -->
+            
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    A COMPLETE CONTACT
+                </p>
+
+                <h1>
+                    Silicide, then a tungsten plug
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 200" role="img" aria-label="A transistor with silicide caps on the source, drain, and gate, and a tungsten contact plug reaching up to the first metal layer">
+<rect class="fd-p" x="20" y="120" width="300" height="60" rx="3"/>
+<rect class="fd-n" x="56" y="120" width="70" height="26"/>
+<rect class="fd-n" x="214" y="120" width="70" height="26"/>
+<rect class="fd-ox" x="134" y="108" width="72" height="12"/>
+<rect class="fd-metal" x="134" y="92" width="72" height="16"/>
+<rect style="fill:#c9a0dc;stroke:#c9a0dc" x="56" y="114" width="70" height="6"/>
+<rect style="fill:#c9a0dc;stroke:#c9a0dc" x="214" y="114" width="70" height="6"/>
+<rect style="fill:#c9a0dc;stroke:#c9a0dc" x="134" y="86" width="72" height="6"/>
+<text class="fd-sub" x="170" y="80" text-anchor="middle" style="fill:#c9a0dc">silicide</text>
+<rect class="fd-metal" x="80" y="60" width="20" height="54"/>
+<rect class="fd-metal" x="240" y="60" width="20" height="54"/>
+<text class="fd-sub" x="90" y="52" text-anchor="middle">W plug</text>
+<rect class="fd-metal" x="60" y="44" width="60" height="10"/>
+<text class="fd-label" x="90" y="36" text-anchor="middle">M1</text>
+<text class="fd-label" x="90" y="106" text-anchor="middle">source</text>
+<text class="fd-label" x="250" y="106" text-anchor="middle">drain</text>
+</svg>
+                </div>
+
+                <p>
+                    Silicide caps the source, drain, and gate. A narrow hole etched through the oxide above it is filled with tungsten, forming a plug that reaches up to the first metal layer.
+                </p>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Every current path out of a transistor crosses silicide, then a tungsten plug.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 4 -->
+            
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHY TUNGSTEN HERE
+                </p>
+
+                <h1>
+                    Not the copper used everywhere else
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>The hole is narrow and deep</strong>
+                        <span>Tungsten deposits evenly even in a tall, thin opening</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The process runs hot</strong>
+                        <span>Tungsten tolerates heat that would damage a copper fill</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Copper starts one layer up</strong>
+                        <span>M1 and above use copper instead, once the transistor is safely capped</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Tungsten handles the hardest, hottest connection; copper takes over once things cool down.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 26 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🔗
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You can silicide and tungsten plugs: getting current out of a transistor without much resistance.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeChipUnit26Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+</div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeChipUnit26Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathChipUnit26StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathChipUnit26StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "chip-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

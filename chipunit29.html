@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Design Rules &amp; the Mask Count | Fab Path</title>
+    <meta name="description" content="Design Rules &amp; the Mask Count: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Design Rules &amp; the Mask Count | Fab Path">
+    <meta property="og:description" content="Design Rules &amp; the Mask Count: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="chip-learn.html">Learn</a>
+            <a href="chip-games.html">Games</a>
+            <a href="chip-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="chip-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 5
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+                        <!-- SLIDE 1 -->
+            
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    WHY RULES
+                </p>
+
+                <h1>
+                    Not everything drawable is buildable
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    the equipment sets the real limits
+                </div>
+
+                <p>
+                    A layout tool will happily let you draw a wire narrower than a scanner can print, or two shapes closer together than an etch can separate cleanly. Design rules translate the fab's real physical limits, minimum width, minimum spacing, minimum overlap, into constraints a designer's software can check automatically.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A design rule is a fab's manufacturing limit, written down as a number.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 2 -->
+            
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    DESIGN RULE CHECK
+                </p>
+
+                <h1>
+                    Software checks every shape
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>What it does</strong>
+                        <span>Compares every shape in the layout against the fab's rule book</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>When it runs</strong>
+                        <span>Continuously during design, and once more before anything is sent to the fab</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>What a violation means</strong>
+                        <span>That shape likely won't print, etch, or fill correctly on real silicon</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Nothing goes to a mask shop until DRC comes back clean.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 3 -->
+            
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    HOW MANY MASKS
+                </p>
+
+                <h1>
+                    One chip, dozens of trips through lithography
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    roughly 30 to 80 masks
+                </div>
+
+                <p>
+                    Each layer in the FEOL and BEOL flow generally needs its own mask: one for the wells, one for the gate, one for each implant, one for each metal layer, and more. A modern logic chip can need anywhere from about 30 to over 80 separate masks before it's finished.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Every one of those masks has to align precisely with all the others.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 4 -->
+            
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    MASK COST
+                </p>
+
+                <h1>
+                    Why a mask set is a serious expense
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    leading-edge masks: well over $100,000 each
+                </div>
+
+                <p>
+                    An EUV photomask for a leading-edge process can cost well over $100,000, and a full mask set for a modern chip can run into the tens of millions of dollars combined. That cost is fixed once, no matter how many chips get made from it, which is a big part of why very high production volumes matter so much.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Mask cost is spread across every chip a design ever produces.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 29 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    📐
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You can the rules a layout must obey, and how many masks a modern chip actually needs.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeChipUnit29Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+</div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeChipUnit29Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathChipUnit29StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathChipUnit29StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "chip-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

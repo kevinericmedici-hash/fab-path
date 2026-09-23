@@ -461,5 +461,113 @@ const chipGameData = {
                         ]
                 }
         ]
+    },
+
+    processFlow: {
+        "key": "fabPathChipGame5Complete",
+        "xp": 50,
+        "rounds": [
+                {
+                        "icon": "🔗",
+                        "title": "Build a contact",
+                        "lead": "Get a low-resistance path out of a freshly built transistor.",
+                        "steps": [
+                                {
+                                        "icon": "🧴",
+                                        "name": "Deposit the silicide metal",
+                                        "why": "a thin film blankets the whole wafer first."
+                                },
+                                {
+                                        "icon": "♨️",
+                                        "name": "Heat it to react with silicon",
+                                        "why": "silicide forms only where metal touches bare silicon."
+                                },
+                                {
+                                        "icon": "🧪",
+                                        "name": "Strip the unreacted metal",
+                                        "why": "it never touched silicon, so it never became silicide."
+                                },
+                                {
+                                        "icon": "⛏️",
+                                        "name": "Etch the contact hole",
+                                        "why": "a narrow opening reaches down through the oxide."
+                                },
+                                {
+                                        "icon": "🔩",
+                                        "name": "Fill it with tungsten",
+                                        "why": "tungsten survives the narrow, hot fill this deep."
+                                },
+                                {
+                                        "icon": "🪞",
+                                        "name": "Polish flat with CMP",
+                                        "why": "the surface must be flat before the next layer."
+                                }
+                        ]
+                },
+                {
+                        "icon": "🧵",
+                        "title": "Build one metal layer",
+                        "lead": "Add a single layer to the stack, the damascene way.",
+                        "steps": [
+                                {
+                                        "icon": "🧱",
+                                        "name": "Deposit the low-k dielectric",
+                                        "why": "this insulator will surround the finished wires."
+                                },
+                                {
+                                        "icon": "🎭",
+                                        "name": "Pattern and etch the wire trenches",
+                                        "why": "copper cannot be etched, so a trench is cut instead."
+                                },
+                                {
+                                        "icon": "🧲",
+                                        "name": "Line it with a barrier and seed",
+                                        "why": "copper would otherwise diffuse into the dielectric."
+                                },
+                                {
+                                        "icon": "⚡",
+                                        "name": "Electroplate copper to fill it",
+                                        "why": "plating fills the trench from the bottom up."
+                                },
+                                {
+                                        "icon": "🪞",
+                                        "name": "Polish flat with CMP",
+                                        "why": "excess copper is removed before the next layer starts."
+                                }
+                        ]
+                },
+                {
+                        "icon": "📐",
+                        "title": "From design to tapeout",
+                        "lead": "Turn a logic design into a manufacturable set of masks.",
+                        "steps": [
+                                {
+                                        "icon": "🧩",
+                                        "name": "Choose standard cells for the logic",
+                                        "why": "each gate comes from a pre-verified library."
+                                },
+                                {
+                                        "icon": "🗺️",
+                                        "name": "Place and route the design",
+                                        "why": "software arranges and wires up every cell."
+                                },
+                                {
+                                        "icon": "🔍",
+                                        "name": "Run the design rule check",
+                                        "why": "every shape gets compared against the fab's limits."
+                                },
+                                {
+                                        "icon": "🛠️",
+                                        "name": "Fix any violations found",
+                                        "why": "a shape that fails DRC won't manufacture correctly."
+                                },
+                                {
+                                        "icon": "📤",
+                                        "name": "Send the finished masks to the fab",
+                                        "why": "tapeout hands the fab everything it needs to build."
+                                }
+                        ]
+                }
+        ]
     }
 };

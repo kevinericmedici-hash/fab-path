@@ -1637,6 +1637,366 @@ const chipLesson24Questions = [
 
 ];
 
+
+const chipLesson25Questions = [
+
+    {
+        question: "What does FEOL, front-end-of-line, build?",
+        answers: [
+            "The metal wiring layers above the transistors",
+            "Only the final protective passivation layer",
+            "Only the package around the finished chip",
+            "The transistors themselves, up to the contacts"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What does BEOL, back-end-of-line, build?",
+        answers: [
+            "The metal wiring that connects the transistors",
+            "The wells and implants inside the transistors",
+            "The crystal that the whole wafer is cut from",
+            "The furnace used to grow the gate oxide"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which of these belongs to the front-end of the flow?",
+        answers: [
+            "Adding the third layer of copper wiring",
+            "Implanting and annealing the source and drain",
+            "Attaching a wire bond to a metal pad",
+            "Filling a via between two metal layers"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Which of these belongs to the back-end of the flow?",
+        answers: [
+            "Growing the transistor's gate oxide",
+            "Implanting dopant into the well",
+            "Filling a contact hole with tungsten",
+            "Annealing the wafer to activate dopant"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Why do FEOL and BEOL steps generally run at different temperatures?",
+        answers: [
+            "Metal wiring actually requires more heat than silicon",
+            "Temperature has no real effect on either half",
+            "BEOL steps always run hotter than FEOL ones",
+            "High heat later would damage finished transistors"
+        ],
+        correct: 3
+    }
+
+];
+
+
+const chipLesson26Questions = [
+
+    {
+        question: "Why can't a wire connect directly to bare silicon efficiently?",
+        answers: [
+            "Bare silicon reflects too much light to be probed",
+            "Metal simply cannot physically touch silicon",
+            "Bare silicon resists current more than can be afforded",
+            "Bare silicon slowly dissolves any metal placed on it"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What is silicide?",
+        answers: [
+            "A high-resistance form of pure silicon",
+            "A type of photoresist used in lithography",
+            "A gas used to etch the contact holes",
+            "A low-resistance metal-silicon compound"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Why is silicide formation described as self-aligned?",
+        answers: [
+            "It only forms where the metal touches bare silicon",
+            "It forms across the entire wafer surface evenly",
+            "It requires a separate alignment mask to form",
+            "It forms only on the back side of the wafer"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What fills the narrow contact hole down to the silicide?",
+        answers: [
+            "Copper",
+            "Tungsten",
+            "Aluminum",
+            "Gold"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Why does the contact use a different metal than the layers above it?",
+        answers: [
+            "That metal is simply cheaper to buy in bulk",
+            "The layers above never actually use metal",
+            "It must survive a narrow, deep, hot process step",
+            "Copper cannot conduct electricity at all"
+        ],
+        correct: 2
+    }
+
+];
+
+
+const chipLesson27Questions = [
+
+    {
+        question: "Why does a chip need more than one metal layer?",
+        answers: [
+            "A single metal layer cannot conduct current",
+            "Too many wires to route on a single flat plane",
+            "Transistors physically require several layers",
+            "One layer would make the chip too thin"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "How does wire width generally change from lower to upper metal layers?",
+        answers: [
+            "It shrinks thinner the higher up you go",
+            "It stays exactly the same at every layer",
+            "It grows wider, farther apart, and longer-range",
+            "It alternates randomly from layer to layer"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Why do lower metal layers stay thin and densely packed?",
+        answers: [
+            "Thin wires are simply cheaper to deposit",
+            "They must match the width of the transistor gate",
+            "Thin metal conducts better than thick metal",
+            "They mainly carry short, local connections"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What problem does a low-k dielectric mainly address?",
+        answers: [
+            "Unwanted capacitance between neighboring wires",
+            "Unwanted resistance inside the metal itself",
+            "The color of light reflected off the wafer",
+            "The mechanical strength of the whole stack"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What does a via connect?",
+        answers: [
+            "A transistor directly to the package pins",
+            "One metal layer to the metal layer above it",
+            "Two separate dies on the same wafer",
+            "The wafer to the reference electrode"
+        ],
+        correct: 1
+    }
+
+];
+
+
+const chipLesson28Questions = [
+
+    {
+        question: "In a CMOS inverter, what pulls the output high?",
+        answers: [
+            "The PMOS transistor, when the input is low",
+            "The NMOS transistor, when the input is low",
+            "Both transistors together, at all times",
+            "Neither transistor; a resistor does"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "How is a NAND gate related to an inverter?",
+        answers: [
+            "It uses no transistors at all, only resistors",
+            "It extends the same pull-up/pull-down pattern",
+            "It is a completely unrelated kind of structure",
+            "It replaces PMOS and NMOS with a single type"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What is a standard-cell library?",
+        answers: [
+            "A physical shelf that stores finished wafers",
+            "A list of every transistor ever fabricated",
+            "Pre-designed, pre-verified layouts for gates",
+            "A backup copy of the fab's design rules"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What does place-and-route software do?",
+        answers: [
+            "Grows the gate oxide on every transistor",
+            "Cuts the finished wafer into individual dies",
+            "Tests each die's electrical performance",
+            "Arranges and wires standard cells across the die"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Roughly how many standard cells can a modern processor design use?",
+        answers: [
+            "Billions, placed automatically by software",
+            "Around a dozen, placed by hand instead",
+            "Exactly one cell, repeated at every location",
+            "About a thousand cells, at the very most"
+        ],
+        correct: 0
+    }
+
+];
+
+
+const chipLesson29Questions = [
+
+    {
+        question: "What do design rules actually describe?",
+        answers: [
+            "A designer's personal drawing preferences",
+            "The chip's final electrical test results",
+            "The chemical formula of the photoresist",
+            "The fab's real manufacturing limits, as numbers"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What does a design rule check (DRC) do?",
+        answers: [
+            "Compares each layout shape against the rule book",
+            "Physically etches the wafer in a test run",
+            "Measures the finished chip's clock speed",
+            "Bonds wires onto the finished package"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What does a DRC violation usually mean?",
+        answers: [
+            "The chip will definitely run faster than planned",
+            "That shape likely won't manufacture correctly",
+            "The design has already been sent to the fab",
+            "The layout uses too few standard cells"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Roughly how many masks can a modern logic chip need?",
+        answers: [
+            "Only a single mask, reused each time",
+            "About 3 to 5 masks in total",
+            "Around 30 to over 80 separate masks",
+            "Several thousand separate masks"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Why does mask cost matter so much for chip economics?",
+        answers: [
+            "Masks are reused forever across every chip design",
+            "Masks cost less than the silicon wafers themselves",
+            "Mask cost has no real effect on chip pricing",
+            "It's a fixed cost spread across every chip made"
+        ],
+        correct: 3
+    }
+
+];
+
+
+const chipLesson30Questions = [
+
+    {
+        question: "In the overall flow, what comes right after front-end fabrication?",
+        answers: [
+            "Dicing the wafer into its individual chips",
+            "Packaging the finished chip in plastic",
+            "Back-end fabrication: contacts and the metal stack",
+            "Shipping the finished chip to a customer"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "When does wafer test happen in the flow?",
+        answers: [
+            "Only after the chip is fully packaged",
+            "Before any transistors have been built",
+            "It never happens; customers test the chips",
+            "While every die still sits on the wafer"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What happens during dicing?",
+        answers: [
+            "The wafer is cut apart into individual chips",
+            "The wafer is polished to its final thickness",
+            "Dopant is implanted into the substrate",
+            "The gate oxide is grown for the first time"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Roughly how many process steps can a leading-edge chip pass through?",
+        answers: [
+            "Usually fewer than ten steps in total",
+            "Often well over a thousand separate steps",
+            "Exactly one hundred steps, by convention",
+            "Around twenty-five steps, on average"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What does this closing unit mainly add that's new?",
+        answers: [
+            "An entirely new fabrication technique",
+            "A brand new class of transistor",
+            "Almost nothing new: it's the earlier units, in order",
+            "A different material for the whole wafer"
+        ],
+        correct: 2
+    }
+
+];
+
 const chipAllLessonQuestions = {
     1: chipLesson1Questions,
     2: chipLesson2Questions,
@@ -1661,5 +2021,11 @@ const chipAllLessonQuestions = {
     21: chipLesson21Questions,
     22: chipLesson22Questions,
     23: chipLesson23Questions,
-    24: chipLesson24Questions
+    24: chipLesson24Questions,
+    25: chipLesson25Questions,
+    26: chipLesson26Questions,
+    27: chipLesson27Questions,
+    28: chipLesson28Questions,
+    29: chipLesson29Questions,
+    30: chipLesson30Questions
 };

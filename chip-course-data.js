@@ -1,11 +1,11 @@
 /* ========================================
    SAND TO CHIP COURSE DATA
-   Units 1 to 24 are built. Each unit is a short
+   Units 1 to 30 are built. Each unit is a short
    study module followed by one Fab Challenge
    quiz, and lesson ids match unit ids. Units are
-   grouped into four parts. Planned next: the CMOS
-   process flow, yield and metrology, packaging
-   and test, and the industry.
+   grouped into five parts. Planned next: yield
+   and metrology, packaging and test, and the
+   industry.
 ======================================== */
 
 const chipCourseParts = [
@@ -44,6 +44,15 @@ const chipCourseParts = [
         lastUnitId: 24,
         description:
             "How a fab turns doped silicon into a working switch: diffusion, ion implantation, annealing, wells, junctions, and the source, drain, and gate of a real transistor."
+    },
+
+    {
+        id: 5,
+        title: "The CMOS Process Flow",
+        firstUnitId: 25,
+        lastUnitId: 30,
+        description:
+            "How a finished transistor becomes a working chip: front-end and back-end, contacts, the metal stack, logic gates, design rules, and the whole flow from bare wafer to a tested die."
     }
 
 ];
@@ -645,6 +654,156 @@ const chipCourseData = [
                 title: "Build a Transistor",
                 description:
                     "Putting doping, implantation, and the gate stack together into one transistor."
+            }
+
+        ]
+    },
+
+    {
+        id: 25,
+
+        title: "Front-End and Back-End",
+
+        description:
+            "Why every fabrication step sorts into front-end-of-line or back-end-of-line.",
+
+        studyModule: {
+            title: "Front-End and Back-End",
+            href: "chipunit25.html"
+        },
+
+        lessons: [
+
+            {
+                id: 25,
+                title: "Front-End and Back-End",
+                description:
+                    "Why every fabrication step sorts into front-end-of-line or back-end-of-line."
+            }
+
+        ]
+    },
+
+    {
+        id: 26,
+
+        title: "Contacts & Silicide",
+
+        description:
+            "Silicide and tungsten plugs: getting current out of a transistor without much resistance.",
+
+        studyModule: {
+            title: "Contacts & Silicide",
+            href: "chipunit26.html"
+        },
+
+        lessons: [
+
+            {
+                id: 26,
+                title: "Contacts & Silicide",
+                description:
+                    "Silicide and tungsten plugs: getting current out of a transistor without much resistance."
+            }
+
+        ]
+    },
+
+    {
+        id: 27,
+
+        title: "The Metal Stack",
+
+        description:
+            "Why a chip needs up to fifteen layers of wiring, and why they grow with height.",
+
+        studyModule: {
+            title: "The Metal Stack",
+            href: "chipunit27.html"
+        },
+
+        lessons: [
+
+            {
+                id: 27,
+                title: "The Metal Stack",
+                description:
+                    "Why a chip needs up to fifteen layers of wiring, and why they grow with height."
+            }
+
+        ]
+    },
+
+    {
+        id: 28,
+
+        title: "From Transistors to Logic Gates",
+
+        description:
+            "How paired transistors become an inverter, a NAND gate, and a whole standard-cell library.",
+
+        studyModule: {
+            title: "From Transistors to Logic Gates",
+            href: "chipunit28.html"
+        },
+
+        lessons: [
+
+            {
+                id: 28,
+                title: "From Transistors to Logic Gates",
+                description:
+                    "How paired transistors become an inverter, a NAND gate, and a whole standard-cell library."
+            }
+
+        ]
+    },
+
+    {
+        id: 29,
+
+        title: "Design Rules & the Mask Count",
+
+        description:
+            "The rules a layout must obey, and how many masks a modern chip actually needs.",
+
+        studyModule: {
+            title: "Design Rules & the Mask Count",
+            href: "chipunit29.html"
+        },
+
+        lessons: [
+
+            {
+                id: 29,
+                title: "Design Rules & the Mask Count",
+                description:
+                    "The rules a layout must obey, and how many masks a modern chip actually needs."
+            }
+
+        ]
+    },
+
+    {
+        id: 30,
+
+        title: "The Full Flow: Wafer to Die",
+
+        description:
+            "The whole build, from bare wafer to a tested, diced chip, in order.",
+
+        studyModule: {
+            title: "The Full Flow: Wafer to Die",
+            href: "chipunit30.html"
+        },
+
+        lessons: [
+
+            {
+                id: 30,
+                title: "The Full Flow: Wafer to Die",
+                description:
+                    "The whole build, from bare wafer to a tested, diced chip, in order."
             }
 
         ]
