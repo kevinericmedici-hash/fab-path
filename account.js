@@ -186,6 +186,70 @@
     }
 
 
+    async function signUpPassword(email, password) {
+
+        const res = await fetch(
+            `${CFG.url}/auth/v1/signup`,
+            {
+                method: "POST",
+                headers: authHeaders(false),
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
+            }
+        );
+
+        const body =
+            await res.json().catch(function () {
+                return {};
+            });
+
+        if (!res.ok) {
+
+            throw new Error(
+                body.error_description ||
+                body.msg ||
+                "Could not create that account. Try again in a moment."
+            );
+        }
+
+        return body;
+    }
+
+
+    async function signInPassword(email, password) {
+
+        const res = await fetch(
+            `${CFG.url}/auth/v1/token?grant_type=password`,
+            {
+                method: "POST",
+                headers: authHeaders(false),
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
+            }
+        );
+
+        const body =
+            await res.json().catch(function () {
+                return {};
+            });
+
+        if (!res.ok) {
+
+            throw new Error(
+                body.error_description ||
+                body.msg ||
+                "That email or password didn't work."
+            );
+        }
+
+        return body;
+    }
+
+
     async function refreshSession() {
 
         if (!session || !session.refresh_token) {
@@ -541,10 +605,7 @@
     }
 
 
-    async function completeSignIn(email, code) {
-
-        const authResponse =
-            await verifyCode(email, code);
+    async function afterAuth(authResponse) {
 
         setSession(authResponse);
 
@@ -570,6 +631,41 @@
     }
 
 
+    async function completeSignIn(email, code) {
+
+        const authResponse =
+            await verifyCode(email, code);
+
+        await afterAuth(authResponse);
+    }
+
+
+    async function completeSignInWithPassword(email, password) {
+
+        const authResponse =
+            await signInPassword(email, password);
+
+        await afterAuth(authResponse);
+    }
+
+
+    async function completeSignUpWithPassword(email, password) {
+
+        const authResponse =
+            await signUpPassword(email, password);
+
+        if (!authResponse.access_token) {
+
+            throw new Error(
+                "We sent a confirmation link to your email. " +
+                "Click it, then come back and sign in."
+            );
+        }
+
+        await afterAuth(authResponse);
+    }
+
+
     function signOut() {
 
         session = null;
@@ -587,6 +683,8 @@
         },
         sendCode: sendCode,
         completeSignIn: completeSignIn,
+        completeSignInWithPassword: completeSignInWithPassword,
+        completeSignUpWithPassword: completeSignUpWithPassword,
         signOut: signOut,
         onChange: onAccountChange
     };
@@ -640,13 +738,53 @@
                     ✕
                 </button>
 
-                <div class="account-step" id="fabStepEmail">
+                <div class="account-step" id="fabStepAuth">
 
-                    <h2>Sign in</h2>
+                    <h2 id="fabAuthTitle">Sign in</h2>
+
+                    <p id="fabAuthLead">
+                        Sign in to sync your progress across devices.
+                    </p>
+
+                    <input
+                        type="email"
+                        id="fabAuthEmailInput"
+                        class="account-input"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                    >
+
+                    <input
+                        type="password"
+                        id="fabAuthPasswordInput"
+                        class="account-input"
+                        placeholder="Password"
+                        autocomplete="current-password"
+                    >
+
+                    <button type="button" class="start-button account-submit" id="fabAuthSubmitButton">
+                        Sign in
+                    </button>
+
+                    <p class="account-error" id="fabAuthError" hidden></p>
+
+                    <button type="button" class="account-link" id="fabAuthToggleModeButton">
+                        New here? Create an account
+                    </button>
+
+                    <button type="button" class="account-link" id="fabUseCodeButton">
+                        Email me a one-time code instead
+                    </button>
+
+                </div>
+
+                <div class="account-step" id="fabStepEmailCode" hidden>
+
+                    <h2>Sign in with a code</h2>
 
                     <p>
-                        Get a one-time code by email. No password to
-                        remember, and it signs you into this account
+                        Get a one-time code by email. No password
+                        needed, and it signs you into this account
                         on any device.
                     </p>
 
@@ -663,6 +801,10 @@
                     </button>
 
                     <p class="account-error" id="fabEmailError" hidden></p>
+
+                    <button type="button" class="account-link" id="fabUsePasswordButton">
+                        Use a password instead
+                    </button>
 
                 </div>
 
@@ -757,10 +899,14 @@
 
         } else {
 
-            showStep(overlay, "fabStepEmail");
+            setAuthMode(overlay, "signin");
+            showStep(overlay, "fabStepAuth");
 
             const input =
-                document.getElementById("fabEmailInput");
+                document.getElementById("fabAuthEmailInput");
+
+            document.getElementById("fabAuthPasswordInput").value = "";
+            showError("fabAuthError", "");
 
             if (input) {
 
@@ -797,6 +943,47 @@
     }
 
 
+    function setAuthMode(overlay, mode) {
+
+        overlay.dataset.authMode = mode;
+
+        const title =
+            document.getElementById("fabAuthTitle");
+
+        const lead =
+            document.getElementById("fabAuthLead");
+
+        const submit =
+            document.getElementById("fabAuthSubmitButton");
+
+        const toggle =
+            document.getElementById("fabAuthToggleModeButton");
+
+        const passwordInput =
+            document.getElementById("fabAuthPasswordInput");
+
+        if (mode === "signup") {
+
+            title.textContent = "Create an account";
+            lead.textContent =
+                "Pick a password so progress on this device follows " +
+                "you to any device you sign into.";
+            submit.textContent = "Create account";
+            toggle.textContent = "Already have an account? Sign in";
+            passwordInput.setAttribute("autocomplete", "new-password");
+
+        } else {
+
+            title.textContent = "Sign in";
+            lead.textContent =
+                "Sign in to sync your progress across devices.";
+            submit.textContent = "Sign in";
+            toggle.textContent = "New here? Create an account";
+            passwordInput.setAttribute("autocomplete", "current-password");
+        }
+    }
+
+
     function wireModal(overlay) {
 
         overlay.addEventListener("click", function (event) {
@@ -812,6 +999,132 @@
             .addEventListener("click", closeModal);
 
         let pendingEmail = "";
+
+        setAuthMode(overlay, "signin");
+
+        document
+            .getElementById("fabAuthToggleModeButton")
+            .addEventListener("click", function () {
+
+                showError("fabAuthError", "");
+
+                setAuthMode(
+                    overlay,
+                    overlay.dataset.authMode === "signup" ?
+                        "signin" : "signup"
+                );
+            });
+
+        async function submitAuth() {
+
+            const button =
+                document.getElementById("fabAuthSubmitButton");
+
+            const email =
+                document.getElementById("fabAuthEmailInput").value.trim();
+
+            const password =
+                document.getElementById("fabAuthPasswordInput").value;
+
+            const mode = overlay.dataset.authMode;
+
+            showError("fabAuthError", "");
+
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+
+                showError("fabAuthError", "Enter a valid email address.");
+
+                return;
+            }
+
+            if (password.length < 6) {
+
+                showError(
+                    "fabAuthError",
+                    "Password needs to be at least 6 characters."
+                );
+
+                return;
+            }
+
+            button.disabled = true;
+            button.textContent =
+                mode === "signup" ? "Creating account…" : "Signing in…";
+
+            try {
+
+                if (mode === "signup") {
+
+                    await completeSignUpWithPassword(email, password);
+
+                } else {
+
+                    await completeSignInWithPassword(email, password);
+                }
+
+                closeModal();
+
+            } catch (e) {
+
+                showError("fabAuthError", e.message);
+
+            } finally {
+
+                button.disabled = false;
+                setAuthMode(overlay, mode);
+            }
+        }
+
+        document
+            .getElementById("fabAuthSubmitButton")
+            .addEventListener("click", submitAuth);
+
+        document
+            .getElementById("fabAuthPasswordInput")
+            .addEventListener("keydown", function (event) {
+
+                if (event.key === "Enter") {
+
+                    submitAuth();
+                }
+            });
+
+        document
+            .getElementById("fabAuthEmailInput")
+            .addEventListener("keydown", function (event) {
+
+                if (event.key === "Enter") {
+
+                    document
+                        .getElementById("fabAuthPasswordInput")
+                        .focus();
+                }
+            });
+
+        document
+            .getElementById("fabUseCodeButton")
+            .addEventListener("click", function () {
+
+                document.getElementById("fabEmailInput").value =
+                    document.getElementById("fabAuthEmailInput").value;
+
+                showError("fabAuthError", "");
+                showStep(overlay, "fabStepEmailCode");
+                document.getElementById("fabEmailInput").focus();
+            });
+
+        document
+            .getElementById("fabUsePasswordButton")
+            .addEventListener("click", function () {
+
+                document.getElementById("fabAuthEmailInput").value =
+                    document.getElementById("fabEmailInput").value;
+
+                showError("fabEmailError", "");
+                setAuthMode(overlay, "signin");
+                showStep(overlay, "fabStepAuth");
+                document.getElementById("fabAuthEmailInput").focus();
+            });
 
         document
             .getElementById("fabSendCodeButton")
@@ -867,7 +1180,7 @@
             .addEventListener("click", function () {
 
                 showError("fabCodeError", "");
-                showStep(overlay, "fabStepEmail");
+                showStep(overlay, "fabStepEmailCode");
             });
 
         async function submitCode() {
