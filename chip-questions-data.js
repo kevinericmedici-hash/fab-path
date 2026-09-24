@@ -2717,6 +2717,366 @@ const chipLesson42Questions = [
 
 ];
 
+
+const chipLesson43Questions = [
+
+    {
+        question: "What does an IDM do that a fabless company does not?",
+        answers: [
+            "Designs chips using its own engineers",
+            "Builds chips in fabs that it owns",
+            "Sells finished chips to customers",
+            "Writes the software used to test chips"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What is the defining trait of a fabless company?",
+        answers: [
+            "It builds chips but does not design them",
+            "It only makes design software, not chips",
+            "It designs chips but does not build them",
+            "It owns fabs but never designs anything"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What does a foundry do for a fabless company?",
+        answers: [
+            "Designs new chips on that company's behalf",
+            "Sells that company's chips to customers",
+            "Writes the marketing for that company's chips",
+            "Builds the chips that company designed"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Why did the foundry model emerge in the first place?",
+        answers: [
+            "Fabs became too costly for most companies to own",
+            "Foundries became legally required by regulation",
+            "Chip design stopped needing any fabrication",
+            "IDMs were banned from designing new chips"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "In the three-model comparison, what do a fabless company and a foundry together add up to?",
+        answers: [
+            "Far more total work than one IDM does",
+            "Roughly what one IDM does alone",
+            "Nothing at all resembling an IDM's role",
+            "Exactly one foundry's normal operation"
+        ],
+        correct: 1
+    }
+
+];
+
+
+const chipLesson44Questions = [
+
+    {
+        question: "Roughly what does a leading-edge fab cost to build?",
+        answers: [
+            "On the order of $10 billion to $20 billion",
+            "On the order of $10 million to $20 million",
+            "Under one million dollars total",
+            "Roughly $500,000, similar to a small factory"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What is one major cost inside a fab, beyond the building itself?",
+        answers: [
+            "The land the building sits on, alone",
+            "The tools, such as a single EUV scanner",
+            "The electricity bill for the parking lot",
+            "The paint used on the exterior walls"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Why do only a handful of companies operate leading-edge fabs?",
+        answers: [
+            "Government law strictly limits the number allowed",
+            "Leading-edge fabs require no real investment",
+            "The entry cost filters out almost everyone",
+            "Every company already owns one by default"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Why must a fab run at very high volume once it's built?",
+        answers: [
+            "Regulations require a fixed minimum output",
+            "High volume makes each wafer heavier",
+            "Running slowly would improve its yield instead",
+            "To earn back its enormous construction cost"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "How are yield and fab cost related, as this unit frames it?",
+        answers: [
+            "The same economic problem, seen two ways",
+            "They are completely unrelated concepts",
+            "Yield only matters in fabless companies",
+            "Fab cost has no connection to output at all"
+        ],
+        correct: 0
+    }
+
+];
+
+
+const chipLesson45Questions = [
+
+    {
+        question: "What is true of the tools and materials a fab uses?",
+        answers: [
+            "A fab manufactures every single one itself",
+            "A fab needs no outside tools or materials at all",
+            "Every fab designs and builds its own unique scanner",
+            "A fab buys them from outside specialized suppliers"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What does ASML specifically supply to the industry?",
+        answers: [
+            "Production EUV lithography scanners",
+            "Ultra-pure silicon wafers for every fab",
+            "The photoresist used in most fabs",
+            "Finished, packaged chips ready to sell"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which of these is an example of a materials supplier, not a tool maker?",
+        answers: [
+            "A company that builds plasma etch chambers",
+            "A company that grows and polishes silicon wafers",
+            "A company that builds deposition equipment",
+            "A company that builds CD-SEM systems for fabs"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Why might losing access to one key supplier stall the whole industry?",
+        answers: [
+            "Every supplier has dozens of equal competitors",
+            "Fabs keep years of spare tools in storage",
+            "Many of these suppliers have very few competitors",
+            "Suppliers matter only for older, legacy fabs"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What role do photomasks play in this supply chain?",
+        answers: [
+            "Fabs always design and etch their own masks",
+            "Masks are supplied only by EDA software firms",
+            "Masks are grown the same way silicon wafers are",
+            "Specialized shops build them from a fab's design files"
+        ],
+        correct: 3
+    }
+
+];
+
+
+const chipLesson46Questions = [
+
+    {
+        question: "When does chip design mostly happen, relative to fabrication?",
+        answers: [
+            "Only after the chip has already been built",
+            "At the exact same time as fabrication",
+            "Almost entirely before any wafer enters a fab",
+            "Design and fabrication are the same single step"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What does EDA stand for?",
+        answers: [
+            "Electronic device assembly",
+            "Extreme design accuracy",
+            "Engineering data analysis",
+            "Electronic design automation"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What happens during the 'synthesis' step of chip design?",
+        answers: [
+            "Logic is converted into specific standard cells",
+            "The finished chip is diced from its wafer",
+            "The design rule check runs for the last time",
+            "Silicon is grown into a crystal ingot"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What happens at tapeout?",
+        answers: [
+            "The chip is packaged for the first time",
+            "The verified design is sent to the fab as mask data",
+            "The wafer is polished to its final thickness",
+            "The chip receives its very first electrical test"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Which two companies dominate the EDA software industry?",
+        answers: [
+            "ASML and Applied Materials",
+            "TSMC and Samsung",
+            "Synopsys and Cadence",
+            "Intel and GlobalFoundries"
+        ],
+        correct: 2
+    }
+
+];
+
+
+const chipLesson47Questions = [
+
+    {
+        question: "Who first observed the trend behind Moore's Law, and when?",
+        answers: [
+            "Gordon Moore, but in 1995",
+            "Gordon Moore, back in 1965",
+            "A committee of fab CEOs, in 1980",
+            "A government agency, back in the 1950s"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Roughly how often did transistor count per chip double, historically?",
+        answers: [
+            "Roughly every twenty years",
+            "Roughly once per decade",
+            "Roughly every one to two years",
+            "Roughly once every six months"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Why did shrinking transistors improve so many things at once?",
+        answers: [
+            "They only ever got cheaper, nothing else changed",
+            "Shrinking made them slower and less efficient",
+            "Size never actually affected performance at all",
+            "They got faster, cheaper, and used less power together"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Which of these is a real reason Moore's Law is slowing today?",
+        answers: [
+            "Features are now only tens of atoms wide",
+            "Fabs have simply stopped hiring new engineers",
+            "Silicon has become completely unavailable now",
+            "Customers no longer want faster chips at all"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What does 'More than Moore' generally refer to?",
+        answers: [
+            "A newer, faster version of Moore's Law itself",
+            "Improving chips through means other than shrinking",
+            "Abandoning transistors in favor of a new device",
+            "A law requiring even faster annual doubling"
+        ],
+        correct: 1
+    }
+
+];
+
+
+const chipLesson48Questions = [
+
+    {
+        question: "What does this unit emphasize about the process covered in this course?",
+        answers: [
+            "Real people and careers run every step of it",
+            "It runs entirely without human involvement",
+            "It was only ever theoretical, not real work",
+            "Only a single engineer runs the whole flow"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which role would most likely chase down a wafer map's root cause?",
+        answers: [
+            "A photomask delivery driver",
+            "A yield engineer, in the fab",
+            "A retail store sales associate",
+            "A patent licensing attorney"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Which part of this course does packaging engineering connect back to?",
+        answers: [
+            "Part 1, on wafer preparation",
+            "Part 3, on lithography",
+            "Part 7, on packaging and test",
+            "Part 6, on yield and metrology"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "What point does 'a closing number' make about the industry's scale?",
+        answers: [
+            "Exactly one person performs this entire flow",
+            "The industry employs fewer than a hundred people",
+            "Scale has no real connection to career variety",
+            "One simplified course scales up to millions of careers"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What does the final unit suggest as a next step?",
+        answers: [
+            "Picking one area from the course and going deeper",
+            "Considering the course fully complete forever",
+            "Avoiding every career this course described",
+            "Forgetting everything covered in earlier parts"
+        ],
+        correct: 0
+    }
+
+];
+
 const chipAllLessonQuestions = {
     1: chipLesson1Questions,
     2: chipLesson2Questions,
@@ -2759,5 +3119,11 @@ const chipAllLessonQuestions = {
     39: chipLesson39Questions,
     40: chipLesson40Questions,
     41: chipLesson41Questions,
-    42: chipLesson42Questions
+    42: chipLesson42Questions,
+    43: chipLesson43Questions,
+    44: chipLesson44Questions,
+    45: chipLesson45Questions,
+    46: chipLesson46Questions,
+    47: chipLesson47Questions,
+    48: chipLesson48Questions
 };

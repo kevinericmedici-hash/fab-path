@@ -12,10 +12,10 @@ const coursesData = [
         title: "Sand to Chip",
         tagline: "How a chip gets made",
         description:
-            "From quartz sand to a finished chip: pure silicon, crystal growth, wafers, the cleanroom, and the layer-building tools (oxidation, deposition, etch, and CMP), with lithography, the CMOS process flow, yield, and packaging on the way.",
+            "From quartz sand to a finished chip: purification, crystal growth, the cleanroom, the layer-building tools, lithography, doping, the CMOS process flow, yield, packaging, and the industry that builds it.",
         icon: "🏭",
         status: "live",
-        growing: true,
+        growing: false,
         href: "chip-learn.html"
     },
 

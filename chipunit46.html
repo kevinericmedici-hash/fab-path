@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EDA &amp; Chip Design | Fab Path</title>
+    <meta name="description" content="EDA &amp; Chip Design: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="EDA &amp; Chip Design | Fab Path">
+    <meta property="og:description" content="EDA &amp; Chip Design: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="chip-learn.html">Learn</a>
+            <a href="chip-games.html">Games</a>
+            <a href="chip-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="chip-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 5
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+                        <!-- SLIDE 1 -->
+            
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    BEFORE ANY MASK EXISTS
+                </p>
+
+                <h1>
+                    A chip is designed entirely in software first
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    software, long before silicon
+                </div>
+
+                <p>
+                    Every mask this course has described starts as a design file, built and checked entirely in software months or years before a wafer ever enters a fab. That design software is its own specialized industry, separate from both the fab and the equipment makers.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A chip exists as pure design for a long time before it exists as silicon.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 2 -->
+            
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    EDA TOOLS
+                </p>
+
+                <h1>
+                    Electronic design automation
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    software that designs, simulates, and verifies
+                </div>
+
+                <p>
+                    EDA, electronic design automation, is the category of software used to turn a chip's intended behavior into a manufacturable layout: placing and routing standard cells, running the design rule checks covered earlier, and simulating the design before it's ever built.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Nearly every step this course covered on the design side runs through EDA software.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 3 -->
+            
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE DESIGN FLOW
+                </p>
+
+                <h1>
+                    From behavior to a mask set
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Logic design</strong>
+                        <span>Describes what the chip should do, not yet how it's laid out</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Synthesis</strong>
+                        <span>Converts that logic into a specific set of standard cells</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Place and route</strong>
+                        <span>Arranges those cells and wires them through the metal stack</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Verification and DRC</strong>
+                        <span>Checks the result against both intent and the fab's rule book</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Tapeout</strong>
+                        <span>Sends the finished, verified design to the fab as mask data</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    
+
+                    Tapeout is the moment a design stops being software and starts becoming a mask.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 4 -->
+            
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHY SO FEW EDA COMPANIES
+                </p>
+
+                <h1>
+                    Two companies dominate the whole category
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    Synopsys and Cadence
+                </div>
+
+                <p>
+                    Two companies, Synopsys and Cadence, supply most of the industry's EDA software. Building a competing tool chain would take decades of accumulated engineering, which keeps this corner of the industry nearly as concentrated as fab construction itself.
+                </p>
+
+                <div class="module-takeaway">
+
+                    EDA is proof that a barrier to entry doesn't have to be a factory: it can be decades of software.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 46 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    💻
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've covered the software that designs, simulates, and verifies a chip before any mask exists.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeChipUnit46Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+</div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeChipUnit46Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathChipUnit46StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathChipUnit46StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "chip-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

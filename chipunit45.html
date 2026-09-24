@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Equipment &amp; Materials Ecosystem | Fab Path</title>
+    <meta name="description" content="The Equipment &amp; Materials Ecosystem: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="The Equipment &amp; Materials Ecosystem | Fab Path">
+    <meta property="og:description" content="The Equipment &amp; Materials Ecosystem: illustrated study slides from the Sand to Chip course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="chip-learn.html">Learn</a>
+            <a href="chip-games.html">Games</a>
+            <a href="chip-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="chip-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 5
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE 1 -->
+
+                        <!-- SLIDE 1 -->
+            
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    A FAB BUYS, IT DOESN'T BUILD
+                </p>
+
+                <h1>
+                    No single company builds everything a chip needs
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    a fab assembles tools and materials it didn't invent
+                </div>
+
+                <p>
+                    A fab doesn't manufacture its own scanners, etchers, or silicon wafers. It buys them from a small set of specialized suppliers, each of whom focuses on one piece of the puzzle and sells it to every fab in the world that needs it.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A modern chip depends on an entire ecosystem the fab itself never touches directly, until it arrives.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 2 -->
+            
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE SUPPLY CHAIN
+                </p>
+
+                <h1>
+                    Three streams, all feeding one fab
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                    <svg viewBox="0 0 340 226" role="img" aria-label="A supply chain feeding into the fab: equipment makers, materials suppliers, and EDA design software, all converging on the fab itself">
+<rect class="fd-n" x="20" y="30" width="130" height="40" rx="4"/>
+<text class="fd-label" x="85" y="52" text-anchor="middle">Equipment makers</text>
+<text class="fd-sub" x="85" y="64" text-anchor="middle">scanners, etchers, deposition tools</text>
+<rect class="fd-ox" x="20" y="93" width="130" height="40" rx="4"/>
+<text class="fd-label" x="85" y="115" text-anchor="middle">Materials suppliers</text>
+<text class="fd-sub" x="85" y="127" text-anchor="middle">wafers, gases, chemicals, resist</text>
+<rect class="fd-metal" x="20" y="156" width="130" height="40" rx="4"/>
+<text class="fd-label" x="85" y="178" text-anchor="middle">EDA software</text>
+<text class="fd-sub" x="85" y="190" text-anchor="middle">design, simulate, verify</text>
+<path class="fd-axis" d="M150 50 L230 100" fill="none"/>
+<path class="fd-axis" d="M150 113 L230 108" fill="none"/>
+<path class="fd-axis" d="M150 176 L230 116" fill="none"/>
+<polygon class="fd-arrow" points="234,110 224,106 226,114"/>
+<rect class="fd-p" x="234" y="80" width="90" height="60" rx="4"/>
+<text class="fd-label" x="279" y="106" text-anchor="middle">The fab</text>
+<text class="fd-sub" x="279" y="122" text-anchor="middle">builds the chip</text>
+</svg>
+                </div>
+
+                <p>
+                    Equipment makers supply the scanners, etchers, and deposition tools. Materials suppliers provide wafers, gases, chemicals, and photoresist. EDA software designs and verifies the chip before any of it is built. All three converge on the fab itself.
+                </p>
+
+                <div class="module-takeaway">
+
+                    
+
+                    The fab is where these three separate industries meet and become one product.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 3 -->
+            
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE TOOL MAKERS
+                </p>
+
+                <h1>
+                    A short list of specialists
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔦
+                        </div>
+
+                        <h3>ASML</h3>
+
+                        <p>
+                            The only company that builds production EUV lithography scanners
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧪
+                        </div>
+
+                        <h3>Deposition &amp; etch</h3>
+
+                        <p>
+                            Companies such as Applied Materials, Lam Research, and Tokyo Electron
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🎯
+                        </div>
+
+                        <h3>Metrology</h3>
+
+                        <p>
+                            Specialized suppliers build the CD-SEM and other measurement tools covered earlier
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Losing access to even one of these suppliers can stall an entire industry.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE 4 -->
+            
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE MATERIALS SUPPLIERS
+                </p>
+
+                <h1>
+                    Inputs a fab can't make itself
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            💿
+                        </div>
+
+                        <h3>Silicon wafers</h3>
+
+                        <p>
+                            Grown, sliced, and polished by dedicated wafer manufacturers
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧴
+                        </div>
+
+                        <h3>Chemicals &amp; gases</h3>
+
+                        <p>
+                            Ultra-pure resist, dopant sources, and process gases
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🎭
+                        </div>
+
+                        <h3>Photomasks</h3>
+
+                        <p>
+                            Made by specialized mask shops from a fab's own design files
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Every material in this course came from a supplier outside the fab's own walls.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 45 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🔗
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've covered the equipment makers and materials suppliers a fab depends on completely.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeChipUnit45Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+</div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeChipUnit45Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathChipUnit45StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathChipUnit45StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "chip-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

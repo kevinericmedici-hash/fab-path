@@ -1,10 +1,10 @@
 /* ========================================
    SAND TO CHIP COURSE DATA
-   Units 1 to 42 are built. Each unit is a short
-   study module followed by one Fab Challenge
-   quiz, and lesson ids match unit ids. Units are
-   grouped into seven parts. Planned next: the
-   industry.
+   All 48 units are built, grouped into eight
+   parts. Each unit is a short study module
+   followed by one Fab Challenge quiz, and lesson
+   ids match unit ids. The course runs from raw
+   sand to the industry that builds the chip.
 ======================================== */
 
 const chipCourseParts = [
@@ -70,6 +70,15 @@ const chipCourseParts = [
         lastUnitId: 42,
         description:
             "How a finished die becomes a chip you can actually use: interconnect, package types, test and burn-in, thermal and reliability, and the chiplets reshaping packaging today."
+    },
+
+    {
+        id: 8,
+        title: "The Industry",
+        firstUnitId: 43,
+        lastUnitId: 48,
+        description:
+            "Who actually builds a chip: business models, fab economics, the equipment and materials that feed a fab, chip design software, and the historical trend behind it all."
     }
 
 ];
@@ -1121,6 +1130,156 @@ const chipCourseData = [
                 title: "Advanced Packaging: Chiplets & 2.5D/3D",
                 description:
                     "Interposers, TSVs, and why some chips are now built from several dies."
+            }
+
+        ]
+    },
+
+    {
+        id: 43,
+
+        title: "Foundries, IDMs & Fabless",
+
+        description:
+            "The three business models a chip company can run, and why the split happened.",
+
+        studyModule: {
+            title: "Foundries, IDMs & Fabless",
+            href: "chipunit43.html"
+        },
+
+        lessons: [
+
+            {
+                id: 43,
+                title: "Foundries, IDMs & Fabless",
+                description:
+                    "The three business models a chip company can run, and why the split happened."
+            }
+
+        ]
+    },
+
+    {
+        id: 44,
+
+        title: "The Cost of a Fab",
+
+        description:
+            "Why a leading-edge fab costs billions of dollars, and what that forces.",
+
+        studyModule: {
+            title: "The Cost of a Fab",
+            href: "chipunit44.html"
+        },
+
+        lessons: [
+
+            {
+                id: 44,
+                title: "The Cost of a Fab",
+                description:
+                    "Why a leading-edge fab costs billions of dollars, and what that forces."
+            }
+
+        ]
+    },
+
+    {
+        id: 45,
+
+        title: "The Equipment & Materials Ecosystem",
+
+        description:
+            "The equipment makers and materials suppliers a fab depends on completely.",
+
+        studyModule: {
+            title: "The Equipment & Materials Ecosystem",
+            href: "chipunit45.html"
+        },
+
+        lessons: [
+
+            {
+                id: 45,
+                title: "The Equipment & Materials Ecosystem",
+                description:
+                    "The equipment makers and materials suppliers a fab depends on completely."
+            }
+
+        ]
+    },
+
+    {
+        id: 46,
+
+        title: "EDA & Chip Design",
+
+        description:
+            "The software that designs, simulates, and verifies a chip before any mask exists.",
+
+        studyModule: {
+            title: "EDA & Chip Design",
+            href: "chipunit46.html"
+        },
+
+        lessons: [
+
+            {
+                id: 46,
+                title: "EDA & Chip Design",
+                description:
+                    "The software that designs, simulates, and verifies a chip before any mask exists."
+            }
+
+        ]
+    },
+
+    {
+        id: 47,
+
+        title: "Moore's Law & Its Slowdown",
+
+        description:
+            "The trend that built this industry, why it worked for decades, and why it's slowing.",
+
+        studyModule: {
+            title: "Moore's Law & Its Slowdown",
+            href: "chipunit47.html"
+        },
+
+        lessons: [
+
+            {
+                id: 47,
+                title: "Moore's Law & Its Slowdown",
+                description:
+                    "The trend that built this industry, why it worked for decades, and why it's slowing."
+            }
+
+        ]
+    },
+
+    {
+        id: 48,
+
+        title: "Where This Leads: Careers in the Industry",
+
+        description:
+            "The roles behind every unit in this course, and where they lead.",
+
+        studyModule: {
+            title: "Where This Leads: Careers in the Industry",
+            href: "chipunit48.html"
+        },
+
+        lessons: [
+
+            {
+                id: 48,
+                title: "Where This Leads: Careers in the Industry",
+                description:
+                    "The roles behind every unit in this course, and where they lead."
             }
 
         ]

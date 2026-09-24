@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Industry | Fab Path</title>
+    <meta name="description" content="The Industry: a hands-on game from the Sand to Chip course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="The Industry | Fab Path">
+    <meta property="og:description" content="The Industry: a hands-on game from the Sand to Chip course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="chip-learn.html">Learn</a>
+            <a href="chip-games.html" class="active-nav">Games</a>
+            <a href="chip-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+    <main class="game-page">
+
+        <section class="game-shell">
+
+            <div class="game-top">
+
+                <a href="chip-games.html" class="module-exit">
+                    ← Back to Games
+                </a>
+
+                <div class="module-progress-area">
+
+                    <div class="module-progress-track">
+                        <div
+                            class="module-progress-fill"
+                            id="gameProgressFill"
+                        ></div>
+                    </div>
+
+                    <span id="gameProgressText">
+                        0 / 0
+                    </span>
+
+                </div>
+
+                <span class="game-badge">
+                    UNITS 43–48 GAME
+                </span>
+
+            </div>
+
+
+            <div class="game-header">
+
+                <p class="eyebrow">
+                    THE INDUSTRY
+                </p>
+
+                <h1>
+                    Put the steps in order
+                </h1>
+
+                <p class="game-lead">
+                    Three sequences behind the business itself: a chip's path from a fabless design to a shipped part, the design flow that gets it there, and the Moore's Law story. Each has steps that only work in one order. Tap them in sequence.
+                </p>
+
+            </div>
+
+
+            <div id="gameBoard">
+
+                <p class="sc-round-title" id="orderRoundTitle">
+                </p>
+
+                <p class="sc-round-lead" id="orderRoundLead">
+                </p>
+
+                <div class="build-zone" id="buildZone">
+                    <p class="build-zone-empty">
+                        No steps placed yet.
+                    </p>
+                </div>
+
+                <div class="tile-grid parts-grid" id="tileGrid">
+                </div>
+
+                <div class="game-feedback" id="gameFeedback">
+                    Loading...
+                </div>
+
+            </div>
+
+
+            <div id="gameComplete" class="game-complete" hidden>
+
+                <p class="eyebrow">
+                    CHALLENGE COMPLETE
+                </p>
+
+                <h2>
+                    🎓 The whole industry, in order
+                </h2>
+
+                <p class="game-complete-xp" id="gameCompleteXP">
+                    +50 XP
+                </p>
+
+                <p class="game-complete-lead" id="gameCompleteStats">
+                </p>
+
+                <p class="game-complete-lead">
+                    A design, a mask, a wafer, a package, a shipment: this whole course was one path through that sequence, and an entire industry exists to keep every step of it running.
+                </p>
+
+                <div class="game-recap" id="gameRecap">
+                </div>
+
+                <div class="game-complete-actions">
+
+                    <button
+                        type="button"
+                        class="module-nav-button secondary-button"
+                        id="playAgainButton"
+                    >
+                        Play Again
+                    </button>
+
+                    <a
+                        href="chip-games.html"
+                        class="module-nav-button lesson-link"
+                        id="backToPathButton"
+                    >
+                        Back to Games
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+    <script src="supercap-game-common.js"></script>
+    <script src="supercap-game-order.js"></script>
+    <script src="chip-games-data.js"></script>
+
+    <script>
+
+        SCGames.startOrder(chipGameData.theIndustry);
+
+    </script>
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+
+</html>

@@ -795,5 +795,113 @@ const chipGameData = {
                         ]
                 }
         ]
+    },
+
+    theIndustry: {
+        "key": "fabPathChipGame8Complete",
+        "xp": 50,
+        "rounds": [
+                {
+                        "icon": "🏭",
+                        "title": "From idea to shipped chip",
+                        "lead": "Follow one design across the whole industry, company by company.",
+                        "steps": [
+                                {
+                                        "icon": "💻",
+                                        "name": "A fabless company designs the chip",
+                                        "why": "the design exists entirely in software at this point."
+                                },
+                                {
+                                        "icon": "🔍",
+                                        "name": "EDA software verifies and checks it",
+                                        "why": "design rules must pass before anyone commits to a mask."
+                                },
+                                {
+                                        "icon": "📤",
+                                        "name": "Tapeout sends the design to a foundry",
+                                        "why": "the foundry owns the fab the fabless company doesn't."
+                                },
+                                {
+                                        "icon": "🏭",
+                                        "name": "The foundry fabricates the wafer",
+                                        "why": "this is where the design finally becomes silicon."
+                                },
+                                {
+                                        "icon": "📦",
+                                        "name": "The chip is packaged and tested",
+                                        "why": "a bare die still isn't something a customer can use."
+                                },
+                                {
+                                        "icon": "🚚",
+                                        "name": "The finished chip ships to a customer",
+                                        "why": "this is the moment the whole flow was built for."
+                                }
+                        ]
+                },
+                {
+                        "icon": "💻",
+                        "title": "The chip design flow",
+                        "lead": "Turn an idea for a chip into a mask set, one stage at a time.",
+                        "steps": [
+                                {
+                                        "icon": "📝",
+                                        "name": "Write the logic design",
+                                        "why": "this describes what the chip should do, not its layout."
+                                },
+                                {
+                                        "icon": "🧩",
+                                        "name": "Synthesize it into standard cells",
+                                        "why": "logic has to become real, manufacturable gates."
+                                },
+                                {
+                                        "icon": "🗺️",
+                                        "name": "Place and route the cells",
+                                        "why": "every cell needs a location and a wired connection."
+                                },
+                                {
+                                        "icon": "🔍",
+                                        "name": "Run verification and DRC",
+                                        "why": "the layout must match intent and the fab's rule book."
+                                },
+                                {
+                                        "icon": "📤",
+                                        "name": "Tape out the finished design",
+                                        "why": "this is the handoff from software to silicon."
+                                }
+                        ]
+                },
+                {
+                        "icon": "📈",
+                        "title": "The Moore's Law story",
+                        "lead": "Trace the trend from its observation to today's slowdown.",
+                        "steps": [
+                                {
+                                        "icon": "🔭",
+                                        "name": "Moore observes the doubling trend, in 1965",
+                                        "why": "this is the very start of the whole story."
+                                },
+                                {
+                                        "icon": "📈",
+                                        "name": "The industry scales for decades",
+                                        "why": "every new node reliably shrank transistors further."
+                                },
+                                {
+                                        "icon": "⚛️",
+                                        "name": "Features shrink to just atoms across",
+                                        "why": "physics itself starts setting a hard floor."
+                                },
+                                {
+                                        "icon": "💰",
+                                        "name": "Cost per new node climbs sharply",
+                                        "why": "each generation gets far more expensive to develop."
+                                },
+                                {
+                                        "icon": "🧩",
+                                        "name": "The industry turns to chiplets and specialization",
+                                        "why": "when shrinking gets harder, other paths take over."
+                                }
+                        ]
+                }
+        ]
     }
 };
