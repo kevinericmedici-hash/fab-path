@@ -43,14 +43,15 @@ Then open http://localhost:5737. Progress is stored in the browser's
 - `style.css`: shared styles, including the brand and design tokens at the end.
 - `fonts/`: self-hosted Inter and JetBrains Mono (SIL Open Font License).
 
-## Before going public
+## Deployment
 
-- `og-image.png` is referenced with a relative path in the social tags on
-  `index.html`, `about.html`, and `careers.html`. Link previews on most
-  platforms need an absolute URL, so change those three `og:image` and
-  `twitter:image` values to `https://<your-domain>/og-image.png` once the site
-  has a home.
-- Add a canonical URL, `robots.txt`, and a sitemap once the domain is known.
+The site is set up for `fab-path.com`: every page has a canonical URL, the
+`og-image.png` / `twitter:image` tags on `index.html`, `about.html`, and
+`careers.html` use the absolute `https://fab-path.com/og-image.png` URL, and
+`robots.txt` / `sitemap.xml` (361 URLs) live at the repo root pointing at
+that domain. It's a static build with no server-side code, so any static
+host (Vercel, Netlify, Cloudflare Pages, GitHub Pages) can serve it directly
+from this repo with no build command.
 
 Fab Path is an independent educational project and is not affiliated with any
 company mentioned on the site.
