@@ -676,6 +676,48 @@
     }
 
 
+    /* Permanently deletes the signed-in account
+       and its cloud progress through the
+       delete_my_account() function in
+       supabase-setup.sql. Progress already on
+       this device is left alone, like sign-out. */
+    async function deleteAccount() {
+
+        if (pushTimer) {
+
+            clearTimeout(pushTimer);
+            pushTimer = null;
+        }
+
+        const fresh = await ensureFreshSession();
+
+        if (!fresh) {
+
+            throw new Error(
+                "Your session expired. Sign in again, then delete your account."
+            );
+        }
+
+        const res = await fetch(
+            `${CFG.url}/rest/v1/rpc/delete_my_account`,
+            {
+                method: "POST",
+                headers: authHeaders(true),
+                body: "{}"
+            }
+        );
+
+        if (!res.ok) {
+
+            throw new Error(
+                "Could not delete your account. Try again in a moment."
+            );
+        }
+
+        signOut();
+    }
+
+
     window.FabAccount = {
         enabled: ENABLED,
         getSession: function () {
@@ -686,6 +728,7 @@
         completeSignInWithPassword: completeSignInWithPassword,
         completeSignUpWithPassword: completeSignUpWithPassword,
         signOut: signOut,
+        deleteAccount: deleteAccount,
         onChange: onAccountChange
     };
 
@@ -776,6 +819,12 @@
                         Email me a one-time code instead
                     </button>
 
+                    <p class="account-hint">
+                        By continuing, you agree to the
+                        <a href="terms.html">Terms</a> and
+                        <a href="privacy.html">Privacy Policy</a>.
+                    </p>
+
                 </div>
 
                 <div class="account-step" id="fabStepEmailCode" hidden>
@@ -854,6 +903,49 @@
                     <button type="button" class="module-nav-button secondary-button" id="fabSignOutButton">
                         Sign out
                     </button>
+
+                    <button type="button" class="account-link account-danger-link" id="fabDeleteStartButton">
+                        Delete account
+                    </button>
+
+                </div>
+
+                <div class="account-step" id="fabStepDelete" hidden>
+
+                    <h2>Delete account?</h2>
+
+                    <p>
+                        This permanently deletes
+                        <strong id="fabDeleteEmail"></strong>
+                        and the progress saved to it. It can't be undone.
+                    </p>
+
+                    <p class="account-hint">
+                        Progress on this device stays until you clear
+                        your browser's site data, and feedback you've
+                        sent is kept without your account attached.
+                    </p>
+
+                    <button type="button" class="start-button account-submit account-danger" id="fabDeleteConfirmButton">
+                        Delete my account
+                    </button>
+
+                    <p class="account-error" id="fabDeleteError" hidden></p>
+
+                    <button type="button" class="account-link" id="fabDeleteCancelButton">
+                        Cancel
+                    </button>
+
+                </div>
+
+                <div class="account-step" id="fabStepDeleted" hidden>
+
+                    <h2>Account deleted</h2>
+
+                    <p>
+                        Your account and its saved progress are gone.
+                        You can keep learning without an account.
+                    </p>
 
                 </div>
 
@@ -1250,6 +1342,52 @@
 
                 signOut();
                 closeModal();
+            });
+
+        document
+            .getElementById("fabDeleteStartButton")
+            .addEventListener("click", function () {
+
+                document.getElementById("fabDeleteEmail").textContent =
+                    session ? session.user.email : "your account";
+
+                showError("fabDeleteError", "");
+                showStep(overlay, "fabStepDelete");
+            });
+
+        document
+            .getElementById("fabDeleteCancelButton")
+            .addEventListener("click", function () {
+
+                showStep(overlay, "fabStepSignedIn");
+            });
+
+        document
+            .getElementById("fabDeleteConfirmButton")
+            .addEventListener("click", async function () {
+
+                const button = this;
+
+                showError("fabDeleteError", "");
+
+                button.disabled = true;
+                button.textContent = "Deleting…";
+
+                try {
+
+                    await deleteAccount();
+
+                    showStep(overlay, "fabStepDeleted");
+
+                } catch (e) {
+
+                    showError("fabDeleteError", e.message);
+
+                } finally {
+
+                    button.disabled = false;
+                    button.textContent = "Delete my account";
+                }
             });
     }
 

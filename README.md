@@ -30,7 +30,7 @@ python -m http.server 5737
 ```
 
 Then open http://localhost:5737. Progress is stored in the browser's
-`localStorage`; there are no accounts.
+`localStorage`, and synced to Supabase only for learners who sign in.
 
 ## Layout
 

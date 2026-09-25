@@ -437,6 +437,10 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://fab-path.com/feedback.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://fab-path.com/fet-game1.html</loc>
     <priority>0.5</priority>
   </url>
@@ -1442,6 +1446,18 @@
   </url>
   <url>
     <loc>https://fab-path.com/unit9.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://fab-path.com/privacy.html</loc>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://fab-path.com/terms.html</loc>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://fab-path.com/sources.html</loc>
     <priority>0.5</priority>
   </url>
 </urlset>
