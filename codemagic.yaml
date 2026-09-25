@@ -1,0 +1,63 @@
+workflows:
+  ios-workflow:
+    name: Fab Path iOS
+    max_build_duration: 60
+    instance_type: mac_mini_m2
+    environment:
+      xcode: latest
+      cocoapods: default
+      node: latest
+      vars:
+        XCODE_WORKSPACE: "mobile/ios/App/App.xcworkspace"
+        XCODE_SCHEME: "App"
+        BUNDLE_ID: "com.fabpath.app"
+      # Set up once in Codemagic's UI (Team settings -> Integrations ->
+      # App Store Connect), then reference that integration's name here.
+      # It lets Codemagic fetch signing certificates/profiles
+      # automatically -- no local Mac or manual .p12 files needed.
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.fabpath.app
+
+    scripts:
+      - name: Install npm dependencies
+        script: |
+          cd mobile
+          npm ci
+
+      - name: Sync site content into www/
+        script: |
+          cd mobile
+          npm run sync
+
+      - name: Capacitor sync (iOS)
+        script: |
+          cd mobile
+          npx cap sync ios
+
+      - name: Install CocoaPods dependencies
+        script: |
+          cd mobile/ios/App
+          pod install
+
+      - name: Set up code signing
+        script: |
+          xcode-project use-profiles
+
+      - name: Build ipa
+        script: |
+          cd mobile
+          xcode-project build-ipa \
+            --workspace "$XCODE_WORKSPACE" \
+            --scheme "$XCODE_SCHEME"
+
+    artifacts:
+      - mobile/build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+
+    publishing:
+      # Requires the App Store Connect integration above and an API key
+      # with at least App Manager access, set up in Codemagic's UI.
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true

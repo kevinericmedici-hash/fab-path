@@ -1,0 +1,8 @@
+{
+  "appId": "com.fabpath.app",
+  "appName": "Fab Path",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}

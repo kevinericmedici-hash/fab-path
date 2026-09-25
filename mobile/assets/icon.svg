@@ -1,0 +1,9 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1024" height="1024" fill="#0b1020"/>
+    <circle cx="512" cy="512" r="320" fill="#141a2e" stroke="#54e0c7" stroke-width="40"/>
+    <clipPath id="wafer-clip"><circle cx="512" cy="512" r="300"/></clipPath>
+    <g clip-path="url(#wafer-clip)" stroke="#54e0c7" stroke-opacity="0.4" stroke-width="20">
+        <path d="M352 212V812M512 212V812M672 212V812M212 352H812M212 512H812M212 672H812"/>
+    </g>
+    <rect x="530" y="366" width="104" height="104" rx="14" fill="#54e0c7"/>
+</svg>

@@ -1339,3 +1339,52 @@
     }
 
 })();
+
+
+/* ========================================
+   NATIVE APP INTEGRATION
+   Inert on the live website: window.Capacitor
+   only exists inside the wrapped iOS/Android
+   app, so none of this runs in a browser.
+======================================== */
+
+(function () {
+
+    if (!window.Capacitor || !window.Capacitor.isNativePlatform()) {
+
+        return;
+    }
+
+    const Plugins = window.Capacitor.Plugins;
+
+    if (Plugins.StatusBar) {
+
+        Plugins.StatusBar.setBackgroundColor({ color: "#0b1020" }).catch(function () {});
+        Plugins.StatusBar.setStyle({ style: "DARK" }).catch(function () {});
+    }
+
+    if (Plugins.Network) {
+
+        const banner = document.createElement("div");
+
+        banner.textContent = "Offline — progress sync is paused.";
+        banner.style.cssText =
+            "position:fixed;left:0;right:0;bottom:0;z-index:9999;" +
+            "background:#ffb86b;color:#0b1020;font:600 13px system-ui, sans-serif;" +
+            "text-align:center;padding:8px 12px;display:none;";
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            document.body.appendChild(banner);
+        });
+
+        function updateBanner(status) {
+
+            banner.style.display = status.connected ? "none" : "block";
+        }
+
+        Plugins.Network.getStatus().then(updateBanner).catch(function () {});
+        Plugins.Network.addListener("networkStatusChange", updateBanner);
+    }
+
+})();

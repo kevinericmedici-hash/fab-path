@@ -1,0 +1,15 @@
+# Mobile app (Capacitor) — see mobile/README or the project plan for context.
+# The site itself has no build step and nothing here applies to the root.
+
+mobile/node_modules/
+mobile/www/
+
+mobile/android/app/build/
+mobile/android/.gradle/
+mobile/android/local.properties
+mobile/android/app/release/
+
+mobile/ios/App/Pods/
+mobile/ios/App/build/
+
+mobile/.env*

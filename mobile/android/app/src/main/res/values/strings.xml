@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Fab Path</string>
+    <string name="title_activity_main">Fab Path</string>
+    <string name="package_name">com.fabpath.app</string>
+    <string name="custom_url_scheme">com.fabpath.app</string>
+</resources>
