@@ -3323,6 +3323,8 @@ svg text {
 
 .hm-hero h1 span {
     display: block;
+    padding-bottom: 0.1em;
+    margin-bottom: -0.1em;
     background: linear-gradient(90deg, var(--accent), #9ef2e2 55%, var(--copper));
     -webkit-background-clip: text;
     background-clip: text;
