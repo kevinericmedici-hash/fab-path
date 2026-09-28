@@ -73,7 +73,7 @@
                 </div>
 
                 <span id="moduleProgressText">
-                    1 / 7
+                    1 / 8
                 </span>
 
             </div>
@@ -301,6 +301,60 @@
             <section class="module-slide">
 
                 <p class="eyebrow">
+                WHAT A MASK LOOKS LIKE
+                </p>
+
+                <h1>
+                Up close, it's rectangles and vias
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A reticle plate holding two copies of the same die pattern, separated by a scribe line with alignment marks. Each die is filled with a dense grid of rectangular chrome shapes representing metal traces and vias">
+                <defs>
+                <g id="maskDiePattern">
+                <rect class="fd-metal" x="10" y="15" width="90" height="6" rx="1"/>
+                <rect class="fd-metal" x="10" y="30" width="60" height="6" rx="1"/>
+                <rect class="fd-metal" x="40" y="30" width="6" height="40" rx="1"/>
+                <rect class="fd-metal" x="30" y="45" width="70" height="6" rx="1"/>
+                <rect class="fd-metal" x="10" y="60" width="40" height="6" rx="1"/>
+                <rect class="fd-metal" x="60" y="60" width="40" height="6" rx="1"/>
+                <rect class="fd-metal" x="10" y="75" width="90" height="6" rx="1"/>
+                <rect class="fd-metal" x="20" y="90" width="6" height="6"/>
+                <rect class="fd-metal" x="70" y="90" width="6" height="6"/>
+                <rect class="fd-metal" x="10" y="105" width="90" height="6" rx="1"/>
+                </g>
+                </defs>
+                <rect class="fd-p" x="30" y="20" width="280" height="150" rx="4"/>
+                <use href="#maskDiePattern" x="30" y="15"/>
+                <use href="#maskDiePattern" x="170" y="15"/>
+                <line class="fd-axis" x1="170" y1="20" x2="170" y2="170" stroke-dasharray="4 3"/>
+                <g class="fd-n" stroke-width="1.5">
+                <line x1="164" y1="25" x2="176" y2="25"/><line x1="170" y1="19" x2="170" y2="31"/>
+                <line x1="164" y1="165" x2="176" y2="165"/><line x1="170" y1="159" x2="170" y2="171"/>
+                </g>
+                <text class="fd-sub" x="100" y="188" text-anchor="middle">die image, repeated across the reticle</text>
+                <text class="fd-sub" x="170" y="202" text-anchor="middle">scribe line + alignment marks</text>
+                </svg>
+                </div>
+
+                <p>
+                A real mask looks less like a drawing and more like a dense grid of rectangles: metal traces, vias, and cell outlines, all rendered in opaque chrome on clear glass. The same die pattern repeats across the reticle, separated by scribe lines that carry the alignment marks the scanner uses to register each exposure.
+                </p>
+
+                <div class="module-takeaway">
+
+                What looks like a maze of rectangles is the actual circuit, pattern for pattern.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 6 -->
+
+            <section class="module-slide">
+
+                <p class="eyebrow">
                 THE PELLICLE
                 </p>
 
@@ -325,7 +379,7 @@
             </section>
 
 
-            <!-- SLIDE 6 -->
+            <!-- SLIDE 7 -->
 
             <section class="module-slide">
 
@@ -370,7 +424,7 @@
             </section>
 
 
-            <!-- SLIDE 7 -->
+            <!-- SLIDE 8 -->
 
             <section class="module-slide module-finish-slide">
 
