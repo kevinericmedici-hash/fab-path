@@ -332,6 +332,33 @@ function updateSupercapCourseProgress() {
         progressText.textContent =
             `${percent}% complete`;
     }
+
+    const certLink =
+        document.getElementById("supercapCertificateLink");
+
+    if (certLink) {
+
+        certLink.hidden = percent < 100;
+
+        if (!certLink.dataset.wired) {
+
+            certLink.dataset.wired = "true";
+
+            certLink.addEventListener("click", function (event) {
+
+                event.preventDefault();
+
+                if (window.FabCertificate) {
+
+                    window.FabCertificate.showCourseComplete({
+                        courseTitle: "Supercapacitors",
+                        courseSlug: "supercapacitors",
+                        lessonCount: getSupercapAllLessons().length
+                    });
+                }
+            });
+        }
+    }
 }
 
 
@@ -551,7 +578,26 @@ function initSupercapLessonQuiz(lessonId, questions) {
                 updateStreakOnLessonComplete();
             }
 
-            window.location.href = "supercap-learn.html";
+            /* supercap-course-data.js isn't loaded on lesson pages,
+               only on supercap-learn.html, so this is a literal. */
+
+            const SUPERCAP_FINAL_LESSON_ID = 42;
+
+            if (lessonId === SUPERCAP_FINAL_LESSON_ID && window.FabCertificate) {
+
+                window.FabCertificate.showCourseComplete({
+                    courseTitle: "Supercapacitors",
+                    courseSlug: "supercapacitors",
+                    lessonCount: SUPERCAP_FINAL_LESSON_ID,
+                    onContinue: function () {
+                        window.location.href = "supercap-learn.html";
+                    }
+                });
+
+            } else {
+
+                window.location.href = "supercap-learn.html";
+            }
         }
     });
 

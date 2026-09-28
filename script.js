@@ -7231,8 +7231,28 @@ localStorage.setItem(
 updateStreakOnLessonComplete();
 
 
-window.location.href =
-    "learn.html";
+/* course-data.js (and getAllLessons()) isn't loaded on
+   lesson pages, only on learn.html/index.html, so the
+   final lesson id is a literal here rather than derived. */
+
+const MEMS_FINAL_LESSON_ID = 54;
+
+if (currentLesson === MEMS_FINAL_LESSON_ID && window.FabCertificate) {
+
+    window.FabCertificate.showCourseComplete({
+        courseTitle: "MEMS & Microfabrication",
+        courseSlug: "mems",
+        lessonCount: MEMS_FINAL_LESSON_ID,
+        onContinue: function () {
+            window.location.href = "learn.html";
+        }
+    });
+
+} else {
+
+    window.location.href =
+        "learn.html";
+}
 
         }
 
@@ -7810,6 +7830,36 @@ function updateCourseProgress() {
 
         progressText.textContent =
             `${percent}% complete`;
+    }
+
+
+    const certLink =
+        document.getElementById(
+            "courseCertificateLink"
+        );
+
+    if (certLink) {
+
+        certLink.hidden = percent < 100;
+
+        if (!certLink.dataset.wired) {
+
+            certLink.dataset.wired = "true";
+
+            certLink.addEventListener("click", function (event) {
+
+                event.preventDefault();
+
+                if (window.FabCertificate) {
+
+                    window.FabCertificate.showCourseComplete({
+                        courseTitle: "MEMS & Microfabrication",
+                        courseSlug: "mems",
+                        lessonCount: getAllLessons().length
+                    });
+                }
+            });
+        }
     }
 }
 
@@ -8474,3 +8524,457 @@ document.addEventListener("click", function (event) {
     fabScrollToTop();
 
 }, true);
+
+
+/* ========================================
+   COURSE COMPLETION CERTIFICATES
+   One shared module for all four courses,
+   since every lesson page already loads
+   this file. Builds its own modal on first
+   use; the learner's name is asked once and
+   reused for every course after that (the
+   key is "fabPath"-prefixed, so it syncs
+   automatically for signed-in users via
+   account.js, with no changes needed there).
+======================================== */
+
+(function () {
+
+    const NAME_KEY = "fabPathLearnerName";
+
+    let overlay = null;
+    let pendingOptions = null;
+
+
+    function isNative() {
+
+        return !!(
+            window.Capacitor &&
+            window.Capacitor.isNativePlatform()
+        );
+    }
+
+
+    function showStep(el, stepId) {
+
+        el.querySelectorAll(".account-step").forEach(function (step) {
+
+            step.hidden = step.id !== stepId;
+        });
+    }
+
+
+    function closeOverlay() {
+
+        if (overlay) {
+
+            overlay.hidden = true;
+        }
+    }
+
+
+    function drawWaferMark(ctx, cx, cy, r) {
+
+        ctx.save();
+
+        ctx.strokeStyle = "#54e0c7";
+        ctx.lineWidth = r * 0.14;
+        ctx.beginPath();
+        ctx.arc(cx, cy, r, 0, Math.PI * 2);
+        ctx.stroke();
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(cx, cy, r * 0.88, 0, Math.PI * 2);
+        ctx.clip();
+
+        ctx.strokeStyle = "rgba(84, 224, 199, 0.4)";
+        ctx.lineWidth = r * 0.07;
+
+        const step = r * 0.62;
+
+        for (let i = -1; i <= 1; i++) {
+
+            ctx.beginPath();
+            ctx.moveTo(cx + i * step, cy - r);
+            ctx.lineTo(cx + i * step, cy + r);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(cx - r, cy + i * step);
+            ctx.lineTo(cx + r, cy + i * step);
+            ctx.stroke();
+        }
+
+        ctx.restore();
+
+        const sq = r * 0.42;
+
+        ctx.fillStyle = "#54e0c7";
+        ctx.beginPath();
+        ctx.roundRect(
+            cx + r * 0.08,
+            cy - r * 0.5,
+            sq,
+            sq,
+            sq * 0.16
+        );
+        ctx.fill();
+
+        ctx.restore();
+    }
+
+
+    function fitText(ctx, text, x, y, maxWidth, baseSize, weight, family) {
+
+        let size = baseSize;
+
+        ctx.font = `${weight} ${size}px ${family}`;
+
+        while (
+            ctx.measureText(text).width > maxWidth &&
+            size > 20
+        ) {
+
+            size -= 2;
+            ctx.font = `${weight} ${size}px ${family}`;
+        }
+
+        ctx.fillText(text, x, y);
+    }
+
+
+    async function drawCertificate(canvas, opts) {
+
+        const W = 1600;
+        const H = 1120;
+
+        canvas.width = W;
+        canvas.height = H;
+
+        const ctx = canvas.getContext("2d");
+
+        try {
+
+            await Promise.race([
+                document.fonts.ready,
+                new Promise(function (resolve) {
+                    setTimeout(resolve, 400);
+                })
+            ]);
+
+        } catch (e) {}
+
+        ctx.fillStyle = "#0b1020";
+        ctx.fillRect(0, 0, W, H);
+
+        ctx.strokeStyle = "#54e0c7";
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.roundRect(40, 40, W - 80, H - 80, 24);
+        ctx.stroke();
+
+        ctx.strokeStyle = "rgba(84, 224, 199, 0.35)";
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.roundRect(60, 60, W - 120, H - 120, 18);
+        ctx.stroke();
+
+        drawWaferMark(ctx, W / 2 - 118, 148, 30);
+
+        ctx.fillStyle = "#54e0c7";
+        ctx.font = "800 26px Inter, sans-serif";
+        ctx.textAlign = "left";
+        ctx.textBaseline = "middle";
+        ctx.fillText("FAB PATH", W / 2 - 78, 149);
+
+        ctx.textBaseline = "alphabetic";
+        ctx.textAlign = "center";
+
+        ctx.fillStyle = "rgba(226, 232, 255, 0.6)";
+        ctx.font = "700 22px Inter, sans-serif";
+        ctx.fillText(
+            "C E R T I F I C A T E   O F   C O M P L E T I O N",
+            W / 2,
+            260
+        );
+
+        ctx.fillStyle = "#f5f7ff";
+        fitText(
+            ctx, opts.learnerName, W / 2, 400,
+            W - 240, 72, "800", "Inter, sans-serif"
+        );
+
+        ctx.fillStyle = "rgba(226, 232, 255, 0.75)";
+        ctx.font = "400 26px Inter, sans-serif";
+        ctx.fillText("has successfully completed the", W / 2, 470);
+
+        ctx.fillStyle = "#54e0c7";
+        fitText(
+            ctx, opts.courseTitle, W / 2, 535,
+            W - 240, 46, "800", "Inter, sans-serif"
+        );
+
+        ctx.fillStyle = "rgba(226, 232, 255, 0.6)";
+        ctx.font = "400 22px Inter, sans-serif";
+        ctx.fillText("course on Fab Path", W / 2, 572);
+
+        ctx.fillStyle = "rgba(226, 232, 255, 0.55)";
+        ctx.font = "600 20px Inter, sans-serif";
+        ctx.fillText(
+            `${opts.lessonCount} lessons completed`,
+            W / 2,
+            650
+        );
+
+        const dateStr = new Date().toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+        });
+
+        ctx.textAlign = "left";
+        ctx.fillStyle = "rgba(226, 232, 255, 0.7)";
+        ctx.font = "600 20px Inter, sans-serif";
+        ctx.fillText(dateStr, 110, H - 100);
+
+        ctx.textAlign = "right";
+        ctx.fillText("fab-path.com", W - 110, H - 100);
+    }
+
+
+    async function renderAndShow() {
+
+        const canvas = document.createElement("canvas");
+
+        await drawCertificate(canvas, pendingOptions);
+
+        const img = document.getElementById("fabCertImage");
+
+        img.src = canvas.toDataURL("image/png");
+
+        document.getElementById("fabCertLead").textContent =
+            `Here's your ${pendingOptions.courseTitle} certificate.`;
+
+        document.getElementById("fabCertNativeHint").hidden =
+            !isNative();
+
+        showStep(overlay, "fabCertStepPreview");
+    }
+
+
+    function wireOverlay(el) {
+
+        el.addEventListener("click", function (event) {
+
+            if (event.target === el) {
+
+                closeOverlay();
+            }
+        });
+
+        document
+            .getElementById("fabCertClose")
+            .addEventListener("click", closeOverlay);
+
+        document
+            .getElementById("fabCertNameButton")
+            .addEventListener("click", function () {
+
+                const input =
+                    document.getElementById("fabCertNameInput");
+
+                const name = input.value.trim();
+
+                if (!name) {
+
+                    const err =
+                        document.getElementById("fabCertNameError");
+
+                    err.textContent =
+                        "Enter a name to put on your certificate.";
+
+                    err.hidden = false;
+
+                    return;
+                }
+
+                localStorage.setItem(NAME_KEY, name);
+
+                pendingOptions.learnerName = name;
+
+                renderAndShow();
+            });
+
+        document
+            .getElementById("fabCertNameInput")
+            .addEventListener("keydown", function (event) {
+
+                if (event.key === "Enter") {
+
+                    document
+                        .getElementById("fabCertNameButton")
+                        .click();
+                }
+            });
+
+        document
+            .getElementById("fabCertDownloadButton")
+            .addEventListener("click", function () {
+
+                const img =
+                    document.getElementById("fabCertImage");
+
+                const link = document.createElement("a");
+
+                link.href = img.src;
+                link.download =
+                    `fab-path-${pendingOptions.courseSlug}-certificate.png`;
+
+                document.body.appendChild(link);
+                link.click();
+                link.remove();
+            });
+
+        document
+            .getElementById("fabCertContinueButton")
+            .addEventListener("click", function () {
+
+                closeOverlay();
+
+                if (pendingOptions && pendingOptions.onContinue) {
+
+                    pendingOptions.onContinue();
+                }
+            });
+
+        document
+            .getElementById("fabCertEditNameButton")
+            .addEventListener("click", function () {
+
+                document.getElementById("fabCertNameError").hidden =
+                    true;
+
+                document.getElementById("fabCertNameInput").value =
+                    localStorage.getItem(NAME_KEY) || "";
+
+                showStep(el, "fabCertStepName");
+            });
+    }
+
+
+    function buildOverlay() {
+
+        const el = document.createElement("div");
+
+        el.className = "account-overlay";
+        el.id = "fabCertOverlay";
+        el.hidden = true;
+
+        el.innerHTML = `
+            <div class="cert-modal" role="dialog" aria-label="Course certificate">
+
+                <button type="button" class="account-modal-close" id="fabCertClose">
+                    ✕
+                </button>
+
+                <div class="account-step" id="fabCertStepName">
+
+                    <h2>One last thing</h2>
+
+                    <p>
+                        What name should your certificates use? You'll
+                        only be asked once.
+                    </p>
+
+                    <input
+                        type="text"
+                        id="fabCertNameInput"
+                        class="account-input"
+                        placeholder="Your name"
+                        autocomplete="name"
+                    >
+
+                    <button type="button" class="start-button account-submit" id="fabCertNameButton">
+                        Continue
+                    </button>
+
+                    <p class="account-error" id="fabCertNameError" hidden></p>
+
+                </div>
+
+                <div class="account-step" id="fabCertStepPreview" hidden>
+
+                    <h2>You did it 🎉</h2>
+
+                    <p id="fabCertLead"></p>
+
+                    <img class="cert-canvas-preview" id="fabCertImage" alt="Your Fab Path certificate">
+
+                    <div class="cert-actions">
+
+                        <button type="button" class="start-button" id="fabCertDownloadButton">
+                            Download certificate
+                        </button>
+
+                        <button type="button" class="module-nav-button secondary-button" id="fabCertContinueButton">
+                            Continue
+                        </button>
+
+                    </div>
+
+                    <p class="cert-native-hint" id="fabCertNativeHint" hidden>
+                        On the app, press and hold the certificate to save it.
+                    </p>
+
+                    <button type="button" class="account-link" id="fabCertEditNameButton">
+                        Not you? Use a different name
+                    </button>
+
+                </div>
+
+            </div>
+        `;
+
+        document.body.appendChild(el);
+
+        wireOverlay(el);
+
+        return el;
+    }
+
+
+    window.FabCertificate = {
+
+        showCourseComplete: function (options) {
+
+            pendingOptions = Object.assign({}, options);
+
+            if (!overlay) {
+
+                overlay = buildOverlay();
+            }
+
+            overlay.hidden = false;
+
+            const savedName = localStorage.getItem(NAME_KEY);
+
+            if (!savedName) {
+
+                document.getElementById("fabCertNameInput").value = "";
+                document.getElementById("fabCertNameError").hidden = true;
+
+                showStep(overlay, "fabCertStepName");
+
+                document.getElementById("fabCertNameInput").focus();
+
+            } else {
+
+                pendingOptions.learnerName = savedName;
+
+                renderAndShow();
+            }
+        }
+    };
+
+})();

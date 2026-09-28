@@ -332,6 +332,33 @@ function updateChipCourseProgress() {
         progressText.textContent =
             `${percent}% complete`;
     }
+
+    const certLink =
+        document.getElementById("chipCertificateLink");
+
+    if (certLink) {
+
+        certLink.hidden = percent < 100;
+
+        if (!certLink.dataset.wired) {
+
+            certLink.dataset.wired = "true";
+
+            certLink.addEventListener("click", function (event) {
+
+                event.preventDefault();
+
+                if (window.FabCertificate) {
+
+                    window.FabCertificate.showCourseComplete({
+                        courseTitle: "Sand to Chip",
+                        courseSlug: "sand-to-chip",
+                        lessonCount: getChipAllLessons().length
+                    });
+                }
+            });
+        }
+    }
 }
 
 
@@ -551,7 +578,26 @@ function initChipLessonQuiz(lessonId, questions) {
                 updateStreakOnLessonComplete();
             }
 
-            window.location.href = "chip-learn.html";
+            /* chip-course-data.js isn't loaded on lesson pages,
+               only on chip-learn.html, so this is a literal. */
+
+            const CHIP_FINAL_LESSON_ID = 48;
+
+            if (lessonId === CHIP_FINAL_LESSON_ID && window.FabCertificate) {
+
+                window.FabCertificate.showCourseComplete({
+                    courseTitle: "Sand to Chip",
+                    courseSlug: "sand-to-chip",
+                    lessonCount: CHIP_FINAL_LESSON_ID,
+                    onContinue: function () {
+                        window.location.href = "chip-learn.html";
+                    }
+                });
+
+            } else {
+
+                window.location.href = "chip-learn.html";
+            }
         }
     });
 

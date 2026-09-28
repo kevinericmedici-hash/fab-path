@@ -4085,19 +4085,22 @@ svg text {
     box-shadow: var(--shadow);
 }
 
-.account-modal h2 {
+.account-modal h2,
+.cert-modal h2 {
     font-size: 1.4rem;
     margin-bottom: 12px;
 }
 
-.account-modal p {
+.account-modal p,
+.cert-modal p {
     color: var(--muted);
     font-size: 0.94rem;
     line-height: 1.6;
     margin-bottom: 18px;
 }
 
-.account-modal strong {
+.account-modal strong,
+.cert-modal strong {
     color: var(--text);
 }
 
@@ -4117,6 +4120,64 @@ svg text {
 
 .account-modal-close:hover {
     color: var(--text);
+}
+
+.cert-modal {
+    position: relative;
+    width: min(640px, 100%);
+
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+
+    padding: 38px 34px;
+
+    box-shadow: var(--shadow);
+}
+
+.cert-canvas-preview {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    margin-bottom: 20px;
+}
+
+.cert-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-bottom: 6px;
+}
+
+.cert-actions .start-button,
+.cert-actions .secondary-button {
+    flex: 1;
+    min-width: 180px;
+    text-align: center;
+}
+
+.cert-native-hint {
+    color: var(--muted);
+    font-size: 0.82rem;
+    margin: 10px 0 0;
+}
+
+.cert-view-link {
+    display: inline-block;
+    margin-top: 14px;
+
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.92rem;
+}
+
+.cert-view-link:hover {
+    text-decoration: underline;
 }
 
 .account-input {

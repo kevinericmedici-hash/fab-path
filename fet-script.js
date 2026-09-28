@@ -332,6 +332,33 @@ function updateFetCourseProgress() {
         progressText.textContent =
             `${percent}% complete`;
     }
+
+    const certLink =
+        document.getElementById("fetCertificateLink");
+
+    if (certLink) {
+
+        certLink.hidden = percent < 100;
+
+        if (!certLink.dataset.wired) {
+
+            certLink.dataset.wired = "true";
+
+            certLink.addEventListener("click", function (event) {
+
+                event.preventDefault();
+
+                if (window.FabCertificate) {
+
+                    window.FabCertificate.showCourseComplete({
+                        courseTitle: "BioFETs & MOSFETs",
+                        courseSlug: "biofets-mosfets",
+                        lessonCount: getFetAllLessons().length
+                    });
+                }
+            });
+        }
+    }
 }
 
 
@@ -551,7 +578,26 @@ function initFetLessonQuiz(lessonId, questions) {
                 updateStreakOnLessonComplete();
             }
 
-            window.location.href = "fet-learn.html";
+            /* fet-course-data.js isn't loaded on lesson pages,
+               only on fet-learn.html, so this is a literal. */
+
+            const FET_FINAL_LESSON_ID = 25;
+
+            if (lessonId === FET_FINAL_LESSON_ID && window.FabCertificate) {
+
+                window.FabCertificate.showCourseComplete({
+                    courseTitle: "BioFETs & MOSFETs",
+                    courseSlug: "biofets-mosfets",
+                    lessonCount: FET_FINAL_LESSON_ID,
+                    onContinue: function () {
+                        window.location.href = "fet-learn.html";
+                    }
+                });
+
+            } else {
+
+                window.location.href = "fet-learn.html";
+            }
         }
     });
 
