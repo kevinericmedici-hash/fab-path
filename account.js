@@ -1497,6 +1497,12 @@
 
     if (Plugins.StatusBar) {
 
+        /* Without this, the WebView draws full-bleed under the
+           status bar/notch, so anything pinned to the top of the
+           page (the header, nav, streak/XP) ends up hidden behind
+           it. This reserves the status bar's own space instead. */
+
+        Plugins.StatusBar.setOverlaysWebView({ overlay: false }).catch(function () {});
         Plugins.StatusBar.setBackgroundColor({ color: "#0b1020" }).catch(function () {});
         Plugins.StatusBar.setStyle({ style: "DARK" }).catch(function () {});
     }
