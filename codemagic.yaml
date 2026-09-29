@@ -7,7 +7,6 @@ workflows:
       app_store_connect: fab-path-appstore-admin
     environment:
       xcode: latest
-      cocoapods: default
       node: latest
       vars:
         XCODE_WORKSPACE: "mobile/ios/App/App.xcworkspace"
@@ -28,11 +27,6 @@ workflows:
         script: |
           cd mobile
           npx cap sync ios
-
-      - name: Install CocoaPods dependencies
-        script: |
-          cd mobile/ios/App
-          pod install
 
       - name: Set up keychain for code signing
         script: keychain initialize
