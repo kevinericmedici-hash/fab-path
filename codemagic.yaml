@@ -11,7 +11,7 @@ workflows:
       xcode: latest
       node: latest
       vars:
-        XCODE_WORKSPACE: "ios/App/App.xcworkspace"
+        XCODE_PROJECT: "ios/App/App.xcodeproj"
         XCODE_SCHEME: "App"
         BUNDLE_ID: "com.fabpath.app"
     scripts:
@@ -49,7 +49,7 @@ workflows:
         script: |
           cd mobile
           xcode-project build-ipa \
-            --workspace "$XCODE_WORKSPACE" \
+            --project "$XCODE_PROJECT" \
             --scheme "$XCODE_SCHEME"
 
     artifacts:
