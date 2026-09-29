@@ -11,7 +11,7 @@ workflows:
       xcode: latest
       node: latest
       vars:
-        XCODE_WORKSPACE: "mobile/ios/App/App.xcworkspace"
+        XCODE_WORKSPACE: "ios/App/App.xcworkspace"
         XCODE_SCHEME: "App"
         BUNDLE_ID: "com.fabpath.app"
     scripts:
