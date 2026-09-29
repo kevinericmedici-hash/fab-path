@@ -43,6 +43,11 @@ button {
     align-items: center;
     justify-content: space-between;
 
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+
     border-bottom: 1px solid var(--border);
 }
 
@@ -56,6 +61,27 @@ button {
 nav {
     display: flex;
     gap: 34px;
+}
+
+/* The nav is hidden at phone widths below (mobile web visitors
+   navigate by scrolling instead), but the app is always phone-width
+   with no other way to get around, so restore it there. The
+   ".fab-native-app" class is only added inside the wrapped app,
+   see account.js. */
+
+.fab-native-app .topbar {
+    flex-wrap: wrap;
+    row-gap: 10px;
+    padding: 14px 0;
+}
+
+.fab-native-app nav {
+    display: flex !important;
+    flex-basis: 100%;
+    order: 3;
+    justify-content: center;
+    gap: 22px;
+    font-size: 0.9rem;
 }
 
 nav a {

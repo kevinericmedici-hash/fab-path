@@ -1493,6 +1493,14 @@
         return;
     }
 
+    /* The top nav is hidden at phone widths on the website (mobile
+       web visitors reach pages by scrolling instead), but the app
+       is always phone-width and has no other way to navigate, so
+       restore it here. See the ".fab-native-app nav" rule in
+       style.css. */
+
+    document.documentElement.classList.add("fab-native-app");
+
     const Plugins = window.Capacitor.Plugins;
 
     if (Plugins.StatusBar) {
