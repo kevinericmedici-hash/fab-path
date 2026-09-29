@@ -13,14 +13,6 @@ workflows:
         XCODE_WORKSPACE: "mobile/ios/App/App.xcworkspace"
         XCODE_SCHEME: "App"
         BUNDLE_ID: "com.fabpath.app"
-      # Set up once in Codemagic's UI (Team settings -> Integrations ->
-      # App Store Connect), then reference that integration's name here.
-      # It lets Codemagic fetch signing certificates/profiles
-      # automatically -- no local Mac or manual .p12 files needed.
-      ios_signing:
-        distribution_type: app_store
-        bundle_identifier: com.fabpath.app
-
     scripts:
       - name: Install npm dependencies
         script: |
@@ -42,9 +34,20 @@ workflows:
           cd mobile/ios/App
           pod install
 
-      - name: Set up code signing
+      - name: Set up keychain for code signing
+        script: keychain initialize
+
+      - name: Fetch signing files (creates them if they don't exist yet)
         script: |
-          xcode-project use-profiles
+          app-store-connect fetch-signing-files "$BUNDLE_ID" \
+            --type IOS_APP_STORE \
+            --create
+
+      - name: Install the signing certificate
+        script: keychain add-certificates
+
+      - name: Set up code signing settings on Xcode project
+        script: xcode-project use-profiles
 
       - name: Build ipa
         script: |
