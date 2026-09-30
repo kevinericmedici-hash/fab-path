@@ -1116,7 +1116,7 @@ const chipCourseData = [
         title: "Advanced Packaging: Chiplets & 2.5D/3D",
 
         description:
-            "Interposers, TSVs, and why some chips are now built from several dies.",
+            "Interposers, TSVs, and why some microchips are now built from several dies.",
 
         studyModule: {
             title: "Advanced Packaging: Chiplets & 2.5D/3D",
@@ -1129,7 +1129,7 @@ const chipCourseData = [
                 id: 42,
                 title: "Advanced Packaging: Chiplets & 2.5D/3D",
                 description:
-                    "Interposers, TSVs, and why some chips are now built from several dies."
+                    "Interposers, TSVs, and why some microchips are now built from several dies."
             }
 
         ]

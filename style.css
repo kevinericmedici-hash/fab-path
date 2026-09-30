@@ -4329,6 +4329,15 @@ svg text {
     color: var(--accent);
 }
 
+/* .pg-body a (above) otherwise outranks .start-button's own text
+   color, since a class+tag selector beats a single class -- making
+   the button's teal text invisible on its own teal background
+   until hover darkens it. */
+
+.pg-body .start-button {
+    color: #08110f;
+}
+
 .pg-body h3.src-sub {
     font-size: 1.05rem;
     margin: 22px 0 4px;

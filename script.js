@@ -2049,7 +2049,7 @@ const lesson20Questions = [
 
     {
         question:
-            "How many identical chips does a customer typically receive from a MUMPs run?",
+            "How many identical microchips does a customer typically receive from a MUMPs run?",
 
         answers: [
             "15",
@@ -6229,7 +6229,7 @@ const lesson53Questions = [
 
         answers: [
             "The sacrificial polymer decomposes, forming the air cavity",
-            "The wafer is diced into individual chips and sorted",
+            "The wafer is diced into individual microchips and sorted",
             "Wire bonding is performed on every die on the wafer",
             "The final metal layer is removed from the whole wafer"
         ],

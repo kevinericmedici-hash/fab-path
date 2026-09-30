@@ -210,7 +210,7 @@ const chipLesson3Questions = [
 const chipLesson4Questions = [
 
     {
-        question: "Why do chips need single-crystal silicon?",
+        question: "Why do microchips need single-crystal silicon?",
         answers: [
             "Grain boundaries scatter moving charges",
             "Polycrystalline silicon cannot be doped",
@@ -1943,7 +1943,7 @@ const chipLesson30Questions = [
     {
         question: "In the overall flow, what comes right after front-end fabrication?",
         answers: [
-            "Dicing the wafer into its individual chips",
+            "Dicing the wafer into its individual microchips",
             "Packaging the finished chip in plastic",
             "Back-end fabrication: contacts and the metal stack",
             "Shipping the finished chip to a customer"
@@ -1956,7 +1956,7 @@ const chipLesson30Questions = [
         answers: [
             "Only after the chip is fully packaged",
             "Before any transistors have been built",
-            "It never happens; customers test the chips",
+            "It never happens; customers test the microchips",
             "While every die still sits on the wafer"
         ],
         correct: 3
@@ -1965,7 +1965,7 @@ const chipLesson30Questions = [
     {
         question: "What happens during dicing?",
         answers: [
-            "The wafer is cut apart into individual chips",
+            "The wafer is cut apart into individual microchips",
             "The wafer is polished to its final thickness",
             "Dopant is implanted into the substrate",
             "The gate oxide is grown for the first time"
@@ -2123,7 +2123,7 @@ const chipLesson33Questions = [
     {
         question: "What is the main purpose of metrology in a fab?",
         answers: [
-            "Designing the next generation of chips",
+            "Designing the next generation of microchips",
             "Cleaning particles off the wafer surface",
             "Cutting the finished wafer into die",
             "Catching a process drifting off target early"
@@ -2465,7 +2465,7 @@ const chipLesson38Questions = [
     },
 
     {
-        question: "Why did high I/O counts push chips toward flip-chip?",
+        question: "Why did high I/O counts push microchips toward flip-chip?",
         answers: [
             "Wire bonding stopped being physically possible",
             "Flip-chip is always the cheaper option",
@@ -2723,10 +2723,10 @@ const chipLesson43Questions = [
     {
         question: "What does an IDM do that a fabless company does not?",
         answers: [
-            "Designs chips using its own engineers",
-            "Builds chips in fabs that it owns",
-            "Sells finished chips to customers",
-            "Writes the software used to test chips"
+            "Designs microchips using its own engineers",
+            "Builds microchips in fabs that it owns",
+            "Sells finished microchips to customers",
+            "Writes the software used to test microchips"
         ],
         correct: 1
     },
@@ -2734,9 +2734,9 @@ const chipLesson43Questions = [
     {
         question: "What is the defining trait of a fabless company?",
         answers: [
-            "It builds chips but does not design them",
-            "It only makes design software, not chips",
-            "It designs chips but does not build them",
+            "It builds microchips but does not design them",
+            "It only makes design software, not microchips",
+            "It designs microchips but does not build them",
             "It owns fabs but never designs anything"
         ],
         correct: 2
@@ -2745,10 +2745,10 @@ const chipLesson43Questions = [
     {
         question: "What does a foundry do for a fabless company?",
         answers: [
-            "Designs new chips on that company's behalf",
-            "Sells that company's chips to customers",
-            "Writes the marketing for that company's chips",
-            "Builds the chips that company designed"
+            "Designs new microchips on that company's behalf",
+            "Sells that company's microchips to customers",
+            "Writes the marketing for that company's microchips",
+            "Builds the microchips that company designed"
         ],
         correct: 3
     },
@@ -2759,7 +2759,7 @@ const chipLesson43Questions = [
             "Fabs became too costly for most companies to own",
             "Foundries became legally required by regulation",
             "Chip design stopped needing any fabrication",
-            "IDMs were banned from designing new chips"
+            "IDMs were banned from designing new microchips"
         ],
         correct: 0
     },
@@ -2857,7 +2857,7 @@ const chipLesson45Questions = [
             "Production EUV lithography scanners",
             "Ultra-pure silicon wafers for every fab",
             "The photoresist used in most fabs",
-            "Finished, packaged chips ready to sell"
+            "Finished, packaged microchips ready to sell"
         ],
         correct: 0
     },
@@ -2999,7 +2999,7 @@ const chipLesson47Questions = [
             "Features are now only tens of atoms wide",
             "Fabs have simply stopped hiring new engineers",
             "Silicon has become completely unavailable now",
-            "Customers no longer want faster chips at all"
+            "Customers no longer want faster microchips at all"
         ],
         correct: 0
     },
@@ -3008,7 +3008,7 @@ const chipLesson47Questions = [
         question: "What does 'More than Moore' generally refer to?",
         answers: [
             "A newer, faster version of Moore's Law itself",
-            "Improving chips through means other than shrinking",
+            "Improving microchips through means other than shrinking",
             "Abandoning transistors in favor of a new device",
             "A law requiring even faster annual doubling"
         ],
