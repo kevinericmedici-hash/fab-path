@@ -137,8 +137,28 @@
                     bumps instead.
                 </p>
 
-                <div class="module-visual">
-                    🔃
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="Wire bonding versus flip-chip: wire bonding loops a wire from a bond pad on the die to a lead post on the substrate, while flip-chip mounts the die face-down directly onto the substrate through solder bumps">
+                <text class="fd-label" x="85" y="40" text-anchor="middle">Wire bonding</text>
+                <rect class="fd-p" x="30" y="140" width="130" height="15" rx="1"/>
+                <text class="fd-sub" x="95" y="150" text-anchor="middle" style="font-size:6px">substrate</text>
+                <rect class="fd-n" x="50" y="105" width="45" height="30" rx="2"/>
+                <text class="fd-label" x="72" y="123" text-anchor="middle" style="font-size:7px">die</text>
+                <rect class="fd-metal" x="128" y="128" width="12" height="12" rx="1"/>
+                <path d="M72,105 Q95,55 134,128" fill="none" class="fd-metal" style="stroke-width:1.5"/>
+                <text class="fd-sub" x="95" y="58" text-anchor="middle" style="font-size:6.5px">wire loop</text>
+                <text class="fd-sub" x="134" y="118" text-anchor="middle" style="font-size:6px">lead post</text>
+                <line x1="170" y1="30" x2="170" y2="196" stroke="rgba(245,247,255,.15)"/>
+                <text class="fd-label" x="255" y="40" text-anchor="middle">Flip-chip</text>
+                <rect class="fd-p" x="200" y="140" width="130" height="15" rx="1"/>
+                <text class="fd-sub" x="265" y="150" text-anchor="middle" style="font-size:6px">substrate</text>
+                <rect class="fd-n" x="220" y="95" width="90" height="25" rx="2"/>
+                <text class="fd-label" x="265" y="111" text-anchor="middle" style="font-size:7px">die (flipped)</text>
+                <g class="fd-ox">
+                <circle cx="235" cy="132" r="4"/><circle cx="265" cy="132" r="4"/><circle cx="295" cy="132" r="4"/>
+                </g>
+                <text class="fd-sub" x="265" y="165" text-anchor="middle" style="font-size:6.5px">solder bumps</text>
+                </svg>
                 </div>
 
                 <p>

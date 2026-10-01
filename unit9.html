@@ -151,12 +151,15 @@
                     Remove material from the wafer.
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    █████████████
-                    <br>
-                    ████ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ████
-                    <br>
-                    ███ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ███
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="Cross-section of bulk micromachining: a cavity is etched directly into the silicon substrate, with sloped sidewalls from anisotropic etching">
+                <text class="fd-label" x="170" y="40" text-anchor="middle">Etched cavity</text>
+                <path class="fd-p" d="M40,70 L120,70 L150,120 L190,120 L220,70 L300,70 L300,160 L40,160 Z"/>
+                <text class="fd-sub" x="170" y="103" text-anchor="middle" style="font-size:7px">cavity</text>
+                <text class="fd-label" x="170" y="145" text-anchor="middle" style="font-size:8px">Si substrate</text>
+                <line class="fd-axis" x1="205" y1="95" x2="245" y2="75" stroke-dasharray="3 2"/>
+                <text class="fd-sub" x="248" y="78" text-anchor="start" style="font-size:6.5px">sloped sidewall</text>
+                </svg>
                 </div>
 
                 <p>
@@ -201,12 +204,20 @@
                     mechanical structures.
                 </p>
 
-                <div class="module-visual module-visual-text">
-                    ━━━━━━━━━━━━━
-                    <br><br>
-                    ░░░░░░░░░░░░░
-                    <br>
-                    █████████████
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="Cross-section of surface micromachining: a released structural layer bridges across an air gap between two anchor posts, after the sacrificial layer beneath it has been etched away">
+                <text class="fd-label" x="170" y="40" text-anchor="middle">Released structure</text>
+                <line class="fd-axis" x1="170" y1="48" x2="170" y2="98" stroke-dasharray="3 2"/>
+                <rect class="fd-p" x="40" y="150" width="260" height="40" rx="2"/>
+                <text class="fd-label" x="170" y="175" text-anchor="middle" style="font-size:8px">Si substrate</text>
+                <rect class="fd-n" x="90" y="110" width="20" height="40"/>
+                <rect class="fd-n" x="230" y="110" width="20" height="40"/>
+                <rect class="fd-n" x="90" y="100" width="160" height="10" rx="2"/>
+                <text class="fd-sub" x="170" y="122" text-anchor="middle" style="font-size:6.5px">air gap</text>
+                <text class="fd-sub" x="170" y="132" text-anchor="middle" style="font-size:6px">(sacrificial layer removed)</text>
+                <text class="fd-sub" x="100" y="142" text-anchor="middle" style="font-size:6px">anchor</text>
+                <text class="fd-sub" x="240" y="142" text-anchor="middle" style="font-size:6px">anchor</text>
+                </svg>
                 </div>
 
                 <div class="module-takeaway">
