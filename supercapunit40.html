@@ -97,8 +97,21 @@
                     Start with the energy you need
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    E = ½C(V₁² − V₂²)
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="Energy versus voltage traces a parabola; the usable energy is only the shaded slice between the cutoff voltage V2 and the full voltage V1, not the whole area under the curve"><text class="fd-label" x="170" y="25" text-anchor="middle">Usable energy</text>
+                <line class="fd-axis" x1="50" y1="190" x2="300" y2="190"/>
+                <text class="fd-sub" x="290" y="203" text-anchor="middle" style="font-size:7px">V</text>
+                <line class="fd-axis" x1="50" y1="190" x2="50" y2="35"/>
+                <text class="fd-sub" x="38" y="40" text-anchor="middle" style="font-size:7px">E</text>
+                <path style="fill:rgba(84,224,199,.25);stroke:none" d="M200,136 L250,94 L300,40 L300,136 Z"/>
+                <path style="fill:none;stroke:var(--accent);stroke-width:2" d="M50,190 L100,184 L150,166 L200,136 L250,94 L300,40"/>
+                <line class="fd-axis" x1="200" y1="190" x2="200" y2="136" stroke-dasharray="2 2"/>
+                <line class="fd-axis" x1="300" y1="190" x2="300" y2="40" stroke-dasharray="2 2"/>
+                <text class="fd-sub" x="200" y="203" text-anchor="middle" style="font-size:6.5px">V&#8322;</text>
+                <text class="fd-sub" x="300" y="203" text-anchor="middle" style="font-size:6.5px">V&#8321;</text>
+                <text class="fd-label" x="258" y="108" text-anchor="middle" style="font-size:6.5px">usable</text>
+                <text class="fd-label" x="258" y="118" text-anchor="middle" style="font-size:6.5px">energy</text>
+                </svg>
                 </div>
 
                 <p>
@@ -153,8 +166,21 @@
                     How long can it carry a load?
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    t = C(V₁ − V₂) / I
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="Voltage falls in a straight line under constant current discharge; hold-up time is how long it takes the voltage to fall from V1 to the cutoff V2"><text class="fd-label" x="170" y="25" text-anchor="middle">Hold-up time</text>
+                <line class="fd-axis" x1="50" y1="190" x2="300" y2="190"/>
+                <text class="fd-sub" x="290" y="203" text-anchor="middle" style="font-size:7px">time</text>
+                <line class="fd-axis" x1="50" y1="190" x2="50" y2="35"/>
+                <text class="fd-sub" x="38" y="40" text-anchor="middle" style="font-size:7px">V</text>
+                <path style="fill:none;stroke:var(--accent);stroke-width:2" d="M70,50 L230,140"/>
+                <line class="fd-axis" x1="70" y1="190" x2="70" y2="50" stroke-dasharray="2 2"/>
+                <line class="fd-axis" x1="230" y1="190" x2="230" y2="140" stroke-dasharray="2 2"/>
+                <text class="fd-sub" x="70" y="45" text-anchor="middle" style="font-size:6.5px">V&#8321;</text>
+                <text class="fd-sub" x="230" y="135" text-anchor="middle" style="font-size:6.5px">V&#8322;</text>
+                <line class="fd-axis" x1="70" y1="200" x2="230" y2="200" stroke-dasharray="2 2"/>
+                <g class="fd-arrow"><polygon points="70,200 78,196 78,204"/><polygon points="230,200 222,196 222,204"/></g>
+                <text class="fd-sub" x="150" y="213" text-anchor="middle" style="font-size:6.5px">hold-up time, t</text>
+                </svg>
                 </div>
 
                 <p>
@@ -181,8 +207,20 @@
                     Resistance takes its cut instantly
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    ΔV = I × ESR
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="When a load switches on, voltage drops instantly by I times ESR, then continues falling along the slower capacitive discharge slope"><text class="fd-label" x="170" y="25" text-anchor="middle">The ESR drop</text>
+                <line class="fd-axis" x1="50" y1="190" x2="300" y2="190"/>
+                <text class="fd-sub" x="290" y="203" text-anchor="middle" style="font-size:7px">time</text>
+                <line class="fd-axis" x1="50" y1="190" x2="50" y2="35"/>
+                <text class="fd-sub" x="38" y="40" text-anchor="middle" style="font-size:7px">V</text>
+                <line style="stroke:var(--text);stroke-width:2" x1="50" y1="60" x2="100" y2="60"/>
+                <line style="stroke:var(--accent);stroke-width:2" x1="100" y1="60" x2="100" y2="85"/>
+                <path style="fill:none;stroke:var(--accent);stroke-width:2" d="M100,85 L280,150"/>
+                <text class="fd-accent" x="108" y="75" text-anchor="start" style="font-size:6.5px">&Delta;V = I&middot;ESR</text>
+                <text class="fd-sub" x="190" y="165" text-anchor="middle" style="font-size:6.5px">capacitive discharge slope</text>
+                <line class="fd-axis" x1="100" y1="190" x2="100" y2="160" stroke-dasharray="2 2"/>
+                <text class="fd-sub" x="100" y="203" text-anchor="middle" style="font-size:6px">load turns on</text>
+                </svg>
                 </div>
 
                 <p>

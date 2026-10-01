@@ -265,8 +265,23 @@
                     From charge–discharge to a curve
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    each current → a point
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="Building a Ragone plot: each galvanostatic discharge current gives one point of energy density versus power density, and connecting the points from low to high current traces the device's own Ragone curve">
+                <text class="fd-label" x="170" y="25" text-anchor="middle">Each current gives one point</text>
+                <line class="fd-axis" x1="50" y1="190" x2="300" y2="190"/>
+                <g class="fd-arrow"><polygon points="305,190 295,186 295,194"/></g>
+                <line class="fd-axis" x1="50" y1="190" x2="50" y2="35"/>
+                <g class="fd-arrow"><polygon points="50,30 46,40 54,40"/></g>
+                <text class="fd-sub" x="280" y="203" text-anchor="middle" style="font-size:7px">power density (log)</text>
+                <text class="fd-sub" x="38" y="40" text-anchor="middle" style="font-size:6.5px">energy density (log)</text>
+                <path style="fill:none;stroke:var(--accent);stroke-width:1.5;stroke-dasharray:3 2" d="M80,70 L130,90 L180,115 L230,145 L270,170"/>
+                <g class="fd-n">
+                <circle cx="80" cy="70" r="5"/><circle cx="130" cy="90" r="5"/><circle cx="180" cy="115" r="5"/>
+                <circle cx="230" cy="145" r="5"/><circle cx="270" cy="170" r="5"/>
+                </g>
+                <text class="fd-sub" x="80" y="58" text-anchor="middle" style="font-size:5.5px">low I</text>
+                <text class="fd-sub" x="270" y="183" text-anchor="middle" style="font-size:5.5px">high I</text>
+                </svg>
                 </div>
 
                 <p>

@@ -97,8 +97,18 @@
                     How long does it last?
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    retention = Cₙ / C₁
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="Capacitance retention versus cycle number: the curve starts near 100 percent and slowly declines over thousands of cycles, crossing an end-of-life threshold around 80 percent retention"><text class="fd-label" x="170" y="25" text-anchor="middle">Capacitance retention</text>
+                <line class="fd-axis" x1="50" y1="190" x2="300" y2="190"/>
+                <g class="fd-arrow"><polygon points="305,190 295,186 295,194"/></g>
+                <line class="fd-axis" x1="50" y1="190" x2="50" y2="35"/>
+                <g class="fd-arrow"><polygon points="50,30 46,40 54,40"/></g>
+                <text class="fd-sub" x="280" y="203" text-anchor="middle" style="font-size:6.5px">cycle number</text>
+                <text class="fd-sub" x="38" y="40" text-anchor="middle" style="font-size:6.5px">C&#8345;/C&#8321;</text>
+                <line class="fd-axis" x1="50" y1="80" x2="300" y2="80" stroke-dasharray="3 2"/>
+                <text class="fd-sub" x="130" y="76" text-anchor="start" style="font-size:6px">80% (end of life)</text>
+                <path style="fill:none;stroke:var(--accent);stroke-width:2" d="M50,45 Q150,48 200,65 Q250,85 280,100"/>
+                </svg>
                 </div>
 
                 <p>
@@ -125,8 +135,19 @@
                     Holding a charge at rest
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    charge → rest → watch V
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="Open-circuit voltage decaying over time after disconnecting a charged device: a fast initial drop from charge redistribution, followed by a much slower decline from ohmic and faradaic leakage"><text class="fd-label" x="170" y="25" text-anchor="middle">Self-discharge at rest</text>
+                <line class="fd-axis" x1="50" y1="190" x2="300" y2="190"/>
+                <g class="fd-arrow"><polygon points="305,190 295,186 295,194"/></g>
+                <line class="fd-axis" x1="50" y1="190" x2="50" y2="35"/>
+                <g class="fd-arrow"><polygon points="50,30 46,40 54,40"/></g>
+                <text class="fd-sub" x="285" y="203" text-anchor="middle" style="font-size:7px">time</text>
+                <text class="fd-sub" x="38" y="40" text-anchor="middle" style="font-size:7px">V</text>
+                <path style="fill:none;stroke:var(--accent);stroke-width:2" d="M50,50 Q90,90 140,110 Q200,130 280,140"/>
+                <text class="fd-sub" x="90" y="75" text-anchor="middle" style="font-size:6px">charge</text>
+                <text class="fd-sub" x="90" y="83" text-anchor="middle" style="font-size:6px">redistribution</text>
+                <text class="fd-sub" x="230" y="155" text-anchor="middle" style="font-size:6px">slow leakage</text>
+                </svg>
                 </div>
 
                 <p>

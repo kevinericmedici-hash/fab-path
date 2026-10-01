@@ -171,8 +171,22 @@
                     Patterning without etching
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    resist → metal → lift
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="Lift-off in three steps: pattern a resist gap, deposit metal over everything, then dissolve the resist so metal on top lifts away, leaving metal only where it touched the substrate"><text class="fd-label" x="65" y="90" text-anchor="middle" style="font-size:7px">1. Pattern resist</text>
+                <rect class="fd-p" x="20" y="150" width="90" height="20" rx="1"/>
+                <rect class="fd-ox" x="20" y="120" width="30" height="30"/>
+                <rect class="fd-ox" x="80" y="120" width="30" height="30"/>
+                <text class="fd-label" x="175" y="90" text-anchor="middle" style="font-size:7px">2. Deposit metal</text>
+                <rect class="fd-p" x="130" y="150" width="90" height="20" rx="1"/>
+                <rect class="fd-ox" x="130" y="120" width="30" height="30"/>
+                <rect class="fd-ox" x="190" y="120" width="30" height="30"/>
+                <rect class="fd-metal" x="130" y="113" width="30" height="8"/>
+                <rect class="fd-metal" x="190" y="113" width="30" height="8"/>
+                <rect class="fd-metal" x="160" y="142" width="30" height="8"/>
+                <text class="fd-label" x="285" y="90" text-anchor="middle" style="font-size:7px">3. Lift off</text>
+                <rect class="fd-p" x="240" y="150" width="90" height="20" rx="1"/>
+                <rect class="fd-metal" x="270" y="142" width="30" height="8"/>
+                </svg>
                 </div>
 
                 <p>
@@ -198,6 +212,23 @@
                 <h1>
                     Carving out surface area
                 </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="Three etch profiles: wet etching cuts a wide, rounded, sideways trench, RIE cuts a more directional tapered trench, and DRIE cuts a narrow, deep, near-vertical trench">
+                <text class="fd-label" x="65" y="90" text-anchor="middle" style="font-size:8px">Wet etch</text>
+                <rect class="fd-p" x="20" y="100" width="90" height="70" rx="1"/>
+                <path style="fill:rgba(11,16,32,.6)" d="M45,100 Q65,145 85,100 Z"/>
+                <text class="fd-sub" x="65" y="185" text-anchor="middle" style="font-size:6px">isotropic</text>
+                <text class="fd-label" x="175" y="90" text-anchor="middle" style="font-size:8px">RIE</text>
+                <rect class="fd-p" x="130" y="100" width="90" height="70" rx="1"/>
+                <path style="fill:rgba(11,16,32,.6)" d="M155,100 L165,160 L185,160 L195,100 Z"/>
+                <text class="fd-sub" x="175" y="185" text-anchor="middle" style="font-size:6px">directional</text>
+                <text class="fd-label" x="285" y="90" text-anchor="middle" style="font-size:8px">DRIE</text>
+                <rect class="fd-p" x="240" y="100" width="90" height="70" rx="1"/>
+                <rect style="fill:rgba(11,16,32,.6)" x="275" y="100" width="20" height="65"/>
+                <text class="fd-sub" x="285" y="185" text-anchor="middle" style="font-size:6px">deep, vertical</text>
+                </svg>
+                </div>
 
                 <div class="module-card-grid">
 

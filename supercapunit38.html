@@ -97,8 +97,21 @@
                     Catching the energy of stopping
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    brake → store → launch
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A recycling loop: braking generates energy that is stored in a supercapacitor, which then launches the vehicle forward again, repeating every stop"><text class="fd-label" x="170" y="30" text-anchor="middle">Energy recycling loop</text>
+                <circle class="fd-n" cx="170" cy="60" r="22"/>
+                <text class="fd-label" x="170" y="64" text-anchor="middle" style="font-size:7px">brake</text>
+                <circle class="fd-ox" cx="100" cy="160" r="22"/>
+                <text class="fd-label" x="100" y="164" text-anchor="middle" style="font-size:7px">store</text>
+                <circle class="fd-n" cx="240" cy="160" r="22"/>
+                <text class="fd-label" x="240" y="164" text-anchor="middle" style="font-size:7px">launch</text>
+                <path style="fill:none;stroke:var(--text);stroke-width:1.5" d="M152,78 Q120,110 108,138"/>
+                <g class="fd-arrow"><polygon points="104,142 110,132 116,140"/></g>
+                <path style="fill:none;stroke:var(--text);stroke-width:1.5" d="M122,160 L218,160"/>
+                <g class="fd-arrow"><polygon points="222,160 212,156 212,164"/></g>
+                <path style="fill:none;stroke:var(--text);stroke-width:1.5" d="M232,138 Q220,100 188,78"/>
+                <g class="fd-arrow"><polygon points="184,74 194,76 190,86"/></g>
+                </svg>
                 </div>
 
                 <p>
@@ -176,8 +189,17 @@
                     Battery for the miles, supercap for the moments
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    battery + supercap
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A current-versus-time plot splitting the load: the battery supplies a steady baseline current while the supercapacitor absorbs the sharp current spikes layered on top"><text class="fd-label" x="170" y="25" text-anchor="middle">Splitting the load</text>
+                <line class="fd-axis" x1="50" y1="150" x2="300" y2="150"/>
+                <text class="fd-sub" x="290" y="163" text-anchor="middle" style="font-size:6.5px">time</text>
+                <line class="fd-axis" x1="50" y1="150" x2="50" y2="50"/>
+                <text class="fd-sub" x="38" y="55" text-anchor="middle" style="font-size:6.5px">current</text>
+                <line style="stroke:#ffd666;stroke-width:2" x1="50" y1="120" x2="300" y2="120"/>
+                <text class="fd-sub" x="60" y="112" text-anchor="start" style="font-size:6px;fill:#ffd666">battery (steady)</text>
+                <path style="fill:none;stroke:var(--accent);stroke-width:2" d="M50,120 L90,120 L100,70 L110,120 L170,120 L180,80 L190,120 L250,120 L260,65 L270,120 L300,120"/>
+                <text class="fd-sub" x="130" y="63" text-anchor="middle" style="font-size:6px;fill:var(--accent)">supercap (peaks)</text>
+                </svg>
                 </div>
 
                 <p>

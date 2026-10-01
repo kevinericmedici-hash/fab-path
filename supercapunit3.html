@@ -97,8 +97,19 @@
                     What sets capacitance
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    C = εA / d
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A parallel-plate capacitor with the three terms of C equals epsilon A over d labeled directly on the geometry: plate area A, gap distance d, and the dielectric epsilon filling the gap">
+                <text class="fd-label" x="170" y="35" text-anchor="middle">C = &epsilon;A / d</text>
+                <line class="fd-axis" x1="90" y1="55" x2="90" y2="175" stroke-dasharray="2 2"/>
+                <text class="fd-sub" x="85" y="118" text-anchor="end" style="font-size:7px">area, A</text>
+                <rect class="fd-metal" x="100" y="55" width="12" height="120" rx="1"/>
+                <rect style="fill:rgba(84,224,199,.12);stroke:none" x="112" y="55" width="108" height="120"/>
+                <text class="fd-sub" x="166" y="118" text-anchor="middle" style="font-size:8px">&epsilon;</text>
+                <rect class="fd-metal" x="220" y="55" width="12" height="120" rx="1"/>
+                <line class="fd-axis" x1="112" y1="195" x2="220" y2="195" stroke-dasharray="2 2"/>
+                <g class="fd-arrow"><polygon points="112,195 120,191 120,199"/><polygon points="220,195 212,191 212,199"/></g>
+                <text class="fd-sub" x="166" y="208" text-anchor="middle" style="font-size:7px">gap, d</text>
+                </svg>
                 </div>
 
                 <p>

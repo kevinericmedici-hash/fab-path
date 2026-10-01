@@ -97,8 +97,18 @@
                     The pulse-load problem
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    µA sleep · mA burst
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A pulse-load current profile: long stretches of microamp sleep current punctuated by brief, tall milliamp bursts, which a supercapacitor absorbs so the battery only has to supply a gentle average"><text class="fd-label" x="170" y="25" text-anchor="middle">Pulse-load current profile</text>
+                <line class="fd-axis" x1="50" y1="180" x2="300" y2="180"/>
+                <g class="fd-arrow"><polygon points="305,180 295,176 295,184"/></g>
+                <text class="fd-sub" x="285" y="193" text-anchor="middle" style="font-size:6.5px">time</text>
+                <line class="fd-axis" x1="50" y1="180" x2="50" y2="50"/>
+                <g class="fd-arrow"><polygon points="50,45 46,55 54,55"/></g>
+                <text class="fd-sub" x="38" y="55" text-anchor="middle" style="font-size:6.5px">current</text>
+                <path style="fill:none;stroke:var(--accent);stroke-width:2" d="M50,175 L110,175 L115,60 L120,175 L220,175 L225,60 L230,175 L300,175"/>
+                <text class="fd-sub" x="80" y="170" text-anchor="middle" style="font-size:6px">&micro;A sleep</text>
+                <text class="fd-sub" x="117" y="55" text-anchor="middle" style="font-size:6px">mA burst</text>
+                </svg>
                 </div>
 
                 <p>
@@ -249,6 +259,23 @@
                 <h1>
                     Sleep, wake, send, repeat
                 </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A sensor node's duty cycle timeline: a long low-current sleep phase, a brief wake and sense pulse, a taller transmit pulse, then recharge and sleep again">
+                <text class="fd-label" x="170" y="25" text-anchor="middle">A sensor node's duty cycle</text>
+                <line class="fd-axis" x1="50" y1="180" x2="300" y2="180"/>
+                <g class="fd-arrow"><polygon points="305,180 295,176 295,184"/></g>
+                <text class="fd-sub" x="285" y="193" text-anchor="middle" style="font-size:6.5px">time</text>
+                <line class="fd-axis" x1="50" y1="180" x2="50" y2="50"/>
+                <g class="fd-arrow"><polygon points="50,45 46,55 54,55"/></g>
+                <text class="fd-sub" x="38" y="55" text-anchor="middle" style="font-size:6.5px">current</text>
+                <path style="fill:none;stroke:var(--accent);stroke-width:2" d="M50,175 L150,175 L155,150 L160,175 L165,175 L175,60 L185,175 L300,175"/>
+                <text class="fd-sub" x="100" y="170" text-anchor="middle" style="font-size:6px">sleep</text>
+                <text class="fd-sub" x="157" y="143" text-anchor="middle" style="font-size:5.5px">wake</text>
+                <text class="fd-sub" x="180" y="55" text-anchor="middle" style="font-size:6px">transmit</text>
+                <text class="fd-sub" x="250" y="170" text-anchor="middle" style="font-size:6px">recharge &amp; sleep</text>
+                </svg>
+                </div>
 
                 <div class="scale-stack">
 
