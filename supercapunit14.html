@@ -97,8 +97,22 @@
                     Electrode, separator, electrode
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    ▮ electrode | ░ separator | ▮ electrode
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="Sandwich architecture: two electrodes face each other across a thin porous separator, with ions crossing straight through the separator's thickness">
+                <text class="fd-label" x="170" y="40" text-anchor="middle">Sandwich architecture</text>
+                <rect class="fd-n" x="90" y="60" width="160" height="30" rx="2"/>
+                <text class="fd-label" x="170" y="79" text-anchor="middle" style="font-size:8px">electrode</text>
+                <rect style="fill:rgba(170,179,207,.15);stroke:rgba(170,179,207,.4);stroke-width:1" x="90" y="90" width="160" height="20" rx="1"/>
+                <text class="fd-sub" x="170" y="103" text-anchor="middle" style="font-size:7px">separator</text>
+                <rect class="fd-n" x="90" y="110" width="160" height="30" rx="2"/>
+                <text class="fd-label" x="170" y="129" text-anchor="middle" style="font-size:8px">electrode</text>
+                <g class="fd-arrow">
+                <polygon points="130,96 126,102 134,102"/>
+                <polygon points="170,104 166,98 174,98"/>
+                <polygon points="210,96 206,102 214,102"/>
+                </g>
+                <text class="fd-sub" x="170" y="160" text-anchor="middle" style="font-size:6.5px">ions cross the separator's thickness</text>
+                </svg>
                 </div>
 
                 <p>
@@ -129,8 +143,21 @@
                     Side by side, no separator
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    ▮ electrode ·· gap ·· electrode ▮
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="In-plane architecture: two electrodes sit side by side on a substrate, separated by a lateral gap filled with electrolyte, with ions arcing across the gap instead of through a separator">
+                <text class="fd-label" x="170" y="40" text-anchor="middle">In-plane architecture</text>
+                <text class="fd-sub" x="170" y="80" text-anchor="middle" style="font-size:6.5px">electrolyte-filled gap</text>
+                <rect class="fd-n" x="50" y="90" width="90" height="40" rx="2"/>
+                <text class="fd-label" x="95" y="113" text-anchor="middle" style="font-size:8px">electrode</text>
+                <rect class="fd-n" x="200" y="90" width="90" height="40" rx="2"/>
+                <text class="fd-label" x="245" y="113" text-anchor="middle" style="font-size:8px">electrode</text>
+                <path style="fill:none;stroke:var(--text);stroke-width:1.3" d="M140,100 Q170,88 200,100"/>
+                <g class="fd-arrow"><polygon points="200,100 190,98 192,107"/></g>
+                <path style="fill:none;stroke:var(--text);stroke-width:1.3" d="M200,120 Q170,132 140,120"/>
+                <g class="fd-arrow"><polygon points="140,120 150,122 148,113"/></g>
+                <rect style="fill:rgba(170,179,207,.08);stroke:rgba(170,179,207,.3);stroke-width:1" x="40" y="140" width="260" height="15" rx="1"/>
+                <text class="fd-sub" x="170" y="151" text-anchor="middle" style="font-size:6.5px">substrate</text>
+                </svg>
                 </div>
 
                 <p>

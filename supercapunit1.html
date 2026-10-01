@@ -155,8 +155,23 @@
                     Plotting energy against power
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    ENERGY DENSITY ↑ &nbsp;&nbsp;vs&nbsp;&nbsp; ↑ POWER DENSITY
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A Ragone plot: energy density on the vertical axis against power density on the horizontal axis, with batteries in the high-energy low-power region, capacitors in the high-power low-energy region, and supercapacitors filling the gap between them">
+                <text class="fd-label" x="170" y="18" text-anchor="middle">Ragone plot</text>
+                <line class="fd-axis" x1="60" y1="190" x2="60" y2="25"/>
+                <g class="fd-arrow"><polygon points="60,20 56,30 64,30"/></g>
+                <line class="fd-axis" x1="60" y1="190" x2="305" y2="190"/>
+                <g class="fd-arrow"><polygon points="310,190 300,186 300,194"/></g>
+                <text class="fd-sub" x="30" y="110" text-anchor="middle" transform="rotate(-90 30 110)" style="font-size:7px">energy density</text>
+                <text class="fd-sub" x="280" y="205" text-anchor="middle" style="font-size:7px">power density</text>
+                <ellipse style="fill:rgba(255,214,102,.28);stroke:#ffd666;stroke-width:1.2" cx="100" cy="65" rx="35" ry="22"/>
+                <text class="fd-label" x="100" y="68" text-anchor="middle" style="font-size:7px">batteries</text>
+                <ellipse class="fd-n" cx="185" cy="112" rx="42" ry="25"/>
+                <text class="fd-label" x="185" y="110" text-anchor="middle" style="font-size:7px">super-</text>
+                <text class="fd-label" x="185" y="120" text-anchor="middle" style="font-size:7px">capacitors</text>
+                <ellipse style="fill:rgba(245,247,255,.15);stroke:var(--text);stroke-width:1.2" cx="260" cy="155" rx="33" ry="20"/>
+                <text class="fd-label" x="260" y="158" text-anchor="middle" style="font-size:7px">capacitors</text>
+                </svg>
                 </div>
 
                 <p>

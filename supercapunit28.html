@@ -125,8 +125,22 @@
                     One point per frequency
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    Z′ vs −Z″
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="Two Nyquist traces: an ideal capacitor plots as a vertical line at the origin, while adding series resistance slides that same vertical line to the right along the real axis"><text class="fd-label" x="180" y="18" text-anchor="middle">Resistance shifts the line</text>
+                <line class="fd-axis" x1="50" y1="190" x2="300" y2="190"/>
+                <g class="fd-arrow"><polygon points="305,190 295,186 295,194"/></g>
+                <line class="fd-axis" x1="50" y1="190" x2="50" y2="25"/>
+                <g class="fd-arrow"><polygon points="50,20 46,30 54,30"/></g>
+                <text class="fd-sub" x="290" y="203" text-anchor="middle" style="font-size:7px">Z&prime; (real)</text>
+                <text class="fd-sub" x="38" y="30" text-anchor="middle" style="font-size:7px">&minus;Z&Prime;</text>
+                <line style="stroke:var(--text);stroke-width:2" x1="75" y1="190" x2="75" y2="40"/>
+                <text class="fd-sub" x="75" y="205" text-anchor="middle" style="font-size:6px">ideal</text>
+                <line class="fd-n" style="stroke-width:2" x1="160" y1="190" x2="160" y2="40"/>
+                <text class="fd-sub" x="160" y="205" text-anchor="middle" style="font-size:6px">with series resistance</text>
+                <line class="fd-axis" x1="75" y1="214" x2="160" y2="214" stroke-dasharray="2 2"/>
+                <g class="fd-arrow"><polygon points="75,214 83,210 83,218"/><polygon points="160,214 152,210 152,218"/></g>
+                <text class="fd-sub" x="117" y="222" text-anchor="middle" style="font-size:6px">ESR</text>
+                </svg>
                 </div>
 
                 <p>
@@ -152,6 +166,24 @@
                 <h1>
                     Parts of a Nyquist plot
                 </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A Nyquist plot: real impedance on the horizontal axis against negative imaginary impedance on the vertical axis, showing a high-frequency intercept, a semicircle, a 45-degree Warburg line, and a near-vertical capacitive line">
+                <text class="fd-label" x="180" y="18" text-anchor="middle">Nyquist plot</text>
+                <line class="fd-axis" x1="50" y1="190" x2="300" y2="190"/>
+                <g class="fd-arrow"><polygon points="305,190 295,186 295,194"/></g>
+                <line class="fd-axis" x1="50" y1="190" x2="50" y2="25"/>
+                <g class="fd-arrow"><polygon points="50,20 46,30 54,30"/></g>
+                <text class="fd-sub" x="290" y="203" text-anchor="middle" style="font-size:7px">Z&prime; (real)</text>
+                <text class="fd-sub" x="38" y="30" text-anchor="middle" style="font-size:7px">&minus;Z&Prime;</text>
+                <path style="fill:none;stroke:var(--accent);stroke-width:2" d="M70,190 A20,20 0 0 1 110,190 L160,140 L172,40"/>
+                <circle class="fd-n" cx="70" cy="190" r="3"/>
+                <text class="fd-sub" x="70" y="205" text-anchor="middle" style="font-size:6px">ESR</text>
+                <text class="fd-sub" x="90" y="163" text-anchor="middle" style="font-size:6px">charge-transfer</text>
+                <text class="fd-sub" x="138" y="178" text-anchor="middle" style="font-size:6px">Warburg (45&deg;)</text>
+                <text class="fd-sub" x="190" y="90" text-anchor="middle" style="font-size:6px">capacitive</text>
+                </svg>
+                </div>
 
                 <div class="scale-stack">
 

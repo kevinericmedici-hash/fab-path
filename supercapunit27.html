@@ -125,8 +125,20 @@
                     Capacitance from the slope
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    C = I · Δt / ΔV
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A galvanostatic charge-discharge curve: voltage ramps up linearly during charge, drops suddenly from internal resistance at the start of discharge, then ramps down linearly, tracing a symmetric triangle wave"><text class="fd-label" x="180" y="20" text-anchor="middle">Galvanostatic charge-discharge</text>
+                <line class="fd-axis" x1="50" y1="190" x2="310" y2="190"/>
+                <g class="fd-arrow"><polygon points="315,190 305,186 305,194"/></g>
+                <line class="fd-axis" x1="50" y1="190" x2="50" y2="35"/>
+                <g class="fd-arrow"><polygon points="50,30 46,40 54,40"/></g>
+                <text class="fd-sub" x="300" y="203" text-anchor="middle" style="font-size:7px">time</text>
+                <text class="fd-sub" x="38" y="40" text-anchor="middle" style="font-size:7px">V</text>
+                <path style="fill:none;stroke:var(--accent);stroke-width:2" d="M50,170 L140,55 L144,68 L235,175 L300,60"/>
+                <text class="fd-sub" x="85" y="105" text-anchor="middle" style="font-size:6.5px">charge</text>
+                <text class="fd-sub" x="190" y="130" text-anchor="middle" style="font-size:6.5px">discharge</text>
+                <line class="fd-axis" x1="144" y1="68" x2="170" y2="50" stroke-dasharray="2 2"/>
+                <text class="fd-sub" x="173" y="47" text-anchor="start" style="font-size:6px">IR drop (ESR)</text>
+                </svg>
                 </div>
 
                 <p>

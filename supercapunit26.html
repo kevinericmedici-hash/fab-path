@@ -97,8 +97,25 @@
                     Why an ideal capacitor draws a rectangle
                 </h1>
 
-                <div class="module-visual module-visual-text">
-                    I = C · dV/dt = C · v
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="An ideal cyclic voltammogram traces a rectangle: current sits flat at plus C times scan rate while voltage sweeps up, flips to flat at minus C times scan rate while voltage sweeps back down, over the full voltage window"><text class="fd-label" x="180" y="20" text-anchor="middle">Ideal CV rectangle</text>
+                <line class="fd-axis" x1="50" y1="113" x2="300" y2="113"/>
+                <g class="fd-arrow"><polygon points="305,113 295,109 295,117"/></g>
+                <line class="fd-axis" x1="80" y1="190" x2="80" y2="40"/>
+                <g class="fd-arrow"><polygon points="80,35 76,45 84,45"/></g>
+                <text class="fd-sub" x="290" y="125" text-anchor="middle" style="font-size:7px">V</text>
+                <text class="fd-sub" x="68" y="45" text-anchor="middle" style="font-size:7px">I</text>
+                <path style="fill:none;stroke:var(--accent);stroke-width:2" d="M100,75 L260,75 L260,151 L100,151 Z"/>
+                <g class="fd-arrow">
+                <polygon points="190,75 180,71 180,79"/>
+                <polygon points="170,151 180,147 180,155"/>
+                </g>
+                <text class="fd-sub" x="180" y="68" text-anchor="middle" style="font-size:7px">+C&middot;v</text>
+                <text class="fd-sub" x="180" y="165" text-anchor="middle" style="font-size:7px">&minus;C&middot;v</text>
+                <line class="fd-axis" x1="100" y1="200" x2="260" y2="200" stroke-dasharray="2 2"/>
+                <g class="fd-arrow"><polygon points="100,200 108,196 108,204"/><polygon points="260,200 252,196 252,204"/></g>
+                <text class="fd-sub" x="180" y="213" text-anchor="middle" style="font-size:6.5px">&Delta;V (voltage window)</text>
+                </svg>
                 </div>
 
                 <p>
