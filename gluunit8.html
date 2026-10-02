@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Membranes: The Unsung Hero | Fab Path</title>
+    <meta name="description" content="Membranes: The Unsung Hero: illustrated study slides from the Glucose Sensors course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/gluunit8.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Membranes: The Unsung Hero | Fab Path">
+    <meta property="og:description" content="Membranes: The Unsung Hero: illustrated study slides from the Glucose Sensors course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="glu-learn.html">Learn</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="glu-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    A STACK OF LAYERS
+                </p>
+
+                <h1>
+                    The coating does the hard work
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="Cross-section of a sensor coating, bottom to top: platinum electrode, interference-blocking layer, enzyme layer, glucose-limiting membrane, and a biocompatible outer layer; glucose and oxygen diffuse in from the top">
+                <text class="fd-sub" x="150" y="24" text-anchor="middle" style="font-size:7px">glucose + O₂ diffuse in</text>
+                <line class="fd-axis" x1="150" y1="28" x2="150.0" y2="49.0"/><g class="fd-arrow"><polygon points="150,58 146.0,49.0 154.0,49.0"/></g>
+                <rect style="fill:rgba(170,179,207,.18);stroke:rgba(170,179,207,.5)" x="60" y="62" width="180" height="24"/>
+                <rect class="fd-n" style="fill-opacity:.15" x="60" y="86" width="180" height="24"/>
+                <rect class="fd-ox" x="60" y="110" width="180" height="24"/>
+                <rect class="fd-p" x="60" y="134" width="180" height="24"/>
+                <rect class="fd-metal" x="60" y="158" width="180" height="22"/>
+                <text class="fd-sub" x="250" y="78" text-anchor="start" style="font-size:6.5px">biocompatible outer layer</text>
+                <text class="fd-sub" x="250" y="102" text-anchor="start" style="font-size:6.5px">glucose-limiting membrane</text>
+                <text class="fd-sub" x="250" y="126" text-anchor="start" style="font-size:6.5px">enzyme layer (GOx)</text>
+                <text class="fd-sub" x="250" y="150" text-anchor="start" style="font-size:6.5px">interference-blocking layer</text>
+                <text class="fd-sub" x="250" y="174" text-anchor="start" style="font-size:6.5px">platinum electrode</text>
+                </svg>
+                </div>
+
+                <p>
+                    A working sensor is not just an electrode with an enzyme on it. It is a stack of thin layers, each solving a different problem.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Much of a sensor's performance comes from its membranes, not just its chemistry.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE OXYGEN PROBLEM
+                </p>
+
+                <h1>
+                    Too much glucose, too little oxygen
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Glucose</strong>
+                        <span>At 90 mg/dL, glucose is about 5 mM</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Oxygen</strong>
+                        <span>Tissue oxygen is far lower, around 0.05 to 0.1 mM</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The risk</strong>
+                        <span>A first-generation sensor would run out of oxygen before glucose, and its signal would stop tracking glucose</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The fix</strong>
+                        <span>An outer membrane lets oxygen pass more easily than glucose, so glucose is the limiting reagent</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The membrane makes sure the sensor's signal depends on glucose, not oxygen.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    INTERFERENCE
+                </p>
+
+                <h1>
+                    Other molecules can fool a sensor
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>The cause</strong>
+                        <span>Acetaminophen, vitamin C, and uric acid can also react at the electrode and add false current</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The fix</strong>
+                        <span>A selective inner layer blocks them while letting small signal molecules through</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>In practice</strong>
+                        <span>Manufacturer labeling lists substances that can affect readings, so check it for each system</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    A reading is only as trustworthy as the sensor's interference rejection.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE BODY RESPONDS
+                </p>
+
+                <h1>
+                    A foreign object in tissue
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Minutes</strong>
+                        <span>Proteins stick to the sensor surface, which is called biofouling</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Days</strong>
+                        <span>Immune cells gather, and a thin capsule can form around it</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The effect</strong>
+                        <span>Glucose reaches the sensor more slowly and its sensitivity changes</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The response</strong>
+                        <span>Soft, biocompatible outer coatings reduce the reaction</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The body's reaction is a major reason sensors last days to weeks, not months.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    A DESIGN TRADE-OFF
+                </p>
+
+                <h1>
+                    Thick or thin?
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧱
+                        </div>
+
+                        <h3>Thicker membrane</h3>
+
+                        <p>
+                            Less current, but the response stays straight over a wider glucose range
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            📄
+                        </div>
+
+                        <h3>Thinner membrane</h3>
+
+                        <p>
+                            More current and a stronger signal, but the response saturates earlier
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Membrane thickness tunes sensitivity against range.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 8 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🧱
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've covered why a working sensor is a stack of layers, and what the body does to it.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeGluUnit8Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeGluUnit8Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathGluUnit8StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathGluUnit8StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "glu-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

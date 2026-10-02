@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Three Generations of Sensors | Fab Path</title>
+    <meta name="description" content="Three Generations of Sensors: illustrated study slides from the Glucose Sensors course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/gluunit7.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Three Generations of Sensors | Fab Path">
+    <meta property="og:description" content="Three Generations of Sensors: illustrated study slides from the Glucose Sensors course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="glu-learn.html">Learn</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="glu-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    THE WIRING PROBLEM
+                </p>
+
+                <h1>
+                    The enzyme hides its electrons
+                </h1>
+
+                <p>
+                    The part of glucose oxidase that handles electrons is buried deep inside the protein. Electrons cannot simply hop from it to a nearby electrode. Different generations of sensors solve this wiring problem in different ways.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Every sensor design is an answer to the question: how do the electrons get out?
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    FIRST GENERATION
+                </p>
+
+                <h1>
+                    Let oxygen carry the electrons
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>How</strong>
+                        <span>Oxygen takes the electrons, making hydrogen peroxide, and the electrode oxidizes that peroxide</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Pro</strong>
+                        <span>Simple, with no added chemicals</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Con</strong>
+                        <span>Depends on oxygen being available, and the high voltage also reacts with other molecules</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    First-generation designs are simple but share the oxygen and interference problems.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SECOND GENERATION
+                </p>
+
+                <h1>
+                    Add a mediator
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>How</strong>
+                        <span>A small redox molecule, such as an osmium complex, shuttles electrons from the enzyme to the electrode</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Pro</strong>
+                        <span>Works at a lower voltage and depends much less on oxygen</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Con</strong>
+                        <span>The mediator must stay in place and be safe in the body</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    A mediator replaces oxygen as the go-between, which cuts oxygen dependence.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THIRD GENERATION
+                </p>
+
+                <h1>
+                    Connect directly
+                </h1>
+
+                <p>
+                    In the ideal design the enzyme passes electrons straight to the electrode, with no oxygen and no mediator. It is elegant, but difficult with glucose oxidase, and it is an active area of research, often using nanomaterials.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Direct electron transfer is the long-term goal, not yet the commercial standard.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SIDE BY SIDE
+                </p>
+
+                <h1>
+                    Three ways to wire an enzyme
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="Three generations of electrochemical glucose sensors: the first relies on oxygen and hydrogen peroxide, the second uses an artificial mediator to shuttle electrons, and the third passes electrons directly from enzyme to electrode">
+                <text class="fd-label" x="56" y="36" text-anchor="middle" style="font-size:8px">1st generation</text><text class="fd-label" x="170" y="36" text-anchor="middle" style="font-size:8px">2nd generation</text><text class="fd-label" x="284" y="36" text-anchor="middle" style="font-size:8px">3rd generation</text>
+                <rect class="fd-p" x="8" y="90" width="36" height="42" rx="4"/><text class="fd-label" x="26" y="114" text-anchor="middle" style="font-size:8px">GOx</text>
+                <rect class="fd-metal" x="82" y="70" width="8" height="82"/>
+                <text class="fd-sub" x="63" y="100" text-anchor="middle" style="font-size:6.5px">O₂ →</text><text class="fd-accent" x="63" y="112" text-anchor="middle" style="font-size:6.5px">H₂O₂</text><line class="fd-axis" x1="46" y1="122" x2="71.0" y2="122.0"/><g class="fd-arrow"><polygon points="80,122 71.0,126.0 71.0,118.0"/></g>
+                <rect class="fd-p" x="122" y="90" width="36" height="42" rx="4"/><text class="fd-label" x="140" y="114" text-anchor="middle" style="font-size:8px">GOx</text>
+                <rect class="fd-metal" x="196" y="70" width="8" height="82"/>
+                <circle class="fd-ox" cx="177" cy="104" r="9"/><text class="fd-label" x="177" y="107" text-anchor="middle" style="font-size:5.5px">med</text>
+                <line class="fd-axis" x1="160" y1="122" x2="185.0" y2="122.0"/><g class="fd-arrow"><polygon points="194,122 185.0,126.0 185.0,118.0"/></g>
+                <rect class="fd-p" x="236" y="90" width="36" height="42" rx="4"/><text class="fd-label" x="254" y="114" text-anchor="middle" style="font-size:8px">GOx</text>
+                <rect class="fd-metal" x="292" y="70" width="8" height="82"/>
+                <line class="fd-axis" x1="274" y1="111" x2="281.0" y2="111.0"/><g class="fd-arrow"><polygon points="290,111 281.0,115.0 281.0,107.0"/></g><text class="fd-accent" x="266" y="150" text-anchor="middle" style="font-size:6.5px">direct</text>
+                <text class="fd-sub" x="56" y="172" text-anchor="middle" style="font-size:6px">oxygen is the</text><text class="fd-sub" x="56" y="181" text-anchor="middle" style="font-size:6px">go-between</text>
+                <text class="fd-sub" x="170" y="172" text-anchor="middle" style="font-size:6px">a mediator carries</text><text class="fd-sub" x="170" y="181" text-anchor="middle" style="font-size:6px">the electrons</text>
+                <text class="fd-sub" x="284" y="172" text-anchor="middle" style="font-size:6px">enzyme wired</text><text class="fd-sub" x="284" y="181" text-anchor="middle" style="font-size:6px">straight to electrode</text>
+                <text class="fd-sub" x="170" y="208" text-anchor="middle" style="font-size:6px">electrode shown as the tall bar in each panel</text>
+                </svg>
+                </div>
+
+                <div class="module-takeaway">
+
+                    Each generation trades simplicity against oxygen independence and interference.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 7 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🔗
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've covered the three generations of electrochemical glucose sensors and their trade-offs.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeGluUnit7Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeGluUnit7Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathGluUnit7StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathGluUnit7StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "glu-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

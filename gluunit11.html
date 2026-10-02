@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dexcom: The Sensor Chemistry | Fab Path</title>
+    <meta name="description" content="Dexcom: The Sensor Chemistry: illustrated study slides from the Glucose Sensors course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/gluunit11.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Dexcom: The Sensor Chemistry | Fab Path">
+    <meta property="og:description" content="Dexcom: The Sensor Chemistry: illustrated study slides from the Glucose Sensors course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="glu-learn.html">Learn</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="glu-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    THE CHEMISTRY
+                </p>
+
+                <h1>
+                    Glucose oxidase on platinum
+                </h1>
+
+                <p>
+                    Dexcom's labeling describes a sensor coated with glucose oxidase. The enzyme reacts with glucose, and the hydrogen peroxide that results is oxidized at a platinum working electrode, which produces a small current. In the terms of Unit 7, that is a first-generation, peroxide-detecting design.
+                </p>
+
+                <div class="module-takeaway">
+
+                    It is the classic enzyme electrode, miniaturized and wrapped in membranes.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE SIGNAL
+                </p>
+
+                <h1>
+                    Reading nanoamps
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Current</strong>
+                        <span>The sensor's current is only nanoamps</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Proportional</strong>
+                        <span>In its working range, more glucose means more current</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Conversion</strong>
+                        <span>The transmitter digitizes the current, and the algorithm scales it to mg/dL</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The conversion factor is set by factory calibration.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    INTERFERENCE
+                </p>
+
+                <h1>
+                    What can fool the sensor
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Acetaminophen</strong>
+                        <span>Labeling describes the sensor as blocking it at typical doses, using its selective layers</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Hydroxyurea</strong>
+                        <span>Labeling warns this drug can falsely raise readings</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The rule</strong>
+                        <span>Always check the current labeling for substances that affect readings</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Interference rejection is a chemistry problem solved in the layers.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WARM-UP
+                </p>
+
+                <h1>
+                    Time to settle
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Why</strong>
+                        <span>After insertion, the tissue around the sensor and the sensor itself need time to stabilize</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>How long</strong>
+                        <span>About 2 hours for G6, and about 30 minutes for G7</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>First day</strong>
+                        <span>Early readings can be less accurate while the sensor settles in</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    A short wait after insertion makes the early signal more trustworthy.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE ALGORITHM
+                </p>
+
+                <h1>
+                    Raw current in, smooth glucose out
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Filtering</strong>
+                        <span>Removes noise from the raw signal</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Compensation</strong>
+                        <span>Corrects for temperature and sensitivity</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Plausibility</strong>
+                        <span>Limits changes that would be physiologically impossible</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Trend</strong>
+                        <span>Estimates direction and rate of change, and can warn of a coming low</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Software is as important to accuracy as chemistry.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 11 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    ⚗️
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've covered the chemistry, interference, warm-up, and algorithms behind a Dexcom reading.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeGluUnit11Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeGluUnit11Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathGluUnit11StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathGluUnit11StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "glu-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

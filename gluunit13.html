@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Implants and Fluorescence: Eversense | Fab Path</title>
+    <meta name="description" content="Implants and Fluorescence: Eversense: illustrated study slides from the Glucose Sensors course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/gluunit13.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Implants and Fluorescence: Eversense | Fab Path">
+    <meta property="og:description" content="Implants and Fluorescence: Eversense: illustrated study slides from the Glucose Sensors course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="glu-learn.html">Learn</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="glu-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    A SENSOR THAT STAYS
+                </p>
+
+                <h1>
+                    Months under the skin
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Placement</strong>
+                        <span>A clinician inserts a small cylinder under the skin of the upper arm</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Wear</strong>
+                        <span>Versions last about 90 days, 180 days, and a one-year version approved in 2024</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Transmitter</strong>
+                        <span>A removable transmitter sits on the skin over the implant and can vibrate to alert</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The transmitter can come off while the sensor stays in place.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    FLUORESCENCE
+                </p>
+
+                <h1>
+                    Glucose changes the glow
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A fluorescent glucose sensor: an LED sends light into a glucose-indicating polymer, glucose binding changes how brightly the polymer glows, and a photodiode measures that brightness">
+                <text class="fd-label" x="170" y="32" text-anchor="middle" style="font-size:9px">Fluorescence sensing</text>
+                <rect class="fd-ox" x="28" y="150" width="40" height="22" rx="3"/><text class="fd-label" x="48" y="164" text-anchor="middle" style="font-size:8px">LED</text>
+                <rect class="fd-p" x="116" y="74" width="108" height="46" rx="8"/>
+                <text class="fd-label" x="170" y="94" text-anchor="middle" style="font-size:7px">glucose-indicating</text><text class="fd-label" x="170" y="106" text-anchor="middle" style="font-size:7px">polymer</text>
+                <rect class="fd-metal" x="272" y="150" width="40" height="22" rx="3"/><text class="fd-label" x="292" y="164" text-anchor="middle" style="font-size:6.5px">photodiode</text>
+                <line class="fd-axis" x1="62" y1="150" x2="121.7" y2="125.4"/><g class="fd-arrow"><polygon points="130,122 123.2,129.1 120.2,121.7"/></g><text class="fd-sub" x="48" y="186" text-anchor="middle" style="font-size:6px">excitation</text><text class="fd-sub" x="48" y="195" text-anchor="middle" style="font-size:6px">light</text>
+                <line class="fd-axis" x1="210" y1="122" x2="275.6" y2="146.8"/><g class="fd-arrow"><polygon points="284,150 274.2,150.6 277.0,143.1"/></g><text class="fd-accent" x="292" y="186" text-anchor="middle" style="font-size:6px">glow depends</text><text class="fd-accent" x="292" y="195" text-anchor="middle" style="font-size:6px">on glucose</text>
+                <circle class="fd-n" cx="150" cy="52" r="6"/><circle class="fd-n" cx="190" cy="52" r="6"/>
+                <line class="fd-axis" x1="150" y1="58" x2="150.0" y2="63.0"/><g class="fd-arrow"><polygon points="150,72 146.0,63.0 154.0,63.0"/></g><line class="fd-axis" x1="190" y1="58" x2="190.0" y2="63.0"/><g class="fd-arrow"><polygon points="190,72 186.0,63.0 194.0,63.0"/></g>
+                <text class="fd-sub" x="170" y="50" text-anchor="middle" style="font-size:6px">glucose</text>
+                <text class="fd-sub" x="170" y="214" text-anchor="middle" style="font-size:6.5px">More glucose bound = a different brightness</text>
+                </svg>
+                </div>
+
+                <p>
+                    The sensor's surface carries a glucose-indicating polymer, which binds glucose reversibly. An LED lights the polymer, and a photodiode measures its glow. How bright it glows depends on how much glucose is bound.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Light replaces electrons as the signal.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    NO ENZYME
+                </p>
+
+                <h1>
+                    What fluorescence avoids
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>No enzyme</strong>
+                        <span>Nothing to wear out in the way enzymes do</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>No oxygen limit</strong>
+                        <span>The signal does not depend on tissue oxygen</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>No peroxide</strong>
+                        <span>No reaction byproduct to manage</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Reversible</strong>
+                        <span>Binding is reversible, so the sensor follows glucose both up and down</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Different physics, different failure modes.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    TRADE-OFFS
+                </p>
+
+                <h1>
+                    Longer wear, more procedure
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            📆
+                        </div>
+
+                        <h3>The upside</h3>
+
+                        <p>
+                            Months of wear instead of days, and no need to change a sensor every week or two
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🏥
+                        </div>
+
+                        <h3>The cost</h3>
+
+                        <p>
+                            A small procedure to insert and remove it, and a transmitter that must be worn
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Convenience is shifted from every two weeks to a few visits a year.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    MEDTRONIC
+                </p>
+
+                <h1>
+                    Sensors built for pumps
+                </h1>
+
+                <p>
+                    Medtronic's Guardian sensors use a glucose oxidase electrode like Dexcom's, with about 7 days of wear. They are designed to work with Medtronic's automated insulin delivery systems, where the sensor is one part of a closed loop.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Some sensors are designed as one component of a larger system.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 13 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🔆
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've covered fluorescence sensing, the trade-offs of an implant, and Medtronic's approach.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeGluUnit13Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeGluUnit13Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathGluUnit13StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathGluUnit13StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "glu-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

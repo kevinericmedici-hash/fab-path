@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Needles, Patches, and Non-Invasive Dreams | Fab Path</title>
+    <meta name="description" content="Needles, Patches, and Non-Invasive Dreams: illustrated study slides from the Glucose Sensors course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/gluunit16.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Needles, Patches, and Non-Invasive Dreams | Fab Path">
+    <meta property="og:description" content="Needles, Patches, and Non-Invasive Dreams: illustrated study slides from the Glucose Sensors course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="glu-learn.html">Learn</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="glu-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    MICRONEEDLES
+                </p>
+
+                <h1>
+                    Reach the fluid, skip the pain
+                </h1>
+
+                <p>
+                    A microneedle is only hundreds of microns long, just enough to reach interstitial fluid in the upper skin, while staying short of most nerves. Some designs put sensing electrodes on solid needles, and others use hollow needles to draw fluid out. Many are still in research or early development.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Microneedles use the same microfabrication tools as MEMS devices.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    OTHER FLUIDS
+                </p>
+
+                <h1>
+                    Sweat, tears, and saliva
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>The appeal</strong>
+                        <span>No needle at all, and easy access</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Concentration</strong>
+                        <span>Glucose is much more dilute than in blood, so signals are small</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Variability</strong>
+                        <span>Sweat rate, skin contamination, and temperature change the reading</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Examples</strong>
+                        <span>Skin patches, smart contact lenses, and mouthguards, mostly in research</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The lag and variability are usually larger than for tissue-fluid sensors.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    LIGHT THROUGH SKIN
+                </p>
+
+                <h1>
+                    Optical non-invasive sensing
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Methods</strong>
+                        <span>Near-infrared and mid-infrared absorption, Raman scattering, and photoacoustics</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The signal</strong>
+                        <span>Glucose's optical fingerprint is tiny compared with water, skin, and blood</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The noise</strong>
+                        <span>Temperature, motion, and skin differences swamp it</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The record</strong>
+                        <span>Decades of attempts, but no non-invasive method has matched invasive CGMs</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The signal-to-noise problem is the hardest part.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    A REAL WARNING
+                </p>
+
+                <h1>
+                    Smartwatches do not measure glucose
+                </h1>
+
+                <p>
+                    In 2024 the U.S. FDA issued a safety communication warning people not to use smartwatches or smart rings that claim to measure blood glucose without piercing the skin. It said no such device had been authorized, and that inaccurate readings could lead to wrong treatment decisions.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Extraordinary claims about glucose sensing need extraordinary evidence.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHY IT IS HARD
+                </p>
+
+                <h1>
+                    The bar is very high
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Selectivity</strong>
+                        <span>Glucose must be separated from many look-alike signals</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Accuracy</strong>
+                        <span>Clinical use needs errors that stay small across the whole range</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Lag</strong>
+                        <span>A reading that arrives late can mislead during fast changes</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Calibration</strong>
+                        <span>The sensor must work across different people and conditions</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Meeting all four at once is why the minimally invasive CGM won out.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 16 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🧪
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've covered the less invasive routes to glucose sensing and why none have replaced CGMs yet.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeGluUnit16Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeGluUnit16Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathGluUnit16StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathGluUnit16StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "glu-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

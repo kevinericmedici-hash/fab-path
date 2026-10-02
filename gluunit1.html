@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Why Measure Glucose? | Fab Path</title>
+    <meta name="description" content="Why Measure Glucose?: illustrated study slides from the Glucose Sensors course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/gluunit1.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Why Measure Glucose? | Fab Path">
+    <meta property="og:description" content="Why Measure Glucose?: illustrated study slides from the Glucose Sensors course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="glu-learn.html">Learn</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="glu-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    THE MOLECULE
+                </p>
+
+                <h1>
+                    Glucose is the body's fuel
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔥
+                        </div>
+
+                        <h3>Fuel</h3>
+
+                        <p>
+                            Cells burn glucose for energy. The brain depends on a steady supply
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            💉
+                        </div>
+
+                        <h3>Insulin</h3>
+
+                        <p>
+                            A hormone that helps cells take glucose in, which lowers blood glucose
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ⚖️
+                        </div>
+
+                        <h3>Balance</h3>
+
+                        <p>
+                            In a healthy body, insulin and other hormones keep glucose within a narrow band
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Diabetes is what happens when that balance control breaks down.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    DIABETES
+                </p>
+
+                <h1>
+                    When the control breaks
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Type 1</strong>
+                        <span>The body stops making insulin, so it must be replaced by injection or a pump</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Type 2</strong>
+                        <span>Cells respond poorly to insulin, and over time the body may not make enough</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The goal</strong>
+                        <span>Keep glucose in a healthy range by balancing food, activity, and medication</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    You can only balance what you can measure, which is why sensors matter.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE NUMBERS
+                </p>
+
+                <h1>
+                    What is a normal glucose?
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A glucose scale from 40 to 300 mg/dL split into zones: urgent low below 54, low from 54 to 70, target range 70 to 180, high 180 to 250, and very high above 250">
+                <text class="fd-label" x="170" y="40" text-anchor="middle" style="font-size:9px">Glucose zones (mg/dL)</text>
+                <rect style="fill:rgba(255,105,120,.55);stroke:none" x="30" y="90" width="15" height="40"/>
+                <rect style="fill:rgba(255,105,120,.28);stroke:none" x="45" y="90" width="17" height="40"/>
+                <rect class="fd-n" style="stroke:none" x="62" y="90" width="119" height="40"/>
+                <rect class="fd-ox" style="stroke:none" x="181" y="90" width="75" height="40"/>
+                <rect style="fill:rgba(255,160,90,.4);stroke:none" x="256" y="90" width="54" height="40"/>
+                <line class="fd-axis" x1="45" y1="86" x2="45" y2="136"/>
+                <line class="fd-axis" x1="62" y1="86" x2="62" y2="136"/>
+                <line class="fd-axis" x1="181" y1="86" x2="181" y2="136"/>
+                <line class="fd-axis" x1="256" y1="86" x2="256" y2="136"/>
+                <text class="fd-sub" x="45" y="150" text-anchor="middle" style="font-size:7px">54</text><text class="fd-sub" x="62" y="162" text-anchor="middle" style="font-size:7px">70</text><text class="fd-sub" x="181" y="150" text-anchor="middle" style="font-size:7px">180</text><text class="fd-sub" x="256" y="150" text-anchor="middle" style="font-size:7px">250</text>
+                <text class="fd-label" x="121" y="114" text-anchor="middle" style="font-size:8px">target range</text>
+                <text class="fd-sub" x="121" y="124" text-anchor="middle" style="font-size:7px">70 to 180</text>
+                <text class="fd-sub" x="37" y="76" text-anchor="middle" style="font-size:6px">urgent low</text>
+                <text class="fd-sub" x="218" y="114" text-anchor="middle" style="font-size:7px">high</text>
+                <text class="fd-sub" x="283" y="114" text-anchor="middle" style="font-size:7px">very high</text>
+                <text class="fd-sub" x="170" y="196" text-anchor="middle" style="font-size:7px">Time in range = share of the day spent in the green band</text>
+                </svg>
+                </div>
+
+                <p>
+                    Glucose is reported in mg/dL in the U.S. and in mmol/L in much of the world. Divide mg/dL by about 18 to get mmol/L. A typical fasting level without diabetes is roughly 70 to 99 mg/dL.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Most CGM users aim to spend as much of the day as possible between 70 and 180 mg/dL.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHAT'S AT STAKE
+                </p>
+
+                <h1>
+                    Too low is fast, too high is slow
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ⚡
+                        </div>
+
+                        <h3>Too low</h3>
+
+                        <p>
+                            Below 70 mg/dL can cause shakiness and confusion, and severe lows can cause seizures or loss of consciousness within hours
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🐢
+                        </div>
+
+                        <h3>Too high</h3>
+
+                        <p>
+                            Years of high glucose damage the eyes, kidneys, nerves, and heart
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Lows are the urgent danger, and highs are the long-term one.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    TWO WAYS TO LOOK
+                </p>
+
+                <h1>
+                    A snapshot or a movie
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🩸
+                        </div>
+
+                        <h3>Fingerstick</h3>
+
+                        <p>
+                            A drop of blood on a test strip gives one number, at one moment
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            📈
+                        </div>
+
+                        <h3>CGM</h3>
+
+                        <p>
+                            A continuous glucose monitor reads automatically every few minutes and shows the trend
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Glucose moves all day with meals, exercise, stress, and insulin, so a single reading can miss the story.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 1 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🩸
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've covered what glucose is, what the numbers mean, and why people measure it so often.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeGluUnit1Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeGluUnit1Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathGluUnit1StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathGluUnit1StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "glu-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

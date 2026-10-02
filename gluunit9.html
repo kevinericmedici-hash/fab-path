@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Drift, Calibration, and Accuracy | Fab Path</title>
+    <meta name="description" content="Drift, Calibration, and Accuracy: illustrated study slides from the Glucose Sensors course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/gluunit9.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Drift, Calibration, and Accuracy | Fab Path">
+    <meta property="og:description" content="Drift, Calibration, and Accuracy: illustrated study slides from the Glucose Sensors course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="glu-learn.html">Learn</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="glu-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    DRIFT
+                </p>
+
+                <h1>
+                    Why numbers can wander
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Biofouling</strong>
+                        <span>Surface build-up slowly changes how much glucose reaches the enzyme</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Enzyme loss</strong>
+                        <span>The enzyme gradually loses activity</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Local oxygen</strong>
+                        <span>Tissue oxygen can vary from place to place</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Pressure</strong>
+                        <span>Lying on a sensor can squeeze tissue and cause a false low, called a compression low</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Sensitivity is not constant, so the current-to-glucose conversion must be handled carefully.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CALIBRATION
+                </p>
+
+                <h1>
+                    Turning current into a number
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🩸
+                        </div>
+
+                        <h3>Fingerstick calibration</h3>
+
+                        <p>
+                            The user enters a blood glucose value, and the system adjusts its conversion
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🏭
+                        </div>
+
+                        <h3>Factory calibration</h3>
+
+                        <p>
+                            The maker calibrates each batch in advance, so users do not need to
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Factory calibration is convenient, but it requires very uniform manufacturing.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    ACCURACY SCORE
+                </p>
+
+                <h1>
+                    MARD
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    <span class="math-visual">ARD = |CGM − reference| / reference × 100%</span>
+                </div>
+
+                <p>
+                    MARD is the mean absolute relative difference: the average of those percent errors across many paired readings. Lower is better. Current leading systems report roughly 8 to 10 percent.
+                </p>
+
+                <div class="module-takeaway">
+
+                    MARD is a single, comparable number, but it is an average.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WORKED EXAMPLE
+                </p>
+
+                <h1>
+                    Computing a MARD
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Pair 1</strong>
+                        <span>Reference 100, CGM 110: error 10, which is 10%</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Pair 2</strong>
+                        <span>Reference 200, CGM 190: error 10, which is 5%</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>MARD</strong>
+                        <span>The average of 10% and 5% is 7.5%</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The same absolute error counts for more at low glucose, where the reference is small.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    BEYOND THE AVERAGE
+                </p>
+
+                <h1>
+                    Averages can hide big misses
+                </h1>
+
+                <p>
+                    An error grid, such as the Clarke or consensus error grid, sorts each reading by how a wrong decision would affect the patient. Zone A readings are clinically accurate, while the highest zones could lead to dangerous treatment errors.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Look at the error grid as well as the MARD.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 9 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🎯
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've covered drift, calibration, and the standard way sensor accuracy is reported.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeGluUnit9Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeGluUnit9Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathGluUnit9StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathGluUnit9StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "glu-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

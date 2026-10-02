@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Enzyme: Glucose Oxidase | Fab Path</title>
+    <meta name="description" content="The Enzyme: Glucose Oxidase: illustrated study slides from the Glucose Sensors course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/gluunit5.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="The Enzyme: Glucose Oxidase | Fab Path">
+    <meta property="og:description" content="The Enzyme: Glucose Oxidase: illustrated study slides from the Glucose Sensors course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="glu-learn.html">Learn</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="glu-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    NATURE'S DETECTOR
+                </p>
+
+                <h1>
+                    An enzyme that loves glucose
+                </h1>
+
+                <p>
+                    Glucose oxidase (GOx) is a protein first found in fungi. It reacts with glucose and almost nothing else. Like all enzymes it is a catalyst, so one enzyme molecule can process many glucose molecules without being used up.
+                </p>
+
+                <div class="module-takeaway">
+
+                    GOx is selective because its shape fits glucose like a lock fits a key.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE REACTION
+                </p>
+
+                <h1>
+                    Glucose and oxygen in, peroxide out
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="Glucose and oxygen enter the enzyme glucose oxidase, which releases gluconolactone and hydrogen peroxide; the hydrogen peroxide is what the electrode detects">
+                <text class="fd-label" x="170" y="34" text-anchor="middle" style="font-size:9px">Glucose oxidase at work</text>
+                <circle class="fd-n" cx="52" cy="88" r="20"/><text class="fd-label" x="52" y="91" text-anchor="middle" style="font-size:6.5px">glucose</text>
+                <circle class="fd-ox" cx="52" cy="144" r="14"/><text class="fd-label" x="52" y="147" text-anchor="middle" style="font-size:8px">O₂</text>
+                <line class="fd-axis" x1="76" y1="92" x2="109.5" y2="103.2"/><g class="fd-arrow"><polygon points="118,106 108.2,106.9 110.7,99.4"/></g><line class="fd-axis" x1="68" y1="140" x2="109.3" y2="128.4"/><g class="fd-arrow"><polygon points="118,126 110.4,132.3 108.3,124.6"/></g>
+                <rect class="fd-metal" x="122" y="82" width="96" height="68" rx="10"/>
+                <text class="fd-label" x="170" y="112" text-anchor="middle" style="font-size:8px">glucose</text><text class="fd-label" x="170" y="124" text-anchor="middle" style="font-size:8px">oxidase</text><text class="fd-sub" x="170" y="138" text-anchor="middle" style="font-size:6px">(GOx enzyme)</text>
+                <line class="fd-axis" x1="222" y1="106" x2="253.5" y2="95.0"/><g class="fd-arrow"><polygon points="262,92 254.8,98.7 252.2,91.2"/></g><line class="fd-axis" x1="222" y1="126" x2="253.6" y2="138.7"/><g class="fd-arrow"><polygon points="262,142 252.2,142.4 255.1,134.9"/></g>
+                <circle class="fd-p" cx="288" cy="88" r="20"/><text class="fd-label" x="288" y="85" text-anchor="middle" style="font-size:6px">gluco-</text><text class="fd-label" x="288" y="94" text-anchor="middle" style="font-size:5.5px">nolactone</text>
+                <circle class="fd-n" cx="288" cy="144" r="16"/><text class="fd-label" x="288" y="147" text-anchor="middle" style="font-size:8px">H₂O₂</text>
+                <text class="fd-accent" x="288" y="174" text-anchor="middle" style="font-size:6.5px">the signal the electrode reads</text>
+                </svg>
+                </div>
+
+                <p>
+                    Glucose oxidase converts glucose and oxygen into gluconolactone and hydrogen peroxide (H₂O₂). The hydrogen peroxide is the product an electrode can easily detect.
+                </p>
+
+                <div class="module-takeaway">
+
+                    More glucose means more hydrogen peroxide, which means more electrical signal.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    TWO HALF-STEPS
+                </p>
+
+                <h1>
+                    The enzyme gets reset
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Step 1</strong>
+                        <span>Glucose hands electrons to the enzyme's built-in FAD group, and glucose becomes gluconolactone</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Step 2</strong>
+                        <span>Oxygen takes those electrons back, which makes hydrogen peroxide</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Result</strong>
+                        <span>The enzyme is back to its starting state and ready for the next glucose</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Oxygen acts as the natural electron acceptor in this reaction.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    ALTERNATIVES
+                </p>
+
+                <h1>
+                    Other enzymes can do the job
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔄
+                        </div>
+
+                        <h3>Glucose dehydrogenase</h3>
+
+                        <p>
+                            Does not need oxygen. Common in test strips, but some versions also react with other sugars
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🎯
+                        </div>
+
+                        <h3>Glucose oxidase</h3>
+
+                        <p>
+                            Very selective for glucose and well studied, but its oxygen dependence has to be managed
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The right enzyme depends on where the sensor will be used.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    ENZYME LIFETIME
+                </p>
+
+                <h1>
+                    Enzymes do not last forever
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Heat</strong>
+                        <span>High temperatures unfold the protein and destroy its shape</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Time</strong>
+                        <span>Enzymes slowly lose activity, which limits how long a sensor works</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Protection</strong>
+                        <span>Layers around the enzyme, and careful storage, extend its life</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Enzyme stability is one reason sensors are replaced every week or two.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 5 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🧬
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've covered how glucose oxidase works and what limits it.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeGluUnit5Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeGluUnit5Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathGluUnit5StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathGluUnit5StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "glu-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

@@ -54,6 +54,18 @@ const coursesData = [
     },
 
     {
+        id: "glucose-sensors",
+        title: "Glucose Sensors",
+        tagline: "How a CGM measures glucose",
+        description:
+            "Enzymes, electrodes, and membranes, then a head-to-head look at how Dexcom, Abbott, Medtronic, and Senseonics build their sensors, and where the technology is going.",
+        icon: "🩸",
+        status: "live",
+        growing: false,
+        href: "glu-learn.html"
+    },
+
+    {
         id: "bbb-chip",
         title: "Blood-Brain Barrier on a Chip",
         tagline: "Modeling the body's most selective barrier",

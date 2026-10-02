@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Closed Loop and What's Next | Fab Path</title>
+    <meta name="description" content="Closed Loop and What's Next: illustrated study slides from the Glucose Sensors course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/gluunit17.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Closed Loop and What's Next | Fab Path">
+    <meta property="og:description" content="Closed Loop and What's Next: illustrated study slides from the Glucose Sensors course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="glu-learn.html">Learn</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="glu-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    CLOSING THE LOOP
+                </p>
+
+                <h1>
+                    The sensor drives the insulin pump
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A closed loop: the CGM reads glucose, a controller algorithm decides an insulin dose, an insulin pump delivers it to the body, and the body's glucose changes, which the CGM reads again">
+                <text class="fd-label" x="170" y="26" text-anchor="middle" style="font-size:9px">Automated insulin delivery</text>
+                <circle class="fd-n" cx="170" cy="70" r="26"/><text class="fd-label" x="170" y="68" text-anchor="middle" style="font-size:8px">CGM</text><text class="fd-sub" x="170" y="78" text-anchor="middle" style="font-size:6px">sensor</text>
+                <circle class="fd-ox" cx="280" cy="124" r="26"/><text class="fd-label" x="280" y="122" text-anchor="middle" style="font-size:7px">controller</text><text class="fd-sub" x="280" y="132" text-anchor="middle" style="font-size:6px">algorithm</text>
+                <circle class="fd-metal" cx="170" cy="178" r="26"/><text class="fd-label" x="170" y="176" text-anchor="middle" style="font-size:7px">insulin</text><text class="fd-sub" x="170" y="186" text-anchor="middle" style="font-size:6px">pump</text>
+                <circle class="fd-p" cx="60" cy="124" r="26"/><text class="fd-label" x="60" y="128" text-anchor="middle" style="font-size:8px">body</text>
+                <line class="fd-axis" x1="192" y1="82" x2="249.6" y2="104.7"/><g class="fd-arrow"><polygon points="258,108 248.2,108.4 251.1,101.0"/></g><text class="fd-sub" x="248" y="90" text-anchor="start" style="font-size:6px">readings</text>
+                <line class="fd-axis" x1="260" y1="142" x2="200.4" y2="164.8"/><g class="fd-arrow"><polygon points="192,168 199.0,161.0 201.8,168.5"/></g><text class="fd-sub" x="262" y="168" text-anchor="start" style="font-size:6px">dose</text>
+                <line class="fd-axis" x1="148" y1="168" x2="88.4" y2="145.2"/><g class="fd-arrow"><polygon points="80,142 89.8,141.5 87.0,149.0"/></g><text class="fd-sub" x="80" y="168" text-anchor="end" style="font-size:6px">insulin</text>
+                <line class="fd-axis" x1="80" y1="108" x2="139.6" y2="85.2"/><g class="fd-arrow"><polygon points="148,82 141.0,89.0 138.2,81.5"/></g><text class="fd-sub" x="92" y="90" text-anchor="end" style="font-size:6px">glucose</text>
+                </svg>
+                </div>
+
+                <p>
+                    In automated insulin delivery, the CGM's readings feed an algorithm that adjusts how much insulin an insulin pump gives. That makes the sensor part of a control system, not just a display.
+                </p>
+
+                <div class="module-takeaway">
+
+                    When a sensor drives dosing, its accuracy and reliability matter even more.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    TODAY'S SYSTEMS
+                </p>
+
+                <h1>
+                    Sensor plus pump plus algorithm
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>The idea</strong>
+                        <span>Often called a hybrid closed loop, where the system adjusts background insulin and the user still announces meals</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Examples</strong>
+                        <span>Tandem's Control-IQ, Insulet's Omnipod 5, and Medtronic's MiniMed 780G</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Sensors</strong>
+                        <span>Different systems pair with different CGMs</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The CGM is the sense organ of an artificial pancreas.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SENSORS FOR EVERYONE
+                </p>
+
+                <h1>
+                    Over-the-counter CGMs
+                </h1>
+
+                <p>
+                    In 2024 Dexcom's Stelo and Abbott's Lingo became the first CGMs cleared for sale without a prescription, for adults who do not use insulin. They aim to help people see how food, sleep, and exercise affect their glucose.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A medical sensor is becoming a consumer health product.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHAT'S NEXT
+                </p>
+
+                <h1>
+                    Where the technology is heading
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Longer wear</strong>
+                        <span>From a week or two toward a month or even a year</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Smaller and cheaper</strong>
+                        <span>More integrated, lower-cost sensors</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>More analytes</strong>
+                        <span>Multi-sensor designs that add ketones or lactate are in development</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Better accuracy</strong>
+                        <span>Less drift and faster response</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The same core idea is being pushed in every direction at once.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    A CHECKLIST
+                </p>
+
+                <h1>
+                    How to judge a sensor claim
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Accuracy</strong>
+                        <span>What is the MARD, and how was it measured?</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Wear and warm-up</strong>
+                        <span>How long does it last, and how long until readings are trustworthy?</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Interference</strong>
+                        <span>What substances can change the reading?</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Calibration and lag</strong>
+                        <span>Is it factory calibrated, and how fast is the update rate?</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Fit</strong>
+                        <span>Does it work with the devices you use, and what does it cost?</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    You now know enough to ask the right questions about any glucose sensor.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 17 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🔭
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've covered closed-loop insulin delivery, consumer CGMs, and how to judge a sensor's claims.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeGluUnit17Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeGluUnit17Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathGluUnit17StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathGluUnit17StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "glu-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

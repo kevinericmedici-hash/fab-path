@@ -8122,6 +8122,15 @@ function loadProgressPage() {
             getFetAllLessons().length;
     }
 
+    if (typeof gluCourseData !== "undefined") {
+
+        completedLessons +=
+            getGluCompletedLessonCount();
+
+        totalLessons +=
+            getGluAllLessons().length;
+    }
+
     if (typeof chipCourseData !== "undefined") {
 
         completedLessons +=
@@ -8306,6 +8315,24 @@ function loadIndexPage() {
 
                 const completedLessons =
                     getFetCompletedLessonCount();
+
+                percent =
+                    totalLessons === 0
+                        ? 0
+                        : Math.round(
+                            (completedLessons / totalLessons) * 100
+                        );
+
+            } else if (
+                course.id === "glucose-sensors" &&
+                typeof gluCourseData !== "undefined"
+            ) {
+
+                const totalLessons =
+                    getGluAllLessons().length;
+
+                const completedLessons =
+                    getGluCompletedLessonCount();
 
                 percent =
                     totalLessons === 0

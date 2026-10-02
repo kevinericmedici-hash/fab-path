@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Abbott FreeStyle Libre | Fab Path</title>
+    <meta name="description" content="Abbott FreeStyle Libre: illustrated study slides from the Glucose Sensors course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/gluunit12.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Abbott FreeStyle Libre | Fab Path">
+    <meta property="og:description" content="Abbott FreeStyle Libre: illustrated study slides from the Glucose Sensors course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="glu-learn.html">Learn</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="glu-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    THE DEVICE
+                </p>
+
+                <h1>
+                    A small disc on the arm
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Where</strong>
+                        <span>Worn on the back of the upper arm</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Filament</strong>
+                        <span>A very short, thin filament, around 5 mm long</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Wear</strong>
+                        <span>14 days per sensor</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Calibration</strong>
+                        <span>Factory calibrated, with no fingersticks needed for calibration</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The sensor and transmitter are one compact disposable, which keeps cost and size low.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WIRED ENZYME
+                </p>
+
+                <h1>
+                    A mediator holds the enzyme's hand
+                </h1>
+
+                <p>
+                    Abbott describes a wired enzyme design. The enzyme is linked to an osmium-based mediator that carries electrons to the electrode. In the terms of Unit 7, it is second-generation: it uses a mediator instead of depending on oxygen, and it works at a low voltage, which helps limit interference.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A different answer to the same wiring problem Dexcom solves with peroxide.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SCAN TO STREAM
+                </p>
+
+                <h1>
+                    How readings reach you
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Libre 1</strong>
+                        <span>The user scans the sensor with a reader or phone to get a reading</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Libre 2</strong>
+                        <span>Adds Bluetooth streaming with optional alarms</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Libre 3</strong>
+                        <span>Streams a new reading about every minute</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Later versions moved from on-demand scanning to continuous streaming.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CAUTIONS
+                </p>
+
+                <h1>
+                    Every sensor has a weak spot
+                </h1>
+
+                <p>
+                    Labeling for earlier FreeStyle Libre versions warns that taking large amounts of vitamin C (ascorbic acid) can falsely raise readings. As with any sensor, the current labeling lists what can interfere.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Different chemistry means different interfering substances.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SIDE BY SIDE
+                </p>
+
+                <h1>
+                    Two philosophies
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🟣
+                        </div>
+
+                        <h3>Dexcom</h3>
+
+                        <p>
+                            Peroxide detection at platinum, a new reading every 5 minutes, and a strong focus on alerts and integration
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔵
+                        </div>
+
+                        <h3>FreeStyle Libre</h3>
+
+                        <p>
+                            A wired enzyme at low voltage, a small integrated disc, and up to one reading per minute
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Both are factory calibrated, and both use an enzyme electrode.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 12 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🔵
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've covered how FreeStyle Libre is built and how its chemistry differs.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeGluUnit12Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeGluUnit12Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathGluUnit12StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathGluUnit12StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "glu-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>
