@@ -18,8 +18,40 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://fab-path.com/og-image.png">
 
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://fab-path.com/#website",
+                "url": "https://fab-path.com/",
+                "name": "Fab Path",
+                "alternateName": ["FabPath", "fab-path.com"],
+                "description": "Free interactive lessons and games on lithography, etching, MOSFETs, and microfabrication. Built for students heading into semiconductors and chip manufacturing.",
+                "inLanguage": "en"
+            },
+            {
+                "@type": "Organization",
+                "@id": "https://fab-path.com/#organization",
+                "name": "Fab Path",
+                "url": "https://fab-path.com/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://fab-path.com/favicon-192x192.png",
+                    "width": 192,
+                    "height": 192
+                }
+            }
+        ]
+    }
+    </script>
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="style.css">
 </head>
