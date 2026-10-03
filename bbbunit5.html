@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Drug Delivery Problem | Fab Path</title>
+    <meta name="description" content="The Drug Delivery Problem: illustrated study slides from the Blood-Brain Barrier on a Chip course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/bbbunit5.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="The Drug Delivery Problem | Fab Path">
+    <meta property="og:description" content="The Drug Delivery Problem: illustrated study slides from the Blood-Brain Barrier on a Chip course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="bbb-learn.html">Learn</a>
+            <a href="bbb-games.html">Games</a>
+            <a href="bbb-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="bbb-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    THE SCORECARD
+                </p>
+
+                <h1>
+                    Most drugs never make it in
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Small molecules</strong>
+                        <span>It is often quoted that more than 98% fail to cross the barrier in useful amounts</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Large molecules</strong>
+                        <span>Nearly all antibodies, proteins, and gene therapies are blocked</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The exceptions</strong>
+                        <span>A few small, oily drugs, such as many for epilepsy, depression, and pain, do cross</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Crossing the barrier is the exception, not the rule.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    A SIZE LIMIT
+                </p>
+
+                <h1>
+                    Where the line falls
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A logarithmic scale of molecular weight in daltons from 10 to about 150,000: oxygen, glucose and caffeine fall below the roughly 450 dalton passive limit, while insulin and an antibody sit far above it">
+                <text class="fd-label" x="170" y="36" text-anchor="middle" style="font-size:8px">Size of molecule (daltons, log scale)</text>
+                <rect class="fd-n" style="stroke:none" x="40" y="96" width="99.2" height="24"/>
+                <rect style="fill:rgba(255,105,120,.28);stroke:none" x="139.2" y="96" width="160.8" height="24"/>
+                <line class="fd-axis" x1="40" y1="120" x2="300" y2="120"/>
+                <line class="fd-axis" x1="139.2" y1="86" x2="139.2" y2="130" stroke-dasharray="2 2"/>
+                <text class="fd-sub" x="88" y="112" text-anchor="middle" style="font-size:7px">can diffuse</text>
+                <text class="fd-sub" x="236" y="112" text-anchor="middle" style="font-size:7px">mostly blocked</text>
+                <text class="fd-accent" x="139.2" y="80" text-anchor="middle" style="font-size:7px">about 450</text>
+                <circle class="fd-metal" cx="70.3" cy="120" r="3"/>
+                <text class="fd-sub" x="70.3" y="140" text-anchor="middle" style="font-size:7px">O₂</text><text class="fd-sub" x="70.3" y="149" text-anchor="middle" style="font-size:6px">32</text>
+                <circle class="fd-metal" cx="117.3" cy="120" r="3"/>
+                <text class="fd-sub" x="117.3" y="140" text-anchor="middle" style="font-size:6.5px">caffeine</text><text class="fd-sub" x="117.3" y="149" text-anchor="middle" style="font-size:6px">194</text>
+                <circle class="fd-metal" cx="205.8" cy="120" r="3"/>
+                <text class="fd-sub" x="205.8" y="140" text-anchor="middle" style="font-size:6.5px">insulin</text><text class="fd-sub" x="205.8" y="149" text-anchor="middle" style="font-size:6px">5,800</text>
+                <circle class="fd-metal" cx="290.6" cy="120" r="3"/>
+                <text class="fd-sub" x="286.6" y="140" text-anchor="middle" style="font-size:6.5px">antibody</text><text class="fd-sub" x="286.6" y="149" text-anchor="middle" style="font-size:6px">150,000</text>
+                <text class="fd-sub" x="170" y="196" text-anchor="middle" style="font-size:6.5px">Most drug targets in the brain need drugs on the wrong side of this line</text>
+                </svg>
+                </div>
+
+                <p>
+                    Passive diffusion works best below roughly 400 to 500 daltons. Many modern drugs, and every antibody, are far larger.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Biology's favorite drug targets are often on the wrong side of the line.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHO IS AFFECTED
+                </p>
+
+                <h1>
+                    Brain diseases with few good options
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🎗️
+                        </div>
+
+                        <h3>Brain tumors</h3>
+
+                        <p>
+                            Chemotherapy often struggles to reach tumor cells behind an intact barrier
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧩
+                        </div>
+
+                        <h3>Alzheimer's</h3>
+
+                        <p>
+                            Only a small fraction of an injected antibody reaches the brain, often under 1%
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🦠
+                        </div>
+
+                        <h3>Infections</h3>
+
+                        <p>
+                            Some antibiotics and antivirals enter the brain poorly
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The more precise the drug, the more it needs a way across.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE COST OF FINDING OUT LATE
+                </p>
+
+                <h1>
+                    A great drug in a dish can fail in a patient
+                </h1>
+
+                <p>
+                    A compound can bind its target perfectly in a lab test and still fail because it never reaches the brain. Learning that late wastes years and money, so early tests of barrier crossing are valuable.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Test crossing early, and test it in something that behaves like a human barrier.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WAYS AROUND
+                </p>
+
+                <h1>
+                    Four strategies
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔑
+                        </div>
+
+                        <h3>Shuttles</h3>
+
+                        <p>
+                            Attach the drug to something that binds a transport receptor and rides across
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔊
+                        </div>
+
+                        <h3>Open briefly</h3>
+
+                        <p>
+                            Focused ultrasound with microbubbles can loosen the barrier for a short time
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            💉
+                        </div>
+
+                        <h3>Bypass</h3>
+
+                        <p>
+                            Inject directly into the brain or the fluid around it
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ✏️
+                        </div>
+
+                        <h3>Redesign</h3>
+
+                        <p>
+                            Make the drug smaller or more fat-soluble
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Every strategy needs a way to measure whether it actually worked.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 5 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    💊
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've seen why the barrier blocks most drugs and why testing crossing early matters.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeBbbUnit5Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeBbbUnit5Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathBbbUnit5StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathBbbUnit5StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "bbb-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

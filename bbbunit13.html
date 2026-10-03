@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chip Layouts | Fab Path</title>
+    <meta name="description" content="Chip Layouts: illustrated study slides from the Blood-Brain Barrier on a Chip course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/bbbunit13.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Chip Layouts | Fab Path">
+    <meta property="og:description" content="Chip Layouts: illustrated study slides from the Blood-Brain Barrier on a Chip course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="bbb-learn.html">Learn</a>
+            <a href="bbb-games.html">Games</a>
+            <a href="bbb-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="bbb-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    THREE FAMILIES
+                </p>
+
+                <h1>
+                    Ways to build a barrier
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🥪
+                        </div>
+
+                        <h3>Sandwich</h3>
+
+                        <p>
+                            Two stacked channels with a thin porous membrane between them
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧊
+                        </div>
+
+                        <h3>Hydrogel lanes</h3>
+
+                        <p>
+                            Side-by-side lanes where a gel holds cells and no plastic membrane is needed
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🪈
+                        </div>
+
+                        <h3>3D tube</h3>
+
+                        <p>
+                            A hollow vessel formed in a gel or grown into a network, perfused through
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Each layout answers the same question differently.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    LAYOUT ONE
+                </p>
+
+                <h1>
+                    The sandwich
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="Cross-section of a sandwich chip: a top channel for blood flow, a thin porous membrane, and a bottom channel for brain cells; endothelial cells line the top of the membrane and astrocytes sit on the bottom">
+                <rect style="fill:rgba(255,255,255,.05);stroke:var(--text);stroke-width:1.2" x="30" y="48" width="220" height="104" rx="4"/>
+                <rect style="fill:rgba(255,105,120,.2);stroke:none" x="38" y="58" width="204" height="36"/>
+                <rect class="fd-n" style="stroke:none" x="38" y="104" width="204" height="38"/>
+                <line style="stroke:var(--text);stroke-width:2.5;stroke-dasharray:6 2" x1="38" y1="99" x2="242" y2="99"/>
+                <rect style="fill:var(--accent);stroke:none" x="38" y="93" width="204" height="4"/>
+                <g style="fill:rgba(255,214,102,.9);stroke:none"><circle cx="60" cy="108" r="3.5"/><circle cx="100" cy="108" r="3.5"/><circle cx="140" cy="108" r="3.5"/><circle cx="180" cy="108" r="3.5"/><circle cx="220" cy="108" r="3.5"/></g>
+                <line class="fd-axis" x1="52" y1="74" x2="111.0" y2="74.0"/><g class="fd-arrow"><polygon points="120,74 111.0,78.0 111.0,70.0"/></g>
+                <line class="fd-axis" x1="52" y1="124" x2="91.0" y2="124.0"/><g class="fd-arrow"><polygon points="100,124 91.0,128.0 91.0,120.0"/></g>
+                <text class="fd-sub" x="258" y="70" text-anchor="start" style="font-size:6.5px">blood channel</text>
+                <text class="fd-sub" x="258" y="79" text-anchor="start" style="font-size:6.5px">(with flow)</text>
+                <text class="fd-sub" x="258" y="96" text-anchor="start" style="font-size:6.5px">membrane +</text>
+                <text class="fd-sub" x="258" y="105" text-anchor="start" style="font-size:6.5px">endothelium</text>
+                <text class="fd-sub" x="258" y="126" text-anchor="start" style="font-size:6.5px">brain channel</text>
+                <text class="fd-sub" x="258" y="135" text-anchor="start" style="font-size:6.5px">astrocytes</text>
+                <text class="fd-label" x="140" y="178" text-anchor="middle" style="font-size:7px">Two channels stacked, one cell layer between them</text>
+                </svg>
+                </div>
+
+                <p>
+                    Blood flows through the top channel over endothelial cells on a membrane. Support cells, such as astrocytes, sit on the other side. It mirrors a Transwell, but with flow.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Familiar structure, plus the missing ingredient: flow.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    LAYOUT TWO
+                </p>
+
+                <h1>
+                    Hydrogel lanes
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="Top view of a hydrogel chip: a perfusion channel lined with endothelial cells, a middle lane of gel holding astrocytes held in by small pillars, and a third channel for medium">
+                <rect style="fill:rgba(255,105,120,.2);stroke:none" x="30" y="56" width="220" height="30"/>
+                <rect class="fd-p" style="stroke:none" x="30" y="92" width="220" height="38"/>
+                <rect class="fd-n" style="stroke:none" x="30" y="136" width="220" height="30"/>
+                <rect style="fill:var(--accent);stroke:none" x="30" y="86" width="220" height="3"/>
+                <g style="fill:var(--text);stroke:none;opacity:.6"><rect x="46" y="86" width="5" height="6"/><rect x="86" y="86" width="5" height="6"/><rect x="126" y="86" width="5" height="6"/><rect x="166" y="86" width="5" height="6"/><rect x="206" y="86" width="5" height="6"/>
+                <rect x="46" y="130" width="5" height="6"/><rect x="86" y="130" width="5" height="6"/><rect x="126" y="130" width="5" height="6"/><rect x="166" y="130" width="5" height="6"/><rect x="206" y="130" width="5" height="6"/></g>
+                <g style="fill:rgba(255,214,102,.9);stroke:none"><circle cx="70" cy="108" r="3.5"/><circle cx="110" cy="116" r="3.5"/><circle cx="150" cy="106" r="3.5"/><circle cx="190" cy="116" r="3.5"/><circle cx="226" cy="108" r="3.5"/></g>
+                <line class="fd-axis" x1="50" y1="71" x2="121.0" y2="71.0"/><g class="fd-arrow"><polygon points="130,71 121.0,75.0 121.0,67.0"/></g>
+                <text class="fd-sub" x="258" y="68" text-anchor="start" style="font-size:6.5px">perfusion channel</text>
+                <text class="fd-sub" x="258" y="77" text-anchor="start" style="font-size:6.5px">(endothelium)</text>
+                <text class="fd-sub" x="258" y="106" text-anchor="start" style="font-size:6.5px">gel with</text>
+                <text class="fd-sub" x="258" y="115" text-anchor="start" style="font-size:6.5px">astrocytes</text>
+                <text class="fd-sub" x="258" y="148" text-anchor="start" style="font-size:6.5px">medium</text>
+                <text class="fd-sub" x="258" y="157" text-anchor="start" style="font-size:6.5px">channel</text>
+                <text class="fd-label" x="140" y="192" text-anchor="middle" style="font-size:6.5px">Cells meet through a gel, with pillars holding the lanes apart</text>
+                </svg>
+                </div>
+
+                <p>
+                    Small pillars hold liquid gel in a middle lane while it sets. Endothelial cells line the gel's edge, and astrocytes can live inside the gel, in direct 3D contact.
+                </p>
+
+                <div class="module-takeaway">
+
+                    No artificial membrane, and cells can organize more freely.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    TRADE-OFFS
+                </p>
+
+                <h1>
+                    Every layout gives something up
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Sandwich</strong>
+                        <span>Easy imaging and electrical readings, but the membrane is artificial</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Hydrogel lanes</strong>
+                        <span>More natural 3D contact, but electrodes are harder to place across the layer</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>3D tube</strong>
+                        <span>The most vessel-like shape, but hardest to build and to measure</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    There is no best layout, only one that fits the question.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CHOOSING
+                </p>
+
+                <h1>
+                    Match the layout to the question
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            📏
+                        </div>
+
+                        <h3>Need standard readouts?</h3>
+
+                        <p>
+                            Choose the sandwich, since TEER and imaging are easier
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🌱
+                        </div>
+
+                        <h3>Need cells to self-organize?</h3>
+
+                        <p>
+                            Choose hydrogel lanes or a tube
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ⚙️
+                        </div>
+
+                        <h3>Need many chips?</h3>
+
+                        <p>
+                            Pick a layout that can be manufactured in plastic
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Design begins with what you want to measure.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 13 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🧩
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've compared the main chip layouts and seen why choosing one means choosing trade-offs.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeBbbUnit13Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeBbbUnit13Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathBbbUnit13StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathBbbUnit13StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "bbb-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

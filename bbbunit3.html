@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tight Junctions | Fab Path</title>
+    <meta name="description" content="Tight Junctions: illustrated study slides from the Blood-Brain Barrier on a Chip course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/bbbunit3.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tight Junctions | Fab Path">
+    <meta property="og:description" content="Tight Junctions: illustrated study slides from the Blood-Brain Barrier on a Chip course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="bbb-learn.html">Learn</a>
+            <a href="bbb-games.html">Games</a>
+            <a href="bbb-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="bbb-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    THE SEAL
+                </p>
+
+                <h1>
+                    Two ways across a cell layer
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ↔️
+                        </div>
+
+                        <h3>Paracellular</h3>
+
+                        <p>
+                            Between neighboring cells, through the narrow gap that joins them
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ⬇️
+                        </div>
+
+                        <h3>Transcellular</h3>
+
+                        <p>
+                            Through a cell, either across its membrane or inside carriers and vesicles
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    In the brain, protein seals called tight junctions shut the paracellular route.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE ZIPPER
+                </p>
+
+                <h1>
+                    Strands that lock cells together
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="Two endothelial cells side by side: a zigzag of claudin strands seals the narrow gap between them, so a molecule coming from the blood side cannot slip through">
+                <text class="fd-sub" x="40" y="58" text-anchor="start" style="font-size:7px">blood side</text>
+                <text class="fd-sub" x="40" y="176" text-anchor="start" style="font-size:7px">brain side</text>
+                <rect class="fd-p" x="60" y="70" width="103" height="90" rx="6"/>
+                <rect class="fd-p" x="177" y="70" width="103" height="90" rx="6"/>
+                <text class="fd-sub" x="111" y="118" text-anchor="middle" style="font-size:7px">endothelial</text>
+                <text class="fd-sub" x="111" y="128" text-anchor="middle" style="font-size:7px">cell</text>
+                <path style="fill:none;stroke:var(--accent);stroke-width:1.6" d="M163,84 L177,90 L163,96 L177,102 L163,108 L177,114 L163,120"/>
+                <circle class="fd-metal" cx="170" cy="40" r="3.5"/>
+                <line class="fd-axis" x1="170" y1="46" x2="170.0" y2="57.0"/><g class="fd-arrow"><polygon points="170,66 166.0,57.0 174.0,57.0"/></g>
+                <text x="170" y="80" text-anchor="middle" style="font-size:10px;fill:rgba(255,105,120,.95)">✕</text>
+                <line class="fd-axis" x1="205" y1="97" x2="180" y2="99"/>
+                <text class="fd-label" x="229" y="94" text-anchor="middle" style="font-size:7px">tight junction</text>
+                <text class="fd-sub" x="229" y="106" text-anchor="middle" style="font-size:6px">claudin-5, occludin,</text>
+                <text class="fd-sub" x="229" y="114" text-anchor="middle" style="font-size:6px">ZO-1 (inside)</text>
+                <text class="fd-label" x="170" y="204" text-anchor="middle" style="font-size:7px">A sealed gap means no leak between cells</text>
+                </svg>
+                </div>
+
+                <p>
+                    Proteins on each cell reach across the gap and bind their partners on the neighboring cell, forming strands that act like a zipper.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Zip the gap shut, and nothing slips between cells.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE PROTEINS
+                </p>
+
+                <h1>
+                    The parts list
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Claudin-5</strong>
+                        <span>The key sealing protein in brain endothelium, pairing with partners on the neighboring cell</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Occludin</strong>
+                        <span>A junction protein that helps stabilize and tune the seal</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>ZO-1</strong>
+                        <span>A scaffold inside the cell that links the junction to the cell's internal skeleton</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>VE-cadherin</strong>
+                        <span>Part of the neighboring adherens junction, which holds the cells mechanically together</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Seal proteins plus scaffolds plus anchors make one strong junction.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE EFFECT
+                </p>
+
+                <h1>
+                    What a good seal does
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🚫
+                        </div>
+
+                        <h3>Blocks traffic</h3>
+
+                        <p>
+                            Ions and many small polar molecules cannot slip between cells
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ⚡
+                        </div>
+
+                        <h3>Raises resistance</h3>
+
+                        <p>
+                            The sealed layer resists electrical current, which gives scientists a way to measure it
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    A tight barrier is both a chemical filter and an electrical resistor.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHEN IT FAILS
+                </p>
+
+                <h1>
+                    Leaky junctions and how we spot them
+                </h1>
+
+                <p>
+                    Stroke, inflammation, infection, and several neurological diseases can loosen the junctions, and the barrier turns leaky. In a lab model, scientists stain for claudin-5 and ZO-1 and look for a continuous bright outline around every cell.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A continuous outline of junction proteins is the first sign of a good barrier in a dish.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 3 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🔗
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've learned how tight junctions seal the gap between cells and how scientists check that they are intact.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeBbbUnit3Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeBbbUnit3Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathBbbUnit3StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathBbbUnit3StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "bbb-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

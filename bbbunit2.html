@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Neurovascular Unit | Fab Path</title>
+    <meta name="description" content="The Neurovascular Unit: illustrated study slides from the Blood-Brain Barrier on a Chip course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/bbbunit2.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="The Neurovascular Unit | Fab Path">
+    <meta property="og:description" content="The Neurovascular Unit: illustrated study slides from the Blood-Brain Barrier on a Chip course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="bbb-learn.html">Learn</a>
+            <a href="bbb-games.html">Games</a>
+            <a href="bbb-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="bbb-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    THE CAST
+                </p>
+
+                <h1>
+                    Three cell types around the vessel
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧱
+                        </div>
+
+                        <h3>Endothelial cells</h3>
+
+                        <p>
+                            Line the inside of the vessel and form the barrier itself
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🤝
+                        </div>
+
+                        <h3>Pericytes</h3>
+
+                        <p>
+                            Wrap around the capillary, helping regulate blood flow and keeping the barrier tight
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ⭐
+                        </div>
+
+                        <h3>Astrocytes</h3>
+
+                        <p>
+                            Star-shaped support cells whose end-feet cover most of the vessel's outside
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Together they are called the neurovascular unit.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CROSS-SECTION
+                </p>
+
+                <h1>
+                    Looking down a capillary
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="Cross-section of a brain capillary: blood in the center, a ring of endothelial cells, a basement membrane, a pericyte on the outside, astrocyte end-feet surrounding the vessel, an astrocyte body and a neuron nearby">
+                <circle style="fill:rgba(255,105,120,.22);stroke:none" cx="170" cy="112" r="22"/>
+                <circle style="fill:none;stroke:var(--accent);stroke-width:7;opacity:.85" cx="170" cy="112" r="28"/>
+                <circle style="fill:none;stroke:var(--text);stroke-width:1.2;stroke-dasharray:3 2" cx="170" cy="112" r="35"/>
+                <circle style="fill:none;stroke:var(--text);stroke-width:5;opacity:.45;stroke-dasharray:38 11" cx="170" cy="112" r="45"/>
+                <ellipse class="fd-ox" cx="214" cy="95" rx="9" ry="6"/>
+                <circle class="fd-metal" cx="80" cy="52" r="10"/>
+                <line style="stroke:var(--text);stroke-width:1.2;opacity:.6" x1="88" y1="58" x2="133" y2="90"/>
+                <line style="stroke:var(--text);stroke-width:1.2;opacity:.6" x1="88" y1="46" x2="157" y2="70"/>
+                <circle class="fd-n" cx="268" cy="168" r="9"/>
+                <line style="stroke:var(--text);stroke-width:1.2;opacity:.6" x1="260" y1="162" x2="236" y2="144"/>
+                <line style="stroke:var(--text);stroke-width:1.2;opacity:.6" x1="276" y1="176" x2="296" y2="190"/>
+                <text class="fd-sub" x="170" y="115" text-anchor="middle" style="font-size:6px">blood</text>
+                <line class="fd-axis" x1="198" y1="112" x2="226" y2="124"/>
+                <text class="fd-sub" x="229" y="127" text-anchor="start" style="font-size:6.5px">endothelial cell</text>
+                <line class="fd-axis" x1="222" y1="90" x2="240" y2="76"/>
+                <text class="fd-sub" x="243" y="76" text-anchor="start" style="font-size:6.5px">pericyte</text>
+                <line class="fd-axis" x1="170" y1="149" x2="170" y2="170"/>
+                <text class="fd-sub" x="170" y="180" text-anchor="middle" style="font-size:6.5px">basement membrane</text>
+                <line class="fd-axis" x1="140" y1="142" x2="122" y2="156"/>
+                <text class="fd-sub" x="120" y="164" text-anchor="end" style="font-size:6.5px">astrocyte end-feet</text>
+                <text class="fd-sub" x="80" y="34" text-anchor="middle" style="font-size:6.5px">astrocyte</text>
+                <text class="fd-sub" x="268" y="192" text-anchor="middle" style="font-size:6.5px">neuron</text>
+                <text class="fd-label" x="170" y="214" text-anchor="middle" style="font-size:7px">One capillary and the cells that care for it</text>
+                </svg>
+                </div>
+
+                <p>
+                    Endothelial cells form a ring around the open channel. A thin basement membrane wraps them, pericytes sit within it, and astrocyte end-feet surround the outside.
+                </p>
+
+                <div class="module-takeaway">
+
+                    The barrier is built in layers.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE REST OF THE TEAM
+                </p>
+
+                <h1>
+                    Neighbors that join in
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Neurons</strong>
+                        <span>When they become active, they signal nearby vessels to adjust blood flow</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Microglia</strong>
+                        <span>The brain's resident immune cells, which respond to injury and infection</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Basement membrane</strong>
+                        <span>A thin sheet of proteins such as collagen IV and laminin that anchors the cells</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Brain activity and blood supply are linked through this unit.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CROSSTALK
+                </p>
+
+                <h1>
+                    The cells teach each other
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            📣
+                        </div>
+
+                        <h3>Signals</h3>
+
+                        <p>
+                            Astrocytes and pericytes send chemical signals that tighten endothelial junctions
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔧
+                        </div>
+
+                        <h3>Maintenance</h3>
+
+                        <p>
+                            In mice lacking pericytes, the barrier becomes leakier
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔁
+                        </div>
+
+                        <h3>Two-way</h3>
+
+                        <p>
+                            Endothelial cells signal back and help shape the cells beside them
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    A tight barrier is maintained by conversation, not built once and left alone.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHY IT MATTERS FOR MODELS
+                </p>
+
+                <h1>
+                    Endothelium alone is not enough
+                </h1>
+
+                <p>
+                    Endothelial cells grown by themselves usually make a weaker barrier than the one in the body. That is why many models add astrocytes, pericytes, or both, and why the best ones try to recreate the whole neighborhood.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A good model rebuilds the neighborhood, not just the wall.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 2 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    ⭐
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've met the cells around a brain capillary and seen why a model needs more than one cell type.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeBbbUnit2Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeBbbUnit2Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathBbbUnit2StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathBbbUnit2StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "bbb-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>What Is an Organ-on-a-Chip? | Fab Path</title>
+    <meta name="description" content="What Is an Organ-on-a-Chip?: illustrated study slides from the Blood-Brain Barrier on a Chip course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/bbbunit9.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="What Is an Organ-on-a-Chip? | Fab Path">
+    <meta property="og:description" content="What Is an Organ-on-a-Chip?: illustrated study slides from the Blood-Brain Barrier on a Chip course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="bbb-learn.html">Learn</a>
+            <a href="bbb-games.html">Games</a>
+            <a href="bbb-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="bbb-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    THE IDEA
+                </p>
+
+                <h1>
+                    A tissue on a slide
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A syringe pump pushes culture medium through a tube into a small chip containing a channel lined with living cells, and the fluid leaves through an outlet into a waste reservoir">
+                <rect class="fd-metal" x="20" y="92" width="52" height="30" rx="3"/>
+                <line style="stroke:var(--text);stroke-width:2" x1="72" y1="107" x2="88" y2="107"/>
+                <text class="fd-sub" x="46" y="140" text-anchor="middle" style="font-size:7px">pump</text>
+                <line class="fd-axis" x1="88" y1="107" x2="117.0" y2="107.0"/><g class="fd-arrow"><polygon points="126,107 117.0,111.0 117.0,103.0"/></g>
+                <rect class="fd-p" x="126" y="64" width="110" height="86" rx="6"/>
+                <rect style="fill:var(--accent);stroke:none;opacity:.55" x="132" y="102" width="98" height="10"/>
+                <text class="fd-label" x="181" y="90" text-anchor="middle" style="font-size:8px">chip</text>
+                <text class="fd-sub" x="181" y="134" text-anchor="middle" style="font-size:6.5px">cells line the channel</text>
+                <line class="fd-axis" x1="236" y1="107" x2="261.0" y2="107.0"/><g class="fd-arrow"><polygon points="270,107 261.0,111.0 261.0,103.0"/></g>
+                <rect class="fd-ox" x="270" y="94" width="42" height="26" rx="3"/>
+                <text class="fd-sub" x="291" y="140" text-anchor="middle" style="font-size:7px">waste</text>
+                <text class="fd-label" x="170" y="196" text-anchor="middle" style="font-size:7px">Medium flows through a channel lined with living human cells</text>
+                </svg>
+                </div>
+
+                <p>
+                    An organ-on-a-chip is a small device, often about the size of a microscope slide or smaller. Tiny channels hold living human cells, and fluid flows through them to recreate one key function of an organ.
+                </p>
+
+                <div class="module-takeaway">
+
+                    It borrows the tools of microfabrication to build a living model.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    A SHORT HISTORY
+                </p>
+
+                <h1>
+                    From lungs to brains
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>2010</strong>
+                        <span>A lung-on-a-chip from Donald Ingber's lab at Harvard's Wyss Institute helped launch the field</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>2012</strong>
+                        <span>Early microfluidic models of the blood-brain barrier began to appear</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Today</strong>
+                        <span>Chips model many organs, and companies such as Emulate and MIMETAS sell platforms</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The field is young, and still rapidly changing.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHAT CHIPS ADD
+                </p>
+
+                <h1>
+                    Features a dish cannot offer
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🌊
+                        </div>
+
+                        <h3>Flow</h3>
+
+                        <p>
+                            Fluid moves past the cells, as blood does
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            💪
+                        </div>
+
+                        <h3>Forces</h3>
+
+                        <p>
+                            Cells feel shear stress, and some chips add stretch
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧫
+                        </div>
+
+                        <h3>Interfaces</h3>
+
+                        <p>
+                            Different tissues sit face to face across a thin barrier
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            💧
+                        </div>
+
+                        <h3>Small volumes</h3>
+
+                        <p>
+                            Tiny amounts of cells, medium, and drug are enough
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    A chip rebuilds a tissue's surroundings, not just its cells.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    A GOOD FIT
+                </p>
+
+                <h1>
+                    Why a barrier suits a chip
+                </h1>
+
+                <p>
+                    A barrier is a thin layer between two fluids with different jobs, blood on one side and brain on the other. That layout is exactly what two microchannels and a membrane can build.
+                </p>
+
+                <div class="module-takeaway">
+
+                    The blood-brain barrier is one of the most natural organs to put on a chip.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    BE HONEST ABOUT IT
+                </p>
+
+                <h1>
+                    One function, not a whole organ
+                </h1>
+
+                <p>
+                    A chip is not a tiny brain. It reproduces selected features of a tissue so they can be studied and measured. How well it does that is the question the rest of this course keeps asking.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A chip is a model, and every model has to earn trust.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 9 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🔬
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've seen what an organ-on-a-chip is made of, where the idea came from, and what it does not claim to be.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeBbbUnit9Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeBbbUnit9Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathBbbUnit9StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathBbbUnit9StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "bbb-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

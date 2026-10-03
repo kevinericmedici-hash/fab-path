@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Limits, Validation, and What's Next | Fab Path</title>
+    <meta name="description" content="Limits, Validation, and What's Next: illustrated study slides from the Blood-Brain Barrier on a Chip course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/bbbunit17.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Limits, Validation, and What's Next | Fab Path">
+    <meta property="og:description" content="Limits, Validation, and What's Next: illustrated study slides from the Blood-Brain Barrier on a Chip course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="bbb-learn.html">Learn</a>
+            <a href="bbb-games.html">Games</a>
+            <a href="bbb-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="bbb-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    HONEST LIMITS
+                </p>
+
+                <h1>
+                    Where chips still fall short
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🎲
+                        </div>
+
+                        <h3>Variability</h3>
+
+                        <p>
+                            Cell lines, protocols, and labs differ, so results do not always match
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            📉
+                        </div>
+
+                        <h3>Maturity</h3>
+
+                        <p>
+                            TEER in many models is still below that in the body
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧩
+                        </div>
+
+                        <h3>Missing parts</h3>
+
+                        <p>
+                            Many chips lack neurons, immune cells, or the brain's own fluid dynamics
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧽
+                        </div>
+
+                        <h3>Materials</h3>
+
+                        <p>
+                            PDMS can absorb some drugs, which skews the numbers
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Knowing the limits is part of using the tool well.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    A SCORECARD
+                </p>
+
+                <h1>
+                    Four models side by side
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A grid comparing four models on human cells, flow, throughput and whole-body effects: a dish and a Transwell have human cells and high throughput but no flow; a chip has human cells and flow with partial throughput; an animal has flow and whole-body effects but not human cells or high throughput">
+                <text class="fd-sub" x="140" y="48" text-anchor="middle" style="font-size:6.5px">human</text><text class="fd-sub" x="140" y="56" text-anchor="middle" style="font-size:6.5px">cells</text>
+                <text class="fd-sub" x="190" y="52" text-anchor="middle" style="font-size:6.5px">flow</text>
+                <text class="fd-sub" x="240" y="48" text-anchor="middle" style="font-size:6.5px">high</text><text class="fd-sub" x="240" y="56" text-anchor="middle" style="font-size:6.5px">throughput</text>
+                <text class="fd-sub" x="290" y="48" text-anchor="middle" style="font-size:6.5px">whole</text><text class="fd-sub" x="290" y="56" text-anchor="middle" style="font-size:6.5px">body</text>
+                <text class="fd-sub" x="100" y="85" text-anchor="end" style="font-size:7.5px">dish</text><circle cx="140" cy="82" r="7" style="fill:var(--accent);stroke:none"/><circle cx="190" cy="82" r="7" style="fill:none;stroke:var(--text);stroke-width:1;opacity:.5"/><circle cx="240" cy="82" r="7" style="fill:var(--accent);stroke:none"/><circle cx="290" cy="82" r="7" style="fill:none;stroke:var(--text);stroke-width:1;opacity:.5"/>
+                <text class="fd-sub" x="100" y="113" text-anchor="end" style="font-size:7.5px">Transwell</text><circle cx="140" cy="110" r="7" style="fill:var(--accent);stroke:none"/><circle cx="190" cy="110" r="7" style="fill:none;stroke:var(--text);stroke-width:1;opacity:.5"/><circle cx="240" cy="110" r="7" style="fill:var(--accent);stroke:none"/><circle cx="290" cy="110" r="7" style="fill:none;stroke:var(--text);stroke-width:1;opacity:.5"/>
+                <text class="fd-sub" x="100" y="141" text-anchor="end" style="font-size:7.5px">chip</text><circle cx="140" cy="138" r="7" style="fill:var(--accent);stroke:none"/><circle cx="190" cy="138" r="7" style="fill:var(--accent);stroke:none"/><circle cx="240" cy="138" r="7" style="fill:var(--accent);stroke:var(--accent);stroke-width:1;opacity:.4"/><circle cx="290" cy="138" r="7" style="fill:none;stroke:var(--text);stroke-width:1;opacity:.5"/>
+                <text class="fd-sub" x="100" y="169" text-anchor="end" style="font-size:7.5px">animal</text><circle cx="140" cy="166" r="7" style="fill:none;stroke:var(--text);stroke-width:1;opacity:.5"/><circle cx="190" cy="166" r="7" style="fill:var(--accent);stroke:none"/><circle cx="240" cy="166" r="7" style="fill:none;stroke:var(--text);stroke-width:1;opacity:.5"/><circle cx="290" cy="166" r="7" style="fill:var(--accent);stroke:none"/>
+                <circle cx="102" cy="198" r="4" style="fill:var(--accent);stroke:none"/><text class="fd-sub" x="110" y="201" text-anchor="start" style="font-size:6.5px">yes</text>
+                <circle cx="152" cy="198" r="4" style="fill:var(--accent);opacity:.4;stroke:none"/><text class="fd-sub" x="160" y="201" text-anchor="start" style="font-size:6.5px">partly</text>
+                <circle cx="212" cy="198" r="4" style="fill:none;stroke:var(--text);opacity:.5"/><text class="fd-sub" x="220" y="201" text-anchor="start" style="font-size:6.5px">no</text>
+                </svg>
+                </div>
+
+                <p>
+                    Chips combine human cells and flow at moderate throughput. They do not capture whole-body effects, which only an animal or human can.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Each model answers different questions, so they work best as a team.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    VALIDATION
+                </p>
+
+                <h1>
+                    Does the model predict reality?
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Benchmarks</strong>
+                        <span>Test drugs with known behavior in people and check the ranking</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Comparison</strong>
+                        <span>Match results with brain-to-plasma ratios of unbound drug, written K<sub>p,uu</sub>, from animal or clinical data</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Reproducibility</strong>
+                        <span>Repeat across batches, operators, and labs</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Standards</strong>
+                        <span>Agree on how to build and report so results can be compared</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    A model earns trust by being right about things we already know.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHAT'S NEXT
+                </p>
+
+                <h1>
+                    Where the field is heading
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔗
+                        </div>
+
+                        <h3>Multi-organ</h3>
+
+                        <p>
+                            Linking a barrier chip to gut or liver chips to follow a drug through the body
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🤖
+                        </div>
+
+                        <h3>Automation</h3>
+
+                        <p>
+                            Higher throughput and standard formats that fit lab robots
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🏛️
+                        </div>
+
+                        <h3>Regulation</h3>
+
+                        <p>
+                            In 2025 the U.S. FDA announced a plan to reduce animal testing, starting with some antibody drugs, and to encourage new methods such as organ-chips
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The tools are maturing, and the standards are catching up.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    BEFORE YOU BELIEVE IT
+                </p>
+
+                <h1>
+                    Questions to ask of any chip claim
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Which cells?</strong>
+                        <span>Primary, immortalized, or stem-cell derived, and which support cells</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>What numbers?</strong>
+                        <span>TEER and tracer leakage, and how they were measured</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Which benchmarks?</strong>
+                        <span>Known drugs that cross and drugs that do not</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>How often?</strong>
+                        <span>How many batches and labs got the same result</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    A chip is only as good as its validation, and you now know the questions to ask.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 17 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🧭
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've finished the course. You can now weigh a barrier-chip claim by asking how it was built and checked.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeBbbUnit17Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeBbbUnit17Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathBbbUnit17StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathBbbUnit17StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "bbb-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

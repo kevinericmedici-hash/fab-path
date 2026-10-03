@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Which Generation? | Fab Path</title>
+    <meta name="description" content="Which Generation?: a hands-on game from the Glucose Sensors course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/glu-game2.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Which Generation? | Fab Path">
+    <meta property="og:description" content="Which Generation?: a hands-on game from the Glucose Sensors course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="glu-learn.html">Learn</a>
+            <a href="glu-games.html" class="active-nav">Games</a>
+            <a href="glu-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+    <main class="game-page">
+
+        <section class="game-shell">
+
+            <div class="game-top">
+
+                <a href="glu-games.html" class="module-exit">
+                    ← Back to Games
+                </a>
+
+                <div class="module-progress-area">
+
+                    <div class="module-progress-track">
+                        <div
+                            class="module-progress-fill"
+                            id="gameProgressFill"
+                        ></div>
+                    </div>
+
+                    <span id="gameProgressText">
+                        0 / 0
+                    </span>
+
+                </div>
+
+                <span class="game-badge">
+                    PART 2 GAME
+                </span>
+
+            </div>
+
+
+            <div class="game-header">
+
+                <p class="eyebrow">
+                    WHICH GENERATION?
+                </p>
+
+                <h1>
+                    How do the electrons get out?
+                </h1>
+
+                <p class="game-lead">
+                    Every enzyme sensor must move electrons from the enzyme to an electrode. Sort each fact by the generation of design it describes.
+                </p>
+
+            </div>
+
+
+            <div id="gameBoard">
+
+                <div class="equipment-card" id="equipmentCard">
+
+                    <div class="equipment-icon" id="equipmentIcon">
+                    </div>
+
+                    <h2 class="equipment-name" id="equipmentName">
+                        Loading...
+                    </h2>
+
+                    <p class="equipment-desc" id="equipmentDesc">
+                    </p>
+
+                </div>
+
+
+                <div class="category-grid" id="categoryGrid">
+                </div>
+
+                <div class="game-feedback" id="gameFeedback">
+                    Loading...
+                </div>
+
+            </div>
+
+
+            <div id="gameComplete" class="game-complete" hidden>
+
+                <p class="eyebrow">
+                    CHALLENGE COMPLETE
+                </p>
+
+                <h2>
+                    ⚙️ You can tell the generations apart
+                </h2>
+
+                <p class="game-complete-xp" id="gameCompleteXP">
+                    +45 XP
+                </p>
+
+                <p class="game-complete-lead" id="gameCompleteStats">
+                </p>
+
+                <p class="game-complete-lead">
+                    First generation uses oxygen and peroxide, second uses a mediator, and third passes electrons straight to the electrode.
+                </p>
+
+                <div class="game-recap" id="gameRecap">
+                </div>
+
+                <div class="game-complete-actions">
+
+                    <button
+                        type="button"
+                        class="module-nav-button secondary-button"
+                        id="playAgainButton"
+                    >
+                        Play Again
+                    </button>
+
+                    <a
+                        href="glu-games.html"
+                        class="module-nav-button lesson-link"
+                        id="backToPathButton"
+                    >
+                        Back to Games
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+    <script src="supercap-game-common.js"></script>
+    <script src="supercap-game-sort.js"></script>
+    <script src="glu-games-data.js"></script>
+
+    <script>
+
+        SCGames.startSort(gluGameData.generation);
+
+    </script>
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+
+</html>

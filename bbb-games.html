@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Games | Blood-Brain Barrier on a Chip | Fab Path</title>
+    <meta name="description" content="Hands-on games for the Blood-Brain Barrier on a Chip course on Fab Path: crossing routes, Transwells, shear stress, chips, and cells.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/bbb-games.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Games | Blood-Brain Barrier on a Chip | Fab Path">
+    <meta property="og:description" content="Hands-on games for the Blood-Brain Barrier on a Chip course on Fab Path: crossing routes, Transwells, shear stress, chips, and cells.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="bbb-learn.html">Learn</a>
+            <a href="bbb-games.html" class="active-nav">Games</a>
+            <a href="bbb-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+    <main class="games-page">
+
+        <div class="games-header">
+
+            <p class="eyebrow">
+                BLOOD-BRAIN BARRIER ON A CHIP GAMES
+            </p>
+
+            <h1>
+                Play &amp; learn
+            </h1>
+
+            <p>
+                Every part gets its own hands-on game. Jump into any of them, any time.
+            </p>
+
+        </div>
+
+
+        <div class="games-grid" id="bbbGamesGrid">
+
+            <a
+                href="bbb-game1.html"
+                class="game-hub-card playable lesson-link"
+                id="bbbGame1Card"
+            >
+                <span class="game-hub-badge" id="bbbGame1Badge">
+                    PLAY
+                </span>
+
+                <div class="game-hub-icon">
+                    🚪
+                </div>
+
+                <h3>How Does It Cross?</h3>
+
+                <p>
+                    Part 1 · Sort molecules by the route they take across the barrier, or the pump that sends them back.
+                </p>
+
+                <span class="game-hub-cta" id="bbbGame1CTA">
+                    Play now →
+                </span>
+
+            </a>
+
+            <a
+                href="bbb-game2.html"
+                class="game-hub-card playable lesson-link"
+                id="bbbGame2Card"
+            >
+                <span class="game-hub-badge" id="bbbGame2Badge">
+                    PLAY
+                </span>
+
+                <div class="game-hub-icon">
+                    🧫
+                </div>
+
+                <h3>Build and Test a Transwell</h3>
+
+                <p>
+                    Part 2 · Set up the model, measure TEER, and run a tracer test in the right order.
+                </p>
+
+                <span class="game-hub-cta" id="bbbGame2CTA">
+                    Play now →
+                </span>
+
+            </a>
+
+            <a
+                href="bbb-game3.html"
+                class="game-hub-card playable lesson-link"
+                id="bbbGame3Card"
+            >
+                <span class="game-hub-badge" id="bbbGame3Badge">
+                    PLAY
+                </span>
+
+                <div class="game-hub-icon">
+                    🌊
+                </div>
+
+                <h3>Which Way Does Shear Move?</h3>
+
+                <p>
+                    Part 3 · Use τ = 6μQ ÷ (w h²) to decide whether a change raises, lowers, or keeps the shear stress.
+                </p>
+
+                <span class="game-hub-cta" id="bbbGame3CTA">
+                    Play now →
+                </span>
+
+            </a>
+
+            <a
+                href="bbb-game4.html"
+                class="game-hub-card playable lesson-link"
+                id="bbbGame4Card"
+            >
+                <span class="game-hub-badge" id="bbbGame4Badge">
+                    PLAY
+                </span>
+
+                <div class="game-hub-icon">
+                    🏭
+                </div>
+
+                <h3>Cast the Chip</h3>
+
+                <p>
+                    Part 3 · Make the master, mold the PDMS, then seal and seed the chip in the right order.
+                </p>
+
+                <span class="game-hub-cta" id="bbbGame4CTA">
+                    Play now →
+                </span>
+
+            </a>
+
+            <a
+                href="bbb-game5.html"
+                class="game-hub-card playable lesson-link"
+                id="bbbGame5Card"
+            >
+                <span class="game-hub-badge" id="bbbGame5Badge">
+                    PLAY
+                </span>
+
+                <div class="game-hub-icon">
+                    🌱
+                </div>
+
+                <h3>Which Cell Source?</h3>
+
+                <p>
+                    Part 4 · Sort facts into primary cells, immortalized lines, and stem-cell derived cells.
+                </p>
+
+                <span class="game-hub-cta" id="bbbGame5CTA">
+                    Play now →
+                </span>
+
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+    <script>
+
+        for (let n = 1; n <= 5; n++) {
+
+            let done = false;
+
+            try {
+                done = localStorage.getItem(
+                    `fabPathBbbGame${n}Complete`
+                ) === "true";
+            } catch (e) {
+                done = false;
+            }
+
+            if (!done) {
+                continue;
+            }
+
+            const badge = document.getElementById(`bbbGame${n}Badge`);
+            const cta = document.getElementById(`bbbGame${n}CTA`);
+
+            if (badge) {
+                badge.textContent = "✓ DONE";
+            }
+
+            if (cta) {
+                cta.textContent = "Play again →";
+            }
+        }
+
+    </script>
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+
+</html>

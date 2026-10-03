@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Games | Glucose Sensors | Fab Path</title>
+    <meta name="description" content="Hands-on games for the Glucose Sensors course on Fab Path: ranges, sensor generations, real CGMs, and manufacturing.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/glu-games.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Games | Glucose Sensors | Fab Path">
+    <meta property="og:description" content="Hands-on games for the Glucose Sensors course on Fab Path: ranges, sensor generations, real CGMs, and manufacturing.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="glu-learn.html">Learn</a>
+            <a href="glu-games.html" class="active-nav">Games</a>
+            <a href="glu-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+    <main class="games-page">
+
+        <div class="games-header">
+
+            <p class="eyebrow">
+                GLUCOSE SENSORS GAMES
+            </p>
+
+            <h1>
+                Play &amp; learn
+            </h1>
+
+            <p>
+                Every part gets its own hands-on game. Jump into any of them, any time.
+            </p>
+
+        </div>
+
+
+        <div class="games-grid" id="gluGamesGrid">
+
+            <a
+                href="glu-game1.html"
+                class="game-hub-card playable lesson-link"
+                id="gluGame1Card"
+            >
+                <span class="game-hub-badge" id="gluGame1Badge">
+                    PLAY
+                </span>
+
+                <div class="game-hub-icon">
+                    🩸
+                </div>
+
+                <h3>In Range or Not?</h3>
+
+                <p>
+                    Part 1 · Read a glucose value in mg/dL or mmol/L and decide whether it is low, in range, or high.
+                </p>
+
+                <span class="game-hub-cta" id="gluGame1CTA">
+                    Play now →
+                </span>
+
+            </a>
+
+            <a
+                href="glu-game2.html"
+                class="game-hub-card playable lesson-link"
+                id="gluGame2Card"
+            >
+                <span class="game-hub-badge" id="gluGame2Badge">
+                    PLAY
+                </span>
+
+                <div class="game-hub-icon">
+                    ⚙️
+                </div>
+
+                <h3>Which Generation?</h3>
+
+                <p>
+                    Part 2 · Sort sensor facts into first, second, and third generation enzyme wiring.
+                </p>
+
+                <span class="game-hub-cta" id="gluGame2CTA">
+                    Play now →
+                </span>
+
+            </a>
+
+            <a
+                href="glu-game3.html"
+                class="game-hub-card playable lesson-link"
+                id="gluGame3Card"
+            >
+                <span class="game-hub-badge" id="gluGame3Badge">
+                    PLAY
+                </span>
+
+                <div class="game-hub-icon">
+                    🔍
+                </div>
+
+                <h3>Whose Sensor?</h3>
+
+                <p>
+                    Part 3 · Match clues to Dexcom, FreeStyle Libre, Eversense, and Medtronic Guardian.
+                </p>
+
+                <span class="game-hub-cta" id="gluGame3CTA">
+                    Play now →
+                </span>
+
+            </a>
+
+            <a
+                href="glu-game4.html"
+                class="game-hub-card playable lesson-link"
+                id="gluGame4Card"
+            >
+                <span class="game-hub-badge" id="gluGame4Badge">
+                    PLAY
+                </span>
+
+                <div class="game-hub-icon">
+                    🏭
+                </div>
+
+                <h3>Make a Sensor</h3>
+
+                <p>
+                    Part 4 · Put the electrode, layer, and packaging steps in the right order.
+                </p>
+
+                <span class="game-hub-cta" id="gluGame4CTA">
+                    Play now →
+                </span>
+
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+    <script>
+
+        for (let n = 1; n <= 4; n++) {
+
+            let done = false;
+
+            try {
+                done = localStorage.getItem(
+                    `fabPathGluGame${n}Complete`
+                ) === "true";
+            } catch (e) {
+                done = false;
+            }
+
+            if (!done) {
+                continue;
+            }
+
+            const badge = document.getElementById(`gluGame${n}Badge`);
+            const cta = document.getElementById(`gluGame${n}CTA`);
+
+            if (badge) {
+                badge.textContent = "✓ DONE";
+            }
+
+            if (cta) {
+                cta.textContent = "Play again →";
+            }
+        }
+
+    </script>
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+
+</html>

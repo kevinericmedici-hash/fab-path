@@ -72,7 +72,9 @@ const coursesData = [
         description:
             "Organ-on-chip design, endothelial cell culture, microfluidic BBB models, and what they reveal about drug delivery to the brain.",
         icon: "🧠",
-        status: "coming-soon"
+        status: "live",
+        growing: false,
+        href: "bbb-learn.html"
     },
 
     {

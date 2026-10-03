@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Measuring a Barrier: TEER and Permeability | Fab Path</title>
+    <meta name="description" content="Measuring a Barrier: TEER and Permeability: illustrated study slides from the Blood-Brain Barrier on a Chip course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/bbbunit8.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Measuring a Barrier: TEER and Permeability | Fab Path">
+    <meta property="og:description" content="Measuring a Barrier: TEER and Permeability: illustrated study slides from the Blood-Brain Barrier on a Chip course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="bbb-learn.html">Learn</a>
+            <a href="bbb-games.html">Games</a>
+            <a href="bbb-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="bbb-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    IS IT A BARRIER?
+                </p>
+
+                <h1>
+                    TEER: resistance across the layer
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A cell layer separates two compartments; one electrode sits in each compartment and a meter measures how strongly the layer resists the small current passing through it">
+                <rect style="fill:rgba(255,105,120,.14);stroke:none" x="60" y="50" width="150" height="58"/>
+                <rect class="fd-p" style="stroke:none" x="60" y="116" width="150" height="54"/>
+                <rect style="fill:var(--accent);stroke:none" x="60" y="108" width="150" height="8"/>
+                <text class="fd-sub" x="135" y="98" text-anchor="middle" style="font-size:6.5px">top compartment</text>
+                <text class="fd-sub" x="135" y="162" text-anchor="middle" style="font-size:6.5px">bottom compartment</text>
+                <text class="fd-sub" x="56" y="115" text-anchor="end" style="font-size:6.5px">cell layer</text>
+                <line style="stroke:var(--text);stroke-width:2.5" x1="90" y1="38" x2="90" y2="82"/>
+                <line style="stroke:var(--text);stroke-width:2.5" x1="90" y1="140" x2="90" y2="184"/>
+                <path class="fd-axis" style="fill:none" d="M90,38 L90,28 L270,28 L270,86"/>
+                <path class="fd-axis" style="fill:none" d="M90,184 L90,196 L270,196 L270,134"/>
+                <circle class="fd-metal" cx="270" cy="110" r="24"/>
+                <text class="fd-label" x="270" y="117" text-anchor="middle" style="font-size:18px">Ω</text>
+                <line style="stroke:var(--accent);stroke-width:1.2;stroke-dasharray:3 2" x1="140" y1="70" x2="140" y2="150"/>
+                <line style="stroke:var(--accent);stroke-width:1.2;stroke-dasharray:3 2" x1="175" y1="70" x2="175" y2="150"/>
+                <text class="fd-accent" x="157" y="66" text-anchor="middle" style="font-size:6.5px">ion current</text>
+                <text class="fd-label" x="135" y="216" text-anchor="middle" style="font-size:7px">Tighter junctions mean more resistance</text>
+                </svg>
+                </div>
+
+                <p>
+                    Transendothelial electrical resistance, or TEER, passes a small alternating current across the cell layer. Tighter junctions make it harder for ions to cross, so the resistance goes up.
+                </p>
+
+                <div class="module-takeaway">
+
+                    TEER is fast, repeatable, and does not harm the cells.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE FORMULA
+                </p>
+
+                <h1>
+                    From ohms to ohm square centimeters
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    <span class="math-visual">TEER = (R<sub>cells</sub> − R<sub>blank</sub>) × A</span>
+                </div>
+
+                <p>
+                    R<sub>cells</sub> is the reading with cells, R<sub>blank</sub> is an empty insert with the same medium, and A is the membrane area in cm². Example: a 300 Ω reading with a 100 Ω blank on a 1.12 cm² insert gives (300 − 100) × 1.12 ≈ 224 Ω·cm².
+                </p>
+
+                <div class="module-takeaway">
+
+                    Multiplying by area makes results comparable across insert sizes.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHAT'S GOOD
+                </p>
+
+                <h1>
+                    Typical TEER values
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>In the body</strong>
+                        <span>Rodent brain vessels have been measured at about 1,500 Ω·cm² or more</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Immortalized lines</strong>
+                        <span>Common lines such as hCMEC/D3 usually stay below about 50 Ω·cm²</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Stem-cell derived</strong>
+                        <span>Some protocols report hundreds to a few thousand Ω·cm², and results vary widely between labs</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Higher is better, but the exact number depends on the method and the lab.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    PERMEABILITY
+                </p>
+
+                <h1>
+                    Do molecules leak through?
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    <span class="math-visual">P<sub>app</sub> = (dQ/dt) ÷ (A × C<sub>0</sub>)</span>
+                </div>
+
+                <p>
+                    Add a tracer such as sodium fluorescein, Lucifer yellow, or a fluorescent dextran to the top compartment, and sample the bottom over time. Q is the amount that crosses, A is the membrane area, and C<sub>0</sub> is the starting concentration on top. The result is in cm/s, and a tight barrier gives a low number.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Papp is a direct measure of how easily a molecule gets across.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    USE BOTH
+                </p>
+
+                <h1>
+                    Two views of the same barrier
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ⚡
+                        </div>
+
+                        <h3>TEER</h3>
+
+                        <p>
+                            Fast and repeatable, and it senses ion leak through the seal
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧪
+                        </div>
+
+                        <h3>Permeability</h3>
+
+                        <p>
+                            Direct, since it measures the actual molecules of interest crossing
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ✅
+                        </div>
+
+                        <h3>Together</h3>
+
+                        <p>
+                            A good model has high TEER and low tracer leak
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Reliable models are checked from more than one angle.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 8 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    📏
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've learned how electrical resistance and tracer leakage show whether a barrier is tight.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeBbbUnit8Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeBbbUnit8Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathBbbUnit8StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathBbbUnit8StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "bbb-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

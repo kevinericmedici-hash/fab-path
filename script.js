@@ -8131,6 +8131,15 @@ function loadProgressPage() {
             getGluAllLessons().length;
     }
 
+    if (typeof bbbCourseData !== "undefined") {
+
+        completedLessons +=
+            getBbbCompletedLessonCount();
+
+        totalLessons +=
+            getBbbAllLessons().length;
+    }
+
     if (typeof chipCourseData !== "undefined") {
 
         completedLessons +=
@@ -8333,6 +8342,24 @@ function loadIndexPage() {
 
                 const completedLessons =
                     getGluCompletedLessonCount();
+
+                percent =
+                    totalLessons === 0
+                        ? 0
+                        : Math.round(
+                            (completedLessons / totalLessons) * 100
+                        );
+
+            } else if (
+                course.id === "bbb-chip" &&
+                typeof bbbCourseData !== "undefined"
+            ) {
+
+                const totalLessons =
+                    getBbbAllLessons().length;
+
+                const completedLessons =
+                    getBbbCompletedLessonCount();
 
                 percent =
                     totalLessons === 0
