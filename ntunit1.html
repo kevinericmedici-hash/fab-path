@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>How Neurons Signal | Fab Path</title>
+    <meta name="description" content="How Neurons Signal: illustrated study slides from the Neurotransmitters course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/ntunit1.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="How Neurons Signal | Fab Path">
+    <meta property="og:description" content="How Neurons Signal: illustrated study slides from the Neurotransmitters course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="nt-learn.html">Learn</a>
+            <a href="nt-games.html">Games</a>
+            <a href="nt-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="nt-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    THE CELL
+                </p>
+
+                <h1>
+                    A neuron is built to pass messages
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            📥
+                        </div>
+
+                        <h3>Dendrites</h3>
+
+                        <p>
+                            Branches that receive signals from other neurons
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧠
+                        </div>
+
+                        <h3>Cell body</h3>
+
+                        <p>
+                            Holds the nucleus and adds up the incoming signals
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔌
+                        </div>
+
+                        <h3>Axon</h3>
+
+                        <p>
+                            A long fiber that carries the signal away
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            📤
+                        </div>
+
+                        <h3>Terminals</h3>
+
+                        <p>
+                            Endings that pass the signal to the next cell
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Inputs in on one side, output at the other.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE LAYOUT
+                </p>
+
+                <h1>
+                    Receive, carry, pass on
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A neuron drawn left to right: branching dendrites and a cell body on the left receive input, a long axon wrapped in myelin segments carries the signal, and axon terminals at the right end pass it on">
+                <line style="stroke:var(--text);stroke-width:1.4;opacity:.75" x1="62" y1="98" x2="30" y2="66"/><line style="stroke:var(--text);stroke-width:1.4;opacity:.75" x1="62" y1="106" x2="26" y2="110"/><line style="stroke:var(--text);stroke-width:1.4;opacity:.75" x1="62" y1="120" x2="34" y2="150"/><line style="stroke:var(--text);stroke-width:1.4;opacity:.75" x1="48" y1="82" x2="40" y2="62"/><line style="stroke:var(--text);stroke-width:1.4;opacity:.75" x1="48" y1="82" x2="22" y2="80"/>
+                <circle class="fd-metal" cx="80" cy="110" r="22"/>
+                <line style="stroke:var(--text);stroke-width:2.4;opacity:.75" x1="102" y1="110" x2="250" y2="110"/>
+                <rect class="fd-n" x="118" y="102" width="34" height="16" rx="6"/>
+                <rect class="fd-n" x="164" y="102" width="34" height="16" rx="6"/>
+                <rect class="fd-n" x="210" y="102" width="34" height="16" rx="6"/>
+                <line style="stroke:var(--text);stroke-width:1.4;opacity:.75" x1="250" y1="110" x2="290" y2="84"/><line style="stroke:var(--text);stroke-width:1.4;opacity:.75" x1="250" y1="110" x2="292" y2="110"/><line style="stroke:var(--text);stroke-width:1.4;opacity:.75" x1="250" y1="110" x2="290" y2="138"/>
+                <circle class="fd-ox" cx="293" cy="82" r="5"/>
+                <circle class="fd-ox" cx="296" cy="110" r="5"/>
+                <circle class="fd-ox" cx="293" cy="140" r="5"/>
+                <text class="fd-sub" x="36" y="52" text-anchor="middle" style="font-size:6.5px">dendrites</text>
+                <text class="fd-sub" x="80" y="150" text-anchor="middle" style="font-size:6.5px">cell body</text>
+                <text class="fd-sub" x="181" y="90" text-anchor="middle" style="font-size:6.5px">axon wrapped in myelin</text>
+                <text class="fd-sub" x="286" y="168" text-anchor="middle" style="font-size:6.5px">axon terminals</text>
+                <text class="fd-label" x="36" y="190" text-anchor="middle" style="font-size:7px">input</text>
+                <text class="fd-label" x="181" y="190" text-anchor="middle" style="font-size:7px">signal travels</text>
+                <text class="fd-label" x="290" y="190" text-anchor="middle" style="font-size:7px">output</text>
+                </svg>
+                </div>
+
+                <p>
+                    Many axons are wrapped in segments of myelin, a fatty insulating layer that speeds the signal along.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Shape follows function.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    TWO LANGUAGES
+                </p>
+
+                <h1>
+                    Electrical inside, chemical between
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Inside a neuron</strong>
+                        <span>The signal travels as a brief electrical pulse called an action potential</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Between neurons</strong>
+                        <span>At most connections, chemicals called neurotransmitters cross a tiny gap</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Why both</strong>
+                        <span>Electricity is fast over long distances, and chemistry allows many kinds of messages and fine adjustment</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The synapse is where electricity turns into chemistry.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SCALE
+                </p>
+
+                <h1>
+                    A very large network
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Neurons</strong>
+                        <span>A human brain has roughly 86 billion</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Connections</strong>
+                        <span>Each neuron can receive thousands of synapses</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Speed</strong>
+                        <span>Signals in the fastest myelinated axons reach about 100 meters per second</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Trillions of chemical handoffs happen every second.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHY THIS COURSE
+                </p>
+
+                <h1>
+                    The chemistry is where things happen
+                </h1>
+
+                <p>
+                    Many drugs, diseases, and sensors act at the chemical handoff. Understanding the messengers explains how medicines work and why measuring them is one of the hardest problems in neuroscience.
+                </p>
+
+                <div class="module-takeaway">
+
+                    To study the brain's messages, you study its molecules.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 1 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🧠
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've covered the parts of a neuron and why a signal changes from electrical to chemical between cells.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeNtUnit1Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeNtUnit1Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathNtUnit1StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathNtUnit1StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "nt-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

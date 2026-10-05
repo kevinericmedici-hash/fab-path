@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Microdialysis | Fab Path</title>
+    <meta name="description" content="Microdialysis: illustrated study slides from the Neurotransmitters course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/ntunit15.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Microdialysis | Fab Path">
+    <meta property="og:description" content="Microdialysis: illustrated study slides from the Neurotransmitters course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="nt-learn.html">Learn</a>
+            <a href="nt-games.html">Games</a>
+            <a href="nt-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="nt-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    THE IDEA
+                </p>
+
+                <h1>
+                    A tiny tube with a porous tip
+                </h1>
+
+                <p>
+                    A microdialysis probe is a thin tube with a semipermeable membrane at its tip, implanted in tissue. A pump slowly pushes fluid through it. Small molecules in the tissue diffuse across the membrane into the fluid, which is collected.
+                </p>
+
+                <div class="module-takeaway">
+
+                    It is a way to sample the fluid around cells without removing tissue.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE SETUP
+                </p>
+
+                <h1>
+                    Pump, probe, vial, analyzer
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="Microdialysis: a pump sends fluid down a thin probe whose tip has a porous membrane implanted in tissue; neurotransmitter molecules diffuse in through the membrane, and the fluid is collected in a vial and analyzed">
+                <rect class="fd-metal" x="20" y="44" width="46" height="30" rx="3"/>
+                <text class="fd-sub" x="43" y="62" text-anchor="middle" style="font-size:7px">pump</text>
+                <path class="fd-axis" style="fill:none" d="M66,59 L116,59 L116,128"/>
+                <path class="fd-axis" style="fill:none" d="M134,128 L134,59 L194,59"/>
+                <rect class="fd-p" x="80" y="104" width="116" height="66" rx="6"/>
+                <text class="fd-sub" x="138" y="164" text-anchor="middle" style="font-size:6.5px">tissue</text>
+                <rect style="fill:none;stroke:var(--accent);stroke-width:2;stroke-dasharray:3 2" x="112" y="120" width="26" height="30" rx="4"/>
+                <g style="fill:rgba(255,214,102,.9);stroke:none"><circle cx="96" cy="128" r="2.2"/><circle cx="92" cy="142" r="2.2"/><circle cx="150" cy="132" r="2.2"/><circle cx="154" cy="146" r="2.2"/></g>
+                <line class="fd-axis" x1="98" y1="135" x2="102.0" y2="135.0"/><g class="fd-arrow"><polygon points="111,135 102.0,139.0 102.0,131.0"/></g>
+                <line class="fd-axis" x1="152" y1="139" x2="149.0" y2="139.0"/><g class="fd-arrow"><polygon points="140,139 149.0,135.0 149.0,143.0"/></g>
+                <text class="fd-sub" x="214" y="128" text-anchor="start" style="font-size:6.5px">porous</text><text class="fd-sub" x="214" y="137" text-anchor="start" style="font-size:6.5px">membrane tip</text>
+                <rect class="fd-n" x="194" y="46" width="30" height="40" rx="4"/>
+                <text class="fd-sub" x="209" y="99" text-anchor="middle" style="font-size:6.5px">vial</text>
+                <line class="fd-axis" x1="226" y1="66" x2="253.0" y2="66.0"/><g class="fd-arrow"><polygon points="262,66 253.0,70.0 253.0,62.0"/></g>
+                <rect class="fd-ox" x="264" y="44" width="56" height="40" rx="4"/>
+                <text class="fd-label" x="292" y="62" text-anchor="middle" style="font-size:7.5px">HPLC</text><text class="fd-sub" x="292" y="73" text-anchor="middle" style="font-size:6.5px">analysis</text>
+                <text class="fd-label" x="170" y="198" text-anchor="middle" style="font-size:7px">Molecules diffuse into a slowly flowing stream</text>
+                </svg>
+                </div>
+
+                <p>
+                    The fluid leaves the probe carrying a sample of whatever could cross the membrane.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Diffusion does the sampling, and a separate instrument does the measuring.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    ANALYSIS
+                </p>
+
+                <h1>
+                    The measuring happens elsewhere
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>HPLC</strong>
+                        <span>High-performance liquid chromatography separates the molecules in each sample</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Detection</strong>
+                        <span>Electrochemical or mass spectrometry detection then measures each one</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Flow</strong>
+                        <span>Typical flow rates are about 0.5 to 2 microliters per minute</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    One sample can reveal many different molecules.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    TRADE-OFFS
+                </p>
+
+                <h1>
+                    Broad, but slow
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ✅
+                        </div>
+
+                        <h3>Strengths</h3>
+
+                        <p>
+                            Measures many molecules from one sample, including glutamate and GABA, and works in living animals
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ⏳
+                        </div>
+
+                        <h3>Time resolution</h3>
+
+                        <p>
+                            Samples usually cover one to several minutes, far slower than release events
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            📏
+                        </div>
+
+                        <h3>Size</h3>
+
+                        <p>
+                            Probes are hundreds of micrometers across, so they disturb tissue more than a microelectrode
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    It sees the baseline well, but not the bursts.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CALIBRATION
+                </p>
+
+                <h1>
+                    Recovery is not 100%
+                </h1>
+
+                <p>
+                    Only a fraction of the true concentration ends up in the collected fluid, called the relative recovery. Slower flow gives molecules more time to cross, so recovery is higher. Experimenters calibrate recovery so they can estimate the true level in the tissue.
+                </p>
+
+                <div class="module-takeaway">
+
+                    The sample is a diluted copy of the tissue.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 15 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🧪
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've seen how microdialysis collects samples from living tissue and what limits its speed.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeNtUnit15Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeNtUnit15Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathNtUnit15StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathNtUnit15StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "nt-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

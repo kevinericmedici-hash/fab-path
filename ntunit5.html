@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meet the Messengers | Fab Path</title>
+    <meta name="description" content="Meet the Messengers: illustrated study slides from the Neurotransmitters course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/ntunit5.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Meet the Messengers | Fab Path">
+    <meta property="og:description" content="Meet the Messengers: illustrated study slides from the Neurotransmitters course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="nt-learn.html">Learn</a>
+            <a href="nt-games.html">Games</a>
+            <a href="nt-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="nt-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    SIX BIG NAMES
+                </p>
+
+                <h1>
+                    The messengers you will see most
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔥
+                        </div>
+
+                        <h3>Glutamate</h3>
+
+                        <p>
+                            The main excitatory transmitter
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧊
+                        </div>
+
+                        <h3>GABA</h3>
+
+                        <p>
+                            The main inhibitory transmitter
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🎯
+                        </div>
+
+                        <h3>Dopamine</h3>
+
+                        <p>
+                            Reward, motivation, and movement
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🌙
+                        </div>
+
+                        <h3>Serotonin</h3>
+
+                        <p>
+                            Mood, sleep, and appetite
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            💪
+                        </div>
+
+                        <h3>Acetylcholine</h3>
+
+                        <p>
+                            Muscle control, attention, and memory
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ⚡
+                        </div>
+
+                        <h3>Norepinephrine</h3>
+
+                        <p>
+                            Alertness and the stress response
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    A handful of molecules carry a huge share of the brain's messages.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    FAMILIES
+                </p>
+
+                <h1>
+                    Grouped by chemistry
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Amino acids</strong>
+                        <span>Glutamate, GABA, and glycine</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Monoamines</strong>
+                        <span>Dopamine, serotonin, and norepinephrine, made from amino acids</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Choline-based</strong>
+                        <span>Acetylcholine</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Others</strong>
+                        <span>Larger neuropeptides such as endorphins, and gases such as nitric oxide</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Chemistry tells you how a transmitter is made and cleared.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SIZE
+                </p>
+
+                <h1>
+                    All small molecules
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A bar chart of molecular weight in daltons: GABA about 103, acetylcholine about 146, glutamate about 147, dopamine about 153 and serotonin about 176, all below a dashed line at 200 daltons">
+                <text class="fd-label" x="170" y="30" text-anchor="middle" style="font-size:8px">Molecular weight (daltons)</text>
+                <text class="fd-sub" x="104" y="64" text-anchor="end" style="font-size:7px">GABA</text><rect class="fd-n" x="110" y="52" width="82.4" height="18" rx="3"/><text class="fd-sub" x="187.4" y="64" text-anchor="end" style="font-size:7px">~103</text>
+                <text class="fd-sub" x="104" y="90" text-anchor="end" style="font-size:7px">acetylcholine</text><rect class="fd-ox" x="110" y="78" width="116.80000000000001" height="18" rx="3"/><text class="fd-sub" x="221.8" y="90" text-anchor="end" style="font-size:7px">~146</text>
+                <text class="fd-sub" x="104" y="116" text-anchor="end" style="font-size:7px">glutamate</text><rect class="fd-n" x="110" y="104" width="117.60000000000001" height="18" rx="3"/><text class="fd-sub" x="222.60000000000002" y="116" text-anchor="end" style="font-size:7px">~147</text>
+                <text class="fd-sub" x="104" y="142" text-anchor="end" style="font-size:7px">dopamine</text><rect class="fd-ox" x="110" y="130" width="122.4" height="18" rx="3"/><text class="fd-sub" x="227.4" y="142" text-anchor="end" style="font-size:7px">~153</text>
+                <text class="fd-sub" x="104" y="168" text-anchor="end" style="font-size:7px">serotonin</text><rect class="fd-ox" x="110" y="156" width="140.8" height="18" rx="3"/><text class="fd-sub" x="245.8" y="168" text-anchor="end" style="font-size:7px">~176</text>
+                <line style="stroke:var(--accent);stroke-width:1.2;stroke-dasharray:3 3" x1="270" y1="44" x2="270" y2="182"/>
+                <text class="fd-accent" x="270" y="194" text-anchor="middle" style="font-size:7px">200</text>
+                <text class="fd-sub" x="170" y="212" text-anchor="middle" style="font-size:6.5px">Every main transmitter is a small molecule</text>
+                </svg>
+                </div>
+
+                <p>
+                    For comparison, an antibody is about 150,000 daltons.
+                </p>
+
+                <div class="module-takeaway">
+
+                    All are under 200 daltons, tiny compared with a protein.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CHARGE
+                </p>
+
+                <h1>
+                    Charge decides how they behave
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ➕
+                        </div>
+
+                        <h3>Positive</h3>
+
+                        <p>
+                            Dopamine, serotonin, and norepinephrine carry a positive charge at body pH. Acetylcholine is permanently positive
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ➖
+                        </div>
+
+                        <h3>Negative</h3>
+
+                        <p>
+                            Glutamate carries a net negative charge at body pH
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ⚖️
+                        </div>
+
+                        <h3>Neutral overall</h3>
+
+                        <p>
+                            GABA has both a positive and a negative group, so it is roughly neutral
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Charge matters for sensors, because many sense charge.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    NOT ONE-TO-ONE
+                </p>
+
+                <h1>
+                    Meaning depends on the receiver
+                </h1>
+
+                <p>
+                    The same neurotransmitter can excite one cell and inhibit another, depending on which receptors that cell has. Many neurons also release more than one messenger at once. A transmitter is a word, and the receiver decides what it means.
+                </p>
+
+                <div class="module-takeaway">
+
+                    The receptor, not the molecule, decides the effect.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 5 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    💬
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've met the major neurotransmitters and seen why their small size and charge matter.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeNtUnit5Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeNtUnit5Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathNtUnit5StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathNtUnit5StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "nt-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

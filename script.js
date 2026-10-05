@@ -8140,6 +8140,15 @@ function loadProgressPage() {
             getBbbAllLessons().length;
     }
 
+    if (typeof ntCourseData !== "undefined") {
+
+        completedLessons +=
+            getNtCompletedLessonCount();
+
+        totalLessons +=
+            getNtAllLessons().length;
+    }
+
     if (typeof chipCourseData !== "undefined") {
 
         completedLessons +=
@@ -8360,6 +8369,24 @@ function loadIndexPage() {
 
                 const completedLessons =
                     getBbbCompletedLessonCount();
+
+                percent =
+                    totalLessons === 0
+                        ? 0
+                        : Math.round(
+                            (completedLessons / totalLessons) * 100
+                        );
+
+            } else if (
+                course.id === "neurotransmitters" &&
+                typeof ntCourseData !== "undefined"
+            ) {
+
+                const totalLessons =
+                    getNtAllLessons().length;
+
+                const completedLessons =
+                    getNtCompletedLessonCount();
 
                 percent =
                     totalLessons === 0

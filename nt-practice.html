@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Practice | Neurotransmitters | Fab Path</title>
+    <meta name="description" content="Practice the questions you miss most in the Neurotransmitters course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/nt-practice.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Practice | Neurotransmitters | Fab Path">
+    <meta property="og:description" content="Practice the questions you miss most in the Neurotransmitters course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="nt-learn.html">Learn</a>
+            <a href="nt-games.html">Games</a>
+            <a href="nt-practice.html" class="active-nav">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+    <main class="practice-page">
+
+        <div id="ntPracticeHub">
+
+            <section class="practice-header">
+
+                <p class="eyebrow">
+                    PRACTICE
+                </p>
+
+                <h1>
+                    Fix your weak spots.
+                </h1>
+
+                <p>
+                    Each part of the course pulls together the questions you've missed the most in the Neurotransmitters course, so you spend your time on what actually needs work.
+                </p>
+
+            </section>
+
+
+            <section class="practice-grid" id="ntPracticeUnitsGrid">
+            </section>
+
+        </div>
+
+
+        <div id="ntPracticeSession" class="practice-session-shell game-shell" hidden>
+
+            <div class="game-top">
+
+                <button type="button" class="module-exit" id="ntPracticeBackButton">
+                    ← Back to Practice
+                </button>
+
+                <div class="module-progress-area">
+
+                    <div class="module-progress-track">
+                        <div class="module-progress-fill" id="ntPracticeProgressFill"></div>
+                    </div>
+
+                    <span id="ntPracticeProgressText">
+                        1 / 8
+                    </span>
+
+                </div>
+
+                <span class="game-badge" id="ntPracticeSessionTitle">
+                    PART 1
+                </span>
+
+            </div>
+
+
+            <div id="ntPracticeQuizArea">
+
+                <section class="question-card">
+
+                    <p class="question-number" id="ntPracticeQuestionNumber">
+                        QUESTION 1 OF 8
+                    </p>
+
+                    <h1 id="ntPracticeQuestionText">
+                    </h1>
+
+                    <p class="question-instruction">
+                        Choose the best answer.
+                    </p>
+
+                    <div class="answer-grid" id="ntPracticeAnswerGrid">
+                    </div>
+
+                </section>
+
+
+                <div class="lesson-footer">
+
+                    <div class="feedback-message" id="ntPracticeFeedbackMessage">
+                        Select an answer to continue.
+                    </div>
+
+                    <button class="check-button" id="ntPracticeCheckButton" disabled>
+                        Check Answer
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div id="ntPracticeSessionComplete" class="game-complete" hidden>
+
+                <p class="eyebrow">
+                    PRACTICE COMPLETE
+                </p>
+
+                <h2>
+                    🎯 Round done
+                </h2>
+
+                <p class="game-complete-lead" id="ntPracticeSessionStats">
+                </p>
+
+                <div class="game-complete-actions">
+
+                    <button type="button" class="module-nav-button" id="ntPracticeDoneButton">
+                        Back to Practice
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script src="nt-course-data.js"></script>
+    <script src="nt-questions-data.js"></script>
+    <script src="script.js"></script>
+    <script src="nt-script.js"></script>
+    <script src="nt-practice.js"></script>
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+
+</html>

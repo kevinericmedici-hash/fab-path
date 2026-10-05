@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Binding and Affinity | Fab Path</title>
+    <meta name="description" content="Binding and Affinity: illustrated study slides from the Neurotransmitters course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/ntunit11.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Binding and Affinity | Fab Path">
+    <meta property="og:description" content="Binding and Affinity: illustrated study slides from the Neurotransmitters course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="nt-learn.html">Learn</a>
+            <a href="nt-games.html">Games</a>
+            <a href="nt-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="nt-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    LOCK AND KEY
+                </p>
+
+                <h1>
+                    Binding is reversible
+                </h1>
+
+                <p>
+                    A transmitter binds its receptor and lets go again, many times a second. At any moment some fraction of the receptors are occupied, and that fraction depends on how much transmitter is around and how tightly it binds.
+                </p>
+
+                <div class="module-takeaway">
+
+                    More ligand means more occupied receptors, up to a limit.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE CURVE
+                </p>
+
+                <h1>
+                    Occupancy against concentration
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A binding curve: receptor occupancy rises from zero to one hundred percent as ligand concentration increases on a log scale; half the receptors are occupied when the concentration equals the dissociation constant Kd; a weaker binder's curve is shifted to the right">
+                <line class="fd-axis" x1="50" y1="182" x2="310" y2="182"/>
+                <g class="fd-arrow"><polygon points="315,182 305,178 305,186"/></g>
+                <line class="fd-axis" x1="50" y1="182" x2="50" y2="34"/>
+                <g class="fd-arrow"><polygon points="50,29 46,39 54,39"/></g>
+                <text class="fd-sub" x="260" y="198" text-anchor="middle" style="font-size:6.5px">ligand concentration (log scale)</text>
+                <text class="fd-sub" x="58" y="34" text-anchor="start" style="font-size:6.5px">occupancy</text>
+                <text class="fd-sub" x="44" y="45" text-anchor="end" style="font-size:6px">100%</text><text class="fd-sub" x="44" y="114" text-anchor="end" style="font-size:6px">50%</text>
+                <line style="stroke:var(--text);stroke-width:1;stroke-dasharray:3 3;opacity:.5" x1="50" y1="112" x2="150" y2="112"/>
+                <line style="stroke:var(--text);stroke-width:1;stroke-dasharray:3 3;opacity:.5" x1="150" y1="112" x2="150" y2="182"/>
+                <path style="fill:none;stroke:var(--accent);stroke-width:2.2" d="M56,181.4 L62,181.1 L68,180.8 L74,180.3 L80,179.6 L86,178.6 L92,177.2 L98,175.3 L104,172.7 L110,169.3 L116,164.7 L122,158.7 L128,151.2 L134,142.1 L140,131.6 L146,120.0 L152,108.0 L158,96.2 L164,85.2 L170,75.6 L176,67.6 L182,61.2 L188,56.1 L194,52.3 L200,49.5 L206,47.4 L212,45.8 L218,44.7 L224,44.0 L230,43.4 L236,43.0 L242,42.7 L248,42.5 L254,42.4 L260,42.2 L266,42.2 L272,42.1 L278,42.1 L284,42.1 L290,42.0 L296,42.0 L302,42.0"/>
+                <path style="fill:none;stroke:var(--text);stroke-width:1.6;stroke-dasharray:5 3;opacity:.8" d="M56,182.0 L62,181.9 L68,181.9 L74,181.9 L80,181.8 L86,181.8 L92,181.7 L98,181.6 L104,181.4 L110,181.1 L116,180.8 L122,180.3 L128,179.6 L134,178.6 L140,177.2 L146,175.3 L152,172.7 L158,169.3 L164,164.7 L170,158.7 L176,151.2 L182,142.1 L188,131.6 L194,120.0 L200,108.0 L206,96.2 L212,85.2 L218,75.6 L224,67.6 L230,61.2 L236,56.1 L242,52.3 L248,49.5 L254,47.4 L260,45.8 L266,44.7 L272,44.0 L278,43.4 L284,43.0 L290,42.7 L296,42.5 L302,42.4"/>
+                <text class="fd-accent" x="150" y="194" text-anchor="middle" style="font-size:8px">Kd</text>
+                <text class="fd-accent" x="96" y="74" text-anchor="middle" style="font-size:6.5px">tighter binder</text>
+                <text class="fd-sub" x="262" y="90" text-anchor="middle" style="font-size:6.5px">weaker binder</text>
+                <text class="fd-sub" x="262" y="99" text-anchor="middle" style="font-size:6.5px">(higher Kd)</text>
+                </svg>
+                </div>
+
+                <p>
+                    The curve rises, then flattens as receptors fill up. A weaker binder needs more ligand for the same occupancy.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Tighter binders reach 50% at lower concentrations.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE FORMULA
+                </p>
+
+                <h1>
+                    Occupancy from Kd
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    <span class="math-visual">Occupancy = [L] ÷ ([L] + K<sub>d</sub>)</span>
+                </div>
+
+                <p>
+                    [L] is the free ligand concentration, and K<sub>d</sub> is the dissociation constant, the concentration at which half the receptors are occupied. A smaller K<sub>d</sub> means tighter binding, or higher affinity.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Kd is the concentration for half occupancy.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    A WORKED EXAMPLE
+                </p>
+
+                <h1>
+                    A ligand with K<sub>d</sub> = 10 nM
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>At 1 nM</strong>
+                        <span>1 ÷ (1 + 10) ≈ 9% occupied</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>At 10 nM</strong>
+                        <span>10 ÷ (10 + 10) = 50% occupied</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>At 100 nM</strong>
+                        <span>100 ÷ (100 + 10) ≈ 91% occupied</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    A tenfold change in concentration moves occupancy from about 9% to about 91%.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    BINDING VS ACTING
+                </p>
+
+                <h1>
+                    Affinity is not the same as effect
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🟢
+                        </div>
+
+                        <h3>Agonist</h3>
+
+                        <p>
+                            Binds and activates the receptor
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔴
+                        </div>
+
+                        <h3>Antagonist</h3>
+
+                        <p>
+                            Binds and blocks activation, without activating it
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🟡
+                        </div>
+
+                        <h3>Partial agonist</h3>
+
+                        <p>
+                            Binds and activates only weakly
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Affinity is how tightly it binds. Efficacy is what it does once bound.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 11 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🔑
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've worked out receptor occupancy from Kd and a concentration.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeNtUnit11Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeNtUnit11Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathNtUnit11StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathNtUnit11StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "nt-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

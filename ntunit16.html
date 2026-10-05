@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fast-Scan Cyclic Voltammetry | Fab Path</title>
+    <meta name="description" content="Fast-Scan Cyclic Voltammetry: illustrated study slides from the Neurotransmitters course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/ntunit16.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Fast-Scan Cyclic Voltammetry | Fab Path">
+    <meta property="og:description" content="Fast-Scan Cyclic Voltammetry: illustrated study slides from the Neurotransmitters course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="nt-learn.html">Learn</a>
+            <a href="nt-games.html">Games</a>
+            <a href="nt-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="nt-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    THE PROBE
+                </p>
+
+                <h1>
+                    A carbon fiber thinner than a hair
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Size</strong>
+                        <span>A carbon-fiber microelectrode is about 5 to 7 micrometers wide, roughly a tenth of a human hair</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Why it is good</strong>
+                        <span>Small enough to cause little damage and to sense a tiny region</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Reference</strong>
+                        <span>A silver/silver chloride electrode completes the circuit</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Small probes disturb the tissue less.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE SCAN
+                </p>
+
+                <h1>
+                    A voltage that sweeps
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A voltage waveform for fast-scan cyclic voltammetry: the electrode voltage ramps from minus 0.4 volts up to plus 1.3 volts and back about ten times per second, holding near minus 0.4 volts between scans; dopamine oxidizes near plus 0.6 volts on the way up">
+                <line class="fd-axis" x1="50" y1="185" x2="310" y2="185"/>
+                <g class="fd-arrow"><polygon points="315,185 305,181 305,189"/></g>
+                <line class="fd-axis" x1="50" y1="185" x2="50" y2="36"/>
+                <g class="fd-arrow"><polygon points="50,31 46,41 54,41"/></g>
+                <text class="fd-sub" x="290" y="198" text-anchor="middle" style="font-size:7px">time</text>
+                <text class="fd-sub" x="58" y="36" text-anchor="start" style="font-size:6.5px">electrode voltage</text>
+                <text class="fd-sub" x="44" y="154" text-anchor="end" style="font-size:6px">−0.4 V</text><text class="fd-sub" x="44" y="66" text-anchor="end" style="font-size:6px">+1.3 V</text>
+                <path style="fill:none;stroke:var(--accent);stroke-width:2" d="M52,150 L84,150 L100,64 L116,150 L196,150 L212,64 L228,150 L306,150"/>
+                <line style="stroke:var(--text);stroke-width:1;stroke-dasharray:3 3;opacity:.6" x1="52" y1="104" x2="305" y2="104"/>
+                <text class="fd-sub" x="60" y="98" text-anchor="start" style="font-size:6.5px">dopamine oxidizes near +0.6 V</text>
+                <text class="fd-sub" x="100" y="52" text-anchor="middle" style="font-size:6.5px">one scan: about 9 ms</text>
+                <text class="fd-sub" x="156" y="168" text-anchor="middle" style="font-size:6.5px">held at −0.4 V between scans</text>
+                <text class="fd-sub" x="256" y="120" text-anchor="middle" style="font-size:6.5px">10 scans</text><text class="fd-sub" x="256" y="129" text-anchor="middle" style="font-size:6.5px">per second</text>
+                </svg>
+                </div>
+
+                <p>
+                    The voltage ramps up and back down in under 10 milliseconds, then rests, and repeats about ten times a second.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Each scan is one tiny snapshot of what is at the electrode.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE CHEMISTRY
+                </p>
+
+                <h1>
+                    Dopamine gives up electrons
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    <span class="math-visual">dopamine → dopamine-o-quinone + 2 e<sup>−</sup></span>
+                </div>
+
+                <p>
+                    As the voltage passes about +0.6 V, dopamine at the surface is oxidized and releases two electrons. The current from those electrons is proportional to how much dopamine is there. This is the same idea as the current in a glucose sensor, applied at much higher speed.
+                </p>
+
+                <div class="module-takeaway">
+
+                    More dopamine means more current.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    READING THE SIGNAL
+                </p>
+
+                <h1>
+                    Subtract the background
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ➖
+                        </div>
+
+                        <h3>Background</h3>
+
+                        <p>
+                            Charging the electrode's surface produces a current much larger than the dopamine signal, so it is subtracted
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🖐️
+                        </div>
+
+                        <h3>Fingerprint</h3>
+
+                        <p>
+                            The shape of the remaining current against voltage identifies the molecule
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            📈
+                        </div>
+
+                        <h3>Concentration</h3>
+
+                        <p>
+                            A calibration converts current to concentration
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Subtraction removes the electrode's own response, leaving the chemistry.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    STRENGTHS AND LIMITS
+                </p>
+
+                <h1>
+                    Fast and sensitive, but picky about what it sees
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Strengths</strong>
+                        <span>Sub-second resolution, nanomolar sensitivity, and a tiny footprint</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Limit 1</strong>
+                        <span>Only molecules that react at the electrode, such as dopamine, norepinephrine, and serotonin, are detected. Glutamate and GABA are not</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Limit 2</strong>
+                        <span>Surfaces can foul, and results are best for changes rather than absolute baseline levels</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Voltammetry is the fastest electrochemical tool, for molecules that oxidize.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 16 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    ⚡
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've seen how a swept voltage lets a tiny carbon fiber pick out dopamine in under a second.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeNtUnit16Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeNtUnit16Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathNtUnit16StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathNtUnit16StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "nt-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

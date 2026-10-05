@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Light, Transistors, and What's Next | Fab Path</title>
+    <meta name="description" content="Light, Transistors, and What's Next: illustrated study slides from the Neurotransmitters course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/ntunit17.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Light, Transistors, and What's Next | Fab Path">
+    <meta property="og:description" content="Light, Transistors, and What's Next: illustrated study slides from the Neurotransmitters course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="nt-learn.html">Learn</a>
+            <a href="nt-games.html">Games</a>
+            <a href="nt-practice.html">Practice</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="nt-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    LIGHT
+                </p>
+
+                <h1>
+                    Proteins that glow when they bind
+                </h1>
+
+                <p>
+                    Genetically encoded sensors are proteins built into neurons that brighten when they bind a specific transmitter. iGluSnFR detects glutamate, and sensors such as dLight and GRAB-DA detect dopamine. A microscope reads the glow, with speeds of milliseconds to seconds and cell-level detail.
+                </p>
+
+                <p>
+                    The catch is that the cells must carry the sensor gene, so this is mainly a research tool.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Light is selective and fast, and it sees where the molecule is.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CHARGE
+                </p>
+
+                <h1>
+                    A transistor that feels binding
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A transistor sensor: source and drain regions in a silicon body with a gate insulator on top; receptors such as aptamers on the surface capture a neurotransmitter, but in salt solution only charge within about one nanometer of the surface, the Debye length, is felt">
+                <rect style="fill:rgba(120,180,255,.1);stroke:none" x="40" y="46" width="260" height="76"/>
+                <rect class="fd-p" x="40" y="130" width="260" height="46"/>
+                <rect class="fd-n" x="64" y="130" width="52" height="24" rx="3"/>
+                <rect class="fd-n" x="224" y="130" width="52" height="24" rx="3"/>
+                <rect class="fd-ox" x="116" y="122" width="108" height="8"/>
+                <text class="fd-sub" x="90" y="146" text-anchor="middle" style="font-size:6.5px">source</text><text class="fd-sub" x="250" y="146" text-anchor="middle" style="font-size:6.5px">drain</text>
+                <rect style="fill:rgba(255,214,102,.18);stroke:var(--accent);stroke-dasharray:3 2" x="116" y="108" width="108" height="14"/>
+                <text class="fd-sub" x="170" y="118" text-anchor="middle" style="font-size:6px">Debye length ≈ 1 nm</text>
+                <g style="stroke:var(--text);stroke-width:1.4;fill:none;opacity:.85"><path d="M140,122 C136,102 148,96 142,82"/><path d="M170,122 C166,102 178,96 172,82"/><path d="M200,122 C196,102 208,96 202,82"/></g>
+                <circle class="fd-metal" cx="142" cy="80" r="3"/><circle class="fd-metal" cx="172" cy="80" r="3"/>
+                <circle class="fd-ox" cx="202" cy="78" r="4"/>
+                <text class="fd-sub" x="202" y="66" text-anchor="middle" style="font-size:6px">neurotransmitter</text>
+                <text class="fd-sub" x="256" y="92" text-anchor="start" style="font-size:6.5px">receptors</text><text class="fd-sub" x="256" y="101" text-anchor="start" style="font-size:6.5px">(aptamers)</text>
+                <text class="fd-label" x="170" y="196" text-anchor="middle" style="font-size:7px">Charge far from the surface is screened by the salt</text>
+                </svg>
+                </div>
+
+                <p>
+                    A transistor sensor, as in the BioFET course, has receptors on its gate. When a charged molecule binds, the gate's potential shifts and the current changes.
+                </p>
+
+                <div class="module-takeaway">
+
+                    The same idea as a BioFET, applied to a neurotransmitter.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE SALT PROBLEM
+                </p>
+
+                <h1>
+                    Debye screening
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Problem</strong>
+                        <span>In body-like salt, the Debye length is under about a nanometer, so charge farther from the surface is screened</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Size</strong>
+                        <span>Neurotransmitters are small, but receptors are large enough to hold them beyond that distance</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Fixes</strong>
+                        <span>Short receptors such as aptamers, polymer layers, and organic electrochemical transistors</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Sensing a small charge in a salty fluid takes clever engineering.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHAT'S NEXT
+                </p>
+
+                <h1>
+                    Where the field is heading
+                </h1>
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🧩
+                        </div>
+
+                        <h3>Arrays</h3>
+
+                        <p>
+                            Flexible probes with many sensors measure several molecules and places at once
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔄
+                        </div>
+
+                        <h3>Closed loop</h3>
+
+                        <p>
+                            Sensors that read a neurotransmitter and trigger stimulation or drug release
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔗
+                        </div>
+
+                        <h3>Multimodal</h3>
+
+                        <p>
+                            Combining electrical, chemical, and optical recording
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The goal is to watch many messengers at once, in real time.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    BEFORE YOU BELIEVE IT
+                </p>
+
+                <h1>
+                    Questions to ask of any sensor claim
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Which molecule?</strong>
+                        <span>And is it distinguished from look-alikes such as ascorbic acid and metabolites</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>How fast?</strong>
+                        <span>Time resolution that matches the event of interest</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Where?</strong>
+                        <span>In a dish, or in a living brain</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>How calibrated?</strong>
+                        <span>Whether the numbers are absolute or relative</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    A measurement is only as good as its selectivity, speed, and calibration.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 17 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    💡
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've finished the course. You can now weigh a neurotransmitter-sensing claim by asking what it measures, how fast, and how selectively.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeNtUnit17Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeNtUnit17Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathNtUnit17StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathNtUnit17StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "nt-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

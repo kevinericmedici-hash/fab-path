@@ -84,7 +84,9 @@ const coursesData = [
         description:
             "Synaptic transmission, receptor binding, neurotransmitter detection, and the sensors built to measure them.",
         icon: "🧬",
-        status: "coming-soon"
+        status: "live",
+        growing: false,
+        href: "nt-learn.html"
     },
 
     {
