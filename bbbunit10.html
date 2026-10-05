@@ -93,6 +93,17 @@
                     Channels the width of a hair
                 </h1>
 
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="Relative sizes drawn to scale as horizontal bars: a typical chip channel about 100 micrometers, a human hair about 70, a cell about 15, and a red blood cell about 8">
+                <text class="fd-label" x="170" y="32" text-anchor="middle" style="font-size:8px">Drawn to the same scale</text>
+                <rect x="40" y="54" width="200" height="20" rx="3" style="fill:rgba(77,224,196,.3);stroke:var(--accent);stroke-width:1.2"/><text class="fd-sub" x="248" y="68" text-anchor="start" style="font-size:7px">chip channel: about 100 µm</text>
+                <rect x="40" y="86" width="140" height="20" rx="3" style="fill:rgba(255,255,255,.14);stroke:var(--text);stroke-width:1.2"/><text class="fd-sub" x="188" y="100" text-anchor="start" style="font-size:7px">human hair: about 70 µm</text>
+                <rect x="40" y="118" width="30" height="20" rx="3" style="fill:rgba(255,214,102,.3);stroke:rgba(255,214,102,.95);stroke-width:1.2"/><text class="fd-sub" x="78" y="132" text-anchor="start" style="font-size:7px">a cell: about 15 µm</text>
+                <rect x="40" y="150" width="16" height="20" rx="3" style="fill:rgba(255,105,120,.35);stroke:rgba(255,105,120,.95);stroke-width:1.2"/><text class="fd-sub" x="64" y="164" text-anchor="start" style="font-size:7px">red blood cell: about 8 µm</text>
+                <text class="fd-label" x="170" y="206" text-anchor="middle" style="font-size:7px">A channel is about as wide as a hair</text>
+                </svg>
+                </div>
+
                 <div class="module-card-grid">
 
                     <div class="module-card">
@@ -203,6 +214,20 @@
                     The Reynolds number
                 </h1>
 
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A log scale of the Reynolds number from one thousandth to ten thousand: flow stays laminar below about two thousand, and a typical microfluidic channel sits near zero point one, far into the laminar region">
+                <text class="fd-label" x="170" y="32" text-anchor="middle" style="font-size:8px">Reynolds number (log scale)</text>
+                <rect x="40" y="92" width="252.04119982655925" height="22" rx="2" style="fill:rgba(77,224,196,.25);stroke:var(--accent);stroke-width:1"/>
+                <rect x="292.04119982655925" y="92" width="27.95880017344075" height="22" rx="2" style="fill:rgba(255,105,120,.3);stroke:rgba(255,105,120,.95);stroke-width:1"/>
+                <text class="fd-label" x="120" y="107" text-anchor="middle" style="font-size:7.5px">laminar</text><text class="fd-sub" x="318" y="86" text-anchor="end" style="font-size:6.5px">turbulent</text>
+                <line style="stroke:var(--text);stroke-width:1;opacity:0.8" x1="40" y1="114" x2="40" y2="122"/><text class="fd-sub" x="40" y="134" text-anchor="middle" style="font-size:6.5px">0.001</text><line style="stroke:var(--text);stroke-width:1;opacity:0.8" x1="120" y1="114" x2="120" y2="122"/><text class="fd-sub" x="120" y="134" text-anchor="middle" style="font-size:6.5px">0.1</text><line style="stroke:var(--text);stroke-width:1;opacity:0.8" x1="200" y1="114" x2="200" y2="122"/><text class="fd-sub" x="200" y="134" text-anchor="middle" style="font-size:6.5px">10</text><line style="stroke:var(--text);stroke-width:1;opacity:0.8" x1="280" y1="114" x2="280" y2="122"/><text class="fd-sub" x="280" y="134" text-anchor="middle" style="font-size:6.5px">1,000</text>
+                <line style="stroke:var(--accent);stroke-width:1.7" x1="120" y1="70" x2="120.0" y2="82.0"/><polygon points="120,90 116.4,82.0 123.6,82.0" style="fill:var(--accent);stroke:none"/><text class="fd-accent" x="120" y="62" text-anchor="middle" style="font-size:7px">chip ≈ 0.1</text>
+                <line style="stroke:rgba(255,105,120,.95);stroke-width:1.2;opacity:0.9;stroke-dasharray:3 3" x1="292.04119982655925" y1="88" x2="292.04119982655925" y2="122"/><text class="fd-sub" x="292.04119982655925" y="150" text-anchor="middle" style="font-size:6.5px">≈ 2,000</text>
+                <text class="fd-sub" x="170" y="176" text-anchor="middle" style="font-size:6.5px">Chips live far inside the smooth, laminar region</text>
+                <text class="fd-label" x="170" y="206" text-anchor="middle" style="font-size:7px">Smooth flow means predictable forces</text>
+                </svg>
+                </div>
+
                 <div class="module-visual module-visual-text">
                     <span class="math-visual">Re = ρ v D<sub>h</sub> ÷ μ</span>
                 </div>
@@ -271,6 +296,20 @@
                 <h1>
                     Bubbles and clogs
                 </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A channel with cells on the floor and an air bubble stuck in the middle: flow arrives from the left but is blocked by the bubble, and the cells under and beyond it lose their medium">
+                <rect x="30" y="70" width="280" height="66" rx="4" style="fill:rgba(120,180,255,.1);stroke:var(--text);stroke-width:1"/>
+                <rect x="34" y="130" width="272" height="4" rx="0" style="fill:var(--accent);stroke:none;stroke-width:1.2"/>
+                <ellipse cx="170" cy="102" rx="34" ry="28" style="fill:rgba(255,255,255,.22);stroke:var(--text);stroke-width:1.4"/>
+                <text class="fd-sub" x="170" y="106" text-anchor="middle" style="font-size:6.5px">air bubble</text>
+                <line style="stroke:var(--text);stroke-width:1.5" x1="44" y1="92" x2="120.0" y2="92.0"/><polygon points="128,92 120.0,95.6 120.0,88.4" style="fill:var(--text);stroke:none"/><line style="stroke:var(--text);stroke-width:1.5" x1="44" y1="112" x2="120.0" y2="112.0"/><polygon points="128,112 120.0,115.6 120.0,108.4" style="fill:var(--text);stroke:none"/>
+                <text x="214" y="106" text-anchor="middle" style="font-size:14px;fill:rgba(255,105,120,.95)">✕</text>
+                <text class="fd-sub" x="262" y="96" text-anchor="middle" style="font-size:6.5px">no flow:</text><text class="fd-sub" x="262" y="105" text-anchor="middle" style="font-size:6.5px">cells go dry</text>
+                <text class="fd-sub" x="170" y="168" text-anchor="middle" style="font-size:6.5px">cells under the bubble get no medium</text>
+                <text class="fd-label" x="170" y="206" text-anchor="middle" style="font-size:7px">A bubble can block the channel and harm the cells</text>
+                </svg>
+                </div>
 
                 <p>
                     At small scales surface tension is strong. An air bubble can lodge in a channel, block the flow, and damage the cell layer. Chip users degas their medium, wet the channels carefully, and prime tubing before connecting it.
