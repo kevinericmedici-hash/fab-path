@@ -1398,7 +1398,9 @@
         ["fabChipLayersScript", "diagram-sims-chip-layers.js"],
         ["fabChipPatterningScript", "diagram-sims-chip-patterning.js"],
         ["fabChipLithoScript", "diagram-sims-chip-litho.js"],
-        ["fabChipDeviceScript", "diagram-sims-chip-device.js"]
+        ["fabChipDeviceScript", "diagram-sims-chip-device.js"],
+        ["fabChipFabScript", "diagram-sims-chip-fab.js"],
+        ["fabChipPkgScript", "diagram-sims-chip-pkg.js"]
     ].forEach(function (f) {
 
         if (document.getElementById(f[0])) {
