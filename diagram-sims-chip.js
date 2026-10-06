@@ -1392,16 +1392,24 @@
     // Mount any chip-* sims that are on this page.
     document.querySelectorAll('.fd-sim[data-sim^="chip-"]').forEach(F.mount);
 
-    // Then load the intro-part simulators, which build on these helpers.
-    if (!document.getElementById("fabChipIntroScript")) {
+    // Then load the other chip simulator files, which build on these helpers.
+    [
+        ["fabChipIntroScript", "diagram-sims-chip-intro.js"],
+        ["fabChipLayersScript", "diagram-sims-chip-layers.js"],
+        ["fabChipPatterningScript", "diagram-sims-chip-patterning.js"]
+    ].forEach(function (f) {
+
+        if (document.getElementById(f[0])) {
+            return;
+        }
 
         const more = document.createElement("script");
 
-        more.id = "fabChipIntroScript";
-        more.src = "diagram-sims-chip-intro.js";
+        more.id = f[0];
+        more.src = f[1];
         more.async = true;
 
         document.head.appendChild(more);
-    }
+    });
 
 })();
