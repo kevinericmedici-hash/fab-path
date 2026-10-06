@@ -102,6 +102,23 @@
                     yield climbs as the process matures
                 </div>
 
+                <!-- fd:learn -->
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="An illustrative graph of yield against time: a new process starts with low yield and climbs steadily as engineers find and fix root causes, flattening as the process matures">
+                <line class="fd-axis" x1="50" y1="176" x2="316" y2="176"/>
+                <line class="fd-axis" x1="50" y1="176" x2="50" y2="36"/>
+                <text class="fd-sub" x="306" y="192" text-anchor="end" style="font-size:6.5px">months in production</text><text class="fd-sub" x="56" y="40" text-anchor="start" style="font-size:6.5px">yield (illustrative)</text>
+                <polyline points="52.0,157.0 62.5,144.4 73.0,133.4 83.5,123.9 94.0,115.6 104.5,108.5 115.0,102.3 125.5,96.9 136.0,92.3 146.5,88.3 157.0,84.8 167.5,81.7 178.0,79.1 188.5,76.8 199.0,74.9 209.5,73.1 220.0,71.7 230.5,70.4 241.0,69.3 251.5,68.3 262.0,67.5 272.5,66.7 283.0,66.1 293.5,65.6 304.0,65.1" style="fill:none;stroke:var(--accent);stroke-width:2.4"/>
+                <circle cx="83.5" cy="123.9" r="3.6" style="fill:rgba(255,214,102,.95);stroke:none"/><text class="fd-sub" x="83.5" y="137.9" text-anchor="middle" style="font-size:6.5px">fix</text><circle cx="136.0" cy="92.3" r="3.6" style="fill:rgba(255,214,102,.95);stroke:none"/><text class="fd-sub" x="136.0" y="106.3" text-anchor="middle" style="font-size:6.5px">fix</text><circle cx="199.0" cy="74.9" r="3.6" style="fill:rgba(255,214,102,.95);stroke:none"/><text class="fd-sub" x="199.0" y="88.9" text-anchor="middle" style="font-size:6.5px">fix</text><circle cx="262.0" cy="67.5" r="3.6" style="fill:rgba(255,214,102,.95);stroke:none"/><text class="fd-sub" x="262.0" y="81.5" text-anchor="middle" style="font-size:6.5px">fix</text>
+                <text class="fd-sub" x="86" y="160" text-anchor="start" style="font-size:6.5px">new process</text>
+                <text class="fd-sub" x="300" y="70" text-anchor="end" style="font-size:6.5px">mature process</text>
+                <text class="fd-label" x="170" y="214" text-anchor="middle" style="font-size:7px">Each fix buys a little more yield</text>
+                </svg>
+                </div>
+                <!-- /fd:learn -->
+
+
+
                 <p>
                     A brand-new process, just moved from development to production, almost always yields lower than the same process will a year later. Every engineering fix, every tool tweak, every root cause chased down from a wafer map nudges the number up, a little at a time.
                 </p>
@@ -161,6 +178,11 @@
                 <div class="module-visual module-visual-text">
                     <span class="math-visual">D<sub>0</sub> = 0.2/cm², A = 1 cm² gives about 82%</span>
                 </div>
+
+                <!-- fd:yield -->
+                <div class="module-visual fd-sim" data-sim="chip-yield" data-area="100" data-d0="0.2"></div>
+                <!-- /fd:yield -->
+
 
                 <p>
                     With a defect density of 0.2 defects per square centimeter and a die area of 1 square centimeter, the model gives roughly e<sup>-0.2</sup>, about 82% yield. Shrink the die to half that area and yield rises to roughly 90%; double it and yield falls to about 67%.

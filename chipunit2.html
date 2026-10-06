@@ -125,6 +125,25 @@
                     How the semiconductors compare
                 </h1>
 
+                <!-- fd:gaps -->
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A bar chart of band gaps in electron volts: germanium 0.66, silicon 1.12, gallium arsenide 1.42, silicon carbide about 3.3, and gallium nitride about 3.4; a wider gap tolerates more voltage and heat, a narrower one switches at lower energy but leaks more">
+                <g data-hotspot="ge" role="button" tabindex="0" aria-label="Germanium"><rect class="fd-hit" x="6" y="43" width="320" height="24" style="fill:rgba(0,0,0,0);stroke:none"/><text class="fd-sub" x="104" y="58" text-anchor="end" style="font-size:7px">Germanium</text><rect x="110" y="46" width="25.080000000000002" height="18" rx="3" style="fill:rgba(255,214,102,.3);stroke:rgba(255,214,102,.95);stroke-width:1.2"/><text class="fd-sub" x="141.08" y="58" text-anchor="start" style="font-size:7px">0.66 eV</text></g>
+                <g data-hotspot="si" role="button" tabindex="0" aria-label="Silicon"><rect class="fd-hit" x="6" y="69" width="320" height="24" style="fill:rgba(0,0,0,0);stroke:none"/><text class="fd-sub" x="104" y="84" text-anchor="end" style="font-size:7px">Silicon</text><rect x="110" y="72" width="42.56" height="18" rx="3" style="fill:rgba(84,224,199,.4);stroke:var(--accent);stroke-width:1.2"/><text class="fd-sub" x="158.56" y="84" text-anchor="start" style="font-size:7px">1.12 eV</text></g>
+                <g data-hotspot="gaas" role="button" tabindex="0" aria-label="Gallium arsenide"><rect class="fd-hit" x="6" y="95" width="320" height="24" style="fill:rgba(0,0,0,0);stroke:none"/><text class="fd-sub" x="104" y="110" text-anchor="end" style="font-size:7px">Gallium arsenide</text><rect x="110" y="98" width="53.959999999999994" height="18" rx="3" style="fill:rgba(120,180,255,.3);stroke:rgba(120,180,255,.95);stroke-width:1.2"/><text class="fd-sub" x="169.95999999999998" y="110" text-anchor="start" style="font-size:7px">1.42 eV</text></g>
+                <g data-hotspot="sic" role="button" tabindex="0" aria-label="Silicon carbide"><rect class="fd-hit" x="6" y="121" width="320" height="24" style="fill:rgba(0,0,0,0);stroke:none"/><text class="fd-sub" x="104" y="136" text-anchor="end" style="font-size:7px">Silicon carbide</text><rect x="110" y="124" width="125.39999999999999" height="18" rx="3" style="fill:rgba(255,105,120,.3);stroke:rgba(255,105,120,.95);stroke-width:1.2"/><text class="fd-sub" x="241.39999999999998" y="136" text-anchor="start" style="font-size:7px">about 3.3 eV</text></g>
+                <g data-hotspot="gan" role="button" tabindex="0" aria-label="Gallium nitride"><rect class="fd-hit" x="6" y="147" width="320" height="24" style="fill:rgba(0,0,0,0);stroke:none"/><text class="fd-sub" x="104" y="162" text-anchor="end" style="font-size:7px">Gallium nitride</text><rect x="110" y="150" width="129.2" height="18" rx="3" style="fill:rgba(255,105,120,.3);stroke:rgba(255,105,120,.95);stroke-width:1.2"/><text class="fd-sub" x="245.2" y="162" text-anchor="start" style="font-size:7px">about 3.4 eV</text></g>
+                <line style="stroke:var(--text);stroke-width:1.2;opacity:0.8" x1="110" y1="186" x2="110" y2="192"/><line style="stroke:var(--text);stroke-width:1.2;opacity:0.8" x1="110" y1="189" x2="300" y2="189"/>
+                <text class="fd-sub" x="110" y="203" text-anchor="start" style="font-size:6.5px">narrower gap</text><text class="fd-sub" x="300" y="203" text-anchor="end" style="font-size:6.5px">wider gap</text>
+                <text class="fd-label" x="170" y="28" text-anchor="middle" style="font-size:8px">Band gap (eV)</text>
+                <text class="fd-label" x="170" y="220" text-anchor="middle" style="font-size:7px">A wider gap tolerates more voltage and heat</text>
+                </svg>
+                <script type="application/json" class="fd-hotspot-data">{"hint":"Tap a material to see what it is used for.","parts":{"ge":{"role":"0.66 eV","color":"gold","title":"Germanium","text":"The first transistors used it, but its small band gap makes it leak heavily at room temperature."},"si":{"role":"1.12 eV","color":"teal","title":"Silicon","text":"The balanced workhorse: a gap wide enough to leak little, narrow enough to switch easily, with a stable native oxide."},"gaas":{"role":"1.42 eV","color":"teal","title":"Gallium arsenide","text":"Fast electrons and good light emission, which suits some radio-frequency chips and LEDs and lasers."},"sic":{"role":"about 3.3 eV","color":"rose","title":"Silicon carbide","text":"High-voltage, high-temperature power electronics, where silicon would struggle."},"gan":{"role":"about 3.4 eV","color":"rose","title":"Gallium nitride","text":"Power electronics, radio, and blue LEDs."}}}</script>
+                </div>
+                <!-- /fd:gaps -->
+
+
+
                 <div class="scale-stack">
 
                     <div class="scale-row">
@@ -289,6 +308,11 @@
                 <div class="module-visual module-visual-text">
                     Ge oxide: water-soluble
                 </div>
+
+                <!-- fd:pickmat -->
+                <div class="module-visual fd-sim" data-sim="chip-pickmat"></div>
+                <!-- /fd:pickmat -->
+
 
                 <p>
                     The first transistor in 1947 used germanium. But germanium's oxide is unstable and dissolves in water, and its small band gap makes it leak heavily at room temperature. Silicon's robust oxide made reliable integrated circuits possible.

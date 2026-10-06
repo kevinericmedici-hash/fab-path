@@ -102,6 +102,27 @@
                     the equipment sets the real limits
                 </div>
 
+                <!-- fd:rules -->
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A layout drawing of vertical metal lines: two lines drawn at the minimum width and minimum spacing pass the rules, while a line that is too narrow and two lines that are too close together violate them">
+                <rect x="30" y="40" width="280" height="140" rx="6" style="fill:rgba(170,179,207,.06);stroke:var(--text);stroke-width:1"/>
+                <rect x="56" y="60" width="30" height="100" rx="1" style="fill:rgba(255,170,90,.5);stroke:rgba(255,170,90,.9);stroke-width:1.2"/><rect x="116" y="60" width="30" height="100" rx="1" style="fill:rgba(255,170,90,.5);stroke:rgba(255,170,90,.9);stroke-width:1.2"/>
+                <line style="stroke:var(--text);stroke-width:1.2;opacity:0.75" x1="56" y1="52" x2="86" y2="52"/><line style="stroke:var(--text);stroke-width:1.2;opacity:0.75" x1="56" y1="48" x2="56" y2="56"/><line style="stroke:var(--text);stroke-width:1.2;opacity:0.75" x1="86" y1="48" x2="86" y2="56"/><text class="fd-sub" x="71" y="44" text-anchor="middle" style="font-size:6px">min width</text>
+                <line style="stroke:var(--text);stroke-width:1.2;opacity:0.75" x1="86" y1="170" x2="116" y2="170"/><line style="stroke:var(--text);stroke-width:1.2;opacity:0.75" x1="86" y1="166" x2="86" y2="174"/><line style="stroke:var(--text);stroke-width:1.2;opacity:0.75" x1="116" y1="166" x2="116" y2="174"/><text class="fd-sub" x="101" y="186" text-anchor="middle" style="font-size:6px">min spacing</text>
+                <text class="fd-label" x="86" y="200" text-anchor="middle" style="font-size:7px">passes</text>
+                <rect x="196" y="60" width="8" height="100" rx="1" style="fill:rgba(255,105,120,.4);stroke:rgba(255,105,120,.95);stroke-width:1.2"/><text class="fd-sub" x="200" y="52" text-anchor="middle" style="font-size:6px">too narrow</text>
+                <rect x="228" y="60" width="30" height="100" rx="1" style="fill:rgba(255,105,120,.3);stroke:rgba(255,105,120,.95);stroke-width:1.2"/><rect x="266" y="60" width="30" height="100" rx="1" style="fill:rgba(255,105,120,.3);stroke:rgba(255,105,120,.95);stroke-width:1.2"/>
+                <text class="fd-sub" x="262" y="52" text-anchor="middle" style="font-size:6px">too close</text>
+                <path d="M258,110 L266,110" style="fill:none;stroke:rgba(255,105,120,.95);stroke-width:2;opacity:1"/>
+                <text x="200" y="118" text-anchor="middle" style="font-size:12px;fill:rgba(255,105,120,.95)">✕</text>
+                <text x="262" y="125" text-anchor="middle" style="font-size:12px;fill:rgba(255,105,120,.95)">✕</text>
+                <text class="fd-label" x="244" y="200" text-anchor="middle" style="font-size:7px">violates the rules</text>
+                </svg>
+                </div>
+                <!-- /fd:rules -->
+
+
+
                 <p>
                     A layout tool will happily let you draw a wire narrower than a scanner can print, or two shapes closer together than an etch can separate cleanly. Design rules translate the fab's real physical limits, minimum width, minimum spacing, minimum overlap, into constraints a designer's software can check automatically.
                 </p>

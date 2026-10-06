@@ -9081,6 +9081,20 @@ document.addEventListener("click", function (event) {
         document.head.appendChild(script);
     }
 
+    function loadScript(src, done) {
+
+        const script = document.createElement("script");
+
+        script.src = src;
+        script.async = true;
+
+        if (done) {
+            script.onload = done;
+        }
+
+        document.head.appendChild(script);
+    }
+
     function loadDiagramInteract() {
 
         if (
@@ -9090,12 +9104,13 @@ document.addEventListener("click", function (event) {
             return;
         }
 
-        const script = document.createElement("script");
+        loadScript("diagram-interact.js", function () {
 
-        script.src = "diagram-interact.js";
-        script.async = true;
-
-        document.head.appendChild(script);
+            // course-specific simulators register themselves on window.FabInteract
+            if (document.querySelector('.fd-sim[data-sim^="chip-"]')) {
+                loadScript("diagram-sims-chip.js");
+            }
+        });
     }
 
     function loadDiagramScripts() {

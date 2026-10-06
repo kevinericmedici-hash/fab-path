@@ -136,6 +136,34 @@
     cursor: pointer;
 }
 
+#fabToast {
+    position: fixed;
+    left: 50%;
+    bottom: 26px;
+    transform: translate(-50%, 20px);
+    z-index: 9999;
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    background: rgba(8, 14, 30, .94);
+    color: var(--text);
+    font-weight: 700;
+    font-size: .92rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .45);
+    opacity: 0;
+    pointer-events: none;
+}
+
+#fabToast.show {
+    animation: fd-toast 2.8s ease both;
+}
+
+@keyframes fd-toast {
+    0% { opacity: 0; transform: translate(-50%, 20px); }
+    10%, 85% { opacity: 1; transform: translate(-50%, 0); }
+    100% { opacity: 0; transform: translate(-50%, 10px); }
+}
+
 /* ---------- simulators ---------- */
 
 .module-visual.fd-sim {
@@ -228,6 +256,10 @@
     font-size: .9rem;
     font-weight: 700;
     margin-bottom: 2px;
+}
+
+.fd-sim-row label i {
+    font-style: normal;
 }
 
 .fd-sim-row label span {
@@ -343,6 +375,10 @@
 
             current = id;
 
+            if (id) {
+                reward(pageKey() + ":hotspots:" + (box.querySelector("svg") ? box.querySelector("svg").getAttribute("aria-label").slice(0, 24) : ""), 5, "You explored the diagram");
+            }
+
             box.classList.remove("fd-hot-hint");
             box.classList.toggle("fd-has-active", Boolean(id));
 
@@ -427,8 +463,8 @@
 
         const id = "fdSim" + (++uid);
 
-        return '<div class="fd-sim-row"><label for="' + id + '">' + opts.label +
-            ' <span data-val="' + opts.key + '"></span></label>' +
+        return '<div class="fd-sim-row"><label for="' + id + '"><i>' + opts.label +
+            '</i> <span data-val="' + opts.key + '"></span></label>' +
             '<input type="range" id="' + id + '" data-key="' + opts.key + '" min="' +
             opts.min + '" max="' + opts.max + '" step="' + opts.step + '" value="' +
             opts.value + '"></div>';
@@ -813,6 +849,131 @@
 
 
     /* ======================================
+       REWARDS: a small XP bonus the first time
+       someone tries an interactive piece
+    ====================================== */
+
+    function pageKey() {
+
+        const parts = location.pathname.split("/");
+
+        return (parts[parts.length - 1] || "index").replace(".html", "");
+    }
+
+    function toast(message) {
+
+        let el = document.getElementById("fabToast");
+
+        if (!el) {
+
+            el = document.createElement("div");
+
+            el.id = "fabToast";
+            el.setAttribute("role", "status");
+
+            document.body.appendChild(el);
+        }
+
+        el.textContent = message;
+        el.classList.remove("show");
+
+        // restart the animation
+        void el.offsetWidth;
+
+        el.classList.add("show");
+
+        clearTimeout(el._timer);
+
+        el._timer = setTimeout(function () {
+            el.classList.remove("show");
+        }, 2800);
+    }
+
+    // Awards xp once per key. Returns true when it paid out.
+    function reward(key, xp, message) {
+
+        try {
+
+            const storeKey = "fabPathExplore_" + key;
+
+            if (localStorage.getItem(storeKey)) {
+                return false;
+            }
+
+            localStorage.setItem(storeKey, "1");
+
+            const total = (parseInt(localStorage.getItem("fabPathXP")) || 0) + xp;
+
+            localStorage.setItem("fabPathXP", String(total));
+
+            const display = document.getElementById("totalXPDisplay");
+
+            if (display) {
+                display.textContent = total;
+            }
+
+            toast("⚡ +" + xp + " XP · " + message);
+
+            return true;
+
+        } catch (e) {
+            return false;
+        }
+    }
+
+    function firstTouch(el, key, message) {
+
+        const handler = function () {
+
+            reward(key, 5, message);
+
+            el.removeEventListener("input", handler, true);
+            el.removeEventListener("click", handler, true);
+        };
+
+        el.addEventListener("input", handler, true);
+        el.addEventListener("click", handler, true);
+    }
+
+
+    /* ======================================
+       SHARED API (course sim files use this)
+    ====================================== */
+
+    function mount(el) {
+
+        if (el.dataset.simMounted) {
+            return;
+        }
+
+        const sim = SIMS[el.dataset.sim];
+
+        if (sim) {
+
+            el.dataset.simMounted = "1";
+
+            sim(el);
+
+            firstTouch(el, pageKey() + ":" + el.dataset.sim, "You tried the simulator");
+        }
+    }
+
+    window.FabInteract = {
+        SIMS: SIMS,
+        mount: mount,
+        injectStyles: injectStyles,
+        slider: slider,
+        arrow: arrow,
+        text: text,
+        esc: esc,
+        reward: reward,
+        toast: toast,
+        pageKey: pageKey,
+        colors: { accent: ACCENT, gold: GOLD, rose: ROSE, text: TEXT }
+    };
+
+
+    /* ======================================
        INIT
     ====================================== */
 
@@ -851,14 +1012,7 @@
             }
         });
 
-        sims.forEach(function (el) {
-
-            const sim = SIMS[el.dataset.sim];
-
-            if (sim) {
-                sim(el);
-            }
-        });
+        sims.forEach(mount);
     }
 
 

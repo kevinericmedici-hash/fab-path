@@ -128,6 +128,22 @@
                     Buildings, tools, and constant upkeep
                 </h1>
 
+                <!-- fd:cost -->
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="Four blocks showing where a fab's money goes, not to scale: the cleanroom building is the smallest, the tools inside it are the largest, with research and development and ongoing operation in between">
+                <g data-hotspot="building" role="button" tabindex="0" aria-label="cleanroom building"><rect class="fd-hit" x="22" y="126" width="66" height="48" style="fill:rgba(0,0,0,0);stroke:none"/><rect x="24" y="130" width="62" height="40" rx="5" style="fill:rgba(170,179,207,.3);stroke:rgba(170,179,207,.55);stroke-width:1.3"/><text class="fd-label" x="55" y="146" text-anchor="middle" style="font-size:7px">cleanroom</text><text class="fd-sub" x="55" y="157" text-anchor="middle" style="font-size:6.5px">building</text></g>
+                <g data-hotspot="tools" role="button" tabindex="0" aria-label="the tools inside"><rect class="fd-hit" x="98" y="46" width="66" height="128" style="fill:rgba(0,0,0,0);stroke:none"/><rect x="100" y="50" width="62" height="120" rx="5" style="fill:rgba(255,105,120,.35);stroke:rgba(255,105,120,.95);stroke-width:1.3"/><text class="fd-label" x="131" y="66" text-anchor="middle" style="font-size:7px">the tools</text><text class="fd-sub" x="131" y="77" text-anchor="middle" style="font-size:6.5px">inside</text></g>
+                <g data-hotspot="rnd" role="button" tabindex="0" aria-label="R&amp;D for each node"><rect class="fd-hit" x="174" y="86" width="66" height="88" style="fill:rgba(0,0,0,0);stroke:none"/><rect x="176" y="90" width="62" height="80" rx="5" style="fill:rgba(84,224,199,.35);stroke:var(--accent);stroke-width:1.3"/><text class="fd-label" x="207" y="106" text-anchor="middle" style="font-size:7px">R&amp;D</text><text class="fd-sub" x="207" y="117" text-anchor="middle" style="font-size:6.5px">for each node</text></g>
+                <g data-hotspot="ops" role="button" tabindex="0" aria-label="ongoing operation"><rect class="fd-hit" x="250" y="102" width="66" height="72" style="fill:rgba(0,0,0,0);stroke:none"/><rect x="252" y="106" width="62" height="64" rx="5" style="fill:rgba(255,214,102,.3);stroke:rgba(255,214,102,.95);stroke-width:1.3"/><text class="fd-label" x="283" y="122" text-anchor="middle" style="font-size:7px">ongoing</text><text class="fd-sub" x="283" y="133" text-anchor="middle" style="font-size:6.5px">operation</text></g>
+                <text class="fd-sub" x="170" y="36" text-anchor="middle" style="font-size:6.5px">Relative sizes, not to scale</text>
+                <text class="fd-label" x="170" y="214" text-anchor="middle" style="font-size:7px">The building is the cheap part</text>
+                </svg>
+                <script type="application/json" class="fd-hotspot-data">{"hint":"Tap a block to see what the money pays for.","parts":{"building":{"role":"Cleanroom","color":"teal","title":"The building","text":"A building with extraordinary vibration, air, and power requirements. It is the cheap part of a fab."},"tools":{"role":"Tools","color":"rose","title":"The tools inside","text":"A single EUV scanner alone can cost well over $100 million, and a fab needs many tools. This is what really costs billions."},"rnd":{"role":"R&D","color":"teal","title":"Research and development","text":"Each new process node needs years of its own dedicated research and development."},"ops":{"role":"Running costs","color":"gold","title":"Ongoing operation","text":"Tools, materials, and staff cost money every single day, not just once."}}}</script>
+                </div>
+                <!-- /fd:cost -->
+
+
+
                 <div class="scale-stack">
 
                     <div class="scale-row">
@@ -209,6 +225,22 @@
                 <div class="module-visual module-visual-text">
                     billions of dollars, recovered one chip at a time
                 </div>
+
+                <!-- fd:payoff -->
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="An illustrative graph over about ten years: a horizontal dashed line marks the fab's cost in billions, and a rising line of cumulative earnings from running around the clock crosses it at the break-even point">
+                <line class="fd-axis" x1="50" y1="176" x2="316" y2="176"/>
+                <line class="fd-axis" x1="50" y1="176" x2="50" y2="36"/>
+                <text class="fd-sub" x="306" y="192" text-anchor="end" style="font-size:6.5px">years of running</text><text class="fd-sub" x="56" y="40" text-anchor="start" style="font-size:6.5px">money (illustrative)</text>
+                <line style="stroke:rgba(255,105,120,.95);stroke-width:1.4;opacity:0.9;stroke-dasharray:5 3" x1="50" y1="70" x2="316" y2="70"/><text class="fd-sub" x="310" y="64" text-anchor="end" style="font-size:6.5px">fab cost: billions</text>
+                <path d="M50,176 L300,48" style="fill:none;stroke:var(--accent);stroke-width:2.4;opacity:1"/><text class="fd-sub" x="120" y="138" text-anchor="start" style="font-size:6.5px">cumulative earnings</text>
+                <circle cx="248" cy="74" r="4.5" style="fill:rgba(255,214,102,.95);stroke:none"/><text class="fd-accent" x="248" y="94" text-anchor="middle" style="font-size:7px">break-even</text>
+                <text class="fd-label" x="170" y="214" text-anchor="middle" style="font-size:7px">A fab earns its cost back one chip at a time</text>
+                </svg>
+                </div>
+                <!-- /fd:payoff -->
+
+
 
                 <p>
                     A fab that cost billions to build only earns that money back by running around the clock for years, turning out enormous volumes of microchips. That pressure is part of why yield, covered earlier in this course, matters so much: every failed die is a small piece of an enormous investment, wasted.

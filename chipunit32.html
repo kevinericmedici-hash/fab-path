@@ -128,6 +128,27 @@
                     A few repeat offenders
                 </h1>
 
+                <!-- fd:defects -->
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A top-down view of metal lines with four things: a particle bridging two lines and shorting them, a similar particle in empty space that does no harm, a line with a break in it, and a patch of trace contamination">
+                <rect x="30" y="40" width="280" height="150" rx="6" style="fill:rgba(170,179,207,.07);stroke:var(--text);stroke-width:1"/>
+                <rect x="40" y="60" width="260" height="12" rx="1" style="fill:rgba(255,170,90,.5);stroke:rgba(255,170,90,.9);stroke-width:1.2"/>
+                <rect x="40" y="86" width="260" height="12" rx="1" style="fill:rgba(255,170,90,.5);stroke:rgba(255,170,90,.9);stroke-width:1.2"/>
+                <rect x="40" y="112" width="260" height="12" rx="1" style="fill:rgba(255,170,90,.5);stroke:rgba(255,170,90,.9);stroke-width:1.2"/>
+                <rect x="40" y="138" width="150" height="12" rx="1" style="fill:rgba(255,170,90,.5);stroke:rgba(255,170,90,.9);stroke-width:1.2"/><rect x="206" y="138" width="94" height="12" rx="1" style="fill:rgba(255,170,90,.5);stroke:rgba(255,170,90,.9);stroke-width:1.2"/>
+                <rect x="40" y="164" width="260" height="12" rx="1" style="fill:rgba(255,170,90,.5);stroke:rgba(255,170,90,.9);stroke-width:1.2"/>
+                <g data-hotspot="killer" role="button" tabindex="0" aria-label="Killer particle"><rect class="fd-hit" x="88" y="54" width="44" height="50" style="fill:rgba(0,0,0,0);stroke:none"/><circle cx="110" cy="79" r="9" style="fill:rgba(255,105,120,.65);stroke:rgba(255,105,120,.95);stroke-width:1.4"/><text class="fd-sub" x="110" y="52" text-anchor="middle" style="font-size:6.5px">particle</text></g>
+                <g data-hotspot="harmless" role="button" tabindex="0" aria-label="Harmless particle"><rect class="fd-hit" x="222" y="96" width="36" height="18" style="fill:rgba(0,0,0,0);stroke:none"/><circle cx="240" cy="105" r="4" style="fill:rgba(245,247,255,.6);stroke:var(--text);stroke-width:1"/><text class="fd-sub" x="240" y="52" text-anchor="middle" style="font-size:6.5px">same particle</text></g>
+                <g data-hotspot="pattern" role="button" tabindex="0" aria-label="Pattern defect"><rect class="fd-hit" x="178" y="128" width="40" height="36" style="fill:rgba(0,0,0,0);stroke:none"/><path d="M184,134 L192,152 M212,134 L204,152" style="fill:none;stroke:rgba(255,105,120,.95);stroke-width:1.6;opacity:1"/><text class="fd-sub" x="198" y="182" text-anchor="middle" style="font-size:6.5px">break</text></g>
+                <g data-hotspot="contam" role="button" tabindex="0" aria-label="Contamination"><rect class="fd-hit" x="224" y="150" width="64" height="40" style="fill:rgba(0,0,0,0);stroke:none"/><circle cx="228" cy="160" r="1.8" style="fill:rgba(255,214,102,.95);stroke:none"/><circle cx="244" cy="168" r="1.8" style="fill:rgba(255,214,102,.95);stroke:none"/><circle cx="262" cy="160" r="1.8" style="fill:rgba(255,214,102,.95);stroke:none"/><circle cx="252" cy="176" r="1.8" style="fill:rgba(255,214,102,.95);stroke:none"/><circle cx="270" cy="172" r="1.8" style="fill:rgba(255,214,102,.95);stroke:none"/><circle cx="236" cy="176" r="1.8" style="fill:rgba(255,214,102,.95);stroke:none"/><circle cx="280" cy="164" r="1.8" style="fill:rgba(255,214,102,.95);stroke:none"/><circle cx="256" cy="168" r="30" style="fill:rgba(255,214,102,.08);stroke:rgba(255,214,102,.95);stroke-width:1"/><text class="fd-sub" x="286" y="192" text-anchor="end" style="font-size:6.5px">trace ions</text></g>
+                <text class="fd-label" x="170" y="214" text-anchor="middle" style="font-size:7px">Same kind of defect, very different outcomes</text>
+                </svg>
+                <script type="application/json" class="fd-hotspot-data">{"hint":"Tap a defect to see what it does.","parts":{"killer":{"role":"Killer","color":"rose","title":"A killer particle","text":"This particle landed between two metal lines and bridges them, creating a short. If that net matters to the circuit, the die fails."},"harmless":{"role":"Non-killer","color":"teal","title":"A harmless particle","text":"The same kind of particle, but it landed in empty space. It touches no feature, so the die still works. Location decides everything."},"pattern":{"role":"Pattern defect","color":"gold","title":"A line with a break","text":"Lithography or etch printed a shape wrong. Here a metal line is cut in two, an open circuit that breaks the connection."},"contam":{"role":"Contamination","color":"gold","title":"Trace contamination","text":"Stray chemicals or metal ions where they should not be. They are often invisible, but they can change how nearby devices behave."}}}</script>
+                </div>
+                <!-- /fd:defects -->
+
+
+
                 <div class="module-card-grid">
 
                     <div class="module-card">

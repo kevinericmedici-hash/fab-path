@@ -102,6 +102,24 @@
                     junction, then case, then ambient air
                 </div>
 
+                <!-- fd:thermal -->
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A chain of three blocks, junction, case, and ambient air, with thermal resistances between them: heat flows from the hottest block, the junction, out through the package case to the surrounding air">
+
+                <g data-hotspot="junction" role="button" tabindex="0" aria-label="Junction"><rect class="fd-hit" x="18" y="84" width="84" height="70" style="fill:rgba(0,0,0,0);stroke:none"/><rect x="20" y="100" width="80" height="50" rx="8" style="fill:rgba(255,105,120,.25);stroke:rgba(255,105,120,.95);stroke-width:1.3"/><text class="fd-label" x="60" y="122" text-anchor="middle" style="font-size:7.5px">junction</text><text class="fd-sub" x="60" y="133" text-anchor="middle" style="font-size:6px">the active silicon</text><text class="fd-sub" x="60" y="92" text-anchor="middle" style="font-size:6.5px">hottest</text></g>
+                <g data-hotspot="case" role="button" tabindex="0" aria-label="Case"><rect class="fd-hit" x="128" y="84" width="84" height="70" style="fill:rgba(0,0,0,0);stroke:none"/><rect x="130" y="100" width="80" height="50" rx="8" style="fill:rgba(255,214,102,.22);stroke:rgba(255,214,102,.95);stroke-width:1.3"/><text class="fd-label" x="170" y="122" text-anchor="middle" style="font-size:7.5px">case</text><text class="fd-sub" x="170" y="133" text-anchor="middle" style="font-size:6px">the package surface</text><text class="fd-sub" x="170" y="92" text-anchor="middle" style="font-size:6.5px">warm</text></g>
+                <g data-hotspot="ambient" role="button" tabindex="0" aria-label="Ambient"><rect class="fd-hit" x="238" y="84" width="84" height="70" style="fill:rgba(0,0,0,0);stroke:none"/><rect x="240" y="100" width="80" height="50" rx="8" style="fill:rgba(120,180,255,.2);stroke:rgba(120,180,255,.95);stroke-width:1.3"/><text class="fd-label" x="280" y="122" text-anchor="middle" style="font-size:7.5px">ambient</text><text class="fd-sub" x="280" y="133" text-anchor="middle" style="font-size:6px">the surrounding air</text><text class="fd-sub" x="280" y="92" text-anchor="middle" style="font-size:6.5px">coolest</text></g>
+                <line style="stroke:rgba(255,105,120,.95);stroke-width:1.8" x1="102" y1="125" x2="120.0" y2="125.0"/><polygon points="128,125 120.0,128.6 120.0,121.4" style="fill:rgba(255,105,120,.95);stroke:none"/><text class="fd-sub" x="115" y="118" text-anchor="middle" style="font-size:7px">θ<tspan style="font-size:5px" dy="1.5">JC</tspan></text>
+                <line style="stroke:rgba(255,105,120,.95);stroke-width:1.8" x1="212" y1="125" x2="230.0" y2="125.0"/><polygon points="238,125 230.0,128.6 230.0,121.4" style="fill:rgba(255,105,120,.95);stroke:none"/><text class="fd-sub" x="225" y="118" text-anchor="middle" style="font-size:7px">θ<tspan style="font-size:5px" dy="1.5">CA</tspan></text>
+                <g data-hotspot="thetaja" role="button" tabindex="0" aria-label="Thermal resistance"><rect class="fd-hit" x="20" y="160" width="300" height="30" style="fill:rgba(0,0,0,0);stroke:none"/><line style="stroke:var(--text);stroke-width:1.4;opacity:0.8" x1="20" y1="166" x2="320" y2="166"/><line style="stroke:var(--text);stroke-width:1.4;opacity:0.8" x1="20" y1="162" x2="20" y2="170"/><line style="stroke:var(--text);stroke-width:1.4;opacity:0.8" x1="320" y1="162" x2="320" y2="170"/><text class="fd-label" x="170" y="182" text-anchor="middle" style="font-size:8px">θ<tspan style="font-size:5px" dy="1.5">JA</tspan> = θ<tspan style="font-size:5px" dy="1.5">JC</tspan> + θ<tspan style="font-size:5px" dy="1.5">CA</tspan></text></g>
+                <text class="fd-label" x="170" y="214" text-anchor="middle" style="font-size:7px">Heat needs a path out</text>
+                </svg>
+                <script type="application/json" class="fd-hotspot-data">{"hint":"Tap a part of the heat path.","parts":{"junction":{"role":"Source","color":"rose","title":"The junction","text":"The active silicon of the die, where heat is generated. It is the hottest point in the path."},"case":{"role":"Middle","color":"gold","title":"The case","text":"The surface of the package. Heat must conduct through the die attach and package material to reach it."},"ambient":{"role":"Sink","color":"teal","title":"Ambient air","text":"The surrounding air, often helped along by a heat sink or airflow. It is where the heat finally goes."},"thetaja":{"role":"The number","color":"teal","title":"θJA","text":"Thermal resistance from junction to ambient, in degrees per watt. A lower θJA means the same power makes a smaller temperature rise, so temperature rise = power × θJA."}}}</script>
+                </div>
+                <!-- /fd:thermal -->
+
+
+
                 <p>
                     Heat generated inside a working die has to travel from the junction, the active silicon itself, through the package to its case, and finally out into the surrounding air. Every step of that path resists heat flow at least a little, and that resistance is what ultimately sets how hot the chip runs.
                 </p>
@@ -229,6 +247,24 @@
                 <div class="module-visual module-visual-text">
                     high, then low, then rising again
                 </div>
+
+                <!-- fd:bathtub -->
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 226" role="img" aria-label="A bathtub-shaped graph of failure rate against time in service: high at the start from infant mortality, low and flat through useful life, and rising again at the end from wear-out">
+                <line class="fd-axis" x1="44" y1="176" x2="316" y2="176"/>
+                <line class="fd-axis" x1="44" y1="176" x2="44" y2="34"/>
+                <text class="fd-sub" x="300" y="192" text-anchor="end" style="font-size:6.5px">time in service</text><text class="fd-sub" x="52" y="38" text-anchor="start" style="font-size:6.5px">failure rate</text>
+                <g data-hotspot="infant" role="button" tabindex="0" aria-label="Infant mortality"><rect class="fd-hit" x="46" y="40" width="60" height="134" style="fill:rgba(0,0,0,0);stroke:none"/><rect x="46" y="40" width="60" height="134" rx="0" style="fill:rgba(255,105,120,.12);stroke:none;stroke-width:1.2"/><text class="fd-label" x="76" y="60" text-anchor="middle" style="font-size:7px">infant</text><text class="fd-label" x="76" y="70" text-anchor="middle" style="font-size:7px">mortality</text></g>
+                <g data-hotspot="useful" role="button" tabindex="0" aria-label="Useful life"><rect class="fd-hit" x="106" y="40" width="120" height="134" style="fill:rgba(0,0,0,0);stroke:none"/><rect x="106" y="40" width="120" height="134" rx="0" style="fill:rgba(84,224,199,.1);stroke:none;stroke-width:1.2"/><text class="fd-label" x="166" y="100" text-anchor="middle" style="font-size:7px">useful life</text><text class="fd-sub" x="166" y="110" text-anchor="middle" style="font-size:6px">low and steady</text></g>
+                <g data-hotspot="wear" role="button" tabindex="0" aria-label="Wear-out"><rect class="fd-hit" x="226" y="40" width="90" height="134" style="fill:rgba(0,0,0,0);stroke:none"/><rect x="226" y="40" width="90" height="134" rx="0" style="fill:rgba(255,214,102,.12);stroke:none;stroke-width:1.2"/><text class="fd-label" x="271" y="60" text-anchor="middle" style="font-size:7px">wear-out</text></g>
+                <path d="M48,60 C66,150 88,158 110,158 L224,158 C256,158 272,130 312,52" style="fill:none;stroke:var(--accent);stroke-width:2.4;opacity:1"/>
+                <text class="fd-label" x="170" y="214" text-anchor="middle" style="font-size:7px">Failure rate over a chip's life</text>
+                </svg>
+                <script type="application/json" class="fd-hotspot-data">{"hint":"Tap a phase of the curve.","parts":{"infant":{"role":"Early life","color":"rose","title":"Infant mortality","text":"Failure rate starts high because of hidden weaknesses that fail almost immediately under stress. Burn-in exists to push these failures out before a chip ships."},"useful":{"role":"Middle","color":"teal","title":"Useful life","text":"After the early failures are gone, the failure rate stays low and steady for most of the chip's life."},"wear":{"role":"Late life","color":"gold","title":"Wear-out","text":"Long-term wear slowly accumulates, and the failure rate rises again toward the end of the chip's life."}}}</script>
+                </div>
+                <!-- /fd:bathtub -->
+
+
 
                 <p>
                     Failure rate over a chip's life traces a bathtub shape: high early on from infant mortality, low and steady through its useful life, then rising again from long-term wear-out. Burn-in exists specifically to push failures out of that first, high phase before a chip ever ships.
