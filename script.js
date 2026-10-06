@@ -9059,3 +9059,54 @@ document.addEventListener("click", function (event) {
     };
 
 })();
+
+/* ========================================
+   3D look for diagrams and icons
+   (diagram3d.js does the work)
+======================================== */
+
+(function () {
+
+    function loadDiagram3D() {
+
+        if (!document.querySelector(".module-visual")) {
+            return;
+        }
+
+        const script = document.createElement("script");
+
+        script.src = "diagram3d.js";
+        script.async = true;
+
+        document.head.appendChild(script);
+    }
+
+    function loadDiagramInteract() {
+
+        if (
+            !document.querySelector(".fd-sim") &&
+            !document.querySelector("script.fd-hotspot-data")
+        ) {
+            return;
+        }
+
+        const script = document.createElement("script");
+
+        script.src = "diagram-interact.js";
+        script.async = true;
+
+        document.head.appendChild(script);
+    }
+
+    function loadDiagramScripts() {
+        loadDiagram3D();
+        loadDiagramInteract();
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", loadDiagramScripts);
+    } else {
+        loadDiagramScripts();
+    }
+
+})();
