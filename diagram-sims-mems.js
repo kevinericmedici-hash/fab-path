@@ -423,10 +423,198 @@
         };
     }
 
+
+    // A step-through animation: step buttons, play and pause, and a draw function that returns SVG.
+    function stepper(cfg) {
+
+        return function (root) {
+
+            const state = { step: 0, playing: true, t: 0, anim: 0 };
+            const n = cfg.steps.length;
+
+            root.innerHTML =
+                head(cfg.title) +
+                art(cfg.viewBox || "0 0 340 190", cfg.aria) +
+                '<div class="fd-sim-readout"><div class="fd-sim-big" data-out="title"></div><span class="fd-chip" data-out="tool"></span></div>' +
+                '<p class="fd-sim-note" data-out="text"></p>' +
+                '<div class="fd-play"><button type="button" class="fd-sim-btn" data-play>⏸ Pause</button>' +
+                cfg.steps.map(function (st, i) { return '<button type="button" class="fd-sim-btn" data-stepbtn="' + i + '">' + (i + 1) + "</button>"; }).join("") +
+                "</div>" + (cfg.extra || "") +
+                (cfg.formula ? '<p class="fd-sim-formula">' + cfg.formula + "</p>" : "");
+
+            const svg = root.querySelector("svg");
+            const playBtn = root.querySelector("[data-play]");
+
+            function render() {
+
+                svg.innerHTML = cfg.draw(state.step, state);
+
+                const st = cfg.steps[state.step];
+
+                out(root, "title", st.t);
+                out(root, "text", st.text);
+
+                const chip = root.querySelector('[data-out="tool"]');
+
+                chip.textContent = st.tool ? st.tool : "";
+                chip.style.display = st.tool ? "" : "none";
+
+                root.querySelectorAll("button[data-stepbtn]").forEach(function (b) {
+                    b.classList.toggle("on", parseInt(b.dataset.stepbtn, 10) === state.step);
+                });
+
+                if (state.step === n - 1 && cfg.rewardKey) {
+                    F.reward(cfg.rewardKey, 10, cfg.rewardMsg || "You followed the whole sequence");
+                }
+
+                if (cfg.after) { cfg.after(root, state); }
+            }
+
+            animate(root, function (dt) {
+
+                state.anim += dt;
+                state.t += dt;
+
+                if (state.playing && state.t > (cfg.interval || 2.8)) {
+
+                    state.t = 0;
+                    state.step = (state.step + 1) % n;
+                }
+
+                render();
+            });
+
+            playBtn.addEventListener("click", function () {
+
+                state.playing = !state.playing;
+                playBtn.textContent = state.playing ? "⏸ Pause" : "▶ Play";
+            });
+
+            root.querySelectorAll("button[data-stepbtn]").forEach(function (b) {
+
+                b.addEventListener("click", function () {
+
+                    state.playing = false;
+                    playBtn.textContent = "▶ Play";
+                    state.step = parseInt(b.dataset.stepbtn, 10);
+                    state.t = 0;
+
+                    render();
+                });
+            });
+
+            root.querySelector("[data-reset]").addEventListener("click", function () {
+
+                state.step = 0;
+                state.t = 0;
+                state.playing = true;
+                playBtn.textContent = "⏸ Pause";
+
+                render();
+            });
+
+            if (cfg.wire) { cfg.wire(root, state, render); }
+
+            render();
+        };
+    }
+
+    // An ordering game: tap the steps in the right order.
+    function orderGame(title, steps, rewardKey, rewardMsg, intro, doneText) {
+
+        return function (root) {
+
+            const rand = mulberry(Date.now() % 100000);
+            const state = { next: 0, mistakes: 0, order: [] };
+
+            root.innerHTML =
+                head(title) +
+                '<div class="fd-stat-row">' + stat("Placed", "placed") + stat("Mistakes", "miss") + "</div>" +
+                '<p class="fd-sim-note">' + intro + "</p>" +
+                '<div class="fd-q-options" data-pool></div>' +
+                '<p class="fd-q-feedback" data-out="fb"></p>' +
+                '<ol class="fd-sim-note" data-done style="margin:6px 0 0 20px"></ol>';
+
+            const pool = root.querySelector("[data-pool]");
+            const done = root.querySelector("[data-done]");
+
+            function shuffle() {
+
+                const a = steps.map(function (s, i) { return i; });
+
+                for (let i = a.length - 1; i > 0; i--) {
+
+                    const j = Math.floor(rand() * (i + 1));
+                    const t = a[i];
+
+                    a[i] = a[j];
+                    a[j] = t;
+                }
+
+                state.order = a;
+            }
+
+            function render() {
+
+                pool.innerHTML = state.order.filter(function (i) { return i >= state.next; }).map(function (i) {
+                    return '<button type="button" data-i="' + i + '">' + steps[i].n + (steps[i].d ? " · " + steps[i].d : "") + "</button>";
+                }).join("");
+
+                done.innerHTML = steps.slice(0, state.next).map(function (s) { return "<li>" + s.n + ": " + s.why + "</li>"; }).join("");
+
+                out(root, "placed", state.next + " of " + steps.length);
+                out(root, "miss", state.mistakes);
+
+                pool.querySelectorAll("button").forEach(function (b) {
+
+                    b.addEventListener("click", function () {
+
+                        const i = parseInt(b.dataset.i, 10);
+
+                        if (i === state.next) {
+
+                            state.next++;
+                            out(root, "fb", "✅ " + steps[i].why);
+
+                            if (state.next === steps.length) {
+
+                                out(root, "fb", "✅ " + doneText + (state.mistakes === 0 ? " No mistakes!" : ""));
+                                F.reward(rewardKey, state.mistakes === 0 ? 20 : 10, rewardMsg);
+                            }
+
+                            render();
+
+                        } else {
+
+                            state.mistakes++;
+                            out(root, "fb", "❌ Not yet. Think about what has to exist before " + steps[i].n.toLowerCase() + " can happen.");
+                            out(root, "miss", state.mistakes);
+                            b.classList.add("shake");
+                            setTimeout(function () { b.classList.remove("shake"); }, 400);
+                        }
+                    });
+                });
+            }
+
+            root.querySelector("[data-reset]").addEventListener("click", function () {
+
+                state.next = 0;
+                state.mistakes = 0;
+                out(root, "fb", "");
+
+                shuffle();
+                render();
+            });
+
+            shuffle();
+            render();
+        };
+    }
+
     F.memsHelpers = {
         clamp: clamp, mulberry: mulberry, seg: seg, wire: wire, head: head, setVal: setVal, out: out,
         art: art, stat: stat, rect: rect, label: label, pline: pline, poly: poly, legend: legend,
-        animate: animate, bindPause: bindPause, quiz: quiz
+        animate: animate, bindPause: bindPause, quiz: quiz, stepper: stepper, orderGame: orderGame
     };
 
 
@@ -1950,16 +2138,27 @@
     };
 
 
-    // Load the next set of MEMS simulators, which build on these helpers.
-    if (!document.getElementById("fabMemsFabScript")) {
+    // Load the other MEMS simulator files, which build on these helpers.
+    [
+        ["fabMemsFabScript", "diagram-sims-mems-fab.js"],
+        ["fabMemsMumpsScript", "diagram-sims-mems-mumps.js"],
+        ["fabMemsSensorsScript", "diagram-sims-mems-sensors.js"],
+        ["fabMemsOpticsScript", "diagram-sims-mems-optics.js"],
+        ["fabMemsFluidicScript", "diagram-sims-mems-fluidic.js"],
+        ["fabMemsPkgScript", "diagram-sims-mems-pkg.js"]
+    ].forEach(function (f) {
+
+        if (document.getElementById(f[0])) {
+            return;
+        }
 
         const more = document.createElement("script");
 
-        more.id = "fabMemsFabScript";
-        more.src = "diagram-sims-mems-fab.js";
+        more.id = f[0];
+        more.src = f[1];
 
         document.head.appendChild(more);
-    }
+    });
 
     document.querySelectorAll('.fd-sim[data-sim^="mems-"]').forEach(F.mount);
 
