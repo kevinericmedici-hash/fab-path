@@ -1037,6 +1037,218 @@
     };
 
 
+    /* ======================================
+       UNIT 22: BUILDING A DMD PIXEL
+    ====================================== */
+
+    SIMS["mems-dmdfab"] = M.stepper({
+        title: "Watch it: how a DMD pixel is built",
+        aria: "A cross-section of one micromirror pixel built in layers on top of a CMOS memory wafer: address electrodes, a first sacrificial spacer, the hinge and support layer, a second spacer, the mirror layer, a dry-etch release, a wafer-level test, die separation, and an optical hermetic package",
+        viewBox: "20 46 300 138",
+        interval: 3.4,
+        formula: "The same deposit-pattern-release sequence you know from earlier units, built on aluminum instead of polysilicon. Sputtering at low temperature matters because the CMOS memory is already underneath. Layer details are simplified.",
+        rewardKey: "mems-dmdfab-done",
+        rewardMsg: "You followed a DMD pixel from wafer to package",
+        steps: [
+            { t: "1 · Start with the CMOS memory", tool: "Standard CMOS", text: "Each mirror sits on top of a memory cell. The address electrodes and the landing pads are on the surface. Everything mechanical is built above the electronics." },
+            { t: "2 · First sacrificial layer", tool: "Organic spacer", text: "An organic spacer is laid over the electrodes. A hole is patterned in it where the hinge will be anchored to the substrate." },
+            { t: "3 · Hinge and support layer", tool: "Low-temperature sputter + plasma etch", text: "Aluminum is sputtered at low temperature, which the CMOS underneath can survive, then patterned with a plasma etch into the torsion beam and the H-shaped support." },
+            { t: "4 · Second sacrificial layer", tool: "Organic spacer", text: "A second spacer is added over the support. A hole opens at its center where the central post will stand." },
+            { t: "5 · Mirror layer", tool: "Low-temperature sputter + plasma etch", text: "Aluminum fills the hole to make the central post and covers the spacer as the mirror plate, which is then patterned." },
+            { t: "6 · Release", tool: "Dry etch, at the wafer level", text: "The organic spacers are dry-etched away. The mirror is now suspended on its post and hinge, free to tilt, and still on the wafer." },
+            { t: "7 · Test on the wafer", tool: "High-speed electro-optical", text: "Every mirror is flipped and checked optically before the wafer is cut. A voltage on one address electrode pulls the mirror until its tip lands." },
+            { t: "8 · Die separation", tool: "After the spacers are gone", text: "Only now is the wafer cut into individual die. The delicate released mirrors are not exposed to the saw until they are protected in a package." },
+            { t: "9 · Package", tool: "Optical, hermetic, thermal vias", text: "The die goes into a sealed package with a window for light, and thermal vias carry heat away from the mirrors." }
+        ],
+        draw: function (step, st) {
+
+            const AL = "rgba(190,210,255,.95)";
+            const SP = "rgba(255,105,120,.5)";
+            const SUB = "rgba(170,179,207,.5)";
+            const CM = "rgba(84,224,199,.55)";
+            const GOLD = "rgba(255,214,102,.95)";
+
+            function r(x, y, w, h, f, s2) {
+
+                return '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" style="fill:' + f + ";stroke:" + (s2 || "none") + ';stroke-width:1"/>';
+            }
+
+            function t(x, y, text, size, fill) {
+
+                return '<text x="' + x + '" y="' + y + '" text-anchor="middle" style="font-size:' + (size || 7) + "px;fill:" + (fill || "var(--muted)") + '">' + text + "</text>";
+            }
+
+            // one pixel, drawn at a given tilt about the hinge
+            function pixel(layersUpTo, tilt, withSpacers, spacerFade) {
+
+                let g = "";
+                const px = 170;
+                const py = 127;
+
+                if (withSpacers) {
+
+                    g += r(40, 130, 220, 14, "rgba(255,105,120," + (0.5 * spacerFade).toFixed(2) + ")", "none");
+
+                    if (layersUpTo >= 4) { g += r(70, 90, 200 - 20, 34, "rgba(255,105,120," + (0.5 * spacerFade).toFixed(2) + ")", "none"); }
+                }
+
+                g += '<g transform="rotate(' + tilt + " " + px + " " + py + ')">';
+
+                if (layersUpTo >= 3) { g += r(100, 124, 140, 6, AL, "none"); }
+                if (layersUpTo >= 5) { g += r(165, 90, 10, 34, AL, "none") + r(70, 84, 200, 6, AL, "rgba(6,10,24,.4)"); }
+
+                g += "</g>";
+
+                // hinge post that stays on the substrate
+                if (layersUpTo >= 3) { g += r(166, 127, 8, 23, AL, "none"); }
+
+                return g;
+            }
+
+            let s = "";
+
+            // the CMOS memory wafer
+            function wafer() {
+
+                let w = r(30, 150, 280, 26, SUB, "rgba(245,247,255,.4)");
+
+                w += r(84, 158, 36, 12, CM, "rgba(245,247,255,.4)") + r(220, 158, 36, 12, CM, "rgba(245,247,255,.4)");
+                w += t(102, 168, "memory", 6, "rgba(6,10,24,.85)") + t(238, 168, "memory", 6, "rgba(6,10,24,.85)");
+
+                // address electrodes and landing pads
+                w += r(112, 144, 38, 6, GOLD, "none") + r(190, 144, 38, 6, GOLD, "none");
+                w += r(98, 144, 12, 6, "rgba(245,247,255,.8)", "none") + r(230, 144, 12, 6, "rgba(245,247,255,.8)", "none");
+
+                return w;
+            }
+
+            if (step <= 6) {
+
+                s += wafer();
+            }
+
+            if (step === 0) {
+
+                s += t(130, 138, "address electrode", 6.5, GOLD);
+                s += t(170, 118, "everything mechanical will be built above the electronics", 7.5, "rgba(84,224,199,1)");
+                s += t(104, 183, "landing pad", 6, "var(--muted)");
+            }
+
+            if (step === 1) {
+
+                s += r(40, 130, 126, 14, SP, "none") + r(174, 130, 86, 14, SP, "none");
+                s += t(170, 118, "organic spacer, with a hole for the hinge post", 7.5, "rgba(255,105,120,1)");
+            }
+
+            if (step >= 2 && step <= 5) {
+
+                const lyr = step === 2 ? 3 : (step === 3 ? 3 : 5);
+                const l2 = step >= 3;
+
+                s += r(40, 130, 220, 14, SP, "none");
+
+                if (l2) {
+                    s += r(100, 90, 140, 34, SP, "none");
+                }
+
+                if (step === 3) { s += r(165, 90, 10, 34, "rgba(11,16,32,1)", "none"); }
+
+                s += pixel(step >= 4 ? 5 : 3, 0, false, 1);
+
+                if (step === 2) { s += t(170, 114, "torsion beam and H-shaped support, patterned by plasma etch", 7.5, "rgba(190,210,255,1)"); }
+                if (step === 3) { s += t(170, 74, "hole for the central post", 7.5, "rgba(255,105,120,1)"); }
+                if (step === 4) { s += t(170, 74, "mirror layer: central post and mirror plate", 7.5, "rgba(190,210,255,1)"); }
+            }
+
+            if (step === 2) {
+
+                // the support layer only; no second spacer yet
+                s = s.replace("", "");
+            }
+
+            if (step === 5) {
+
+                const p = clamp(st.t / 2.4, 0, 1);
+
+                // spacers fade as the dry etch consumes them
+                s = wafer();
+                s += r(40, 130, 220, 14, "rgba(255,105,120," + (0.5 * (1 - p)).toFixed(2) + ")", "none");
+                s += r(100, 90, 140, 34, "rgba(255,105,120," + (0.5 * (1 - p)).toFixed(2) + ")", "none");
+                s += pixel(5, 0, false, 1);
+
+                for (let k = 0; k < 14; k++) {
+
+                    const dx = 50 + (k * 37 + st.anim * 60) % 220;
+                    const dy = 60 + (k * 23 + st.anim * 40) % 70;
+
+                    s += '<circle cx="' + dx.toFixed(1) + '" cy="' + dy.toFixed(1) + '" r="1.6" style="fill:rgba(255,214,102,' + (0.8 * (1 - p)).toFixed(2) + ')"/>';
+                }
+
+                s += t(170, 56, p < 1 ? "dry etch removes the organic spacers" : "released: free to tilt", 7.5, p < 1 ? "rgba(255,214,102,1)" : "rgba(84,224,199,1)");
+            }
+
+            if (step === 6) {
+
+                const tilt = Math.sin(st.anim * 3) >= 0 ? 12 : -12;
+                const side = tilt > 0;
+
+                s = wafer();
+                s += r(side ? 190 : 112, 144, 38, 6, "rgba(255,105,120,1)", "none");
+                s += pixel(5, tilt, false, 1);
+                s += t(170, 56, "flipping at high speed, tip landing each time", 7.5, "rgba(84,224,199,1)");
+                s += '<line x1="40" y1="30" x2="40" y2="130" style="stroke:rgba(255,214,102,.9);stroke-width:2"/><circle cx="40" cy="132" r="3" style="fill:rgba(255,214,102,1)"/>';
+                s += t(60, 28, "probe", 7, "rgba(255,214,102,1)");
+            }
+
+            if (step === 7) {
+
+                // a strip of released die on the wafer, cut apart by a saw
+                const kerf = [110, 200];
+
+                s += r(30, 140, 280, 30, SUB, "rgba(245,247,255,.4)");
+
+                [[40, 110], [120, 200], [210, 300]].forEach(function (d) {
+
+                    s += r(d[0], 130, d[1] - d[0] - 8, 10, "rgba(84,224,199,.7)", "none");
+                    s += r(d[0] + 8, 110, d[1] - d[0] - 24, 4, AL, "none");
+                    s += r(d[0] + (d[1] - d[0]) / 2 - 8, 114, 4, 16, AL, "none");
+                });
+
+                kerf.forEach(function (k, i) {
+
+                    const down = Math.min(1, st.t / 2.6) * 30;
+
+                    s += r(k - 5, 118 + down * 0, 10, 52, "rgba(6,10,24,.9)", "none");
+                    s += '<circle cx="' + k + '" cy="' + (140 - 22 + down * 0.4) + '" r="16" style="fill:rgba(245,247,255,.9);stroke:rgba(6,10,24,.6)"/>';
+                });
+
+                s += t(170, 56, "the wafer is cut into individual die", 7.5, "rgba(245,247,255,1)");
+                s += t(170, 181, "mirrors are already released, so they are cut last", 7, "var(--muted)");
+            }
+
+            if (step === 8) {
+
+                // a sealed package: ceramic body, die, window, thermal vias
+                s += r(70, 130, 200, 30, "rgba(170,179,207,.6)", "rgba(245,247,255,.5)");
+                s += r(70, 90, 8, 40, "rgba(170,179,207,.6)", "none") + r(262, 90, 8, 40, "rgba(170,179,207,.6)", "none");
+                s += r(120, 124, 100, 8, "rgba(84,224,199,.75)", "none");
+                s += r(135, 114, 70, 3, AL, "none");
+                s += r(66, 84, 208, 8, "rgba(120,180,255,.35)", "rgba(245,247,255,.8)");
+                s += t(170, 74, "glass window lets the light in and out", 7.5, "rgba(190,210,255,1)");
+
+                [100, 140, 180, 220, 245].forEach(function (x) {
+                    s += '<line x1="' + x + '" y1="132" x2="' + x + '" y2="172" style="stroke:rgba(255,214,102,.95);stroke-width:2.4"/>';
+                });
+
+                s += t(170, 181, "thermal vias carry heat away", 7, "rgba(255,214,102,1)");
+                s += t(170, 104, "sealed: hermetic", 7, "var(--muted)");
+            }
+
+            return s;
+        }
+    });
+
+
     // Mount any sims on this page that were registered by this file.
     document.querySelectorAll('.fd-sim[data-sim^="mems-"]').forEach(F.mount);
 

@@ -33,6 +33,7 @@
     const poly = M.poly;
     const pline = M.pline;
     const animate = M.animate;
+    const bindPause = M.bindPause;
     const SIMS = F.SIMS;
     const slider = F.slider;
 
@@ -915,6 +916,458 @@
 
         wire(root, state, defaults, update);
         update();
+    };
+
+
+    /* ======================================
+       UNIT 19: READING THE CAPACITOR
+    ====================================== */
+
+    SIMS["mems-readout"] = function (root) {
+
+        const defaults = { exc: "dc", move: "osc", speed: 1, off: 0.3 };
+        const state = { exc: "dc", move: "osc", speed: 1, off: 0.3 };
+
+        const WIN = 3;          // seconds of history on screen
+        const FC = 8;           // carrier frequency of the AC excitation, in Hz (slowed down to be visible)
+
+        root.innerHTML =
+            head("Watch it: what does the circuit actually measure?") +
+            '<canvas class="fd-sim-canvas fd-wide" width="680" height="450" role="img" aria-label="A circuit that applies an excitation voltage to a capacitor whose plate moves, with graphs of position, capacitance, excitation voltage, current, and output voltage over time"></canvas>' +
+            '<div class="fd-readout-eq" data-eq></div>' +
+            '<div class="fd-sim-readout"><div class="fd-sim-big" data-out="verdict"></div><span class="fd-chip" data-out="chip"></span></div>' +
+            '<p class="fd-sim-note" data-out="changing"></p>' +
+            seg("Excitation source", "exc", [["dc", "DC voltage + resistor feedback"], ["ac", "AC voltage + capacitor feedback"]]) +
+            seg("How the plate moves", "move", [["still", "Held still"], ["ramp", "Steady speed back and forth"], ["osc", "Oscillating"]]) +
+            '<div class="fd-sim-controls" data-controls></div>' +
+            '<div class="fd-play"><button type="button" class="fd-sim-btn" data-pause>⏸ Pause</button></div>' +
+            '<p class="fd-sim-formula"><b>Voltage or current?</b> You apply a voltage: the excitation source puts V across the capacitor. What you measure is the current that flows in response, and the amplifier turns that current into an output voltage. So it is both, in that order: voltage in, current through, voltage out.</p>';
+
+        const canvas = root.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+        const controls = root.querySelector("[data-controls]");
+        const eqEl = root.querySelector("[data-eq]");
+
+        if (!document.getElementById("fabMemsReadoutStyles")) {
+
+            const el = document.createElement("style");
+
+            el.id = "fabMemsReadoutStyles";
+            el.textContent = ".fd-readout-eq { margin: 8px 0; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--border); background: rgba(255,255,255,.04); line-height: 1.9; font-size: .95rem; } .fd-readout-eq .hi { color: #54e0c7; font-weight: 800; } .fd-readout-eq .lo { color: var(--muted); }";
+            document.head.appendChild(el);
+        }
+
+        const H = { x: [], c: [], cd: [], v: [], i: [], o: [], t: [] };
+
+        let T = 0;
+        let prev = null;
+        let built = "";
+        let dots = 0;
+        let seenDC = false;
+        let seenAC = false;
+        let stillZero = false;
+
+        function xAt(t) {
+
+            if (state.move === "still") { return state.off; }
+
+            if (state.move === "ramp") {
+
+                const ph = (t * state.speed / 4) % 1;
+
+                return -0.4 + 0.8 * (ph < 0.5 ? ph * 2 : 2 - 2 * ph);
+            }
+
+            return 0.4 * Math.sin(2 * Math.PI * 0.35 * state.speed * t);
+        }
+
+        function sample(t, h) {
+
+            const x = xAt(t);
+            const C = 1 + x;
+            const ac = state.exc === "ac";
+            const V = ac ? Math.sin(2 * Math.PI * FC * t) : 1;
+            const Q = C * V;
+
+            let i = 0;
+
+            if (prev) { i = (Q - prev.Q) / h; }
+
+            // the output: DC with a feedback resistor gives -R*i, AC with a feedback capacitor gives -(C/CF)*V
+            const o = ac ? -C * V : -i;
+            const iShow = ac ? i / (2 * Math.PI * FC) : i;
+
+            prev = { Q: Q };
+
+            return { x: x, c: C, v: V, i: iShow, o: o };
+        }
+
+        function buildControls() {
+
+            if (built === state.move) { return; }
+
+            built = state.move;
+
+            controls.innerHTML = state.move === "still"
+                ? slider({ label: "Where the plate sits (position)", key: "off", min: -0.4, max: 0.4, step: 0.05, value: state.off })
+                : slider({ label: "How fast it moves", key: "speed", min: 0.4, max: 2, step: 0.1, value: state.speed });
+
+            controls.querySelectorAll("input[type=range]").forEach(function (input) {
+
+                input.addEventListener("input", function () {
+
+                    state[input.dataset.key] = parseFloat(input.value);
+                    update();
+                });
+            });
+        }
+
+        function update() {
+
+            buildControls();
+
+            const dc = state.exc === "dc";
+
+            eqEl.innerHTML = dc
+                ? 'Q = C(x) · V<br>' +
+                  'i = dQ/dt = <span class="lo">C · dV/dt</span> + <span class="hi">V · dC/dt</span><br>' +
+                  'DC source: dV/dt = 0, so i = V · dC/dt = V · (dC/dx) · <span class="hi">dx/dt</span><br>' +
+                  'V<sub>o</sub> = −R<sub>F</sub> · i &nbsp;→&nbsp; <span class="hi">proportional to velocity</span>'
+                : 'Q = C(x) · V<sub>ac</sub><br>' +
+                  'Charge amplifier with a feedback capacitor C<sub>F</sub><br>' +
+                  'V<sub>o</sub> = −(C(x) ÷ C<sub>F</sub>) · V<sub>ac</sub><br>' +
+                  'Amplitude of V<sub>o</sub> ∝ <span class="hi">C(x)</span> &nbsp;→&nbsp; <span class="hi">proportional to position</span>';
+
+            const chip = root.querySelector('[data-out="chip"]');
+
+            if (dc) {
+
+                seenDC = true;
+                out(root, "changing", state.move === "still"
+                    ? "V is fixed and the plate is not moving, so dC/dt = 0: no current flows, and the output is zero, even though the capacitance is not zero."
+                    : "V is fixed, so the only thing that can change the charge is the capacitance changing. Current flows only while the plate is moving.");
+
+                out(root, "verdict", state.move === "still" ? "Held still: no current, no output" : "The output follows how fast the plate moves");
+                chip.textContent = "velocity";
+                chip.className = "fd-chip gold";
+
+            } else {
+
+                seenAC = true;
+                out(root, "changing", "V keeps alternating, so charge keeps moving even when the plate is still. The size of the response carries C(x): a bigger overlap gives a bigger output swing.");
+                out(root, "verdict", "The output's amplitude follows where the plate is");
+                chip.textContent = "position";
+                chip.className = "fd-chip";
+            }
+
+            if (seenDC && seenAC) {
+                F.reward("mems-readout-both", 15, "You compared DC and AC readout");
+            }
+
+            setVal(root, "off", state.off.toFixed(2));
+            setVal(root, "speed", state.speed.toFixed(1) + "×");
+
+            H.x = []; H.c = []; H.cd = []; H.v = []; H.i = []; H.o = []; H.t = [];
+            prev = null;
+        }
+
+        function row(label, y, h, key, scale, color, fmt) {
+
+            const x0 = 250;
+            const x1 = 660;
+
+            ctx.strokeStyle = "rgba(170,179,207,.25)";
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(x0, y + h / 2);
+            ctx.lineTo(x1, y + h / 2);
+            ctx.stroke();
+
+            ctx.fillStyle = "rgba(245,247,255,.9)";
+            ctx.font = "11px sans-serif";
+            ctx.textAlign = "left";
+            ctx.fillText(label, x0, y - 3);
+
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+
+            let first = true;
+
+            for (let k = 0; k < H.t.length; k++) {
+
+                const px = x0 + (H.t[k] - (T - WIN)) / WIN * (x1 - x0);
+
+                if (px < x0) { continue; }
+
+                const py = y + h / 2 - clamp(H[key][k], -1.3, 1.3) * scale;
+
+                if (first) { ctx.moveTo(px, py); first = false; } else { ctx.lineTo(px, py); }
+            }
+
+            ctx.stroke();
+
+            void fmt;
+        }
+
+        function draw() {
+
+            ctx.clearRect(0, 0, 680, 450);
+            ctx.fillStyle = "rgba(6,10,24,.55)";
+            ctx.fillRect(0, 0, 680, 450);
+
+            const ac = state.exc === "ac";
+            const last = H.x.length ? H.x[H.x.length - 1] : xAt(T);
+            const lastI = H.i.length ? H.i[H.i.length - 1] : 0;
+
+            // ---- the circuit ----
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = "rgba(245,247,255,.9)";
+            ctx.fillStyle = "rgba(245,247,255,.9)";
+            ctx.font = "12px sans-serif";
+            ctx.textAlign = "center";
+
+            // source
+            ctx.beginPath();
+            ctx.arc(60, 60, 20, 0, Math.PI * 2);
+            ctx.stroke();
+
+            if (ac) {
+
+                ctx.beginPath();
+
+                for (let k = 0; k <= 20; k++) {
+
+                    const px = 48 + k * 1.2;
+                    const py = 60 - Math.sin(k / 20 * Math.PI * 2) * 8;
+
+                    if (k === 0) { ctx.moveTo(px, py); } else { ctx.lineTo(px, py); }
+                }
+
+                ctx.stroke();
+
+            } else {
+
+                ctx.fillText("+", 60, 56);
+                ctx.fillText("−", 60, 72);
+            }
+
+            ctx.fillStyle = "rgba(255,214,102,1)";
+            ctx.fillText(ac ? "V (AC, 1 kHz or more)" : "V (DC)", 60, 30);
+
+            // wire from the source down to the capacitor
+            ctx.strokeStyle = "rgba(245,247,255,.9)";
+            ctx.beginPath();
+            ctx.moveTo(60, 80);
+            ctx.lineTo(60, 150);
+            ctx.lineTo(120, 150);
+            ctx.stroke();
+
+            // the capacitor: a fixed plate and a plate that slides
+            const f = (1 + last) / 1.5;
+
+            ctx.strokeStyle = "rgba(255,214,102,1)";
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+            ctx.moveTo(60, 150);
+            ctx.lineTo(60, 160);
+            ctx.stroke();
+            ctx.fillStyle = "rgba(255,214,102,.95)";
+            ctx.fillRect(60, 156, 140, 5);
+
+            ctx.fillStyle = "rgba(84,224,199,.95)";
+            ctx.fillRect(60 + 140 * (1 - f), 172, 140, 5);
+            ctx.strokeStyle = "rgba(245,247,255,.9)";
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(60 + 140 * (1 - f) + 70, 177);
+            ctx.lineTo(60 + 140 * (1 - f) + 70, 200);
+            ctx.lineTo(60, 200);
+            ctx.lineTo(60, 232);
+            ctx.stroke();
+
+            ctx.fillStyle = "rgba(245,247,255,.9)";
+            ctx.textAlign = "left";
+            ctx.fillText("moving plate", 70, 192);
+            ctx.fillText("C(x) = overlap", 70, 150);
+
+            // the amplifier with its feedback element
+            ctx.strokeStyle = "rgba(245,247,255,.9)";
+            ctx.beginPath();
+            ctx.moveTo(60, 232);
+            ctx.lineTo(60, 262);
+            ctx.lineTo(100, 262);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(100, 242);
+            ctx.lineTo(100, 322);
+            ctx.lineTo(160, 282);
+            ctx.closePath();
+            ctx.stroke();
+            ctx.fillStyle = "rgba(245,247,255,.9)";
+            ctx.fillText("−", 104, 265);
+            ctx.fillText("+", 104, 306);
+
+            ctx.beginPath();
+            ctx.moveTo(100, 302);
+            ctx.lineTo(80, 302);
+            ctx.lineTo(80, 330);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(72, 330);
+            ctx.lineTo(88, 330);
+            ctx.moveTo(75, 334);
+            ctx.lineTo(85, 334);
+            ctx.stroke();
+
+            // feedback from the output back to the input
+            ctx.beginPath();
+            ctx.moveTo(160, 282);
+            ctx.lineTo(190, 282);
+            ctx.moveTo(190, 282);
+            ctx.lineTo(190, 240);
+            ctx.lineTo(150, 240);
+            ctx.moveTo(110, 240);
+            ctx.lineTo(60, 240);
+            ctx.stroke();
+
+            if (ac) {
+
+                ctx.fillStyle = "rgba(255,214,102,.95)";
+                ctx.fillRect(110, 232, 4, 16);
+                ctx.fillRect(146, 232, 4, 16);
+                ctx.fillText("C", 124, 226);
+                ctx.fillText("F", 136, 232);
+
+            } else {
+
+                ctx.beginPath();
+                ctx.moveTo(110, 240);
+
+                for (let k = 1; k <= 6; k++) {
+                    ctx.lineTo(110 + k * 6.6, 240 + (k % 2 ? -7 : 7));
+                }
+
+                ctx.lineTo(150, 240);
+                ctx.stroke();
+                ctx.fillStyle = "rgba(255,214,102,.95)";
+                ctx.fillText("R", 128, 226);
+                ctx.fillText("F", 138, 232);
+            }
+
+            ctx.fillStyle = "rgba(255,105,120,1)";
+            ctx.font = "bold 13px sans-serif";
+            ctx.fillText("V", 200, 286);
+            ctx.font = "9px sans-serif";
+            ctx.fillText("o", 208, 289);
+
+            // charge moving through the wire, faster and in the direction of the current
+            const rate = lastI * 0.9;
+
+            dots += rate * 0.02;
+
+            ctx.fillStyle = "rgba(255,105,120,.95)";
+
+            for (let k = 0; k < 6; k++) {
+
+                const u = (((dots + k / 6) % 1) + 1) % 1;
+
+                ctx.beginPath();
+                ctx.arc(60, 90 + u * 56, 3.4, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            ctx.fillStyle = "rgba(245,247,255,.8)";
+            ctx.font = "11px sans-serif";
+            ctx.textAlign = "left";
+            ctx.fillText(Math.abs(lastI) < 0.03 ? "current: none" : "current flowing", 10, 128);
+
+            // ---- the graphs ----
+            row("position of the plate, x(t)", 38, 62, "x", 50, "rgba(84,224,199,1)");
+            row("capacitance, C(t) (relative to rest)", 120, 62, "cd", 50, "rgba(255,214,102,1)");
+            row(ac ? "excitation voltage V(t) (alternating)" : "excitation voltage V(t) (constant)", 202, 62, "v", 24, "rgba(245,247,255,1)");
+            row("current through the capacitor, i(t)", 284, 62, "i", ac ? 22 : 34, "rgba(255,105,120,1)");
+            row(ac ? "output Vₒ(t): a carrier whose size follows position" : "output Vₒ(t): follows velocity", 366, 62, "o", ac ? 22 : 34, "rgba(170,230,255,1)");
+
+            if (ac) {
+
+                // the amplitude envelope of the output
+                ctx.strokeStyle = "rgba(255,214,102,.9)";
+                ctx.setLineDash([4, 3]);
+                ctx.lineWidth = 1.4;
+
+                [1, -1].forEach(function (sg) {
+
+                    ctx.beginPath();
+
+                    let first = true;
+
+                    for (let k = 0; k < H.t.length; k++) {
+
+                        const px = 250 + (H.t[k] - (T - WIN)) / WIN * 410;
+
+                        if (px < 250) { continue; }
+
+                        const py = 366 + 31 - sg * H.c[k] * 22;
+
+                        if (first) { ctx.moveTo(px, py); first = false; } else { ctx.lineTo(px, py); }
+                    }
+
+                    ctx.stroke();
+                });
+
+                ctx.setLineDash([]);
+            }
+
+            ctx.fillStyle = "rgba(245,247,255,.7)";
+            ctx.textAlign = "right";
+            ctx.fillText("time →", 660, 440);
+        }
+
+        const anim = animate(root, function (dt) {
+
+            const steps = 4;
+            const h = dt / steps;
+
+            for (let s = 0; s < steps; s++) {
+
+                T += h;
+
+                const p = sample(T, h);
+
+                H.t.push(T);
+                H.x.push(p.x);
+                H.c.push(p.c);
+                H.cd.push(p.c - 1);
+                H.v.push(p.v);
+                H.i.push(p.i);
+                H.o.push(p.o);
+            }
+
+            while (H.t.length && H.t[0] < T - WIN - 0.2) {
+
+                H.t.shift(); H.x.shift(); H.c.shift(); H.cd.shift(); H.v.shift(); H.i.shift(); H.o.shift();
+            }
+
+            if (state.exc === "dc" && state.move === "still" && T > 1.5 && !stillZero) {
+
+                stillZero = true;
+                F.reward("mems-readout-still", 5, "You saw why a still plate gives no DC output");
+            }
+
+            draw();
+        });
+
+        bindPause(root, anim);
+
+        wire(root, state, defaults, function () {
+
+            built = "";
+            update();
+        });
+
+        update();
+        draw();
     };
 
 
