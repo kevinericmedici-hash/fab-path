@@ -9110,6 +9110,10 @@ document.addEventListener("click", function (event) {
             if (document.querySelector('.fd-sim[data-sim^="chip-"]')) {
                 loadScript("diagram-sims-chip.js");
             }
+
+            if (document.querySelector('.fd-sim[data-sim^="mems-"]')) {
+                loadScript("diagram-sims-mems.js");
+            }
         });
     }
 
