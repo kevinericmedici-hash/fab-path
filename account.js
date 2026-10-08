@@ -1501,7 +1501,37 @@
 
     document.documentElement.classList.add("fab-native-app");
 
-    const Plugins = window.Capacitor.Plugins;
+    /* There is no bundler, so the plugins' own JavaScript is never
+       loaded and Capacitor.Plugins starts out empty. Hook each
+       built-in plugin to its native side by name instead. */
+
+    const Plugins = {};
+
+    ["StatusBar", "Network"].forEach(function (name) {
+
+        try {
+
+            const cap = window.Capacitor;
+            const present = cap.isPluginAvailable ? cap.isPluginAvailable(name) : !!(cap.Plugins && cap.Plugins[name]);
+
+            if (present) {
+
+                Plugins[name] = (cap.Plugins && cap.Plugins[name]) || cap.registerPlugin(name);
+            }
+
+        } catch (e) {}
+    });
+
+    /* Native-only features (tab bar, reminders, haptics, sharing,
+       progress backup) live in their own file so the website never
+       downloads it. */
+
+    const nativeScript = document.createElement("script");
+
+    nativeScript.src = "native-app.js";
+    nativeScript.async = true;
+
+    document.head.appendChild(nativeScript);
 
     if (Plugins.StatusBar) {
 
@@ -1521,7 +1551,7 @@
 
         banner.textContent = "Offline — progress sync is paused.";
         banner.style.cssText =
-            "position:fixed;left:0;right:0;bottom:0;z-index:9999;" +
+            "position:fixed;left:0;right:0;bottom:calc(64px + env(safe-area-inset-bottom));z-index:9100;" +
             "background:#ffb86b;color:#0b1020;font:600 13px system-ui, sans-serif;" +
             "text-align:center;padding:8px 12px;display:none;";
 
