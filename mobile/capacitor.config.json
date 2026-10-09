@@ -2,6 +2,7 @@
   "appId": "com.fabpath.app",
   "appName": "Fab Path",
   "webDir": "www",
+  "zoomEnabled": true,
   "server": {
     "androidScheme": "https"
   }
