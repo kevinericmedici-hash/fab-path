@@ -11,7 +11,7 @@
    Unit 8: redox amplification.
 
    Registers on window.FabInteract; shares the helpers from
-   diagram-sims-mems.js. Chains diagram-sims-supercap-b.js.
+   diagram-sims-mems.js. Chains diagram-sims-supercap-b.js to -e.js.
    Teaching models: numbers and shapes are illustrative.
 ======================================== */
 
@@ -1946,9 +1946,12 @@
     };
 
 
-    // Part 2 of the supercapacitor simulators.
+    // Parts 2 to 5 of the supercapacitor simulators.
     [
-        ["fabSupercapScriptB", "diagram-sims-supercap-b.js"]
+        ["fabSupercapScriptB", "diagram-sims-supercap-b.js"],
+        ["fabSupercapScriptC", "diagram-sims-supercap-c.js"],
+        ["fabSupercapScriptD", "diagram-sims-supercap-d.js"],
+        ["fabSupercapScriptE", "diagram-sims-supercap-e.js"]
     ].forEach(function (f) {
 
         if (document.getElementById(f[0])) {
