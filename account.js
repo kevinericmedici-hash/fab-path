@@ -1522,6 +1522,64 @@
         } catch (e) {}
     });
 
+    /* The interactive diagrams draw their labels on 680-pixel canvases.
+       On a phone those get scaled down to about half size, which makes
+       the text hard to read, so draw canvas text larger there. This has
+       to be in place before any diagram draws, so it lives here and not
+       in the file that loads later. */
+
+    (function () {
+
+        const proto = window.CanvasRenderingContext2D && window.CanvasRenderingContext2D.prototype;
+
+        if (!proto || proto.__fabTextBoost) { return; }
+
+        proto.__fabTextBoost = true;
+
+        function boost(ctx) {
+
+            const c = ctx.canvas;
+            const w = c ? c.clientWidth : 0;
+
+            if (!w || w > 520 || window.innerWidth > 700) { return 1; }
+
+            return Math.min(1.5, 520 / w);
+        }
+
+        function wrap(name) {
+
+            const original = proto[name];
+
+            proto[name] = function () {
+
+                const k = boost(this);
+
+                if (k === 1) { return original.apply(this, arguments); }
+
+                const before = this.font;
+                const m = /(\d+(?:\.\d+)?)px/.exec(before);
+
+                if (!m) { return original.apply(this, arguments); }
+
+                this.font = before.replace(m[0], (parseFloat(m[1]) * k).toFixed(2) + "px");
+
+                try {
+
+                    return original.apply(this, arguments);
+
+                } finally {
+
+                    this.font = before;
+                }
+            };
+        }
+
+        wrap("fillText");
+        wrap("strokeText");
+        wrap("measureText");
+
+    })();
+
     /* Native-only features (tab bar, reminders, haptics, sharing,
        progress backup) live in their own file so the website never
        downloads it. */

@@ -345,7 +345,7 @@
         style.id = "fabNativeStyles";
         style.textContent = `
 html.fab-native-app body.fab-has-tabs .topbar nav { display: none !important; }
-html.fab-native-app body.fab-has-tabs { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+html.fab-native-app body.fab-has-tabs { padding-bottom: calc(84px + max(env(safe-area-inset-bottom), 18px)); }
 
 .fab-tabbar {
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 9000;
@@ -353,7 +353,7 @@ html.fab-native-app body.fab-has-tabs { padding-bottom: calc(76px + env(safe-are
     background: rgba(11, 16, 32, .94);
     -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
     border-top: 1px solid rgba(255, 255, 255, .12);
-    padding-bottom: env(safe-area-inset-bottom);
+    padding-bottom: max(env(safe-area-inset-bottom), 18px);
 }
 
 .fab-tabbar-inner { display: flex; width: min(560px, 100%); }
@@ -424,6 +424,153 @@ html.fab-native-app body.fab-has-tabs { padding-bottom: calc(76px + env(safe-are
 .fab-prompt button { border: 0; border-radius: 12px; padding: 9px 14px; font: 700 .9rem system-ui, sans-serif; cursor: pointer; }
 .fab-prompt .yes { background: var(--accent, #54e0c7); color: #04201b; }
 .fab-prompt .no { background: transparent; color: var(--muted, #aab3cf); }
+
+/* ---------- the app should feel like an app, not a web page ---------- */
+
+html.fab-native-app {
+    -webkit-touch-callout: none;
+    overscroll-behavior-y: none;
+    -webkit-text-size-adjust: 100%;
+}
+
+html.fab-native-app * {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+html.fab-native-app body {
+    -webkit-user-select: none;
+    user-select: none;
+    animation: fab-enter .24s ease-out;
+}
+
+html.fab-native-app input,
+html.fab-native-app textarea {
+    -webkit-user-select: text;
+    user-select: text;
+}
+
+@keyframes fab-enter { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* press feedback */
+html.fab-native-app a:active,
+html.fab-native-app button:active,
+html.fab-native-app [role=button]:active {
+    opacity: .72;
+    transition: opacity .05s;
+}
+
+html.fab-native-app .fab-tab:active { transform: scale(.92); }
+
+/* the app has no marketing page: it opens straight to progress and courses */
+html.fab-native-app .hm-hero,
+html.fab-native-app .hm-section,
+html.fab-native-app .site-footer { display: none !important; }
+
+/* lesson and unit pages are full screen, with no website header above them */
+html.fab-native-app body.fab-immersive > .topbar { display: none; }
+html.fab-native-app body.fab-immersive { padding-top: env(safe-area-inset-top); }
+
+/* use the whole screen for unit pages, so diagrams and interactives can be big */
+html.fab-native-app .module-page { width: 100%; padding: 0 0 24px; }
+
+html.fab-native-app .module-shell {
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    box-shadow: none;
+    min-height: 100vh;
+    padding: 12px 12px 20px;
+}
+
+html.fab-native-app .module-top { gap: 12px; padding-bottom: 14px; }
+html.fab-native-app .module-slides { padding: 18px 0 28px; align-items: flex-start; }
+html.fab-native-app .module-visual { padding: 10px; margin: 22px 0; border-radius: 18px; }
+html.fab-native-app .module-visual.fd-sim { padding: 12px 10px 14px; }
+
+html.fab-native-app .fd-sim canvas.fd-sim-canvas,
+html.fab-native-app .fd-sim canvas.fd-wide {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+html.fab-native-app .fd-sim .fd-sim-art { width: 100%; max-width: none; }
+html.fab-native-app .fd-sim .fd-sim-title { font-size: .9rem; }
+html.fab-native-app .fd-sim .fd-sim-note,
+html.fab-native-app .fd-sim .fd-sim-formula { font-size: .95rem; line-height: 1.5; }
+html.fab-native-app .fd-sim .fd-sim-big { font-size: 1.15rem; }
+html.fab-native-app .fd-sim .fd-stat b { font-size: 1.3rem; }
+html.fab-native-app .fd-sim button.fd-sim-btn { min-height: 44px; padding: 10px 14px; font-size: .95rem; }
+html.fab-native-app .fd-q-options button { min-height: 48px; font-size: 1rem; }
+html.fab-native-app .fd-sim input[type=range] { height: 36px; }
+
+html.fab-native-app .module-visual.fet-diagram svg { width: 100%; height: auto; }
+
+@media (min-width: 700px) {
+
+    html.fab-native-app .module-page { width: min(980px, 100%); }
+
+    html.fab-native-app .module-shell {
+        border-radius: 24px;
+        border: 1px solid var(--border);
+        padding: 22px;
+    }
+}
+
+html.fab-native-app .module-top { position: relative; }
+
+html.fab-native-app .module-top .fab-share-btn { position: absolute; top: -4px; right: 0; margin: 0; }
+
+html.fab-native-app .module-top .module-exit { padding-right: 52px; }
+
+/* a compact progress dashboard on the home screen */
+html.fab-native-app .progress-summary-section { padding-top: 6px; padding-bottom: 6px; }
+html.fab-native-app .progress-header h1 { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+html.fab-native-app .stats-grid { grid-template-columns: 1fr 1fr !important; gap: 10px; }
+html.fab-native-app .stat-card { padding: 14px 10px; border-radius: 18px; }
+html.fab-native-app .stat-card span { font-size: 1.5rem; }
+html.fab-native-app .stat-card h2 { font-size: 1.7rem; margin: 4px 0; }
+html.fab-native-app .stat-card p { font-size: .8rem; }
+
+/* diagram labels are small SVG text: nudge them up on a phone held upright */
+@media (max-width: 600px) {
+
+    html.fab-native-app .fd-sim .fd-sim-art text { font-size: 8.5px !important; }
+}
+
+/* held sideways, the interactives fill the screen, so keep them from running taller than it */
+@media (orientation: landscape) and (max-height: 520px) {
+
+    html.fab-native-app .fd-sim .fd-sim-art,
+    html.fab-native-app .fd-sim canvas.fd-sim-canvas,
+    html.fab-native-app .fd-sim canvas.fd-wide {
+        width: auto !important;
+        max-width: 100% !important;
+        max-height: 80vh;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* a gentle hint that a phone held sideways gives the interactives more room */
+.fab-rotate-hint { display: none; }
+
+html.fab-native-app .module-slide > p.fab-rotate-hint { margin: 14px 0 -18px; font-size: .78rem; line-height: 1.3; color: var(--muted, #aab3cf); text-align: center; }
+
+@media (orientation: portrait) and (max-width: 600px) {
+
+    html.fab-native-app .module-slide > p.fab-rotate-hint { display: block; }
+}
+
+/* the share button */
+.fab-share-btn {
+    flex: none; width: 40px; height: 40px; margin-left: 10px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 50%; border: 1px solid rgba(255, 255, 255, .18);
+    background: rgba(255, 255, 255, .06); color: var(--accent, #54e0c7); cursor: pointer; padding: 0;
+}
+
+.fab-share-btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
 `;
 
         document.head.appendChild(style);
@@ -741,13 +888,83 @@ html.fab-native-app body.fab-has-tabs { padding-bottom: calc(76px + env(safe-are
     }
 
 
+
+    /* ---------- the share button ---------- */
+
+    function shareThisPage() {
+
+        if (!P.Share) { return; }
+
+        const file = (location.pathname.split("/").pop() || "index.html");
+        const url = "https://fab-path.com/" + (file === "index.html" ? "" : file);
+        const title = (document.title || "Fab Path").replace(/\s*\|\s*Fab Path\s*$/, "");
+
+        P.Share.share({
+            title: title,
+            text: "I'm learning " + title + " on Fab Path, a free interactive course on how microchips get made.",
+            url: url,
+            dialogTitle: "Share"
+        }).catch(function () {});
+    }
+
+    function addShareButtons() {
+
+        const slots = [
+            document.querySelector(".topbar .user-stats"),
+            document.querySelector(".module-top")
+        ];
+
+        slots.forEach(function (slot) {
+
+            if (!slot || slot.querySelector(".fab-share-btn")) { return; }
+
+            const b = document.createElement("button");
+
+            b.type = "button";
+            b.className = "fab-share-btn";
+            b.setAttribute("aria-label", "Share");
+            b.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>';
+            b.addEventListener("click", shareThisPage);
+
+            slot.appendChild(b);
+        });
+    }
+
+    function markImmersive() {
+
+        if (document.querySelector(".module-slides, .lesson-page")) {
+            document.body.classList.add("fab-immersive");
+        }
+    }
+
+
+    function addRotateHints() {
+
+        document.querySelectorAll(".module-visual.fd-sim").forEach(function (sim) {
+
+            const prev = sim.previousElementSibling;
+
+            if (prev && prev.classList.contains("fab-rotate-hint")) { return; }
+
+            const hint = document.createElement("p");
+
+            hint.className = "fab-rotate-hint";
+            hint.textContent = "↻ Turn your phone sideways for a bigger view";
+
+            sim.parentNode.insertBefore(hint, sim);
+        });
+    }
+
     /* ---------- start up ---------- */
 
     function boot() {
 
         injectStyles();
         wireHaptics();
+        markImmersive();
         buildTabBar();
+        addShareButtons();
+        addRotateHints();
         wireCertificateShare();
         maybePrompt();
         backup();
