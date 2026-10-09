@@ -9114,6 +9114,13 @@ document.addEventListener("click", function (event) {
             if (document.querySelector('.fd-sim[data-sim^="mems-"]')) {
                 loadScript("diagram-sims-mems.js");
             }
+
+            // the supercapacitor simulators share the helper functions in the MEMS file
+            if (document.querySelector('.fd-sim[data-sim^="supercap-"]')) {
+                loadScript("diagram-sims-mems.js", function () {
+                    loadScript("diagram-sims-supercap.js");
+                });
+            }
         });
     }
 

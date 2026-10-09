@@ -2139,14 +2139,15 @@
 
 
     // Load the other MEMS simulator files, which build on these helpers.
-    [
+    // (Pages that only use these helpers, such as the supercapacitor course, skip them.)
+    (document.querySelector('.fd-sim[data-sim^="mems-"]') ? [
         ["fabMemsFabScript", "diagram-sims-mems-fab.js"],
         ["fabMemsMumpsScript", "diagram-sims-mems-mumps.js"],
         ["fabMemsSensorsScript", "diagram-sims-mems-sensors.js"],
         ["fabMemsOpticsScript", "diagram-sims-mems-optics.js"],
         ["fabMemsFluidicScript", "diagram-sims-mems-fluidic.js"],
         ["fabMemsPkgScript", "diagram-sims-mems-pkg.js"]
-    ].forEach(function (f) {
+    ] : []).forEach(function (f) {
 
         if (document.getElementById(f[0])) {
             return;
