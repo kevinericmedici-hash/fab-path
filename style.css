@@ -1346,16 +1346,47 @@ button.module-exit {
 }
 
 
-.scale-row strong,
-.scale-row span {
-    min-width: 0;
-    overflow-wrap: break-word;
+/* The label keeps whole words together (it never shrinks below its
+   longest word), and the description takes whatever space is left
+   and wraps on its own. Where the row is too narrow for both side by
+   side, they stack instead of cutting a word across lines. */
+
+.scale-row strong {
+    flex: 0 1 auto;
+    min-width: min-content;
+    max-width: 55%;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: manual;
 }
 
 
 .scale-row span {
+    flex: 1 1 0;
+    min-width: 0;
+    overflow-wrap: break-word;
+
     color: var(--accent);
     font-weight: 800;
+}
+
+
+@media (max-width: 600px) {
+
+    .scale-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .scale-row strong {
+        max-width: 100%;
+    }
+
+    .scale-row span {
+        flex: 0 0 auto;
+        width: 100%;
+    }
 }
 
 
