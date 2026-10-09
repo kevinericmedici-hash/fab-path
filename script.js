@@ -9121,6 +9121,20 @@ document.addEventListener("click", function (event) {
                     loadScript("diagram-sims-supercap.js");
                 });
             }
+
+            // the BioFET and MOSFET simulators share the helper functions in the MEMS file
+            if (document.querySelector('.fd-sim[data-sim^="fet-"]')) {
+                loadScript("diagram-sims-mems.js", function () {
+                    loadScript("diagram-sims-fet.js");
+                });
+            }
+
+            // the blood-brain barrier simulators share the helper functions in the MEMS file
+            if (document.querySelector('.fd-sim[data-sim^="bbb-"]')) {
+                loadScript("diagram-sims-mems.js", function () {
+                    loadScript("diagram-sims-bbb.js");
+                });
+            }
         });
     }
 
