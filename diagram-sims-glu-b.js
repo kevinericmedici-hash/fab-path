@@ -977,6 +977,440 @@
        UNIT 10: ANATOMY OF A CGM
     ====================================== */
 
+    SIMS["glu-anatomy"] = function (root) {
+
+        const W = 680;
+        const HT = 380;
+        const defaults = { view: "body", ver: "g7", g: 120, apap: 0 };
+        const state = { view: "body", ver: "g7", g: 120, apap: 0 };
+        const rand = mulberry(31);
+        const visited = {};
+        const cells = [];
+        let parts = [];
+        let sel = 0;
+        let lastView = "";
+        let t = 0;
+        let amps = 0;
+        let prevG = 120;
+        let trend = 0;
+        let trendT = 0;
+        let hit = false;
+        let spawnG = 0;
+        let spawnO = 0;
+        let spawnA = 0;
+        let mols = [];
+        let elecs = [];
+
+        for (let i = 0; i < 26; i++) { cells.push({ x: 60 + rand() * 560, y: 232 + rand() * 120, r: 9 + rand() * 7 }); }
+
+        root.innerHTML =
+            head("Explore: the anatomy of a Dexcom CGM") +
+            canvasFor(W, HT, "An interactive diagram of a continuous glucose monitor in three views. On the body: an adhesive patch holds a transmitter on the skin, a hair-thin filament passes through the skin into the fluid between cells, and a phone shows the reading. Inside the filament: a cross-section of its layers from the outer membrane through the enzyme layer and a selective layer to the platinum electrode, with glucose, oxygen and hydrogen peroxide moving through them. Signal path: the nanoamp current becomes a number in the transmitter, travels by Bluetooth, and appears on the display.") +
+            '<div class="fd-stat-row">' + stat("Part", "part") + stat("Sensor current", "amps") + stat("Glucose", "gl") + "</div>" +
+            '<div class="fd-sim-readout"><div class="fd-sim-big" data-out="verdict"></div></div>' +
+            '<p class="fd-sim-note" data-out="info" style="min-height:3.2em"></p>' +
+            seg("View", "view", [["body", "On the body"], ["inside", "Inside the filament"], ["signal", "Signal path"]]) +
+            '<div class="fd-seg" data-ver><span class="fd-seg-label">Model</span><button type="button" class="fd-sim-btn" data-set="ver:g7">Dexcom G7 (all-in-one)</button><button type="button" class="fd-sim-btn" data-set="ver:g6">Dexcom G6 (separate transmitter)</button></div>' +
+            '<div class="fd-seg" data-apap><span class="fd-seg-label">Acetaminophen in the blood</span><button type="button" class="fd-sim-btn" data-set="apap:0">None</button><button type="button" class="fd-sim-btn" data-set="apap:1">Add it</button></div>' +
+            '<div class="fd-sim-controls">' +
+            slider({ label: "Glucose in the fluid (mg/dL)", key: "g", min: 40, max: 400, step: 5, value: 120 }) +
+            "</div>" +
+            '<div class="fd-play"><button type="button" class="fd-sim-btn" data-next>Next part →</button></div>' +
+            '<p class="fd-sim-formula">Tap a part of the diagram (or press Next part) to learn what it does. The sensor is a hair-thin filament coated in layers, the transmitter measures its current and sends it wirelessly, and the display shows the value and trend. In the Dexcom G7 the sensor and transmitter are combined into one small disposable. Not to scale; the sensor current here is illustrative.</p>';
+
+        const canvas = root.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+
+        function rr(x, y, w, h, r) {
+
+            ctx.beginPath();
+            ctx.moveTo(x + r, y);
+            ctx.lineTo(x + w - r, y); ctx.arcTo(x + w, y, x + w, y + r, r);
+            ctx.lineTo(x + w, y + h - r); ctx.arcTo(x + w, y + h, x + w - r, y + h, r);
+            ctx.lineTo(x + r, y + h); ctx.arcTo(x, y + h, x, y + h - r, r);
+            ctx.lineTo(x, y + r); ctx.arcTo(x, y, x + r, y, r);
+            ctx.closePath();
+        }
+
+        function inRect(x, y, a, b, c, d) { return x >= a && x <= c && y >= b && y <= d; }
+
+        function current() { return 0.4 + state.g / 100 * 4.1 * (1 - Math.exp(-state.g / 600) * 0.2); }
+
+        function buildParts() {
+
+            const g7 = state.ver === "g7";
+
+            if (state.view === "body") {
+
+                parts = [
+                    { id: "patch", name: "Adhesive patch", box: [140, 184, 260, 20], info: "Holds everything to the skin for the whole wear period, 10 days for most sensors. It is the part you feel and see." },
+                    { id: "tx", name: g7 ? "Transmitter (built into the sensor)" : "Transmitter (a separate piece that snaps in)", box: g7 ? [205, 150, 130, 40] : [195, 124, 150, 66], info: g7 ? "Electronics that measure the sensor's current and send it wirelessly. In the Dexcom G7 they are combined with the sensor into one small disposable." : "Electronics that measure the sensor's current and send it wirelessly. In the Dexcom G6 the transmitter is a separate piece that snaps into the sensor and is reused." },
+                    { id: "filament", name: "Sensor filament", box: [255, 200, 30, 75], info: "A hair-thin filament with its coating, passing through the skin into the fluid between cells. An introducer needle carries it in and then withdraws, so only the filament stays. This is the part that does the sensing. Open 'Inside the filament' to look closer." },
+                    { id: "fluid", name: "Interstitial fluid", box: [60, 290, 560, 70], info: "The fluid around the cells, where the filament sits. The sensor measures glucose here, not in the blood, so readings trail the blood by several minutes (Unit 2)." },
+                    { id: "phone", name: "Display (phone or receiver)", box: [478, 40, 104, 180], info: "A smartphone app or a dedicated receiver shows the glucose value and trend, and sounds the alerts." }
+                ];
+
+            } else if (state.view === "inside") {
+
+                parts = [
+                    { id: "fluid2", name: "Interstitial fluid", box: [40, 40, 600, 100], info: "Glucose, oxygen and other small molecules float here. The filament is bathed in it, and the layers decide which molecules get through." },
+                    { id: "outer", name: "Outer membrane", box: [40, 140, 600, 65], info: "A biocompatible outer layer. It lets oxygen pass more easily than glucose, so glucose is the limiting reagent, and soft coatings reduce the body's reaction (biofouling)." },
+                    { id: "enzyme", name: "Enzyme layer (glucose oxidase)", box: [40, 205, 600, 55], info: "Glucose oxidase reacts with glucose and oxygen and makes hydrogen peroxide. This is the chemistry step: glucose in, peroxide out." },
+                    { id: "select", name: "Selective inner layer", box: [40, 260, 600, 32], info: "Lets the small hydrogen peroxide molecule through but blocks look-alikes such as acetaminophen, which could add false current at the electrode." },
+                    { id: "pt", name: "Platinum working electrode", box: [40, 292, 600, 58], info: "Hydrogen peroxide is oxidized at the platinum surface, releasing electrons. That flow of electrons is the sensor's current, a few nanoamps, proportional to glucose in the working range. A reference electrode completes the circuit." }
+                ];
+
+            } else {
+
+                parts = [
+                    { id: "cur", name: "Sensor current", box: [30, 120, 130, 160], info: "The platinum electrode's current is only nanoamps, and in its working range more glucose means more current." },
+                    { id: "tx2", name: "Transmitter electronics", box: [205, 120, 140, 160], info: "Measures the current, digitizes it, and sends the number by radio. The algorithm then filters noise, compensates for temperature and sensitivity, and scales current to mg/dL using factory calibration." },
+                    { id: "bt", name: "Wireless link (Bluetooth)", box: [350, 170, 110, 70], info: "A new reading is sent about every 5 minutes, roughly 288 a day. The animation here is sped up." },
+                    { id: "disp", name: "Display", box: [480, 60, 150, 270], info: "Shows the value and trend arrow, and raises alerts: an urgent low at 55 mg/dL that cannot be turned off, plus low, high and rate-of-change alerts the user sets." }
+                ];
+            }
+        }
+
+        function update() {
+
+            if (state.view !== lastView) {
+
+                lastView = state.view;
+                sel = 0;
+                mols = [];
+                elecs = [];
+            }
+
+            buildParts();
+
+            if (sel >= parts.length) { sel = 0; }
+
+            const p = parts[sel];
+
+            visited[state.view + ":" + p.id] = true;
+            amps = current();
+
+            setVal(root, "g", state.g + " mg/dL");
+            out(root, "part", p.name);
+            out(root, "amps", amps.toFixed(1) + " nA");
+            out(root, "gl", state.g + " mg/dL");
+            out(root, "info", p.info);
+            out(root, "verdict", state.view === "body" ? "Sensor, transmitter, display: sense, send, show" : state.view === "inside" ? (state.apap ? "The selective layer turns the acetaminophen away" : "Glucose goes in, peroxide comes out, the electrode counts it") : "From a nanoamp current to a number on a screen");
+
+            root.querySelector("[data-ver]").style.display = state.view === "body" ? "" : "none";
+            root.querySelector("[data-apap]").style.display = state.view === "inside" ? "" : "none";
+
+            if (!hit && Object.keys(visited).length >= 12) {
+
+                hit = true;
+                F.reward("glu-anatomy", 10, "You explored the whole CGM");
+            }
+        }
+
+        function drawBody() {
+
+            const g7 = state.ver === "g7";
+
+            ctx.fillStyle = "rgba(235,190,150,.55)";
+            ctx.fillRect(0, 204, W, 12);
+            ctx.fillStyle = "rgba(220,150,120,.4)";
+            ctx.fillRect(0, 216, W, 46);
+            ctx.fillStyle = "rgba(240,215,130,.28)";
+            ctx.fillRect(0, 262, W, 118);
+            txt(ctx, "skin", 40, 214, 11, TEXT + ".8)");
+            txt(ctx, "tissue under the skin", 90, 276, 11, TEXT + ".75)");
+
+            cells.forEach(function (c) {
+
+                ctx.fillStyle = "rgba(240,200,170,.28)";
+                ctx.beginPath(); ctx.arc(c.x, c.y, c.r, 0, 7); ctx.fill();
+            });
+
+            const n = Math.round(state.g / 12);
+
+            for (let i = 0; i < n; i++) { dot(ctx, 70 + (i * 97 + Math.sin(t + i) * 8) % 540, 240 + (i * 53) % 110 + Math.cos(t * 1.3 + i) * 5, 2.8, GOLD + ".9)"); }
+
+            ctx.fillStyle = "rgba(240,240,250,.8)";
+            rr(140, 190, 260, 14, 7); ctx.fill();
+
+            ctx.fillStyle = TEAL + ".8)";
+
+            if (g7) { rr(205, 152, 130, 38, 14); } else { rr(195, 126, 150, 64, 22); }
+
+            ctx.fill();
+            txt(ctx, g7 ? "sensor + transmitter" : "transmitter", 270, g7 ? 176 : 156, 12, "rgba(6,10,24,.95)", "center", true);
+
+            if (!g7) {
+
+                ctx.fillStyle = GOLD + ".7)";
+                rr(215, 166, 110, 20, 8); ctx.fill();
+                txt(ctx, "sensor pod", 270, 180, 11, "rgba(6,10,24,.95)", "center", true);
+            }
+
+            ctx.strokeStyle = GOLD + ".98)";
+            ctx.lineWidth = 3.2;
+            ctx.beginPath(); ctx.moveTo(270, 200); ctx.lineTo(270, 270); ctx.stroke();
+            dot(ctx, 270, 272, 3.4, GOLD + "1)");
+
+            for (let i = 0; i < 3; i++) {
+
+                const a = ((t * 0.7 + i / 3) % 1);
+
+                ctx.strokeStyle = BLUE + (0.8 * (1 - a)) + ")";
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.arc(340, g7 ? 168 : 158, 26 + a * 110, -0.5, 0.18);
+                ctx.stroke();
+            }
+
+            ctx.fillStyle = "rgba(14,20,40,.95)";
+            ctx.strokeStyle = "rgba(255,255,255,.55)";
+            ctx.lineWidth = 2;
+            rr(480, 42, 100, 176, 12); ctx.fill(); ctx.stroke();
+            const col = state.g < 55 ? RED : state.g < 70 || state.g > 250 ? GOLD : TEAL;
+
+            txt(ctx, Math.round(state.g) + "", 530, 118, 34, col + "1)", "center", true);
+            txt(ctx, "mg/dL", 530, 140, 12, TEXT + ".8)");
+            txt(ctx, trend > 0.5 ? "↗" : trend < -0.5 ? "↘" : "→", 530, 178, 26, TEXT + ".95)", "center", true);
+
+            ctx.strokeStyle = GOLD + ".7)";
+            ctx.setLineDash([5, 4]);
+            ctx.lineWidth = 2;
+            ctx.beginPath(); ctx.arc(270, 262, 24, 0, 7); ctx.stroke();
+            ctx.setLineDash([]);
+            txt(ctx, "zoom in: see \"Inside the filament\"", 270, 312, 12, GOLD + "1)", "center", true);
+        }
+
+        function drawInside() {
+
+            const bands = [
+                ["outer", 140, 205, "outer membrane", BLUE],
+                ["enzyme", 205, 260, "enzyme layer (glucose oxidase)", GOLD],
+                ["select", 260, 292, "selective inner layer", PURPLE],
+                ["pt", 292, 350, "platinum working electrode", GREY]
+            ];
+
+            ctx.fillStyle = TEAL + ".08)";
+            ctx.fillRect(40, 40, 600, 100);
+            txt(ctx, "interstitial fluid", 52, 62, 12, TEXT + ".8)", "start");
+
+            bands.forEach(function (b) {
+
+                ctx.fillStyle = b[4] + (b[0] === "pt" ? ".85)" : ".42)");
+                ctx.fillRect(40, b[1], 600, b[2] - b[1]);
+                ctx.strokeStyle = "rgba(255,255,255,.25)";
+                ctx.lineWidth = 1;
+                ctx.strokeRect(40, b[1], 600, b[2] - b[1]);
+                txt(ctx, b[3], 52, (b[1] + b[2]) / 2 + 4, 12, b[0] === "pt" ? "rgba(6,10,24,.95)" : TEXT + ".95)", "start", true);
+            });
+
+            txt(ctx, "cross-section, not to scale", 630, 368, 11, TEXT + ".6)", "end");
+            txt(ctx, "to the transmitter ←", 630, 326, 12, "rgba(6,10,24,.9)", "end", true);
+
+            mols.forEach(function (m) {
+
+                const c = m.k === "glu" ? GOLD : m.k === "o2" ? BLUE : m.k === "h2o2" ? TEAL : ROSE;
+
+                dot(ctx, m.x, m.y, m.k === "o2" ? 2.8 : 4, c + ".98)");
+
+                if (m.k === "apap" && m.bounced) { txt(ctx, "✖", m.x, m.y - 8, 12, ROSE + "1)", "center", true); }
+            });
+
+            elecs.forEach(function (e) { dot(ctx, e.x, e.y, 3, "rgba(255,255,255,.95)"); });
+
+            [[GOLD, "glucose"], [BLUE, "oxygen"], [TEAL, "hydrogen peroxide"], [ROSE, "acetaminophen"]].forEach(function (l, i) {
+
+                dot(ctx, 380 + (i % 2) * 140, 64 + Math.floor(i / 2) * 18, 4, l[0] + ".98)");
+                txt(ctx, l[1], 390 + (i % 2) * 140, 68 + Math.floor(i / 2) * 18, 11, TEXT + ".85)", "start");
+            });
+        }
+
+        function drawSignal() {
+
+            ctx.strokeStyle = GOLD + ".95)";
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+
+            for (let x = 40; x <= 150; x += 3) {
+
+                const y = 200 - (amps / 5) * 40 + Math.sin((x + t * 80) / 9) * 3;
+
+                if (x === 40) { ctx.moveTo(x, y); } else { ctx.lineTo(x, y); }
+            }
+
+            ctx.stroke();
+            txt(ctx, amps.toFixed(1) + " nA", 95, 160 - (amps / 5) * 20, 16, GOLD + "1)", "center", true);
+            txt(ctx, "tiny current", 95, 262, 12, TEXT + ".8)");
+
+            ctx.fillStyle = TEAL + ".75)";
+            rr(205, 120, 140, 160, 16); ctx.fill();
+            txt(ctx, "transmitter", 275, 146, 13, "rgba(6,10,24,.95)", "center", true);
+            txt(ctx, "measure", 275, 180, 12, "rgba(6,10,24,.9)");
+            txt(ctx, "digitize", 275, 206, 12, "rgba(6,10,24,.9)");
+            txt(ctx, "send", 275, 232, 12, "rgba(6,10,24,.9)");
+            txt(ctx, ["0101", "1100", "0110", "1010"][Math.floor(t * 3) % 4] + " " + Math.round(amps * 100), 275, 262, 11, "rgba(6,10,24,.95)", "center", true);
+
+            arrow(ctx, 152, 200, 200, 200, GOLD + ".9)", 3);
+
+            const pr = (t * 0.45) % 1;
+
+            for (let i = 0; i < 3; i++) {
+
+                const a = (pr + i / 3) % 1;
+
+                ctx.strokeStyle = BLUE + (0.9 * (1 - a)) + ")";
+                ctx.lineWidth = 3;
+                ctx.beginPath(); ctx.arc(350, 205, 14 + a * 90, -0.6, 0.6); ctx.stroke();
+            }
+
+            txt(ctx, "Bluetooth", 405, 262, 12, TEXT + ".8)");
+            txt(ctx, "every ~5 min", 405, 278, 11, TEXT + ".65)");
+
+            dot(ctx, 355 + pr * 100, 205, 5, "rgba(255,255,255,.95)");
+
+            ctx.fillStyle = "rgba(14,20,40,.95)";
+            ctx.strokeStyle = "rgba(255,255,255,.55)";
+            ctx.lineWidth = 2;
+            rr(480, 60, 150, 270, 16); ctx.fill(); ctx.stroke();
+
+            const col = state.g < 55 ? RED : state.g < 70 || state.g > 250 ? GOLD : TEAL;
+
+            txt(ctx, Math.round(state.g) + "", 555, 160, 54, col + "1)", "center", true);
+            txt(ctx, "mg/dL", 555, 188, 14, TEXT + ".85)");
+            txt(ctx, trend > 0.5 ? "↗" : trend < -0.5 ? "↘" : "→", 555, 240, 34, TEXT + ".95)", "center", true);
+
+            const alert = state.g < 55 ? "URGENT LOW" : state.g < 70 ? "Low" : state.g > 250 ? "High" : "In range";
+
+            txt(ctx, alert, 555, 290, 15, col + "1)", "center", true);
+        }
+
+        function draw() {
+
+            clear(ctx, W, HT);
+
+            if (state.view === "body") { drawBody(); } else if (state.view === "inside") { drawInside(); } else { drawSignal(); }
+
+            const p = parts[sel];
+
+            if (p) {
+
+                ctx.strokeStyle = "rgba(255,255,255,.95)";
+                ctx.setLineDash([6, 4]);
+                ctx.lineWidth = 2;
+                ctx.strokeRect(p.box[0] - 3, p.box[1] - 3, p.box[2] + 6, p.box[3] + 6);
+                ctx.setLineDash([]);
+            }
+        }
+
+        function step(dt) {
+
+            t += dt;
+            trendT += dt;
+
+            if (trendT > 1.5) {
+
+                const dg = (state.g - prevG) / 6;
+
+                trend = Math.abs(dg) > 0.5 ? dg : trend * 0.5;
+                prevG = state.g;
+                trendT = 0;
+            }
+
+            if (state.view !== "inside") { return; }
+
+            spawnG += dt * state.g / 100 * 2.6;
+            spawnO += dt * 3.2;
+            spawnA += state.apap ? dt * 2 : 0;
+
+            while (spawnG > 1) { spawnG -= 1; mols.push({ k: "glu", x: 120 + rand() * 480, y: 50 + rand() * 20 }); }
+            while (spawnO > 1) { spawnO -= 1; mols.push({ k: "o2", x: 120 + rand() * 480, y: 50 + rand() * 20 }); }
+            while (spawnA > 1) { spawnA -= 1; mols.push({ k: "apap", x: 120 + rand() * 480, y: 50 + rand() * 20 }); }
+
+            mols.forEach(function (m) {
+
+                const inOuter = m.y >= 140 && m.y < 205;
+                const speed = m.k === "o2" ? (inOuter ? 38 : 50) : m.k === "glu" ? (inOuter ? 22 : 40) : 38;
+
+                if (m.k === "apap" && m.bounced) {
+
+                    m.y -= 55 * dt;
+                    m.x += (rand() - 0.5) * 40 * dt;
+
+                    if (m.y < 60) { m.gone = true; }
+
+                    return;
+                }
+
+                m.y += speed * dt;
+                m.x += (rand() - 0.5) * 50 * dt;
+                m.x = clamp(m.x, 60, 620);
+
+                if (m.k === "o2" && m.y > 235) { m.gone = true; }
+                if (m.k === "glu" && m.y > 232) { m.k = "h2o2"; }
+                if (m.k === "apap" && m.y > 262) { m.bounced = true; }
+
+                if (m.k === "h2o2" && m.y >= 292) {
+
+                    m.gone = true;
+
+                    for (let i = 0; i < 2; i++) { elecs.push({ x: m.x + i * 12, y: 322 }); }
+                }
+            });
+
+            mols = mols.filter(function (m) { return !m.gone; });
+            elecs.forEach(function (e) { e.x -= 160 * dt; });
+            elecs = elecs.filter(function (e) { return e.x > 44; });
+
+            if (mols.length > 160) { mols.splice(0, mols.length - 160); }
+        }
+
+        canvas.addEventListener("click", function (e) {
+
+            const r = canvas.getBoundingClientRect();
+            const x = (e.clientX - r.left) * W / r.width;
+            const y = (e.clientY - r.top) * HT / r.height;
+            let best = -1;
+            let bestA = 1e12;
+
+            for (let i = 0; i < parts.length; i++) {
+
+                const b = parts[i].box;
+
+                if (inRect(x, y, b[0], b[1], b[0] + b[2], b[1] + b[3]) && b[2] * b[3] < bestA) {
+
+                    best = i;
+                    bestA = b[2] * b[3];
+                }
+            }
+
+            if (best >= 0) {
+
+                sel = best;
+                update();
+                draw();
+            }
+        });
+
+        root.querySelector("[data-next]").addEventListener("click", function () {
+
+            sel = (sel + 1) % parts.length;
+            update();
+            draw();
+        });
+
+        animate(root, function (dt) {
+
+            step(dt);
+            draw();
+        });
+
+        wire(root, state, defaults, function () { update(); draw(); });
+
+        update();
+        draw();
+    };
+
+
     SIMS["glu-parts"] = quiz(
         "Game: sensor, transmitter or display?",
         ["Sensor", "Transmitter", "Display"],
