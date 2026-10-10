@@ -9135,6 +9135,20 @@ document.addEventListener("click", function (event) {
                     loadScript("diagram-sims-bbb.js");
                 });
             }
+
+            // the glucose sensor simulators share the helper functions in the MEMS file
+            if (document.querySelector('.fd-sim[data-sim^="glu-"]')) {
+                loadScript("diagram-sims-mems.js", function () {
+                    loadScript("diagram-sims-glu.js");
+                });
+            }
+
+            // the neural interface chip course simulators share the helper functions in the MEMS file
+            if (document.querySelector('.fd-sim[data-sim^="nt-"]')) {
+                loadScript("diagram-sims-mems.js", function () {
+                    loadScript("diagram-sims-nt.js");
+                });
+            }
         });
     }
 

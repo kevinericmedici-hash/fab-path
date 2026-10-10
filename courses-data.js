@@ -79,10 +79,10 @@ const coursesData = [
 
     {
         id: "neurotransmitters",
-        title: "Neurotransmitters",
-        tagline: "The chemistry of neural signaling",
+        title: "Neural Interface Chip",
+        tagline: "Microfabricated chips that talk to neurons",
         description:
-            "Synaptic transmission, receptor binding, neurotransmitter detection, and the sensors built to measure them.",
+            "Synaptic transmission, receptor binding, neurotransmitter detection, and the microfabricated sensors and chips built to measure them.",
         icon: "🧬",
         status: "live",
         growing: false,

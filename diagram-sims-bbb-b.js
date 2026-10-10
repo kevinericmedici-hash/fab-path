@@ -691,9 +691,9 @@
     SIMS["bbb-history"] = orderGame(
         "Game: the short history",
         [
-            { n: "2010", d: "a lung-on-a-chip from Donald Ingber's lab at Harvard's Wyss Institute", why: "It helped launch the field." },
-            { n: "2012", d: "early microfluidic models of the blood-brain barrier appear", why: "Barriers soon followed." },
-            { n: "Today", d: "chips model many organs, and companies sell platforms", why: "The field is young, and still rapidly changing." }
+            { n: "Lung-on-a-chip", d: "from Donald Ingber's lab at Harvard's Wyss Institute", why: "2010. It helped launch the field." },
+            { n: "Early barrier chips", d: "microfluidic models of the blood-brain barrier appear", why: "2012. Barriers soon followed." },
+            { n: "Many organs, sold as platforms", d: "companies sell them", why: "Today. The field is young, and still rapidly changing." }
         ],
         "bbb-history-done",
         "You ordered the history of organ-chips",

@@ -2,7 +2,7 @@
    NEUROTRANSMITTERS COURSE ENGINE
    Self-contained: progress tracking, path
    rendering, and quiz logic for the
-   Neurotransmitters course. Namespaced with
+   Neural Interface Chip course. Namespaced with
    "fabPathNt" localStorage keys and
    "nt"-prefixed element ids so it
    never collides with the MEMS course's
@@ -99,7 +99,7 @@ function getNtCompletedLessonCount() {
 
 /* ========================================
    MISTAKE TRACKING
-   Powers the Neurotransmitters "questions you
+   Powers the Neural Interface Chip "questions you
    get wrong most" practice sessions. Uses
    its own localStorage blob so lesson ids
    never collide with the MEMS course's
@@ -351,7 +351,7 @@ function updateNtCourseProgress() {
                 if (window.FabCertificate) {
 
                     window.FabCertificate.showCourseComplete({
-                        courseTitle: "Neurotransmitters",
+                        courseTitle: "Neural Interface Chip",
                         courseSlug: "neurotransmitters",
                         lessonCount: getNtAllLessons().length
                     });
@@ -586,7 +586,7 @@ function initNtLessonQuiz(lessonId, questions) {
             if (lessonId === NT_FINAL_LESSON_ID && window.FabCertificate) {
 
                 window.FabCertificate.showCourseComplete({
-                    courseTitle: "Neurotransmitters",
+                    courseTitle: "Neural Interface Chip",
                     courseSlug: "neurotransmitters",
                     lessonCount: NT_FINAL_LESSON_ID,
                     onContinue: function () {

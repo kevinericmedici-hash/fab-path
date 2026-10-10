@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Adding Up Signals | Fab Path</title>
-    <meta name="description" content="Adding Up Signals: illustrated study slides from the Neurotransmitters course on Fab Path.">
+    <meta name="description" content="Adding Up Signals: illustrated study slides from the Neural Interface Chip course on Fab Path.">
     <meta name="theme-color" content="#0b1020">
     <link rel="canonical" href="https://fab-path.com/ntunit13.html">
     <meta property="og:site_name" content="Fab Path">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Adding Up Signals | Fab Path">
-    <meta property="og:description" content="Adding Up Signals: illustrated study slides from the Neurotransmitters course on Fab Path.">
+    <meta property="og:description" content="Adding Up Signals: illustrated study slides from the Neural Interface Chip course on Fab Path.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -92,6 +92,11 @@
                 <h1>
                     Each input nudges the voltage
                 </h1>
+
+                <!-- fd:epsp -->
+                <div class="module-visual fd-sim" data-sim="nt-epsp"></div>
+                <!-- /fd:epsp -->
+
 
                 <div class="module-card-grid">
 
@@ -189,6 +194,11 @@
                     Summation in time and space
                 </h1>
 
+                <!-- fd:summation -->
+                <div class="module-visual fd-sim" data-sim="nt-summation"></div>
+                <!-- /fd:summation -->
+
+
                 <div class="scale-stack">
 
                     <div class="scale-row">
@@ -229,6 +239,11 @@
                     Where the spike starts
                 </h1>
 
+                <!-- fd:trigger -->
+                <div class="module-visual fd-sim" data-sim="nt-trigger"></div>
+                <!-- /fd:trigger -->
+
+
                 <p>
                     A typical neuron receives thousands of synapses. Their combined effect is read out at the start of the axon, called the axon initial segment, where voltage-gated sodium channels are packed densely. If the sum reaches threshold there, a spike starts.
                 </p>
@@ -253,6 +268,11 @@
                 <h1>
                     Synapses can strengthen
                 </h1>
+
+                <!-- fd:ltp -->
+                <div class="module-visual fd-sim" data-sim="nt-ltp"></div>
+                <!-- /fd:ltp -->
+
 
                 <p>
                     Synapses are not fixed. Repeated activity can strengthen them, a process called long-term potentiation, and glutamate receptors are central to it. This is one cellular basis of learning and memory, and a reason that signaling chemistry is worth measuring.
