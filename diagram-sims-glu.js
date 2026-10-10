@@ -197,7 +197,8 @@
             ctx.stroke();
 
             [70, 180, 300].forEach(function (v) { txt(ctx, v, L - 20, Y(v) + 4, 12, TEXT + ".7)"); });
-            txt(ctx, "time →", (L + R) / 2, B + 30, 13, TEXT + ".8)");
+            txt(ctx, "time →", (L + R) / 2, B + 30, 13, TEXT + ".8)");
+            M.ylab(ctx, "glucose (mg/dL)", (T + B) / 2);
 
             ctx.strokeStyle = (g < 70 ? ROSE : g > 180 ? GOLD : TEAL) + ".98)";
             ctx.lineWidth = 3;
@@ -411,7 +412,8 @@
             ctx.moveTo(L, T); ctx.lineTo(L, B); ctx.lineTo(R, B);
             ctx.stroke();
 
-            [70, 180].forEach(function (v) { txt(ctx, v, L - 20, Y(v) + 4, 12, TEXT + ".7)"); });
+            [70, 180].forEach(function (v) { txt(ctx, v, L - 20, Y(v) + 4, 12, TEXT + ".7)"); });
+            M.ylab(ctx, "glucose (mg/dL)", (T + B) / 2);
             [0, 6, 12, 18, 24].forEach(function (h) { txt(ctx, h + ":00", X(h), B + 18, 12, TEXT + ".7)"); });
 
             ctx.strokeStyle = TEAL + ".95)";
@@ -621,7 +623,9 @@
             ctx.moveTo(L, T); ctx.lineTo(L, B); ctx.lineTo(R, B);
             ctx.stroke();
             [0, 1, 2, 3].forEach(function (h) { txt(ctx, h + " h", X(h), B + 18, 12, TEXT + ".7)"); });
-            txt(ctx, "after a meal →", (L + R) / 2, B + 38, 13, TEXT + ".8)");
+            txt(ctx, "after a meal →", (L + R) / 2, B + 38, 13, TEXT + ".8)");
+            M.ylab(ctx, "glucose (mg/dL)", (T + B) / 2);
+            [80, 120, 160, 200].forEach(function (v) { txt(ctx, v, L - 20, Y(v) + 4, 12, TEXT + ".7)"); });
 
             [["blood", RED, blood], ["CGM (tissue fluid)", TEAL, cgm]].forEach(function (c) {
 

@@ -161,7 +161,8 @@
 
             [0, 0.5, 1].forEach(function (v) { txt(ctx, Math.round(v * 100) + " %", L - 28, Y(v) + 4, 12, TEXT + ".7)"); });
             [-3, -2, -1, 0, 1, 2, 3].forEach(function (e) { txt(ctx, "10" + sup(e), X(e), B + 18, 11, TEXT + ".65)"); });
-            txt(ctx, "concentration (nM, log) →", (L + R) / 2, B + 40, 13, TEXT + ".85)");
+            txt(ctx, "concentration (nM, log) →", (L + R) / 2, B + 40, 13, TEXT + ".85)");
+            M.ylab(ctx, "receptors occupied (%)", (T + B) / 2);
 
             ctx.strokeStyle = TEAL + ".98)";
             ctx.lineWidth = 3.2;
@@ -899,7 +900,8 @@
 
             [0, 25, 50, 75, 100].forEach(function (v) { txt(ctx, v + " mV", L - 30, Y(v) + 4, 11, TEXT + ".65)"); });
             [-3, -2, -1, 0, 1, 2, 3].forEach(function (e) { txt(ctx, "10" + sup(e), X(e), B + 18, 11, TEXT + ".65)"); });
-            txt(ctx, "concentration (nM, log) →", (L + R) / 2, B + 40, 13, TEXT + ".85)");
+            txt(ctx, "concentration (nM, log) →", (L + R) / 2, B + 40, 13, TEXT + ".85)");
+            M.ylab(ctx, "threshold shift (mV)", (T + B) / 2);
 
             ctx.strokeStyle = TEAL + ".98)";
             ctx.lineWidth = 3.2;
@@ -923,7 +925,7 @@
             ctx.stroke();
             ctx.setLineDash([]);
             dot(ctx, X(Math.log10(c)), Y(dv), 8, "rgba(255,255,255,1)");
-            txt(ctx, fmtConc(c), X(Math.log10(c)), B - 10, 13, GOLD + "1)", "center", true);
+            txt(ctx, fmtConc(c), Math.min(R - 30, Math.max(L + 30, X(Math.log10(c)))), B - 10, 13, GOLD + "1)", "center", true);
         }
 
         wire(root, state, defaults, function () {
@@ -1213,7 +1215,8 @@
 
             [0, 50, 100].forEach(function (v) { txt(ctx, v + " %", L - 26, Y(v / 100) + 4, 12, TEXT + ".7)"); });
             [20, 40, 60, 80].forEach(function (t) { txt(ctx, t + " °C", X(t), B + 18, 12, TEXT + ".7)"); });
-            txt(ctx, "temperature →", (L + R) / 2, B + 40, 13, TEXT + ".85)");
+            txt(ctx, "temperature →", (L + R) / 2, B + 40, 13, TEXT + ".85)");
+            M.ylab(ctx, "probes holding a target (%)", (T + B) / 2);
 
             [[false, TEAL, "perfect match"], [true, ROSE, "one mismatch"]].forEach(function (c) {
 
@@ -1336,7 +1339,7 @@
 
             ctx.fillStyle = ROSE + ".1)";
             ctx.fillRect(L, T, X(Math.log10(l.c)) - L, B - T);
-            txt(ctx, "lost in the noise", (L + X(Math.log10(l.c))) / 2, T + 18, 12, ROSE + "1)");
+            txt(ctx, "lost in the noise", Math.max(L + 62, (L + X(Math.log10(l.c))) / 2), T + 18, 12, ROSE + "1)");
 
             ctx.strokeStyle = GREY + ".5)";
             ctx.lineWidth = 1.5;
@@ -1346,7 +1349,8 @@
 
             [0, 25, 50, 75, 100].forEach(function (v) { txt(ctx, v + " mV", L - 30, Y(v) + 4, 11, TEXT + ".65)"); });
             [-3, -2, -1, 0, 1, 2, 3].forEach(function (e) { txt(ctx, "10" + sup(e), X(e), B + 18, 11, TEXT + ".65)"); });
-            txt(ctx, "concentration (nM, log) →", (L + R) / 2, B + 40, 13, TEXT + ".85)");
+            txt(ctx, "concentration (nM, log) →", (L + R) / 2, B + 40, 13, TEXT + ".85)");
+            M.ylab(ctx, "threshold shift (mV)", (T + B) / 2);
 
             ctx.strokeStyle = TEAL + ".98)";
             ctx.lineWidth = 3.2;
@@ -1372,7 +1376,7 @@
             txt(ctx, "3σ", R - 20, Y(3 * state.sg) - 8, 13, GOLD + "1)", "center", true);
 
             dot(ctx, X(Math.log10(l.c)), Y(3 * state.sg), 8, "rgba(255,255,255,1)");
-            txt(ctx, "LOD " + fmtConc(l.c), X(Math.log10(l.c)) + 10, Y(3 * state.sg) - 14, 13, "rgba(255,255,255,.95)", "start", true);
+            txt(ctx, "LOD " + fmtConc(l.c), Math.max(L + 8, X(Math.log10(l.c)) + (X(Math.log10(l.c)) > R - 110 ? -10 : 10)), Math.max(16, Y(3 * state.sg) - 14), 13, "rgba(255,255,255,.95)", X(Math.log10(l.c)) > R - 110 ? "end" : "start", true);
         }
 
         wire(root, state, defaults, function () {

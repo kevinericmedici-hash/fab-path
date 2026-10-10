@@ -190,6 +190,7 @@
             }
 
             txt(ctx, "one second of dopamine-neuron spikes →", (L + R) / 2, 270, 12, TEXT + ".75)");
+            M.ylab(ctx, "dopamine neuron spikes", 160);
         }
 
         wire(root, state, defaults, function () { update(); draw(); });
@@ -522,6 +523,8 @@
             ctx.stroke();
             [0, 2, 4, 6, 8].forEach(function (w) { txt(ctx, w + " wk", X(w), B + 18, 12, TEXT + ".7)"); });
             txt(ctx, "weeks since starting →", (L + R) / 2, B + 38, 13, TEXT + ".8)");
+            M.ylab(ctx, "fraction of full effect", (T + B) / 2);
+            [0, 0.5, 1].forEach(function (v) { txt(ctx, v, L - 20, Y(v) + 4, 12, TEXT + ".7)"); });
 
             [[s, ROSE, "serotonin in the synapse"], [m, TEAL, "mood benefit"]].forEach(function (c) {
 
@@ -1058,6 +1061,7 @@
             [0, 0.5, 1].forEach(function (v) { txt(ctx, Math.round(v * 100) + " %", L0 - 28, Y(v) + 4, 12, TEXT + ".7)"); });
             [-1, 0, 1, 2, 3, 4].forEach(function (e) { txt(ctx, Math.pow(10, e) + " nM", X(e), B + 18, 11, TEXT + ".65)"); });
             txt(ctx, "ligand concentration (log) →", (L0 + R) / 2, B + 40, 13, TEXT + ".85)");
+            M.ylab(ctx, "receptors occupied (%)", (T + B) / 2);
 
             ctx.strokeStyle = TEAL + ".98)";
             ctx.lineWidth = 3.2;

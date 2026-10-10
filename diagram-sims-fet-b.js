@@ -278,7 +278,7 @@
                 '<polyline points="' + pts + '" style="fill:none;stroke:#54e0c7;stroke-width:2"/>' +
                 '<circle cx="' + (40 + state.vov / 1.5 * 270) + '" cy="' + (170 - cur / mx * 140) + '" r="5" style="fill:#ffd666"/>' +
                 label(175, 190, "overdrive voltage →", 7, "middle", "var(--muted)") +
-                label(44, 26, "ID", 8, "start", "var(--muted)");
+                '<text transform="rotate(-90 16 100)" x="16" y="100" text-anchor="middle" style="font-size:8px;fill:var(--muted)">saturation current ID</text>';
 
             if (!hit && state.vov >= 1 && state.wl >= 30) {
 

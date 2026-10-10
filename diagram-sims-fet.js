@@ -1224,7 +1224,7 @@
                 ctx.beginPath();
                 ctx.moveTo(X(VTH + 0.6), y); ctx.lineTo(X(VTH + 0.6 + d), y);
                 ctx.stroke();
-                txt(ctx, "ΔVth = " + (d * 1000).toFixed(0) + " mV", X(VTH + 0.6 + d / 2), y - 10, 13, GOLD + "1)", "center", true);
+                txt(ctx, "ΔVth = " + (d * 1000).toFixed(0) + " mV", Math.min(R - 60, Math.max(L + 60, X(VTH + 0.6 + d / 2))), y - 10, 13, GOLD + "1)", "center", true);
             }
 
             txt(ctx, "dashed: before   solid: after", 500, T + 14, 12, TEXT + ".7)");

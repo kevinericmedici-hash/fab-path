@@ -611,10 +611,24 @@
         };
     }
 
+    // A y-axis title: rotated text running up the left edge of a canvas graph.
+    function ylab(ctx, text, cy, x) {
+
+        ctx.save();
+        ctx.translate(x || 16, cy);
+        ctx.rotate(-Math.PI / 2);
+        ctx.font = "bold 12px sans-serif";
+        ctx.textAlign = "center";
+        ctx.fillStyle = "rgba(238,242,255,.9)";
+        ctx.fillText(text, 0, 0);
+        ctx.restore();
+    }
+
+
     F.memsHelpers = {
         clamp: clamp, mulberry: mulberry, seg: seg, wire: wire, head: head, setVal: setVal, out: out,
         art: art, stat: stat, rect: rect, label: label, pline: pline, poly: poly, legend: legend,
-        animate: animate, bindPause: bindPause, quiz: quiz, stepper: stepper, orderGame: orderGame
+        animate: animate, bindPause: bindPause, quiz: quiz, stepper: stepper, orderGame: orderGame, ylab: ylab
     };
 
 

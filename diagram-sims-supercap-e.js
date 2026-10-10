@@ -1828,6 +1828,7 @@
 
             [2, 2.5, 3].forEach(function (v) { txt(ctx, v.toFixed(1) + " V", L - 26, Y(v) + 4, 12, TEXT + ".7)"); });
             txt(ctx, "time →", (L + R) / 2, B + 34, 13, TEXT + ".8)");
+            M.ylab(ctx, "voltage (V)", (T + B) / 2);
 
             ctx.strokeStyle = ROSE + ".8)";
             ctx.setLineDash([6, 5]);
@@ -1968,6 +1969,7 @@
 
             [2.2, 2.6, 3].forEach(function (x) { txt(ctx, x.toFixed(1) + " V", L - 26, Y(x) + 4, 12, TEXT + ".7)"); });
             txt(ctx, "time →", (L + R) / 2, B + 34, 13, TEXT + ".8)");
+            M.ylab(ctx, "voltage (V)", (T + B) / 2);
 
             ctx.strokeStyle = GOLD + ".7)";
             ctx.setLineDash([6, 5]);
@@ -2218,6 +2220,7 @@
                 rect(40, 30, 260, 130, "rgba(6,10,24,.55)", "rgba(170,179,207,.35)") +
                 '<polyline points="' + pts.map(function (p) { return p[0].toFixed(1) + "," + p[1].toFixed(1); }).join(" ") + '" style="fill:none;stroke:#54e0c7;stroke-width:2"/>' +
                 label(40, 22, state.v1.toFixed(1) + " V at the start", 7, "start", "var(--muted)") +
+                '<text transform="rotate(-90 26 95)" x="26" y="95" text-anchor="middle" style="font-size:7px;fill:var(--muted)">voltage (V)</text>' +
                 label(300, 176, "time → " + t.toFixed(1) + " s", 7.5, "end", "var(--text)") +
                 label(46, 28 + 150 * 0, "", 7, "start", "var(--muted)");
 

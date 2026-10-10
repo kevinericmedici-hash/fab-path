@@ -858,7 +858,7 @@
             ctx.beginPath();
             ctx.arc(cx, cy, R0 + P * n + 12, 0, Math.PI * 2);
             ctx.stroke();
-            txt(ctx, "metal can", cx, cy + R0 + P * n + 34, 13, TEXT + ".8)");
+            txt(ctx, "metal can", cx, Math.min(334, cy + R0 + P * n + 34), 13, TEXT + ".8)");
 
             // unrolled strip
             const L = spiralLength(n);

@@ -158,7 +158,8 @@
                 if (x > L) { txt(ctx, r.d > 0 ? "▲" : "▼", x, B + 18, 12, (r.d > 0 ? TEAL : ROSE) + "1)", "center", true); }
             });
 
-            txt(ctx, "last 6 seconds →", (L + R) / 2, 292, 12, TEXT + ".75)");
+            txt(ctx, "last 6 seconds →", (L + R) / 2, 292, 12, TEXT + ".75)");
+            M.ylab(ctx, "membrane voltage (mV)", (T + B) / 2);
         }
 
         animate(root, function (dt) {
@@ -506,7 +507,8 @@
             ctx.moveTo(L, T); ctx.lineTo(L, B); ctx.lineTo(R, B);
             ctx.stroke();
             [0, 60, 120].forEach(function (s) { txt(ctx, s + " s", X(s), B + 18, 11, TEXT + ".7)"); });
-            txt(ctx, "time →", (L + R) / 2, B + 38, 12, TEXT + ".8)");
+            txt(ctx, "time →", (L + R) / 2, B + 38, 12, TEXT + ".8)");
+            M.ylab(ctx, "neurotransmitter level (relative)", (T + B) / 2);
 
             if (state.tool === "fast") {
 
@@ -908,7 +910,7 @@
             ctx.beginPath();
             ctx.moveTo(L, 20); ctx.lineTo(L, 100); ctx.lineTo(R, 100);
             ctx.stroke();
-            txt(ctx, "voltage", 38, 56, 11, TEXT + ".75)", "center");
+            M.ylab(ctx, "voltage (V)", 60);
             txt(ctx, "~9 ms", (L + R) / 2, 118, 11, TEXT + ".7)");
 
             ctx.strokeStyle = GOLD + ".95)";
@@ -947,7 +949,8 @@
             ctx.moveTo(L, mid); ctx.lineTo(R, mid);
             ctx.stroke();
             [-0.4, 0, 0.6, 1.3].forEach(function (v) { txt(ctx, (v > 0 ? "+" : "") + v.toFixed(1) + " V", X2(v), B2 + 14, 11, TEXT + ".7)"); });
-            txt(ctx, sub ? "current after subtraction" : "raw current", L + 60, T2 - 6, 11, TEXT + ".85)");
+            txt(ctx, sub ? "current after subtraction" : "raw current", L + 60, T2 - 6, 11, TEXT + ".85)");
+            M.ylab(ctx, "current (nA)", (T2 + B2) / 2);
 
             ctx.strokeStyle = (sub ? TEAL : ROSE) + ".98)";
             ctx.lineWidth = 3;
@@ -1401,7 +1404,8 @@
                 if (p.pulse) { txt(ctx, "⚡", Lx + (p.t - (t - 20)) / 20 * (R - Lx), B + 20, 14, GOLD + "1)", "center"); }
             });
 
-            txt(ctx, "last 20 seconds →", (Lx + R) / 2, 290, 12, TEXT + ".75)");
+            txt(ctx, "last 20 seconds →", (Lx + R) / 2, 290, 12, TEXT + ".75)");
+            M.ylab(ctx, "neurotransmitter level (% of normal)", (T + B) / 2);
         }
 
         animate(root, function (dt) {

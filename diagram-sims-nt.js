@@ -444,7 +444,8 @@
             ctx.stroke();
             ctx.setLineDash([]);
             txt(ctx, "threshold −55 mV", R - 70, Y(-55) - 6, 12, ROSE + "1)");
-            txt(ctx, "time (about 100 ms) →", (L + R) / 2, B + 22, 12, TEXT + ".75)");
+            txt(ctx, "time (about 100 ms) →", R, B + 18, 12, TEXT + ".75)", "end");
+            M.ylab(ctx, "membrane voltage (mV)", (T + B) / 2);
 
             ctx.strokeStyle = TEAL + ".98)";
             ctx.lineWidth = 2.4;
@@ -976,8 +977,16 @@
             txt(ctx, "receptors", 120, 248, 11, TEXT + ".7)");
 
             // enzyme scissors
-            if (r[1] > 0) { txt(ctx, "✂️ acetylcholinesterase in the cleft", 520, 170, 13, ROSE + "1)", "start"); }
-            if (state.which === "glu") { txt(ctx, "astrocyte transporters at the edges", 540, 120, 12, ROSE + "1)", "start"); }
+            if (r[1] > 0) {
+
+                txt(ctx, "✂️ acetylcholinesterase", 600, 164, 13, ROSE + "1)", "center");
+                txt(ctx, "in the cleft", 600, 182, 13, ROSE + "1)", "center");
+            }
+            if (state.which === "glu") {
+
+                txt(ctx, "astrocyte transporters", 600, 114, 12, ROSE + "1)", "center");
+                txt(ctx, "at the edges", 600, 130, 12, ROSE + "1)", "center");
+            }
 
             mols.forEach(function (m) {
 

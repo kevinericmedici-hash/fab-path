@@ -863,7 +863,8 @@
             const Y = function (v) { return B - v / 3 * (B - T); };
 
             [0, 1, 2, 3].forEach(function (v) { txt(ctx, v + " V", L - 22, Y(v) + 4, 12, TEXT + ".7)"); });
-            txt(ctx, "time →", (L + R) / 2, B + 36, 13, TEXT + ".8)");
+            txt(ctx, "time →", (L + R) / 2, B + 36, 13, TEXT + ".8)");
+            M.ylab(ctx, "voltage (V)", (T + B) / 2);
 
             ctx.strokeStyle = TEAL + ".95)";
             ctx.lineWidth = 2.5;
@@ -1306,7 +1307,8 @@
                 txt(ctx, "10" + String(k).split("").map(function (c) { return "⁰¹²³⁴⁵⁶⁷⁸⁹"[c]; }).join(""), X(Math.pow(10, k)), B + 18, 12, TEXT + ".7)");
             }
 
-            txt(ctx, "cycles (log scale) →", (L + R) / 2, B + 38, 13, TEXT + ".85)");
+            txt(ctx, "cycles (log scale) →", (L + R) / 2, B + 38, 13, TEXT + ".85)");
+            M.ylab(ctx, "capacity retained (%)", (T + B) / 2);
 
             ctx.strokeStyle = ROSE + ".8)";
             ctx.setLineDash([6, 5]);
@@ -1431,7 +1433,8 @@
 
             [0, 1, 2, 3].forEach(function (v) { txt(ctx, v + " V", L - 24, Y(v) + 4, 12, TEXT + ".7)"); });
             [0, 24, 48, 72].forEach(function (t) { txt(ctx, t + " h", X(t), B + 18, 12, TEXT + ".7)"); });
-            txt(ctx, "time at open circuit →", (L + R) / 2, B + 38, 13, TEXT + ".85)");
+            txt(ctx, "time at open circuit →", (L + R) / 2, B + 38, 13, TEXT + ".85)");
+            M.ylab(ctx, "voltage (V)", (T + B) / 2);
 
             ctx.strokeStyle = ROSE + ".8)";
             ctx.setLineDash([6, 5]);

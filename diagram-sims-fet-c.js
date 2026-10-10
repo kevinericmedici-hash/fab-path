@@ -988,7 +988,8 @@
             ctx.stroke();
 
             [0, 25, 50, 75, 100].forEach(function (v) { txt(ctx, v + " mV", L - 30, Y(v) + 4, 11, TEXT + ".65)"); });
-            txt(ctx, "time (hours) →", (L + R) / 2, B + 34, 13, TEXT + ".85)");
+            txt(ctx, "time (hours) →", (L + R) / 2, B + 34, 13, TEXT + ".85)");
+            M.ylab(ctx, "gate-voltage shift (mV)", (T + B) / 2);
 
             ctx.strokeStyle = GREY + ".35)";
             ctx.setLineDash([5, 5]);

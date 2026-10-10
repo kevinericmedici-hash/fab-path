@@ -1588,7 +1588,9 @@
             ctx.moveTo(L, T); ctx.lineTo(L, B); ctx.lineTo(R, B);
             ctx.stroke();
             [0, 2, 4, 6].forEach(function (h) { txt(ctx, "hour " + h, X(h), B + 18, 12, TEXT + ".7)"); });
-            txt(ctx, "overnight →", (L + R) / 2, B + 40, 13, TEXT + ".85)");
+            txt(ctx, "overnight →", (L + R) / 2, B + 40, 13, TEXT + ".85)");
+            M.ylab(ctx, "glucose (mg/dL)", (T + B) / 2);
+            [50, 100, 150, 200].forEach(function (v) { txt(ctx, v, L - 20, Y(v) + 4, 12, TEXT + ".7)"); });
 
             ctx.strokeStyle = TEAL + ".98)";
             ctx.lineWidth = 3.2;
@@ -1969,7 +1971,9 @@
             ctx.beginPath();
             ctx.moveTo(L, T); ctx.lineTo(L, B); ctx.lineTo(R, B);
             ctx.stroke();
-            txt(ctx, "three hours →", (L + R) / 2, B + 34, 13, TEXT + ".85)");
+            txt(ctx, "three hours →", (L + R) / 2, B + 34, 13, TEXT + ".85)");
+            M.ylab(ctx, "glucose (mg/dL)", (T + B) / 2);
+            [80, 120, 160, 200].forEach(function (v) { txt(ctx, v, L - 20, Y(v) + 4, 12, TEXT + ".7)"); });
 
             function line(arr, col, w) {
 

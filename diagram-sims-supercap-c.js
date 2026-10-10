@@ -1202,6 +1202,8 @@
             }
 
             txt(ctx, "voltage →", (L + R) / 2, B + 42, 13, TEXT + ".85)");
+            M.ylab(ctx, "current (mA)", (T + B) / 2);
+            [-20, 0, 20].forEach(function (v) { txt(ctx, v, L - 20, Y(v) + 4, 12, TEXT + ".7)"); });
             txt(ctx, "stable window", (X(0) + X(state.el)) / 2, T + 16, 13, TEAL + "1)", "center", true);
             txt(ctx, "breakdown", (X(state.el) + X(4)) / 2, T + 16, 13, ROSE + "1)", "center", true);
 

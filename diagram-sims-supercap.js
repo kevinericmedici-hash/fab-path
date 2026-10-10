@@ -995,6 +995,7 @@
 
             s += '<circle cx="' + dx + '" cy="' + dy + '" r="4" style="fill:#ffd666"/>';
             s += label(gx + gw / 2, gy + gh + 12, "scan rate v →", 7, "middle", "var(--muted)");
+            s += '<text transform="translate(' + (gx - 8) + " " + (gy + gh / 2) + ') rotate(-90)" text-anchor="middle" style="font-size:7px;fill:var(--muted)">peak current</text>';
             s += label(gx + gw / 2, gy - 6, "peak current grows as √v", 7, "middle", "var(--text)");
 
             // multipliers
