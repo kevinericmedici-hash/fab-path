@@ -31,7 +31,7 @@ abuse protection.
 | # | Category | Finding and fix |
 |---|---|---|
 | A01 | Broken Access Control | All tables have row-level security. `progress`: own row only. `tutor_usage`, `rate_limits`: no API access at all. `feedback`: no direct API access (function only). `delete_my_account()` uses `auth.uid()` and now needs a sign-in from the last 10 minutes. No IDOR: every identifier comes from the verified token, never from the request. |
-| A02 | Security Misconfiguration | CSP, referrer policy and framing guard added. CORS locked down. `.nojekyll`, `security.txt`, `SECURITY.md`. Android backup and cleartext traffic off. GitHub Pages cannot send HSTS or `frame-ancestors` headers by itself: turn on Enforce HTTPS (adds HSTS) and optionally put Cloudflare in front (section 4). |
+| A02 | Security Misconfiguration | CSP, referrer policy and framing guard added. CORS locked down. `.nojekyll`, `security.txt`, `SECURITY.md`. Android backup and cleartext traffic off. Enforce HTTPS is on (HTTP now redirects with a 301). GitHub Pages cannot send HSTS or `frame-ancestors` headers, so put Cloudflare in front if you want those (section 4.4). |
 | A03 | Software Supply Chain Failures | No third-party scripts, fonts or CDNs: three.js is vendored (`three.module.min.js`, r160, MIT). `npm audit` shows 0 vulnerabilities in the app. Dependabot and a weekly audit in CI. Actions use pinned major versions. |
 | A04 | Cryptographic Failures | TLS everywhere (Supabase, GitHub Pages). Passwords are hashed by Supabase Auth, never handled by us beyond sending them over TLS. Tokens are no longer written to the app backup. Nothing sensitive is in a URL. |
 | A05 | Injection | SQL: no string-built SQL anywhere. The browser uses PostgREST with parameters; the two SQL functions take typed arguments and use `set search_path`. XSS: every dynamic `innerHTML` is built from constants; user text and model replies use `textContent`; no `eval`, no `document.write`, no URL parameters reach the page; CSP blocks inline injection. |
@@ -69,8 +69,8 @@ These cannot be done from code. Each is a few clicks.
 
 ### 4.1 GitHub (repo `kevinericmedici-hash/fab-path`)
 
-1. Settings, Pages: tick **Enforce HTTPS**. (Fixes `http://fab-path.com`
-   returning the page without a redirect, and sends the HSTS header.)
+1. Settings, Pages: **Enforce HTTPS**. DONE 2026-10-11: `http://fab-path.com`
+   now redirects to HTTPS (it used to return the page).
 2. Settings, Code security: enable **Secret scanning** and **Push protection**,
    **Dependabot alerts**, and **Private vulnerability reporting** (the
    `security.txt` link uses it).
@@ -79,50 +79,50 @@ These cannot be done from code. Each is a few clicks.
 
 ### 4.2 Supabase (project `xcftpdlniahvxpxtkdaq`)
 
-1. SQL Editor: run `supabase-setup.sql`, then `supabase-tutor.sql`, then
-   `supabase-security.sql`.
-2. Edge Functions secrets (Project Settings, Edge Functions, Secrets):
-   `ANTHROPIC_API_KEY` (already set), optional `IP_HASH_SALT` (any long random
-   text). Deploy: `supabase functions deploy tutor --no-verify-jwt` and
-   `supabase functions deploy feedback --no-verify-jwt`.
-3. Authentication, Providers, Email: **Confirm email ON**, minimum password
-   length **12**, require lowercase, uppercase and digits; **Prevent use of
-   leaked passwords** (Pro plan).
-4. Authentication, Rate Limits: lower "Sign-ups and sign-ins" to about 30 per 5
-   minutes per IP, "Emails sent" to a small number, and keep "Token
-   verifications" at 30 per 5 minutes. Set **OTP expiry to 600 seconds**.
-5. Authentication, Attack Protection: turn on **CAPTCHA** (Cloudflare
-   Turnstile): create a free widget, paste the **secret** here only, then put
-   the **site key** in `supabase-config.js` as `captchaSiteKey`.
-6. Authentication, URL Configuration: Site URL `https://fab-path.com`; redirect
-   URLs only `https://fab-path.com/**` (remove wildcards and localhost for
-   production).
-7. Authentication, Sessions: enable refresh-token rotation (default) and set an
-   inactivity timeout if your plan allows it.
-8. Project Settings, API: confirm only the **publishable** key is used in the
-   site. Never paste the **secret** or `service_role` key anywhere in the repo.
-9. Turn on two-factor authentication for your Supabase account and enable
-   email alerts for Auth and function errors.
+Done on 2026-10-11:
+
+- `supabase-security.sql` ran (rate limiter, feedback and tutor_usage locked
+  down, progress throttle).
+- Edge Functions `tutor` and `feedback` deployed (`--no-verify-jwt`), secret
+  `IP_HASH_SALT` set. Smoke test: a foreign origin gets 403, the site origin
+  passes CORS, the honeypot is silently accepted, a real feedback post is stored.
+- Auth, Email: **Confirm email ON**, minimum password length **12**, OTP expiry
+  **600 s**, secure password change and require-current-password ON.
+- Auth, Rate limits: token verifications 10 per 5 minutes per IP, sign-ups and
+  sign-ins 20 per 5 minutes per IP.
+- Auth, URL configuration: Site URL `https://fab-path.com`, redirect URL
+  `https://fab-path.com/**` only (it was `http://localhost:3000`).
+
+Still to do:
+
+1. Secret `ANTHROPIC_API_KEY` (the tutor answers 503 without it): in a terminal,
+   `npx supabase secrets set ANTHROPIC_API_KEY=... --project-ref xcftpdlniahvxpxtkdaq`
+   or paste it in Edge Functions, Secrets. Never put it in the repo.
+2. Auth, Attack Protection: turn on **CAPTCHA** with Cloudflare Turnstile
+   (free). Create the widget in Cloudflare, paste the **secret** into Supabase
+   only, then put the **site key** in `supabase-config.js` as `captchaSiteKey`.
+3. "Prevent use of leaked passwords" needs the Pro plan. Until then the
+   browser checks the Have I Been Pwned list itself.
+4. Turn on two-factor authentication for your Supabase account.
 
 ### 4.3 Domain (DNS at Squarespace Domains, nameservers `nsb1-4.squarespacedns.com`)
 
-Current state: the four GitHub Pages `A` records and a `www` CNAME are correct;
-SPF says "no mail" and DMARC is already `p=reject` (both good). Missing hardening:
+Done on 2026-10-11 (verified with public DNS lookups): the four GitHub Pages
+`A` records and the `www` CNAME were already right, SPF says "no mail", and
+DMARC is `p=reject`. Added: four `AAAA` records (`2606:50c0:8000` to `8003::153`),
+`CAA 0 issue "letsencrypt.org"` and `CAA 0 issuewild ";"`. DNSSEC is already
+active (a DS record is published and validates) and the domain lock is on.
 
-| Type | Host | Value | Why |
-|---|---|---|---|
-| `AAAA` | `@` | `2606:50c0:8000::153`, `...8001::153`, `...8002::153`, `...8003::153` | IPv6 reachability for GitHub Pages |
-| `CAA` | `@` | `0 issue "letsencrypt.org"` and `0 issuewild ";"` and `0 iodef "mailto:<your address>"` | Only the CA GitHub uses may issue certificates for the domain |
-| `TXT` | `_dmarc` | already set: `v=DMARC1; p=reject; sp=reject; adkim=s; aspf=s` | Nobody can send mail that looks like it is from fab-path.com (nothing to do) |
-| `MX` | `@` | `0 .` (null MX) | Declares the domain sends and receives no mail |
-| `TXT` | `@` | keep `v=spf1 -all` | Already correct |
+Not possible at Squarespace: a null `MX` record (the form rejects `.`). It is
+not needed, because SPF `-all` and DMARC `p=reject` already say the domain
+sends no mail.
 
-Also: turn on **DNSSEC** and **domain lock** for the domain, enable
-two-factor authentication on the Squarespace account, and keep auto-renew on.
+Still yours to do: turn on two-factor authentication on the Squarespace
+account (Account Settings, Security) and keep auto-renew on.
 
 ### 4.4 Optional: Cloudflare in front (recommended later)
 
-GitHub Pages cannot send HSTS-preload, `frame-ancestors`, `X-Content-Type-Options`
+GitHub Pages cannot send HSTS, `frame-ancestors`, `X-Content-Type-Options`
 or `Permissions-Policy` headers, and cannot rate limit. Putting the domain on
 Cloudflare's free plan (change the nameservers at Squarespace) adds those
 headers, a WAF, bot protection, DDoS cover and edge rate limiting, and the
