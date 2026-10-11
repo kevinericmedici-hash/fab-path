@@ -1953,7 +1953,7 @@
         ["fabSupercapScriptC", "diagram-sims-supercap-c.js"],
         ["fabSupercapScriptD", "diagram-sims-supercap-d.js"],
         ["fabSupercapScriptE", "diagram-sims-supercap-e.js"]
-    ].forEach(function (f) {
+    ].concat(document.querySelector('.fd-sim[data-sim="supercap-3d"]') ? [["fabSupercapScript3d", "diagram-sims-supercap-3d.js"]] : []).concat(document.querySelector('.fd-sim[data-sim^="supercap-3d-"]') ? [["fabSupercapScript3dB", "diagram-sims-supercap-3d-b.js"], ["fabSupercapScript3dC", "diagram-sims-supercap-3d-c.js"]] : []).forEach(function (f) {
 
         if (document.getElementById(f[0])) {
             return;

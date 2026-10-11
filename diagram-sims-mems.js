@@ -2161,7 +2161,7 @@
         ["fabMemsOpticsScript", "diagram-sims-mems-optics.js"],
         ["fabMemsFluidicScript", "diagram-sims-mems-fluidic.js"],
         ["fabMemsPkgScript", "diagram-sims-mems-pkg.js"]
-    ] : []).forEach(function (f) {
+    ] : []).concat(document.querySelector('.fd-sim[data-sim^="mems-3d-"]') ? [["fabMems3dScript", "diagram-sims-mems-3d.js"]] : []).forEach(function (f) {
 
         if (document.getElementById(f[0])) {
             return;

@@ -1762,7 +1762,7 @@
     [
         ["fabGluScriptB", "diagram-sims-glu-b.js"],
         ["fabGluScriptC", "diagram-sims-glu-c.js"]
-    ].forEach(function (f) {
+    ].concat(document.querySelector('.fd-sim[data-sim^="glu-3d-"]') ? [["fabGlu3dScript", "diagram-sims-glu-3d.js"]] : []).forEach(function (f) {
 
         if (document.getElementById(f[0])) {
             return;

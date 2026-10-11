@@ -1528,7 +1528,7 @@
     [
         ["fabNtScriptB", "diagram-sims-nt-b.js"],
         ["fabNtScriptC", "diagram-sims-nt-c.js"]
-    ].forEach(function (f) {
+    ].concat(document.querySelector('.fd-sim[data-sim^="nt-3d-"]') ? [["fabNt3dScript", "diagram-sims-nt-3d.js"]] : []).forEach(function (f) {
 
         if (document.getElementById(f[0])) {
             return;

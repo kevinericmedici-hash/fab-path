@@ -1401,7 +1401,7 @@
         ["fabChipDeviceScript", "diagram-sims-chip-device.js"],
         ["fabChipFabScript", "diagram-sims-chip-fab.js"],
         ["fabChipPkgScript", "diagram-sims-chip-pkg.js"]
-    ].forEach(function (f) {
+    ].concat(document.querySelector('.fd-sim[data-sim^="chip-3d-"]') ? [["fabChip3dScript", "diagram-sims-chip-3d.js"]] : []).forEach(function (f) {
 
         if (document.getElementById(f[0])) {
             return;

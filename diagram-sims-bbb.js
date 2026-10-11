@@ -1889,7 +1889,7 @@
     [
         ["fabBbbScriptB", "diagram-sims-bbb-b.js"],
         ["fabBbbScriptC", "diagram-sims-bbb-c.js"]
-    ].forEach(function (f) {
+    ].concat(document.querySelector('.fd-sim[data-sim^="bbb-3d-"]') ? [["fabBbb3dScript", "diagram-sims-bbb-3d.js"]] : []).forEach(function (f) {
 
         if (document.getElementById(f[0])) {
             return;

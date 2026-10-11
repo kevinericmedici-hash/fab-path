@@ -1265,7 +1265,7 @@
         ["fabFetScriptC", "diagram-sims-fet-c.js"],
         ["fabFetScriptD", "diagram-sims-fet-d.js"],
         ["fabFetScriptE", "diagram-sims-fet-e.js"]
-    ].forEach(function (f) {
+    ].concat(document.querySelector('.fd-sim[data-sim^="fet-3d-"]') ? [["fabFet3dScript", "diagram-sims-fet-3d.js"]] : []).forEach(function (f) {
 
         if (document.getElementById(f[0])) {
             return;
