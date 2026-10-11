@@ -1,0 +1,6 @@
+# Report a security problem with fab-path.com
+Contact: https://github.com/kevinericmedici-hash/fab-path/security/advisories/new
+Expires: 2027-10-11T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://fab-path.com/.well-known/security.txt
+Policy: https://github.com/kevinericmedici-hash/fab-path/blob/main/SECURITY.md

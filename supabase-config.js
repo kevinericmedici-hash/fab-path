@@ -14,9 +14,16 @@
    can only do what the row-level security rules
    in supabase-setup.sql allow. Never paste a
    "Secret key" or the old "service_role" key here.
+
+   Optional: captchaSiteKey is the PUBLIC site key
+   of a Cloudflare Turnstile widget. Leave it empty
+   until CAPTCHA is also switched on in Supabase
+   (Authentication > Attack Protection) with the
+   matching secret, which is stored only there.
 ======================================== */
 
 window.FAB_SUPABASE = {
     url: "https://xcftpdlniahvxpxtkdaq.supabase.co",
-    anonKey: "sb_publishable_dZz5oyFseXY3Tf7s91c2nQ_SBnGUCQa"
+    anonKey: "sb_publishable_dZz5oyFseXY3Tf7s91c2nQ_SBnGUCQa",
+    captchaSiteKey: ""
 };

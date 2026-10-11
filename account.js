@@ -55,8 +55,375 @@
 
 
     /* ========================================
+       SECURITY HELPERS
+       Fixed messages, so a server reply can
+       never leak details; a sign-in speed bump
+       on this device; a leaked-password check;
+       and an optional bot check.
+
+       The real brakes on guessing live on the
+       server (Supabase Auth rate limits and the
+       optional CAPTCHA, see SECURITY.md). The
+       speed bump below only slows a script that
+       runs in this browser and keeps honest
+       people from locking themselves out by
+       accident.
+    ======================================== */
+
+    const MSG = {
+        generic: "Something went wrong. Try again in a moment.",
+        creds: "That email or password didn't work.",
+        code: "That code didn't work. Check it, or ask for a new one.",
+        rate: "Too many attempts. Please wait a few minutes and try again.",
+        weak: "That password is too easy to guess. Use a longer one that isn't common.",
+        leaked: "That password has appeared in a known data leak. Please choose a different one.",
+        captcha: "We couldn't confirm you're human. Reload the page and try again."
+    };
+
+    const PASSWORD_MIN = 12;
+
+    const COMMON_PASSWORDS = [
+        "password", "123456", "12345678", "qwerty", "abc123", "letmein",
+        "welcome", "iloveyou", "admin", "monkey", "dragon", "football",
+        "baseball", "master", "sunshine", "princess", "trustno1",
+        "passw0rd", "changeme", "fabpath"
+    ];
+
+    const UUID_RE =
+        /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+    const EMAIL_RE =
+        /^[^\s@]{1,64}@[^\s@]{1,190}\.[^\s@]{2,24}$/;
+
+
+    // What the page shows for a failed server call. The server's own text
+    // is never displayed.
+    function failureMessage(res, fallback) {
+
+        if (res && res.status === 429) {
+
+            return MSG.rate;
+        }
+
+        if (res && (res.status === 400 || res.status === 401 ||
+            res.status === 403 || res.status === 422)) {
+
+            return fallback;
+        }
+
+        return MSG.generic;
+    }
+
+
+    function passwordProblem(password, email) {
+
+        if (password.length < PASSWORD_MIN) {
+
+            return "Use at least " + PASSWORD_MIN +
+                " characters. A few random words works well.";
+        }
+
+        if (password.length > 128) {
+
+            return "That password is too long. Keep it under 128 characters.";
+        }
+
+        const lower = password.toLowerCase();
+        const local = (email || "").split("@")[0].toLowerCase();
+
+        if (COMMON_PASSWORDS.some(function (p) { return lower.indexOf(p) !== -1; }) ||
+            (local.length >= 4 && lower.indexOf(local) !== -1) ||
+            /^(.)\1+$/.test(password)) {
+
+            return MSG.weak;
+        }
+
+        return "";
+    }
+
+
+    /* Has this password appeared in a known breach? Only the first five
+       characters of its SHA-1 hash leave the device (the k-anonymity
+       method of Have I Been Pwned), never the password. If the lookup
+       fails for any reason it simply allows the password. */
+    async function isLeakedPassword(password) {
+
+        try {
+
+            if (!(window.crypto && crypto.subtle)) {
+
+                return false;
+            }
+
+            const buf = await crypto.subtle.digest(
+                "SHA-1",
+                new TextEncoder().encode(password)
+            );
+
+            const hex = Array.from(new Uint8Array(buf))
+                .map(function (b) { return b.toString(16).padStart(2, "0"); })
+                .join("")
+                .toUpperCase();
+
+            const abort = new AbortController();
+            const timer = setTimeout(function () { abort.abort(); }, 4000);
+
+            const res = await fetch(
+                "https://api.pwnedpasswords.com/range/" + hex.slice(0, 5),
+                { headers: { "Add-Padding": "true" }, signal: abort.signal }
+            );
+
+            clearTimeout(timer);
+
+            if (!res.ok) {
+
+                return false;
+            }
+
+            const rest = hex.slice(5);
+
+            return (await res.text()).split("\n").some(function (line) {
+
+                const parts = line.trim().split(":");
+
+                return parts[0] === rest && parseInt(parts[1], 10) > 0;
+            });
+
+        } catch (e) {
+
+            return false;
+        }
+    }
+
+
+    /* Sign-in speed bump. Not stored under a "fabPath" name, so it is
+       never synced to the cloud or copied into the app's backup. */
+    const GUARD_KEY = "fabAuthGuard";
+    const GUARD_FREE_TRIES = 5;
+    const GUARD_LOCK_MS = 15 * 60 * 1000;
+
+    function guardId(kind, email) {
+
+        let h = 2166136261;
+        const text = kind + ":" + email.toLowerCase();
+
+        for (let i = 0; i < text.length; i++) {
+
+            h ^= text.charCodeAt(i);
+            h = Math.imul(h, 16777619) >>> 0;
+        }
+
+        return kind + h.toString(36);
+    }
+
+    function guardLoad() {
+
+        try {
+
+            const g = JSON.parse(localStorage.getItem(GUARD_KEY) || "{}");
+
+            return g && typeof g === "object" ? g : {};
+
+        } catch (e) {
+
+            return {};
+        }
+    }
+
+    function guardSave(g) {
+
+        const now = Date.now();
+
+        Object.keys(g).forEach(function (k) {
+
+            if (!g[k] || g[k].until < now - GUARD_LOCK_MS) {
+
+                delete g[k];
+            }
+        });
+
+        try { localStorage.setItem(GUARD_KEY, JSON.stringify(g)); } catch (e) {}
+    }
+
+    // Seconds the learner must still wait, or 0.
+    function guardWait(id) {
+
+        const e = guardLoad()[id];
+
+        return e && e.until > Date.now()
+            ? Math.ceil((e.until - Date.now()) / 1000)
+            : 0;
+    }
+
+    function guardFail(id) {
+
+        const g = guardLoad();
+        const e = g[id] || { n: 0, until: 0 };
+
+        e.n += 1;
+
+        // 1, 2, 4, 8 seconds between early tries, then a 15 minute pause.
+        e.until = Date.now() + (
+            e.n >= GUARD_FREE_TRIES
+                ? GUARD_LOCK_MS
+                : Math.pow(2, e.n - 1) * 1000
+        );
+
+        if (e.n >= GUARD_FREE_TRIES) {
+
+            e.n = 0;
+        }
+
+        g[id] = e;
+        guardSave(g);
+    }
+
+    // A plain pause with no strike against the learner (for example
+    // between two "send me a code" requests).
+    function guardPause(id, ms) {
+
+        const g = guardLoad();
+
+        g[id] = { n: 0, until: Date.now() + ms };
+        guardSave(g);
+    }
+
+    function guardOk(id) {
+
+        const g = guardLoad();
+
+        delete g[id];
+        guardSave(g);
+    }
+
+    // Errors we raised ourselves carry a fixed, friendly sentence. Anything
+    // else (a bug, a browser error) shows the generic line instead.
+    function shown(e) {
+
+        return e instanceof Error &&
+            !(e instanceof TypeError || e instanceof ReferenceError ||
+              e instanceof RangeError || e instanceof SyntaxError)
+            ? e.message
+            : MSG.generic;
+    }
+
+    function waitMessage(seconds) {
+
+        return seconds > 90
+            ? "Too many tries. You can try again in " +
+              Math.ceil(seconds / 60) + " minutes."
+            : "Please wait " + seconds + " second" +
+              (seconds === 1 ? "" : "s") + " before trying again.";
+    }
+
+
+    /* Optional bot check (Cloudflare Turnstile). Off until
+       captchaSiteKey is set in supabase-config.js AND CAPTCHA is
+       switched on in Supabase Auth settings with the matching secret
+       (the secret lives only in Supabase). */
+    let captchaWidget = null;
+    let captchaLoading = null;
+
+    function loadTurnstile() {
+
+        if (window.turnstile) {
+
+            return Promise.resolve();
+        }
+
+        if (!captchaLoading) {
+
+            captchaLoading = new Promise(function (resolve, reject) {
+
+                const s = document.createElement("script");
+
+                s.src =
+                    "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+                s.async = true;
+                s.onload = resolve;
+                s.onerror = reject;
+                document.head.appendChild(s);
+            });
+        }
+
+        return captchaLoading;
+    }
+
+    function captchaToken() {
+
+        if (!CFG.captchaSiteKey) {
+
+            return Promise.resolve("");
+        }
+
+        return loadTurnstile().then(function () {
+
+            return new Promise(function (resolve, reject) {
+
+                const box = document.getElementById("fabCaptcha");
+
+                if (!box) {
+
+                    resolve("");
+
+                    return;
+                }
+
+                const timer = setTimeout(function () { reject(new Error(MSG.captcha)); }, 40000);
+
+                const done = function (token) { clearTimeout(timer); resolve(token); };
+                const fail = function () { clearTimeout(timer); reject(new Error(MSG.captcha)); };
+
+                if (captchaWidget === null) {
+
+                    captchaWidget = window.turnstile.render(box, {
+                        sitekey: CFG.captchaSiteKey,
+                        execution: "execute",
+                        appearance: "interaction-only",
+                        callback: done,
+                        "error-callback": fail,
+                        "expired-callback": fail
+                    });
+
+                } else {
+
+                    window.turnstile.reset(captchaWidget);
+                }
+
+                window.turnstile.execute(captchaWidget);
+            });
+
+        }, function () {
+
+            throw new Error(MSG.captcha);
+        });
+    }
+
+    function withCaptcha(payload, token) {
+
+        if (token) {
+
+            payload.gotrue_meta_security = { captcha_token: token };
+        }
+
+        return payload;
+    }
+
+
+    /* ========================================
        LOCAL SESSION
     ======================================== */
+
+    function validSession(s) {
+
+        return !!(
+            s && typeof s === "object" &&
+            typeof s.access_token === "string" &&
+            typeof s.refresh_token === "string" &&
+            s.user && typeof s.user.id === "string" &&
+            UUID_RE.test(s.user.id)
+        );
+    }
 
     function loadSession() {
 
@@ -65,7 +432,9 @@
             const raw =
                 localStorage.getItem(SESSION_KEY);
 
-            return raw ? JSON.parse(raw) : null;
+            const parsed = raw ? JSON.parse(raw) : null;
+
+            return validSession(parsed) ? parsed : null;
 
         } catch (e) {
 
@@ -123,130 +492,121 @@
     }
 
 
-    async function sendCode(email) {
+    /* One place for every call to Supabase Auth. Whatever goes wrong, the
+       learner sees one of the fixed MSG sentences, never the server's
+       own words, so an error can't reveal whether an account exists. */
+    async function authCall(path, payload, fallback) {
 
-        const res = await fetch(
-            `${CFG.url}/auth/v1/otp`,
-            {
-                method: "POST",
-                headers: authHeaders(false),
-                body: JSON.stringify({
-                    email: email,
-                    create_user: true
-                })
-            }
-        );
+        let res;
+
+        try {
+
+            res = await fetch(
+                `${CFG.url}${path}`,
+                {
+                    method: "POST",
+                    headers: authHeaders(false),
+                    body: JSON.stringify(payload)
+                }
+            );
+
+        } catch (e) {
+
+            throw new Error(MSG.generic);
+        }
+
+        const body =
+            await res.json().catch(function () {
+                return {};
+            });
 
         if (!res.ok) {
 
-            const body =
-                await res.json().catch(function () {
-                    return {};
-                });
+            const err = new Error(failureMessage(res, fallback));
 
-            throw new Error(
-                body.error_description ||
-                body.msg ||
-                "Could not send a code. Try again in a moment."
+            err.code = body && body.error_code;
+
+            throw err;
+        }
+
+        return body;
+    }
+
+
+    async function sendCode(email) {
+
+        const token = await captchaToken();
+
+        try {
+
+            await authCall(
+                "/auth/v1/otp",
+                withCaptcha({ email: email, create_user: true }, token),
+                MSG.generic
             );
+
+        } catch (e) {
+
+            // Answer a rejected address the same way as an accepted one, so
+            // this form can't be used to find out who has an account.
+            if (e.message === MSG.rate || e.message === MSG.captcha) {
+
+                throw e;
+            }
         }
     }
 
 
     async function verifyCode(email, code) {
 
-        const res = await fetch(
-            `${CFG.url}/auth/v1/verify`,
-            {
-                method: "POST",
-                headers: authHeaders(false),
-                body: JSON.stringify({
-                    type: "email",
-                    email: email,
-                    token: code
-                })
-            }
+        return authCall(
+            "/auth/v1/verify",
+            { type: "email", email: email, token: code },
+            MSG.code
         );
-
-        const body =
-            await res.json().catch(function () {
-                return {};
-            });
-
-        if (!res.ok) {
-
-            throw new Error(
-                body.error_description ||
-                body.msg ||
-                "That code didn't work. Check it and try again."
-            );
-        }
-
-        return body;
     }
 
 
     async function signUpPassword(email, password) {
 
-        const res = await fetch(
-            `${CFG.url}/auth/v1/signup`,
-            {
-                method: "POST",
-                headers: authHeaders(false),
-                body: JSON.stringify({
-                    email: email,
-                    password: password
-                })
-            }
-        );
+        const token = await captchaToken();
 
-        const body =
-            await res.json().catch(function () {
-                return {};
-            });
+        try {
 
-        if (!res.ok) {
-
-            throw new Error(
-                body.error_description ||
-                body.msg ||
-                "Could not create that account. Try again in a moment."
+            return await authCall(
+                "/auth/v1/signup",
+                withCaptcha({ email: email, password: password }, token),
+                MSG.generic
             );
-        }
 
-        return body;
+        } catch (e) {
+
+            if (e.code === "weak_password") {
+
+                throw new Error(MSG.weak);
+            }
+
+            // An address that already has an account gets the same
+            // "check your email" answer as a new one.
+            if (e.code === "user_already_exists" || e.code === "email_exists") {
+
+                return {};
+            }
+
+            throw e;
+        }
     }
 
 
     async function signInPassword(email, password) {
 
-        const res = await fetch(
-            `${CFG.url}/auth/v1/token?grant_type=password`,
-            {
-                method: "POST",
-                headers: authHeaders(false),
-                body: JSON.stringify({
-                    email: email,
-                    password: password
-                })
-            }
+        const token = await captchaToken();
+
+        return authCall(
+            "/auth/v1/token?grant_type=password",
+            withCaptcha({ email: email, password: password }, token),
+            MSG.creds
         );
-
-        const body =
-            await res.json().catch(function () {
-                return {};
-            });
-
-        if (!res.ok) {
-
-            throw new Error(
-                body.error_description ||
-                body.msg ||
-                "That email or password didn't work."
-            );
-        }
-
-        return body;
     }
 
 
@@ -288,9 +648,13 @@
     }
 
 
-    function setSession(authResponse) {
+    function setSession(authResponse, fresh) {
 
         session = {
+            signed_in_at:
+                fresh
+                    ? Date.now()
+                    : (session && session.signed_in_at) || 0,
             access_token: authResponse.access_token,
             refresh_token: authResponse.refresh_token,
             expires_at:
@@ -349,10 +713,44 @@
     }
 
 
+    /* Anything that comes back from the cloud is treated as untrusted:
+       only well-named keys with short text values get through, and the
+       names that can change an object's prototype never do. */
+    function cleanProgress(data) {
+
+        if (!data || typeof data !== "object" || Array.isArray(data)) {
+
+            return null;
+        }
+
+        const out = {};
+
+        Object.keys(data).forEach(function (key) {
+
+            const v = data[key];
+
+            if (/^fabPath[A-Za-z0-9_.:-]{0,100}$/.test(key) &&
+                key !== SESSION_KEY &&
+                typeof v === "string" &&
+                v.length <= 50000) {
+
+                out[key] = v;
+            }
+        });
+
+        return out;
+    }
+
+
     async function fetchCloudProgress() {
 
+        if (!session || !UUID_RE.test(session.user.id)) {
+
+            throw new Error("Could not load your saved progress.");
+        }
+
         const res = await fetch(
-            `${CFG.url}/rest/v1/progress?select=data&user_id=eq.${session.user.id}`,
+            `${CFG.url}/rest/v1/progress?select=data&user_id=eq.${encodeURIComponent(session.user.id)}`,
             { headers: authHeaders(true) }
         );
 
@@ -363,7 +761,7 @@
 
         const rows = await res.json();
 
-        return rows.length ? rows[0].data : null;
+        return rows.length ? cleanProgress(rows[0].data) : null;
     }
 
 
@@ -416,8 +814,10 @@
             return local;
         }
 
-        const merged =
-            Object.assign({}, cloud, local);
+        const merged = Object.create(null);
+
+        Object.keys(cloud).forEach(function (k) { merged[k] = cloud[k]; });
+        Object.keys(local).forEach(function (k) { merged[k] = local[k]; });
 
         const allKeys =
             new Set(
@@ -520,7 +920,9 @@
 
         Object.keys(data).forEach(function (key) {
 
-            if (isSyncedKey(key) && data[key] !== undefined) {
+            if (isSyncedKey(key) &&
+                typeof data[key] === "string" &&
+                data[key].length <= 50000) {
 
                 rawSetItem.call(
                     localStorage,
@@ -607,7 +1009,7 @@
 
     async function afterAuth(authResponse) {
 
-        setSession(authResponse);
+        setSession(authResponse, true);
 
         let cloud = null;
 
@@ -668,9 +1070,30 @@
 
     function signOut() {
 
+        // Tell the server this sign-in is finished (this device only), then
+        // forget it here. Failing to reach the server must never trap
+        // someone in a signed-in state, so the local part always happens.
+        const old = session;
+
         session = null;
 
         clearSession();
+
+        if (old && old.access_token) {
+
+            try {
+
+                fetch(`${CFG.url}/auth/v1/logout?scope=local`, {
+                    method: "POST",
+                    headers: {
+                        apikey: CFG.anonKey,
+                        Authorization: "Bearer " + old.access_token
+                    },
+                    keepalive: true
+                }).catch(function () {});
+
+            } catch (e) {}
+        }
 
         fireAccountChange();
     }
@@ -695,6 +1118,16 @@
 
             throw new Error(
                 "Your session expired. Sign in again, then delete your account."
+            );
+        }
+
+        // Deleting is permanent, so ask for a recent sign-in first. This
+        // stops someone who finds a phone left signed in from erasing it.
+        if (!session.signed_in_at ||
+            Date.now() - session.signed_in_at > 10 * 60 * 1000) {
+
+            throw new Error(
+                "For your security, sign out, sign in again, then delete your account."
             );
         }
 
@@ -765,7 +1198,35 @@
     }
 
 
+    function injectAccountStyles() {
+
+        if (document.getElementById("fabAccountStyles")) {
+
+            return;
+        }
+
+        const style = document.createElement("style");
+
+        style.id = "fabAccountStyles";
+        style.textContent =
+            "#fabAccountOverlay .account-error{color:#ff8a96;background:rgba(255,105,120,.1);" +
+            "border:1px solid rgba(255,105,120,.35);border-radius:10px;padding:10px 12px;" +
+            "margin:0 0 14px;font-size:.9rem;line-height:1.4}" +
+            "#fabAccountOverlay .account-submit:disabled{opacity:.65;cursor:progress}" +
+            "#fabAccountOverlay #fabShowPasswordButton{width:auto;margin:-4px 0 12px auto;" +
+            "padding:4px 2px;font-size:.82rem}" +
+            "#fabAccountOverlay form .account-input{margin-bottom:12px}" +
+            "#fabAccountOverlay .account-input:focus-visible," +
+            "#fabAccountOverlay .account-link:focus-visible," +
+            "#fabAccountOverlay .account-submit:focus-visible{outline:2px solid var(--accent);outline-offset:2px}";
+
+        document.head.appendChild(style);
+    }
+
+
     function buildModal() {
+
+        injectAccountStyles();
 
         const overlay =
             document.createElement("div");
@@ -775,9 +1236,9 @@
         overlay.hidden = true;
 
         overlay.innerHTML = `
-            <div class="account-modal" role="dialog" aria-label="Sign in">
+            <div class="account-modal" role="dialog" aria-modal="true" aria-label="Sign in">
 
-                <button type="button" class="account-modal-close" id="fabAccountClose">
+                <button type="button" class="account-modal-close" id="fabAccountClose" aria-label="Close">
                     ✕
                 </button>
 
@@ -789,27 +1250,52 @@
                         Sign in to sync your progress across devices.
                     </p>
 
-                    <input
-                        type="email"
-                        id="fabAuthEmailInput"
-                        class="account-input"
-                        placeholder="you@example.com"
-                        autocomplete="email"
-                    >
+                    <form id="fabAuthForm" novalidate>
 
-                    <input
-                        type="password"
-                        id="fabAuthPasswordInput"
-                        class="account-input"
-                        placeholder="Password"
-                        autocomplete="current-password"
-                    >
+                        <input
+                            type="email"
+                            id="fabAuthEmailInput"
+                            class="account-input"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            autocapitalize="off"
+                            spellcheck="false"
+                            maxlength="254"
+                            aria-label="Email address"
+                        >
 
-                    <button type="button" class="start-button account-submit" id="fabAuthSubmitButton">
-                        Sign in
-                    </button>
+                        <input
+                            type="password"
+                            id="fabAuthPasswordInput"
+                            class="account-input"
+                            placeholder="Password"
+                            autocomplete="current-password"
+                            maxlength="128"
+                            aria-label="Password"
+                        >
 
-                    <p class="account-error" id="fabAuthError" hidden></p>
+                        <button
+                            type="button"
+                            class="account-link"
+                            id="fabShowPasswordButton"
+                            aria-pressed="false"
+                        >Show password</button>
+
+                        <p class="account-hint" id="fabPasswordHint" hidden>
+                            At least 12 characters. A few random words
+                            works well, and you never need to reuse a
+                            password from anywhere else.
+                        </p>
+
+                        <div id="fabCaptcha"></div>
+
+                        <p class="account-error" id="fabAuthError" role="alert" hidden></p>
+
+                        <button type="submit" class="start-button account-submit" id="fabAuthSubmitButton">
+                            Sign in
+                        </button>
+
+                    </form>
 
                     <button type="button" class="account-link" id="fabAuthToggleModeButton">
                         New here? Create an account
@@ -837,19 +1323,27 @@
                         on any device.
                     </p>
 
-                    <input
-                        type="email"
-                        id="fabEmailInput"
-                        class="account-input"
-                        placeholder="you@example.com"
-                        autocomplete="email"
-                    >
+                    <form id="fabEmailForm" novalidate>
 
-                    <button type="button" class="start-button account-submit" id="fabSendCodeButton">
-                        Send code
-                    </button>
+                        <input
+                            type="email"
+                            id="fabEmailInput"
+                            class="account-input"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            autocapitalize="off"
+                            spellcheck="false"
+                            maxlength="254"
+                            aria-label="Email address"
+                        >
 
-                    <p class="account-error" id="fabEmailError" hidden></p>
+                        <p class="account-error" id="fabEmailError" role="alert" hidden></p>
+
+                        <button type="submit" class="start-button account-submit" id="fabSendCodeButton">
+                            Send code
+                        </button>
+
+                    </form>
 
                     <button type="button" class="account-link" id="fabUsePasswordButton">
                         Use a password instead
@@ -866,25 +1360,30 @@
                         <strong id="fabCodeEmail"></strong>.
                     </p>
 
-                    <input
-                        type="text"
-                        id="fabCodeInput"
-                        class="account-input account-code-input"
-                        placeholder="Code from your email"
-                        inputmode="numeric"
-                        autocomplete="one-time-code"
-                        maxlength="12"
-                    >
+                    <form id="fabCodeForm" novalidate>
 
-                    <button type="button" class="start-button account-submit" id="fabVerifyButton">
-                        Sign in
-                    </button>
+                        <input
+                            type="text"
+                            id="fabCodeInput"
+                            class="account-input account-code-input"
+                            placeholder="Code from your email"
+                            inputmode="numeric"
+                            autocomplete="one-time-code"
+                            maxlength="12"
+                            aria-label="Code from your email"
+                        >
+
+                        <p class="account-error" id="fabCodeError" role="alert" hidden></p>
+
+                        <button type="submit" class="start-button account-submit" id="fabVerifyButton">
+                            Sign in
+                        </button>
+
+                    </form>
 
                     <button type="button" class="account-link" id="fabBackButton">
                         Use a different email
                     </button>
-
-                    <p class="account-error" id="fabCodeError" hidden></p>
 
                 </div>
 
@@ -930,7 +1429,7 @@
                         Delete my account
                     </button>
 
-                    <p class="account-error" id="fabDeleteError" hidden></p>
+                    <p class="account-error" id="fabDeleteError" role="alert" hidden></p>
 
                     <button type="button" class="account-link" id="fabDeleteCancelButton">
                         Cancel
@@ -1017,6 +1516,14 @@
         if (overlay) {
 
             overlay.hidden = true;
+
+            // Never leave a typed password or code sitting in the page.
+            ["fabAuthPasswordInput", "fabCodeInput"].forEach(function (id) {
+
+                const el = document.getElementById(id);
+
+                if (el) { el.value = ""; }
+            });
         }
     }
 
@@ -1063,6 +1570,7 @@
             submit.textContent = "Create account";
             toggle.textContent = "Already have an account? Sign in";
             passwordInput.setAttribute("autocomplete", "new-password");
+            document.getElementById("fabPasswordHint").hidden = false;
 
         } else {
 
@@ -1072,6 +1580,7 @@
             submit.textContent = "Sign in";
             toggle.textContent = "New here? Create an account";
             passwordInput.setAttribute("autocomplete", "current-password");
+            document.getElementById("fabPasswordHint").hidden = true;
         }
     }
 
@@ -1089,6 +1598,14 @@
         document
             .getElementById("fabAccountClose")
             .addEventListener("click", closeModal);
+
+        document.addEventListener("keydown", function (event) {
+
+            if (event.key === "Escape" && !overlay.hidden) {
+
+                closeModal();
+            }
+        });
 
         let pendingEmail = "";
 
@@ -1122,19 +1639,54 @@
 
             showError("fabAuthError", "");
 
-            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            if (button.disabled) {
+
+                return;
+            }
+
+            if (!EMAIL_RE.test(email)) {
 
                 showError("fabAuthError", "Enter a valid email address.");
 
                 return;
             }
 
-            if (password.length < 6) {
+            if (!password) {
 
                 showError(
                     "fabAuthError",
-                    "Password needs to be at least 6 characters."
+                    mode === "signup" ?
+                        "Choose a password." : "Enter your password."
                 );
+
+                return;
+            }
+
+            if (mode === "signup") {
+
+                const problem = passwordProblem(password, email);
+
+                if (problem) {
+
+                    showError("fabAuthError", problem);
+
+                    return;
+                }
+
+            } else if (password.length > 128) {
+
+                showError("fabAuthError", MSG.creds);
+
+                return;
+            }
+
+            // The speed bump: after a few wrong passwords, wait.
+            const gid = guardId("pw", email);
+            const wait = guardWait(gid);
+
+            if (wait) {
+
+                showError("fabAuthError", waitMessage(wait));
 
                 return;
             }
@@ -1147,6 +1699,11 @@
 
                 if (mode === "signup") {
 
+                    if (await isLeakedPassword(password)) {
+
+                        throw new Error(MSG.leaked);
+                    }
+
                     await completeSignUpWithPassword(email, password);
 
                 } else {
@@ -1154,11 +1711,21 @@
                     await completeSignInWithPassword(email, password);
                 }
 
+                guardOk(gid);
+
+                document.getElementById("fabAuthPasswordInput").value = "";
+
                 closeModal();
 
             } catch (e) {
 
-                showError("fabAuthError", e.message);
+                // Only a genuinely wrong password counts as a strike.
+                if (mode === "signin" && e.message === MSG.creds) {
+
+                    guardFail(gid);
+                }
+
+                showError("fabAuthError", shown(e));
 
             } finally {
 
@@ -1168,29 +1735,25 @@
         }
 
         document
-            .getElementById("fabAuthSubmitButton")
-            .addEventListener("click", submitAuth);
+            .getElementById("fabAuthForm")
+            .addEventListener("submit", function (event) {
 
-        document
-            .getElementById("fabAuthPasswordInput")
-            .addEventListener("keydown", function (event) {
-
-                if (event.key === "Enter") {
-
-                    submitAuth();
-                }
+                event.preventDefault();
+                submitAuth();
             });
 
         document
-            .getElementById("fabAuthEmailInput")
-            .addEventListener("keydown", function (event) {
+            .getElementById("fabShowPasswordButton")
+            .addEventListener("click", function () {
 
-                if (event.key === "Enter") {
+                const input =
+                    document.getElementById("fabAuthPasswordInput");
 
-                    document
-                        .getElementById("fabAuthPasswordInput")
-                        .focus();
-                }
+                const show = input.type === "password";
+
+                input.type = show ? "text" : "password";
+                this.textContent = show ? "Hide password" : "Show password";
+                this.setAttribute("aria-pressed", String(show));
             });
 
         document
@@ -1219,21 +1782,41 @@
             });
 
         document
-            .getElementById("fabSendCodeButton")
-            .addEventListener("click", async function () {
+            .getElementById("fabEmailForm")
+            .addEventListener("submit", async function (event) {
 
-                const button = this;
+                event.preventDefault();
+
+                const button =
+                    document.getElementById("fabSendCodeButton");
+
+                if (button.disabled) {
+
+                    return;
+                }
+
                 const email =
                     document.getElementById("fabEmailInput").value.trim();
 
                 showError("fabEmailError", "");
 
-                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                if (!EMAIL_RE.test(email)) {
 
                     showError(
                         "fabEmailError",
                         "Enter a valid email address."
                     );
+
+                    return;
+                }
+
+                // One code request per address every 30 seconds.
+                const gid = guardId("send", email);
+                const wait = guardWait(gid);
+
+                if (wait) {
+
+                    showError("fabEmailError", waitMessage(wait));
 
                     return;
                 }
@@ -1244,6 +1827,8 @@
                 try {
 
                     await sendCode(email);
+
+                    guardPause(gid, 30000);
 
                     pendingEmail = email;
 
@@ -1258,7 +1843,7 @@
 
                 } catch (e) {
 
-                    showError("fabEmailError", e.message);
+                    showError("fabEmailError", shown(e));
 
                 } finally {
 
@@ -1280,14 +1865,29 @@
             const button =
                 document.getElementById("fabVerifyButton");
 
+            if (button.disabled) {
+
+                return;
+            }
+
             const code =
-                document.getElementById("fabCodeInput").value.trim();
+                document.getElementById("fabCodeInput").value.replace(/\s+/g, "");
 
             showError("fabCodeError", "");
 
-            if (!code) {
+            if (!/^[0-9]{4,12}$/.test(code)) {
 
                 showError("fabCodeError", "Enter the code from your email.");
+
+                return;
+            }
+
+            const gid = guardId("otp", pendingEmail);
+            const wait = guardWait(gid);
+
+            if (wait) {
+
+                showError("fabCodeError", waitMessage(wait));
 
                 return;
             }
@@ -1299,11 +1899,18 @@
 
                 await completeSignIn(pendingEmail, code);
 
+                guardOk(gid);
+
                 closeModal();
 
             } catch (e) {
 
-                showError("fabCodeError", e.message);
+                if (e.message === MSG.code) {
+
+                    guardFail(gid);
+                }
+
+                showError("fabCodeError", shown(e));
 
             } finally {
 
@@ -1313,27 +1920,11 @@
         }
 
         document
-            .getElementById("fabVerifyButton")
-            .addEventListener("click", submitCode);
+            .getElementById("fabCodeForm")
+            .addEventListener("submit", function (event) {
 
-        document
-            .getElementById("fabCodeInput")
-            .addEventListener("keydown", function (event) {
-
-                if (event.key === "Enter") {
-
-                    submitCode();
-                }
-            });
-
-        document
-            .getElementById("fabEmailInput")
-            .addEventListener("keydown", function (event) {
-
-                if (event.key === "Enter") {
-
-                    document.getElementById("fabSendCodeButton").click();
-                }
+                event.preventDefault();
+                submitCode();
             });
 
         document
@@ -1381,7 +1972,7 @@
 
                 } catch (e) {
 
-                    showError("fabDeleteError", e.message);
+                    showError("fabDeleteError", shown(e));
 
                 } finally {
 

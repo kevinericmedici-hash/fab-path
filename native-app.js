@@ -56,6 +56,11 @@
     const BACKUP_KEY = "fabPathBackup";
     const BACKUP_AT_KEY = "fabPathBackupAt";
 
+    // The sign-in token must never be copied into the app's plain-text
+    // backup (it would be readable from a device backup), so it is skipped
+    // when saving and when restoring.
+    const NEVER_BACK_UP = { fabPathSession: true };
+
     function store(key, fallback) {
 
         try {
@@ -88,7 +93,7 @@
 
                 const k = localStorage.key(i);
 
-                if (k && k.indexOf("fabPath") === 0 && k !== BACKUP_KEY) {
+                if (k && k.indexOf("fabPath") === 0 && k !== BACKUP_KEY && !NEVER_BACK_UP[k]) {
                     data[k] = localStorage.getItem(k);
                 }
             }
@@ -134,7 +139,7 @@
 
             Object.keys(data).forEach(function (k) {
 
-                if (k.indexOf("fabPath") === 0 && localStorage.getItem(k) === null) {
+                if (k.indexOf("fabPath") === 0 && !NEVER_BACK_UP[k] && localStorage.getItem(k) === null) {
 
                     localStorage.setItem(k, data[k]);
                     n++;

@@ -1,0 +1,13 @@
+# Secret scanning rules for Fab Path.
+# The Supabase "publishable" key is public by design (it can only do what
+# row-level security allows), so it is allowed in supabase-config.js.
+# Everything else (service-role keys, Anthropic keys, tokens) must never
+# appear in this repository: they live in Supabase Edge Function secrets.
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Public-by-design Supabase publishable key"
+regexes = ['''sb_publishable_[A-Za-z0-9_\-]+''']
+paths = ['''three\.module\.min\.js''']

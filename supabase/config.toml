@@ -1,0 +1,11 @@
+# Supabase CLI settings for the Fab Path functions.
+#
+# verify_jwt is off because the new "publishable" API keys are not JWTs, so the
+# gateway check would reject signed-out visitors. Each function checks the
+# origin, the rate limit and the login itself (see functions/_shared/guard.ts).
+
+[functions.tutor]
+verify_jwt = false
+
+[functions.feedback]
+verify_jwt = false

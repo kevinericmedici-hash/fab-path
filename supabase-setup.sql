@@ -45,10 +45,12 @@ create policy "delete own progress"
 -- ========================================
 -- FEEDBACK
 --
--- Anyone can submit, signed in or not.
+-- Anyone can submit, signed in or not, but
+-- only through the "feedback" Edge Function
+-- (see supabase-security.sql, which also
+-- closes the table to direct API writes).
 -- Nobody can read it back through the API,
--- including the person who submitted it, so
--- the only way to see submissions is the
+-- so the only way to see submissions is the
 -- Table Editor here in Supabase.
 -- ========================================
 
@@ -63,11 +65,9 @@ create table if not exists public.feedback (
 
 alter table public.feedback enable row level security;
 
+-- No insert policy on purpose: the Edge Function writes with the service
+-- role. Run supabase-security.sql after this file.
 drop policy if exists "anyone can submit feedback" on public.feedback;
-
-create policy "anyone can submit feedback"
-    on public.feedback for insert
-    with check (true);
 
 
 -- ========================================

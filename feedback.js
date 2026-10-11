@@ -1,10 +1,14 @@
 /* ========================================
    FAB PATH FEEDBACK
-   Submits straight to the "feedback" table
-   in Supabase (see supabase-setup.sql).
-   Anyone can submit, signed in or not;
-   nobody can read submissions back through
-   the API, so this never needs a session.
+   Sends feedback to the "feedback" Edge Function
+   (see supabase/functions/feedback). The page never
+   writes to the database itself: the function checks
+   the message, rate limits by network address, and
+   fills in the sender from the verified login, so
+   nobody can flood it or pose as someone else.
+
+   Errors shown here are always fixed, friendly
+   sentences. Raw server text is never displayed.
 ======================================== */
 
 (function () {
@@ -15,43 +19,58 @@
     const ENABLED =
         !!(CFG.url && CFG.anonKey);
 
+    const ENDPOINT =
+        `${CFG.url}/functions/v1/feedback`;
 
-    async function submitFeedback(category, message, email) {
+    const GENERIC =
+        "Could not send that. Try again in a moment.";
+
+
+    async function submitFeedback(category, message, email, website) {
 
         const session =
             window.FabAccount &&
             window.FabAccount.getSession();
 
-        const res = await fetch(
-            `${CFG.url}/rest/v1/feedback`,
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    apikey: CFG.anonKey,
-                    Authorization: "Bearer " + CFG.anonKey,
-                    Prefer: "return=minimal"
-                },
-                body: JSON.stringify({
-                    category: category,
-                    message: message,
-                    email: email || null,
-                    user_id: session ? session.user.id : null
-                })
-            }
-        );
+        let res;
+
+        try {
+
+            res = await fetch(
+                ENDPOINT,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        apikey: CFG.anonKey,
+                        Authorization:
+                            "Bearer " +
+                            (session ? session.access_token : CFG.anonKey)
+                    },
+                    body: JSON.stringify({
+                        category: category,
+                        message: message,
+                        email: email || null,
+                        website: website
+                    })
+                }
+            );
+
+        } catch (e) {
+
+            throw new Error(GENERIC);
+        }
+
+        if (res.status === 429) {
+
+            throw new Error(
+                "You've sent a lot of feedback. Please try again later."
+            );
+        }
 
         if (!res.ok) {
 
-            const body =
-                await res.json().catch(function () {
-                    return {};
-                });
-
-            throw new Error(
-                body.message ||
-                "Could not send that. Try again in a moment."
-            );
+            throw new Error(GENERIC);
         }
     }
 
@@ -103,6 +122,11 @@
             const button =
                 document.getElementById("feedbackSubmitButton");
 
+            if (button.disabled) {
+
+                return;
+            }
+
             const category =
                 document.getElementById("feedbackCategory").value;
 
@@ -112,11 +136,23 @@
             const email =
                 document.getElementById("feedbackEmail").value.trim();
 
+            const website =
+                document.getElementById("feedbackWebsite")
+                    ? document.getElementById("feedbackWebsite").value
+                    : "";
+
             showError("");
 
             if (!message) {
 
                 showError("Say a little about what's on your mind.");
+
+                return;
+            }
+
+            if (message.length > 4000) {
+
+                showError("Please keep it under 4,000 characters.");
 
                 return;
             }
@@ -133,7 +169,7 @@
 
             try {
 
-                await submitFeedback(category, message, email);
+                await submitFeedback(category, message, email, website);
 
                 form.hidden = true;
 
