@@ -38,7 +38,11 @@
         channel: { name: "Fluidic channel layer", conductive: false, color: "#4dd0ff" },
         membrane: { name: "Porous membrane", conductive: false, color: "#ff7a90" },
         substrate: { name: "Probe body (substrate)", conductive: false, color: "#9aa7c0" },
-        coating: { name: "Coating on the sites", conductive: false, color: "#d68cff" }
+        coating: { name: "Coating on the sites", conductive: false, color: "#d68cff" },
+        structure: { name: "Structural film (polysilicon or silicon)", conductive: true, color: "#6fe3a1" },
+        oxide: { name: "Sacrificial oxide (drawn shapes are anchor openings)", conductive: false, color: "#9db4d8" },
+        dimple: { name: "Dimples (small standoffs under the layer above)", conductive: false, color: "#ffd36b" },
+        hole: { name: "Release holes (cut through the layer below)", conductive: false, color: "#ff8aa8" }
     };
 
     const METALS = {
@@ -101,6 +105,24 @@
         hydrogel: { name: "Biocompatible hydrogel outer coat", blurb: "A soft, water-rich skin that sticks fewer proteins and cells to the sensor and calms the tissue reaction.", cost: 2, hours: 2, adh: 0.6, thick: 3, only: ["cgm"] }
     };
 
+    // MEMS films. E: Young's modulus (GPa), rho: density (kg/m3), nu: Poisson ratio, strength: fracture strength (GPa), stress: residual stress (MPa).
+    const MEMS_STRUCTURE = {
+
+        poly: { name: "Polysilicon (LPCVD, annealed)", blurb: "The PolyMUMPs structural layer: stiff, cheap and a little rough. About 160 GPa.", E: 160, rho: 2330, nu: 0.22, strength: 1.2, stress: -5, cost: 2, hours: 4, adh: 0.9, thick: 2 },
+        soi: { name: "Single-crystal silicon (SOI device layer)", blurb: "Thicker, stress-free and stronger than polysilicon, but a more expensive wafer and a different process.", E: 169, rho: 2330, nu: 0.28, strength: 4, stress: 0, cost: 4, hours: 6, adh: 0.95, thick: 10 }
+    };
+
+    // Sacrificial oxides. rate: how fast 49% HF eats sideways through the layer (um per minute).
+    const MEMS_OXIDES = {
+
+        psg: { name: "PSG (phosphosilicate glass)", blurb: "The PolyMUMPs sacrificial layer: etches fast in HF.", rate: 9, cost: 2, hours: 3, adh: 0.9, thick: 2 },
+        teos: { name: "LPCVD oxide (TEOS)", blurb: "Denser than PSG, so it etches more slowly and needs a longer release.", rate: 4, cost: 2, hours: 4, adh: 0.9, thick: 2 }
+    };
+
+    const MEMS_DIMPLES = { dimple: { name: "Dimple (partial etch into the oxide)", blurb: "A small bump on the underside of the layer above, so it touches the layer below on a few points instead of all over.", cost: 1, hours: 2, adh: 0.9, thick: 0.75 } };
+
+    const MEMS_HOLES = { hole: { name: "Release hole", blurb: "An opening through the structure that lets HF reach the oxide underneath.", cost: 1, hours: 1, adh: 0.9, thick: 1 } };
+
     // Layers that are bought, cut or dropped on rather than patterned with a photomask. limit: smallest piece in um.
     const SHEET_ROLES = {
 
@@ -151,9 +173,9 @@
     // Metal work functions (eV) set the contact barrier to the semiconductor.
     const WORKFUNCTION = { au: 5.1, pt: 5.65, cu: 4.65, al: 4.1, ti: 4.3, ito: 4.7 };
 
-    const MATERIAL_TABLE = { electrode: SC.MATERIALS, collector: METALS, insulation: INSULATORS, semiconductor: SEMICONDUCTORS, channel: CHANNEL_MATERIALS, membrane: MEMBRANES, substrate: NEURAL_SUBSTRATES, coating: NEURAL_COATINGS };
+    const MATERIAL_TABLE = { electrode: SC.MATERIALS, collector: METALS, insulation: INSULATORS, semiconductor: SEMICONDUCTORS, channel: CHANNEL_MATERIALS, membrane: MEMBRANES, substrate: NEURAL_SUBSTRATES, coating: NEURAL_COATINGS, structure: MEMS_STRUCTURE, oxide: MEMS_OXIDES, dimple: MEMS_DIMPLES, hole: MEMS_HOLES };
 
-    const DEFAULT_MATERIAL = { electrode: "rgo", collector: "au", insulation: "su8", semiconductor: "mos2", channel: "su8", membrane: "pet", substrate: "pi", coating: "pedot" };
+    const DEFAULT_MATERIAL = { electrode: "rgo", collector: "au", insulation: "su8", semiconductor: "mos2", channel: "su8", membrane: "pet", substrate: "pi", coating: "pedot", structure: "poly", oxide: "psg", dimple: "dimple", hole: "hole" };
 
     // roles: layer types offered. pads: contact-pad labels. need: labels that must exist for the device to work.
     const KINDS = {
@@ -178,6 +200,38 @@
             coating: ["gox", "osgox", "mpd", "nafion", "pu", "hydrogel"]
         },
         defaults: { collector: "pt", insulation: "parylene", substrate: "pi", coating: "gox" }
+    };
+
+    const MEMS_PADTEXT = "Draw the layers of the device from the bottom up. Structural films (polysilicon) are the parts that move or stay fixed. Each sacrificial oxide layer is a blanket film: the shapes you draw on it are ANCHOR openings where the structure above is fixed to what is under it. Release holes let the HF reach the oxide under big plates. Name the electrodes with the Pad tool on a structure or metal layer: ";
+
+    KINDS.accel = {
+        name: "Accelerometer (comb sense)", ready: true,
+        blurb: "A proof mass on springs with interdigitated comb fingers: measure its resonance, sensitivity, noise, bandwidth and shock survival.",
+        roles: ["structure", "oxide", "dimple", "hole", "collector"], pads: ["M", "A", "B"], need: ["M", "A", "B"],
+        padNames: { M: "moving mass", A: "fixed comb A", B: "fixed comb B" },
+        padText: MEMS_PADTEXT + "M is the proof mass and its springs, A and B are the two sets of fixed comb fingers that sense it differentially.",
+        materials: { collector: ["au", "al", "pt"], structure: ["poly", "soi"], oxide: ["psg", "teos"] },
+        defaults: { collector: "au" }
+    };
+
+    KINDS.gyro = {
+        name: "Gyroscope (vibratory, drive and sense combs)", ready: true,
+        blurb: "A mass driven to vibrate along x by a comb drive. Rotation makes a Coriolis force along y that the sense combs measure.",
+        roles: ["structure", "oxide", "dimple", "hole", "collector"], pads: ["M", "D", "S"], need: ["M", "D", "S"],
+        padNames: { M: "moving mass", D: "drive comb", S: "sense comb" },
+        padText: MEMS_PADTEXT + "M is the proof mass and its springs, D is the fixed drive comb and S is the fixed sense comb.",
+        materials: { collector: ["au", "al", "pt"], structure: ["poly", "soi"], oxide: ["psg", "teos"] },
+        defaults: { collector: "au" }
+    };
+
+    KINDS.mirror = {
+        name: "Micromirror (display pixel)", ready: true,
+        blurb: "A mirror plate on torsion hinges above two address electrodes, like one pixel of a Digital Micromirror Device: tilt it, switch it, and build a small display.",
+        roles: ["structure", "oxide", "dimple", "hole", "collector"], pads: ["M", "A", "B"], need: ["M", "A", "B"],
+        padNames: { M: "mirror and hinges", A: "address electrode A", B: "address electrode B" },
+        padText: MEMS_PADTEXT + "M is the mirror and its hinges, A and B are the two address electrodes under each half of the mirror.",
+        materials: { collector: ["au", "al", "pt"], structure: ["poly", "soi"], oxide: ["psg", "teos"] },
+        defaults: { collector: "au" }
     };
 
     // Kind handlers register their own analysis and templates here.
@@ -209,7 +263,7 @@
     // Whether the shapes drawn on a layer are windows cut through a film ("cut") or the material itself ("add").
     function defaultMode(role, material) {
 
-        if (role === "insulation") { return "cut"; }
+        if (role === "insulation" || role === "oxide" || role === "dimple" || role === "hole") { return "cut"; }
 
         if (role === "channel") { return material === "pdms" ? "add" : "cut"; }
 
@@ -265,7 +319,7 @@
             if (isPhoto(layer)) { resist = "su8"; tResist = Math.max(1, Math.min(100, t)); }
         }
 
-        if (layer.role === "semiconductor") { method = "etch"; }
+        if (layer.role === "semiconductor" || layer.role === "structure" || layer.role === "oxide" || layer.role === "dimple" || layer.role === "hole") { method = "etch"; }
 
         if (layer.role === "channel") { method = "etch"; resist = "su8"; tResist = Math.max(1, Math.min(100, t)); }
 
@@ -825,7 +879,7 @@
 
     function blankDesign(kind) {
 
-        if ((kind === "bbb" || kind === "neural" || kind === "cgm") && HANDLERS[kind]) { return HANDLERS[kind].buildTemplate(kind, "blank"); }
+        if ((kind === "bbb" || kind === "neural" || kind === "cgm" || kind === "accel" || kind === "gyro" || kind === "mirror") && HANDLERS[kind]) { return HANDLERS[kind].buildTemplate(kind, "blank"); }
 
         const role = (KINDS[kind] || KINDS.supercap).roles[0];
 
@@ -1619,7 +1673,7 @@
 
     const API = {
 
-        ROLES: ROLES, METALS: METALS, TOXIC: TOXIC, CHANNEL_MATERIALS: CHANNEL_MATERIALS, MEMBRANES: MEMBRANES, NEURAL_SUBSTRATES: NEURAL_SUBSTRATES, NEURAL_COATINGS: NEURAL_COATINGS, SHEET_ROLES: SHEET_ROLES, defaultMode: defaultMode, INSULATORS: INSULATORS, SEMICONDUCTORS: SEMICONDUCTORS, WORKFUNCTION: WORKFUNCTION,
+        ROLES: ROLES, METALS: METALS, TOXIC: TOXIC, CHANNEL_MATERIALS: CHANNEL_MATERIALS, MEMBRANES: MEMBRANES, NEURAL_SUBSTRATES: NEURAL_SUBSTRATES, NEURAL_COATINGS: NEURAL_COATINGS, MEMS_STRUCTURE: MEMS_STRUCTURE, MEMS_OXIDES: MEMS_OXIDES, SHEET_ROLES: SHEET_ROLES, defaultMode: defaultMode, INSULATORS: INSULATORS, SEMICONDUCTORS: SEMICONDUCTORS, WORKFUNCTION: WORKFUNCTION,
         MATERIAL_TABLE: MATERIAL_TABLE, HANDLERS: HANDLERS, defaultMaterial: defaultMaterial, materialKeys: materialKeys,
         registerKind: function (id, h) { HANDLERS[id] = h; if (h.templates) { TEMPLATES[id] = h.templates; } },
         KINDS: KINDS, TEMPLATES: TEMPLATES,

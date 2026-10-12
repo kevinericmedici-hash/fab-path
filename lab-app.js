@@ -39,7 +39,7 @@
     const MAX_LAYERS = 8;
     const MAX_SHAPES = 500;
 
-    const PAD_LABELS = ["+", "−", "S", "D", "G", "A", "B", "I", "O", "W", "R", "C", "1", "2", "3", "4", "5", "6", "7", "8"];
+    const PAD_LABELS = ["+", "−", "S", "D", "G", "A", "B", "I", "O", "W", "R", "C", "M", "1", "2", "3", "4", "5", "6", "7", "8"];
 
     const STEPS = [
         { id: "designs", name: "Designs" },
@@ -196,7 +196,7 @@
                 material: material,
                 treat: role === "electrode" ? pick(rl.treat, SC.TREATMENTS, "none") : "none",
                 thickness: num(rl.thickness, 0.0001, 100, 1),
-                mode: role === "insulation" || role === "channel" ? (rl.mode === "add" || rl.mode === "cut" ? rl.mode : E.defaultMode(role, material)) : "add",
+                mode: role === "insulation" || role === "channel" ? (rl.mode === "add" || rl.mode === "cut" ? rl.mode : E.defaultMode(role, material)) : E.defaultMode(role, material),
                 visible: rl.visible !== 0 && rl.visible !== false,
                 shapes: []
             };
@@ -1051,6 +1051,10 @@
             label: "Film thickness", min: rng.min, max: rng.max, step: rng.step, value: thick, unit: "",
             format: function (v) { return v < 0.1 ? sig(v * 1000) + " nm" : (Math.round(v * 100) / 100) + " µm"; },
             hint: l.role === "electrode" ? "Thicker films hold more material, but ions take longer to reach the inside, and thick films crack and peel." :
+                l.role === "structure" ? "A thicker film is stiffer (stiffness goes with the cube of the thickness) and heavier, and gives more comb capacitance. It also needs a deeper etch." :
+                    l.role === "oxide" ? "The gap between this layer and the structure above it. A thicker oxide gives more room to move and less stiction, but weaker electrostatic forces and a longer release." :
+                        l.role === "dimple" ? "How deep the dimples are etched into the oxide. They can be no deeper than the oxide is thick." :
+                            l.role === "hole" ? "Release holes are cut through the layer below. Their depth is that layer." :
                 l.role === "insulation" ? "Thin insulation gives more capacitance but has more pinholes that can short the layers on either side." :
                     l.role === "semiconductor" ? "Thin channels give better gate control. Very thin films are hard to make uniformly." :
                         l.role === "channel" ? "The channel height. Shallow channels give more shear stress on the cells for the same flow, but resist flow more and clog sooner." :
