@@ -1129,7 +1129,7 @@
         function autoPadLabel(layer) {
 
             // After one pad the next is most likely its partner: + then −, A then B, inlet then outlet.
-            const next = { "+": "−", "A": "B", "I": "O" }[padLabel];
+            const next = { "+": "−", "A": "B", "I": "O", "1": "2", "2": "3", "3": "4", "4": "5", "5": "6", "6": "7", "7": "8" }[padLabel];
 
             if (next) { padLabel = next; buildBar(); }
         }

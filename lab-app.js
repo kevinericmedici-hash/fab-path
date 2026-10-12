@@ -39,7 +39,7 @@
     const MAX_LAYERS = 8;
     const MAX_SHAPES = 500;
 
-    const PAD_LABELS = ["+", "−", "S", "D", "G", "A", "B", "I", "O"];
+    const PAD_LABELS = ["+", "−", "S", "D", "G", "A", "B", "I", "O", "1", "2", "3", "4", "5", "6", "7", "8"];
 
     const STEPS = [
         { id: "designs", name: "Designs" },
@@ -1016,10 +1016,10 @@
             body.appendChild(h("p", { className: "lab-muted", text: mat.name + (l.role === "collector" ? "" : " · permittivity " + mat.eps) }));
         }
 
-        if (l.role === "membrane") {
+        if (E.SHEET_ROLES[l.role]) {
 
-            // Membranes come as sheets, cut with a laser or die: there is nothing to expose or bake.
-            body.appendChild(h("p", { className: "lab-hint", text: "A membrane is bought as a sheet and cut to shape with a laser or a die cutter, so there is no resist, exposure or bake. Its pores and thickness come with the material." }));
+            // Membranes, probe bodies and coatings are cut, bought or dropped on: there is nothing to expose or bake.
+            body.appendChild(h("p", { className: "lab-hint", text: E.SHEET_ROLES[l.role].hint }));
             body.appendChild(out);
 
             report();
@@ -1624,6 +1624,9 @@
             if (testType === "cycling") { award("FirstCycling", 15, "first lifetime test"); }
             if (testType === "transfer") { award("FirstTransfer", 15, "first transfer curve"); }
             if (testType === "teer") { award("FirstTEER", 15, "first TEER reading"); }
+            if (testType === "rec") { award("FirstSpikes", 20, "first spike recording"); }
+            if (testType === "da") { award("FirstDopamine", 20, "first dopamine calibration"); }
+            if (testType === "glu") { award("FirstGlutamate", 20, "first glutamate sensor test"); }
             if (testType === "papp") { award("FirstPermeability", 20, "first permeability assay"); }
             if (testType === "sense") { award("FirstSense", 20, "first sensing titration"); }
 

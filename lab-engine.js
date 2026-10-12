@@ -36,7 +36,9 @@
         insulation: { name: "Insulation (dielectric, passivation)", conductive: false, color: "#8aa4ff" },
         semiconductor: { name: "Semiconductor (channel)", conductive: false, color: "#c792ff" },
         channel: { name: "Fluidic channel layer", conductive: false, color: "#4dd0ff" },
-        membrane: { name: "Porous membrane", conductive: false, color: "#ff7a90" }
+        membrane: { name: "Porous membrane", conductive: false, color: "#ff7a90" },
+        substrate: { name: "Probe body (substrate)", conductive: false, color: "#9aa7c0" },
+        coating: { name: "Coating on the sites", conductive: false, color: "#d68cff" }
     };
 
     const METALS = {
@@ -71,6 +73,47 @@
         sin: { name: "Silicon nitride nanoporous (0.5 \u00B5m)", blurb: "Ultra-thin and clear with tiny pores. Expensive.", t: 0.5, poreD: 0.1, porosity: 0.05, cost: 5, hours: 6, adh: 0.9, thick: 0.5 }
     };
 
+    // Probe bodies. E: Young's modulus in GPa (brain tissue is about 0.000003 GPa).
+    const NEURAL_SUBSTRATES = {
+
+        pi: { name: "Polyimide (flexible)", blurb: "The usual flexible probe body: tough, thin and about as stiff as a plastic film.", E: 2.5, cost: 3, hours: 5, adh: 0.9, thick: 10 },
+        parylene: { name: "Parylene-C (flexible)", blurb: "Very conformal, biocompatible and flexible. Softer to process than polyimide.", E: 2.8, cost: 3, hours: 4, adh: 0.7, thick: 10 },
+        su8: { name: "SU-8 (stiffer polymer)", blurb: "Easy to pattern thick, a little brittle.", E: 3, cost: 2, hours: 3, adh: 0.85, thick: 15 },
+        si: { name: "Silicon (rigid)", blurb: "Stays straight and goes into tissue easily, but it is 60,000 times stiffer than polyimide.", E: 170, cost: 4, hours: 6, adh: 0.95, thick: 15 }
+    };
+
+    // Coatings applied to the metal sites. Their physics (capacitance, charge storage, chemistry) is in lab-neural-model.js.
+    const NEURAL_COATINGS = {
+
+        pedot: { name: "PEDOT:PSS (conducting polymer)", blurb: "Soft, hydrated and very capacitive: cuts impedance and noise. Can peel off in time.", cost: 2, hours: 3, adh: 0.6, thick: 0.5 },
+        ptblack: { name: "Platinum black", blurb: "A fuzzy, high-area platinum deposit. Low impedance, but fragile.", cost: 2, hours: 2, adh: 0.4, thick: 1 },
+        irox: { name: "Iridium oxide", blurb: "Stores a lot of charge by redox, the standard for stimulating electrodes.", cost: 3, hours: 4, adh: 0.6, thick: 0.3 },
+        tin: { name: "Titanium nitride", blurb: "Hard, porous and stable. A good all-round recording and stimulation coating.", cost: 3, hours: 4, adh: 0.85, thick: 0.3 },
+        cnt: { name: "Carbon nanotubes", blurb: "A mat of nanotubes: huge area and fast electron transfer, the best for detecting dopamine.", cost: 3, hours: 3, adh: 0.5, thick: 0.5 },
+        nafion: { name: "Nafion (ion-exchange film)", blurb: "Negatively charged, so it keeps out ascorbic acid and other anions while letting dopamine through.", cost: 1, hours: 1, adh: 0.8, thick: 0.3 },
+        gluox: { name: "Glutamate oxidase enzyme layer", blurb: "Turns glutamate into hydrogen peroxide, which the platinum underneath detects. The enzyme slowly dies.", cost: 4, hours: 3, adh: 0.5, thick: 2 }
+    };
+
+    // Layers that are bought, cut or dropped on rather than patterned with a photomask. limit: smallest piece in um.
+    const SHEET_ROLES = {
+
+        membrane: {
+            table: MEMBRANES, limit: 50,
+            lost: "Membranes are cut with a laser or die cutter, not photolithography. Pieces smaller than about 50 \u00B5m cannot be cut.",
+            hint: "A membrane is bought as a sheet and cut to shape with a laser or a die cutter, so there is no resist, exposure or bake. Its pores and thickness come with the material."
+        },
+        substrate: {
+            table: NEURAL_SUBSTRATES, limit: 20,
+            lost: "The probe outline is cut with a laser or etched through. Pieces smaller than about 20 \u00B5m cannot be cut.",
+            hint: "The probe body is a film that is released and cut to the outline you draw (laser or deep etch). There is no resist, exposure or bake for this layer."
+        },
+        coating: {
+            table: NEURAL_COATINGS, limit: 10,
+            lost: "Coatings are electroplated or dropped onto bare metal, not defined with a mask. Areas smaller than about 10 \u00B5m cannot be placed.",
+            hint: "A coating is electroplated or dropped onto the bare metal inside the area you draw. It only sticks to exposed metal, and it can miss a site if the area is misplaced. There is no resist, exposure or bake."
+        }
+    };
+
     // eps: relative permittivity, ebd: breakdown field (MV/cm), dpin: pinhole density at 30 nm (per cm2),
     // beta: pH response of the surface (1 = Nernstian), dvt: threshold shift from fixed charge (V).
     const INSULATORS = {
@@ -101,9 +144,9 @@
     // Metal work functions (eV) set the contact barrier to the semiconductor.
     const WORKFUNCTION = { au: 5.1, pt: 5.65, cu: 4.65, al: 4.1, ti: 4.3, ito: 4.7 };
 
-    const MATERIAL_TABLE = { electrode: SC.MATERIALS, collector: METALS, insulation: INSULATORS, semiconductor: SEMICONDUCTORS, channel: CHANNEL_MATERIALS, membrane: MEMBRANES };
+    const MATERIAL_TABLE = { electrode: SC.MATERIALS, collector: METALS, insulation: INSULATORS, semiconductor: SEMICONDUCTORS, channel: CHANNEL_MATERIALS, membrane: MEMBRANES, substrate: NEURAL_SUBSTRATES, coating: NEURAL_COATINGS };
 
-    const DEFAULT_MATERIAL = { electrode: "rgo", collector: "au", insulation: "su8", semiconductor: "mos2", channel: "su8", membrane: "pet" };
+    const DEFAULT_MATERIAL = { electrode: "rgo", collector: "au", insulation: "su8", semiconductor: "mos2", channel: "su8", membrane: "pet", substrate: "pi", coating: "pedot" };
 
     // roles: layer types offered. pads: contact-pad labels. need: labels that must exist for the device to work.
     const KINDS = {
@@ -112,7 +155,7 @@
         fet: { name: "MOSFET / thin-film transistor", ready: true, blurb: "Source, drain and gate over a semiconductor channel, measured dry.", roles: ["semiconductor", "collector", "insulation"], pads: ["S", "D", "G"], need: ["S", "D", "G"] },
         biofet: { name: "BioFET (liquid-gated sensor)", ready: true, blurb: "A transistor whose channel is open to a solution, used to sense pH, charge and redox species.", roles: ["semiconductor", "collector", "insulation"], pads: ["S", "D", "G"], need: ["S", "D"] },
         bbb: { name: "Blood-brain barrier chip", ready: true, blurb: "A two-channel chip with a porous membrane, endothelial cells and electrodes to measure the barrier (TEER) and what crosses it.", roles: ["collector", "channel", "membrane", "insulation"], pads: ["A", "B", "I", "O"], need: ["A", "B", "I", "O"], padRoles: ["channel"], portPads: ["I", "O"], padNames: { A: "blood-side electrode", B: "brain-side electrode", I: "inlet", O: "outlet" }, padText: "Draw a pad labelled A on the electrode in the blood-side (apical) channel and B on the electrode in the brain-side (basolateral) channel, using the Pad tool on a metal layer. Each channel layer also needs an inlet pad (I) and an outlet pad (O): draw them on that channel layer, overlapping the channel. Fluid in different channel layers only joins where no membrane or insulation separates them." },
-        neural: { name: "Neural interface", ready: false, blurb: "Recording electrodes and traces. Coming later.", roles: ["collector", "insulation"], pads: ["+", "\u2212"], need: [] }
+        neural: { name: "Neural probe (electrode array)", ready: true, blurb: "A thin probe with recording and sensing sites: measure impedance, neural spikes, dopamine and glutamate, and see how it survives in tissue.", roles: ["collector", "insulation", "substrate", "coating"], pads: ["1", "2", "3", "4", "5", "6", "7", "8"], need: ["1"], padText: "Each channel is one electrode site connected by a trace to a numbered contact pad (1 to 8). Draw the pad with the Pad tool on a metal layer and pick its number. The insulation layer is a film with windows: open a window over each site and over each pad, and leave the traces covered. Draw the probe outline on the substrate layer, and the coating over the sites that need one." },
     };
 
     // Kind handlers register their own analysis and templates here.
@@ -321,17 +364,18 @@
 
     function patterning(layer, metrics) {
 
-        if (layer.role === "membrane") {
+        if (SHEET_ROLES[layer.role]) {
 
-            const mm = MEMBRANES[layer.material] || MEMBRANES.pet;
+            const sh = SHEET_ROLES[layer.role];
+            const mm = sh.table[layer.material] || {};
             const small = Math.min(metrics.featureMin, metrics.gapMin);
-            const lost = metrics.count > 0 && isFinite(small) && small < 50;
+            const lost = metrics.count > 0 && isFinite(small) && small < sh.limit;
 
             return {
-                quality: lost ? 0 : (isFinite(small) && small < 100 ? 0.6 : 0.95), bias: 0, status: lost ? "lost" : "ok", residue: 0, shortProb: 0,
-                adhesion: mm.adh, need: 0, devOpt: 0, limit: 50, want: layer.mask.field, parts: {},
-                notes: lost ? ["Membranes are cut with a laser or die cutter, not photolithography. Pieces smaller than about 50 \u00B5m cannot be cut."] : [],
-                cost: mm.cost + 1, hours: mm.hours + 1
+                quality: lost ? 0 : (isFinite(small) && small < 2 * sh.limit ? 0.6 : 0.95), bias: 0, status: lost ? "lost" : "ok", residue: 0, shortProb: 0,
+                adhesion: mm.adh || 0.8, need: 0, devOpt: 0, limit: sh.limit, want: layer.mask.field, parts: {},
+                notes: lost ? [sh.lost] : [],
+                cost: (mm.cost || 2) + 1, hours: (mm.hours || 2) + 1
             };
         }
 
@@ -738,7 +782,7 @@
 
     function blankDesign(kind) {
 
-        if (kind === "bbb" && HANDLERS.bbb) { return HANDLERS.bbb.buildTemplate(kind, "blank"); }
+        if ((kind === "bbb" || kind === "neural") && HANDLERS[kind]) { return HANDLERS[kind].buildTemplate(kind, "blank"); }
 
         const role = (KINDS[kind] || KINDS.supercap).roles[0];
 
@@ -1532,7 +1576,7 @@
 
     const API = {
 
-        ROLES: ROLES, METALS: METALS, TOXIC: TOXIC, CHANNEL_MATERIALS: CHANNEL_MATERIALS, MEMBRANES: MEMBRANES, defaultMode: defaultMode, INSULATORS: INSULATORS, SEMICONDUCTORS: SEMICONDUCTORS, WORKFUNCTION: WORKFUNCTION,
+        ROLES: ROLES, METALS: METALS, TOXIC: TOXIC, CHANNEL_MATERIALS: CHANNEL_MATERIALS, MEMBRANES: MEMBRANES, NEURAL_SUBSTRATES: NEURAL_SUBSTRATES, NEURAL_COATINGS: NEURAL_COATINGS, SHEET_ROLES: SHEET_ROLES, defaultMode: defaultMode, INSULATORS: INSULATORS, SEMICONDUCTORS: SEMICONDUCTORS, WORKFUNCTION: WORKFUNCTION,
         MATERIAL_TABLE: MATERIAL_TABLE, HANDLERS: HANDLERS, defaultMaterial: defaultMaterial,
         registerKind: function (id, h) { HANDLERS[id] = h; if (h.templates) { TEMPLATES[id] = h.templates; } },
         KINDS: KINDS, TEMPLATES: TEMPLATES,
