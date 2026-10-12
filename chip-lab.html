@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' blob:; connect-src 'self' https://xcftpdlniahvxpxtkdaq.supabase.co https://api.pwnedpasswords.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <script src="security.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Virtual Foundry | Fab Path</title>
+    <meta name="description" content="Follow a pile of sand all the way to packaged chips: sort the sand, run the furnace, grow a crystal, build transistors, test the wafer and compare your runs.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/chip-lab.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Virtual Foundry | Fab Path">
+    <meta property="og:description" content="Turn sand into chips in a virtual foundry, in the Sand to Chip course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lab.css">
+    <link rel="stylesheet" href="chip-lab.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="chip-learn.html">Learn</a>
+            <a href="chip-games.html">Games</a>
+            <a href="chip-practice.html">Practice</a>
+            <a href="chip-lab.html" class="active-nav">Lab</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+    <main class="lab-page">
+
+        <a href="chip-learn.html" class="module-exit">
+            ← Back to Sand to Chip
+        </a>
+
+        <div class="lab-intro">
+            <p class="eyebrow">SAND TO CHIP · VIRTUAL FOUNDRY</p>
+            <h1 class="lab-title">Turn a pile of sand into working chips</h1>
+        </div>
+
+        <noscript>
+            <p>The Virtual Fab Lab needs JavaScript. Please turn it on and reload.</p>
+        </noscript>
+
+        <div id="labApp" class="lab-app"></div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+    <script src="supercap-lab-model.js"></script>
+    <script src="supercap-lab-charts.js"></script>
+    <script src="chip-lab-model.js"></script>
+    <script src="chip-lab-anim.js"></script>
+    <script src="chip-lab-anim2.js"></script>
+    <script src="chip-lab.js"></script>
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+
+</html>

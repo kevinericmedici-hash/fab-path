@@ -1,0 +1,213 @@
+/* ========================================
+   SAND TO CHIP LAB: extra pieces for the foundry stations
+   (the rest of the look comes from lab.css)
+======================================== */
+
+.cl-canvas-wrap {
+    margin: 0.75rem 0 0.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #1c2132;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    line-height: 0;
+    max-width: 100%;
+}
+
+.cl-canvas-wrap canvas {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    cursor: crosshair;
+}
+
+.cl-wafer {
+    display: flex;
+    justify-content: center;
+}
+
+.cl-wafer canvas {
+    cursor: default;
+}
+
+.cl-status {
+    min-height: 1.5rem;
+    margin: 0.25rem 0 0.5rem;
+    color: var(--lab-muted, #aab3c7);
+    font-size: 0.9rem;
+}
+
+.cl-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
+    margin: 0.5rem 0 0.75rem;
+    font-size: 0.85rem;
+}
+
+.cl-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.cl-dot {
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    display: inline-block;
+}
+
+.cl-tools {
+    flex-wrap: wrap;
+    margin: 0.5rem 0 1rem;
+}
+
+.cl-tools .lab-select {
+    min-width: 12rem;
+}
+
+.cl-picks {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.cl-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+}
+
+.cl-check span {
+    display: grid;
+    gap: 0.15rem;
+}
+
+.cl-check small {
+    color: var(--lab-muted, #aab3c7);
+    font-size: 0.85rem;
+    line-height: 1.35;
+}
+
+.cl-live {
+    margin-top: 1.25rem;
+}
+
+.cl-equation {
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0.5rem 0 1rem;
+    letter-spacing: 0.02em;
+}
+
+.cl-bar {
+    display: grid;
+    grid-template-columns: 8.5rem 1fr 8rem;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0.35rem 0;
+    font-size: 0.9rem;
+}
+
+.cl-bar-track {
+    height: 0.8rem;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.07);
+    overflow: hidden;
+}
+
+.cl-bar-fill {
+    display: block;
+    height: 100%;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #54e0c7, #4a9eff);
+}
+
+.cl-bar-text {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.cl-stack {
+    display: flex;
+    height: 2.4rem;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0.5rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.cl-seg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.cl-seg em {
+    font-style: normal;
+    font-size: 0.72rem;
+    color: #0b1020;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.cl-seg.wafer { background: #54e0c7; }
+.cl-seg.polish { background: #8aa4ff; }
+.cl-seg.kerf { background: #e0a070; }
+
+@media (max-width: 600px) {
+
+    .cl-bar {
+        grid-template-columns: 6rem 1fr 5.5rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* ---- live animations ---- */
+
+.cl-anim {
+    margin: 0.5rem 0 1rem;
+}
+
+.cl-anim .cl-canvas-wrap {
+    margin-bottom: 0.25rem;
+}
+
+.cl-controls {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.cl-stepline {
+    min-height: 2.6em;
+}
+
+/* On a big screen the animation stays in view while you drag the sliders under it. */
+@media (min-width: 900px) and (min-height: 820px) {
+
+    .cl-sticky {
+        position: sticky;
+        top: 76px;
+        z-index: 4;
+        background: var(--panel);
+        padding-top: 0.35rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 18px rgba(8, 10, 22, 0.55);
+    }
+
+    .cl-sticky .cl-canvas-wrap {
+        max-width: 760px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.cl-anim.cl-wafer {
+    display: block;
+}
+
+.cl-anim.cl-wafer .cl-canvas-wrap {
+    width: 100%;
+}
