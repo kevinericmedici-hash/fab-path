@@ -102,7 +102,7 @@
             l.mask.type = "chrome";
 
             E.syncLayer(l);
-            l.mask.field = E.requiredField(SC.RESISTS[l.litho.resist].tone, l.litho.method);
+            l.mask.field = E.defaultPatterning(l).mask.field;
 
             layers.push(l);
 

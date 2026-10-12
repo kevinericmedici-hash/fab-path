@@ -663,6 +663,8 @@
 
     function render() {
 
+        if (window.LabAnim) { window.LabAnim.stopAll(); }
+
         if (editor) { editor.destroy(); editor = null; }
 
         root.innerHTML = "";
@@ -894,6 +896,12 @@
 
         panel.appendChild(h("p", { className: "lab-hint", text: padHint(d) }));
 
+        if (window.LabAnim) {
+
+            panel.appendChild(h("h2", { className: "lab-h2", text: "Your layers in 3D" }));
+            panel.appendChild(window.LabAnim.stack3dBox(function () { return currentDesign(); }).box);
+        }
+
         panel.appendChild(navButtons("designs", "process", "Set up the process →"));
     }
 
@@ -926,6 +934,12 @@
             panel.appendChild(navButtons("layout", null));
 
             return;
+        }
+
+        if (window.LabAnim) {
+
+            panel.appendChild(h("h2", { className: "lab-h2", text: "Watch a layer being made" }));
+            panel.appendChild(window.LabAnim.processBox(function () { return currentDesign(); }).box);
         }
 
         const total = h("div", { className: "lab-report", "aria-live": "polite" });
@@ -1267,6 +1281,7 @@
     ------------------------------------------------ */
 
     let buildN = 3;
+    let pendingMovie = "";
     let buildDesignId = "";
     let building = false;
 
@@ -1379,6 +1394,8 @@
 
                 devCache[cacheKey(batch)] = results;
 
+                pendingMovie = batch.id;
+
                 project.batches.push(batch);
 
                 writeKey(BKEY + batch.id, packDesign(snap));
@@ -1420,6 +1437,7 @@
                             h("p", { text: batchLine(b) })
                         ]),
                         h("div", { className: "lab-batch-actions" }, [
+                            h("button", { type: "button", className: "lab-btn small ghost", text: "Watch it made", onclick: function () { showMovie(b, preview); } }),
                             h("button", { type: "button", className: "lab-btn small ghost", text: "Microscope view", onclick: function () { showMicro(b, preview); } }),
                             h("button", { type: "button", className: "lab-btn small", text: "Test", onclick: function () { testBatch = b.id; go("test"); } }),
                             h("button", { type: "button", className: "lab-btn small ghost", text: "Delete", "aria-label": "Delete batch " + b.id, onclick: function () { removeBatch(b.id); } })
@@ -1427,12 +1445,25 @@
                     ]),
                     preview
                 ]));
+
+                if (pendingMovie === b.id) { pendingMovie = ""; showMovie(b, preview); }
             });
 
             panel.appendChild(list);
         }
 
         panel.appendChild(navButtons("process", "test", "Go test them →"));
+    }
+
+    function showMovie(b, box) {
+
+        if (box.firstChild) { box.innerHTML = ""; return; }
+
+        if (!window.LabAnim) { return; }
+
+        const r = E.fabricate(snaps[b.id], replicateSeed(b, 0), { keepRasters: true });
+
+        if (r.raster) { box.appendChild(window.LabAnim.buildBox(r.raster, r.info).box); }
     }
 
     function showMicro(b, box) {
@@ -1640,6 +1671,13 @@
             const r = measureTest(t);
 
             out.appendChild(h("h2", { text: tests.filter(function (x) { return x.id === t.type; })[0].name + ": " + batchName(r.batch) }));
+
+            if (window.LabAnim && window.LabAnim.insideBox) {
+
+                const inside = window.LabAnim.insideBox(r.batch.kind, r, devicesOf(r.batch));
+
+                if (inside) { out.appendChild(inside); }
+            }
 
             impl.view(out, r, "dark", batchColorIndex(r.batch.id));
 

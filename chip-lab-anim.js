@@ -173,7 +173,8 @@
 
         if (root.ResizeObserver && holder) {
 
-            const ro = new ResizeObserver(function () { size(); paint(0); });
+            let tm = 0;
+            const ro = new ResizeObserver(function () { clearTimeout(tm); tm = setTimeout(function () { size(); paint(0); }, 40); });
 
             ro.observe(holder);
         }

@@ -1,0 +1,116 @@
+/* ========================================
+   VIRTUAL FAB LAB: LIVE ANIMATIONS
+   (the rest of the look comes from lab.css)
+======================================== */
+
+.la-box {
+    margin: 0.5rem 0 1.25rem;
+}
+
+.la-title {
+    margin: 0 0 0.4rem;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.la-canvas-wrap {
+    border-radius: 12px;
+    overflow: hidden;
+    background: #1c2132;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    line-height: 0;
+    max-width: 100%;
+}
+
+.la-canvas-wrap canvas {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    cursor: crosshair;
+}
+
+.la-status {
+    min-height: 2.6em;
+    margin: 0.35rem 0 0.4rem;
+    color: var(--lab-muted, #aab3c7);
+    font-size: 0.88rem;
+    line-height: 1.4;
+}
+
+.la-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem 1rem;
+}
+
+.la-ctl {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.la-ctl input[type="range"] {
+    min-width: 7rem;
+}
+
+.la-grow {
+    flex: 1 1 10rem;
+}
+
+.la-grow input[type="range"] {
+    flex: 1;
+}
+
+.la-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+}
+
+.la-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.05);
+    color: inherit;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.la-chip.off {
+    opacity: 0.4;
+    text-decoration: line-through;
+}
+
+.la-swatch {
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+/* On a big screen the layer movie stays in view while you change the layer settings under it. */
+@media (min-width: 900px) and (min-height: 820px) {
+
+    .la-sticky {
+        position: sticky;
+        top: 76px;
+        z-index: 4;
+        background: var(--panel);
+        padding-top: 0.35rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 18px rgba(8, 10, 22, 0.55);
+    }
+
+    .la-sticky .la-canvas-wrap {
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
