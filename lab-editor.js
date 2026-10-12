@@ -1574,7 +1574,7 @@
 
                 pushUndo();
                 l.role = e.target.value;
-                l.material = E.defaultMaterial(l.role);
+                l.material = E.defaultMaterial(l.role, design.kind);
                 l.treat = "none";
                 l.mode = E.defaultMode(l.role, l.material);
                 delete l.pore;
@@ -1612,7 +1612,7 @@
 
                 E.syncLayer(l);
                 changed("layers", true);
-            } }, Object.keys(E.MATERIAL_TABLE[l.role]).map(function (k) { return h("option", { value: k, text: E.MATERIAL_TABLE[l.role][k].name }); }));
+            } }, E.materialKeys(l.role, design.kind).map(function (k) { return h("option", { value: k, text: E.MATERIAL_TABLE[l.role][k].name }); }));
 
             matSel.value = l.material;
 

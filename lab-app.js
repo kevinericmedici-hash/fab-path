@@ -39,7 +39,7 @@
     const MAX_LAYERS = 8;
     const MAX_SHAPES = 500;
 
-    const PAD_LABELS = ["+", "−", "S", "D", "G", "A", "B", "I", "O", "1", "2", "3", "4", "5", "6", "7", "8"];
+    const PAD_LABELS = ["+", "−", "S", "D", "G", "A", "B", "I", "O", "W", "R", "C", "1", "2", "3", "4", "5", "6", "7", "8"];
 
     const STEPS = [
         { id: "designs", name: "Designs" },
@@ -187,7 +187,7 @@
             const role = typeof rl.role === "string" && kdef.roles.indexOf(rl.role) >= 0 ? rl.role : kdef.roles[0];
             const table = E.MATERIAL_TABLE[role];
 
-            const material = pick(rl.material, table, E.defaultMaterial(role));
+            const material = pick(rl.material, table, E.defaultMaterial(role, kind));
 
             const l = {
                 id: safeId(rl.id, E.uid("L")),

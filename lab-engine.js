@@ -49,7 +49,8 @@
         al: { name: "Aluminium", sigma: 3.5e7, noble: false, cost: 1, hours: 3, adh: 0.8, thick: 0.2 },
         ti: { name: "Titanium", sigma: 2.4e6, noble: true, cost: 2, hours: 3, adh: 0.95, thick: 0.1 },
         ito: { name: "ITO (transparent)", sigma: 1e6, noble: true, cost: 3, hours: 4, adh: 0.8, thick: 0.15 },
-        agcl: { name: "Ag/AgCl (reference-grade)", sigma: 5e7, noble: false, cost: 3, hours: 4, adh: 0.7, thick: 0.2 }
+        agcl: { name: "Ag/AgCl (reference-grade)", sigma: 5e7, noble: false, cost: 3, hours: 4, adh: 0.7, thick: 0.2 },
+        c: { name: "Carbon (printed or sputtered)", sigma: 3e4, noble: true, cost: 1, hours: 2, adh: 0.8, thick: 5, only: ["cgm"] }
     };
 
     // How harmful the metal is to cells in contact with it (0 = harmless, 1 = kills them).
@@ -79,7 +80,8 @@
         pi: { name: "Polyimide (flexible)", blurb: "The usual flexible probe body: tough, thin and about as stiff as a plastic film.", E: 2.5, cost: 3, hours: 5, adh: 0.9, thick: 10 },
         parylene: { name: "Parylene-C (flexible)", blurb: "Very conformal, biocompatible and flexible. Softer to process than polyimide.", E: 2.8, cost: 3, hours: 4, adh: 0.7, thick: 10 },
         su8: { name: "SU-8 (stiffer polymer)", blurb: "Easy to pattern thick, a little brittle.", E: 3, cost: 2, hours: 3, adh: 0.85, thick: 15 },
-        si: { name: "Silicon (rigid)", blurb: "Stays straight and goes into tissue easily, but it is 60,000 times stiffer than polyimide.", E: 170, cost: 4, hours: 6, adh: 0.95, thick: 15 }
+        si: { name: "Silicon (rigid)", blurb: "Stays straight and goes into tissue easily, but it is 60,000 times stiffer than polyimide.", E: 170, cost: 4, hours: 6, adh: 0.95, thick: 15 },
+        pet: { name: "PET film (flexible)", blurb: "Cheap and tough: the film under many wearable sensors.", E: 3, cost: 1, hours: 2, adh: 0.8, thick: 50, only: ["cgm"] }
     };
 
     // Coatings applied to the metal sites. Their physics (capacitance, charge storage, chemistry) is in lab-neural-model.js.
@@ -91,7 +93,12 @@
         tin: { name: "Titanium nitride", blurb: "Hard, porous and stable. A good all-round recording and stimulation coating.", cost: 3, hours: 4, adh: 0.85, thick: 0.3 },
         cnt: { name: "Carbon nanotubes", blurb: "A mat of nanotubes: huge area and fast electron transfer, the best for detecting dopamine.", cost: 3, hours: 3, adh: 0.5, thick: 0.5 },
         nafion: { name: "Nafion (ion-exchange film)", blurb: "Negatively charged, so it keeps out ascorbic acid and other anions while letting dopamine through.", cost: 1, hours: 1, adh: 0.8, thick: 0.3 },
-        gluox: { name: "Glutamate oxidase enzyme layer", blurb: "Turns glutamate into hydrogen peroxide, which the platinum underneath detects. The enzyme slowly dies.", cost: 4, hours: 3, adh: 0.5, thick: 2 }
+        gluox: { name: "Glutamate oxidase enzyme layer", blurb: "Turns glutamate into hydrogen peroxide, which the platinum underneath detects. The enzyme slowly dies.", cost: 4, hours: 3, adh: 0.5, thick: 2 },
+        gox: { name: "Glucose oxidase hydrogel (first generation)", blurb: "Glucose and oxygen go in, hydrogen peroxide comes out, and the electrode counts the peroxide. Needs oxygen and a high potential.", cost: 3, hours: 3, adh: 0.6, thick: 1, only: ["cgm"] },
+        osgox: { name: "Osmium-wired glucose oxidase (second generation)", blurb: "An osmium polymer carries electrons from the enzyme to the electrode at a low potential, so oxygen and interferents matter much less.", cost: 5, hours: 4, adh: 0.55, thick: 3, only: ["cgm"] },
+        mpd: { name: "Poly(m-phenylenediamine) (permselective film)", blurb: "A very thin polymer grown on the electrode. Small peroxide molecules pass but larger ones such as acetaminophen and ascorbate mostly do not.", cost: 2, hours: 1, adh: 0.7, thick: 0.05, only: ["cgm"] },
+        pu: { name: "Polyurethane (glucose-limiting membrane)", blurb: "Lets oxygen through far more easily than glucose, so the enzyme never runs short of oxygen. Thicker means a lower, slower, more linear signal.", cost: 2, hours: 2, adh: 0.75, thick: 8, only: ["cgm"] },
+        hydrogel: { name: "Biocompatible hydrogel outer coat", blurb: "A soft, water-rich skin that sticks fewer proteins and cells to the sensor and calms the tissue reaction.", cost: 2, hours: 2, adh: 0.6, thick: 3, only: ["cgm"] }
     };
 
     // Layers that are bought, cut or dropped on rather than patterned with a photomask. limit: smallest piece in um.
@@ -158,10 +165,46 @@
         neural: { name: "Neural probe (electrode array)", ready: true, blurb: "A thin probe with recording and sensing sites: measure impedance, neural spikes, dopamine and glutamate, and see how it survives in tissue.", roles: ["collector", "insulation", "substrate", "coating"], pads: ["1", "2", "3", "4", "5", "6", "7", "8"], need: ["1"], padText: "Each channel is one electrode site connected by a trace to a numbered contact pad (1 to 8). Draw the pad with the Pad tool on a metal layer and pick its number. The insulation layer is a film with windows: open a window over each site and over each pad, and leave the traces covered. Draw the probe outline on the substrate layer, and the coating over the sites that need one." },
     };
 
+    KINDS.cgm = {
+        name: "Glucose sensor (CGM filament)", ready: true,
+        blurb: "A thin sensor strip with a working electrode (enzyme), a sentinel, a reference and a counter electrode: calibrate it, test interferents and oxygen, wear it for ten days and run a simulated day.",
+        roles: ["collector", "insulation", "substrate", "coating"], pads: ["W", "S", "R", "C"], need: ["W", "R", "C"],
+        padNames: { W: "working electrode (enzyme)", S: "sentinel electrode (no enzyme)", R: "reference electrode (Ag/AgCl)", C: "counter electrode" },
+        padText: "A glucose sensor has up to four electrodes. Draw each one as a metal strip with a trace to a contact pad, and name the pad with the Pad tool: W is the working electrode that carries the enzyme, S is an optional sentinel electrode with no enzyme, R is the reference (use Ag/AgCl metal) and C is the counter electrode. The insulation layer is a film with windows: open a window over each electrode and each pad, and leave the traces covered. Draw the sensor outline on the substrate layer, then draw the chemistry layers over the electrodes from the inside out: a permselective film, the enzyme, the glucose-limiting membrane and an outer hydrogel.",
+        materials: {
+            collector: ["pt", "au", "c", "agcl", "ti"],
+            insulation: ["parylene", "pi", "su8", "si3n4"],
+            substrate: ["pi", "pet", "parylene"],
+            coating: ["gox", "osgox", "mpd", "nafion", "pu", "hydrogel"]
+        },
+        defaults: { collector: "pt", insulation: "parylene", substrate: "pi", coating: "gox" }
+    };
+
     // Kind handlers register their own analysis and templates here.
     const HANDLERS = {};
 
-    function defaultMaterial(role) { return DEFAULT_MATERIAL[role]; }
+    function defaultMaterial(role, kind) {
+
+        const d = (KINDS[kind] || {}).defaults;
+
+        return d && d[role] ? d[role] : DEFAULT_MATERIAL[role];
+    }
+
+    // Material ids offered for a layer type in a given kind of device.
+    function materialKeys(role, kind) {
+
+        const table = MATERIAL_TABLE[role] || {};
+        const subset = ((KINDS[kind] || {}).materials || {})[role];
+
+        return Object.keys(table).filter(function (k) {
+
+            const m = table[k];
+
+            if (subset) { return subset.indexOf(k) >= 0; }
+
+            return !m.only || m.only.indexOf(kind) >= 0;
+        });
+    }
 
     // Whether the shapes drawn on a layer are windows cut through a film ("cut") or the material itself ("add").
     function defaultMode(role, material) {
@@ -782,7 +825,7 @@
 
     function blankDesign(kind) {
 
-        if ((kind === "bbb" || kind === "neural") && HANDLERS[kind]) { return HANDLERS[kind].buildTemplate(kind, "blank"); }
+        if ((kind === "bbb" || kind === "neural" || kind === "cgm") && HANDLERS[kind]) { return HANDLERS[kind].buildTemplate(kind, "blank"); }
 
         const role = (KINDS[kind] || KINDS.supercap).roles[0];
 
@@ -1577,7 +1620,7 @@
     const API = {
 
         ROLES: ROLES, METALS: METALS, TOXIC: TOXIC, CHANNEL_MATERIALS: CHANNEL_MATERIALS, MEMBRANES: MEMBRANES, NEURAL_SUBSTRATES: NEURAL_SUBSTRATES, NEURAL_COATINGS: NEURAL_COATINGS, SHEET_ROLES: SHEET_ROLES, defaultMode: defaultMode, INSULATORS: INSULATORS, SEMICONDUCTORS: SEMICONDUCTORS, WORKFUNCTION: WORKFUNCTION,
-        MATERIAL_TABLE: MATERIAL_TABLE, HANDLERS: HANDLERS, defaultMaterial: defaultMaterial,
+        MATERIAL_TABLE: MATERIAL_TABLE, HANDLERS: HANDLERS, defaultMaterial: defaultMaterial, materialKeys: materialKeys,
         registerKind: function (id, h) { HANDLERS[id] = h; if (h.templates) { TEMPLATES[id] = h.templates; } },
         KINDS: KINDS, TEMPLATES: TEMPLATES,
 

@@ -266,7 +266,8 @@
        ANALYSIS
     ------------------------------------------------ */
 
-    function analyze(ctx) {
+    // One analysis serves every "numbered electrodes on a thin strip" device. cfg: kind id, label pattern, where the pads are named.
+    function analyzeWith(cfg, ctx) {
 
         const design = ctx.design;
         const per = ctx.per;
@@ -289,7 +290,7 @@
 
         const fail = function (reason, status) {
 
-            return finish({ kind: "neural", status: status || "lost", reason: reason, quality: 0, ch: [], sub: null, ins: null, coats: [], seedRoll: rand() });
+            return finish({ kind: cfg.kind, status: status || "lost", reason: reason, quality: 0, ch: [], sub: null, ins: null, coats: [], seedRoll: rand() });
         };
 
         const cIdx = [];
@@ -316,7 +317,7 @@
 
         Object.keys(netLabel).forEach(function (root) {
 
-            const labs = Object.keys(netLabel[root]).filter(function (l) { return /^[1-8]$/.test(l); });
+            const labs = Object.keys(netLabel[root]).filter(function (l) { return cfg.label.test(l); });
 
             labs.forEach(function (l) { digits[l] = true; });
 
@@ -338,11 +339,11 @@
 
         const labelsDrawn = {};
 
-        per.forEach(function (q, k) { ctx.shapesOf[k].forEach(function (s) { if (s.pad && /^[1-8]$/.test(s.pad)) { labelsDrawn[s.pad] = true; } }); });
+        per.forEach(function (q, k) { ctx.shapesOf[k].forEach(function (s) { if (s.pad && cfg.label.test(s.pad)) { labelsDrawn[s.pad] = true; } }); });
 
         const chList = Object.keys(labelsDrawn).sort();
 
-        if (!chList.length) { notes.push("No contact pad with a number from 1 to 8 was found."); return fail("No numbered contact pad"); }
+        if (!chList.length) { notes.push(cfg.noPad); return fail("No contact pad"); }
 
         const cd = {};
 
@@ -458,7 +459,7 @@
             }
         }
 
-        if (!ins) { notes.push("There is no insulation layer: the traces are as bare to the tissue as the sites. Add an insulation layer with windows over the sites and pads."); }
+        if (!ins) { notes.push("There is no insulation layer: the traces are as bare to the " + cfg.medium + " as the sites. Add an insulation layer with windows over the sites and pads."); }
 
         // Coatings.
         const coats = coatIdx.map(function (k) {
@@ -556,7 +557,7 @@
             }
         }
 
-        if (!sub) { notes.push("There is no probe body (substrate layer), so the film would have nothing to hold it together. Add a substrate layer and draw the outline."); }
+        if (!sub) { notes.push("There is no " + cfg.body + " (substrate layer), so the film would have nothing to hold it together. Add a substrate layer and draw the outline."); }
 
         // Channels.
         const chans = [];
@@ -671,7 +672,7 @@
 
         const nOk = chans.filter(function (x) { return x.status === "ok"; }).length;
 
-        if (!nOk) { return finish({ kind: "neural", status: chans.some(function (x) { return x.status === "short"; }) ? "short" : "lost", reason: chans[0].reason, quality: 0, ch: chans, sub: sub, ins: ins, coats: coats, seedRoll: rand() }); }
+        if (!nOk) { return finish({ kind: cfg.kind, status: chans.some(function (x) { return x.status === "short"; }) ? "short" : "lost", reason: chans[0].reason, quality: 0, ch: chans, sub: sub, ins: ins, coats: coats, seedRoll: rand() }); }
 
         // Exposed metal that is not part of any numbered channel (floating) is harmless here.
         const q = per.reduce(function (s, x) { return s + x.p.quality; }, 0) / per.length;
@@ -683,34 +684,47 @@
 
         // Site positions are needed by the recording test, in the probe frame.
         return finish({
-            kind: "neural", status: "ok", reason: "", quality: q, ch: chans, sub: sub, ins: ins, coats: coats,
+            kind: cfg.kind, status: "ok", reason: "", quality: q, ch: chans, sub: sub, ins: ins, coats: coats,
             seedRoll: rand(), life: 1, vMax: 1, rShort: 50
         });
     }
 
 
-    function check(design, out, labels) {
+    function checkWith(cfg, design, out, labels) {
 
         const used = design.layers.filter(function (l) { return l.shapes.length; });
 
         if (!used.some(function (l) { return l.role === "substrate"; })) {
 
-            out.push({ level: "warn", text: "There is no probe body. Add a substrate layer under the metal and draw the probe outline on it." });
+            out.push({ level: "warn", text: "There is no " + cfg.body + ". Add a substrate layer under the metal and draw the outline on it." });
         }
 
         if (!used.some(function (l) { return l.role === "insulation"; })) {
 
-            out.push({ level: "warn", text: "There is no insulation layer, so the traces will touch the tissue as well as the sites." });
+            out.push({ level: "warn", text: "There is no insulation layer, so the traces will touch the " + cfg.medium + " as well as the sites." });
         }
 
         Object.keys(labels).forEach(function (lab) {
 
-            if (!/^[1-8]$/.test(lab) && lab) { out.push({ level: "warn", text: "Pad label " + lab + " is not a channel number. Probe pads are numbered 1 to 8." }); }
+            if (!cfg.label.test(lab) && lab) { out.push({ level: "warn", text: "Pad label " + lab + " " + cfg.badLabel }); }
         });
     }
 
 
+    const NEURAL_CFG = {
+        kind: "neural", label: /^[1-8]$/, body: "probe body", medium: "tissue",
+        noPad: "No contact pad with a number from 1 to 8 was found.",
+        badLabel: "is not a channel number. Probe pads are numbered 1 to 8."
+    };
+
+    function analyze(ctx) { return analyzeWith(NEURAL_CFG, ctx); }
+
+    function check(design, out, labels) { checkWith(NEURAL_CFG, design, out, labels); }
+
     E.registerKind("neural", { analyze: analyze, buildTemplate: buildTemplate, check: check, templates: TEMPLATES, cells: 900000, featDiv: 5 });
+
+    // Shared with the glucose sensor kind (lab-cgm-engine.js).
+    E.electrodeKit = { analyzeWith: analyzeWith, checkWith: checkWith };
 
     E.neuralGeometry = geometry;
 

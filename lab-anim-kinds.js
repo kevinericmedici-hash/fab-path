@@ -1274,6 +1274,7 @@
             else if (kind === "fet" || kind === "biofet") { b = fet(r, devs); }
             else if (kind === "bbb") { b = bbb(r, devs); }
             else if (kind === "neural") { b = neural(r, devs); }
+            else if (A.extra && A.extra[kind]) { b = A.extra[kind](r, devs); }
 
             return b ? b.box : null;
 
