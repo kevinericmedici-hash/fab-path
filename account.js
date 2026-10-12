@@ -975,9 +975,106 @@
         }, 1500);
     }
 
+    /* ========================================
+       DAY STREAK
+       Any visit to course content, or any XP
+       earned, counts as studying that day. The
+       streak only resets after a whole day with
+       no activity. This lives here (account.js is
+       on every page, script.js is not) and uses
+       the same keys as script.js.
+    ======================================== */
+
+    const NOT_STUDY_PAGES = /(^|\/)(privacy|terms|sources|about|feedback)\.html$/;
+
+    function markStudiedToday() {
+
+        const d = new Date();
+
+        const today =
+            d.getFullYear() + "-" +
+            String(d.getMonth() + 1).padStart(2, "0") + "-" +
+            String(d.getDate()).padStart(2, "0");
+
+        let last = null;
+        let streak = 0;
+
+        try {
+
+            last = localStorage.getItem("fabPathLastActiveDate");
+            streak = parseInt(localStorage.getItem("fabPathStreak"), 10) || 0;
+
+        } catch (e) { return; }
+
+        if (last === today && streak > 0) { return; }
+
+        if (last && last !== today) {
+
+            const apart = Math.round(
+                (new Date(today + "T00:00:00") - new Date(last + "T00:00:00")) / 86400000
+            );
+
+            streak = apart === 1 ? streak + 1 : 1;
+
+        } else {
+
+            streak = Math.max(streak, 1);
+        }
+
+        try {
+
+            rawSetItem("fabPathStreak", String(streak));
+            rawSetItem("fabPathLastActiveDate", today);
+
+        } catch (e) { return; }
+
+        scheduleSync();
+
+        if (typeof loadFabPathStats === "function") {
+
+            try { loadFabPathStats(); } catch (e) {}
+        }
+    }
+
+    function markStudiedOnPage() {
+
+        if (!NOT_STUDY_PAGES.test(location.pathname)) {
+
+            markStudiedToday();
+        }
+    }
+
+    if (document.readyState === "loading") {
+
+        document.addEventListener("DOMContentLoaded", markStudiedOnPage);
+
+    } else {
+
+        markStudiedOnPage();
+    }
+
     localStorage.setItem = function (key, value) {
 
+        /* Earning XP anywhere (lesson, practice, game, lab) counts as
+           studying today. Sync writes use rawSetItem, so they never
+           land here. */
+
+        let earned = false;
+
+        if (key === "fabPathXP") {
+
+            try {
+
+                earned =
+                    (parseInt(value, 10) || 0) >
+                    (parseInt(localStorage.getItem("fabPathXP"), 10) || 0);
+
+            } catch (e) {}
+        }
+
         rawSetItem(key, value);
+
+        if (earned) { markStudiedToday(); }
 
         if (isSyncedKey(key)) {
 
