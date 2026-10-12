@@ -1,0 +1,744 @@
+/* ========================================
+   THESIS LAB
+   Uses the site's colour variables so it matches the rest of Fab Path.
+======================================== */
+
+.lab-page {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 28px 20px 80px;
+}
+
+.lab-intro {
+    margin: 14px 0 18px;
+}
+
+.lab-title {
+    font-size: clamp(1.6rem, 4vw, 2.3rem);
+    line-height: 1.15;
+    margin-top: 4px;
+}
+
+.lab-app {
+    display: block;
+}
+
+
+/* ---------- step rail ---------- */
+
+.lab-rail {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 4px 2px 12px;
+    margin-bottom: 8px;
+    scrollbar-width: thin;
+}
+
+.lab-rail-btn {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 6px 14px 6px 8px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--muted);
+    font: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.lab-rail-btn:hover {
+    color: var(--text);
+}
+
+.lab-rail-btn:focus-visible,
+.lab-card:focus-visible,
+.lab-btn:focus-visible,
+.lab-hist:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.lab-rail-num {
+    display: inline-grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--panel-light);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.lab-rail-btn.done .lab-rail-num {
+    background: rgba(84, 224, 199, 0.2);
+    color: var(--accent);
+}
+
+.lab-rail-btn.active {
+    color: var(--text);
+    border-color: var(--accent);
+    background: var(--panel-light);
+}
+
+.lab-rail-btn.active .lab-rail-num {
+    background: var(--accent);
+    color: #06201b;
+}
+
+
+/* ---------- panel ---------- */
+
+.lab-panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+}
+
+.lab-panel h1 {
+    font-size: clamp(1.35rem, 3.2vw, 1.8rem);
+    margin: 4px 0 8px;
+}
+
+.lab-panel h2 {
+    font-size: 1.05rem;
+}
+
+.lab-h2 {
+    margin: 26px 0 10px;
+}
+
+.lab-lead {
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 70ch;
+    margin-bottom: 18px;
+}
+
+.lab-lead strong {
+    color: var(--text);
+}
+
+
+/* ---------- choice cards ---------- */
+
+.lab-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 10px;
+    margin: 6px 0 12px;
+}
+
+.lab-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text);
+    font: inherit;
+    cursor: pointer;
+    min-height: 44px;
+}
+
+.lab-card strong {
+    font-size: 0.95rem;
+}
+
+.lab-card span {
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.45;
+}
+
+.lab-card em {
+    font-style: normal;
+    color: var(--accent);
+    font-size: 0.78rem;
+}
+
+.lab-card:hover {
+    border-color: rgba(84, 224, 199, 0.5);
+}
+
+.lab-card.active {
+    border-color: var(--accent);
+    background: rgba(84, 224, 199, 0.09);
+}
+
+
+/* ---------- fields ---------- */
+
+.lab-field {
+    margin: 14px 0;
+}
+
+.lab-field-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.lab-label {
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.lab-label.block {
+    display: block;
+    margin: 18px 0 6px;
+}
+
+.lab-value {
+    font-variant-numeric: tabular-nums;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.lab-field input[type="range"] {
+    width: 100%;
+    margin: 8px 0 2px;
+    accent-color: var(--accent);
+    min-height: 28px;
+}
+
+.lab-hint {
+    color: var(--muted);
+    font-size: 0.82rem;
+    line-height: 1.5;
+    margin-top: 4px;
+    max-width: 70ch;
+}
+
+.lab-hint strong {
+    color: var(--text);
+}
+
+.lab-text,
+.lab-select,
+.lab-name {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    font: inherit;
+    font-size: 0.92rem;
+}
+
+.lab-text {
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.lab-select {
+    max-width: 420px;
+}
+
+.lab-text:focus-visible,
+.lab-select:focus-visible,
+.lab-name:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+}
+
+.lab-check {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin: 14px 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.lab-check input {
+    margin-top: 4px;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent);
+}
+
+.lab-check strong {
+    color: var(--text);
+}
+
+
+/* ---------- layout helpers ---------- */
+
+.lab-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+    margin-top: 12px;
+}
+
+.lab-preview canvas,
+.lab-results canvas,
+.lab-charts canvas {
+    display: block;
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: #10172b;
+}
+
+.lab-cap {
+    color: var(--muted);
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+}
+
+.lab-how {
+    margin-top: 26px;
+    padding: 16px 18px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+}
+
+.lab-how ol {
+    margin: 10px 0 8px 20px;
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 0.92rem;
+}
+
+
+/* ---------- report boxes and notes ---------- */
+
+.lab-report {
+    margin-top: 14px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+}
+
+.lab-report h2 {
+    margin-bottom: 8px;
+}
+
+.lab-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.88rem;
+}
+
+.lab-row span {
+    color: var(--muted);
+}
+
+.lab-row strong {
+    text-align: right;
+    font-weight: 600;
+}
+
+.lab-row.stack {
+    flex-direction: column;
+    gap: 2px;
+}
+
+.lab-row.stack strong {
+    text-align: left;
+    font-weight: 500;
+    line-height: 1.45;
+}
+
+.lab-notes {
+    margin-top: 10px;
+}
+
+.lab-note {
+    margin: 8px 0 0;
+    padding: 9px 12px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.lab-note.ok {
+    color: #9be8d8;
+    background: rgba(84, 224, 199, 0.08);
+}
+
+.lab-note.warn {
+    color: #ffd29a;
+    background: rgba(255, 184, 107, 0.1);
+    border: 1px solid rgba(255, 184, 107, 0.25);
+}
+
+
+/* ---------- buttons ---------- */
+
+.lab-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 26px;
+}
+
+.lab-action-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.lab-btn {
+    min-height: 44px;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.lab-btn.ghost {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.lab-btn.ghost:hover {
+    border-color: var(--accent);
+}
+
+.lab-btn.small {
+    min-height: 36px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    background: var(--panel-light);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.lab-btn.small.ghost {
+    background: transparent;
+}
+
+
+/* ---------- batches ---------- */
+
+.lab-batches {
+    display: grid;
+    gap: 10px;
+}
+
+.lab-batch {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+}
+
+.lab-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex: 0 0 auto;
+}
+
+.lab-batch-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.lab-batch-body p {
+    color: var(--muted);
+    font-size: 0.82rem;
+    margin-top: 4px;
+}
+
+.lab-name {
+    margin-top: 6px;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    max-width: 320px;
+}
+
+.lab-batch-actions {
+    display: flex;
+    gap: 8px;
+}
+
+
+/* ---------- test bench ---------- */
+
+.lab-params {
+    margin-top: 6px;
+    max-width: 640px;
+}
+
+.lab-results {
+    margin-top: 22px;
+    padding-top: 6px;
+}
+
+.lab-results h2 {
+    margin-bottom: 12px;
+}
+
+.lab-results canvas {
+    max-width: 640px;
+}
+
+.lab-history {
+    margin-top: 10px;
+}
+
+.lab-hist {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    max-width: 640px;
+    margin-top: 8px;
+    padding: 10px 14px;
+    text-align: left;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text);
+    font: inherit;
+    font-size: 0.88rem;
+    cursor: pointer;
+}
+
+.lab-hist span {
+    color: var(--muted);
+}
+
+.lab-hist.active {
+    border-color: var(--accent);
+}
+
+
+/* ---------- tables ---------- */
+
+.lab-table-wrap {
+    overflow-x: auto;
+    margin: 12px 0;
+    border-radius: 10px;
+}
+
+.lab-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    min-width: 420px;
+}
+
+.lab-table th,
+.lab-table td {
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+}
+
+.lab-table thead th {
+    background: var(--panel-light);
+    font-weight: 600;
+}
+
+.lab-table tbody th {
+    font-weight: 600;
+}
+
+
+/* ---------- compare ---------- */
+
+.lab-picks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.lab-pick {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 40px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    font-size: 0.88rem;
+}
+
+.lab-pick input {
+    accent-color: var(--accent);
+    width: 16px;
+    height: 16px;
+}
+
+.lab-charts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+    margin-top: 14px;
+}
+
+.lab-obs {
+    margin: 0 0 12px 20px;
+    color: var(--muted);
+    line-height: 1.65;
+    font-size: 0.92rem;
+}
+
+.lab-obs li {
+    margin-bottom: 6px;
+}
+
+.lab-check-list {
+    list-style: none;
+    display: grid;
+    gap: 4px;
+    margin: 6px 0 0;
+    padding: 0;
+    color: var(--muted);
+    font-size: 0.88rem;
+}
+
+.lab-check-list li.done {
+    color: var(--accent);
+}
+
+
+/* ---------- toast ---------- */
+
+.lab-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    transform: translate(-50%, 20px);
+    opacity: 0;
+    padding: 12px 18px;
+    border-radius: 12px;
+    background: var(--panel-light);
+    border: 1px solid var(--accent);
+    color: var(--text);
+    font-size: 0.9rem;
+    z-index: 3000;
+    transition: opacity 0.25s, transform 0.25s;
+    max-width: calc(100vw - 32px);
+}
+
+.lab-toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 760px) {
+
+    .lab-page {
+        padding: 18px 16px 70px;
+    }
+
+    .lab-panel {
+        padding: 18px 16px;
+    }
+
+    .lab-split {
+        grid-template-columns: 1fr;
+    }
+
+    .lab-batch {
+        flex-wrap: wrap;
+    }
+}
+
+
+/* ---------- printing: just the comparison ---------- */
+
+@media print {
+
+    body {
+        background: #ffffff !important;
+        color: #161a26 !important;
+    }
+
+    .topbar,
+    .module-exit,
+    .lab-intro,
+    .lab-rail,
+    .no-print,
+    .lab-toast,
+    .lab-panel > .eyebrow {
+        display: none !important;
+    }
+
+    .lab-page,
+    .lab-panel {
+        padding: 0 !important;
+        border: 0 !important;
+        box-shadow: none !important;
+        background: #ffffff !important;
+        max-width: none !important;
+    }
+
+    .lab-panel *,
+    .lab-lead {
+        color: #161a26 !important;
+    }
+
+    .lab-charts canvas {
+        border-color: #ccd !important;
+    }
+}
+
+
+/* ---------- call-to-action card on the course page ---------- */
+
+.lab-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 0 0 28px;
+    padding: 22px 24px;
+    border-radius: 18px;
+    border: 1px solid rgba(84, 224, 199, 0.35);
+    background:
+        radial-gradient(circle at top right, rgba(84, 224, 199, 0.16), transparent 55%),
+        var(--panel);
+}
+
+.lab-cta h2 {
+    font-size: 1.25rem;
+    margin: 4px 0 6px;
+}
+
+.lab-cta p:not(.eyebrow) {
+    color: var(--muted);
+    line-height: 1.55;
+    max-width: 60ch;
+    font-size: 0.92rem;
+}

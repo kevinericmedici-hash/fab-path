@@ -13,3 +13,6 @@ mobile/ios/App/Pods/
 mobile/ios/App/build/
 
 mobile/.env*
+
+# Supabase CLI local state
+supabase/.temp/
