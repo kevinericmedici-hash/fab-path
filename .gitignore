@@ -16,3 +16,7 @@ mobile/.env*
 
 # Supabase CLI local state
 supabase/.temp/
+
+# Private notes, never publish
+HANDOFF.md
+Fab-Path-Goals.xlsx
