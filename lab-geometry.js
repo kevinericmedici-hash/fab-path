@@ -11,8 +11,11 @@
      { t: "c", x, y, r }            circle
      { t: "p", pts: [[x, y], ...] } polygon
      { t: "t", w, pts }             trace: a line with a width
+   Any shape can carry cut: true. A cut shape removes material from the
+   other shapes on its layer (a hole or notch) instead of adding any.
 
    Lives on window.LabGeom. No DOM, so it also runs in Node.
+   Exact cut-outs use ClipperLib (clipper.js) when it is loaded.
 ======================================== */
 
 (function (root) {
@@ -553,10 +556,150 @@
         const mask = new Uint8Array(frame.w * frame.h);
 
         shapes.forEach(function (s) {
-            polysOf(s).forEach(function (p) { fillPoly(mask, frame, p, 1); });
+            if (!s.cut) { polysOf(s).forEach(function (p) { fillPoly(mask, frame, p, 1); }); }
+        });
+
+        // Cut shapes clear whatever the other shapes put down.
+        shapes.forEach(function (s) {
+            if (s.cut) { polysOf(s).forEach(function (p) { fillPoly(mask, frame, p, 0); }); }
         });
 
         return mask;
+    }
+
+
+    /* ------------------------------------------------
+       CUT SHAPES (holes and notches)
+    ------------------------------------------------ */
+
+    const CLIP_SCALE = 1000;   // Clipper works on integers: 1 nm steps
+
+    function clipper() { return root.ClipperLib || null; }
+
+    function hasCuts(shapes) { return shapes.some(function (s) { return s.cut; }); }
+
+    function boxesTouch(a, b) { return a && b && a.x0 <= b.x1 && b.x0 <= a.x1 && a.y0 <= b.y1 && b.y0 <= a.y1; }
+
+    // All rings wind the same way, so overlapping pieces of one shape (a trace's segments and
+    // joints) add up instead of cancelling under the non-zero fill rule.
+    function toPath(p) {
+
+        const path = p.map(function (q) { return { X: Math.round(q[0] * CLIP_SCALE), Y: Math.round(q[1] * CLIP_SCALE) }; });
+
+        if (!root.ClipperLib.Clipper.Orientation(path)) { path.reverse(); }
+
+        return path;
+    }
+
+    function fromPath(path) { return path.map(function (q) { return [q.X / CLIP_SCALE, q.Y / CLIP_SCALE]; }); }
+
+    // One shape minus the cuts, as polygons with holes: [{ outer: [[x, y]...], holes: [[[x, y]...]...] }].
+    // ringsOf turns a shape into polygons (lets export use finer circles).
+    function cutRegions(s, cuts, ringsOf) {
+
+        const CL = clipper();
+
+        ringsOf = ringsOf || polysOf;
+
+        if (!CL) { return null; }
+
+        const c = new CL.Clipper();
+
+        ringsOf(s).forEach(function (p) { if (p.length >= 3) { c.AddPath(toPath(p), CL.PolyType.ptSubject, true); } });
+        cuts.forEach(function (k) { ringsOf(k).forEach(function (p) { if (p.length >= 3) { c.AddPath(toPath(p), CL.PolyType.ptClip, true); } }); });
+
+        const tree = new CL.PolyTree();
+
+        c.Execute(CL.ClipType.ctDifference, tree, CL.PolyFillType.pftNonZero, CL.PolyFillType.pftNonZero);
+
+        const out = [];
+
+        (function walk(node) {
+
+            node.Childs().forEach(function (outer) {
+
+                out.push({ outer: fromPath(outer.Contour()), holes: outer.Childs().map(function (hole) { return fromPath(hole.Contour()); }) });
+
+                // Islands inside holes are outers again.
+                outer.Childs().forEach(walk);
+            });
+
+        }(tree));
+
+        return out;
+    }
+
+    // A polygon with holes split into hole-free pieces by vertical cuts through each hole
+    // (formats such as GDSII and CIF can't store holes). The pieces only share edges.
+    function sliceRegion(region) {
+
+        const CL = clipper();
+
+        if (!region.holes.length || !CL) { return [region.outer]; }
+
+        const xs = region.holes.map(function (hp) {
+
+            const b = polyBox(hp);
+
+            return (b.x0 + b.x1) / 2;
+        });
+
+        const ob = polyBox(region.outer);
+        const cutsX = [ob.x0 - 1].concat(xs.sort(function (a, b) { return a - b; }), [ob.x1 + 1]);
+        const out = [];
+
+        for (let k = 0; k + 1 < cutsX.length; k++) {
+
+            if (cutsX[k + 1] - cutsX[k] < 1e-6) { continue; }
+
+            const strip = [[cutsX[k], ob.y0 - 1], [cutsX[k + 1], ob.y0 - 1], [cutsX[k + 1], ob.y1 + 1], [cutsX[k], ob.y1 + 1]];
+            const c = new CL.Clipper();
+
+            c.AddPath(toPath(region.outer), CL.PolyType.ptSubject, true);
+            region.holes.forEach(function (hp) { c.AddPath(toPath(hp), CL.PolyType.ptSubject, true); });
+            c.AddPath(toPath(strip), CL.PolyType.ptClip, true);
+
+            const sol = new CL.Paths();
+
+            c.Execute(CL.ClipType.ctIntersection, sol, CL.PolyFillType.pftEvenOdd, CL.PolyFillType.pftNonZero);
+
+            sol.forEach(function (path) { if (path.length >= 3) { out.push(fromPath(path)); } });
+        }
+
+        return out;
+    }
+
+    // The shapes of one layer with the cuts applied. Shapes that no cut touches come back
+    // unchanged (so analysis that looks for rectangles still finds them); touched shapes become
+    // hole-free polygons; cut shapes and anything cut away completely disappear. Pads are kept whole.
+    // Without ClipperLib the cut shapes are passed through for the raster to handle.
+    function applyCuts(shapes) {
+
+        if (!hasCuts(shapes)) { return shapes; }
+
+        const cuts = shapes.filter(function (s) { return s.cut; });
+
+        if (!clipper()) { return shapes; }
+
+        const cutBoxes = cuts.map(function (k) { return bboxOf([k]); });
+        const out = [];
+
+        shapes.forEach(function (s) {
+
+            if (s.cut) { return; }
+
+            const b = bboxOf([s]);
+            const near = cuts.filter(function (_, i) { return boxesTouch(b, cutBoxes[i]); });
+
+            if (!near.length || s.pad) { out.push(s); return; }
+
+            cutRegions(s, near).forEach(function (region) {
+
+                sliceRegion(region).forEach(function (p) { out.push({ t: "p", pts: p }); });
+            });
+        });
+
+        return out;
     }
 
 
@@ -1085,6 +1228,11 @@
         minDimOf: minDimOf,
         pieces: pieces,
         minGapOf: minGapOf,
+
+        hasCuts: hasCuts,
+        applyCuts: applyCuts,
+        cutRegions: cutRegions,
+        sliceRegion: sliceRegion,
 
         makeFrame: makeFrame,
         raster: raster,

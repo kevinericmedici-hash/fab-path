@@ -398,6 +398,8 @@
 
         const out = [];
 
+        if (s.cut) { return out; }   // a hole adds no material
+
         if (s.t === "t") {
 
             for (let k = 0; k + 1 < s.pts.length; k++) {

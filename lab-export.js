@@ -132,6 +132,49 @@
         return { x0: x0, y0: y0, x1: x1, y1: y1 };
     }
 
+    // Holes: a layer's shapes with the cut shapes applied. Shapes no cut touches come back as
+    // { s } and keep their exact form (true circles in DXF, paths for traces); shapes a cut
+    // touches come back as { region: { outer, holes } }. Cut shapes themselves are never drawn.
+    function ringsOf(s) {
+
+        if (s.t === "r") { return [rectPoints(s)]; }
+        if (s.t === "c") { return [circlePoints(s.x, s.y, s.r)]; }
+        if (s.t === "p") { return [s.pts]; }
+
+        return root.LabGeom ? root.LabGeom.polysOf(s) : [];
+    }
+
+    function partsOf(layer) {
+
+        const G = root.LabGeom;
+        const cuts = layer.shapes.filter(function (s) { return s.cut; });
+        const solid = layer.shapes.filter(function (s) { return !s.cut; });
+
+        if (!cuts.length || !G || !G.cutRegions || !root.ClipperLib) { return solid.map(function (s) { return { s: s }; }); }
+
+        const box = function (s) { return G.bboxOf([s]); };
+        const cb = cuts.map(box);
+        const out = [];
+
+        solid.forEach(function (s) {
+
+            const b = box(s);
+            const near = cuts.filter(function (_, i) { return b.x0 <= cb[i].x1 && cb[i].x0 <= b.x1 && b.y0 <= cb[i].y1 && cb[i].y0 <= b.y1; });
+
+            if (!near.length || s.pad) { out.push({ s: s }); return; }
+
+            G.cutRegions(s, near, ringsOf).forEach(function (region) { out.push({ region: region }); });
+        });
+
+        return out;
+    }
+
+    // A region as hole-free polygons, for formats that can't store holes.
+    function sliced(region) {
+
+        return root.LabGeom && region.holes.length ? root.LabGeom.sliceRegion(region) : [region.outer];
+    }
+
     function shapeCount(design) {
 
         return design.layers.reduce(function (n, l) { return n + l.shapes.length; }, 0);
@@ -285,7 +328,11 @@
 
         layerTable(design).forEach(function (row) {
 
-            row.layer.shapes.forEach(function (s) {
+            partsOf(row.layer).forEach(function (part) {
+
+                if (part.region) { sliced(part.region).forEach(function (p) { boundary(row.gds, p); }); return; }
+
+                const s = part.s;
 
                 if (s.t === "r") {
 
@@ -380,7 +427,18 @@
 
         rows.forEach(function (row) {
 
-            row.layer.shapes.forEach(function (s) {
+            partsOf(row.layer).forEach(function (part) {
+
+                // CAD keeps holes as their own closed outlines inside the outer one.
+                if (part.region) {
+
+                    polyline(row.dxf, part.region.outer, true);
+                    part.region.holes.forEach(function (hp) { polyline(row.dxf, hp, true); });
+
+                    return;
+                }
+
+                const s = part.s;
 
                 if (s.t === "r") {
 
@@ -439,12 +497,18 @@
 
         layerTable(design).forEach(function (row) {
 
-            if (!row.layer.shapes.length) { return; }
+            const parts = partsOf(row.layer);
+
+            if (!parts.length) { return; }
 
             out.push("(" + row.mask + ");");
             out.push("L " + row.cif + ";");
 
-            row.layer.shapes.forEach(function (s) {
+            parts.forEach(function (part) {
+
+                if (part.region) { sliced(part.region).forEach(function (p) { out.push("P " + p.map(pt).join(" ") + ";"); }); return; }
+
+                const s = part.s;
 
                 if (s.t === "r") {
 
@@ -508,7 +572,18 @@
                 'fill="' + color + '" fill-opacity="' + (cut ? 0.25 : 0.55) + '" stroke="' + color + '" stroke-width="' + num(Math.max(0.5, w / 800)) + '"' +
                 (cut ? ' stroke-dasharray="' + num(w / 200) + " " + num(w / 300) + '"' : "") + ">");
 
-            row.layer.shapes.forEach(function (s) {
+            partsOf(row.layer).forEach(function (part) {
+
+                if (part.region) {
+
+                    const ring = function (p) { return "M" + p.map(function (q) { return num(q[0]) + "," + num(q[1]); }).join("L") + "Z"; };
+
+                    out.push('<path fill-rule="evenodd" d="' + [part.region.outer].concat(part.region.holes).map(ring).join(" ") + '"/>');
+
+                    return;
+                }
+
+                const s = part.s;
 
                 if (s.t === "r") {
 
@@ -579,16 +654,17 @@
             field: l.mask && l.mask.field ? (l.mask.field === "clear" ? "clear field (light)" : "dark field") : "",
             method: litho.method === "liftoff" ? "lift-off" : (litho.method || ""),
             resist: resist ? resist.name + (resist.tone && resist.name.toLowerCase().indexOf(resist.tone) < 0 ? " (" + resist.tone + ")" : "") : (litho.resist || ""),
-            shapes: l.shapes.length
+            shapes: l.shapes.filter(function (s) { return !s.cut; }).length,
+            holes: l.shapes.filter(function (s) { return s.cut; }).length
         };
     }
 
     function csv(design) {
 
         const head = ["Order (bottom to top)", "Mask name", "GDS layer/datatype", "CIF layer", "DXF layer", "Fab Path layer", "Role",
-            "Material", "Thickness (um)", "Drawn shapes are", "Mask polarity", "Patterning", "Resist", "Shapes"];
+            "Material", "Thickness (um)", "Drawn shapes are", "Mask polarity", "Patterning", "Resist", "Shapes", "Holes"];
 
-        const keys = ["order", "mask", "gds", "cif", "dxf", "name", "role", "material", "thickness", "drawn", "field", "method", "resist", "shapes"];
+        const keys = ["order", "mask", "gds", "cif", "dxf", "name", "role", "material", "thickness", "drawn", "field", "method", "resist", "shapes", "holes"];
 
         const lines = [head.map(csvCell).join(",")];
 
@@ -649,6 +725,9 @@
             "  - Traces are paths with flush ends. Their bends are mitred in GDSII and CIF,",
             "    where Fab Path draws them rounded, so corners can differ slightly.",
             "  - Contact pad labels (+, -, S, D, G and port names) are text labels on the pad's layer.",
+            "  - Holes (cut shapes) are already subtracted. GDSII and CIF can't store a hole inside a",
+            "    polygon, so a shape with holes is split into touching pieces; on the mask they merge",
+            "    back into one. The DXF keeps the outer outline and each hole outline instead.",
             "  - Layers that are bought or dropped on rather than patterned (membranes, for example)",
             "    are listed in layers.csv but may have no shapes.",
             "  - Thicknesses and materials come from your Process step in Fab Path. Real foundry",

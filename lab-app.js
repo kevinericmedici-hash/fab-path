@@ -100,7 +100,17 @@
 
     function r2(v) { return Math.round(v * 100) / 100; }
 
+    // A cut shape (hole) is stored with a "-" in front of its type: ["-c", x, y, r].
     function packShape(s) {
+
+        const a = packPlain(s);
+
+        if (s.cut) { a[0] = "-" + a[0]; }
+
+        return a;
+    }
+
+    function packPlain(s) {
 
         if (s.t === "r") { return s.pad ? ["r", r2(s.x), r2(s.y), r2(s.w), r2(s.h), s.pad] : ["r", r2(s.x), r2(s.y), r2(s.w), r2(s.h)]; }
         if (s.t === "c") { return ["c", r2(s.x), r2(s.y), r2(s.r)]; }
@@ -114,7 +124,21 @@
 
     function unpackShape(a) {
 
-        if (!Array.isArray(a)) { return null; }
+        if (!Array.isArray(a) || typeof a[0] !== "string") { return null; }
+
+        if (a[0].charAt(0) === "-") {
+
+            const s = unpackPlain([a[0].slice(1)].concat(a.slice(1)));
+
+            if (s) { delete s.pad; s.cut = true; }
+
+            return s;
+        }
+
+        return unpackPlain(a);
+    }
+
+    function unpackPlain(a) {
 
         const L = 1e6;
         const n = function (v) { return num(v, -L, L, 0); };
@@ -148,6 +172,7 @@
 
         return {
             id: d.id, name: d.name, kind: d.kind, electrolyte: d.electrolyte, grid: d.grid, receptor: d.receptor || "none", culture: d.culture,
+            units: d.units || "um", dims: d.dims || [],
             layers: d.layers.map(function (l) {
 
                 return {
@@ -238,7 +263,55 @@
             d.layers.push(l);
         });
 
+        d.units = ["nm", "um", "mm"].indexOf(raw.units) >= 0 ? raw.units : "um";
+        d.dims = cleanDims(raw.dims, d);
+
         return d.layers.length ? d : null;
+    }
+
+
+    // Smart dimensions: { id, layer, a: { k, f }, b?: { k, f }, dir? }. Drop any that point at nothing.
+    const DIM_FEATURE = /^(w|h|d|tw|C|L|R|T|B|[es]\d{1,3})$/;
+
+    function cleanDims(raw, d) {
+
+        const out = [];
+
+        (Array.isArray(raw) ? raw : []).slice(0, 200).forEach(function (m) {
+
+            if (!m || typeof m !== "object") { return; }
+
+            const l = d.layers.filter(function (x) { return x.id === m.layer; })[0];
+
+            const ref = function (r) {
+
+                if (!r || typeof r !== "object" || typeof r.f !== "string" || !DIM_FEATURE.test(r.f)) { return null; }
+
+                const k = Math.floor(Number(r.k));
+
+                return l && k >= 0 && k < l.shapes.length ? { k: k, f: r.f } : null;
+            };
+
+            const a = ref(m.a);
+
+            if (!a) { return; }
+
+            const dim = { id: safeId(m.id, E.uid("M")), layer: l.id, a: a };
+
+            if (m.b) {
+
+                const b = ref(m.b);
+
+                if (!b) { return; }
+
+                dim.b = b;
+                dim.dir = m.dir === "v" ? "v" : "h";
+            }
+
+            out.push(dim);
+        });
+
+        return out;
     }
 
 

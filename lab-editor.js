@@ -24,6 +24,8 @@
         { id: "p", name: "Polygon", key: "P", hint: "Click each corner. Double-click, press Enter, or click the first point to close it." },
         { id: "t", name: "Trace", key: "T", hint: "Click points along a line. Double-click or press Enter to finish. Set the width in the toolbar." },
         { id: "pad", name: "Pad", key: "D", hint: "Drag a contact pad on a conductive layer, then pick its label (+ or −)." },
+        { id: "hole", name: "Hole", key: "O", hint: "Click to place a round hole of the set diameter. It cuts through every shape under it on the active layer." },
+        { id: "dim", name: "Smart Dimension", key: "S", hint: "Click an edge, circle or shape, then click empty space to dimension it, or click a second shape to dimension the distance. Type the value you want (2.5 mm, 300 nm, 2*40) and press Enter." },
         { id: "measure", name: "Ruler", key: "M", hint: "Click two points to measure the distance between them." },
         { id: "pan", name: "Pan", key: "H", hint: "Drag to move the view. (Middle mouse or right mouse button also pans.)" }
     ];
@@ -86,7 +88,75 @@
     }
 
 
-    function fmtLen(um) {
+    const UNITS = {
+        nm: { k: 1000, label: "nm" },
+        um: { k: 1, label: "µm" },
+        mm: { k: 0.001, label: "mm" }
+    };
+
+    // Reads a length typed by a person: "12.5", "2.5 mm", "300nm", "2*40", "(100 - 2*5) um".
+    // A bare number is in the given unit. Returns micrometres, or NaN.
+    function parseLength(text, unit) {
+
+        let t = String(text || "").trim().toLowerCase().replace(/[µμ]/g, "u").replace(/,/g, "");
+        let u = unit || "um";
+
+        const m = t.match(/(nm|um|mm|cm|m)\s*$/);
+
+        if (m) { u = m[1]; t = t.slice(0, m.index); }
+
+        const toUm = { nm: 0.001, um: 1, mm: 1000, cm: 10000, m: 1e6 };
+        const v = evalMath(t);
+
+        return isFinite(v) ? v * toUm[u] : NaN;
+    }
+
+    // + - * / and brackets, nothing else.
+    function evalMath(text) {
+
+        const tokens = text.match(/\d*\.?\d+(?:e[+-]?\d+)?|[-+*/()]|\S/g) || [];
+        let i = 0;
+
+        function peek() { return tokens[i]; }
+
+        function atom() {
+
+            const t = tokens[i++];
+
+            if (t === "(") { const v = sum(); if (tokens[i++] !== ")") { return NaN; } return v; }
+            if (t === "-") { return -atom(); }
+            if (t === "+") { return atom(); }
+
+            return t !== undefined && /^\d*\.?\d+(e[+-]?\d+)?$/.test(t) ? parseFloat(t) : NaN;
+        }
+
+        function product() {
+
+            let v = atom();
+
+            while (peek() === "*" || peek() === "/") { const op = tokens[i++]; const b = atom(); v = op === "*" ? v * b : v / b; }
+
+            return v;
+        }
+
+        function sum() {
+
+            let v = product();
+
+            while (peek() === "+" || peek() === "-") { const op = tokens[i++]; const b = product(); v = op === "+" ? v + b : v - b; }
+
+            return v;
+        }
+
+        if (!tokens.length) { return NaN; }
+
+        const v = sum();
+
+        return i === tokens.length ? v : NaN;
+    }
+
+
+    function fmtLenAuto(um) {
 
         if (!isFinite(um)) { return "none"; }
 
@@ -126,6 +196,19 @@
 
         let traceWidth = 10;
         let padLabel = padLabelsFor(design)[0];
+
+        let cutMode = false;      // new rectangles, circles, polygons and traces are holes
+        let holeD = 10;           // Hole tool diameter (um)
+
+        // Smart dimensions: first pick, hover target, selected dimension, label hit boxes, open editor.
+        let dimPick = null;
+        let dimHover = null;
+        let dimSel = -1;
+        let dimBoxes = [];
+        let dimInput = null;
+
+        if (!Array.isArray(design.dims)) { design.dims = []; }
+        if (!UNITS[design.units]) { design.units = "um"; }
 
         const view = { cx: 0, cy: 0, s: 0.2 };
 
@@ -171,6 +254,30 @@
         function grid() { return design.grid || 10; }
         function snap(v) { return snapOn ? Math.round(v / grid()) * grid() : Math.round(v * 100) / 100; }
 
+        // ----- units -----
+        // Everything is stored in micrometres; the chosen unit is only for showing and typing.
+        function unitOf() { return UNITS[design.units] ? design.units : "um"; }
+        function toU(um) { return um * UNITS[unitOf()].k; }
+        function fromU(v) { return v / UNITS[unitOf()].k; }
+        function roundU(um) { return Math.round(toU(um) * 1000) / 1000; }
+
+        // Every length label in the editor goes through this, so it follows the chosen unit.
+        // In micrometres it keeps the automatic µm / mm switching.
+        function fmtLen(um) {
+
+            if (unitOf() === "um") { return fmtLenAuto(um); }
+
+            if (!isFinite(um)) { return "none"; }
+
+            const v = toU(um);
+            const a = Math.abs(v);
+            const d = a >= 100 ? 1 : a >= 10 ? 2 : a >= 1 ? 3 : 4;
+
+            return String(Number(v.toFixed(d))) + " " + UNITS[unitOf()].label;
+        }
+
+        function parseLen(text) { return parseLength(text, unitOf()); }
+
         function toScreen(x, y) { return [(x - view.cx) * view.s + W / 2, (y - view.cy) * view.s + Hh / 2]; }
         function toWorld(px, py) { return [(px - W / 2) / view.s + view.cx, (py - Hh / 2) / view.s + view.cy]; }
 
@@ -186,9 +293,11 @@
             return { px: px, py: py, x: w[0], y: w[1], sx: snap(w[0]), sy: snap(w[1]) };
         }
 
+        function snapshot() { return JSON.stringify({ l: design.layers, d: design.dims }); }
+
         function pushUndo() {
 
-            undo.push(JSON.stringify(design.layers));
+            undo.push(snapshot());
 
             if (undo.length > 60) { undo.shift(); }
 
@@ -197,10 +306,15 @@
 
         function restore(text) {
 
-            const layers = JSON.parse(text);
+            const snap1 = JSON.parse(text);
+            const layers = Array.isArray(snap1) ? snap1 : snap1.l;
 
             design.layers.length = 0;
             layers.forEach(function (l) { design.layers.push(l); });
+
+            design.dims.length = 0;
+            (snap1.d || []).forEach(function (m) { design.dims.push(m); });
+            dimSel = -1;
 
             if (!layerById(activeId)) { activeId = design.layers.length ? design.layers[design.layers.length - 1].id : ""; }
 
@@ -211,7 +325,7 @@
 
             if (!undo.length) { return; }
 
-            redo.push(JSON.stringify(design.layers));
+            redo.push(snapshot());
             restore(undo.pop());
             changed("shapes", true);
         }
@@ -220,7 +334,7 @@
 
             if (!redo.length) { return; }
 
-            undo.push(JSON.stringify(design.layers));
+            undo.push(snapshot());
             restore(redo.pop());
             changed("shapes", true);
         }
@@ -460,6 +574,8 @@
 
                 l.shapes.forEach(function (s) {
 
+                    if (s.cut) { return; }
+
                     ctx.beginPath();
                     tracePath(ctx, s);
                     ctx.stroke();
@@ -468,35 +584,116 @@
                     ctx.fill();
                 });
 
+                // In a film of windows, a cut shape puts the film back.
+                l.shapes.forEach(function (s) {
+
+                    if (!s.cut) { return; }
+
+                    ctx.beginPath();
+                    tracePath(ctx, s);
+                    ctx.fillStyle = layerColor(l, alpha * 0.35);
+                    ctx.fill();
+                });
+
                 ctx.restore();
+
+                drawCutOutlines(l, alpha, isActive);
 
                 return;
             }
 
-            ctx.fillStyle = layerColor(l, alpha * 0.55);
-            ctx.strokeStyle = layerColor(l, Math.min(1, alpha + 0.3));
-            ctx.lineWidth = isActive ? 1.6 : 1;
+            const cuts = l.shapes.some(function (s) { return s.cut; });
+
+            // With holes, paint the layer on its own canvas, erase the holes, then copy it over.
+            const c = cuts ? offCanvas() : ctx;
+
+            c.fillStyle = layerColor(l, alpha * 0.55);
+            c.strokeStyle = layerColor(l, Math.min(1, alpha + 0.3));
+            c.lineWidth = isActive ? 1.6 : 1;
 
             l.shapes.forEach(function (s) {
 
-                ctx.beginPath();
-                tracePath(ctx, s);
-                ctx.fill();
-                ctx.stroke();
+                if (s.cut) { return; }
+
+                c.beginPath();
+                tracePath(c, s);
+                c.fill();
+                c.stroke();
 
                 if (s.pad) {
 
                     const b = G.bboxOf([s]);
-                    const c = toScreen((b.x0 + b.x1) / 2, (b.y0 + b.y1) / 2);
+                    const p = toScreen((b.x0 + b.x1) / 2, (b.y0 + b.y1) / 2);
 
-                    ctx.fillStyle = "#06201b";
-                    ctx.font = "700 " + Math.max(11, Math.min(34, (b.x1 - b.x0) * view.s * 0.5)) + "px Inter, Arial, sans-serif";
-                    ctx.textAlign = "center";
-                    ctx.textBaseline = "middle";
-                    ctx.fillText(s.pad, c[0], c[1]);
-                    ctx.fillStyle = layerColor(l, alpha * 0.55);
+                    c.fillStyle = "#06201b";
+                    c.font = "700 " + Math.max(11, Math.min(34, (b.x1 - b.x0) * view.s * 0.5)) + "px Inter, Arial, sans-serif";
+                    c.textAlign = "center";
+                    c.textBaseline = "middle";
+                    c.fillText(s.pad, p[0], p[1]);
+                    c.fillStyle = layerColor(l, alpha * 0.55);
                 }
             });
+
+            if (cuts) {
+
+                c.globalCompositeOperation = "destination-out";
+                c.fillStyle = "#000";
+
+                l.shapes.forEach(function (s) {
+
+                    if (!s.cut) { return; }
+
+                    c.beginPath();
+                    tracePath(c, s);
+                    c.fill();
+                });
+
+                c.globalCompositeOperation = "source-over";
+
+                ctx.save();
+                ctx.setTransform(1, 0, 0, 1, 0, 0);
+                ctx.drawImage(off, 0, 0);
+                ctx.restore();
+
+                drawCutOutlines(l, alpha, isActive);
+            }
+        }
+
+        let off = null;
+
+        function offCanvas() {
+
+            if (!off) { off = document.createElement("canvas"); }
+
+            if (off.width !== canvas.width || off.height !== canvas.height) { off.width = canvas.width; off.height = canvas.height; }
+
+            const c = off.getContext("2d");
+
+            c.setTransform(1, 0, 0, 1, 0, 0);
+            c.clearRect(0, 0, off.width, off.height);
+            c.setTransform(canvas.width / W, 0, 0, canvas.height / Hh, 0, 0);
+
+            return c;
+        }
+
+        // Holes get a fine dashed outline so they can be seen and picked.
+        function drawCutOutlines(l, alpha, isActive) {
+
+            ctx.save();
+            ctx.setLineDash([3, 3]);
+            ctx.lineWidth = isActive ? 1.4 : 1;
+            ctx.strokeStyle = layerColor(l, Math.min(1, alpha + 0.4));
+
+            l.shapes.forEach(function (s) {
+
+                if (!s.cut) { return; }
+
+                ctx.beginPath();
+                tracePath(ctx, s);
+                ctx.stroke();
+            });
+
+            ctx.restore();
         }
 
         function draw() {
@@ -517,6 +714,8 @@
 
                 drawLayer(l, isActive ? 1 : (showOthers === "all" ? 0.75 : 0.35), isActive);
             });
+
+            drawDims();
 
             // Footprint box.
             if (showBox) {
@@ -744,10 +943,10 @@
 
         function drawScale() {
 
-            const target = 120 / view.s;
+            const target = toU(120 / view.s);
             const mag = Math.pow(10, Math.floor(Math.log10(target)));
             const norm = target / mag;
-            const len = (norm < 1.5 ? 1 : norm < 3.5 ? 2 : norm < 7.5 ? 5 : 10) * mag;
+            const len = fromU((norm < 1.5 ? 1 : norm < 3.5 ? 2 : norm < 7.5 ? 5 : 10) * mag);
 
             const x = 14;
             const y = Hh - 16;
@@ -771,6 +970,644 @@
         }
 
 
+        // ----- smart dimensions -----
+        // A dimension points at shapes on one layer by index: { id, layer, a: { k, f }, b?: { k, f }, dir? }.
+        // Features (f): w h (rectangle width, height), d (circle diameter), tw (trace width),
+        // e<i> (polygon edge i), s<i> (trace segment i), and for distances L R T B (rectangle sides) or C (centre).
+        // The label always shows the live size; typing a new value moves the geometry to match.
+
+        const DIM_COLOR = "#ffd36b";
+
+        function dimLayer(m) { return layerById(m.layer); }
+
+        function featOk(s, f) {
+
+            if (!s) { return false; }
+            if (f === "C") { return true; }
+            if (f === "w" || f === "h" || f === "L" || f === "R" || f === "T" || f === "B") { return s.t === "r"; }
+            if (f === "d") { return s.t === "c"; }
+            if (f === "tw") { return s.t === "t"; }
+
+            const i = Number(f.slice(1));
+
+            if (f[0] === "e") { return s.t === "p" && i < s.pts.length; }
+            if (f[0] === "s") { return s.t === "t" && i + 1 < s.pts.length; }
+
+            return false;
+        }
+
+        function dimValid(m) {
+
+            const l = dimLayer(m);
+
+            if (!l || !featOk(l.shapes[m.a.k], m.a.f)) { return false; }
+
+            return !m.b || (featOk(l.shapes[m.b.k], m.b.f) && m.b.k !== m.a.k);
+        }
+
+        function pruneDims() {
+
+            for (let i = design.dims.length - 1; i >= 0; i--) { if (!dimValid(design.dims[i])) { design.dims.splice(i, 1); } }
+        }
+
+        function centreOf(s) {
+
+            if (s.t === "c") { return [s.x, s.y]; }
+
+            const b = G.bboxOf([s]);
+
+            return [(b.x0 + b.x1) / 2, (b.y0 + b.y1) / 2];
+        }
+
+        // The point a distance is measured from.
+        function featPoint(s, f) {
+
+            const c = centreOf(s);
+
+            if (s.t === "r") {
+
+                if (f === "L") { return [s.x, c[1]]; }
+                if (f === "R") { return [s.x + s.w, c[1]]; }
+                if (f === "T") { return [c[0], s.y]; }
+                if (f === "B") { return [c[0], s.y + s.h]; }
+            }
+
+            return c;
+        }
+
+        function edgeOf(s, f) {
+
+            const i = Number(f.slice(1));
+            const n = s.pts.length;
+
+            return f[0] === "e" ? [s.pts[i], s.pts[(i + 1) % n]] : [s.pts[i], s.pts[i + 1]];
+        }
+
+        function dimValue(m) {
+
+            const l = dimLayer(m);
+            const a = l.shapes[m.a.k];
+
+            if (m.b) {
+
+                const pa = featPoint(a, m.a.f);
+                const pb = featPoint(l.shapes[m.b.k], m.b.f);
+
+                return m.dir === "v" ? Math.abs(pb[1] - pa[1]) : Math.abs(pb[0] - pa[0]);
+            }
+
+            const f = m.a.f;
+
+            if (f === "w") { return a.w; }
+            if (f === "h") { return a.h; }
+            if (f === "d") { return 2 * a.r; }
+            if (f === "tw") { return a.w; }
+
+            const e = edgeOf(a, f);
+
+            return Math.hypot(e[1][0] - e[0][0], e[1][1] - e[0][1]);
+        }
+
+        function dimName(m) {
+
+            if (m.b) { return m.dir === "v" ? "vertical distance" : "horizontal distance"; }
+
+            return { w: "width", h: "height", d: "diameter", tw: "trace width" }[m.a.f] || (m.a.f[0] === "e" ? "edge length" : "segment length");
+        }
+
+        // Drive the geometry so the dimension reads v (um).
+        function applyDim(m, v) {
+
+            const l = dimLayer(m);
+            const a = l.shapes[m.a.k];
+            const f = m.a.f;
+
+            if (m.b) {
+
+                const k = m.b.k;
+                const pa = featPoint(a, f);
+                const pb = featPoint(l.shapes[k], m.b.f);
+                const cur = m.dir === "v" ? pb[1] - pa[1] : pb[0] - pa[0];
+                const shift = (cur < 0 ? -v : v) - cur;
+
+                l.shapes[k] = G.moveShape(l.shapes[k], m.dir === "v" ? 0 : shift, m.dir === "v" ? shift : 0);
+
+                return;
+            }
+
+            if (f === "w") { a.w = v; return; }
+            if (f === "h") { a.h = v; return; }
+            if (f === "d") { a.r = v / 2; return; }
+            if (f === "tw") { a.w = v; return; }
+
+            const i = Number(f.slice(1));
+            const e = edgeOf(a, f);
+            const len = Math.hypot(e[1][0] - e[0][0], e[1][1] - e[0][1]) || 1;
+            const nx = e[0][0] + (e[1][0] - e[0][0]) * v / len;
+            const ny = e[0][1] + (e[1][1] - e[0][1]) * v / len;
+            const dx = nx - e[1][0];
+            const dy = ny - e[1][1];
+
+            if (f[0] === "e") {
+
+                a.pts[(i + 1) % a.pts.length] = [nx, ny];
+
+            } else {
+
+                // A trace keeps its shape past the segment: everything after it moves along.
+                for (let j = i + 1; j < a.pts.length; j++) { a.pts[j] = [a.pts[j][0] + dx, a.pts[j][1] + dy]; }
+            }
+        }
+
+        // What the Smart Dimension tool would pick at (x, y) on the active layer.
+        function featAt(x, y) {
+
+            const l = active();
+
+            if (!l) { return null; }
+
+            const tol = 6 / view.s;
+
+            for (let k = l.shapes.length - 1; k >= 0; k--) {
+
+                const s = l.shapes[k];
+
+                if (s.t === "r") {
+
+                    const inX = x >= s.x - tol && x <= s.x + s.w + tol;
+                    const inY = y >= s.y - tol && y <= s.y + s.h + tol;
+
+                    if (inX && Math.abs(y - s.y) <= tol) { return { k: k, f: "T" }; }
+                    if (inX && Math.abs(y - s.y - s.h) <= tol) { return { k: k, f: "B" }; }
+                    if (inY && Math.abs(x - s.x) <= tol) { return { k: k, f: "L" }; }
+                    if (inY && Math.abs(x - s.x - s.w) <= tol) { return { k: k, f: "R" }; }
+                    if (inX && inY) { return { k: k, f: "C" }; }
+
+                } else if (s.t === "c") {
+
+                    if (Math.hypot(x - s.x, y - s.y) <= s.r + tol) { return { k: k, f: "d" }; }
+
+                } else if (s.t === "p") {
+
+                    for (let i = 0; i < s.pts.length; i++) {
+
+                        const a = s.pts[i];
+                        const b = s.pts[(i + 1) % s.pts.length];
+
+                        if (Math.sqrt(G.pointSegDist2(x, y, a[0], a[1], b[0], b[1])) <= tol) { return { k: k, f: "e" + i }; }
+                    }
+
+                    if (G.pointInPoly(x, y, s.pts)) { return { k: k, f: "C" }; }
+
+                } else if (s.t === "t") {
+
+                    for (let i = 0; i + 1 < s.pts.length; i++) {
+
+                        const a = s.pts[i];
+                        const b = s.pts[i + 1];
+
+                        if (Math.sqrt(G.pointSegDist2(x, y, a[0], a[1], b[0], b[1])) <= s.w / 2 + tol) { return { k: k, f: "s" + i }; }
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        // One pick made, then a click on empty space (or Enter): dimension that one thing.
+        function singleFrom(p) {
+
+            const s = active().shapes[p.k];
+
+            if (s.t === "r") { return p.f === "L" || p.f === "R" ? "h" : "w"; }
+            if (s.t === "c") { return "d"; }
+            if (s.t === "t") { return p.f[0] === "s" ? p.f : "tw"; }
+            if (s.t === "p" && p.f[0] === "e") { return p.f; }
+
+            return null;
+        }
+
+        function addDim(m) {
+
+            const l = active();
+
+            if (!l) { return; }
+
+            pushUndo();
+
+            m.id = E.uid("M");
+            m.layer = l.id;
+            design.dims.push(m);
+            dimSel = design.dims.length - 1;
+
+            setHint("Type the " + dimName(m) + " you want and press Enter. Esc keeps it as it is. Double-click a dimension later to change it.");
+            changed("props", false);
+            openDimInput(dimSel);
+        }
+
+        function finishDim(second) {
+
+            const a = dimPick;
+            const l = active();
+
+            dimPick = null;
+
+            if (!a || !l || !l.shapes[a.k]) { return; }
+
+            if (!second || (second.k === a.k && second.f === a.f)) {
+
+                const f = singleFrom(a);
+
+                if (!f) { setHint("Pick an edge or circle to size it, or two shapes to set the distance between them."); draw(); return; }
+
+                addDim({ a: { k: a.k, f: f } });
+
+                return;
+            }
+
+            if (second.k === a.k) {
+
+                // Two sides of one rectangle: its width or height.
+                const s = l.shapes[a.k];
+                const pair = a.f + second.f;
+
+                if (s.t === "r" && (pair === "LR" || pair === "RL")) { addDim({ a: { k: a.k, f: "w" } }); return; }
+                if (s.t === "r" && (pair === "TB" || pair === "BT")) { addDim({ a: { k: a.k, f: "h" } }); return; }
+
+                const f2 = singleFrom(second);
+
+                if (f2) { addDim({ a: { k: a.k, f: f2 } }); } else { draw(); }
+
+                return;
+            }
+
+            const fa = /^[LRTB]$/.test(a.f) ? a.f : "C";
+            const fb = /^[LRTB]$/.test(second.f) ? second.f : "C";
+            const pa = featPoint(l.shapes[a.k], fa);
+            const pb = featPoint(l.shapes[second.k], fb);
+
+            // Side edges measure across, top and bottom edges measure up and down; anything else
+            // (centres, or one of each) goes the way the two points are farther apart.
+            const lr = /[LR]/.test(fa + fb);
+            const tb = /[TB]/.test(fa + fb);
+
+            let dir = Math.abs(pb[0] - pa[0]) >= Math.abs(pb[1] - pa[1]) ? "h" : "v";
+
+            if (lr && !tb) { dir = "h"; }
+            if (tb && !lr) { dir = "v"; }
+
+            addDim({ a: { k: a.k, f: fa }, b: { k: second.k, f: fb }, dir: dir });
+        }
+
+        function arrowHead(x, y, ang) {
+
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x - 7 * Math.cos(ang - 0.35), y - 7 * Math.sin(ang - 0.35));
+            ctx.lineTo(x - 7 * Math.cos(ang + 0.35), y - 7 * Math.sin(ang + 0.35));
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        // A dimension line between two screen points, with arrows; returns its middle.
+        function dimLine(a, b) {
+
+            ctx.beginPath();
+            ctx.moveTo(a[0], a[1]);
+            ctx.lineTo(b[0], b[1]);
+            ctx.stroke();
+
+            const ang = Math.atan2(b[1] - a[1], b[0] - a[0]);
+
+            if (Math.hypot(b[0] - a[0], b[1] - a[1]) > 16) { arrowHead(b[0], b[1], ang); arrowHead(a[0], a[1], ang + Math.PI); }
+
+            return [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+        }
+
+        function extLine(a, b) {
+
+            ctx.beginPath();
+            ctx.moveTo(a[0], a[1]);
+            ctx.lineTo(b[0], b[1]);
+            ctx.stroke();
+        }
+
+        function dimLabel(text, c, i, hot) {
+
+            ctx.font = "600 12px Inter, Arial, sans-serif";
+
+            const w = ctx.measureText(text).width + 10;
+            const box = { i: i, x: c[0] - w / 2, y: c[1] - 10, w: w, h: 20 };
+
+            ctx.fillStyle = hot ? DIM_COLOR : "rgba(6,8,15,0.88)";
+            ctx.fillRect(box.x, box.y, box.w, box.h);
+            ctx.strokeStyle = DIM_COLOR;
+            ctx.strokeRect(box.x + 0.5, box.y + 0.5, box.w - 1, box.h - 1);
+            ctx.fillStyle = hot ? "#0b1020" : DIM_COLOR;
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText(text, c[0], c[1] + 1);
+
+            dimBoxes.push(box);
+        }
+
+        function drawDims() {
+
+            dimBoxes = [];
+            pruneDims();
+
+            const l = active();
+
+            if (!l) { return; }
+
+            ctx.save();
+            ctx.lineWidth = 1;
+            ctx.font = "600 12px Inter, Arial, sans-serif";
+
+            design.dims.forEach(function (m, i) {
+
+                if (m.layer !== l.id || !l.visible) { return; }
+
+                const a = l.shapes[m.a.k];
+                const OFF = 22;
+                const text = (m.a.f === "d" && !m.b ? "⌀ " : "") + fmtLen(dimValue(m));
+                const tw2 = ctx.measureText(text).width / 2;
+                let c;
+
+                ctx.strokeStyle = DIM_COLOR;
+                ctx.fillStyle = DIM_COLOR;
+
+                if (m.b) {
+
+                    const s2 = l.shapes[m.b.k];
+                    const pa = toScreen.apply(null, featPoint(a, m.a.f));
+                    const pb = toScreen.apply(null, featPoint(s2, m.b.f));
+                    const ba = G.bboxOf([a]);
+                    const bb = G.bboxOf([s2]);
+
+                    if (m.dir === "v") {
+
+                        const x = Math.max(toScreen(ba.x1, 0)[0], toScreen(bb.x1, 0)[0]) + OFF;
+
+                        extLine(pa, [x + 4, pa[1]]);
+                        extLine(pb, [x + 4, pb[1]]);
+                        c = dimLine([x, pa[1]], [x, pb[1]]);
+                        c = [c[0] + 10 + tw2, c[1]];
+
+                    } else {
+
+                        const y = Math.min(toScreen(0, ba.y0)[1], toScreen(0, bb.y0)[1]) - OFF;
+
+                        extLine(pa, [pa[0], y - 4]);
+                        extLine(pb, [pb[0], y - 4]);
+                        c = dimLine([pa[0], y], [pb[0], y]);
+                        c = [c[0], c[1] - 12];
+                    }
+
+                } else if (m.a.f === "w" || m.a.f === "h") {
+
+                    const tl = toScreen(a.x, a.y);
+                    const br = toScreen(a.x + a.w, a.y + a.h);
+
+                    if (m.a.f === "w") {
+
+                        const y = tl[1] - OFF;
+
+                        extLine(tl, [tl[0], y - 4]);
+                        extLine([br[0], tl[1]], [br[0], y - 4]);
+                        c = dimLine([tl[0], y], [br[0], y]);
+                        c = [c[0], c[1] - 12];
+
+                    } else {
+
+                        const x = tl[0] - OFF;
+
+                        extLine(tl, [x - 4, tl[1]]);
+                        extLine([tl[0], br[1]], [x - 4, br[1]]);
+                        c = dimLine([x, tl[1]], [x, br[1]]);
+                        c = [c[0] - 10 - tw2, c[1]];
+                    }
+
+                } else if (m.a.f === "d") {
+
+                    const p = toScreen(a.x, a.y);
+                    const r = a.r * view.s;
+                    const q = [Math.SQRT1_2, -Math.SQRT1_2];
+
+                    dimLine([p[0] - q[0] * r, p[1] - q[1] * r], [p[0] + q[0] * r, p[1] + q[1] * r]);
+                    c = [p[0] + q[0] * (r + 14) + tw2, p[1] + q[1] * (r + 14)];
+
+                } else if (m.a.f === "tw") {
+
+                    const e = [a.pts[0], a.pts[1]];
+                    const len = Math.hypot(e[1][0] - e[0][0], e[1][1] - e[0][1]) || 1;
+                    const nx = -(e[1][1] - e[0][1]) / len;
+                    const ny = (e[1][0] - e[0][0]) / len;
+                    const mx = (e[0][0] + e[1][0]) / 2;
+                    const my = (e[0][1] + e[1][1]) / 2;
+
+                    const p1 = toScreen(mx - nx * a.w / 2, my - ny * a.w / 2);
+                    const p2 = toScreen(mx + nx * a.w / 2, my + ny * a.w / 2);
+
+                    dimLine(p1, p2);
+                    c = [p2[0] + nx * (14 + tw2), p2[1] + ny * 16];
+
+                } else {
+
+                    // Edge or segment: a dimension line parallel to it, pushed outward.
+                    const e = edgeOf(a, m.a.f);
+                    const p1 = toScreen(e[0][0], e[0][1]);
+                    const p2 = toScreen(e[1][0], e[1][1]);
+                    const len = Math.hypot(p2[0] - p1[0], p2[1] - p1[1]) || 1;
+                    let nx = -(p2[1] - p1[1]) / len;
+                    let ny = (p2[0] - p1[0]) / len;
+
+                    const cc = toScreen.apply(null, centreOf(a));
+
+                    if ((p1[0] - cc[0]) * nx + (p1[1] - cc[1]) * ny < 0) { nx = -nx; ny = -ny; }
+
+                    const off = OFF + (a.t === "t" ? a.w * view.s / 2 : 0);
+                    const q1 = [p1[0] + nx * off, p1[1] + ny * off];
+                    const q2 = [p2[0] + nx * off, p2[1] + ny * off];
+
+                    extLine(p1, [q1[0] + nx * 4, q1[1] + ny * 4]);
+                    extLine(p2, [q2[0] + nx * 4, q2[1] + ny * 4]);
+                    c = dimLine(q1, q2);
+                    c = [c[0] + nx * (12 + Math.abs(nx) * tw2), c[1] + ny * 12];
+                }
+
+                dimLabel(text, c, i, i === dimSel);
+            });
+
+            // What the Smart Dimension tool is pointing at.
+            if (tool === "dim") {
+
+                [dimPick, dimHover].forEach(function (p, n) {
+
+                    if (!p || !l.shapes[p.k]) { return; }
+
+                    const s = l.shapes[p.k];
+
+                    ctx.save();
+                    ctx.strokeStyle = n === 0 ? DIM_COLOR : "rgba(255,211,107,0.6)";
+                    ctx.lineWidth = n === 0 ? 3 : 2;
+                    ctx.beginPath();
+
+                    if (s.t === "r" && /^[LRTB]$/.test(p.f)) {
+
+                        const a = toScreen(p.f === "R" ? s.x + s.w : s.x, p.f === "B" ? s.y + s.h : s.y);
+                        const b = toScreen(p.f === "L" ? s.x : s.x + s.w, p.f === "T" ? s.y : s.y + s.h);
+
+                        ctx.moveTo(a[0], a[1]);
+                        ctx.lineTo(b[0], b[1]);
+
+                    } else if (p.f[0] === "e" || p.f[0] === "s") {
+
+                        const e = edgeOf(s, p.f);
+                        const a = toScreen(e[0][0], e[0][1]);
+                        const b = toScreen(e[1][0], e[1][1]);
+
+                        ctx.moveTo(a[0], a[1]);
+                        ctx.lineTo(b[0], b[1]);
+
+                    } else {
+
+                        tracePath(ctx, s);
+                    }
+
+                    ctx.stroke();
+                    ctx.restore();
+                });
+            }
+
+            ctx.restore();
+        }
+
+        function dimBoxAt(px, py) {
+
+            for (let k = dimBoxes.length - 1; k >= 0; k--) {
+
+                const b = dimBoxes[k];
+
+                if (px >= b.x - 3 && px <= b.x + b.w + 3 && py >= b.y - 3 && py <= b.y + b.h + 3) { return b; }
+            }
+
+            return null;
+        }
+
+        function closeDimInput() {
+
+            if (dimInput) { const el = dimInput; dimInput = null; el.remove(); }
+        }
+
+        // The box where you type the value, right over the dimension's label.
+        function openDimInput(i) {
+
+            closeDimInput();
+            draw();
+
+            const m = design.dims[i];
+            const box = dimBoxes.filter(function (b) { return b.i === i; })[0];
+
+            if (!m || !box) { return; }
+
+            const input = h("input", {
+                type: "text", className: "ed-dim-input", inputmode: "decimal", spellcheck: "false", autocomplete: "off",
+                "aria-label": "Set the " + dimName(m) + " (" + UNITS[unitOf()].label + ")",
+                value: String(roundU(dimValue(m)))
+            });
+
+            input.style.left = Math.max(4, Math.min(W - 124, box.x + box.w / 2 - 60)) + "px";
+            input.style.top = Math.max(4, Math.min(Hh - 34, box.y - 5)) + "px";
+
+            let done = false;
+
+            function commit() {
+
+                if (done) { return; }
+
+                done = true;
+
+                const v = parseLen(input.value);
+
+                closeDimInput();
+
+                if (!isFinite(v)) { setHint("Couldn't read “" + input.value + "”. Type a number, optionally with a unit: 12.5, 2.5 mm, 300 nm, 2*40."); draw(); return; }
+
+                const min = m.b ? 0 : 0.01;
+
+                if (v < min) { setHint("The " + dimName(m) + " must be " + (m.b ? "zero or more." : "more than zero.")); draw(); return; }
+
+                if (Math.abs(v - dimValue(m)) < 1e-9) { draw(); return; }
+
+                pushUndo();
+                applyDim(m, v);
+                setHint("Set the " + dimName(m) + " to " + fmtLen(v) + ".");
+                changed("shapes", false);
+                buildProps();
+                canvas.focus();
+            }
+
+            input.addEventListener("keydown", function (e) {
+
+                e.stopPropagation();
+
+                if (e.key === "Enter") { e.preventDefault(); commit(); }
+                if (e.key === "Escape") { e.preventDefault(); done = true; closeDimInput(); canvas.focus(); draw(); }
+            });
+
+            stage.appendChild(input);
+            dimInput = input;
+
+            // Focus after the click that opened it has finished, or the canvas takes focus back
+            // and the box closes straight away.
+            setTimeout(function () {
+
+                if (dimInput !== input) { return; }
+
+                input.focus();
+                input.select();
+                input.addEventListener("blur", function () { setTimeout(commit, 0); });
+
+            }, 0);
+        }
+
+        function deleteDim(i) {
+
+            if (i < 0 || !design.dims[i]) { return; }
+
+            pushUndo();
+            design.dims.splice(i, 1);
+            dimSel = -1;
+            closeDimInput();
+            changed("props", false);
+        }
+
+        // After shapes are deleted, point the dimensions at the shapes' new places.
+        function remapDims(layerId, keep) {
+
+            const map = {};
+            let n = 0;
+
+            keep.forEach(function (ok, i) { if (ok) { map[i] = n++; } });
+
+            for (let i = design.dims.length - 1; i >= 0; i--) {
+
+                const m = design.dims[i];
+
+                if (m.layer !== layerId) { continue; }
+
+                if (map[m.a.k] === undefined || (m.b && map[m.b.k] === undefined)) { design.dims.splice(i, 1); continue; }
+
+                m.a.k = map[m.a.k];
+
+                if (m.b) { m.b.k = map[m.b.k]; }
+            }
+
+            dimSel = -1;
+        }
+
+
         // ----- shape creation -----
         function commitShape(s) {
 
@@ -779,6 +1616,8 @@
             if (!l) { return; }
 
             if (l.shapes.length >= 500) { setHint("This layer has 500 shapes, the limit. Delete some first."); return; }
+
+            if (cutMode && !s.pad && (tool === "r" || tool === "c" || tool === "p" || tool === "t")) { s.cut = true; }
 
             pushUndo();
             l.shapes.push(s);
@@ -842,6 +1681,53 @@
             }
 
             if (!l) { setHint("Add a layer first."); return; }
+
+            // A click on a dimension's label selects it (Smart Dimension: edits it).
+            const db = (tool === "select" || tool === "dim") ? dimBoxAt(p.px, p.py) : null;
+
+            if (db) {
+
+                dimSel = db.i;
+                dimPick = null;
+
+                if (tool === "dim" || Date.now() - lastTap < 350) { openDimInput(db.i); } else { draw(); }
+
+                lastTap = Date.now();
+
+                return;
+            }
+
+            if (tool === "hole") {
+
+                const r = Math.max(0.05, holeD / 2);
+
+                commitShape({ t: "c", x: p.sx, y: p.sy, r: Math.round(r * 1000) / 1000, cut: true });
+                setHint("Hole " + fmtLen(holeD) + " placed. Click to add another, or use Smart Dimension to position it exactly.");
+
+                return;
+            }
+
+            if (tool === "dim") {
+
+                const ft = featAt(p.x, p.y);
+
+                if (!dimPick) {
+
+                    if (!ft) { setHint("Click an edge, circle or shape on the active layer."); return; }
+
+                    dimPick = ft;
+                    setHint("Now click empty space (or press Enter) to dimension it, or click a second edge or shape for the distance between them.");
+                    draw();
+
+                    return;
+                }
+
+                finishDim(ft);
+
+                return;
+            }
+
+            if (dimSel >= 0) { dimSel = -1; }
 
             if (tool === "select") {
 
@@ -1017,6 +1903,10 @@
 
                 if (draft) { draft.cur = [p.sx, p.sy]; }
 
+            } else if (tool === "dim" && l) {
+
+                dimHover = featAt(p.x, p.y);
+
             } else if (tool === "select" && l) {
 
                 const k = pickAt(p.x, p.y);
@@ -1112,7 +2002,12 @@
 
         canvas.addEventListener("dblclick", function (e) {
 
-            if (draft && (tool === "p" || tool === "t")) { e.preventDefault(); finishPoly(); }
+            if (draft && (tool === "p" || tool === "t")) { e.preventDefault(); finishPoly(); return; }
+
+            const r = canvas.getBoundingClientRect();
+            const db = dimBoxAt((e.clientX - r.left) * (W / r.width), (e.clientY - r.top) * (Hh / r.height));
+
+            if (db) { e.preventDefault(); openDimInput(db.i); }
         });
 
         canvas.addEventListener("wheel", function (e) {
@@ -1181,9 +2076,12 @@
             if ((e.ctrlKey || e.metaKey) && (k === "d" || k === "D")) { e.preventDefault(); duplicateSel(); return; }
             if ((e.ctrlKey || e.metaKey) && (k === "a" || k === "A") && l) { e.preventDefault(); sel = l.shapes.map(function (_, i) { return i; }); buildProps(); draw(); return; }
 
-            if (k === "Escape") { draft = null; ruler = []; drag = null; sel = []; buildProps(); draw(); return; }
+            if (k === "Escape") { draft = null; ruler = []; drag = null; sel = []; dimPick = null; dimSel = -1; buildProps(); draw(); return; }
+            if (k === "Enter" && tool === "dim" && dimPick) { finishDim(null); return; }
+            if (k === "Enter" && dimSel >= 0 && !draft) { openDimInput(dimSel); return; }
             if (k === "Enter") { finishPoly(); return; }
 
+            if ((k === "Delete" || k === "Backspace") && dimSel >= 0) { e.preventDefault(); deleteDim(dimSel); return; }
             if ((k === "Delete" || k === "Backspace") && sel.length && l) { e.preventDefault(); deleteSel(); return; }
 
             if (k.indexOf("Arrow") === 0 && sel.length && l) {
@@ -1225,6 +2123,8 @@
             if (!l || !sel.length) { return; }
 
             pushUndo();
+
+            remapDims(l.id, l.shapes.map(function (_, i) { return sel.indexOf(i) < 0; }));
 
             l.shapes = l.shapes.filter(function (_, i) { return sel.indexOf(i) < 0; });
 
@@ -1355,10 +2255,14 @@
 
             if (id !== "measure") { ruler = []; }
 
+            dimPick = null;
+            dimHover = null;
+            closeDimInput();
+
             const t = TOOLS.filter(function (x) { return x.id === id; })[0];
 
             setHint(t ? t.hint : "");
-            updateBar();
+            buildBar();
             draw();
         }
 
@@ -1407,23 +2311,60 @@
             const gsel = h("select", {
                 className: "ed-select", "aria-label": "Grid size",
                 onchange: function (e) { design.grid = Number(e.target.value); onChange("props"); draw(); }
-            }, [0.5, 1, 2, 5, 10, 20, 50, 100].map(function (g) { return h("option", { value: String(g), text: "Grid " + g + " µm" }); }));
+            }, [0.5, 1, 2, 5, 10, 20, 50, 100].map(function (g) { return h("option", { value: String(g), text: "Grid " + fmtLen(g) }); }));
 
             gsel.value = String(grid());
 
             bar.appendChild(gsel);
 
+            const usel = h("select", {
+                className: "ed-select", "aria-label": "Units",
+                onchange: function (e) { design.units = e.target.value; onChange("props"); buildBar(); buildSide(); draw(); }
+            }, [["nm", "nm"], ["um", "µm"], ["mm", "mm"]].map(function (u) { return h("option", { value: u[0], text: "Units " + u[1] }); }));
+
+            usel.value = unitOf();
+
+            bar.appendChild(usel);
+
             // Tool options.
             const opts2 = h("span", { className: "ed-opts" });
+            const ul = " " + UNITS[unitOf()].label;
+
+            // A length box in the chosen unit that also takes "2.5 mm" or "2*40".
+            const lenBox = function (label, get, set, aria) {
+
+                const inp = h("input", {
+                    type: "text", className: "ed-num", inputmode: "decimal", value: String(roundU(get())), "aria-label": aria,
+                    onchange: function (e) {
+
+                        const v = parseLen(e.target.value);
+
+                        if (isFinite(v) && v > 0) { set(v); }
+
+                        e.target.value = String(roundU(get()));
+                    }
+                });
+
+                return h("label", { className: "ed-opt" }, [label, inp, ul]);
+            };
+
+            if (tool === "r" || tool === "c" || tool === "p" || tool === "t") {
+
+                opts2.appendChild(h("button", {
+                    type: "button", className: "ed-tool small" + (cutMode ? " ed-cut-on" : ""), "aria-pressed": cutMode ? "true" : "false",
+                    title: "Draw holes: new shapes remove material from this layer", text: cutMode ? "Cut on" : "Cut off",
+                    onclick: function () { cutMode = !cutMode; buildBar(); setHint(cutMode ? "Cut is on: what you draw now removes material from the active layer." : TOOLS.filter(function (x) { return x.id === tool; })[0].hint); }
+                }));
+            }
 
             if (tool === "t") {
 
-                const wi = h("input", {
-                    type: "number", className: "ed-num", min: "1", max: "1000", step: String(grid()), value: String(traceWidth), "aria-label": "Trace width in micrometres",
-                    onchange: function (e) { traceWidth = Math.max(1, Number(e.target.value) || 10); }
-                });
+                opts2.appendChild(lenBox("Width ", function () { return traceWidth; }, function (v) { traceWidth = Math.max(0.05, v); }, "Trace width"));
+            }
 
-                opts2.appendChild(h("label", { className: "ed-opt" }, ["Width ", wi, " µm"]));
+            if (tool === "hole") {
+
+                opts2.appendChild(lenBox("Diameter ", function () { return holeD; }, function (v) { holeD = Math.max(0.1, v); }, "Hole diameter"));
             }
 
             if (tool === "pad") {
@@ -1461,7 +2402,10 @@
 
             if (!p) { status.textContent = ""; return; }
 
-            status.textContent = "x " + p.sx.toFixed(grid() < 1 ? 2 : 0) + "  y " + p.sy.toFixed(grid() < 1 ? 2 : 0) + " µm";
+            const gu = toU(grid());
+            const dg = gu >= 1 ? 0 : Math.min(4, Math.ceil(-Math.log10(gu)));
+
+            status.textContent = "x " + toU(p.sx).toFixed(dg) + "  y " + toU(p.sy).toFixed(dg) + " " + UNITS[unitOf()].label;
         }
 
 
@@ -1728,6 +2672,7 @@
             const i = design.layers.indexOf(l);
 
             design.layers.splice(i, 1);
+            remapDims(l.id, []);
             activeId = design.layers[Math.max(0, i - 1)].id;
             sel = [];
 
@@ -1767,15 +2712,16 @@
 
                 const info = G.shapeInfo(s);
 
-                const num = function (label, get, set, step) {
+                // Typed in the chosen unit; "2.5 mm" or "2*40" work too.
+                const num = function (label, get, set) {
 
-                    return h("label", { className: "ed-field inline" }, [label, h("input", {
-                        type: "number", className: "ed-text", step: String(step || grid()), value: String(Math.round(get() * 100) / 100),
+                    return h("label", { className: "ed-field inline" }, [label + " (" + UNITS[unitOf()].label + ")", h("input", {
+                        type: "text", inputmode: "decimal", className: "ed-text", value: String(roundU(get())),
                         onchange: function (e) {
 
-                            const v = Number(e.target.value);
+                            const v = parseLen(e.target.value);
 
-                            if (!isFinite(v)) { return; }
+                            if (!isFinite(v)) { e.target.value = String(roundU(get())); return; }
 
                             pushUndo();
                             set(v);
@@ -1810,6 +2756,24 @@
                 }
 
                 propsBox.appendChild(grp);
+
+                if (!s.pad) {
+
+                    propsBox.appendChild(h("label", { className: "ed-check" }, [
+                        h("input", {
+                            type: "checkbox", checked: s.cut ? true : false,
+                            onchange: function (e) {
+
+                                pushUndo();
+
+                                sel.forEach(function (i) { const x = l.shapes[i]; if (x && !x.pad) { if (e.target.checked) { x.cut = true; } else { delete x.cut; } } });
+
+                                changed("shapes", true);
+                            }
+                        }),
+                        " Cut (hole): removes material from this layer instead of adding it"
+                    ]));
+                }
 
                 if (s.t === "r" && canPad(design, l)) {
 
@@ -1853,8 +2817,8 @@
 
             // Repeat.
             const n = h("input", { type: "number", className: "ed-text", min: "1", max: "200", value: "5", "aria-label": "Number of copies" });
-            const dx = h("input", { type: "number", className: "ed-text", step: String(grid()), value: "150", "aria-label": "Spacing in x (um)" });
-            const dy = h("input", { type: "number", className: "ed-text", step: String(grid()), value: "0", "aria-label": "Spacing in y (um)" });
+            const dx = h("input", { type: "text", inputmode: "decimal", className: "ed-text", value: String(roundU(150)), "aria-label": "Spacing in x (" + UNITS[unitOf()].label + ")" });
+            const dy = h("input", { type: "text", inputmode: "decimal", className: "ed-text", value: "0", "aria-label": "Spacing in y (" + UNITS[unitOf()].label + ")" });
 
             propsBox.appendChild(h("div", { className: "ed-array" }, [
                 h("strong", { text: "Repeat (array)" }),
@@ -1863,7 +2827,7 @@
                     h("label", { className: "ed-field inline" }, ["step x", dx]),
                     h("label", { className: "ed-field inline" }, ["step y", dy])
                 ]),
-                h("button", { type: "button", className: "ed-mini", text: "Make copies", onclick: function () { arraySel(Number(n.value), Number(dx.value) || 0, Number(dy.value) || 0); } })
+                h("button", { type: "button", className: "ed-mini", text: "Make copies", onclick: function () { arraySel(Number(n.value), parseLen(dx.value) || 0, parseLen(dy.value) || 0); } })
             ]));
         }
 
@@ -2028,6 +2992,6 @@
     }
 
 
-    root.LabEditor = { mount: mount, fmtLen: fmtLen, fmtArea: fmtArea };
+    root.LabEditor = { mount: mount, fmtLen: fmtLenAuto, fmtArea: fmtArea, parseLength: parseLength };
 
 }(typeof window !== "undefined" ? window : globalThis));

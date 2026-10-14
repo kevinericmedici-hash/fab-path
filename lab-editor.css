@@ -589,3 +589,49 @@
     border-color: rgba(84, 224, 199, 0.45);
     background: rgba(84, 224, 199, 0.08);
 }
+
+
+/* ---------- holes and smart dimensions ---------- */
+
+.ed-ico-hole::before { content: "\2300"; }
+.ed-ico-dim::before { content: "\27F7"; }
+
+.ed-tool.ed-cut-on {
+    border-color: #ff8aa8;
+    color: #ffb3c4;
+    background: rgba(255, 138, 168, 0.12);
+}
+
+.ed-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 10px 0 4px;
+    color: var(--text);
+    font-size: 0.8rem;
+    line-height: 1.4;
+    cursor: pointer;
+}
+
+.ed-check input {
+    margin-top: 2px;
+    accent-color: #ff8aa8;
+}
+
+.ed-dim-input {
+    position: absolute;
+    z-index: 3;
+    width: 120px;
+    padding: 5px 8px;
+    border: 2px solid #ffd36b;
+    border-radius: 8px;
+    background: #0b1020;
+    color: #ffd36b;
+    font: 600 0.9rem var(--font-mono, monospace);
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+}
+
+.ed-dim-input:focus {
+    outline: none;
+}

@@ -426,16 +426,26 @@
             minFeature: Infinity, minGap: Infinity, pieces: 0
         };
 
-        if (shapes.length) {
+        // Cut shapes (holes, notches) are openings: they count toward the smallest gap, not the features.
+        const solid = shapes.filter(function (s) { return !s.cut; });
+        const holes = shapes.filter(function (s) { return s.cut; });
 
-            out.bbox = G.bboxOf(shapes);
+        if (solid.length) {
 
-            shapes.forEach(function (s) { out.minFeature = Math.min(out.minFeature, G.minDimOf(s)); });
+            out.bbox = G.bboxOf(solid);
 
-            out.minGap = shapes.length > 400 ? Infinity : G.minGapOf(shapes);
-            out.pieces = shapes.length > 400 ? 0 : G.pieces(shapes).count;
+            solid.forEach(function (s) { out.minFeature = Math.min(out.minFeature, G.minDimOf(s)); });
 
-            const u = G.unionArea(shapes, out.bbox, pxFor(out.bbox, out.minFeature));
+            out.minGap = solid.length > 400 ? Infinity : G.minGapOf(solid);
+            out.pieces = solid.length > 400 ? 0 : G.pieces(solid).count;
+
+            let holeMin = Infinity;
+
+            holes.forEach(function (s) { holeMin = Math.min(holeMin, G.minDimOf(s)); });
+
+            out.minGap = Math.min(out.minGap, holeMin);
+
+            const u = G.unionArea(shapes, out.bbox, pxFor(out.bbox, Math.min(out.minFeature, holeMin)));
 
             out.area = u.area;
             out.perimeter = u.perimeter;
@@ -989,18 +999,20 @@
 
             q.layer.shapes.forEach(function (s) {
 
-                let c = G.growShape(s, q.bias / 2);
+                // A hole shrinks as the material around it grows, so cuts take the opposite bias.
+                let c = G.growShape(s, (s.cut ? -q.bias : q.bias) / 2);
 
                 if (!c) { return; }
 
                 c = G.moveShape(c, q.dx, q.dy);
 
                 if (s.pad) { c.pad = s.pad; }
+                if (s.cut) { c.cut = true; }
 
                 out.push(c);
             });
 
-            return out;
+            return G.applyCuts(out);
         });
 
         // Raster frame.
