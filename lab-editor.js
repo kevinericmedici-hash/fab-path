@@ -1485,6 +1485,50 @@
             buildLayers();
             buildProps();
             buildMeasure();
+
+            if (root.LabExport) { side.appendChild(buildExport()); }
+        }
+
+        // Download the layout for CoventorWare, KLayout, CAD programs and so on.
+        function buildExport() {
+
+            const X = root.LabExport;
+            const box = h("div", { className: "ed-card ed-export" });
+            const note = h("p", { className: "ed-muted", "aria-live": "polite" });
+
+            function say(text) { note.textContent = text; }
+
+            box.appendChild(h("h3", { text: "Export layout" }));
+            box.appendChild(h("p", { className: "ed-muted", text: "Open this design in CoventorWare, KLayout, L-Edit or a CAD program. GDSII is the one CoventorWare imports; the .zip adds the layer stack and import steps." }));
+
+            const row = h("div", { className: "ed-export-grid" });
+
+            X.FORMATS.forEach(function (f) {
+
+                row.appendChild(h("button", {
+                    type: "button", className: "ed-mini ed-export-btn" + (f.id === "gds" || f.id === "zip" ? " primary" : ""), title: f.note,
+                    onclick: function () {
+
+                        if (!X.shapeCount(design)) { say("Draw at least one shape first."); return; }
+
+                        const file = X.build(design, f.id);
+
+                        X.download(file).then(function () {
+
+                            say("Saved " + file.name + ".");
+
+                        }).catch(function () {
+
+                            say("Couldn't save " + file.name + ". Please try again.");
+                        });
+                    }
+                }, [h("strong", { text: f.label }), h("span", { text: f.note })]));
+            });
+
+            box.appendChild(row);
+            box.appendChild(note);
+
+            return box;
         }
 
         function buildLayers() {

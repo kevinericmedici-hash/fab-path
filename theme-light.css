@@ -1933,6 +1933,15 @@ html[data-theme="light"] .lab-step-line:not(.module-visual:not(.module-visual-te
     color: var(--muted);
 }
 
+html[data-theme="light"] .ed-export-btn span:not(.module-visual:not(.module-visual-text), .lab-app, .module-visual:not(.module-visual-text) *, .lab-app *) {
+    color: var(--muted);
+}
+
+html[data-theme="light"] .ed-export-btn.primary:not(.module-visual:not(.module-visual-text), .lab-app, .module-visual:not(.module-visual-text) *, .lab-app *) {
+    border-color: rgba(20, 184, 166, 0.54);
+    background: rgba(20, 184, 166, 0.104);
+}
+
 /* ---------- from chip-lab.css ---------- */
 
 html[data-theme="light"] .cl-canvas-wrap:not(.module-visual:not(.module-visual-text), .lab-app, .module-visual:not(.module-visual-text) *, .lab-app *) {
