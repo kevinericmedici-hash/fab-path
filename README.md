@@ -12,7 +12,7 @@ devices, built for students heading into the chip industry.
   itself (all eight parts live, 48 short units, each a few slides and a
   quiz, plus 8 games).
 - **MEMS & Microfabrication**: cleanroom practice, lithography, deposition,
-  etching, real MEMS processes, and packaging (54 lessons in 33 short units, 8 games).
+  etching, real MEMS processes, and packaging (56 lessons in 35 short units, 8 games).
 - **Supercapacitors**: charge storage, materials, geometries, electrolytes,
   testing, fabrication, and applications (42 lessons, 8 games).
 - **BioFETs & MOSFETs**: how a transistor works, building toward biosensing

@@ -167,67 +167,67 @@ const lesson2Questions = [
 const lesson3Questions = [
 
     {
-        question: "What happens to surface-area-to-volume ratio as size decreases?",
+        question: "If every dimension of a device shrinks by 10, its volume becomes:",
         answers: [
-            "It decreases",
-            "It increases",
-            "It stays the same",
-            "It becomes zero"
-        ],
-        correct: 1
-    },
-
-    {
-        question: "If the characteristic length of an object is reduced by a factor of 10, its volume scales by approximately:",
-        answers: [
-            "1/10",
-            "1/100",
-            "1/1,000",
-            "1/10,000"
+            "1/10 of the original",
+            "1/100 of the original",
+            "1/1,000 of the original",
+            "It stays the same"
         ],
         correct: 2
     },
 
     {
-        question: "Which quantity typically scales with length squared?",
+        question: "Area scales as which power of the characteristic length S?",
         answers: [
-            "Volume",
-            "Area",
-            "Mass",
-            "Time"
+            "S^1",
+            "S^2",
+            "S^3",
+            "S^-1"
         ],
         correct: 1
     },
 
     {
-        question: "Why can electrostatic forces become especially useful in MEMS?",
+        question: "A cube with side a has surface ÷ volume = 6/a. How does that ratio scale?",
         answers: [
-            "Because electrostatic effects stay significant as sizes shrink",
-            "Because gravity becomes far stronger as devices get smaller",
-            "Because electric charge cannot exist at very small scales",
-            "Because all materials turn magnetic below a few microns"
+            "S^1: it shrinks with the device",
+            "S^-1: it grows as the device shrinks",
+            "S^0: it never changes",
+            "S^3: it shrinks very fast"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Surface tension scales as S^1 and weight as S^{3}. Shrink a device 1,000×. How much more important is surface tension compared with weight?",
+        answers: [
+            "1,000× more",
+            "No change",
+            "1,000,000× more",
+            "1,000× less"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Why can the largest animals only live in water?",
+        answers: [
+            "Buoyancy carries their weight, which grows as S^3",
+            "Surface tension holds them up",
+            "Water makes their bones stronger",
+            "Gravity is weaker in the sea"
         ],
         correct: 0
     },
 
     {
-        question: "Which force generally becomes less dominant relative to surface forces as devices become smaller?",
+        question: "Why do MEMS parts often stick together (stiction)?",
         answers: [
-            "Electrostatic force",
-            "Surface adhesion force",
-            "Gravitational force",
-            "Capillary force"
-        ],
-        correct: 2
-    },
-
-    {
-        question: "Why are scaling laws important in MEMS design?",
-        answers: [
-            "They predict which physical effects grow or shrink in importance",
-            "They eliminate the need for detailed engineering calculations",
-            "They only matter for the design of very large machines",
-            "They make all microscale devices behave in identical ways"
+            "Adhesion scales as S^1 or S^2, so it beats weight and spring forces when parts are tiny",
+            "Gravity pulls small parts together harder",
+            "Silicon is magnetic at small sizes",
+            "Small parts are always wet"
         ],
         correct: 0
     }
@@ -6396,6 +6396,146 @@ const lesson54Questions = [
 
 ];
 
+const lesson55Questions = [
+
+    {
+        question: "In Trimmer's notation, which force scales as S^2?",
+        answers: [
+            "Surface tension",
+            "Electrostatic force with a constant electric field",
+            "Weight",
+            "Magnetic force with constant current density"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Mass scales as S^{3}. For a force that scales as S^f, acceleration a = F/m scales as:",
+        answers: [
+            "S^(f+3)",
+            "S^(3-f)",
+            "S^(f-3)",
+            "S^f"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "An S^1 (surface tension) driven part is made 10× smaller. Its acceleration:",
+        answers: [
+            "Drops 100×",
+            "Stays the same",
+            "Rises 10×",
+            "Rises 100×"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Travel time t = √(2dm/F) scales as S^{(4-f)/2}. For an electrostatic S^2 force, time scales as:",
+        answers: [
+            "S^0: no change",
+            "S^1: 10× smaller means 10× faster",
+            "S^2: 10× smaller means 100× faster",
+            "S^-1: it gets slower"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "For which force law does the travel time NOT change as the device shrinks?",
+        answers: [
+            "S^1",
+            "S^2",
+            "S^3",
+            "S^4"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What is √(S^3)?",
+        answers: [
+            "S^1.5",
+            "S^9",
+            "S^6",
+            "S^0.3"
+        ],
+        correct: 0
+    }
+
+];
+
+const lesson56Questions = [
+
+    {
+        question: "Power density P/V scales as S^{(3f-8)/2}. For an electrostatic (S^2) actuator that gives:",
+        answers: [
+            "S^2",
+            "S^0.5",
+            "S^-1",
+            "S^-2.5"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Shrink an electrostatic actuator 10×. What happens?",
+        answers: [
+            "Force drops 100×, power density rises 10×",
+            "Force drops 10×, power density drops 10×",
+            "Force rises 100×, power density rises 100×",
+            "Nothing changes"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Shrink a magnetic (S^4) actuator 10×. Its power density:",
+        answers: [
+            "Rises 100×",
+            "Stays the same",
+            "Falls 10×",
+            "Falls 100×"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Resonant frequency √(k/m) scales as S^{-1}. A resonator made 10× smaller resonates:",
+        answers: [
+            "10× lower",
+            "At the same frequency",
+            "10× higher",
+            "100× higher"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Diffusion time scales as S^{2}. Compared with diffusing across 1 cm, diffusing across 10 µm is about:",
+        answers: [
+            "1,000× faster",
+            "1,000,000× faster",
+            "10× faster",
+            "The same"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Why is flow in a microchannel laminar?",
+        answers: [
+            "The Reynolds number scales as S^2, so it is tiny at small sizes",
+            "Water is thicker in small channels",
+            "Gravity stops turbulence",
+            "Microchannels are always heated"
+        ],
+        correct: 0
+    }
+
+];
+
 
 /*
     Looked up by numeric lesson id - lets the practice
@@ -6457,7 +6597,9 @@ const allLessonQuestions = {
     51: lesson51Questions,
     52: lesson52Questions,
     53: lesson53Questions,
-    54: lesson54Questions
+    54: lesson54Questions,
+    55: lesson55Questions,
+    56: lesson56Questions
 };
 
 let lessonQuestions = [];
@@ -6929,6 +7071,24 @@ if (window.location.pathname.includes("lesson54.html")) {
         54;
 }
 
+if (window.location.pathname.includes("lesson55.html")) {
+
+    lessonQuestions =
+        lesson55Questions;
+
+    currentLesson =
+        55;
+}
+
+if (window.location.pathname.includes("lesson56.html")) {
+
+    lessonQuestions =
+        lesson56Questions;
+
+    currentLesson =
+        56;
+}
+
 let currentQuestion = 0;
 let selectedAnswer = null;
 let currentCorrectIndex = null;
@@ -7236,13 +7396,14 @@ updateStreakOnLessonComplete();
    final lesson id is a literal here rather than derived. */
 
 const MEMS_FINAL_LESSON_ID = 54;
+const MEMS_LESSON_COUNT = 56;
 
 if (currentLesson === MEMS_FINAL_LESSON_ID && window.FabCertificate) {
 
     window.FabCertificate.showCourseComplete({
         courseTitle: "MEMS & Microfabrication",
         courseSlug: "mems",
-        lessonCount: MEMS_FINAL_LESSON_ID,
+        lessonCount: MEMS_LESSON_COUNT,
         onContinue: function () {
             window.location.href = "learn.html";
         }
@@ -7346,6 +7507,28 @@ function isUnitStudyComplete(unitId) {
 /* ========================================
    GET ALL LESSONS
 ======================================== */
+
+/*
+    Units and lessons keep their ids forever (saved progress uses them),
+    but new units can be slotted in anywhere, so the numbers people see
+    come from the order on the path.
+*/
+
+function unitNumber(unit) {
+
+    return courseData.indexOf(unit) + 1;
+}
+
+function lessonNumber(lesson) {
+
+    return getAllLessons().indexOf(lesson) + 1;
+}
+
+function unitNumberById(id) {
+
+    return courseData.findIndex(function (u) { return u.id === id; }) + 1;
+}
+
 
 function getAllLessons() {
 
@@ -7529,7 +7712,7 @@ function createStudyNode(
             <div class="node-info">
 
                 <span>
-                    UNIT ${unit.id} · STUDY
+                    UNIT ${unitNumber(unit)} · STUDY
                 </span>
 
                 <h3>
@@ -7600,7 +7783,7 @@ function createLessonNode(
             "available";
 
         circleContent =
-            lesson.id;
+            lessonNumber(lesson);
 
         href =
             `lesson${lesson.id}.html`;
@@ -7624,7 +7807,7 @@ function createLessonNode(
             <div class="node-info">
 
                 <span>
-                    FAB CHALLENGE ${lesson.id}
+                    FAB CHALLENGE ${lessonNumber(lesson)}
                 </span>
 
                 <h3>
@@ -7705,7 +7888,7 @@ function renderLearningPath() {
                     <div class="unit-banner">
 
                         <span>
-                            PART ${part.id} · UNITS ${part.firstUnitId}–${part.lastUnitId}
+                            PART ${part.id} · UNITS ${unitNumberById(part.firstUnitId)}–${unitNumberById(part.lastUnitId)}
                         </span>
 
                         <h2>

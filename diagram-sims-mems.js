@@ -1132,6 +1132,137 @@
 
 
     /* ======================================
+       SCALING LAWS: TRIMMER'S FORCE SCALING
+       Pick how a force scales (S¹ to S⁴), shrink the device,
+       and see force, mass, acceleration, travel time and
+       power density change. Bars are ratios to the original
+       size on a log scale: right of centre is bigger, left smaller.
+    ====================================== */
+
+    SIMS["mems-force-scaling"] = function (root) {
+
+        const defaults = { f: 2, k: 1 };
+        const state = { f: 2, k: 1 };
+
+        const LAWS = {
+            1: "surface tension",
+            2: "electrostatic, constant field",
+            3: "weight, some magnetic cases",
+            4: "magnetic, constant current density"
+        };
+
+        root.innerHTML =
+            head("Try it: shrink a device and follow the force") +
+            seg("How the force scales", "f", [["1", "S¹"], ["2", "S²"], ["3", "S³"], ["4", "S⁴"]]) +
+            '<p class="fd-sim-formula" data-out="law"></p>' +
+            art("0 0 340 200", "Five bars on a log scale showing how force, mass, acceleration, travel time and power density change compared with the original device: bars to the right mean larger, to the left smaller") +
+            '<div class="fd-stat-row">' + stat("Force", "fr") + stat("Acceleration", "ar") + stat("Time to move", "tr") + stat("Power ÷ volume", "pr") + "</div>" +
+            '<div class="fd-sim-readout"><div class="fd-sim-big" data-out="verdict"></div><span class="fd-chip" data-out="chip"></span></div>' +
+            '<div class="fd-sim-controls">' +
+            slider({ label: "Shrink every dimension by (log scale, 1× to 1,000×)", key: "k", min: 0, max: 3, step: 0.05, value: 1 }) +
+            "</div>" +
+            '<p class="fd-sim-formula">Force ∝ S<sup>f</sup>, mass ∝ S³, acceleration ∝ S<sup>f−3</sup>, time ∝ S<sup>(4−f)/2</sup>, power ÷ volume ∝ S<sup>(3f−8)/2</sup>.</p>';
+
+        const svg = root.querySelector("svg");
+
+        function sup(n) {
+
+            const map = { "0": "⁰", "1": "¹", "2": "²", "3": "³", "4": "⁴", "5": "⁵", "6": "⁶", "7": "⁷", "8": "⁸", "9": "⁹", "-": "⁻", ".": "·" };
+
+            return String(n).split("").map(function (c) { return map[c] || c; }).join("");
+        }
+
+        // A ratio such as 0.001 or 31.6 as a short, readable factor.
+        function ratio(v) {
+
+            if (Math.abs(Math.log10(v)) < 0.01) { return "no change"; }
+
+            const e = Math.log10(v);
+
+            if (v >= 1) { return e < 3 ? "× " + (v >= 10 ? Math.round(v).toLocaleString() : v.toFixed(1)) : "× 10" + sup(Math.round(e * 10) / 10); }
+
+            const inv = 1 / v;
+
+            return e > -3 ? "÷ " + (inv >= 10 ? Math.round(inv).toLocaleString() : inv.toFixed(1)) : "÷ 10" + sup(Math.round(-e * 10) / 10);
+        }
+
+        function update() {
+
+            const f = state.f;
+            const S = Math.pow(10, -state.k);
+            const shrink = Math.pow(10, state.k);
+
+            const rows = [
+                { n: "force", e: f, c: "rgba(84,224,199,.8)" },
+                { n: "mass", e: 3, c: "rgba(170,179,207,.8)" },
+                { n: "acceleration", e: f - 3, c: "rgba(255,214,102,.85)" },
+                { n: "time to move", e: (4 - f) / 2, c: "rgba(138,164,255,.85)" },
+                { n: "power ÷ volume", e: (3 * f - 8) / 2, c: "rgba(255,105,120,.85)" }
+            ];
+
+            const cx = 230;
+            const half = 95;
+            const DEC = 12;   // decades shown on each side
+
+            let s = "";
+
+            s += '<line x1="' + cx + '" y1="14" x2="' + cx + '" y2="178" style="stroke:rgba(245,247,255,.55);stroke-width:1"/>';
+            s += label(cx, 192, "same as before", 6.5, "middle", "var(--muted)");
+            s += label(cx - half, 192, "10" + sup(DEC) + "× smaller", 6.5, "start", "var(--muted)");
+            s += label(cx + half, 192, "10" + sup(DEC) + "× bigger", 6.5, "end", "var(--muted)");
+
+            rows.forEach(function (r, i) {
+
+                const y = 20 + i * 32;
+                const dec = clamp(r.e * -state.k, -DEC, DEC);   // log10 of the ratio
+                const w = Math.abs(dec) / DEC * half;
+
+                s += label(cx - half - 8, y + 12, r.n, 7, "end");
+                s += label(cx - half - 8, y + 21, "∝ S" + sup(r.e), 6.2, "end", "var(--muted)");
+                s += rect(dec >= 0 ? cx : cx - w, y + 2, Math.max(1.5, w), 16, r.c, "rgba(245,247,255,.45)");
+            });
+
+            svg.innerHTML = s;
+
+            const val = function (e) { return Math.pow(S, e); };
+
+            out(root, "law", "S" + sup(f) + " forces: " + LAWS[f] + ". The device is now " + (shrink >= 10 ? Math.round(shrink).toLocaleString() : shrink.toFixed(1)) + "× smaller (S = " + (S >= 0.01 ? S.toFixed(S >= 0.1 ? 2 : 3) : S.toExponential(0)) + ").");
+            out(root, "fr", ratio(val(f)));
+            out(root, "ar", ratio(val(f - 3)));
+            out(root, "tr", ratio(val((4 - f) / 2)));
+            out(root, "pr", ratio(val((3 * f - 8) / 2)));
+            setVal(root, "k", (shrink >= 10 ? Math.round(shrink).toLocaleString() : shrink.toFixed(1)) + "×");
+
+            const chip = root.querySelector('[data-out="chip"]');
+
+            if (state.k < 0.05) {
+
+                out(root, "verdict", "Drag the slider to shrink the device");
+                chip.textContent = "full size";
+                chip.className = "fd-chip gold";
+
+            } else if (f <= 2) {
+
+                out(root, "verdict", "Weaker force, but it moves faster and packs more power per volume");
+                chip.textContent = "✓ wins when small";
+                chip.className = "fd-chip";
+
+                if (state.k >= 2) { F.reward("mems-force-scaling", 10, "You saw why MEMS actuators are electrostatic"); }
+
+            } else {
+
+                out(root, "verdict", "Power per volume drops as it shrinks: this force loses at the microscale");
+                chip.textContent = "loses when small";
+                chip.className = "fd-chip gold";
+            }
+        }
+
+        wire(root, state, defaults, update);
+        update();
+    };
+
+
+    /* ======================================
        UNIT 3: ACCELEROMETER
     ====================================== */
 

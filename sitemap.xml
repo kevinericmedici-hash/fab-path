@@ -1425,6 +1425,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://fab-path.com/unit34.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://fab-path.com/unit35.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://fab-path.com/lesson55.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://fab-path.com/lesson56.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://fab-path.com/unit4.html</loc>
     <priority>0.5</priority>
   </url>

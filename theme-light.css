@@ -1458,6 +1458,10 @@ html[data-theme="light"] .pg-body h3.src-sub:not(.module-visual:not(.module-visu
     color: var(--text);
 }
 
+html[data-theme="light"] .module-credit:not(.module-visual:not(.module-visual-text), .lab-app, .module-visual:not(.module-visual-text) *, .lab-app *) {
+    color: var(--muted);
+}
+
 /* ---------- from lab.css ---------- */
 
 html[data-theme="light"] .lab-rail-btn:not(.module-visual:not(.module-visual-text), .lab-app, .module-visual:not(.module-visual-text) *, .lab-app *) {

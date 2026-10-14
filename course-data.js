@@ -121,13 +121,13 @@ const courseData = [
     {
         id: 2,
 
-        title: "Scaling Laws",
+        title: "Scaling Laws: Size, Area & Volume",
 
         description:
-            "See how physical forces change at the microscale.",
+            "Write size as S, see why small things are mostly surface, and find which forces win at the microscale.",
 
         studyModule: {
-            title: "Scaling Laws",
+            title: "Scaling Laws: Size, Area & Volume",
             href: "unit2.html"
         },
 
@@ -135,9 +135,61 @@ const courseData = [
 
             {
                 id: 3,
-                title: "Scaling Laws",
+                title: "Size, Area & Volume",
                 description:
-                    "See how physical forces change at the microscale."
+                    "Length, area and volume scale as S, S² and S³, and surfaces take over at small sizes."
+            }
+
+        ]
+    },
+
+    // Units 34 and 35 were added later; their ids are new so saved
+    // progress is untouched, and the path numbers them by position.
+    {
+        id: 34,
+
+        title: "Trimmer's Force Scaling",
+
+        description:
+            "Write forces as S¹ to S⁴ and work out how acceleration and travel time change when a device shrinks.",
+
+        studyModule: {
+            title: "Trimmer's Force Scaling",
+            href: "unit34.html"
+        },
+
+        lessons: [
+
+            {
+                id: 55,
+                title: "Force, Acceleration & Time",
+                description:
+                    "Use exponent arithmetic to scale forces, acceleration and travel time."
+            }
+
+        ]
+    },
+
+    {
+        id: 35,
+
+        title: "Power Density & Scaling in Real MEMS",
+
+        description:
+            "See why electrostatic actuators win when small, and how stiffness, frequency, resistance, flow and diffusion scale.",
+
+        studyModule: {
+            title: "Power Density & Scaling in Real MEMS",
+            href: "unit35.html"
+        },
+
+        lessons: [
+
+            {
+                id: 56,
+                title: "Power Density & the Scaling Table",
+                description:
+                    "Compare electrostatic and magnetic actuators and read the scaling table."
             }
 
         ]

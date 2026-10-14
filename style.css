@@ -4374,3 +4374,14 @@ svg text {
     margin: 22px 0 4px;
     color: var(--text);
 }
+
+
+/* Source credit on a study module's last slide */
+
+.module-credit {
+    max-width: 34rem;
+    margin: 4px auto 18px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
