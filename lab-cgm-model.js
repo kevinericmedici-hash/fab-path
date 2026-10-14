@@ -42,7 +42,8 @@
         au: { h2o2: 0.25, eH: 0.5, med: 1, rough: 1.3, act: 0.7 },
         c: { h2o2: 0.3, eH: 0.55, med: 0.9, rough: 3, act: 0.6 },
         ti: { h2o2: 0.03, eH: 0.7, med: 0.3, rough: 1.2, act: 0.2 },
-        agcl: { h2o2: 0.05, eH: 0.6, med: 0.2, rough: 1.5, act: 0.3 }
+        agcl: { h2o2: 0.05, eH: 0.6, med: 0.2, rough: 1.5, act: 0.3 },
+        gc: { h2o2: 0.12, eH: 0.75, med: 0.95, rough: 1.4, act: 0.5 }
     };
 
     // Films. Dg, Do: diffusion coefficients of glucose and oxygen in the film (m2/s). Di: of the three interferents.

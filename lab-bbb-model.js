@@ -89,7 +89,8 @@
         ito: { q: 15, a: 0.88, note: "ITO" },
         agcl: { q: 4000, a: 0.98, note: "Ag/AgCl" },
         al: { q: 8, a: 0.85, note: "Aluminium" },
-        cu: { q: 20, a: 0.85, note: "Copper" }
+        cu: { q: 20, a: 0.85, note: "Copper" },
+        gc: { q: 30, a: 0.9, note: "Glassy carbon" }
     };
 
     const CHALLENGES = {

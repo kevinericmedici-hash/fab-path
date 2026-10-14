@@ -70,7 +70,7 @@
 
     const ELEC = { W: "W working", S: "S sentinel", R: "R reference", C: "C counter" };
     const FILMNAME = { gox: "glucose oxidase", osgox: "wired enzyme", mpd: "permselective film", nafion: "Nafion", pu: "limiting membrane", hydrogel: "hydrogel" };
-    const METALNAME = { pt: "platinum", au: "gold", c: "carbon", ti: "titanium", agcl: "Ag/AgCl" };
+    const METALNAME = { pt: "platinum", au: "gold", c: "carbon", gc: "glassy carbon", ti: "titanium", agcl: "Ag/AgCl" };
 
     function filmText(films) {
 

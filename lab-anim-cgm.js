@@ -43,7 +43,7 @@
 
     const COL = { gox: "#f0a860", osgox: "#d9743a", mpd: "#7bd0c0", nafion: "#5ec8a0", pu: "#8f9bff", hydrogel: "#9ad0f0" };
     const NAME = { gox: "enzyme", osgox: "wired enzyme", mpd: "permselective film", nafion: "Nafion", pu: "limiting membrane", hydrogel: "hydrogel" };
-    const METALCOL = { pt: "#c8d0dc", au: "#e8c06a", c: "#555d6e", ti: "#9aa0b0", agcl: "#b8b8c8" };
+    const METALCOL = { pt: "#c8d0dc", au: "#e8c06a", c: "#555d6e", ti: "#9aa0b0", agcl: "#b8b8c8", gc: "#3c414d" };
 
     const GLU = "#ffb347";
     const OXY = "#6aa8ff";

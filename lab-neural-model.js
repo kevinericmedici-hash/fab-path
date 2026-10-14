@@ -35,7 +35,8 @@
         ito: { q: 8, a: 0.9, csc: 0.05, h2o2: 0.1, da: 30, k0: 0.005, rough: 1.2, corr: 0 },
         al: { q: 10, a: 0.85, csc: 0.03, h2o2: 0.02, da: 5, k0: 0.0005, rough: 1.2, corr: 1 },
         cu: { q: 20, a: 0.85, csc: 0.05, h2o2: 0.1, da: 20, k0: 0.01, rough: 1.3, corr: 1 },
-        agcl: { q: 3000, a: 0.98, csc: 1, h2o2: 0.1, da: 20, k0: 0.1, rough: 1.5, corr: 0.2 }
+        agcl: { q: 3000, a: 0.98, csc: 1, h2o2: 0.1, da: 20, k0: 0.1, rough: 1.5, corr: 0.2 },
+        gc: { q: 30, a: 0.9, csc: 0.8, h2o2: 0.1, da: 120, k0: 0.02, rough: 1.3, corr: 0 }
     };
 
     // Coatings. qPerUm: capacitance per um of thickness (uF/cm2), tSat: thickness where it stops growing (um).

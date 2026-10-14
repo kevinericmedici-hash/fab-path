@@ -95,7 +95,7 @@
 
         if (name === "blank") {
 
-            const l = E.newLayer("collector", { name: "Metal (sites, traces, pads)", material: "au", thickness: 0.2 });
+            const l = E.newLayer("collector", { name: "Glassy carbon (sites, traces, pads)", material: "gc", thickness: 1 });
 
             return { id: E.uid("D"), name: "", kind: kind, electrolyte: "pbs", grid: 5, layers: [l] };
         }
@@ -124,7 +124,7 @@
         if (name === "probe-si") {
 
             mk("substrate", { name: "Probe body", material: "si", thickness: 15 }, g.body);
-            mk("collector", { name: "Platinum sites and traces", material: "pt", thickness: 0.15 }, all(g.sites).concat(g.traces, g.pads), true);
+            mk("collector", { name: "Glassy carbon sites and traces", material: "gc", thickness: 1 }, all(g.sites).concat(g.traces, g.pads), true);
             mk("insulation", { name: "Passivation (windows over sites and pads)", material: "si3n4", thickness: 0.5, mode: "cut" }, g.windows, true);
 
         } else if (name === "probe-chem") {
@@ -139,7 +139,7 @@
         } else {
 
             mk("substrate", { name: "Probe body", material: "pi", thickness: 10 }, g.body);
-            mk("collector", { name: "Gold sites and traces", material: "au", thickness: 0.2 }, all(g.sites).concat(g.traces, g.pads), true);
+            mk("collector", { name: "Glassy carbon sites and traces", material: "gc", thickness: 1 }, all(g.sites).concat(g.traces, g.pads), true);
             mk("insulation", { name: "Passivation (windows over sites and pads)", material: "parylene", thickness: 2, mode: "cut" }, g.windows, true);
             mk("coating", { name: "PEDOT:PSS on the sites", material: "pedot", thickness: 0.5 }, g.coats.slice());
         }
@@ -149,9 +149,9 @@
 
 
     const TEMPLATES = [
-        { id: "probe-flex", name: "Flexible 4-channel recording probe", blurb: "Polyimide body, gold sites and traces, parylene passivation with windows, and PEDOT:PSS on every site." },
-        { id: "probe-chem", name: "Neurochemical probe", blurb: "Platinum sites: one with a glutamate enzyme layer, one bare reference (sentinel) and two carbon-nanotube dopamine sites, one with Nafion." },
-        { id: "probe-si", name: "Rigid silicon probe", blurb: "A stiff silicon shank with platinum sites and a nitride passivation. Small sites, no coating." },
+        { id: "probe-flex", name: "Flexible 4-channel recording probe", blurb: "Polyimide body, glassy carbon sites and traces, parylene passivation with windows, and PEDOT:PSS on every site." },
+        { id: "probe-chem", name: "Neurochemical probe", blurb: "Platinum sites (the glutamate enzyme makes peroxide, which needs platinum): one with a glutamate enzyme layer, one bare reference (sentinel) and two carbon-nanotube dopamine sites, one with Nafion." },
+        { id: "probe-si", name: "Rigid silicon probe", blurb: "A stiff silicon shank with glassy carbon sites and a nitride passivation. Small sites, no coating." },
         { id: "blank", name: "Blank (draw everything yourself)", blurb: "One empty metal layer." }
     ];
 

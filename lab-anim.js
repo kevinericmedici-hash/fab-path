@@ -498,7 +498,7 @@
        2. THE PROCESS MOVIE FOR ONE LAYER
     ------------------------------------------------ */
 
-    const MATERIAL_COLOR = { au: "#e8c06a", pt: "#d8dce6", cu: "#d98a4a", al: "#b7bcc9", ti: "#9aa3b5", ito: "#8fd0e0", agcl: "#c9ced8" };
+    const MATERIAL_COLOR = { au: "#e8c06a", pt: "#d8dce6", cu: "#d98a4a", al: "#b7bcc9", ti: "#9aa3b5", ito: "#8fd0e0", agcl: "#c9ced8", gc: "#4a4f5c" };
 
     function layerFilm(l) {
 

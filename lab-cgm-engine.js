@@ -89,7 +89,7 @@
 
         if (name === "blank") {
 
-            const l = E.newLayer("collector", { name: "Metal (electrodes, traces, pads)", material: "pt", thickness: 0.15 });
+            const l = E.newLayer("collector", { name: "Glassy carbon (electrodes, traces, pads)", material: "gc", thickness: 1 });
 
             return { id: E.uid("D"), name: "", kind: kind, electrolyte: "pbs", grid: 5, layers: [l] };
         }
@@ -119,15 +119,17 @@
 
             list.forEach(function (d) { shapes.push(g.sites[d], g.traces[d], g.pads[d]); });
 
-            mk("collector", { name: label, material: metal, thickness: metal === "c" ? 5 : 0.15 }, shapes, true);
+            mk("collector", { name: label, material: metal, thickness: metal === "c" ? 5 : metal === "gc" ? 1 : 0.15 }, shapes, true);
         };
 
         const wired = name === "cgm-wired";
-        const metal = wired ? "au" : "pt";
+        // The wired enzyme hands electrons to the electrode through osmium, which carbon does well.
+        // The peroxide-detecting sensors stay on platinum: carbon barely oxidises peroxide.
+        const metal = wired ? "gc" : "pt";
 
         mk("substrate", { name: "Sensor body", material: "pi", thickness: 25 }, g.body);
 
-        metalOf(["W", "S", "C"], metal, (wired ? "Gold" : "Platinum") + " electrodes (W, S, C)");
+        metalOf(["W", "S", "C"], metal, (wired ? "Glassy carbon" : "Platinum") + " electrodes (W, S, C)");
         metalOf(["R"], "agcl", "Ag/AgCl reference (R)");
 
         mk("insulation", { name: "Passivation (windows over electrodes and pads)", material: "parylene", thickness: 2, mode: "cut" }, g.windows, true);
@@ -158,7 +160,7 @@
 
     const TEMPLATES = [
         { id: "cgm-gen1", name: "First-generation sensor (GOx on platinum)", blurb: "Platinum electrodes with a permselective film, glucose oxidase on W only, a glucose-limiting membrane and a hydrogel. S has the same stack without the enzyme. Ag/AgCl reference." },
-        { id: "cgm-wired", name: "Wired-enzyme sensor (osmium mediator on gold)", blurb: "Gold electrodes with an osmium-wired enzyme that works at a low potential, a thinner limiting membrane and a hydrogel. Little oxygen or interferent trouble." },
+        { id: "cgm-wired", name: "Wired-enzyme sensor (osmium mediator on glassy carbon)", blurb: "Glassy carbon electrodes with an osmium-wired enzyme that works at a low potential, a thinner limiting membrane and a hydrogel. Little oxygen or interferent trouble." },
         { id: "cgm-simple", name: "Simple enzyme electrode (no membranes)", blurb: "Platinum with just a glucose oxidase layer on W. Cheap to make, and a good way to see what the membranes are for." },
         { id: "blank", name: "Blank (draw everything yourself)", blurb: "One empty metal layer." }
     ];

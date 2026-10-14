@@ -54,11 +54,14 @@
         ti: { name: "Titanium", sigma: 2.4e6, noble: true, cost: 2, hours: 3, adh: 0.95, thick: 0.1 },
         ito: { name: "ITO (transparent)", sigma: 1e6, noble: true, cost: 3, hours: 4, adh: 0.8, thick: 0.15 },
         agcl: { name: "Ag/AgCl (reference-grade)", sigma: 5e7, noble: false, cost: 3, hours: 4, adh: 0.7, thick: 0.2 },
+        // Patterned photoresist baked to carbon at about 1000 °C in nitrogen (carbon-MEMS). Inert, wide potential window,
+        // great for dopamine; about 2000 times more resistive than gold, and poor at oxidising hydrogen peroxide.
+        gc: { name: "Glassy carbon (pyrolysed photoresist)", sigma: 2e4, noble: true, cost: 3, hours: 8, adh: 0.85, thick: 1 },
         c: { name: "Carbon (printed or sputtered)", sigma: 3e4, noble: true, cost: 1, hours: 2, adh: 0.8, thick: 5, only: ["cgm"] }
     };
 
     // How harmful the metal is to cells in contact with it (0 = harmless, 1 = kills them).
-    const TOXIC = { au: 0, pt: 0, ti: 0, ito: 0, agcl: 0.15, al: 0.4, cu: 1 };
+    const TOXIC = { au: 0, pt: 0, ti: 0, ito: 0, gc: 0, agcl: 0.15, al: 0.4, cu: 1 };
 
     // Fluidic channel films. absorb: how strongly the wall soaks up small hydrophobic molecules.
     const CHANNEL_MATERIALS = {
@@ -171,7 +174,7 @@
     };
 
     // Metal work functions (eV) set the contact barrier to the semiconductor.
-    const WORKFUNCTION = { au: 5.1, pt: 5.65, cu: 4.65, al: 4.1, ti: 4.3, ito: 4.7 };
+    const WORKFUNCTION = { au: 5.1, pt: 5.65, cu: 4.65, al: 4.1, ti: 4.3, ito: 4.7, gc: 4.8 };
 
     const MATERIAL_TABLE = { electrode: SC.MATERIALS, collector: METALS, insulation: INSULATORS, semiconductor: SEMICONDUCTORS, channel: CHANNEL_MATERIALS, membrane: MEMBRANES, substrate: NEURAL_SUBSTRATES, coating: NEURAL_COATINGS, structure: MEMS_STRUCTURE, oxide: MEMS_OXIDES, dimple: MEMS_DIMPLES, hole: MEMS_HOLES };
 
@@ -183,8 +186,8 @@
         supercap: { name: "Supercapacitor", ready: true, blurb: "Micro-supercapacitor with two electrodes and an electrolyte.", roles: ["electrode", "collector", "insulation"], pads: ["+", "\u2212"], need: ["+", "\u2212"] },
         fet: { name: "MOSFET / thin-film transistor", ready: true, blurb: "Source, drain and gate over a semiconductor channel, measured dry.", roles: ["semiconductor", "collector", "insulation"], pads: ["S", "D", "G"], need: ["S", "D", "G"] },
         biofet: { name: "BioFET (liquid-gated sensor)", ready: true, blurb: "A transistor whose channel is open to a solution, used to sense pH, charge and redox species.", roles: ["semiconductor", "collector", "insulation"], pads: ["S", "D", "G"], need: ["S", "D"] },
-        bbb: { name: "Blood-brain barrier chip", ready: true, blurb: "A two-channel chip with a porous membrane, endothelial cells and electrodes to measure the barrier (TEER) and what crosses it.", roles: ["collector", "channel", "membrane", "insulation"], pads: ["A", "B", "I", "O"], need: ["A", "B", "I", "O"], padRoles: ["channel"], portPads: ["I", "O"], padNames: { A: "blood-side electrode", B: "brain-side electrode", I: "inlet", O: "outlet" }, padText: "Draw a pad labelled A on the electrode in the blood-side (apical) channel and B on the electrode in the brain-side (basolateral) channel, using the Pad tool on a metal layer. Each channel layer also needs an inlet pad (I) and an outlet pad (O): draw them on that channel layer, overlapping the channel. Fluid in different channel layers only joins where no membrane or insulation separates them." },
-        neural: { name: "Neural probe (electrode array)", ready: true, blurb: "A thin probe with recording and sensing sites: measure impedance, neural spikes, dopamine and glutamate, and see how it survives in tissue.", roles: ["collector", "insulation", "substrate", "coating"], pads: ["1", "2", "3", "4", "5", "6", "7", "8"], need: ["1"], padText: "Each channel is one electrode site connected by a trace to a numbered contact pad (1 to 8). Draw the pad with the Pad tool on a metal layer and pick its number. The insulation layer is a film with windows: open a window over each site and over each pad, and leave the traces covered. Draw the probe outline on the substrate layer, and the coating over the sites that need one." },
+        bbb: { name: "Blood-brain barrier chip", ready: true, defaults: { collector: "gc" }, blurb: "A two-channel chip with a porous membrane, endothelial cells and electrodes to measure the barrier (TEER) and what crosses it.", roles: ["collector", "channel", "membrane", "insulation"], pads: ["A", "B", "I", "O"], need: ["A", "B", "I", "O"], padRoles: ["channel"], portPads: ["I", "O"], padNames: { A: "blood-side electrode", B: "brain-side electrode", I: "inlet", O: "outlet" }, padText: "Draw a pad labelled A on the electrode in the blood-side (apical) channel and B on the electrode in the brain-side (basolateral) channel, using the Pad tool on a metal layer. Each channel layer also needs an inlet pad (I) and an outlet pad (O): draw them on that channel layer, overlapping the channel. Fluid in different channel layers only joins where no membrane or insulation separates them." },
+        neural: { name: "Neural probe (electrode array)", ready: true, defaults: { collector: "gc" }, blurb: "A thin probe with recording and sensing sites: measure impedance, neural spikes, dopamine and glutamate, and see how it survives in tissue.", roles: ["collector", "insulation", "substrate", "coating"], pads: ["1", "2", "3", "4", "5", "6", "7", "8"], need: ["1"], padText: "Each channel is one electrode site connected by a trace to a numbered contact pad (1 to 8). Draw the pad with the Pad tool on a metal layer and pick its number. The insulation layer is a film with windows: open a window over each site and over each pad, and leave the traces covered. Draw the probe outline on the substrate layer, and the coating over the sites that need one." },
     };
 
     KINDS.cgm = {
@@ -194,12 +197,12 @@
         padNames: { W: "working electrode (enzyme)", S: "sentinel electrode (no enzyme)", R: "reference electrode (Ag/AgCl)", C: "counter electrode" },
         padText: "A glucose sensor has up to four electrodes. Draw each one as a metal strip with a trace to a contact pad, and name the pad with the Pad tool: W is the working electrode that carries the enzyme, S is an optional sentinel electrode with no enzyme, R is the reference (use Ag/AgCl metal) and C is the counter electrode. The insulation layer is a film with windows: open a window over each electrode and each pad, and leave the traces covered. Draw the sensor outline on the substrate layer, then draw the chemistry layers over the electrodes from the inside out: a permselective film, the enzyme, the glucose-limiting membrane and an outer hydrogel.",
         materials: {
-            collector: ["pt", "au", "c", "agcl", "ti"],
+            collector: ["gc", "pt", "au", "c", "agcl", "ti"],
             insulation: ["parylene", "pi", "su8", "si3n4"],
             substrate: ["pi", "pet", "parylene"],
             coating: ["gox", "osgox", "mpd", "nafion", "pu", "hydrogel"]
         },
-        defaults: { collector: "pt", insulation: "parylene", substrate: "pi", coating: "gox" }
+        defaults: { collector: "gc", insulation: "parylene", substrate: "pi", coating: "gox" }
     };
 
     const MEMS_PADTEXT = "Draw the layers of the device from the bottom up. Structural films (polysilicon) are the parts that move or stay fixed. Each sacrificial oxide layer is a blanket film: the shapes you draw on it are ANCHOR openings where the structure above is fixed to what is under it. Release holes let the HF reach the oxide under big plates. Name the electrodes with the Pad tool on a structure or metal layer: ";
@@ -210,7 +213,7 @@
         roles: ["structure", "oxide", "dimple", "hole", "collector"], pads: ["M", "A", "B"], need: ["M", "A", "B"],
         padNames: { M: "moving mass", A: "fixed comb A", B: "fixed comb B" },
         padText: MEMS_PADTEXT + "M is the proof mass and its springs, A and B are the two sets of fixed comb fingers that sense it differentially.",
-        materials: { collector: ["au", "al", "pt"], structure: ["poly", "soi"], oxide: ["psg", "teos"] },
+        materials: { collector: ["au", "al", "pt", "gc"], structure: ["poly", "soi"], oxide: ["psg", "teos"] },
         defaults: { collector: "au" }
     };
 
@@ -220,7 +223,7 @@
         roles: ["structure", "oxide", "dimple", "hole", "collector"], pads: ["M", "D", "S"], need: ["M", "D", "S"],
         padNames: { M: "moving mass", D: "drive comb", S: "sense comb" },
         padText: MEMS_PADTEXT + "M is the proof mass and its springs, D is the fixed drive comb and S is the fixed sense comb.",
-        materials: { collector: ["au", "al", "pt"], structure: ["poly", "soi"], oxide: ["psg", "teos"] },
+        materials: { collector: ["au", "al", "pt", "gc"], structure: ["poly", "soi"], oxide: ["psg", "teos"] },
         defaults: { collector: "au" }
     };
 
@@ -230,7 +233,7 @@
         roles: ["structure", "oxide", "dimple", "hole", "collector"], pads: ["M", "A", "B"], need: ["M", "A", "B"],
         padNames: { M: "mirror and hinges", A: "address electrode A", B: "address electrode B" },
         padText: MEMS_PADTEXT + "M is the mirror and its hinges, A and B are the two address electrodes under each half of the mirror.",
-        materials: { collector: ["au", "al", "pt"], structure: ["poly", "soi"], oxide: ["psg", "teos"] },
+        materials: { collector: ["au", "al", "pt", "gc"], structure: ["poly", "soi"], oxide: ["psg", "teos"] },
         defaults: { collector: "au" }
     };
 

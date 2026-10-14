@@ -2513,7 +2513,7 @@
 
                 pushUndo();
 
-                const nl = E.newLayer(role);
+                const nl = E.newLayer(role, { material: E.defaultMaterial(role, design.kind) });
 
                 nl.name = nl.name + " " + (design.layers.filter(function (x) { return x.role === role; }).length + 1);
 

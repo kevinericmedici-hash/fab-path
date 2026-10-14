@@ -78,7 +78,7 @@
 
         if (name === "blank") {
 
-            const l = E.newLayer("collector", { name: "Electrode metal", material: "pt", thickness: 0.1 });
+            const l = E.newLayer("collector", { name: "Glassy carbon electrode", material: "gc", thickness: 1 });
 
             return { id: E.uid("D"), name: "", kind: kind, electrolyte: "acid", grid: 50, layers: [l], culture: defaultCulture() };
         }
@@ -101,7 +101,7 @@
         // Bottom: electrode on the brain (basolateral) side.
         const eb = g.elec;
 
-        mk("collector", { name: "Basolateral electrode", material: "pt", thickness: 0.1 },
+        mk("collector", { name: "Basolateral electrode", material: "gc", thickness: 1 },
             [eb, lead(g.padB.x + g.padB.w / 2, g.padB.y + g.padB.h - 10, eb.y + 10), g.padB]);
 
         mk("channel", { name: "Basolateral channel (brain side)", material: "su8", thickness: p.H },
@@ -112,7 +112,7 @@
         mk("channel", { name: "Apical channel (blood side)", material: "su8", thickness: p.H },
             [g.channel, g.topIn, g.topOut]);
 
-        mk("collector", { name: "Apical electrode", material: "pt", thickness: 0.1 },
+        mk("collector", { name: "Apical electrode", material: "gc", thickness: 1 },
             [eb, lead(g.padA.x + g.padA.w / 2, eb.y + eb.h - 10, g.padA.y + 10), g.padA]);
 
         const design = {
@@ -128,7 +128,7 @@
 
 
     const TEMPLATES = [
-        { id: "bbb-sandwich", name: "Two-channel sandwich chip", blurb: "Parallel apical and basolateral channels over a PET membrane, with a platinum electrode in each channel." },
+        { id: "bbb-sandwich", name: "Two-channel sandwich chip", blurb: "Parallel apical and basolateral channels over a PET membrane, with a glassy carbon electrode in each channel." },
         { id: "bbb-narrow", name: "Narrow, high-shear sandwich", blurb: "Smaller channels, so the same flow gives much more shear stress on the cells." },
         { id: "blank", name: "Blank (draw everything yourself)", blurb: "One empty metal layer." }
     ];
