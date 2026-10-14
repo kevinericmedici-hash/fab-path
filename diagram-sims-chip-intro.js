@@ -933,7 +933,7 @@
 
     SIMS["chip-czfz"] = function (root) {
 
-        const CYCLE = 16;          // seconds for one full growth
+        const CYCLE = 24;          // seconds for one full growth
         const HOLD = 2.5;          // pause on the finished crystals before looping
 
         const defaults = { dots: "on" };
@@ -1282,7 +1282,7 @@
 
     SIMS["chip-finish"] = function (root) {
 
-        const STEP_SEC = 3.4;
+        const STEP_SEC = 6;
 
         const STEPS = [
             { key: "crop", name: "Crop and test", cap: "Saws cut off the cone-shaped seed and tail ends. A four-point probe then checks the resistivity and crystal quality." },
@@ -1739,6 +1739,273 @@
         });
 
         root.querySelector("[data-reset]").addEventListener("click", function () { step = 0; q = reduce ? 1 : 0; draw(); });
+
+        draw();
+
+        if (!reduce && "IntersectionObserver" in window) {
+
+            const io = new IntersectionObserver(function (entries) {
+
+                entries.forEach(function (e) { if (e.isIntersecting && !playing) { play(); } });
+            }, { threshold: 0.4 });
+
+            io.observe(root);
+        }
+    };
+
+
+    /* ======================================
+       WHEN OXIDE GETS TOO THIN (animation)
+       A gate stack in cross-section: electrons in the gate
+       press on the oxide. Thick oxide stops them; as it thins,
+       more of them tunnel straight through and leak. Then a
+       thicker high-k film (HfO₂) stops them again while acting
+       like a thin oxide electrically.
+       The leakage meter follows the usual rule of thumb that
+       direct tunnelling through SiO₂ grows about tenfold for
+       every 0.2 nm thinner. How often the dots tunnel is
+       compressed so all four stages are visible.
+    ====================================== */
+
+    SIMS["chip-thinoxide"] = function (root) {
+
+        const PHASE_SEC = 7;
+
+        const PHASES = [
+            { name: "5 nm oxide", d: 5, hk: false, cap: "A 5 nm silicon dioxide film is a wide barrier. Electrons in the gate bounce off it, so almost no current leaks." },
+            { name: "Thinner: 2 nm", d: 2, hk: false, cap: "Thinning the oxide makes transistors faster and stronger. At about 2 nm, a few electrons start tunnelling straight through the barrier." },
+            { name: "Too thin: 1.2 nm", d: 1.2, hk: false, cap: "At 1 to 2 nm, electrons pour through. The chip leaks current and heats up even when it is doing nothing." },
+            { name: "High-k fix: HfO₂", d: 3, hk: true, cap: "Hafnium oxide (high-k) can be about 3 nm thick, wide enough to stop the electrons, yet it acts like about 1 nm of SiO₂ for switching the transistor." }
+        ];
+
+        // Tunnelling through SiO₂: roughly ×10 for every 0.2 nm thinner (2κ ≈ 11.5 per nm).
+        function leakRel(d, hk) { return hk ? Math.pow(10, -2) : Math.exp(-11.5 * (d - 1.2)); }
+
+        // How often a dot gets through, squeezed so the change is visible on screen.
+        function pVisible(d, hk) { return hk ? 0.012 : 0.5 * Math.exp(-1.8 * (d - 1.2)); }
+
+        const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        let phase = 0;
+        let q = 0;              // progress within the phase
+        let playing = false;
+        let rafId = null;
+        let last = 0;
+        let flash = 0;          // recent tunnelling, for the glow
+
+        root.innerHTML =
+            head("Watch: when the gate oxide gets too thin") +
+            art("0 0 340 214", "A transistor gate in cross-section: a metal gate on top, an insulating oxide in the middle and the silicon channel below. Electrons in the gate bounce off a thick oxide. As the oxide gets thinner more electrons tunnel through it and leak, shown on a leakage meter. Finally a thicker hafnium oxide layer stops them again") +
+            '<div class="fd-stat-row">' + stat("Physical thickness", "phys") + stat("Acts like (SiO₂)", "eot") + stat("Gate leakage", "leak") + "</div>" +
+            '<div class="fd-stat-row fd-czfz-steps">' + stat("What is happening", "cap") + "</div>" +
+            '<div class="fd-seg"><button type="button" class="fd-sim-btn" data-play>▶ Play</button></div>' +
+            '<div class="fd-seg"><span class="fd-seg-label">Jump to a stage</span>' +
+            PHASES.map(function (p, i) { return '<button type="button" class="fd-sim-btn" data-phase="' + i + '">' + (i + 1) + ". " + p.name + "</button>"; }).join("") +
+            "</div>" +
+            '<p class="fd-sim-formula">Tunnelling is a quantum effect: an electron has a small chance of appearing on the far side of a barrier it does not have the energy to climb. That chance falls exponentially with thickness, roughly tenfold for every 0.2 nm of SiO₂.</p>';
+
+        const svg = root.querySelector("svg.fd-sim-art");
+        const playBtn = root.querySelector("[data-play]");
+        const phaseBtns = root.querySelectorAll("[data-phase]");
+
+        const GATE_TOP = 34;
+        const GATE_BOT = 86;
+        const X0 = 22;
+        const X1 = 214;
+
+        function tpx(d) { return 6 + d * 9; }           // oxide thickness on screen
+
+        // Thickness right now: eases from the previous stage to this one.
+        function current() {
+
+            const prev = PHASES[(phase + PHASES.length - 1) % PHASES.length];
+            const cur = PHASES[phase];
+            const m = phase === 0 ? 1 : Math.min(1, q / 0.45);
+            const s = m * m * (3 - 2 * m);
+
+            if (cur.hk) { return { d: prev.d + (cur.d - prev.d) * s, hk: s > 0.5, mix: s }; }
+
+            return { d: prev.hk ? cur.d : prev.d + (cur.d - prev.d) * s, hk: false, mix: 0 };
+        }
+
+        // Electrons: bounce around inside the gate; on hitting the oxide they either reflect or tunnel.
+        const rnd = (function () { let a = 11; return function () { a = (a * 16807) % 2147483647; return a / 2147483647; }; }());
+        const els = [];
+
+        for (let i = 0; i < 22; i++) {
+            els.push({ x: X0 + 8 + rnd() * (X1 - X0 - 16), y: GATE_TOP + 6 + rnd() * (GATE_BOT - GATE_TOP - 12), vx: (rnd() - 0.5) * 18, vy: (rnd() < 0.5 ? -1 : 1) * (14 + rnd() * 10), mode: "gate", life: 0 });
+        }
+
+        function stepElectrons(dt, st) {
+
+            const oxBot = GATE_BOT + tpx(st.d);
+            const p = pVisible(st.d, st.hk);
+
+            els.forEach(function (e) {
+
+                if (e.mode === "gate") {
+
+                    e.x += e.vx * dt;
+                    e.y += e.vy * dt;
+
+                    if (e.x < X0 + 4 || e.x > X1 - 4) { e.vx = -e.vx; e.x = Math.max(X0 + 4, Math.min(X1 - 4, e.x)); }
+                    if (e.y < GATE_TOP + 4) { e.vy = Math.abs(e.vy); }
+
+                    if (e.y >= GATE_BOT - 2) {
+
+                        if (rnd() < p) { e.mode = "tunnel"; e.y = GATE_BOT; flash = 1; }
+                        else { e.vy = -Math.abs(e.vy); e.y = GATE_BOT - 2; }
+                    }
+
+                } else if (e.mode === "tunnel") {
+
+                    e.y += 40 * dt;
+
+                    if (e.y > oxBot) { e.mode = "out"; e.life = 0; }
+
+                } else {
+
+                    e.y += 26 * dt;
+                    e.life += dt;
+
+                    if (e.life > 1.4) { e.mode = "gate"; e.y = GATE_TOP + 6; e.vy = 14 + rnd() * 10; }
+                }
+            });
+        }
+
+        function fmtLeak(st) {
+
+            const r = leakRel(st.d, st.hk);
+            const e = Math.round(Math.log10(r));
+
+            if (r < 1e-9) { return "practically none"; }
+            if (Math.abs(e) <= 0) { return "very high"; }
+
+            return e > 0 ? "10" + H.sup(e) + "× the 1.2 nm level" : "1/10" + H.sup(-e) + " of the 1.2 nm level";
+        }
+
+        function draw() {
+
+            const st = current();
+            const th = tpx(st.d);
+            const oxBot = GATE_BOT + th;
+            let s = "";
+
+            // chip heating up when it leaks
+            const heat = Math.min(1, leakRel(st.d, st.hk));
+
+            if (heat > 0.02) { s += rectS(X0 - 8, GATE_TOP - 8, X1 - X0 + 16, 190 - GATE_TOP + 12, "rgba(255,105,120," + (0.18 * heat + 0.1 * flash * heat) + ")", "none", 10); }
+
+            // gate, oxide, channel
+            s += rectS(X0, GATE_TOP, X1 - X0, GATE_BOT - GATE_TOP, "rgba(255,214,102,.18)", "rgba(255,214,102,.8)", 2);
+            s += text(X0 + 6, GATE_TOP + 11, "gate", 8, "start", GOLD);
+
+            const oxFill = st.mix > 0 ? "rgba(" + Math.round(138 + (199 - 138) * st.mix) + "," + Math.round(164 - 40 * st.mix) + "," + Math.round(255 - 40 * st.mix) + ",.45)" : "rgba(138,164,255,.45)";
+
+            s += rectS(X0, GATE_BOT, X1 - X0, th, oxFill, "rgba(245,247,255,.7)");
+            s += text(X1 + 6, GATE_BOT + th / 2 + 3, st.hk ? "HfO₂" : "SiO₂", 8, "start", TEXT);
+
+            s += rectS(X0, oxBot, X1 - X0, 190 - oxBot, "rgba(84,224,199,.18)", "rgba(84,224,199,.7)", 2);
+            s += text(X0 + 6, 186, "silicon channel", 8, "start", ACCENT);
+
+            // thickness bracket
+            s += line(X0 - 6, GATE_BOT, X0 - 6, oxBot, TEXT, 1);
+            s += line(X0 - 9, GATE_BOT, X0 - 3, GATE_BOT, TEXT, 1);
+            s += line(X0 - 9, oxBot, X0 - 3, oxBot, TEXT, 1);
+
+            // electrons
+            els.forEach(function (e) {
+
+                if (e.mode === "gate") {
+
+                    s += circ(e.x, e.y, 2.4, "rgba(138,200,255,.95)");
+
+                } else if (e.mode === "tunnel") {
+
+                    s += line(e.x, GATE_BOT - 4, e.x, e.y, "rgba(255,105,120,.6)", 1, "2 2");
+                    s += circ(e.x, e.y, 2.4, "rgba(255,105,120,.95)");
+
+                } else {
+
+                    s += circ(e.x, e.y, 2.4, "rgba(255,105,120," + Math.max(0, 0.95 - e.life * 0.65) + ")");
+                }
+            });
+
+            // leakage meter: log scale, 1e-12 .. 1e1 of the 1.2 nm level
+            const mx = 262;
+            const my0 = 40;
+            const my1 = 178;
+            const lr = leakRel(st.d, st.hk);
+            const frac = Math.max(0, Math.min(1, (Math.log10(Math.max(lr, 1e-12)) + 12) / 13));
+            const barTop = my1 - frac * (my1 - my0);
+
+            s += text(mx + 10, my0 - 10, "gate leakage", 8, "middle", TEXT);
+            s += rectS(mx, my0, 20, my1 - my0, "rgba(245,247,255,.05)", "rgba(245,247,255,.4)", 3);
+            s += rectS(mx + 2, barTop, 16, my1 - barTop, frac > 0.85 ? "rgba(255,105,120,.85)" : frac > 0.55 ? "rgba(255,214,102,.85)" : "rgba(84,224,199,.75)", "none", 2);
+
+            [["high", 0.92], ["low", 0.08]].forEach(function (m) { s += text(mx + 26, my1 - m[1] * (my1 - my0) + 3, m[0], 7.5, "start"); });
+
+            svg.innerHTML = s;
+
+            out(root, "phys", st.d.toFixed(1) + " nm " + (st.hk ? "HfO₂" : "SiO₂"));
+            out(root, "eot", st.hk ? "about 1 nm" : st.d.toFixed(1) + " nm");
+            out(root, "leak", fmtLeak(st));
+            out(root, "cap", "Stage " + (phase + 1) + " of 4 · " + PHASES[phase].cap);
+
+            phaseBtns.forEach(function (b, i) { b.classList.toggle("on", i === phase); });
+        }
+
+        function tick(now) {
+
+            rafId = null;
+
+            if (!root.offsetParent) { pause(); return; }
+
+            const dt = Math.min(0.1, (now - last) / 1000);
+
+            last = now;
+            flash = Math.max(0, flash - dt * 1.5);
+            q += dt / PHASE_SEC;
+
+            if (q >= 1) { q = 0; phase = (phase + 1) % PHASES.length; }
+
+            stepElectrons(dt, current());
+            draw();
+
+            rafId = requestAnimationFrame(tick);
+        }
+
+        function play() {
+
+            if (playing) { return; }
+
+            playing = true;
+            playBtn.textContent = "❚❚ Pause";
+            last = performance.now();
+            rafId = requestAnimationFrame(tick);
+        }
+
+        function pause() {
+
+            playing = false;
+            playBtn.textContent = "▶ Play";
+
+            if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+        }
+
+        playBtn.addEventListener("click", function () { if (playing) { pause(); } else { play(); } });
+
+        phaseBtns.forEach(function (b) {
+
+            b.addEventListener("click", function () {
+
+                phase = Number(b.dataset.phase);
+                q = playing ? 0 : 0.5;
+                draw();
+            });
+        });
+
+        root.querySelector("[data-reset]").addEventListener("click", function () { phase = 0; q = 0; draw(); });
 
         draw();
 
