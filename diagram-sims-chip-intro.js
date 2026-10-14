@@ -50,6 +50,12 @@
         style.id = "fabChipIntroStyles";
 
         style.textContent = `
+.fd-sim .fd-czfz-steps .fd-stat b {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    letter-spacing: 0;
+}
+
 .fd-q-prompt {
     margin: 4px 0 10px;
     font-size: 1.1rem;
@@ -914,6 +920,356 @@
     /* ======================================
        PULL A CRYSTAL (Czochralski game)
     ====================================== */
+
+    /* ======================================
+       CZ VERSUS FLOAT ZONE (animation)
+       Both growth methods side by side. Left: Czochralski,
+       a seed pulled from a melt in a quartz crucible, which
+       sheds oxygen into the crystal. Right: float zone, an
+       induction coil walking a molten zone up a polysilicon
+       rod with no crucible, sweeping impurities to the top.
+       Teaching animation: proportions are illustrative.
+    ====================================== */
+
+    SIMS["chip-czfz"] = function (root) {
+
+        const CYCLE = 16;          // seconds for one full growth
+        const HOLD = 2.5;          // pause on the finished crystals before looping
+
+        const defaults = { dots: "on" };
+        const state = { dots: "on" };
+
+        const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        let t = reduce ? 0.62 : 0;   // progress 0..1
+        let hold = 0;
+        let playing = false;
+        let rafId = null;
+        let last = 0;
+        let spin = 0;
+
+        const uid = "czfz" + Math.random().toString(36).slice(2, 7);
+
+        root.innerHTML =
+            head("Watch: Czochralski vs float zone") +
+            art("0 0 340 236", "Two crystal growers side by side. Left, Czochralski: a seed is dipped into molten silicon in a quartz crucible and pulled up while rotating, growing a wide crystal; oxygen from the crucible ends up in the crystal. Right, float zone: a coil melts a narrow zone in a polysilicon rod with no crucible, the zone travels up the rod, single crystal forms below it, and impurities are carried to the top") +
+            '<div class="fd-stat-row fd-czfz-steps">' + stat("Czochralski now", "cz") + stat("Float zone now", "fz") + "</div>" +
+            '<div class="fd-seg"><button type="button" class="fd-sim-btn" data-play>▶ Play</button></div>' +
+            seg("Show impurities", "dots", [["on", "Oxygen and impurities"], ["off", "Hide them"]]) +
+            '<p class="fd-sim-formula">Czochralski: wide, fast and cheap, but the quartz crucible adds oxygen (around 10¹⁸ atoms per cm³). ' +
+            "Float zone: nothing touches the melt, so the crystal is far purer, but surface tension can only hold a narrow zone, which limits the diameter.</p>";
+
+        const svg = root.querySelector("svg.fd-sim-art");
+        const playBtn = root.querySelector("[data-play]");
+
+        // Fixed random positions for oxygen specks and feed-rod impurities.
+        const rnd = (function () { let a = 7; return function () { a = (a * 16807) % 2147483647; return a / 2147483647; }; }());
+        const oxy = [];
+        const imp = [];
+
+        for (let i = 0; i < 70; i++) { oxy.push({ u: rnd(), v: rnd() * 2 - 1 }); }
+        for (let i = 0; i < 46; i++) { imp.push({ y: 30 + rnd() * 160, x: rnd() * 2 - 1 }); }
+
+        function clamp01(v) { return Math.max(0, Math.min(1, v)); }
+
+        function ease(a, b, p) { return clamp01((p - a) / (b - a)); }
+
+        /* ----- Czochralski ----- */
+
+        function czPhase(p) {
+
+            if (p < 0.08) { return "Heaters melt the polysilicon at about 1,420 °C"; }
+            if (p < 0.15) { return "Seed crystal dips into the melt"; }
+            if (p < 0.25) { return "Thin neck pulled to shed defects"; }
+            if (p < 0.36) { return "Crown widens to full diameter"; }
+            if (p < 0.93) { return "Body pulled up, crystal and crucible counter-rotating"; }
+
+            return "Tail tapers off: a wide ingot, with some oxygen inside";
+        }
+
+        // Crystal radius at a distance z (px) below the seed, for growth progress p.
+        const CZ = { cx: 82, meltTop: 150, R: 30, neck: 18, crown: 16 };
+
+        function czRadius(z, grown) {
+
+            if (z < CZ.neck) { return 1.6; }
+            if (z < CZ.neck + CZ.crown) { return 1.6 + (CZ.R - 1.6) * Math.sin((z - CZ.neck) / CZ.crown * Math.PI / 2); }
+
+            const tail = 12;
+
+            if (grown > 120 && z > grown - tail) { return CZ.R * Math.max(0.15, (grown - z) / tail); }
+
+            return CZ.R;
+        }
+
+        function drawCZ(p) {
+
+            let s = "";
+            const melted = ease(0, 0.08, p);
+            const grown = p < 0.15 ? 0 : (p < 0.25 ? ease(0.15, 0.25, p) * CZ.neck : p < 0.36 ? CZ.neck + ease(0.25, 0.36, p) * CZ.crown : CZ.neck + CZ.crown + ease(0.36, 1, p) * 98);
+
+            // Melt drops as the crystal takes silicon out of it.
+            const used = clamp01((grown - CZ.neck - CZ.crown) / 98);
+            const meltY = CZ.meltTop + used * 26;
+
+            // heaters
+            const glow = 0.25 + 0.6 * melted;
+
+            s += rectS(14, 138, 8, 74, "rgba(255,105,120," + (glow * 0.5) + ")", ROSE, 2);
+            s += rectS(142, 138, 8, 74, "rgba(255,105,120," + (glow * 0.5) + ")", ROSE, 2);
+
+            // crucible and melt (clipped to the crucible)
+            s += '<clipPath id="' + uid + 'c"><path d="M30 140 L36 210 Q82 222 128 210 L134 140 Z"/></clipPath>';
+            s += '<path d="M30 140 L36 210 Q82 222 128 210 L134 140" style="fill:rgba(245,247,255,.07);stroke:rgba(245,247,255,.6);stroke-width:1.4"/>';
+            s += '<g clip-path="url(#' + uid + 'c)">' + rectS(26, meltY, 112, 90, melted < 1 ? "rgba(170,179,207," + (0.35 * (1 - melted)) + ")" : "none") +
+                rectS(26, meltY, 112, 90, "rgba(255,105,120," + (0.55 * melted) + ")") + "</g>";
+
+            // oxygen leaving the crucible wall into the melt
+            if (state.dots === "on" && melted > 0.9) {
+
+                for (let i = 0; i < 6; i++) {
+
+                    const ph = (spin * 0.35 + i / 6) % 1;
+                    const side = i % 2 ? 1 : -1;
+                    const x = 82 + side * (46 - ph * 30);
+                    const y = 206 - ph * (206 - meltY - 6);
+
+                    s += circ(x, y, 1.3, GOLD);
+                }
+            }
+
+            // seed holder and crystal
+            const top = meltY - grown;
+            const seedTop = Math.max(8, top - 22) - (p < 0.15 ? (1 - ease(0.08, 0.15, p)) * 24 : 0);
+
+            s += line(CZ.cx, 0, CZ.cx, seedTop, "rgba(245,247,255,.6)", 1.4);
+            s += rectS(CZ.cx - 3, seedTop, 6, (p < 0.15 ? meltY - seedTop - (1 - ease(0.08, 0.15, p)) * 24 : top - seedTop), "rgba(84,224,199,.75)", TEXT, 1);
+
+            if (grown > 0.5) {
+
+                const left = [];
+                const right = [];
+
+                for (let z = 0; z <= grown; z += 2) {
+
+                    const r = czRadius(z, grown);
+
+                    left.push((CZ.cx - r) + "," + (top + z));
+                    right.unshift((CZ.cx + r) + "," + (top + z));
+                }
+
+                s += '<polygon points="' + left.concat(right).join(" ") + '" style="fill:rgba(84,224,199,.55);stroke:rgba(245,247,255,.85);stroke-width:1"/>';
+
+                // rotation hint: stripes that drift across the body
+                for (let k = 0; k < 4; k++) {
+
+                    const ph = ((spin + k / 4) % 1);
+                    const x = CZ.cx - CZ.R + ph * 2 * CZ.R;
+                    const bodyTop = top + CZ.neck + CZ.crown;
+
+                    if (grown > CZ.neck + CZ.crown + 4 && Math.abs(x - CZ.cx) < CZ.R - 2) {
+                        s += line(x, bodyTop + 2, x, meltY - 2, "rgba(245,247,255,.22)", 1);
+                    }
+                }
+
+                // oxygen trapped in the crystal
+                if (state.dots === "on") {
+
+                    oxy.forEach(function (d) {
+
+                        const z = CZ.neck + CZ.crown + d.u * (grown - CZ.neck - CZ.crown);
+
+                        if (z < CZ.neck + CZ.crown || z > grown - 2) { return; }
+
+                        s += circ(CZ.cx + d.v * (czRadius(z, grown) - 3), top + z, 0.9, GOLD);
+                    });
+                }
+            }
+
+            // counter-rotation arrows
+            if (p > 0.15) {
+
+                s += '<path d="M' + (CZ.cx - 18) + ' 24 A 18 5 0 0 0 ' + (CZ.cx + 18) + ' 24" style="fill:none;stroke:#9ef2e2;stroke-width:1.2"/>';
+                s += '<polygon points="' + (CZ.cx + 18) + ',24 ' + (CZ.cx + 13) + ',20 ' + (CZ.cx + 12) + ',26" style="fill:#9ef2e2"/>';
+                s += '<path d="M48 226 A 34 5 0 0 1 116 226" style="fill:none;stroke:rgba(245,247,255,.5);stroke-width:1.2"/>';
+                s += '<polygon points="48,226 53,222 54,228" style="fill:rgba(245,247,255,.5)"/>';
+            }
+
+            s += text(82, 12, "CZOCHRALSKI", 9, "middle", TEXT);
+            s += text(140, 134, "heater", 7.5, "middle");
+            s += text(82, 234, "quartz crucible", 7.5, "middle");
+
+            return s;
+        }
+
+        /* ----- Float zone ----- */
+
+        const FZ = { cx: 258, top: 22, bottom: 206, R: 15 };
+
+        function fzPhase(p) {
+
+            if (p < 0.08) { return "Polysilicon rod hangs inside an RF coil, no crucible"; }
+            if (p < 0.16) { return "Coil melts the bottom of the rod onto a seed"; }
+            if (p < 0.93) { return "Molten zone travels up the rod, crystal forms below"; }
+
+            return "Done: a narrower but very pure crystal; impurities end at the top";
+        }
+
+        function drawFZ(p) {
+
+            let s = "";
+            const travel = ease(0.16, 0.93, p);
+            const zoneY = p < 0.16 ? FZ.bottom - 18 : FZ.bottom - 18 - travel * (FZ.bottom - 18 - FZ.top - 14);
+            const zh = 9;
+            const heat = ease(0.06, 0.16, p);
+
+            // seed and holder at the bottom
+            s += line(FZ.cx, FZ.bottom + 4, FZ.cx, 236, "rgba(245,247,255,.6)", 1.4);
+            s += rectS(FZ.cx - 3, FZ.bottom - 6, 6, 12, "rgba(84,224,199,.75)", TEXT, 1);
+
+            // single crystal below the zone (neck near the seed, then full width)
+            if (heat > 0.5) {
+
+                const yTop = zoneY + zh;
+                const yNeck = FZ.bottom - 6;
+                const pts = [
+                    (FZ.cx - FZ.R) + "," + yTop, (FZ.cx + FZ.R) + "," + yTop,
+                    (FZ.cx + FZ.R) + "," + Math.max(yTop, yNeck - 16), (FZ.cx + 2) + "," + yNeck,
+                    (FZ.cx - 2) + "," + yNeck, (FZ.cx - FZ.R) + "," + Math.max(yTop, yNeck - 16)
+                ];
+
+                if (yNeck - yTop > 2) { s += '<polygon points="' + pts.join(" ") + '" style="fill:rgba(84,224,199,.55);stroke:rgba(245,247,255,.85);stroke-width:1"/>'; }
+            }
+
+            // polysilicon feed rod above the zone, with grain lines
+            const rodBottom = zoneY - zh;
+
+            if (rodBottom > FZ.top) {
+
+                s += rectS(FZ.cx - FZ.R, FZ.top, FZ.R * 2, rodBottom - FZ.top, "rgba(170,179,207,.45)", "rgba(245,247,255,.6)", 2);
+
+                for (let y = FZ.top + 6; y < rodBottom - 3; y += 9) {
+                    s += line(FZ.cx - FZ.R + 3, y, FZ.cx - FZ.R + 9, y + 4, "rgba(245,247,255,.25)", 0.8);
+                    s += line(FZ.cx + 2, y + 3, FZ.cx + FZ.R - 3, y - 1, "rgba(245,247,255,.25)", 0.8);
+                }
+            }
+
+            s += line(FZ.cx, 0, FZ.cx, FZ.top, "rgba(245,247,255,.6)", 1.4);
+
+            // molten zone: a slightly bulging ring held by surface tension
+            if (heat > 0) {
+
+                s += '<path d="M' + (FZ.cx - FZ.R) + " " + (zoneY - zh) + " Q " + (FZ.cx - FZ.R - 5) + " " + zoneY + " " + (FZ.cx - FZ.R) + " " + (zoneY + zh) +
+                    " L " + (FZ.cx + FZ.R) + " " + (zoneY + zh) + " Q " + (FZ.cx + FZ.R + 5) + " " + zoneY + " " + (FZ.cx + FZ.R) + " " + (zoneY - zh) + ' Z" style="fill:rgba(255,105,120,' + (0.7 * heat) + ');stroke:' + ROSE + ';stroke-width:1"/>';
+            }
+
+            // RF coil: two turns around the zone
+            [-4, 4].forEach(function (dy) {
+                s += '<ellipse cx="' + FZ.cx + '" cy="' + (zoneY + dy) + '" rx="' + (FZ.R + 11) + '" ry="4" style="fill:none;stroke:rgba(255,184,107,.95);stroke-width:2"/>';
+            });
+
+            // impurities: still in the rod above the zone, or swept along inside it
+            if (state.dots === "on") {
+
+                let caught = 0;
+
+                imp.forEach(function (d) {
+
+                    if (d.y < zoneY - zh) { s += circ(FZ.cx + d.x * (FZ.R - 3), d.y, 1, "rgba(255,105,120,.95)"); }
+                    else if (heat > 0.5 && p >= 0.16) { caught++; }
+                });
+
+                for (let i = 0; i < caught; i++) {
+
+                    const a = (i * 2.399) % (Math.PI * 2);
+
+                    s += circ(FZ.cx + Math.cos(a) * (FZ.R - 4) * ((i % 5) / 5 + 0.2), zoneY + Math.sin(a) * (zh - 3), 0.9, "rgba(255,105,120,.95)");
+                }
+            }
+
+            s += text(258, 12, "FLOAT ZONE", 9, "middle", TEXT);
+            s += text(FZ.cx + FZ.R + 30, zoneY + 2, "RF coil", 7.5, "start");
+            s += text(FZ.cx - FZ.R - 22, Math.min(FZ.bottom - 20, zoneY + 28), "crystal", 7.5, "end");
+            s += text(FZ.cx - FZ.R - 22, Math.max(FZ.top + 12, zoneY - 26), "poly rod", 7.5, "end");
+
+            return s;
+        }
+
+        function draw() {
+
+            svg.innerHTML = drawCZ(t) + line(170, 18, 170, 230, "rgba(245,247,255,.12)", 1) + drawFZ(t);
+
+            out(root, "cz", czPhase(t));
+            out(root, "fz", fzPhase(t));
+        }
+
+        function tick(now) {
+
+            rafId = null;
+
+            // Stop quietly when the slide is not showing.
+            if (!root.offsetParent) { pause(); return; }
+
+            const dt = Math.min(0.1, (now - last) / 1000);
+
+            last = now;
+            spin = (spin + dt * 0.6) % 1;
+
+            if (t >= 1) {
+
+                hold += dt;
+
+                if (hold > HOLD) { t = 0; hold = 0; }
+
+            } else {
+
+                t = Math.min(1, t + dt / CYCLE);
+            }
+
+            draw();
+
+            rafId = requestAnimationFrame(tick);
+        }
+
+        function play() {
+
+            if (playing) { return; }
+
+            playing = true;
+            playBtn.textContent = "❚❚ Pause";
+            last = performance.now();
+            rafId = requestAnimationFrame(tick);
+        }
+
+        function pause() {
+
+            playing = false;
+            playBtn.textContent = "▶ Play";
+
+            if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+        }
+
+        playBtn.addEventListener("click", function () { if (playing) { pause(); } else { play(); } });
+
+        // Reset (in the header) starts both crystals again.
+        wire(root, state, defaults, function () { draw(); });
+
+        root.querySelector("[data-reset]").addEventListener("click", function () { t = 0; hold = 0; draw(); });
+
+        draw();
+
+        // Start on its own once the slide comes into view, unless the reader prefers less motion.
+        if (!reduce && "IntersectionObserver" in window) {
+
+            const io = new IntersectionObserver(function (entries) {
+
+                entries.forEach(function (e) { if (e.isIntersecting && !playing) { play(); } });
+            }, { threshold: 0.4 });
+
+            io.observe(root);
+        }
+    };
+
 
     SIMS["chip-czgame"] = function (root) {
 
