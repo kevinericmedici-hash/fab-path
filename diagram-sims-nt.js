@@ -1042,7 +1042,7 @@
         "Game: who clears which transmitter?",
         ["Reuptake through DAT and SERT", "Broken down by acetylcholinesterase", "Taken up by astrocytes", "GABA transporters"],
         [
-            { q: "Dopamine and serotonin.", a: "Reuptake through DAT and SERT", why: "Mainly cleared by reuptake through their transporters." },
+            { q: "Dopamine and serotonin.", a: "Reuptake through DAT and SERT", why: "Mainly cleared by reuptake through their transporters: DAT (the dopamine transporter) and SERT (the serotonin transporter)." },
             { q: "Acetylcholine.", a: "Broken down by acetylcholinesterase", why: "Very quickly, by an enzyme." },
             { q: "Glutamate.", a: "Taken up by astrocytes", why: "Mostly, using transporters." },
             { q: "GABA.", a: "GABA transporters", why: "Taken up by its own transporters." }

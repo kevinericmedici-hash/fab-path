@@ -1307,7 +1307,7 @@
         [
             { q: "Nicotine, which activates nicotinic receptors.", a: "Agonist", why: "It activates directly." },
             { q: "Haloperidol, which blocks D2 receptors.", a: "Antagonist", why: "It blocks." },
-            { q: "Fluoxetine, which blocks SERT.", a: "Reuptake blocker", why: "An SSRI." },
+            { q: "Fluoxetine, which blocks SERT.", a: "Reuptake blocker", why: "An SSRI: it blocks SERT, the serotonin transporter." },
             { q: "Donepezil, which inhibits acetylcholinesterase.", a: "Enzyme inhibitor", why: "It blocks the cleanup enzyme." },
             { q: "Curare, which blocks nicotinic receptors at the muscle.", a: "Antagonist", why: "It blocks." },
             { q: "Cocaine and methylphenidate, which block the dopamine transporter.", a: "Reuptake blocker", why: "They block cleanup." },
