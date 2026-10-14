@@ -1271,6 +1271,489 @@
     };
 
 
+    /* ======================================
+       THE FINISHING LINE (animation)
+       Ingot to polished wafer in seven steps: crop and
+       test, grind and mark, slice, round and lap, etch,
+       polish, clean and inspect. The wafer's surface gets
+       smoother at every step, because each one removes the
+       damage the previous one left. Illustrative scale.
+    ====================================== */
+
+    SIMS["chip-finish"] = function (root) {
+
+        const STEP_SEC = 3.4;
+
+        const STEPS = [
+            { key: "crop", name: "Crop and test", cap: "Saws cut off the cone-shaped seed and tail ends. A four-point probe then checks the resistivity and crystal quality." },
+            { key: "grind", name: "Grind and mark", cap: "A grinding wheel runs along the ingot to an exact diameter, then a notch is ground along its length to mark the crystal orientation." },
+            { key: "slice", name: "Slice", cap: "The ingot is pushed into a web of moving diamond-coated wire, which cuts hundreds of wafers at once." },
+            { key: "lap", name: "Round and lap", cap: "The sharp edges are ground round so they will not chip, then lapping plates grind both faces flat and remove the saw marks." },
+            { key: "etch", name: "Etch", cap: "An acid bath dissolves the thin layer of crystal that grinding and lapping damaged." },
+            { key: "polish", name: "Polish", cap: "Chemical-mechanical polishing: a spinning pad and slurry make the top face a mirror, smooth to a few atoms." },
+            { key: "clean", name: "Clean and inspect", cap: "Cleaning baths lift off particles, then a laser scan checks flatness and hunts for defects. Ready for the fab." }
+        ];
+
+        const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        let step = 0;
+        let q = reduce ? 1 : 0;      // progress within the step, 0..1
+        let playing = false;
+        let rafId = null;
+        let last = 0;
+        let spin = 0;
+
+        root.innerHTML =
+            head("Watch: from ingot to polished wafer") +
+            art("0 0 340 210", "An animation of the seven wafer finishing steps, one after another: cropping and testing the ingot, grinding it round and marking a notch, slicing it with a wire saw, rounding and lapping the wafer, etching away damage, polishing to a mirror, and cleaning and inspecting") +
+            '<div class="fd-stat-row fd-czfz-steps">' + stat("Now", "now") + "</div>" +
+            '<div class="fd-seg"><button type="button" class="fd-sim-btn" data-play>▶ Play</button></div>' +
+            '<div class="fd-seg"><span class="fd-seg-label">Jump to a step</span>' +
+            STEPS.map(function (s, i) { return '<button type="button" class="fd-sim-btn" data-step="' + i + '">' + (i + 1) + ". " + s.name + "</button>"; }).join("") +
+            "</div>" +
+            '<p class="fd-sim-formula">The wafer\'s surface gets smoother at every step: each one removes the damage left by the one before it.</p>';
+
+        const svg = root.querySelector("svg.fd-sim-art");
+        const playBtn = root.querySelector("[data-play]");
+        const stepBtns = root.querySelectorAll("[data-step]");
+
+        function clamp01(v) { return Math.max(0, Math.min(1, v)); }
+
+        function ease(a, b, p) { return clamp01((p - a) / (b - a)); }
+
+        const SI = "rgba(170,179,207,.55)";      // silicon grey
+        const SI_EDGE = "rgba(245,247,255,.75)";
+
+        /* ----- shared pieces ----- */
+
+        // Wafer seen edge-on: a slab whose faces are roughened by amplitude rough (px).
+        function waferEdge(x0, x1, yTop, th, rough, roundR, fill) {
+
+            const n = 44;
+            let top = "";
+            let bot = "";
+
+            for (let i = 0; i <= n; i++) {
+
+                const x = x0 + roundR + (x1 - x0 - 2 * roundR) * i / n;
+                const r1 = rough * Math.sin(i * 2.3) * Math.cos(i * 0.7);
+                const r2 = rough * Math.sin(i * 1.9 + 1) * Math.cos(i * 0.9);
+
+                top += (i ? " L " : "M ") + x.toFixed(1) + " " + (yTop + r1).toFixed(1);
+                bot = " L " + x.toFixed(1) + " " + (yTop + th + r2).toFixed(1) + bot;
+            }
+
+            const r = roundR;
+            const d = top +
+                " Q " + (x1 + 0.2) + " " + yTop + " " + x1 + " " + (yTop + th / 2) +
+                " Q " + (x1 + 0.2) + " " + (yTop + th) + " " + (x1 - r) + " " + (yTop + th) +
+                bot.replace(/^ L/, " L") +
+                " Q " + (x0 - 0.2) + " " + (yTop + th) + " " + x0 + " " + (yTop + th / 2) +
+                " Q " + (x0 - 0.2) + " " + yTop + " " + (x0 + r) + " " + yTop + " Z";
+
+            return '<path d="' + d + '" style="fill:' + (fill || SI) + ";stroke:" + SI_EDGE + ';stroke-width:1"/>';
+        }
+
+        function label(x, y, s, anchor, color) { return text(x, y, s, 7.5, anchor || "middle", color); }
+
+        /* ----- the seven scenes ----- */
+
+        function sceneCrop(p) {
+
+            let s = "";
+            const cy = 100;
+            const r = 34;
+            const fall = ease(0.45, 0.7, p);
+
+            // cropped cones drop away
+            s += '<polygon points="70,' + (cy - r) + " " + (40 - fall * 14) + "," + (cy + fall * 40) + " 70," + (cy + r) + '" style="fill:' + SI + ";stroke:" + SI_EDGE + ";opacity:" + (1 - fall) + ";transform:translate(" + (-fall * 12) + "px," + (fall * 40) + 'px)"/>';
+            s += '<polygon points="270,' + (cy - r) + " " + (304 + fall * 14) + "," + (cy + fall * 40) + " 270," + (cy + r) + '" style="fill:' + SI + ";stroke:" + SI_EDGE + ";opacity:" + (1 - fall) + ";transform:translate(" + (fall * 12) + "px," + (fall * 40) + 'px)"/>';
+
+            s += rectS(70, cy - r, 200, 2 * r, SI, SI_EDGE, 2);
+            s += '<ellipse cx="270" cy="' + cy + '" rx="7" ry="' + r + '" style="fill:rgba(170,179,207,.75);stroke:' + SI_EDGE + '"/>';
+
+            // two saw blades come down at the ends
+            // the blades come down, cut, then lift away again
+            const blade = p < 0.45 ? ease(0, 0.45, p) : 1 - ease(0.5, 0.65, p);
+
+            [70, 270].forEach(function (x) {
+
+                const y = -20 + blade * (cy + r + 4 + 20);
+
+                s += circ(x, y - 22, 22, "rgba(245,247,255,.06)", "rgba(245,247,255,.55)");
+                s += line(x, y - 44, x, y, "rgba(255,214,102,.9)", 1.5);
+            });
+
+            // four-point probe
+            const probe = ease(0.65, 0.85, p);
+
+            if (probe > 0) {
+
+                const y = cy - r - 30 + probe * 26;
+
+                s += rectS(150, y - 14, 40, 12, "rgba(138,164,255,.35)", "rgba(138,164,255,.9)", 2);
+
+                [155, 165, 175, 185].forEach(function (x) { s += line(x, y - 2, x, y + 4, "rgba(245,247,255,.9)", 1.2); });
+
+                if (p > 0.85) { s += label(170, y - 20, "resistivity in spec ✓", "middle", ACCENT); }
+            }
+
+            s += label(170, 186, "as-grown ingot: seed end and tail end removed");
+
+            return s;
+        }
+
+        function sceneGrind(p) {
+
+            let s = "";
+            const cy = 96;
+            const r = 34;
+            const wx = 70 + ease(0, 0.7, p) * 204;      // where the wheel has reached
+
+            // ingot: wavy (as grown) ahead of the wheel, straight behind it
+            let topPath = "M 70 " + (cy - r);
+            let botPath = "";
+
+            for (let x = 70; x <= 270; x += 4) {
+
+                const wob = x > wx ? 2.6 * Math.sin(x / 9) : 0;
+
+                topPath += " L " + x + " " + (cy - r - 2 + wob).toFixed(1);
+                botPath = " L " + x + " " + (cy + r + 2 - wob).toFixed(1) + botPath;
+            }
+
+            s += '<path d="' + topPath + botPath + ' Z" style="fill:' + SI + ";stroke:" + SI_EDGE + '"/>';
+
+            // grinding wheel
+            if (p < 0.78) {
+
+                s += circ(wx, cy - r - 24, 22, "rgba(255,184,107,.18)", "rgba(255,184,107,.9)");
+
+                for (let k = 0; k < 6; k++) {
+
+                    const a = spin * Math.PI * 4 + k * Math.PI / 3;
+
+                    s += line(wx, cy - r - 24, wx + Math.cos(a) * 20, cy - r - 24 + Math.sin(a) * 20, "rgba(255,184,107,.5)", 1);
+                }
+
+                s += label(wx, cy - r - 52, "grinding wheel");
+            }
+
+            // notch groove along the length, and an end view
+            const notch = ease(0.75, 0.95, p);
+
+            if (notch > 0) {
+
+                s += line(70, cy + r - 2, 70 + notch * 200, cy + r - 2, "rgba(255,214,102,.95)", 2);
+
+                const ex = 304;
+                const ey = 76;
+
+                s += circ(ex, ey, 20, SI, SI_EDGE);
+                s += '<polygon points="' + (ex - 3) + "," + (ey + 20) + " " + ex + "," + (ey + 15) + " " + (ex + 3) + "," + (ey + 20) + '" style="fill:#0d1326;stroke:rgba(255,214,102,.95)"/>';
+                s += label(ex, ey + 32, "end view: notch", "middle", GOLD);
+            }
+
+            s += label(170, 186, "ground to an exact diameter, then marked");
+
+            return s;
+        }
+
+        function sceneSlice(p) {
+
+            let s = "";
+            const r = 30;
+            const descend = ease(0.05, 0.75, p);
+            const cy = 58 + descend * 84;                 // ingot moves down, all the way through the wire web
+            const webY = 104;
+            const cut = clamp01((cy + r - webY) / (2 * r));
+            const apart = ease(0.82, 1, p);
+
+            // guide rollers
+            s += circ(46, webY + 14, 14, "rgba(245,247,255,.06)", "rgba(245,247,255,.5)");
+            s += circ(294, webY + 14, 14, "rgba(245,247,255,.06)", "rgba(245,247,255,.5)");
+
+            // the ingot, cut into slices above the web
+            const n = 12;
+            const w = 200 / n;
+
+            for (let i = 0; i < n; i++) {
+
+                const x = 70 + i * w + (i - (n - 1) / 2) * apart * 3;
+
+                s += rectS(x + 0.4, cy - r, w - 0.8 + (cut > 0 ? 0 : 0.8), 2 * r, SI, SI_EDGE, 1);
+            }
+
+            // wires seen end-on: a row of dots, each with a little dash showing motion
+            for (let i = 0; i <= n; i++) {
+
+                const x = 70 + i * w;
+                const jig = Math.sin(spin * Math.PI * 8 + i) * 2;
+
+                s += circ(x, webY, 1.4, "rgba(255,214,102,.95)");
+                s += line(x - 3 + jig, webY + 4, x + 3 + jig, webY + 4, "rgba(255,214,102,.5)", 1);
+
+                if (cut > 0) { s += line(x, Math.max(cy - r, webY - cut * 2 * r), x, webY, "rgba(13,19,38,.9)", 1.2); }
+            }
+
+            s += line(46, webY, 294, webY, "rgba(255,214,102,.25)", 0.8, "2 3");
+            s += label(170, 186, "diamond wire web: hundreds of wafers in one cut");
+
+            return s;
+        }
+
+        function sceneLap(p) {
+
+            let s = "";
+            const roundT = ease(0.05, 0.42, p);
+            const lapT = ease(0.48, 0.95, p);
+            const rough = 3.2 - 2.0 * lapT;
+            const th = 26 - lapT * 3;
+            const y = 92 - th / 2;
+
+            s += waferEdge(60, 280, y, th, rough, 2 + roundT * 11);
+
+            // edge grinder at the right edge
+            if (p < 0.45) {
+
+                s += circ(296, 92, 16, "rgba(255,184,107,.18)", "rgba(255,184,107,.9)");
+                s += line(296, 92, 296 + Math.cos(spin * 20) * 14, 92 + Math.sin(spin * 20) * 14, "rgba(255,184,107,.6)", 1);
+                s += label(296, 124, "edge grinder");
+            }
+
+            // lapping plates squeeze and slide
+            if (p > 0.45) {
+
+                const slide = Math.sin(spin * Math.PI * 6) * 10;
+                const gap = 5 - lapT * 2;
+
+                s += rectS(50 + slide, y - gap - 14, 240, 12, "rgba(245,247,255,.12)", "rgba(245,247,255,.5)", 3);
+                s += rectS(50 - slide, y + th + gap + 2, 240, 12, "rgba(245,247,255,.12)", "rgba(245,247,255,.5)", 3);
+                s += label(170, y - gap - 20, "lapping plates and abrasive slurry");
+            }
+
+            s += label(170, 186, p < 0.45 ? "one wafer, edge-on (thickness exaggerated)" : "both faces ground flat: saw marks gone, fine scratches left");
+
+            return s;
+        }
+
+        function sceneEtch(p) {
+
+            let s = "";
+            const gone = ease(0.1, 0.9, p);
+            const y = 80;
+            const th = 23;
+
+            // tank of acid
+            s += rectS(40, 46, 260, 110, "rgba(138,164,255,.12)", "rgba(138,164,255,.55)", 6);
+            s += line(40, 58, 300, 58, "rgba(138,164,255,.6)", 1, "4 3");
+
+            s += waferEdge(60, 280, y, th, 1.2 * (1 - gone) + 0.5, 13);
+
+            // the damaged layer on each face, shrinking away
+            const band = 4.5 * (1 - gone);
+
+            if (band > 0.2) {
+
+                s += rectS(73, y - 0.5, 194, band, "rgba(255,105,120,.45)");
+                s += rectS(73, y + th - band + 0.5, 194, band, "rgba(255,105,120,.45)");
+                s += label(312, y + 2, "damaged", "end", ROSE);
+            }
+
+            // bubbles
+            for (let i = 0; i < 9; i++) {
+
+                const ph = (spin * 1.4 + i / 9) % 1;
+
+                s += circ(70 + i * 25 + Math.sin(i + ph * 6) * 3, 150 - ph * 88, 1.6, "rgba(245,247,255,.5)");
+            }
+
+            s += label(170, 186, "the damaged surface layer dissolves away");
+
+            return s;
+        }
+
+        function scenePolish(p) {
+
+            let s = "";
+            const shine = ease(0.25, 0.85, p);
+            const y = 84;
+            const th = 22;
+
+            // rotating pad (seen from the side) and carrier
+            s += '<ellipse cx="170" cy="' + (y + th + 18) + '" rx="140" ry="12" style="fill:rgba(84,224,199,.12);stroke:rgba(84,224,199,.6)"/>';
+
+            for (let k = 0; k < 6; k++) {
+
+                const x = 170 + Math.cos(spin * Math.PI * 4 + k) * 120;
+
+                s += line(x, y + th + 12, x, y + th + 24, "rgba(84,224,199,.35)", 1);
+            }
+
+            s += rectS(80, y - 16, 180, 12, "rgba(245,247,255,.12)", "rgba(245,247,255,.5)", 4);
+            s += label(170, y - 22, "carrier presses the wafer face down");
+
+            s += waferEdge(90, 250, y, th, 0.6 * (1 - shine), 10, "rgba(170,179,207," + (0.55 + 0.25 * shine) + ")");
+
+            // slurry drops
+            for (let i = 0; i < 4; i++) {
+
+                const ph = (spin * 1.8 + i / 4) % 1;
+
+                s += circ(60 + i * 8, 56 + ph * 64, 1.8, "rgba(245,247,255,.7)");
+            }
+
+            // mirror highlight sliding across once it is smooth
+            if (shine > 0.4) {
+
+                const hx = 96 + ((spin * 1.2) % 1) * 148;
+
+                s += line(hx, y + 2, hx + 10, y + th - 2, "rgba(255,255,255," + (0.7 * shine) + ")", 2);
+            }
+
+            s += label(170, 186, shine > 0.9 ? "mirror finish, smooth to a few atoms" : "spinning pad + chemical slurry");
+
+            return s;
+        }
+
+        function sceneClean(p) {
+
+            let s = "";
+            const cx = 170;
+            const cy = 92;
+            const R = 62;
+            const washed = ease(0.05, 0.45, p);
+            const scan = ease(0.5, 0.92, p);
+
+            s += circ(cx, cy, R, "rgba(170,179,207,.55)", SI_EDGE);
+            s += '<polygon points="' + (cx - 3) + "," + (cy + R) + " " + cx + "," + (cy + R - 5) + " " + (cx + 3) + "," + (cy + R) + '" style="fill:#0d1326;stroke:' + SI_EDGE + '"/>';
+
+            // particles washing off
+            const spots = [[-30, -20], [18, -36], [36, 10], [-12, 26], [8, 4], [-40, 14], [28, 38]];
+
+            spots.forEach(function (d, i) {
+
+                const gone = clamp01(washed * 1.4 - i * 0.05);
+
+                if (gone < 1) { s += circ(cx + d[0] + gone * 30, cy + d[1] - gone * 10, 2, "rgba(255,105,120," + (0.95 * (1 - gone)) + ")"); }
+            });
+
+            // spray nozzle while cleaning
+            if (p < 0.5) {
+
+                s += rectS(cx + 72, cy - 70, 22, 10, "rgba(138,164,255,.35)", "rgba(138,164,255,.9)", 2);
+
+                for (let i = 0; i < 5; i++) { s += line(cx + 76, cy - 58, cx + 30 - i * 9, cy - 20 + i * 8, "rgba(138,164,255,.35)", 1, "2 3"); }
+            }
+
+            // laser scan sweeping across
+            if (scan > 0) {
+
+                const x = cx - R + scan * 2 * R;
+                const h = Math.sqrt(Math.max(0, R * R - (x - cx) * (x - cx)));
+
+                s += line(x, cy - h, x, cy + h, "rgba(84,224,199,.95)", 1.6);
+                s += label(cx + R + 10, cy + 4, "laser scan", "start", ACCENT);
+            }
+
+            if (p > 0.92) { s += label(cx, cy + R + 14, "✓ flat, clean, ready for the fab", "middle", ACCENT); }
+
+            s += label(170, 186, "particles removed, then flatness and defects checked");
+
+            return s;
+        }
+
+        const SCENES = [sceneCrop, sceneGrind, sceneSlice, sceneLap, sceneEtch, scenePolish, sceneClean];
+
+        function draw() {
+
+            let s = SCENES[step](q);
+
+            // step track along the top
+            STEPS.forEach(function (st, i) {
+
+                const x = 26 + i * 48;
+                const done = i < step || (i === step && q >= 1);
+                const on = i === step;
+
+                s += line(x, 14, x + 48, 14, i < STEPS.length - 1 ? "rgba(245,247,255,.18)" : "none", 1);
+                s += circ(x, 14, on ? 5.5 : 4, done ? "rgba(84,224,199,.9)" : on ? "rgba(255,214,102,.95)" : "rgba(245,247,255,.12)", "rgba(245,247,255,.6)");
+            });
+
+            s += text(26 + step * 48, 30, (step + 1) + ". " + STEPS[step].name, 8, step < 2 ? "start" : step > 4 ? "end" : "middle", TEXT);
+
+            svg.innerHTML = s;
+
+            out(root, "now", "Step " + (step + 1) + " of 7 · " + STEPS[step].name + ": " + STEPS[step].cap);
+
+            stepBtns.forEach(function (b, i) { b.classList.toggle("on", i === step); });
+        }
+
+        function tick(now) {
+
+            rafId = null;
+
+            if (!root.offsetParent) { pause(); return; }
+
+            const dt = Math.min(0.1, (now - last) / 1000);
+
+            last = now;
+            spin = (spin + dt * 0.5) % 1;
+            q += dt / STEP_SEC;
+
+            if (q >= 1.25) { q = 0; step = (step + 1) % STEPS.length; }
+
+            draw();
+
+            rafId = requestAnimationFrame(tick);
+        }
+
+        function play() {
+
+            if (playing) { return; }
+
+            playing = true;
+            playBtn.textContent = "❚❚ Pause";
+            last = performance.now();
+            rafId = requestAnimationFrame(tick);
+        }
+
+        function pause() {
+
+            playing = false;
+            playBtn.textContent = "▶ Play";
+
+            if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+        }
+
+        playBtn.addEventListener("click", function () { if (playing) { pause(); } else { play(); } });
+
+        stepBtns.forEach(function (b) {
+
+            b.addEventListener("click", function () {
+
+                step = Number(b.dataset.step);
+                q = playing ? 0 : 1;
+                draw();
+            });
+        });
+
+        root.querySelector("[data-reset]").addEventListener("click", function () { step = 0; q = reduce ? 1 : 0; draw(); });
+
+        draw();
+
+        if (!reduce && "IntersectionObserver" in window) {
+
+            const io = new IntersectionObserver(function (entries) {
+
+                entries.forEach(function (e) { if (e.isIntersecting && !playing) { play(); } });
+            }, { threshold: 0.4 });
+
+            io.observe(root);
+        }
+    };
+
+
     SIMS["chip-czgame"] = function (root) {
 
         const DUR = 40;     // seconds
