@@ -904,8 +904,10 @@
         let vc = 0;
         let time = 0;
 
-        const tCap = 5000 * 1;
         const cEst = dev.cell;
+
+        // Three full cycles, with room to spare: big cells at low current take hours.
+        const tCap = Math.max(5000, 12 * vop * cEst / Math.max(cur, 1e-15));
         const dt0 = Math.max(vop * cEst / cur / 1500, 1e-6);
 
         let phase = 0;                                  // 0 charging, 1 discharging

@@ -523,6 +523,39 @@
             const v = env();
             const out = [];
 
+            if (inf.cell && inf.parts) {
+
+                const p = inf.parts;
+                const c = inf.cell;
+                const CF = root.SCCells;
+                const mm2 = function (um2) { return um2 >= 1e8 ? v.sig(um2 / 1e8) + " cm²" : v.sig(um2 / 1e6) + " mm²"; };
+                const ohm = function (r) { return r < 1 ? v.sig(r * 1000) + " mΩ" : v.sig(r) + " Ω"; };
+                const eWh = 0.5 * dv.cell * dv.vMax * dv.vMax / 3600;
+
+                out.push(v.table(["The cell", "Value"], [
+                    ["Format", CF.FORMATS[c.format].name + (c.format === "pouch" ? ", " + c.sheets + " sheets per electrode" : "")],
+                    ["Separator", c.separator],
+                    ["One electrode sheet (drawn)", mm2(c.areaSheet)],
+                    ["Electrode area facing the separator", mm2(c.areaFacing) + (c.faces > 1 ? " (" + c.faces + " faces)" : "")],
+                    ["Active carbon in the cell", v.sig(c.massActive * 1000) + " mg"],
+                    ["Packaged size", c.size],
+                    ["Cell volume / mass", v.sig(c.volume) + " cm³ / " + v.sig(c.cellMass) + " g"],
+                    ["Energy at " + dv.vMax.toFixed(1) + " V", v.sig(eWh / c.volume * 1000) + " Wh/L, " + v.sig(eWh / c.cellMass * 1000) + " Wh/kg"],
+                    ["Peak power (V² / 4 ESR)", v.sig(dv.vMax * dv.vMax / (4 * dv.esr) / c.cellMass * 1000) + " W/kg"]
+                ]));
+
+                out.push(v.table(["What limits it", "Value"], [
+                    ["Case, tab and weld contacts", ohm(p.rContact)],
+                    ["Foil carrying current to the tabs", ohm(p.rCol)],
+                    ["Through the electrode film", ohm(p.rFilm)],
+                    ["Ions crossing the separator", ohm(p.rSep)],
+                    ["Ions moving into the pores", ohm(p.rPore / 3)],
+                    ["Chance of a short through the separator", Math.round(inf.pShort * 100) + "%"]
+                ]));
+
+                return out;
+            }
+
             if (inf.parts) {
 
                 const p = inf.parts;
@@ -542,10 +575,61 @@
             return out;
         },
 
-        // Process step: the electrolyte lives with the design.
+        // Process step: the cell format, separator and electrolyte live with the design.
         processExtras: function (panel, d, save) {
 
             const v = env();
+            const CF = root.SCCells;
+
+            if (CF) {
+
+                const cellBox = v.h("div");
+
+                const drawCell = function () {
+
+                    cellBox.innerHTML = "";
+
+                    cellBox.appendChild(v.h("h2", { className: "lab-h2", text: "Cell format" }));
+                    cellBox.appendChild(v.h("p", { className: "lab-hint", text: "A planar chip uses your whole drawing as the device. The other formats treat the drawing as one electrode sheet and build the cell from two of them, facing each other across a separator." }));
+
+                    cellBox.appendChild(v.cards({
+                        label: "Cell format",
+                        items: Object.keys(CF.FORMATS).map(function (id) { return { id: id, title: CF.FORMATS[id].name, body: CF.FORMATS[id].blurb }; }),
+                        value: CF.formatOf(d),
+                        onChange: function (id) { d.format = id; save(); drawCell(); }
+                    }));
+
+                    if (!CF.isCell(d)) { return; }
+
+                    cellBox.appendChild(v.h("h2", { className: "lab-h2", text: "Separator" }));
+
+                    cellBox.appendChild(v.cards({
+                        label: "Separator",
+                        items: Object.keys(CF.SEPARATORS).map(function (id) {
+
+                            const sp = CF.SEPARATORS[id];
+
+                            return { id: id, title: sp.name, body: sp.blurb, meta: sp.t + " µm thick · resistance ×" + sp.NM + " over bare electrolyte" };
+                        }),
+                        value: CF.separatorOf(d),
+                        onChange: function (id) { d.separator = id; save(); }
+                    }));
+
+                    if (CF.formatOf(d) === "pouch") {
+
+                        cellBox.appendChild(v.slider({
+                            label: "Sheets per electrode", min: 1, max: 30, step: 1, value: CF.sheetsOf(d), unit: "",
+                            format: function (x) { return String(Math.round(x)); },
+                            hint: "Each extra pair of sheets adds two more faces of electrode, so capacitance grows and resistance falls. The pouch gets thicker.",
+                            onChange: function (x) { d.sheets = Math.round(x); save(); }
+                        }));
+                    }
+                };
+
+                drawCell();
+
+                panel.appendChild(cellBox);
+            }
 
             panel.appendChild(v.h("h2", { className: "lab-h2", text: "Electrolyte" }));
 
@@ -600,6 +684,17 @@
             body.appendChild(info);
 
             return true;
+        },
+
+        // Stacked cells use thick coatings on foil; the planar chip keeps the app's default ranges.
+        thicknessRange: function (layer, d) {
+
+            if (!root.SCCells || !root.SCCells.isCell(d)) { return null; }
+
+            if (layer.role === "electrode") { return { min: 10, max: 100, step: 5 }; }
+            if (layer.role === "collector") { return { min: 5, max: 50, step: 1 }; }
+
+            return null;
         },
 
         sampleVoltage: true

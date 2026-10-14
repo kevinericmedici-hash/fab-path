@@ -2869,7 +2869,7 @@
             if (l) {
 
                 const m = E.layerMetrics(l);
-                const pt = E.patterning(l, m);
+                const pt = E.patterning(l, m, design);
 
                 measureBox.appendChild(h("h4", { text: "Layer: " + l.name }));
                 measureBox.appendChild(kv("Shapes", String(m.count)));

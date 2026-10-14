@@ -57,6 +57,8 @@
         // Patterned photoresist baked to carbon at about 1000 °C in nitrogen (carbon-MEMS). Inert, wide potential window,
         // great for dopamine; about 2000 times more resistive than gold, and poor at oxidising hydrogen peroxide.
         gc: { name: "Glassy carbon (pyrolysed photoresist)", sigma: 2e4, noble: true, cost: 3, hours: 8, adh: 0.85, thick: 1 },
+        // Foil for coin, pouch and wound supercapacitor cells; its oxide film keeps it from corroding in water.
+        ss: { name: "Stainless steel foil", sigma: 1.4e6, noble: true, cost: 1, hours: 1, adh: 0.9, thick: 20, only: ["supercap"] },
         c: { name: "Carbon (printed or sputtered)", sigma: 3e4, noble: true, cost: 1, hours: 2, adh: 0.8, thick: 5, only: ["cgm"] }
     };
 
@@ -472,11 +474,39 @@
        PATTERNING ONE LAYER
     ------------------------------------------------ */
 
-    function patterning(layer, metrics) {
+    // Stacked supercapacitor cells: electrode films are coated on foil and punched or slit to shape.
+    const CELL_SHEET = {
+        electrode: {
+            limit: 200, lost: "Electrode sheets are punched or slit from coated foil. Pieces smaller than about 0.2 mm cannot be cut cleanly.",
+            hint: "In a stacked cell the electrode is a slurry coated onto foil, dried, rolled flat (calendered) and punched or slit to the shape you draw. There is no resist, exposure or bake."
+        },
+        collector: {
+            limit: 200, lost: "Foil smaller than about 0.2 mm cannot be punched cleanly.",
+            hint: "The current collector is a metal foil, bought on a roll and punched or slit to shape. There is no resist, exposure or bake."
+        }
+    };
 
-        if (SHEET_ROLES[layer.role]) {
+    function sheetSpec(layer, design) {
 
-            const sh = SHEET_ROLES[layer.role];
+        if (SHEET_ROLES[layer.role]) { return SHEET_ROLES[layer.role]; }
+
+        if (design && root.SCCells && root.SCCells.isCell(design) && CELL_SHEET[layer.role]) {
+
+            const c = CELL_SHEET[layer.role];
+
+            return { table: layer.role === "electrode" ? SC.MATERIALS : METALS, limit: c.limit, lost: c.lost, hint: c.hint };
+        }
+
+        return null;
+    }
+
+
+    function patterning(layer, metrics, design) {
+
+        const sh = sheetSpec(layer, design);
+
+        if (sh) {
+
             const mm = sh.table[layer.material] || {};
             const small = Math.min(metrics.featureMin, metrics.gapMin);
             const lost = metrics.count > 0 && isFinite(small) && small < sh.limit;
@@ -685,7 +715,9 @@
 
         const kind = KINDS[design.kind] || KINDS.supercap;
 
-        const missing = (kind.need || []).filter(function (lab) { return !labels[lab]; });
+        const cellFormat = root.SCCells && root.SCCells.isCell(design);
+
+        const missing = cellFormat ? [] : (kind.need || []).filter(function (lab) { return !labels[lab]; });
 
         if (missing.length) {
 
@@ -702,6 +734,8 @@
 
             if (!hasEl) { out.push({ level: "error", text: "No electrode layer has any shapes. The active material has to be drawn somewhere." }); }
 
+            if (cellFormat) { root.SCCells.check(design, out); }
+
         } else if (design.kind === "fet" || design.kind === "biofet") {
 
             const hasSem = design.layers.some(function (l) { return l.role === "semiconductor" && l.shapes.length; });
@@ -717,7 +751,7 @@
 
             if (!l.shapes.length) { out.push({ level: "info", text: "Layer “" + l.name + "” is empty." }); return; }
 
-            const pt = patterning(l, m);
+            const pt = patterning(l, m, design);
 
             pt.notes.forEach(function (n) { out.push({ level: pt.status === "ok" ? "warn" : "error", text: l.name + ": " + n }); });
         });
@@ -741,7 +775,7 @@
 
             if (!l.shapes.length) { return; }
 
-            const p = patterning(l, layerMetrics(l));
+            const p = patterning(l, layerMetrics(l), design);
 
             cost += p.cost;
             hours += p.hours;
@@ -869,11 +903,54 @@
             }
         }
 
+        if (name === "coin" || name === "pouch" || name === "jelly") { return buildCellTemplate(kind, name); }
+
         const design = {
-            id: uid("D"), name: "", kind: kind, electrolyte: "acid", grid: 10, layers: layers
+            id: uid("D"), name: "", kind: kind, electrolyte: "acid", grid: 10, layers: layers, format: "planar"
         };
 
         layers.forEach(syncLayer);
+
+        return design;
+    }
+
+
+    // Stacked cells: one electrode sheet (film on foil). Lengths in um.
+    function buildCellTemplate(kind, name) {
+
+        const foil = newLayer("collector", { name: "Aluminium foil", material: "al", thickness: 20 });
+        const film = newLayer("electrode", { name: "Activated carbon coating", material: "ac", treat: "none", thickness: 80 });
+
+        let sheets = 0;
+
+        if (name === "coin") {
+
+            // 15 mm punched disc.
+            foil.shapes = [{ t: "c", x: 0, y: 0, r: 7500 }];
+            film.shapes = [{ t: "c", x: 0, y: 0, r: 7500 }];
+
+        } else if (name === "pouch") {
+
+            // 40 x 50 mm sheet with an uncoated tab at the top.
+            foil.shapes = [rect(0, 0, 40000, 50000), rect(4000, -12000, 8000, 12000)];
+            film.shapes = [rect(0, 0, 40000, 50000)];
+            sheets = 10;
+
+        } else {
+
+            // 300 x 40 mm strip, as in an 18650-size cell, with a tab off one end.
+            foil.shapes = [rect(0, 0, 300000, 40000), rect(-10000, 10000, 10000, 20000)];
+            film.shapes = [rect(0, 0, 300000, 40000)];
+        }
+
+        const design = {
+            id: uid("D"), name: "", kind: kind, electrolyte: "organic", grid: 100, layers: [foil, film],
+            format: name, separator: name === "coin" ? "glass" : "cellulose", units: "mm"
+        };
+
+        if (sheets) { design.sheets = sheets; }
+
+        design.layers.forEach(syncLayer);
 
         return design;
     }
@@ -885,6 +962,9 @@
             { id: "ide-stack", name: "Collector + electrodes + passivation", blurb: "Gold collector under the film, and an SU-8 window that defines the active area." },
             { id: "ide-collector", name: "Collector + electrodes", blurb: "Gold collector and an electrode film, no passivation." },
             { id: "ide-electrodes", name: "Electrodes only", blurb: "A single layer: the film forms fingers, bus bars and pads." },
+            { id: "coin", name: "Coin cell (CR2032)", blurb: "A 15 mm carbon-coated aluminium disc. Two of them face each other across a separator in a steel coin case." },
+            { id: "pouch", name: "Pouch cell (stacked)", blurb: "A 40 × 50 mm double-coated sheet with a tab. Ten sheets per electrode are stacked and sealed in a foil bag." },
+            { id: "jelly", name: "Jelly roll (wound cylinder)", blurb: "A 300 × 40 mm double-coated strip. Two strips and two separators are wound into a can." },
             { id: "blank", name: "Blank (draw everything yourself)", blurb: "One empty electrode layer." }
         ]
     };
@@ -898,7 +978,7 @@
 
         const l = newLayer(role, { name: role === "semiconductor" ? "Channel" : "Electrode film" });
 
-        return { id: uid("D"), name: "", kind: kind, electrolyte: "acid", grid: 10, layers: [l] };
+        return { id: uid("D"), name: "", kind: kind, electrolyte: "acid", grid: 10, layers: [l], format: "planar" };
     }
 
 
@@ -960,7 +1040,7 @@
 
             dev.cost = cost;
             dev.hours = hours;
-            dev.footprint = footprint;
+            dev.footprint = dev.facing || footprint;
             dev.seed = seed;
             dev.electrolyte = design.electrolyte;
 
@@ -975,7 +1055,7 @@
         const per = layers.map(function (l, k) {
 
             const m = layerMetrics(l);
-            const p = patterning(l, m);
+            const p = patterning(l, m, design);
 
             cost += p.cost;
             hours += p.hours;
@@ -1095,6 +1175,13 @@
         });
 
         mark("raster");
+
+        if (root.SCCells && root.SCCells.isCell(design)) {
+
+            result.raster = { frame: frame, P: P, per: per, shapes: shapesOf, nodeAt: function () { return 0; }, conductive: per.map(function (q) { return ROLES[q.layer.role].conductive; }) };
+
+            return root.SCCells.analyze({ design: design, seed: seed, rand: rand, vary: vary, per: per, shapesOf: shapesOf, notes: notes, info: info, finish: finish });
+        }
 
         const conductive = per.map(function (q) { return ROLES[q.layer.role].conductive; });
         const isElectrode = per.map(function (q) { return q.layer.role === "electrode"; });
@@ -1695,7 +1782,7 @@
 
         roleOf: roleOf, materialOf: materialOf, isPhoto: isPhoto, requiredField: requiredField,
         defaultPatterning: defaultPatterning, newLayer: newLayer, syncLayer: syncLayer,
-        layerMetrics: layerMetrics, patterning: patterning,
+        layerMetrics: layerMetrics, patterning: patterning, sheetSpec: sheetSpec,
         checkDesign: checkDesign, summarize: summarize, padsOf: padsOf,
         buildTemplate: buildTemplate, blankDesign: blankDesign, ideGeometry: ideGeometry,
         fabricate: fabricate, uid: uid

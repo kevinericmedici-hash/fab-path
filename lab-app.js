@@ -173,6 +173,7 @@
         return {
             id: d.id, name: d.name, kind: d.kind, electrolyte: d.electrolyte, grid: d.grid, receptor: d.receptor || "none", culture: d.culture,
             units: d.units || "um", dims: d.dims || [],
+            format: d.format, separator: d.separator, sheets: d.sheets,
             layers: d.layers.map(function (l) {
 
                 return {
@@ -265,6 +266,16 @@
 
         d.units = ["nm", "um", "mm"].indexOf(raw.units) >= 0 ? raw.units : "um";
         d.dims = cleanDims(raw.dims, d);
+
+        // Supercapacitor cell format (older designs are planar chips).
+        if (kind === "supercap" && window.SCCells) {
+
+            const CF = window.SCCells;
+
+            d.format = CF.formatOf(raw);
+            d.separator = CF.separatorOf(raw);
+            d.sheets = CF.sheetsOf(raw);
+        }
 
         return d.layers.length ? d : null;
     }
@@ -933,6 +944,8 @@
 
         if (E.KINDS[d.kind].padText) { return E.KINDS[d.kind].padText; }
 
+        if (window.SCCells && window.SCCells.isCell(d)) { return "Draw one electrode sheet: the coating on its foil. No pads are needed: the cell is built from two identical sheets with a separator between them, and the foil tabs are welded to the terminals."; }
+
         const need = E.KINDS[d.kind].need || [];
 
         const which = need.length ? "This device needs contact pads labelled " + need.join(", ") + (d.kind === "biofet" ? " (a gate pad is optional: the solution acts as the gate)" : "") + ", on a metal layer with no insulation covering them. " : "";
@@ -1050,6 +1063,19 @@
 
         const steps = d.layers.filter(function (l) { return l.shapes.length; }).map(function (l, k) {
 
+            const thick = l.thickness < 0.1 ? sig(l.thickness * 1000) + " nm" : l.thickness + " µm";
+
+            if (E.sheetSpec(l, d)) {
+
+                if (window.SCCells && window.SCCells.isCell(d)) {
+
+                    return (k + 1) + ". " + l.name + ": " + (l.role === "electrode" ? "coat " + materialName(l) + " (" + thick + ") onto the foil, dry, calender and " : "unroll " + materialName(l) + " (" + thick + ") and ") +
+                        (window.SCCells.formatOf(d) === "jelly" ? "slit it into a strip." : "punch it to shape.");
+                }
+
+                return (k + 1) + ". " + l.name + ": cut " + materialName(l) + " to shape. No lithography.";
+            }
+
             const lt = l.litho;
             const rs = SC.RESISTS[lt.resist];
 
@@ -1103,10 +1129,12 @@
             body.appendChild(h("p", { className: "lab-muted", text: mat.name + (l.role === "collector" ? "" : " · permittivity " + mat.eps) }));
         }
 
-        if (E.SHEET_ROLES[l.role]) {
+        const sheet = E.sheetSpec(l, d);
 
-            // Membranes, probe bodies and coatings are cut, bought or dropped on: there is nothing to expose or bake.
-            body.appendChild(h("p", { className: "lab-hint", text: E.SHEET_ROLES[l.role].hint }));
+        if (sheet) {
+
+            // Membranes, probe bodies, coatings and cell foils are cut, bought or dropped on: there is nothing to expose or bake.
+            body.appendChild(h("p", { className: "lab-hint", text: sheet.hint }));
             body.appendChild(out);
 
             report();
@@ -1114,7 +1142,7 @@
             return det;
         }
 
-        const tr = impl.thicknessRange ? impl.thicknessRange(l) : null;
+        const tr = impl.thicknessRange ? impl.thicknessRange(l, d) : null;
 
         const rng = tr || { min: 0.05, max: l.role === "electrode" ? 40 : 10, step: l.role === "electrode" ? 1 : 0.05 };
 
@@ -1232,7 +1260,7 @@
         function report() {
 
             const m = E.layerMetrics(l);
-            const p = E.patterning(l, m);
+            const p = E.patterning(l, m, d);
 
             const q = p.status === "inverted" ? "Inverted pattern" : p.status === "lost" ? "Pattern lost" :
                 p.quality > 0.85 ? "Excellent" : p.quality > 0.6 ? "Good" : p.quality > 0.3 ? "Marginal" : "Poor";
@@ -1367,7 +1395,7 @@
         const snap = snaps[b.id];
         const nl = snap.layers.filter(function (l) { return l.shapes.length; }).length;
 
-        if (snap.kind === "supercap") { return nl + " layers · " + SC.ELECTROLYTES[snap.electrolyte].name; }
+        if (snap.kind === "supercap") { return (window.SCCells && window.SCCells.isCell(snap) ? window.SCCells.FORMATS[snap.format].name + " · " : nl + " layers · ") + SC.ELECTROLYTES[snap.electrolyte].name; }
 
         if (kindImpl(snap.kind).batchInfo) { return nl + " layers · " + kindImpl(snap.kind).batchInfo(snap); }
 
@@ -1413,7 +1441,12 @@
         report.appendChild(h("div", { className: "lab-row" }, [h("span", { text: "Footprint" }), h("strong", { text: sum.bbox ? fmtLen(sum.width) + " × " + fmtLen(sum.height) : "empty" })]));
         report.appendChild(h("div", { className: "lab-row" }, [h("span", { text: "Layers with shapes" }), h("strong", { text: String(sum.layers) })]));
 
-        if (d.kind === "supercap") { report.appendChild(h("div", { className: "lab-row" }, [h("span", { text: "Electrolyte" }), h("strong", { text: SC.ELECTROLYTES[d.electrolyte].name })])); }
+        if (d.kind === "supercap") {
+
+            if (window.SCCells) { report.appendChild(h("div", { className: "lab-row" }, [h("span", { text: "Cell format" }), h("strong", { text: window.SCCells.FORMATS[window.SCCells.formatOf(d)].name })])); }
+
+            report.appendChild(h("div", { className: "lab-row" }, [h("span", { text: "Electrolyte" }), h("strong", { text: SC.ELECTROLYTES[d.electrolyte].name })]));
+        }
 
         if (kindImpl(d.kind).designRows) {
 

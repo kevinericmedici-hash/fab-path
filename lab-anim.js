@@ -576,11 +576,20 @@
 
             if (!l) { text(ctx, "Draw something on a layer to watch it being made.", LW / 2, LH / 2, "#8791ab", 13, "center"); return; }
 
-            if (E.SHEET_ROLES && E.SHEET_ROLES[l.role]) {
+            const sheet = E.sheetSpec ? E.sheetSpec(l, getDesign()) : (E.SHEET_ROLES && E.SHEET_ROLES[l.role]);
+
+            if (sheet) {
+
+                // Split the hint at word boundaries into lines of about 92 characters.
+                const lines = [""];
+
+                sheet.hint.split(" ").forEach(function (w) {
+
+                    if ((lines[lines.length - 1] + " " + w).length > 92) { lines.push(w); } else { lines[lines.length - 1] = (lines[lines.length - 1] + " " + w).trim(); }
+                });
 
                 text(ctx, l.name, LW / 2, LH / 2 - 14, "#e8edf8", 14, "center");
-                text(ctx, E.SHEET_ROLES[l.role].hint.slice(0, 92), LW / 2, LH / 2 + 8, "#9fb2c8", 11, "center");
-                text(ctx, E.SHEET_ROLES[l.role].hint.slice(92, 190), LW / 2, LH / 2 + 24, "#9fb2c8", 11, "center");
+                lines.slice(0, 3).forEach(function (t, k) { text(ctx, t, LW / 2, LH / 2 + 8 + 16 * k, "#9fb2c8", 11, "center"); });
 
                 return;
             }
