@@ -22,8 +22,7 @@ people's data. We aim to reply within a few days.
   fixed error messages, and a sign-in speed bump.
 
 The full audit, with an OWASP Top 10 and CWE Top 25 checklist and the setup
-steps that cannot live in code, is in
-[docs/SECURITY-AUDIT.md](docs/SECURITY-AUDIT.md).
+steps that cannot live in code, is kept privately by the maintainer.
 
 ## For maintainers
 

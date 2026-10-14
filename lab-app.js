@@ -1683,6 +1683,15 @@
 
         heading("STEP 5 OF 6", "The test bench", "");
 
+        // Where this lab's models are explained on the equations page.
+        const eqAnchor = { supercap: "supercap", nt: "neural", glu: "glucose", bbb: "bbb", fet: "fet", mems: "mems" }[COURSE.id] || "fabrication";
+
+        panel.appendChild(h("p", { className: "lab-hint" }, [
+            "Curious what the simulator computes? ",
+            h("a", { href: "equations.html#" + eqAnchor, text: "See the equations behind these tests", style: "color: var(--accent); text-decoration: underline;" }),
+            "."
+        ]));
+
         if (!project.batches.length) {
 
             panel.appendChild(h("p", { className: "lab-lead", text: "Build a batch first, then come back to measure it." }));

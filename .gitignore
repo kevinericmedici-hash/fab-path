@@ -20,3 +20,6 @@ supabase/.temp/
 # Private notes, never publish
 HANDOFF.md
 Fab-Path-Goals.xlsx
+
+# Security runbook: keep it local, it is not for the public site
+docs/SECURITY-AUDIT.md

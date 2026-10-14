@@ -1387,6 +1387,12 @@
 
         heading(9, "From sand to chip: your results", "Here is everything that happened to your sand. Save this run, change one thing, and run it again to see what really matters.");
 
+        panel.appendChild(h("p", { className: "lab-hint" }, [
+            "Curious what the simulator computes? ",
+            h("a", { href: "equations.html#chip", text: "See the equations behind every station", style: "color: var(--accent); text-decoration: underline;" }),
+            "."
+        ]));
+
         const live = liveBox(function (box, r) {
 
             const f = r.fin;
