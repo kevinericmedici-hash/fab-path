@@ -554,6 +554,7 @@
             const photo = E.isPhoto(l);
             const lt = l.litho;
 
+            if (photo && E.isPyro && E.isPyro(l)) { return ["spin", "bake", "expose", "develop", "pyro"]; }
             if (photo) { return ["spin", "bake", "expose", "develop"]; }
             if (lt.method === "etch") { return ["film", "spin", "bake", "expose", "develop", "etch", "strip"]; }
 
@@ -562,7 +563,8 @@
 
         const NAMES = {
             spin: "Spin on photoresist", bake: "Soft bake", expose: "Expose through the mask", develop: "Develop", film: "Deposit the material",
-            lift: "Lift off the resist", etch: "Etch away the unprotected film", strip: "Strip the resist"
+            lift: "Lift off the resist", etch: "Etch away the unprotected film", strip: "Strip the resist",
+            pyro: "Pyrolyse the SU-8 into glassy carbon"
         };
 
         function draw(ctx, t, dt, LH) {
@@ -890,10 +892,34 @@
             }
 
             // The photodefinable film (the resist is the layer) keeps its colour.
-            if (photo && after("develop")) {
+            if (photo && after("develop") && steps.indexOf("pyro") < 0) {
 
                 ctx.fillStyle = filmCol;
                 regions.forEach(function (rg) { ctx.fillRect(rg.a, y0 - trPx * 0.94, rg.b - rg.a, trPx * 0.94); });
+            }
+
+            // Pyrolysis: the SU-8 darkens and shrinks to glassy carbon.
+            if (steps.indexOf("pyro") >= 0 && (during("pyro") || after("pyro"))) {
+
+                const keep = E.PYRO_TEMPS[E.pyroOf(l).T].keep;
+                const pp = after("pyro") ? 1 : progOf("pyro");
+                const hgt = trPx * 0.94 * (1 - (1 - keep) * pp);
+
+                ctx.fillStyle = "#1c2132";
+                regions.forEach(function (rg) { ctx.fillRect(rg.a - 1, y0 - trPx - 2, rg.b - rg.a + 2, trPx + 2); });
+
+                ctx.fillStyle = pp < 0.5 ? "#8a5a2c" : filmCol;
+                regions.forEach(function (rg) { ctx.fillRect(rg.a, y0 - hgt, rg.b - rg.a, hgt); });
+
+                if (during("pyro")) {
+
+                    ctx.fillStyle = "rgba(255,120,40," + (0.12 + 0.08 * Math.sin(t * 3)) + ")";
+                    ctx.fillRect(40, 60, 520, y0 - 60);
+
+                    const py = E.pyroOf(l);
+
+                    text(ctx, py.T + " \u00b0C in " + E.PYRO_GASES[py.gas].name + ": everything but carbon leaves as gas", 300, 80, "#ffb070", 11, "center");
+                }
             }
 
             // Mask and light during exposure.

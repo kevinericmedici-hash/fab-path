@@ -377,7 +377,7 @@
 
                 metalUnion[i] = 1;
 
-                const sigma = (METALS[per[k].layer.material] || METALS.au).sigma;
+                const sigma = E.metalSigma(per[k].layer);
 
                 g += sigma * per[k].layer.thickness * 1e-6;
 

@@ -56,7 +56,7 @@
         agcl: { name: "Ag/AgCl (reference-grade)", sigma: 5e7, noble: false, cost: 3, hours: 4, adh: 0.7, thick: 0.2 },
         // Patterned photoresist baked to carbon at about 1000 °C in nitrogen (carbon-MEMS). Inert, wide potential window,
         // great for dopamine; about 2000 times more resistive than gold, and poor at oxidising hydrogen peroxide.
-        gc: { name: "Glassy carbon (pyrolysed photoresist)", sigma: 2e4, noble: true, cost: 3, hours: 8, adh: 0.85, thick: 1 },
+        gc: { name: "Glassy carbon (pyrolysed SU-8)", sigma: 2e4, noble: true, cost: 3, hours: 2, adh: 0.85, thick: 1, pyro: true },
         // Foil for coin, pouch and wound supercapacitor cells; its oxide film keeps it from corroding in water.
         ss: { name: "Stainless steel foil", sigma: 1.4e6, noble: true, cost: 1, hours: 1, adh: 0.9, thick: 20, only: ["supercap"] },
         c: { name: "Carbon (printed or sputtered)", sigma: 3e4, noble: true, cost: 1, hours: 2, adh: 0.8, thick: 5, only: ["cgm"] }
@@ -280,9 +280,64 @@
 
     function materialOf(layer) { return (MATERIAL_TABLE[layer.role] || {})[layer.material]; }
 
+    /* ------------------------------------------------
+       PYROLYSIS (carbon-MEMS)
+       Glassy carbon is made by patterning SU-8 and then heating it in an
+       inert gas: the polymer gives off everything but carbon. keep: share
+       of the SU-8 thickness left. sigma: conductivity relative to 1000 C.
+       Rounded teaching values from the pyrolysed-photoresist literature.
+    ------------------------------------------------ */
+
+    const PYRO_TEMPS = {
+        600: { keep: 0.35, sigma: 0.003 },
+        700: { keep: 0.28, sigma: 0.03 },
+        800: { keep: 0.24, sigma: 0.2 },
+        900: { keep: 0.21, sigma: 0.55 },
+        1000: { keep: 0.2, sigma: 1 },
+        1100: { keep: 0.19, sigma: 1.3 }
+    };
+
+    const PYRO_GASES = {
+        n2: { name: "Nitrogen (N\u2082)", ok: true },
+        fg: { name: "Forming gas (N\u2082 with 5% H\u2082)", ok: true },
+        vac: { name: "Vacuum", ok: true },
+        air: { name: "Air", ok: false }
+    };
+
+    function isPyro(layer) { return layer.role === "collector" && !!(METALS[layer.material] || {}).pyro; }
+
+    function pyroOf(layer) {
+
+        const p = layer.pyro || {};
+
+        return { T: PYRO_TEMPS[p.T] ? Number(p.T) : 1000, gas: PYRO_GASES[p.gas] ? p.gas : "n2" };
+    }
+
+    // Conductivity of a metal layer, after pyrolysis for glassy carbon (S/m).
+    function metalSigma(layer) {
+
+        const m = METALS[layer.material] || METALS.au;
+
+        if (!isPyro(layer)) { return m.sigma; }
+
+        const p = pyroOf(layer);
+
+        return PYRO_GASES[p.gas].ok ? m.sigma * PYRO_TEMPS[p.T].sigma : 0;
+    }
+
+    // SU-8 to spin for a given glassy carbon thickness.
+    function pyroResist(layer) {
+
+        return Math.max(1, Math.min(100, Math.round(layer.thickness / PYRO_TEMPS[pyroOf(layer).T].keep * 10) / 10));
+    }
+
+
     function isPhoto(layer) {
 
         if (layer.role === "channel") { return !!(CHANNEL_MATERIALS[layer.material] || {}).photo; }
+
+        // Glassy carbon: the patterned SU-8 is the precursor of the film.
+        if (isPyro(layer)) { return true; }
 
         return layer.role === "insulation" && !!(INSULATORS[layer.material] || {}).photo;
     }
@@ -343,6 +398,9 @@
 
         if (layer.role === "collector") { tResist = Math.max(2, Math.min(12, Math.ceil(1.6 * t + 2))); }
 
+        // Glassy carbon is photodefined SU-8, pyrolysed afterwards.
+        if (isPyro(layer)) { method = "etch"; resist = "su8"; tResist = pyroResist(layer); }
+
         const rs = SC.RESISTS[resist];
 
         tResist = Math.max(rs.tMin, Math.min(rs.tMax, tResist));
@@ -392,7 +450,7 @@
         if (isPhoto(layer)) {
 
             layer.litho.resist = "su8";
-            layer.litho.tResist = Math.max(1, Math.min(100, layer.thickness));
+            layer.litho.tResist = isPyro(layer) ? pyroResist(layer) : Math.max(1, Math.min(100, layer.thickness));
             layer.litho.method = "etch";
         }
 
@@ -649,12 +707,38 @@
 
         const mat = materialOf(layer) || {};
 
+        let pyroHours = 0;
+
+        if (isPyro(layer) && metrics.count) {
+
+            const py = pyroOf(layer);
+
+            // Ramp at about 2 C/min, hold an hour, cool in the gas.
+            pyroHours = Math.round(py.T / 60 + 1 + 4);
+
+            if (!PYRO_GASES[py.gas].ok) {
+
+                status = "lost";
+                notes.push("Pyrolysis in air burns the SU-8 away completely. It needs nitrogen, forming gas or vacuum.");
+
+            } else if (py.T < 900) {
+
+                notes.push("At " + py.T + " \u00b0C the SU-8 is only partly carbonised: the film is about " +
+                    Math.round(1 / PYRO_TEMPS[py.T].sigma) + "\u00d7 more resistive than glassy carbon made at 1000 \u00b0C.");
+            }
+
+            if (design && design.layers.some(function (x) { return x.role === "substrate" && x.shapes.length && (x.material === "pi" || x.material === "parylene"); })) {
+
+                notes.push("Polyimide and parylene cannot survive pyrolysis, so the carbon is made on a silicon wafer first and the polymer is cast over it and peeled off (pattern transfer).");
+            }
+        }
+
         return {
             quality: quality, bias: bias, status: status, residue: residue, shortProb: shortProb,
             adhesion: Math.max(0.1, Math.min(1, rsAdh * (mat.adh || 1))),
             notes: notes, need: need, devOpt: devOpt, limit: limit, want: want,
             cost: rs.cost + mk.cost + (mat.cost || 1),
-            hours: hours + (mat.hours || 2),
+            hours: hours + (mat.hours || 2) + pyroHours,
             parts: { dose: fDose, develop: fDev, resolution: fRes, aspect: fAr, bake: fBake, liftoff: fLift }
         };
     }
@@ -1481,7 +1565,7 @@
                 let sheet;
 
                 if (isElectrode[k]) { sheet = matInfo[k].sigma * matInfo[k].q * l.thickness * 1e-6; }
-                else { sheet = METALS[l.material].sigma * (0.6 + 0.4 * per[k].p.quality) * l.thickness * 1e-6; }
+                else { sheet = metalSigma(l) * (0.6 + 0.4 * per[k].p.quality) * l.thickness * 1e-6; }
 
                 if (isP) { gPlus[i] += sheet; } else { gMinus[i] += sheet; }
 
@@ -1860,6 +1944,7 @@
         KINDS: KINDS, TEMPLATES: TEMPLATES,
 
         roleOf: roleOf, materialOf: materialOf, isPhoto: isPhoto, requiredField: requiredField,
+        PYRO_TEMPS: PYRO_TEMPS, PYRO_GASES: PYRO_GASES, isPyro: isPyro, pyroOf: pyroOf, metalSigma: metalSigma, pyroResist: pyroResist,
         defaultPatterning: defaultPatterning, newLayer: newLayer, syncLayer: syncLayer,
         layerMetrics: layerMetrics, patterning: patterning, sheetSpec: sheetSpec,
         cutBottom: cutBottom, inheritedCuts: inheritedCuts, effectiveShapes: effectiveShapes,

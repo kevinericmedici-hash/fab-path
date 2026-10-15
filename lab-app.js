@@ -191,7 +191,7 @@
 
                 return {
                     id: l.id, name: l.name, role: l.role, material: l.material, treat: l.treat, thickness: l.thickness,
-                    mode: l.mode, visible: l.visible ? 1 : 0, mask: l.mask, litho: l.litho, pore: l.pore, porosity: l.porosity,
+                    mode: l.mode, visible: l.visible ? 1 : 0, mask: l.mask, litho: l.litho, pore: l.pore, porosity: l.porosity, pyro: l.pyro,
                     shapes: l.shapes.map(packShape)
                 };
             })
@@ -246,6 +246,11 @@
                 if (rl.porosity !== undefined && rl.porosity !== null) { l.porosity = num(rl.porosity, 0.01, 0.4, 0.1); }
             }
 
+            if (rl.pyro && typeof rl.pyro === "object") {
+
+                l.pyro = { T: E.PYRO_TEMPS[rl.pyro.T] ? Number(rl.pyro.T) : 1000, gas: E.PYRO_GASES[rl.pyro.gas] ? rl.pyro.gas : "n2" };
+            }
+
             const dp = E.defaultPatterning(l);
 
             const m = rl.mask || {};
@@ -271,6 +276,9 @@
 
                 if (s) { l.shapes.push(s); }
             });
+
+            // Glassy carbon used to be deposited and lifted off; it is now patterned SU-8, pyrolysed.
+            if (E.isPyro(l) && l.litho.resist !== "su8") { l.mask = dp.mask; l.litho = dp.litho; }
 
             E.syncLayer(l);
 
@@ -1092,6 +1100,15 @@
             const lt = l.litho;
             const rs = SC.RESISTS[lt.resist];
 
+            if (E.isPyro(l)) {
+
+                const py = E.pyroOf(l);
+
+                return (k + 1) + ". " + l.name + ": spin " + lt.tResist + " µm SU-8, expose " + lt.dose + " mJ/cm² through a " +
+                    (l.mask.type === "film" ? "film" : "chrome") + " mask, develop " + lt.dev + " s, bake " + lt.bakeT + " °C for " + lt.bakeMin + " min, then pyrolyse at " +
+                    py.T + " °C in " + E.PYRO_GASES[py.gas].name.toLowerCase().replace("n\u2082", "N\u2082") + " into glassy carbon (" + thick + ").";
+            }
+
             return (k + 1) + ". " + l.name + ": spin " + lt.tResist + " µm " + rs.name + ", expose " + lt.dose + " mJ/cm² through a " +
                 (l.mask.type === "film" ? "film" : "chrome") + " mask, develop " + lt.dev + " s, bake " + lt.bakeT + " °C for " + lt.bakeMin + " min, " +
                 (E.isPhoto(l) ? "keep the patterned resist as the " : (lt.method === "liftoff" ? "deposit " : "etch ")) + materialName(l) + " (" + (l.thickness < 0.1 ? sig(l.thickness * 1000) + " nm" : l.thickness + " µm") + ")" +
@@ -1164,7 +1181,8 @@
         body.appendChild(slider({
             label: "Film thickness", min: rng.min, max: rng.max, step: rng.step, value: thick, unit: "",
             format: function (v) { return v < 0.1 ? sig(v * 1000) + " nm" : (Math.round(v * 100) / 100) + " µm"; },
-            hint: l.role === "electrode" ? "Thicker films hold more material, but ions take longer to reach the inside, and thick films crack and peel." :
+            hint: E.isPyro(l) ? "The glassy carbon thickness after pyrolysis. Thicker carbon conducts better, but needs much thicker SU-8, which is more likely to crack or peel as it shrinks." :
+                l.role === "electrode" ? "Thicker films hold more material, but ions take longer to reach the inside, and thick films crack and peel." :
                 l.role === "structure" ? "A thicker film is stiffer (stiffness goes with the cube of the thickness) and heavier, and gives more comb capacitance. It also needs a deeper etch." :
                     l.role === "oxide" ? "The gap between this layer and the structure above it. A thicker oxide gives more room to move and less stiction, but weaker electrostatic forces and a longer release." :
                         l.role === "dimple" ? "How deep the dimples are etched into the oxide. They can be no deeper than the oxide is thick." :
@@ -1184,7 +1202,48 @@
 
         body.appendChild(h("h3", { className: "lab-h3", text: "Patterning" }));
 
-        if (photo) {
+        if (photo && E.isPyro(l)) {
+
+            const py = E.pyroOf(l);
+
+            body.appendChild(h("p", { className: "lab-hint", text: "Glassy carbon starts as SU-8: you pattern the SU-8 like any negative resist, then pyrolyse it. " +
+                "For " + l.thickness + " µm of carbon, spin about " + E.pyroResist(l) + " µm of SU-8, because about " + Math.round((1 - E.PYRO_TEMPS[py.T].keep) * 100) + "% of the thickness is lost in the furnace." }));
+
+            body.appendChild(h("h3", { className: "lab-h3", text: "Pyrolysis" }));
+
+            const tsel = h("select", { className: "lab-select", "aria-label": "Pyrolysis temperature for " + l.name, onchange: function (e) {
+
+                l.pyro = { T: Number(e.target.value), gas: E.pyroOf(l).gas };
+                E.syncLayer(l);
+
+                // A different shrinkage means a different SU-8 thickness, so follow the datasheet for it.
+                l.litho.dose = Math.round(SC.RESISTS.su8.dose(l.litho.tResist));
+                l.litho.dev = Math.round(SC.RESISTS.su8.dev(l.litho.tResist));
+                saveDesign(d.id);
+                redrawCard();
+            } }, Object.keys(E.PYRO_TEMPS).map(function (t) { return h("option", { value: t, text: t + " °C" + (t === "1000" ? " (standard)" : "") }); }));
+
+            tsel.value = String(py.T);
+
+            const gsel = h("select", { className: "lab-select", "aria-label": "Pyrolysis atmosphere for " + l.name, onchange: function (e) {
+
+                l.pyro = { T: E.pyroOf(l).T, gas: e.target.value };
+                saveDesign(d.id);
+                redrawCard();
+            } }, Object.keys(E.PYRO_GASES).map(function (g) { return h("option", { value: g, text: E.PYRO_GASES[g].name }); }));
+
+            gsel.value = py.gas;
+
+            body.appendChild(h("label", { className: "lab-label block", text: "Furnace temperature" }));
+            body.appendChild(tsel);
+            body.appendChild(h("label", { className: "lab-label block", text: "Atmosphere" }));
+            body.appendChild(gsel);
+
+            body.appendChild(h("p", { className: "lab-hint", text: "In a tube furnace the SU-8 is heated slowly (about 2 °C a minute), held for an hour and cooled in the same gas. " +
+                "Everything but carbon leaves as gas. Hotter pyrolysis gives a more conductive, more graphitic carbon. " +
+                "This run gives about " + (E.metalSigma(l) >= 1000 ? Math.round(E.metalSigma(l) / 100) / 10 + " kS/m" : Math.round(E.metalSigma(l)) + " S/m") + "." }));
+
+        } else if (photo) {
 
             body.appendChild(h("p", { className: "lab-hint", text: "This material is itself a photoresist: the patterned resist stays as the film, so its thickness matches the film thickness." }));
 

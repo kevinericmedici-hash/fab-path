@@ -157,6 +157,15 @@
 <h4>1.3 Misalignment [Luck]</h4>
 <p>Every layer after the first is shifted by a random (dx, dy). The spread is about 3 µm with printed film masks and 0.7 µm with chrome masks.</p>
 
+<h4>Pyrolysis: SU-8 to glassy carbon [Fit]</h4>
+<p>Glassy carbon electrodes are made the carbon-MEMS way: the SU-8 is patterned like any negative resist, then heated in an inert gas (usually 1000 °C in nitrogen) until everything but carbon has left as gas.</p>
+<ul>
+<li><strong>Shrinkage:</strong> the carbon keeps only part of the SU-8 thickness: about 35% at 600 °C, falling to about 20% at 1000 °C. The lab spins SU-8 of thickness t<sub>carbon</sub> / keep, so 1 µm of carbon needs about 5 µm of SU-8.</li>
+<li><strong>Conductivity:</strong> σ = σ<sub>1000 °C</sub> × f(T), with σ<sub>1000 °C</sub> ≈ 2 × 10<sup>4</sup> S/m. f is about 0.003 at 600 °C, 0.2 at 800 °C, 0.55 at 900 °C, 1 at 1000 °C and 1.3 at 1100 °C, because hotter pyrolysis gives a more graphitic carbon. This conductivity feeds the trace and electrode resistance solves.</li>
+<li><strong>Atmosphere:</strong> nitrogen, forming gas or vacuum all work. In air the SU-8 burns away and the layer is lost.</li>
+<li><strong>Time:</strong> a slow ramp (about 2 °C per minute), a one-hour hold and cooling add roughly 20 hours to the process.</li>
+</ul>
+
 <h4>1.4 Geometry and connectivity [Physics, numerical]</h4>
 <ul>
 <li>Holes are subtracted exactly with polygon Boolean operations. A hole can be an <strong>extruded cut</strong>: with an end condition of "Through all" or "Up to" a layer, it removes material from every layer below too. It is treated as one etch through the stack, so the opening has the size and misalignment of the layer it was drawn on in every layer it cuts.</li>
