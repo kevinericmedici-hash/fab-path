@@ -24,7 +24,7 @@
         { id: "p", name: "Polygon", key: "P", hint: "Click each corner. Double-click, press Enter, or click the first point to close it." },
         { id: "t", name: "Trace", key: "T", hint: "Click points along a line. Double-click or press Enter to finish. Set the width in the toolbar." },
         { id: "pad", name: "Pad", key: "D", hint: "Drag a contact pad on a conductive layer, then pick its label (+ or −)." },
-        { id: "hole", name: "Hole", key: "O", hint: "Click to place a round hole of the set diameter. It cuts through every shape under it on the active layer." },
+        { id: "hole", name: "Hole", key: "O", hint: "Click to place a round hole of the set diameter. It cuts the active layer, or deeper: set the End condition to cut through the layers below too." },
         { id: "dim", name: "Smart Dimension", key: "S", hint: "Click an edge, circle or shape, then click empty space to dimension it, or click a second shape to dimension the distance. Type the value you want (2.5 mm, 300 nm, 2*40) and press Enter." },
         { id: "measure", name: "Ruler", key: "M", hint: "Click two points to measure the distance between them." },
         { id: "pan", name: "Pan", key: "H", hint: "Drag to move the view. (Middle mouse or right mouse button also pans.)" }
@@ -199,6 +199,7 @@
 
         let cutMode = false;      // new rectangles, circles, polygons and traces are holes
         let holeD = 10;           // Hole tool diameter (um)
+        let cutThru = "";         // end condition for new cuts: "" this layer, "all", or the id of the deepest layer cut
 
         // Smart dimensions: first pick, hover target, selected dimension, label hit boxes, open editor.
         let dimPick = null;
@@ -540,6 +541,37 @@
             ctx.stroke();
         }
 
+        // Extruded cut depth: "" (this layer only), "all", or the id of a layer below. Returns "" if it no longer applies.
+        function validThru(l, v) {
+
+            const k = design.layers.indexOf(l);
+
+            if (!v || k <= 0 || l.mode === "cut") { return ""; }
+            if (v === "all") { return "all"; }
+
+            const j = design.layers.findIndex(function (x) { return x.id === v; });
+
+            return j >= 0 && j < k ? v : "";
+        }
+
+        // A picker for the end condition, or null if there is nothing below this layer to cut into.
+        function depthSelect(l, value, onPick) {
+
+            const k = design.layers.indexOf(l);
+
+            if (k <= 0 || l.mode === "cut") { return null; }
+
+            const opts = [h("option", { value: "", text: "Blind: this layer only" }), h("option", { value: "all", text: "Through all layers below" })];
+
+            for (let j = k - 1; j >= 0; j--) { opts.push(h("option", { value: design.layers[j].id, text: "Up to: " + design.layers[j].name })); }
+
+            const sel2 = h("select", { className: "ed-select", "aria-label": "Cut end condition", onchange: function (e) { onPick(e.target.value); } }, opts);
+
+            sel2.value = value || "";
+
+            return sel2;
+        }
+
         function allBox() {
 
             const all = [];
@@ -552,6 +584,9 @@
         function drawLayer(l, alpha, isActive) {
 
             if (!l.visible) { return; }
+
+            // Extruded cuts drawn on higher layers show through this one too.
+            const shapes = E.effectiveShapes ? E.effectiveShapes(design, l) : l.shapes;
 
             if (l.mode === "cut") {
 
@@ -572,7 +607,7 @@
                 ctx.lineWidth = isActive ? 1.8 : 1.2;
                 ctx.strokeStyle = layerColor(l, Math.min(1, alpha + 0.4));
 
-                l.shapes.forEach(function (s) {
+                shapes.forEach(function (s) {
 
                     if (s.cut) { return; }
 
@@ -585,7 +620,7 @@
                 });
 
                 // In a film of windows, a cut shape puts the film back.
-                l.shapes.forEach(function (s) {
+                shapes.forEach(function (s) {
 
                     if (!s.cut) { return; }
 
@@ -597,12 +632,12 @@
 
                 ctx.restore();
 
-                drawCutOutlines(l, alpha, isActive);
+                drawCutOutlines(l, shapes, alpha, isActive);
 
                 return;
             }
 
-            const cuts = l.shapes.some(function (s) { return s.cut; });
+            const cuts = shapes.some(function (s) { return s.cut; });
 
             // With holes, paint the layer on its own canvas, erase the holes, then copy it over.
             const c = cuts ? offCanvas() : ctx;
@@ -611,7 +646,7 @@
             c.strokeStyle = layerColor(l, Math.min(1, alpha + 0.3));
             c.lineWidth = isActive ? 1.6 : 1;
 
-            l.shapes.forEach(function (s) {
+            shapes.forEach(function (s) {
 
                 if (s.cut) { return; }
 
@@ -639,7 +674,7 @@
                 c.globalCompositeOperation = "destination-out";
                 c.fillStyle = "#000";
 
-                l.shapes.forEach(function (s) {
+                shapes.forEach(function (s) {
 
                     if (!s.cut) { return; }
 
@@ -655,7 +690,7 @@
                 ctx.drawImage(off, 0, 0);
                 ctx.restore();
 
-                drawCutOutlines(l, alpha, isActive);
+                drawCutOutlines(l, shapes, alpha, isActive);
             }
         }
 
@@ -677,14 +712,14 @@
         }
 
         // Holes get a fine dashed outline so they can be seen and picked.
-        function drawCutOutlines(l, alpha, isActive) {
+        function drawCutOutlines(l, shapes, alpha, isActive) {
 
             ctx.save();
             ctx.setLineDash([3, 3]);
             ctx.lineWidth = isActive ? 1.4 : 1;
             ctx.strokeStyle = layerColor(l, Math.min(1, alpha + 0.4));
 
-            l.shapes.forEach(function (s) {
+            shapes.forEach(function (s) {
 
                 if (!s.cut) { return; }
 
@@ -1619,6 +1654,8 @@
 
             if (cutMode && !s.pad && (tool === "r" || tool === "c" || tool === "p" || tool === "t")) { s.cut = true; }
 
+            if (s.cut) { const v = validThru(l, cutThru); if (v) { s.thru = v; } }
+
             pushUndo();
             l.shapes.push(s);
             sel = [l.shapes.length - 1];
@@ -2367,6 +2404,14 @@
                 opts2.appendChild(lenBox("Diameter ", function () { return holeD; }, function (v) { holeD = Math.max(0.1, v); }, "Hole diameter"));
             }
 
+            if (tool === "hole" || (cutMode && (tool === "r" || tool === "c" || tool === "p" || tool === "t"))) {
+
+                const al = active();
+                const ds = al ? depthSelect(al, validThru(al, cutThru), function (v) { cutThru = v; }) : null;
+
+                if (ds) { opts2.appendChild(h("label", { className: "ed-opt", title: "How deep new cuts go, like the end condition of an extruded cut" }, ["End ", ds])); }
+            }
+
             if (tool === "pad") {
 
                 const ps = h("select", {
@@ -2766,13 +2811,28 @@
 
                                 pushUndo();
 
-                                sel.forEach(function (i) { const x = l.shapes[i]; if (x && !x.pad) { if (e.target.checked) { x.cut = true; } else { delete x.cut; } } });
+                                sel.forEach(function (i) { const x = l.shapes[i]; if (x && !x.pad) { if (e.target.checked) { x.cut = true; } else { delete x.cut; delete x.thru; } } });
 
                                 changed("shapes", true);
                             }
                         }),
                         " Cut (hole): removes material from this layer instead of adding it"
                     ]));
+
+                    const ds = s.cut ? depthSelect(l, validThru(l, s.thru || ""), function (v) {
+
+                        pushUndo();
+
+                        sel.forEach(function (i) { const x = l.shapes[i]; if (x && x.cut) { if (v) { x.thru = v; } else { delete x.thru; } } });
+
+                        changed("shapes", true);
+                    }) : null;
+
+                    if (ds) {
+
+                        propsBox.appendChild(h("label", { className: "ed-field" }, ["End condition", ds]));
+                        propsBox.appendChild(h("p", { className: "ed-muted", text: "Like an extruded cut: one etch that goes down through the layers below this one, using this layer's mask. Layers that lie under the cut lose that area too." }));
+                    }
                 }
 
                 if (s.t === "r" && canPad(design, l)) {

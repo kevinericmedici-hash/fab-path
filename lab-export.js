@@ -93,8 +93,12 @@
 
             const num = i + 1;
 
+            // Extruded cuts from layers above are part of this layer's final geometry.
+            const E = root.LabEngine;
+            const shapes = E && E.effectiveShapes ? E.effectiveShapes(design, l) : l.shapes;
+
             return {
-                layer: l,
+                layer: shapes === l.shapes ? l : Object.assign({}, l, { shapes: shapes }),
                 gds: num,
                 cif: "L" + String(num).padStart(2, "0"),
                 dxf: "L" + String(num).padStart(2, "0") + "_" + mask,

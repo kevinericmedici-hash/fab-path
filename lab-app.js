@@ -101,11 +101,14 @@
     function r2(v) { return Math.round(v * 100) / 100; }
 
     // A cut shape (hole) is stored with a "-" in front of its type: ["-c", x, y, r].
+    // An extruded cut adds its depth as a trailing { thru } object.
     function packShape(s) {
 
         const a = packPlain(s);
 
         if (s.cut) { a[0] = "-" + a[0]; }
+
+        if (s.cut && s.thru) { a.push({ thru: s.thru }); }
 
         return a;
     }
@@ -128,9 +131,19 @@
 
         if (a[0].charAt(0) === "-") {
 
-            const s = unpackPlain([a[0].slice(1)].concat(a.slice(1)));
+            const last = a[a.length - 1];
+            const thru = last && typeof last === "object" && !Array.isArray(last) && typeof last.thru === "string" ? last.thru : "";
+            const body = thru ? a.slice(1, -1) : a.slice(1);
 
-            if (s) { delete s.pad; s.cut = true; }
+            const s = unpackPlain([a[0].slice(1)].concat(body));
+
+            if (s) {
+
+                delete s.pad;
+                s.cut = true;
+
+                if (thru === "all" || /^[A-Za-z0-9_-]{1,40}$/.test(thru)) { s.thru = thru; }
+            }
 
             return s;
         }

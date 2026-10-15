@@ -159,7 +159,7 @@
 
 <h4>1.4 Geometry and connectivity [Physics, numerical]</h4>
 <ul>
-<li>Holes are subtracted exactly with polygon Boolean operations.</li>
+<li>Holes are subtracted exactly with polygon Boolean operations. A hole can be an <strong>extruded cut</strong>: with an end condition of "Through all" or "Up to" a layer, it removes material from every layer below too. It is treated as one etch through the stack, so the opening has the size and misalignment of the layer it was drawn on in every layer it cuts.</li>
 <li>Each layer is turned into a pixel grid. The pixel size is a fraction of the smallest feature, so small designs are measured finely.</li>
 <li>Areas, perimeters, smallest feature and smallest gap come from the grid and the polygons.</li>
 <li>Connected-component labelling finds which pieces of metal touch each other. Layers connect wherever they overlap with no insulator between them. This is how the lab finds shorts and open circuits.</li>

@@ -794,6 +794,64 @@
 
 
     /* ------------------------------------------------
+       EXTRUDED CUTS
+       A cut shape can reach down through the layers below its own, like
+       an extruded cut in CAD. s.thru: missing = its own layer only (blind),
+       "all" = through every layer below, or a layer id = down to and
+       including that layer. Layers are stored bottom to top.
+    ------------------------------------------------ */
+
+    function cutBottom(design, j, s) {
+
+        if (!s.cut || !s.thru || design.layers[j].mode === "cut") { return j; }
+
+        if (s.thru === "all") { return 0; }
+
+        const k = design.layers.findIndex(function (l) { return l.id === s.thru; });
+
+        return k >= 0 && k < j ? k : j;
+    }
+
+    // Cuts drawn on higher layers that reach layer k: [{ s, from }].
+    function inheritedCuts(design, k) {
+
+        const out = [];
+
+        for (let j = k + 1; j < design.layers.length; j++) {
+
+            design.layers[j].shapes.forEach(function (s) { if (s.cut && s.thru && cutBottom(design, j, s) <= k) { out.push({ s: s, from: j }); } });
+        }
+
+        return out;
+    }
+
+    // In a film whose drawn shapes are windows, a cut from above opens a window.
+    function asCutFor(layer, s) {
+
+        const c = Object.assign({}, s);
+
+        delete c.thru;
+        delete c.pad;
+
+        if (layer.mode === "cut") { delete c.cut; } else { c.cut = true; }
+
+        return c;
+    }
+
+    // The layer's own shapes plus the cuts that come down from above.
+    function effectiveShapes(design, layer) {
+
+        const k = design.layers.indexOf(layer);
+
+        if (k < 0) { return layer.shapes; }
+
+        const inh = inheritedCuts(design, k);
+
+        return inh.length ? layer.shapes.concat(inh.map(function (x) { return asCutFor(layer, x.s); })) : layer.shapes;
+    }
+
+
+    /* ------------------------------------------------
        TEMPLATES
     ------------------------------------------------ */
 
@@ -1074,6 +1132,8 @@
         });
 
         // Perturbed shapes.
+        const perOfLayer = new Map(per.map(function (q) { return [q.layer, q]; }));
+
         const shapesOf = per.map(function (q) {
 
             if (q.p.status === "lost") { return []; }
@@ -1091,6 +1151,25 @@
 
                 if (s.pad) { c.pad = s.pad; }
                 if (s.cut) { c.cut = true; }
+
+                out.push(c);
+            });
+
+            // Extruded cuts from layers above: one etch through the stack, so the opening has the
+            // size and alignment of the layer it was drawn on (self-aligned in every layer it cuts).
+            const k = design.layers.indexOf(q.layer);
+
+            inheritedCuts(design, k).forEach(function (x) {
+
+                const qo = perOfLayer.get(design.layers[x.from]);
+
+                if (!qo || qo.p.status === "lost") { return; }
+
+                let c = G.growShape(x.s, -qo.bias / 2);
+
+                if (!c) { return; }
+
+                c = asCutFor(q.layer, G.moveShape(c, qo.dx, qo.dy));
 
                 out.push(c);
             });
@@ -1783,6 +1862,7 @@
         roleOf: roleOf, materialOf: materialOf, isPhoto: isPhoto, requiredField: requiredField,
         defaultPatterning: defaultPatterning, newLayer: newLayer, syncLayer: syncLayer,
         layerMetrics: layerMetrics, patterning: patterning, sheetSpec: sheetSpec,
+        cutBottom: cutBottom, inheritedCuts: inheritedCuts, effectiveShapes: effectiveShapes,
         checkDesign: checkDesign, summarize: summarize, padsOf: padsOf,
         buildTemplate: buildTemplate, blankDesign: blankDesign, ideGeometry: ideGeometry,
         fabricate: fabricate, uid: uid

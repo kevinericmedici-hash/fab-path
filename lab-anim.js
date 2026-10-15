@@ -250,7 +250,7 @@
 
                 const polys = [];
 
-                G.applyCuts(l.shapes).forEach(function (s) { if (!s.cut) { G.polysOf(s).forEach(function (p) { polys.push(p); }); } });
+                G.applyCuts(E.effectiveShapes ? E.effectiveShapes(d, l) : l.shapes).forEach(function (s) { if (!s.cut) { G.polysOf(s).forEach(function (p) { polys.push(p); }); } });
 
                 return { id: l.id, l: l, polys: polys };
             });
