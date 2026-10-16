@@ -797,6 +797,26 @@ const gluLesson15Questions = [
             "The adhesive strength"
         ],
         correct: 1
+    },
+    {
+        question: "Why can glucose sensor filaments be assembled in a much less clean room than a chip fab?",
+        answers: [
+            "Their features are fractions of a millimetre, so a dust speck can't ruin them",
+            "Enzymes repel dust",
+            "Sterilization removes the need for any clean air",
+            "Sensors are made outdoors"
+        ],
+        correct: 0
+    },
+    {
+        question: "Where is the chip inside a CGM transmitter made?",
+        answers: [
+            "In the same room where the enzyme is coated",
+            "In a semiconductor fab",
+            "On a roll-to-roll printing line",
+            "It is printed onto the skin patch"
+        ],
+        correct: 1
     }
 ];
 

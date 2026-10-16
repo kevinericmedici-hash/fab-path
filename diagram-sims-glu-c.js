@@ -292,7 +292,8 @@
             ctx.beginPath();
             ctx.moveTo(L, T); ctx.lineTo(L, B); ctx.lineTo(R, B);
             ctx.stroke();
-            txt(ctx, "minutes →", (L + R) / 2, B + 34, 13, TEXT + ".85)");
+            txt(ctx, "minutes →", (L + R) / 2, B + 34, 13, TEXT + ".85)");
+
             M.ylab(ctx, "glucose (mg/dL)", (T + B) / 2);
             [50, 70, 90, 110].forEach(function (v) { txt(ctx, v, L - 20, Y(v) + 4, 12, TEXT + ".7)"); });
             [0, 15, 30, 45, 60].forEach(function (t) { txt(ctx, t, X(t), B + 16, 12, TEXT + ".7)"); });
@@ -518,6 +519,143 @@
         update();
         draw();
     };
+
+
+    // A dust particle next to the feature it could ruin, in rooms of different cleanliness.
+    SIMS["glu-cleanroom"] = function (root) {
+
+        // ISO 14644-1 limits: particles of 0.5 um and larger per cubic metre of air.
+        const ROOMS = [
+            { id: "iso3", name: "ISO 3", n: 35, what: "Chip fab lithography bay" },
+            { id: "iso5", name: "ISO 5", n: 3520, what: "Chip fab, general" },
+            { id: "iso7", name: "ISO 7", n: 352000, what: "Medical device assembly" },
+            { id: "iso8", name: "ISO 8", n: 3520000, what: "Gowning room, packaging" },
+            { id: "office", name: "Office", n: 35000000, what: "Ordinary indoor air" }
+        ];
+
+        // feature: smallest feature in um. need: the dirtiest room that still works.
+        const PARTS = [
+            { id: "chip", name: "Transmitter chip", feature: 0.05, need: 1, why: "A single particle can bridge or block a transistor tens of nanometres wide." },
+            { id: "sensor", name: "Sensor filament", feature: 100, need: 3, why: "Features are a tenth of a millimetre, so a dust speck is harmless to the shape. The room keeps bacteria and particles off a part that goes into the body." },
+            { id: "strip", name: "Test strip", feature: 300, need: 3, why: "Printed electrodes are fractions of a millimetre. Clean, controlled air is enough." }
+        ];
+
+        const defaults = { part: "sensor", room: "iso7" };
+        const state = { part: "sensor", room: "iso7" };
+        let hit = {};
+
+        root.innerHTML =
+            head("Try it: how clean does the room need to be?") +
+            canvasFor(680, 300, "On the left, a dust particle half a micrometre to five micrometres across is drawn to scale next to the smallest feature of the chosen part. On the right, dots show how many particles float in each cubic metre of the chosen room.") +
+            '<div class="fd-sim-controls">' +
+            seg("Part", "part", PARTS.map(function (p) { return [p.id, p.name]; })) +
+            seg("Room", "room", ROOMS.map(function (r) { return [r.id, r.name]; })) +
+            "</div>" +
+            '<div class="fd-stat-row">' + stat("Dust particles per m³ of air", "n") + stat("Smallest feature", "f") + "</div>" +
+            '<div class="fd-sim-readout"><div class="fd-sim-big" data-out="verdict"></div></div>' +
+            '<p class="fd-sim-formula">Cleanroom classes (ISO 14644-1) count the particles in the air. Every class is ten times cleaner than the next, and much more expensive to run. A chip fab needs ISO 3 to 5 because its features are nanometres wide. Glucose sensors are assembled in ISO 7 to 8 rooms, clean enough for a product that goes into the body.</p>';
+
+        const canvas = root.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+        const rand = mulberry(7);
+        const spots = [];
+
+        for (let i = 0; i < 400; i++) { spots.push([rand(), rand()]); }
+
+        function part() { return PARTS.filter(function (p) { return p.id === state.part; })[0]; }
+        function room() { return ROOMS.filter(function (r) { return r.id === state.room; })[0]; }
+
+        function update() {
+
+            const p = part();
+            const r = room();
+            const k = ROOMS.indexOf(r);
+
+            out(root, "n", r.n.toLocaleString("en-US"));
+            out(root, "f", p.feature < 1 ? Math.round(p.feature * 1000) + " nm" : p.feature + " µm");
+
+            const ok = k <= p.need;
+
+            out(root, "verdict", (ok ? "Clean enough. " : "Too dirty. ") + p.why);
+
+            if (ok && k === p.need && !hit[p.id]) {
+
+                hit[p.id] = true;
+
+                if (Object.keys(hit).length === PARTS.length) { F.reward("glu-cleanroom", 10, "You matched every part to the cheapest room that works"); }
+            }
+        }
+
+        function draw() {
+
+            clear(ctx, 680, 300);
+
+            const p = part();
+            const r = room();
+
+            // Left: to scale. The view is 1.6 times the feature, but never smaller than 22 um across.
+            const span = Math.max(22, p.feature * 1.6);
+            const sc = 260 / span;
+            const x0 = 40;
+            const y0 = 150;
+
+            txt(ctx, "drawn to scale", 170, 22, 12, TEXT + ".7)");
+
+            ctx.fillStyle = GOLD + ".85)";
+
+            const fw = Math.max(p.feature * sc, 1.5);
+
+            ctx.fillRect(x0 + 130 - fw / 2, y0 - 55, fw, 125);
+            txt(ctx, p.id === "chip" ? "transistor gate (a hair-thin line here)" : "smallest feature", 170, y0 + 92, 12, GOLD + "1)");
+
+            [0.5, 5].forEach(function (d, i) {
+
+                const rr = Math.max(d * sc / 2, 1.5);
+                const cx = x0 + 40 + i * 180;
+
+                dot(ctx, cx, 66, rr, GREY + ".95)");
+                txt(ctx, d + " µm dust", cx + (i ? -rr - 34 : rr + 34), 70, 11, TEXT + ".75)");
+            });
+
+            // Right: particles in the air (one dot per 10,000 per cubic metre, capped).
+            const L = 360;
+            const T = 50;
+            const W = 290;
+            const Hh = 200;
+
+            ctx.strokeStyle = TEXT + ".35)";
+            ctx.strokeRect(L, T, W, Hh);
+            txt(ctx, r.name + ": " + r.what, L + W / 2, T - 10, 12, TEXT + ".85)");
+
+            const n = Math.min(400, Math.round(Math.log10(r.n) * 55 - 80));
+
+            for (let i = 0; i < Math.max(n, 2); i++) { dot(ctx, L + 6 + spots[i][0] * (W - 12), T + 6 + spots[i][1] * (Hh - 12), 2.4, ROSE + ".85)"); }
+
+            txt(ctx, "dots show the particle count on a log scale", L + W / 2, T + Hh + 22, 11, TEXT + ".6)");
+        }
+
+        wire(root, state, defaults, function () { update(); draw(); });
+
+        update();
+        draw();
+    };
+
+
+    SIMS["glu-whomakes"] = quiz(
+        "Game: which factory makes it?",
+        ["Semiconductor fab", "Coating and assembly cleanroom", "Roll-to-roll printing line"],
+        [
+            { q: "The chip that measures nanoamps and sends readings over Bluetooth.", a: "Semiconductor fab", why: "Transistors need an ISO 3 to 5 fab." },
+            { q: "Dipping the sensor wire in enzyme and membrane solutions.", a: "Coating and assembly cleanroom", why: "Controlled ISO 7 to 8 air." },
+            { q: "Printing carbon electrodes for millions of fingerstick test strips.", a: "Roll-to-roll printing line", why: "Fast, cheap, flat strips." },
+            { q: "Sealing the sensor into its applicator before sterilization.", a: "Coating and assembly cleanroom", why: "Kept clean until it is sterilized." }
+        ],
+        4,
+        "glu-whomakes-done",
+        "You know which factory makes each part",
+        "One sensor, three kinds of factory.",
+        "Chips from fabs, coated sensors from assembly cleanrooms, strips from printing lines. Hit Reset to try again."
+    );
 
 
     SIMS["glu-process"] = orderGame(
@@ -892,7 +1030,8 @@
             ctx.moveTo(L, T); ctx.lineTo(L, B); ctx.lineTo(R, B);
             ctx.stroke();
             [0, 6, 12, 18, 24].forEach(function (h) { txt(ctx, h + ":00", X(h), B + 18, 12, TEXT + ".7)"); });
-            [100, 200, 300, 400].forEach(function (v) { txt(ctx, v, L - 22, Y(v) + 4, 12, TEXT + ".7)"); });
+            [100, 200, 300, 400].forEach(function (v) { txt(ctx, v, L - 22, Y(v) + 4, 12, TEXT + ".7)"); });
+
             M.ylab(ctx, "glucose (mg/dL)", (T + B) / 2);
 
             [7, 12.5, 18.5].forEach(function (h) { txt(ctx, "🍝", X(h), B - 6, 16, TEXT + ".95)"); });
