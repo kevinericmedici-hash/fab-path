@@ -39,9 +39,22 @@
 
     /* Keys the site writes that are NOT part of
        a learner's progress, so they never sync. */
+    /* diagram-interact.js writes one "fabPathExplore_<page>:<sim>" = "1"
+       flag per simulator a learner touches (so its XP pays out once).
+       There are over a thousand, so in the cloud they travel as one
+       packed key holding the list of suffixes. */
+    const EXPLORE_PREFIX = "fabPathExplore_";
+    const EXPLORE_PACKED_KEY = "fabPathExplorePacked";
+
+    /* public.progress has check (pg_column_size(data) < 1000000), from
+       supabase-progress-limit.sql. jsonb runs a little larger than the
+       JSON text, so stay well under it. */
+    const MAX_SYNC_BYTES = 900000;
+
     const SYNC_EXCLUDE = new Set([
         SESSION_KEY,
-        LAST_SYNC_KEY
+        LAST_SYNC_KEY,
+        EXPLORE_PACKED_KEY
     ]);
 
 
@@ -761,11 +774,158 @@
 
         const rows = await res.json();
 
-        return rows.length ? cleanProgress(rows[0].data) : null;
+        return rows.length ? cleanProgress(unpackExplore(rows[0].data)) : null;
     }
 
 
+    /* Folds the per-simulator explore flags into one key for upload. */
+    function packExplore(data) {
+
+        const out = {};
+        const explored = [];
+
+        Object.keys(data).forEach(function (key) {
+
+            if (key.indexOf(EXPLORE_PREFIX) === 0) {
+
+                explored.push(key.slice(EXPLORE_PREFIX.length));
+
+            } else {
+
+                out[key] = data[key];
+            }
+        });
+
+        if (explored.length) {
+
+            out[EXPLORE_PACKED_KEY] = JSON.stringify(explored);
+        }
+
+        return out;
+    }
+
+
+    /* The reverse, for what comes back from the cloud. Runs before
+       cleanProgress, so every unpacked key is still checked. */
+    function unpackExplore(data) {
+
+        if (!data || typeof data !== "object" || Array.isArray(data) ||
+            typeof data[EXPLORE_PACKED_KEY] !== "string") {
+
+            return data;
+        }
+
+        const out = Object.assign({}, data);
+
+        delete out[EXPLORE_PACKED_KEY];
+
+        try {
+
+            const list = JSON.parse(data[EXPLORE_PACKED_KEY]);
+
+            if (Array.isArray(list)) {
+
+                list.forEach(function (s) {
+
+                    if (typeof s === "string") {
+
+                        out[EXPLORE_PREFIX + s] = "1";
+                    }
+                });
+            }
+
+        } catch (e) {}
+
+        return out;
+    }
+
+
+    function byteLength(text) {
+
+        return new TextEncoder().encode(text).length;
+    }
+
+
+    /* If the store is still over the row limit after packing, leave
+       big values out of the upload so course progress keeps syncing:
+       the packed explore flags first (they only stop simulator XP
+       paying twice), then the largest virtual-lab saves. Anything
+       left out stays on this device. Returns null if nothing fits. */
+    function fitToLimit(data) {
+
+        const size = byteLength(JSON.stringify(data));
+
+        if (size <= MAX_SYNC_BYTES) {
+
+            return { data: data, size: size, omitted: [] };
+        }
+
+        const out = Object.assign({}, data);
+        const omitted = [];
+        let total = size;
+
+        const big = Object.keys(out)
+            .filter(function (k) { return out[k].length >= 1000; })
+            .sort(function (a, b) {
+                return (b === EXPLORE_PACKED_KEY) - (a === EXPLORE_PACKED_KEY) ||
+                    out[b].length - out[a].length;
+            });
+
+        for (let i = 0; i < big.length && total > MAX_SYNC_BYTES; i++) {
+
+            total -= byteLength(JSON.stringify(big[i]) + ":" + JSON.stringify(out[big[i]]) + ",");
+
+            delete out[big[i]];
+            omitted.push(big[i]);
+        }
+
+        if (total > MAX_SYNC_BYTES) {
+
+            return null;
+        }
+
+        return { data: out, size: total, omitted: omitted };
+    }
+
+
+    /* Set when the server rejects a save outright (HTTP 400, e.g. the
+       size check). Auto-saves stop for this page load instead of
+       re-sending a payload that will always fail; signing in again
+       or reloading tries once more. */
+    let cloudPushBlocked = false;
+    let sizeWarned = false;
+
     async function pushCloudProgress(data) {
+
+        const fitted = fitToLimit(packExplore(data));
+
+        if (!fitted) {
+
+            if (!sizeWarned) {
+
+                sizeWarned = true;
+
+                console.warn(
+                    "Fab Path: progress is too large to save to your account (limit " +
+                    MAX_SYNC_BYTES + " bytes). It is still saved on this device."
+                );
+            }
+
+            return false;
+        }
+
+        if (fitted.omitted.length && !sizeWarned) {
+
+            sizeWarned = true;
+
+            console.warn(
+                "Fab Path: progress is over the cloud size limit, so " +
+                fitted.omitted.length + " large saves stay on this device only: " +
+                fitted.omitted.join(", ")
+            );
+        }
+
+        data = fitted.data;
 
         const res = await fetch(
             `${CFG.url}/rest/v1/progress`,
@@ -793,6 +953,16 @@
                 );
 
             } catch (e) {}
+
+        } else if (res.status === 400) {
+
+            cloudPushBlocked = true;
+
+            console.warn(
+                "Fab Path: the server rejected your progress save (HTTP 400, " +
+                fitted.size + " bytes). Auto-save to your account is paused " +
+                "until the page reloads; progress is still saved on this device."
+            );
         }
 
         return res.ok;
@@ -949,7 +1119,7 @@
 
     function scheduleSync() {
 
-        if (!session) {
+        if (!session || cloudPushBlocked) {
 
             return;
         }
@@ -1107,6 +1277,8 @@
     async function afterAuth(authResponse) {
 
         setSession(authResponse, true);
+
+        cloudPushBlocked = false;
 
         let cloud = null;
 
