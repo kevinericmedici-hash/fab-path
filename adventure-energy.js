@@ -730,11 +730,119 @@
                 ${ui.chips("ely", ELYTES, null)}
                 <p class="adv-round">Where to work</p>
                 ${ui.chips("air", [{ id: "box", label: "Inside the argon glove box" }, { id: "open", label: "On the open bench (humid air)" }], null)}
-                <div class="adv-button-row"><button type="button" class="adv-btn" id="gbGo" data-autofocus>Fill and test the voltage window</button></div>
+                <div class="adv-button-row"><button type="button" class="adv-btn" id="gbGo" data-autofocus>Start pouring</button></div>
                 <p class="adv-result" id="gbRes" aria-live="polite"></p>`);
             const c = $("gbCv").getContext("2d");
             ui.wireChips("ely", (v) => { el = v; });
             ui.wireChips("air", (v) => { air = v; });
+
+            // Pouring: the level climbs toward the fill line and the player
+            // stops it. More than 15% over the line spills, and the fill
+            // starts again; short of it, they keep pouring.
+            const FILL_RATE = 0.28;     // fill lines per second
+            const MAX_OVER = 0.15;
+            let level = 0;
+            let pouring = false;
+            let pourStart = 0;
+            let pourBase = 0;
+            let overflowTimer = null;
+
+            // the level comes from elapsed time, so it stays right even
+            // if the animation pauses
+            function levelNow() {
+                return pouring ? pourBase + FILL_RATE * (performance.now() - pourStart) / 1000 : level;
+            }
+
+            function drawPour(now, stream) {
+                bg(c);
+                const top = 50;
+                const bottom = 200;
+                const lineY = 90;
+                const h = (bottom - lineY) * level;
+                const liquid = el === "org" ? "rgba(255, 230, 160, 0.75)" : "rgba(127, 178, 255, 0.75)";
+                // glass cell with two electrodes
+                rect(c, 150, top, 160, bottom - top + 6, "#d9e2f0");
+                rect(c, 156, top, 148, bottom - top, "#0b1020");
+                rect(c, 156, Math.max(top, bottom - h), 148, Math.min(h, bottom - top), liquid);
+                rect(c, 180, top - 14, 10, 130, "#474d5c");
+                rect(c, 270, top - 14, 10, 130, "#474d5c");
+                // fill line
+                c.setLineDash([6, 4]);
+                c.strokeStyle = "#ffd84a";
+                c.lineWidth = 2;
+                c.beginPath();
+                c.moveTo(146, lineY);
+                c.lineTo(314, lineY);
+                c.stroke();
+                c.setLineDash([]);
+                label(c, "fill line", 322, lineY + 4, "#ffd84a");
+                // the over-limit mark, 15% above the line
+                const overY = bottom - (bottom - lineY) * (1 + MAX_OVER);
+                rect(c, 146, overY, 10, 2, "#ff6b7d");
+                label(c, "+15%", 120, overY + 4, "#ff9aa6", "right");
+                // pipette and stream
+                rect(c, 222, 4, 16, 30, "#c8ceda");
+                rect(c, 227, 34, 6, 8, "#c8ceda");
+                if (stream) {
+                    const sy = 42;
+                    const ey = Math.max(top, bottom - h);
+                    rect(c, 229, sy, 2, ey - sy, liquid);
+                    for (let i = 0; i < 3; i++) {
+                        const ph = ((now / 300) + i / 3) % 1;
+                        dot(c, 230, sy + ph * (ey - sy), 2, liquid);
+                    }
+                }
+                label(c, el === "org" ? "TEABF₄ in acetonitrile" : el === "koh" ? "6 M KOH" : "1 M H₂SO₄", 230, 222, "#a9b2d0", "center");
+            }
+
+            function pourLoop(t) {
+                if (m.dead || !pouring) {
+                    return;
+                }
+                level = levelNow();
+                drawPour(t, true);
+                requestAnimationFrame(pourLoop);
+            }
+
+            function startPour() {
+                pouring = true;
+                pourBase = level;
+                pourStart = performance.now();
+                // left pouring, it overflows on its own
+                const untilSpill = (1 + MAX_OVER + 0.25 - pourBase) / FILL_RATE * 1000;
+                overflowTimer = setTimeout(() => { if (pouring && !m.dead) { stopPour(); } }, untilSpill);
+                $("gbGo").textContent = "Stop pouring";
+                $("gbRes").innerHTML = "";
+                $("gbCvCap").innerHTML = "Pouring… click <strong>Stop pouring</strong> when the electrolyte reaches the yellow fill line.";
+                requestAnimationFrame(pourLoop);
+            }
+
+            function stopPour() {
+                level = levelNow();
+                pouring = false;
+                clearTimeout(overflowTimer);
+                drawPour(performance.now(), false);
+                const over = level - 1;
+                if (over > MAX_OVER) {
+                    // spilled: clean up and start the fill again
+                    ui.result("gbRes", `✗ ${Math.round(over * 100)}% over the fill line. It overflowed onto the electrodes' contacts and the glove box floor. Wipe it up and refill the cell from empty.`, false);
+                    level = 0;
+                    $("gbGo").textContent = "Start pouring";
+                    $("gbCvCap").innerHTML = "The cell is empty again. Pour and stop closer to the line.";
+                    setTimeout(() => { if (!m.dead && !pouring) { drawPour(performance.now(), false); } }, 900);
+                    return;
+                }
+                if (over < -MAX_OVER) {
+                    ui.result("gbRes", `Only ${Math.round(level * 100)}% of the way to the line. The electrodes aren't fully covered yet, so keep pouring.`, false);
+                    $("gbGo").textContent = "Keep pouring";
+                    return;
+                }
+                busy = true;
+                $("gbGo").disabled = true;
+                $("gbGo").textContent = "Filled ✓";
+                ui.result("gbRes", `✓ Filled to ${Math.round(level * 100)}% of the line: the electrodes are covered with no spill.`, true);
+                testVoltage();
+            }
 
             function draw(k, now, maxV, limit) {
                 bg(c);
@@ -769,19 +877,27 @@
                 }
             }
             draw(0, 0, 2.7, 2.7);
+            $("gbCvCap").innerHTML = "Choose an electrolyte and where to work, then fill the test cell.";
 
             $("gbGo").addEventListener("click", () => {
                 if (busy) {
+                    return;
+                }
+                if (pouring) {
+                    stopPour();
                     return;
                 }
                 if (!el || !air) {
                     ui.result("gbRes", "Choose an electrolyte and where to work.", false);
                     return;
                 }
-                busy = true;
+                startPour();
+            });
+
+            function testVoltage() {
                 const limit = el === "org" ? (air === "open" ? 2.3 : 2.7) : 1.0;
                 runStages(m, "gbCvCap", [
-                    { caption: `Filling a test cell with ${ELYTES.find((x) => x.id === el).label}${air === "box" ? " inside the argon-filled glove box, where there's almost no water or oxygen" : " on the open bench, where it soaks up moisture from the air"}.`, dur: 3000, draw: (k, now) => draw(0, now, 2.7, limit) },
+                    { caption: `The cell is full of ${ELYTES.find((x) => x.id === el).label}${air === "box" ? ", filled inside the argon glove box, where there's almost no water or oxygen" : ", filled on the open bench, where it soaked up moisture from the air"}.`, dur: 3000, draw: (k, now) => draw(0, now, 2.7, limit) },
                     { caption: `Raising the voltage toward the tram's 2.7 V per cell… ${limit >= 2.7 ? "it holds steady all the way." : `past about ${limit.toFixed(1)} V the electrolyte starts breaking down into gas.`}`, dur: 6000, draw: (k, now) => draw(k, now, 2.7, limit) }
                 ], () => {
                     const defs = [];
@@ -792,9 +908,9 @@
                     }
                     es().data.elyte = el;
                     es().data.air = air;
-                    completeStep(defs, `<p>Chose ${ELYTES.find((x) => x.id === el).label}${air === "box" ? " in the glove box" : " on the open bench"}. Cell limit: about ${limit.toFixed(1)} V.</p>`);
+                    completeStep(defs, `<p>Chose ${ELYTES.find((x) => x.id === el).label}${air === "box" ? " in the glove box" : " on the open bench"}, filled to ${Math.round(level * 100)}% of the line. Cell limit: about ${limit.toFixed(1)} V.</p>`);
                 });
-            });
+            }
         }
 
 
