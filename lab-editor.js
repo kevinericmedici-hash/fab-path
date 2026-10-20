@@ -2113,6 +2113,8 @@
             if ((e.ctrlKey || e.metaKey) && (k === "d" || k === "D")) { e.preventDefault(); duplicateSel(); return; }
             if ((e.ctrlKey || e.metaKey) && (k === "a" || k === "A") && l) { e.preventDefault(); sel = l.shapes.map(function (_, i) { return i; }); buildProps(); draw(); return; }
 
+            if (k === "Escape" && full && !draft && !drag && !sel.length && !dimPick && !ruler.length) { e.preventDefault(); setFull(false); return; }
+
             if (k === "Escape") { draft = null; ruler = []; drag = null; sel = []; dimPick = null; dimSel = -1; buildProps(); draw(); return; }
             if (k === "Enter" && tool === "dim" && dimPick) { finishDim(null); return; }
             if (k === "Enter" && dimSel >= 0 && !draft) { openDimInput(dimSel); return; }
@@ -2338,6 +2340,11 @@
             bar.appendChild(h("button", { type: "button", className: "ed-tool small", text: "−", title: "Zoom out (-)", "aria-label": "Zoom out", onclick: function () { zoomAt(W / 2, Hh / 2, 0.8); draw(); } }));
             bar.appendChild(h("button", { type: "button", className: "ed-tool small", text: "+", title: "Zoom in (+)", "aria-label": "Zoom in", onclick: function () { zoomAt(W / 2, Hh / 2, 1.25); draw(); } }));
             bar.appendChild(h("button", { type: "button", className: "ed-tool small", text: "Fit", title: "Fit to drawing (F)", onclick: function () { fitView(); draw(); } }));
+            bar.appendChild(h("button", {
+                type: "button", className: "ed-tool small ed-full-btn", text: full ? "⤡ Exit full screen" : "⛶ Full screen",
+                title: full ? "Exit full screen (Esc)" : "Full screen: use the whole screen for drawing", "aria-pressed": full ? "true" : "false",
+                onclick: function () { setFull(!full); }
+            }));
 
             bar.appendChild(h("span", { className: "ed-sep" }));
 
@@ -2993,13 +3000,79 @@
         }
 
 
+        // ----- full screen -----
+        // Uses the browser's real full screen where it can, and always pins the editor over the page,
+        // so it also works where element full screen isn't available (iPhone Safari, the app).
+        let full = false;
+
+        function onFsChange() {
+
+            const fsEl = document.fullscreenElement || document.webkitFullscreenElement;
+
+            if (!fsEl && full && root1.dataset.fs === "1") { setFull(false); }
+        }
+
+        function setFull(on) {
+
+            if (on === full) { return; }
+
+            full = on;
+            root1.classList.toggle("ed-full", on);
+            document.documentElement.classList.toggle("ed-full-open", on);
+
+            if (on) {
+
+                const req = root1.requestFullscreen || root1.webkitRequestFullscreen;
+
+                root1.dataset.fs = "";
+
+                if (req) {
+
+                    try {
+
+                        const pr = req.call(root1);
+
+                        root1.dataset.fs = "1";
+
+                        if (pr && pr.catch) { pr.catch(function () { root1.dataset.fs = ""; }); }
+
+                    } catch (err) { root1.dataset.fs = ""; }
+                }
+
+                window.addEventListener("resize", resize);
+
+            } else {
+
+                const fsEl = document.fullscreenElement || document.webkitFullscreenElement;
+                const exit = document.exitFullscreen || document.webkitExitFullscreen;
+
+                if (fsEl && exit) { try { exit.call(document); } catch (err) { /* already out */ } }
+
+                root1.dataset.fs = "";
+
+                if (ro) { window.removeEventListener("resize", resize); }
+            }
+
+            buildBar();
+            setHint(on ? "Full screen. Press Esc or Exit full screen to return to the page." : TOOLS.filter(function (x) { return x.id === tool; })[0].hint);
+
+            requestAnimationFrame(function () { resize(); fitView(); draw(); canvas.focus(); });
+        }
+
+        document.addEventListener("fullscreenchange", onFsChange);
+        document.addEventListener("webkitfullscreenchange", onFsChange);
+
+
         // ----- sizing -----
         function resize() {
 
             const r = stage.getBoundingClientRect();
 
             const w = Math.max(280, Math.round(r.width || 700));
-            const hh = w < 520 ? 400 : Math.max(420, Math.min(620, Math.round(w * 0.62)));
+            let hh = w < 520 ? 400 : Math.max(420, Math.min(620, Math.round(w * 0.62)));
+
+            // In full screen the drawing area takes all the height the toolbar and hint leave.
+            if (full) { hh = Math.max(280, Math.round(window.innerHeight - bar.offsetHeight - hint.offsetHeight - 40)); }
 
             const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
@@ -3047,7 +3120,19 @@
             refresh: function () { buildSide(); draw(); },
             setActive: function (id) { activeId = id; buildSide(); draw(); },
             fit: function () { fitView(); draw(); },
-            destroy: function () { if (ro) { ro.disconnect(); } window.removeEventListener("resize", resize); clearTimeout(metricsTimer.id); host.innerHTML = ""; }
+            destroy: function () {
+
+                if (full) { setFull(false); }
+
+                document.removeEventListener("fullscreenchange", onFsChange);
+                document.removeEventListener("webkitfullscreenchange", onFsChange);
+
+                if (ro) { ro.disconnect(); }
+
+                window.removeEventListener("resize", resize);
+                clearTimeout(metricsTimer.id);
+                host.innerHTML = "";
+            }
         };
     }
 

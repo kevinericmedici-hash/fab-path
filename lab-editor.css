@@ -18,6 +18,47 @@
     min-width: 0;
 }
 
+/* ---------- full screen ---------- */
+
+.ed.ed-full {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    overflow: auto;
+    padding: 12px;
+    background: #0b1020;
+}
+
+.ed.ed-full .ed-main {
+    grid-template-columns: minmax(0, 1fr) 340px;
+}
+
+.ed.ed-full .ed-side {
+    max-height: calc(100vh - 24px);
+    overflow: auto;
+}
+
+html.ed-full-open,
+html.ed-full-open body {
+    overflow: hidden;
+}
+
+.ed-full-btn {
+    border-color: var(--border);
+}
+
+@media (max-width: 960px) {
+
+    .ed.ed-full .ed-main {
+        grid-template-columns: 1fr;
+    }
+
+    .ed.ed-full .ed-side {
+        max-height: none;
+    }
+
+}
+
 .ed-bar {
     display: flex;
     flex-wrap: wrap;
