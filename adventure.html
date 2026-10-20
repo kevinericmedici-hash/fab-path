@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' blob:; connect-src 'self' https://xcftpdlniahvxpxtkdaq.supabase.co https://api.pwnedpasswords.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <script src="security.js"></script>
+    <script src="theme.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fab Valley Adventure | Fab Path</title>
+    <meta name="description" content="Pick a fab engineer, travel between fabrication facilities, run real cleanroom machines for XP and battle process defects.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/adventure.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Fab Valley Adventure | Fab Path">
+    <meta property="og:description" content="Pick a fab engineer, travel between fabrication facilities, run real cleanroom machines for XP and battle process defects.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme-light.css">
+    <link rel="stylesheet" href="adventure.css?v=20261020d">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="index.html">Courses</a>
+            <a href="adventure.html" class="active-nav">Adventure</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+    <main class="adv-page">
+
+        <div class="adv-hud" id="advHud">
+
+            <canvas class="adv-hud-avatar" id="hudAvatar" width="32" height="32" aria-hidden="true"></canvas>
+
+            <div class="adv-hud-who">
+                <strong id="hudName">Fab Valley</strong>
+                <span id="hudTitle">Pick an engineer to begin</span>
+            </div>
+
+            <div class="adv-hud-level">
+                <span class="adv-hud-lv" id="hudLevel">Lv 1</span>
+                <div class="adv-xpbar"><div class="adv-xpbar-fill" id="hudXpFill"></div></div>
+                <span class="adv-hud-xp" id="hudXpText">0 / 60 XP</span>
+            </div>
+
+            <div class="adv-hud-badges" role="button" tabindex="0" title="Your certificates of completion (click to see them)">
+                <span class="adv-badge" id="badgeSilicon" title="Silicon Beach Certificate: defeat the Impurity Kraken">💠</span>
+                <span class="adv-badge" id="badgeFoundry" title="Foundry Certificate: master the Sand to Chip Foundry">🏅</span>
+                <span class="adv-badge" id="badgeMems" title="MEMS Works Certificate: defeat The Undercut">🏆</span>
+                <span class="adv-badge" id="badgeMetal" title="Metal City Certificate: defeat The Leakage Phantom">🔩</span>
+                <span class="adv-badge" id="badgeCarbon" title="Ion City Certificate: make a glassy carbon ISFET gate in the Ion Lab">💎</span>
+                <span class="adv-badge" id="badgeEchem" title="Echem Lab Certificate: defeat The Biofouler">🔋</span>
+                <span class="adv-badge" id="badgeGlucose" title="Glucose Grove Certificate: defeat The Sugar Spike">🩸</span>
+                <span class="adv-badge" id="badgeNeuro" title="Grey Matter Certificate: defeat The Glial Scar">🧠</span>
+                <span class="adv-badge" id="badgePdms" title="PDMS City Certificate: defeat The Bubble Beast">🧫</span>
+                <span class="adv-badge" id="badgeEnergy" title="Ampfield Certificate: defeat The Short Circuit">⚡</span>
+                <span class="adv-badge" id="badgeCarbonCity" title="Carbon City Certificate: defeat The Soot Golem">⚽</span>
+            </div>
+
+            <button type="button" class="adv-hud-reset adv-hud-recipe" id="advBag" title="Bag (B)">🎒 Bag</button>
+
+            <button type="button" class="adv-hud-reset adv-hud-recipe" id="advMap" title="Map (M)">🗺️ Map</button>
+
+            <button type="button" class="adv-hud-reset" id="advSound" title="Sound: tap to switch between all sound, effects only and muted">🔊 Sound</button>
+
+            <button type="button" class="adv-hud-reset adv-hud-recipe" id="advRecipe" hidden>📋 Recipe</button>
+
+            <button type="button" class="adv-hud-reset" id="advFull" title="Full screen (F)">⛶ Full screen</button>
+
+            <button type="button" class="adv-hud-reset" id="advReset">Restart</button>
+
+        </div>
+
+
+        <div class="adv-frame" id="advFrame">
+
+            <canvas id="advCanvas" width="640" height="480" aria-label="Fab Valley game world"></canvas>
+
+            <p class="adv-location" id="advLocation">Fab Valley</p>
+
+            <p class="adv-prompt" id="advPrompt" hidden></p>
+
+            <div class="adv-dialog" id="advDialog" hidden>
+                <p class="adv-dialog-speaker" id="advDialogSpeaker"></p>
+                <p class="adv-dialog-text" id="advDialogText" aria-live="polite"></p>
+                <span class="adv-dialog-more" aria-hidden="true">▼</span>
+            </div>
+
+            <div class="adv-toasts" id="advToasts" aria-live="polite"></div>
+
+            <div class="adv-fade" id="advFade"></div>
+
+        </div>
+
+
+        <div class="adv-controls">
+
+            <div class="adv-pad" aria-label="Movement controls">
+                <button type="button" class="adv-pad-btn up" data-dir="up" aria-label="Walk up">▲</button>
+                <button type="button" class="adv-pad-btn left" data-dir="left" aria-label="Walk left">◀</button>
+                <button type="button" class="adv-pad-btn right" data-dir="right" aria-label="Walk right">▶</button>
+                <button type="button" class="adv-pad-btn down" data-dir="down" aria-label="Walk down">▼</button>
+            </div>
+
+            <p class="adv-help">
+                Arrow keys or WASD to walk · Space to talk or use a machine · R opens the recipe · B opens your bag · M opens the map · F for full screen
+            </p>
+
+            <button type="button" class="adv-a-btn" id="advA" aria-label="Interact">A</button>
+
+        </div>
+
+    </main>
+
+
+    <div class="adv-modal" id="advModal" hidden>
+        <div class="adv-modal-panel" id="advModalBody" role="dialog" aria-modal="true"></div>
+    </div>
+
+
+    <script src="script.js"></script>
+    <script src="supercap-game-common.js"></script>
+    <script src="adventure-audio.js?v=20261020d"></script>
+    <script src="adventure-carbon.js?v=20261020d"></script>
+    <script src="adventure-echem.js?v=20261020d"></script>
+    <script src="adventure-silicon.js?v=20261020d"></script>
+    <script src="adventure-glucose.js?v=20261020d"></script>
+    <script src="adventure-neuro.js?v=20261020d"></script>
+    <script src="adventure-pdms.js?v=20261020d"></script>
+    <script src="adventure-energy.js?v=20261020d"></script>
+    <script src="adventure-metal.js?v=20261020d"></script>
+    <script src="adventure-carboncity.js?v=20261020d"></script>
+    <script src="adventure-cafes.js?v=20261020d"></script>
+    <script src="adventure-valley.js?v=20261020d"></script>
+    <script src="adventure.js?v=20261020d"></script>
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+
+</html>
