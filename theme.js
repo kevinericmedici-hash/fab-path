@@ -90,6 +90,16 @@
         }
 
         apply(saved());
+
+        // The dropdown site menu lives in its own file; every page with a top bar gets it from here.
+        if (!document.getElementById("fabSiteNav")) {
+
+            const nav = document.createElement("script");
+
+            nav.id = "fabSiteNav";
+            nav.src = "site-nav.js";
+            document.head.appendChild(nav);
+        }
     }
 
     // keep every open tab in step
