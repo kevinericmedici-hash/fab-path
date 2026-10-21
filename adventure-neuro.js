@@ -53,74 +53,74 @@
 
         const STEPS = [
             {
-                id: "fiber", phase: "fiber", tool: "fiber", short: "Load the fiber", where: "fiber bench",
+                id: "fiber", phase: "fiber", tool: "fiber", short: "Load the fiber", where: "fiber bench in the NeuroFab",
                 name: "Thread a 7 µm carbon fiber into a borosilicate glass capillary",
                 card: ["Fiber: <strong>7 µm carbon fiber</strong>, about a tenth the width of a hair. Small probes damage less tissue and sense a tiny region.",
                     "Capillary: <strong>borosilicate glass</strong>, which softens and stretches cleanly in the puller."]
             },
             {
-                id: "pull", phase: "fiber", tool: "puller", short: "Pull the capillary", where: "pipette puller",
+                id: "pull", phase: "fiber", tool: "puller", short: "Pull the capillary", where: "pipette puller in the NeuroFab",
                 name: "Pull the capillary to a fine tip around the fiber (heat 65%, medium pull)",
                 card: ["Heat: <strong>65%</strong> (60–70% works). Too cool and the glass won't taper; too hot and it snaps.",
                     "Pull strength: <strong>medium</strong>.",
                     "The glass stretches into a long, thin taper that hugs the carbon fiber."]
             },
             {
-                id: "epoxy", phase: "fiber", tool: "epoxy", short: "Seal with epoxy", where: "epoxy station",
+                id: "epoxy", phase: "fiber", tool: "epoxy", short: "Seal with epoxy", where: "epoxy station in the NeuroFab",
                 name: "Seal the glass–fiber joint: dip in epoxy for 30 s, cure at 100 °C for 8 h",
                 card: ["Dip: <strong>30 seconds</strong> (20–60 s) in low-viscosity epoxy. It wicks into the tip and seals the gap between glass and fiber.",
                     "Cure: <strong>100 °C</strong> (80–120 °C) for <strong>8 hours</strong> or more.",
                     "A leaky seal lets solution creep inside, giving a huge, noisy background."]
             },
             {
-                id: "cut", phase: "fiber", tool: "scope", short: "Trim the fiber", where: "cutting microscope",
+                id: "cut", phase: "fiber", tool: "scope", short: "Trim the fiber", where: "cutting microscope in the NeuroFab",
                 name: "Trim the exposed carbon fiber to 100 µm under the microscope",
                 card: ["Exposed length: <strong>100 µm</strong> (50–150 µm works).",
                     "Shorter means a smaller signal. Longer means more area and noise, and a fragile tip that can bend or snap."]
             },
             {
-                id: "nafion", phase: "fiber", tool: "nafion", short: "Nafion coat", where: "Nafion station",
+                id: "nafion", phase: "fiber", tool: "nafion", short: "Nafion coat", where: "Nafion station in the NeuroFab",
                 name: "Dip-coat the fiber with Nafion (5% for 30 s, dry at 70 °C for 10 min)",
                 card: ["Coating: <strong>Nafion</strong>, a polymer with negative charges.",
                     "Why: it repels negatively charged look-alikes such as ascorbic acid (vitamin C) and DOPAC, and attracts positively charged dopamine and serotonin.",
                     "Dip <strong>30 s</strong>, then dry at <strong>70 °C</strong> for about 10 minutes."]
             },
             {
-                id: "condition", phase: "fiber", tool: "fscv", short: "Condition", where: "FSCV rig",
+                id: "condition", phase: "fiber", tool: "fscv", short: "Condition", where: "FSCV rig in the NeuroFab",
                 name: "Condition the electrode: run the scan at 60 Hz for 15 min",
                 card: ["Run the FSCV waveform at <strong>60 Hz for 15 minutes</strong> (10 minutes or more).",
                     "It cleans and stabilizes the carbon surface, so the background stops drifting."]
             },
             {
-                id: "mpd", phase: "glu", tool: "pt", short: "Exclusion layer", where: "platinum array bench",
+                id: "mpd", phase: "glu", tool: "pt", short: "Exclusion layer", where: "platinum array bench in the Sensor Test Lab",
                 name: "Electroplate an mPD exclusion layer on the platinum sites (20 min)",
                 card: ["Layer: <strong>mPD</strong> (poly-m-phenylenediamine), grown on the platinum by cycling the voltage in mPD solution.",
                     "It lets tiny H₂O₂ molecules through but blocks ascorbic acid and dopamine.",
                     "Time: <strong>20 minutes</strong> (15–30)."]
             },
             {
-                id: "enzyme", phase: "glu", tool: "enzyme", short: "Enzyme and sentinel", where: "enzyme spotter",
+                id: "enzyme", phase: "glu", tool: "enzyme", short: "Enzyme and sentinel", where: "enzyme spotter in the Sensor Test Lab",
                 name: "Coat site 1 with glutamate oxidase; coat site 2 (the sentinel) with BSA only",
                 card: ["Site 1: <strong>glutamate oxidase</strong> (GluOx) + BSA + glutaraldehyde. It turns glutamate into H₂O₂, which platinum can read.",
                     "Site 2, the <strong>sentinel</strong>: BSA + glutaraldehyde with <strong>no enzyme</strong>. It feels everything except glutamate.",
                     "Subtracting site 2 from site 1 leaves only the glutamate signal (self-referencing)."]
             },
             {
-                id: "fscvcal", phase: "bench", tool: "flowcell", short: "FSCV calibration", where: "flow cell",
+                id: "fscvcal", phase: "bench", tool: "flowcell", short: "FSCV calibration", where: "flow cell in the Sensor Test Lab",
                 name: "Set the FSCV scan, inject dopamine, and identify unknowns by their fingerprint",
                 card: ["Dopamine scan: hold <strong>−0.4 V</strong>, sweep to <strong>+1.3 V</strong> and back at <strong>400 V/s</strong>, <strong>10 times a second</strong> (all vs Ag/AgCl).",
                     "Dopamine fingerprint: oxidation peak near <strong>+0.6 V</strong>, reduction peak near <strong>−0.2 V</strong>.",
                     "Serotonin peaks a bit higher, ascorbic acid has no return peak, and a pH change makes a wavy shape at both ends."]
             },
             {
-                id: "glucal", phase: "bench", tool: "glucal", short: "Glutamate calibration", where: "glutamate flow cell",
+                id: "glucal", phase: "bench", tool: "glucal", short: "Glutamate calibration", where: "glutamate flow cell in the Sensor Test Lab",
                 name: "Calibrate the glutamate sensor at +0.7 V and check it ignores ascorbic acid and dopamine",
                 card: ["Hold the platinum at <strong>+0.7 V</strong> vs Ag/AgCl.",
                     "Add glutamate in <strong>20 µM steps</strong>, then the interferents: ascorbic acid (250 µM) and dopamine (2 µM).",
                     "Look at site 1 minus the sentinel: it should step up with glutamate and stay flat for the interferents."]
             },
             {
-                id: "steril", phase: "ship", tool: "eto", short: "Sterilize", where: "sterilizer",
+                id: "steril", phase: "ship", tool: "eto", short: "Sterilize", where: "sterilizer in the Sensor Test Lab",
                 name: "Sterilize the probes with ethylene oxide gas",
                 card: ["Method: <strong>ethylene oxide (EtO)</strong> gas, a low-temperature sterilant.",
                     "Never steam autoclave: the heat kills the enzyme and cracks the epoxy seal.",
@@ -2332,6 +2332,20 @@
             const st = STEPS[s.step];
             return [`Next step: ${st.name}.`, st.tool === "patients" ? "The patients are at the Neuro Hospital, across the path." : `It's at the ${st.where}. My card there has the settings.`];
         }
+
+        // Split the lab into bays: these stations get their own building.
+        api.addBay({
+            outdoor: "neuro", from: "neurofab",
+            id: "neurotest", sign: "TESTING", label: "Grey Matter · Sensor Test Lab",
+            kinds: ["nr-pt", "nr-enzyme", "nr-flowcell", "nr-glucal", "nr-eto"],
+            x: 1, y: 9, w: 3, h: 2, door: { x: 2, y: 10 },
+            wall: "#f4f0ff", roof: "#7d4fb8",
+            currentKind: () => {
+                const st = STEPS[ns().step];
+                return ns().recipe && st ? "nr-" + st.tool : null;
+            }
+        });
+
     });
 
 })();

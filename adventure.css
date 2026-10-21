@@ -1402,6 +1402,14 @@ label.adv-chip input {
     padding: 4px 8px;
 }
 
+/* ---------- Frostbit ---------- */
+
+.adv-type.quantum { background: #bfe3f5; }
+
+.adv-field-quantum {
+    background: linear-gradient(180deg, #5d7fa8 0%, #2c4a72 55%, #3d5f8a 100%);
+}
+
 /* ---------- Certificates ---------- */
 
 .adv-type.cert { background: #e8d9a8; }
@@ -1627,4 +1635,29 @@ body.adv-fs .adv-page {
 /* station pop-ups can be wider when there's room */
 body.adv-fs .adv-modal-panel {
     width: min(820px, 100%);
+}
+
+/* ---------- Waferbound title on the start screen ---------- */
+
+.adv-title-logo {
+    margin: 0 0 14px;
+    text-align: center;
+}
+
+.adv-title-name {
+    margin: 0 !important;
+    font-family: "Courier New", monospace;
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-weight: 900;
+    letter-spacing: .14em;
+    color: #54e0c7 !important;
+    text-shadow: 3px 3px 0 #1d6b5f, 6px 6px 0 rgba(0, 0, 0, .35);
+}
+
+.adv-title-tag {
+    margin: 4px 0 0 !important;
+    font-size: 0.8rem;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: #f5b04c !important;
 }

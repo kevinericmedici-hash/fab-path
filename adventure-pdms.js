@@ -51,52 +51,52 @@
 
         const STEPS = [
             {
-                id: "master", phase: "master", tool: "master", short: "SU-8 master", where: "SU-8 master bench",
+                id: "master", phase: "master", tool: "master", short: "SU-8 master", where: "SU-8 master bench in the Soft Litho Lab",
                 name: "Make the master: SU-8 ridges 100 µm tall (SU-8 2100 at 3000 rpm)",
                 card: ["Resist: <strong>SU-8 2100</strong>, spun at <strong>3000 rpm</strong>, gives ridges about <strong>100 µm</strong> tall.",
                     "The ridges are the channels' negative: their height becomes the channel height, and channel height sets the shear stress on the cells.",
                     "Each master can mold hundreds of chips."]
             },
             {
-                id: "silane", phase: "master", tool: "silane", short: "Silanize", where: "silane desiccator",
+                id: "silane", phase: "master", tool: "silane", short: "Silanize", where: "silane desiccator in the Soft Litho Lab",
                 name: "Silanize the master with trichlorosilane vapor for 1 hour",
                 card: ["Treatment: <strong>trichlorosilane vapor</strong> in a sealed desiccator for <strong>1 hour</strong> (30 min or more).",
                     "It coats the master with a non-stick layer, so cured PDMS peels off cleanly instead of tearing the ridges."]
             },
             {
-                id: "mix", phase: "cast", tool: "mix", short: "Mix PDMS", where: "PDMS mixer",
+                id: "mix", phase: "cast", tool: "mix", short: "Mix PDMS", where: "PDMS mixer in the Soft Litho Lab",
                 name: "Mix Sylgard 184 PDMS: 10 parts base to 1 part curing agent",
                 card: ["PDMS (polydimethylsiloxane) is a clear, flexible silicone rubber.",
                     "Ratio: <strong>10 : 1</strong> base to curing agent, by weight. More curing agent makes it stiffer; less leaves it soft and sticky.",
                     "Stir for 2–3 minutes. It will be full of bubbles."]
             },
             {
-                id: "degas", phase: "cast", tool: "degas", short: "Degas", where: "vacuum degasser",
+                id: "degas", phase: "cast", tool: "degas", short: "Degas", where: "vacuum degasser in the Soft Litho Lab",
                 name: "Degas the PDMS under vacuum for 30 minutes",
                 card: ["Vacuum: <strong>30 minutes</strong> (20 or more), until no bubbles are left.",
                     "Trapped bubbles would leave holes in the channel walls and dead zones where cells starve."]
             },
             {
-                id: "cure", phase: "cast", tool: "oven", short: "Pour and cure", where: "cure oven",
+                id: "cure", phase: "cast", tool: "oven", short: "Pour and cure", where: "cure oven in the Soft Litho Lab",
                 name: "Pour the PDMS over the master and cure at 65 °C for 2 hours",
                 card: ["Cure: <strong>65 °C for 2 hours</strong>. (80 °C needs about 1 hour; room temperature takes about 2 days.)",
                     "Under-cured PDMS stays tacky and leaches uncured chemicals into the cell medium."]
             },
             {
-                id: "punch", phase: "bond", tool: "punch", short: "Peel and punch", where: "peel & punch bench",
+                id: "punch", phase: "bond", tool: "punch", short: "Peel and punch", where: "peel & punch bench in the Bonding Bay",
                 name: "Peel the PDMS off the master and punch 1.5 mm inlet and outlet holes",
                 card: ["Peel the slab off gently. The channels are now molded into its bottom face.",
                     "Punch inlets and outlets with a <strong>1.5 mm</strong> biopsy punch, so tubing fits snugly."]
             },
             {
-                id: "plasma", phase: "bond", tool: "plasma", short: "Plasma bond", where: "plasma bonder",
+                id: "plasma", phase: "bond", tool: "plasma", short: "Plasma bond", where: "plasma bonder in the Bonding Bay",
                 name: "Plasma-bond top layer, porous membrane and bottom layer (30 s, press within a minute)",
                 card: ["Membrane: <strong>porous, 0.4 µm pores</strong>. It separates the two channels but lets cells signal across.",
                     "Oxygen plasma: <strong>30 seconds</strong>. It activates the PDMS surface.",
                     "Press the layers together <strong>right away</strong> (within a minute). The activated surface relaxes back within minutes and stops bonding."]
             },
             {
-                id: "coat", phase: "bond", tool: "coat", short: "ECM coating", where: "coating station",
+                id: "coat", phase: "bond", tool: "coat", short: "ECM coating", where: "coating station in the Bonding Bay",
                 name: "Coat the channels with collagen IV and fibronectin for 1 hour at 37 °C",
                 card: ["Coating: <strong>collagen IV + fibronectin</strong>, proteins from the matrix cells normally sit on (ECM, extracellular matrix).",
                     "Incubate <strong>1 hour at 37 °C</strong>. Cells won't attach to bare PDMS."]
@@ -1788,6 +1788,20 @@
             const st = STEPS[s.step];
             return [`Next step: ${st.name}.`, st.tool === "patients" ? "The patients are at the Organ Lab, across the path." : `It's at the ${st.where}. My card there has the settings.`];
         }
+
+        // Split the lab into bays: these stations get their own building.
+        api.addBay({
+            outdoor: "pdms", from: "softlitho",
+            id: "pdmsbond", sign: "BONDING", label: "PDMS City · Bonding Bay",
+            kinds: ["pd-punch", "pd-plasma", "pd-coat"],
+            x: 16, y: 9, w: 3, h: 2, door: { x: 17, y: 10 },
+            wall: "#eaf7f8", roof: "#2ebfa5",
+            currentKind: () => {
+                const st = STEPS[ps().step];
+                return ps().recipe && st ? "pd-" + st.tool : null;
+            }
+        });
+
     });
 
 })();

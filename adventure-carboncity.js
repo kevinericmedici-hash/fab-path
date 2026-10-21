@@ -743,7 +743,8 @@
                     }
                     api.afterModal(() => api.say(first ? [
                         "Order from chaos! Even soot is carbon, just with no pattern to it.",
-                        "Arrange the same atoms differently and you get a gem, a pencil, a wonder material or a tiny soccer ball. Here's your Carbon City Certificate of Completion!"
+                        "Arrange the same atoms differently and you get a gem, a pencil, a wonder material or a tiny soccer ball. Here's your Carbon City Certificate of Completion!",
+                        "With that certificate, the Spark Line will take you on to Frostbit, where Dr. Flux builds qubits. Hop aboard at the tram stop!"
                     ] : ["Crumbled again! Come back whenever you like."], "Dr. Bucky"));
                     return `
                         <div class="adv-complete">
@@ -840,6 +841,22 @@
         }
 
         api.carbonCity = { rideTram: rideTram };
+
+        // From Carbon City the line runs two ways: back to Ampfield, or on
+        // to Frostbit once you hold the Carbon City certificate.
+        function chooseTram() {
+            const open = !!api.save().badges.carboncity;
+            api.openModal(`
+                ${api.head("carboncity", "Spark Line Tram")}
+                <p class="adv-lead">Where to?</p>
+                <div class="adv-button-row">
+                    <button type="button" class="adv-btn secondary" id="trAmp">⚡ Ampfield</button>
+                    <button type="button" class="adv-btn" id="trFrost"${open ? "" : " disabled"}>❄️ Frostbit</button>
+                </div>
+                ${open ? "" : '<p class="adv-keys" style="text-align:left">🔒 Frostbit: the conductor only takes Carbon City Certificate holders. Finish Dr. Bucky\'s exhibits and beat The Soot Golem.</p>'}`);
+            $("trAmp").addEventListener("click", () => rideTram("energy", "Ampfield", 12, 11));
+            $("trFrost").addEventListener("click", () => rideTram("frostbit", "Frostbit", 11, 12));
+        }
 
 
         /* ---------- Drawing ---------- */
@@ -1064,8 +1081,8 @@
                 ]),
                 {
                     kind: "tram", x: 14, y: 13, w: 4, h: 1, draw: drawTram, label: "Spark Line",
-                    prompt: "A: Ride the Spark Line to Ampfield",
-                    use: () => rideTram("energy", "Ampfield", 12, 11)
+                    prompt: "A: Ride the Spark Line",
+                    use: chooseTram
                 },
                 {
                     kind: "golem", x: 6, y: 9, w: 2, h: 2,

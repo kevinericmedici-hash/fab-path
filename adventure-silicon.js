@@ -81,33 +81,33 @@
                     "Skip piles that are mostly seashell (CaCO₃, calcium carbonate) or iron oxide."]
             },
             {
-                id: "arc", phase: "sand", tool: "arc", short: "Arc furnace", where: "arc furnace",
+                id: "arc", phase: "sand", tool: "arc", short: "Arc furnace", where: "arc furnace in the Crystal Plant",
                 name: "Reduce the quartz to silicon in the arc furnace at about 2000 °C",
                 card: ["Furnace temperature: <strong>2000 °C</strong> (1900–2100 °C works).",
                     "Carbon : SiO₂ ratio: <strong>2.0</strong>. The reaction SiO₂ + 2 C → Si + 2 CO needs two carbon atoms for every SiO₂."]
             },
             {
-                id: "hcl", phase: "sand", tool: "hcl", short: "Make trichlorosilane", where: "HCl reactor",
+                id: "hcl", phase: "sand", tool: "hcl", short: "Make trichlorosilane", where: "HCl reactor in the Crystal Plant",
                 name: "React the silicon with HCl gas at 300 °C to make trichlorosilane",
                 card: ["Gas: <strong>HCl</strong> (hydrogen chloride).",
                     "Bed temperature: <strong>300 °C</strong>. Hotter makes more SiCl₄ (silicon tetrachloride), which you don't want.",
                     "Product: SiHCl₃, trichlorosilane (TCS), a clear liquid."]
             },
             {
-                id: "distill", phase: "sand", tool: "still", short: "Distill", where: "distillation column",
+                id: "distill", phase: "sand", tool: "still", short: "Distill", where: "distillation column in the Crystal Plant",
                 name: "Distill out the trichlorosilane, which boils at 31.8 °C",
                 card: ["Start collecting at about <strong>25 °C</strong>: above boron chloride (BCl₃, 12.5 °C).",
                     "Stop collecting at about <strong>40 °C</strong>: below silicon tetrachloride (SiCl₄, 57.6 °C) and phosphorus chloride (PCl₃, 76.1 °C).",
                     "Passes: <strong>3 or more</strong>."]
             },
             {
-                id: "siemens", phase: "sand", tool: "siemens", short: "Siemens reactor", where: "Siemens reactor",
+                id: "siemens", phase: "sand", tool: "siemens", short: "Siemens reactor", where: "Siemens reactor in the Crystal Plant",
                 name: "Deposit polysilicon on hot rods in the Siemens reactor at 1100 °C",
                 card: ["Gas feed: <strong>SiHCl₃ + H₂</strong> (trichlorosilane plus hydrogen). Never air!",
                     "Rod temperature: <strong>1100 °C</strong> (1050–1150 °C works)."]
             },
             {
-                id: "cz", phase: "crystal", tool: "cz", short: "Grow the crystal", where: "CZ puller",
+                id: "cz", phase: "crystal", tool: "cz", short: "Grow the crystal", where: "CZ puller in the Crystal Plant",
                 name: "Grow a 200 mm ⟨100⟩ p-type crystal of about 10 Ω·cm in the CZ (Czochralski) puller",
                 card: ["Dopant: <strong>boron</strong> (makes p-type silicon).",
                     "Level: <strong>1.4×10<sup>15</sup> atoms/cm³</strong>. Check it: ρ = 1 / (1.6×10<sup>−19</sup> × 1.4×10<sup>15</sup> × 450) ≈ 10 Ω·cm.",
@@ -116,7 +116,7 @@
                     "Pull a <strong>thin neck</strong> first. Then keep the diameter in the green band (200 ± 10 mm): if it grows too wide, pull <strong>faster</strong>; if it gets too thin, pull <strong>slower</strong>. Small nudges work best."]
             },
             {
-                id: "saw", phase: "wafer", tool: "saw", short: "Slice", where: "wire saw",
+                id: "saw", phase: "wafer", tool: "saw", short: "Slice", where: "wire saw in the Wafer Lab",
                 name: "Grind, notch and wire-saw the ingot into 725 µm wafers",
                 card: ["Thickness: <strong>725 µm</strong>, the standard for 200 mm wafers.",
                     "Wire: <strong>diamond-coated</strong>.",
@@ -124,28 +124,28 @@
                     "Feed rate: <strong>1.0 mm/min or slower</strong>."]
             },
             {
-                id: "etch", phase: "wafer", tool: "etch", short: "Lap and etch", where: "etch bench",
+                id: "etch", phase: "wafer", tool: "etch", short: "Lap and etch", where: "etch bench in the Wafer Lab",
                 name: "Lap the wafer flat, then etch away about 30 µm of saw damage per side",
                 card: ["Tick <strong>lap both sides flat first</strong>.",
                     "Etchant: <strong>KOH</strong> (potassium hydroxide), or <strong>HF + HNO₃ + acetic acid</strong> (hydrofluoric, nitric and acetic acids).",
                     "Remove: <strong>30 µm per side</strong> (20–40 µm works)."]
             },
             {
-                id: "cmp", phase: "wafer", tool: "cmp", short: "Polish", where: "CMP polisher",
+                id: "cmp", phase: "wafer", tool: "cmp", short: "Polish", where: "CMP polisher in the Wafer Lab",
                 name: "Polish to a mirror finish with CMP (chemical-mechanical polishing)",
                 card: ["Slurry: <strong>colloidal silica</strong> (tiny SiO₂ particles in an alkaline liquid).",
                     "Pressure: <strong>3–5 psi</strong> (pounds per square inch).",
                     "Time: <strong>5–10 min</strong>."]
             },
             {
-                id: "rca", phase: "wafer", tool: "rca", short: "RCA clean", where: "RCA clean bench",
+                id: "rca", phase: "wafer", tool: "rca", short: "RCA clean", where: "RCA clean bench in the Wafer Lab",
                 name: "Run the RCA clean: SC-1, HF dip, SC-2, with rinses between",
                 card: ["Order: <strong>SC-1 → DI rinse → HF dip → DI rinse → SC-2 → DI rinse</strong>.",
                     "SC means Standard Clean. DI water is deionized (ultra-pure) water.",
                     "Always finish with a DI rinse."]
             },
             {
-                id: "implant", phase: "dope", tool: "implant", short: "Ion implant", where: "ion implanter",
+                id: "implant", phase: "dope", tool: "implant", short: "Ion implant", where: "ion implanter in the Wafer Lab",
                 name: "Implant phosphorus into the front: 10¹⁵ ions/cm², 50 keV, 7° tilt",
                 card: ["Ion: <strong>P⁺</strong> (phosphorus, an n-type dopant). Your wafer is p-type, so this makes a p–n junction.",
                     "Dose: <strong>1×10<sup>15</sup> ions/cm²</strong>.",
@@ -153,20 +153,20 @@
                     "Tilt: <strong>7°</strong>."]
             },
             {
-                id: "rta", phase: "dope", tool: "rta", short: "Anneal", where: "RTA",
+                id: "rta", phase: "dope", tool: "rta", short: "Anneal", where: "RTA in the Wafer Lab",
                 name: "Anneal in the RTA (rapid thermal anneal) at 1000 °C for 10 s in nitrogen",
                 card: ["Peak temperature: <strong>1000 °C</strong> (950–1075 °C works).",
                     "Time: <strong>10 s</strong> (5–30 s works).",
                     "Ambient gas: <strong>N₂</strong> (nitrogen)."]
             },
             {
-                id: "hotprobe", phase: "test", tool: "hotprobe", short: "Hot-point probe", where: "hot-point probe",
+                id: "hotprobe", phase: "test", tool: "hotprobe", short: "Hot-point probe", where: "hot-point probe in the Wafer Lab",
                 name: "Use the hot-point probe to find which side is n-type and which is p-type",
                 card: ["A <strong>positive</strong> reading means <strong>n-type</strong>. A <strong>negative</strong> reading means <strong>p-type</strong>.",
                     "If everything went to plan: the back (boron substrate) is p-type and the front (phosphorus layer) is n-type."]
             },
             {
-                id: "fourpp", phase: "test", tool: "fourpp", short: "Four-point probe", where: "four-point probe",
+                id: "fourpp", phase: "test", tool: "fourpp", short: "Four-point probe", where: "four-point probe in the Wafer Lab",
                 name: "Use the four-point probe to measure resistivity and sheet resistance",
                 card: ["Sheet resistance: <strong>R<sub>s</sub> = 4.532 × V / I</strong>, in Ω/□ (ohms per square).",
                     "Resistivity: <strong>ρ = R<sub>s</sub> × t</strong>, with the thickness t in centimeters (725 µm = 0.0725 cm). Units: Ω·cm.",
@@ -2749,8 +2749,23 @@
                 hotprobe: "Hot probe positive means n-type.",
                 fourpp: "Sheet resistance is 4.532 V/I. Multiply by the thickness for resistivity."
             };
-            return [`Next step: ${st.name}.`, `${st.id === "sand" ? "The sand piles are on the beach." : "Head into the wafer fab."} ${tips[st.id]}`];
+            return [`Next step: ${st.name}.`, `${st.id === "sand" ? "The sand piles are on the beach." : `It's at the ${st.where}.`} ${tips[st.id]}`];
         }
+
+        // Split the lab into bays: these stations get their own building.
+        api.addBay({
+            outdoor: "silicon", from: "waferfab",
+            id: "siwaferlab", sign: "WAFER LAB", label: "Silicon Beach · Wafer Lab",
+            kinds: ["si-saw", "si-etch", "si-cmp", "si-rca", "si-implant", "si-rta", "si-hotprobe", "si-fourpp"],
+            x: 7, y: 9, w: 4, h: 2, door: { x: 9, y: 10 },
+            wall: "#e3e9f2", roof: "#2e8a9a",
+            renameLab: { sign: "CRYSTAL PLANT", label: "Silicon Beach · Crystal Plant" },
+            currentKind: () => {
+                const st = STEPS[ss().step];
+                return ss().recipe && st ? "si-" + st.tool : null;
+            }
+        });
+
     });
 
 })();

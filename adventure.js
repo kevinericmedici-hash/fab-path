@@ -512,10 +512,17 @@
         // The order after Fab Valley: Metal City, Ion City (and its
         // East Side lab), Glucose Grove, Grey Matter, PDMS City,
         // Ampfield, then Carbon City by tram.
+        if (save.badges.quantum) {
+            return [
+                `Every certificate in the region, ${name}! From beach sand all the way to a working qubit.`,
+                "Come back any time to run the machines, rematch the bosses or play at the cafés."
+            ];
+        }
+
         if (save.badges.carboncity) {
             return [
-                `Every certificate in the region, ${name}! From sand to supercapacitors to buckyballs.`,
-                "Come back any time to run the machines, rematch the bosses or play at the cafés."
+                `Carbon City's certificate, ${name}! There's one town left.`,
+                "Ride the Spark Line from Carbon City to Frostbit, where Dr. Flux builds superconducting qubits at 10 mK."
             ];
         }
 
@@ -724,7 +731,10 @@
         powder: { icon: "⚫", name: "Electrode powder kit", from: "Cell Works stockroom, Ampfield.", use: "Ampfield material shelf (activated carbon, carbon black and PVDF)." },
         elyte: { icon: "🔋", name: "Supercap electrolyte set", from: "Cell Works stockroom, Ampfield.", use: "Ampfield glove box." },
         silane: { icon: "🛢️", name: "Silane gas (SiH₄)", from: "MOS Fab stockroom, Metal City.", use: "Metal City LPCVD furnace (polysilicon gate)." },
-        altarget: { icon: "🪙", name: "Aluminum sputter target", from: "MOS Fab stockroom, Metal City.", use: "Metal City sputter tool (contacts and wires)." }
+        altarget: { icon: "🪙", name: "Aluminum sputter target", from: "MOS Fab stockroom, Metal City.", use: "Metal City sputter tool (contacts and wires)." },
+        nbtarget: { icon: "🔘", name: "Niobium sputter target", from: "Frostbit stockroom, Clean & Metal Bay.", use: "Frostbit sputter tool (the qubit's superconducting circuit)." },
+        pmma: { icon: "🧴", name: "MMA/PMMA e-beam resist", from: "Frostbit stockroom, Clean & Metal Bay.", use: "Frostbit e-beam writer (the Josephson junction)." },
+        alpellets: { icon: "⚪", name: "Aluminum evaporation pellets", from: "Frostbit stockroom, Clean & Metal Bay.", use: "Frostbit shadow evaporator." }
     };
 
     const STOCK_CAP = 3;
@@ -883,13 +893,14 @@
         { id: "neuro", name: "Grey Matter", scene: "neuro", col: 3, row: 1, badge: "neuro", icon: "🧠", seen: "neuro" },
         { id: "pdms", name: "PDMS City", scene: "pdms", col: 4, row: 1, badge: "pdms", icon: "🧫", seen: "pdms" },
         { id: "energy", name: "Ampfield", scene: "energy", col: 5, row: 1, badge: "energy", icon: "⚡", seen: "energy" },
-        { id: "carboncity", name: "Carbon City", scene: "carboncity", col: 5, row: 2, badge: "carboncity", icon: "⚽", seen: "carboncity" }
+        { id: "carboncity", name: "Carbon City", scene: "carboncity", col: 5, row: 2, badge: "carboncity", icon: "⚽", seen: "carboncity" },
+        { id: "frostbit", name: "Frostbit", scene: "frostbit", col: 4, row: 2, badge: "quantum", icon: "❄️", seen: "quantum" }
     ];
 
     const ROADS = [
         ["valley", "silicon"], ["valley", "metal"], ["valley", "ion"], ["ion", "ioneast"],
         ["valley", "glucose"], ["glucose", "neuro"], ["neuro", "pdms"], ["pdms", "energy"],
-        ["energy", "carboncity", "tram"]
+        ["energy", "carboncity", "tram"], ["carboncity", "frostbit", "tram"]
     ];
 
     // the outdoor scene a scene belongs to (interiors exit to it)
@@ -913,7 +924,7 @@
 
     function roadLocked(a, b, kind) {
         if (kind === "tram") {
-            return !(save.energy && save.energy.powered);
+            return b === "frostbit" ? !save.badges.carboncity : !(save.energy && save.energy.powered);
         }
         const ta = TOWNS.find((t) => t.id === a);
         const tb = TOWNS.find((t) => t.id === b);
@@ -1112,8 +1123,84 @@
         { id: "neuro", town: "Grey Matter", doc: "Dr. Axon", icon: "🧠", what: "building neurochemical probes and beating The Glial Scar" },
         { id: "pdms", town: "PDMS City", doc: "Dr. Silox", icon: "🧫", what: "building organ-on-a-chip devices and beating The Bubble Beast" },
         { id: "energy", town: "Ampfield", doc: "Dr. Charge", icon: "⚡", what: "building a supercapacitor bank and beating The Short Circuit" },
-        { id: "carboncity", town: "Carbon City", doc: "Dr. Bucky", icon: "⚽", what: "exploring carbon's structures and beating The Soot Golem" }
+        { id: "carboncity", town: "Carbon City", doc: "Dr. Bucky", icon: "⚽", what: "exploring carbon's structures and beating The Soot Golem" },
+        { id: "quantum", town: "Frostbit", doc: "Dr. Flux", icon: "❄️", what: "building a superconducting transmon qubit and beating The Decoherence Wraith" }
     ];
+
+
+    /* ---------- Bays ----------
+       Splits a town's lab into bays: the stations whose kinds are
+       listed move from the town's lab (cfg.from) into a new building
+       stamped onto the town map. When the town says which station is
+       next (cfg.currentKind), a yellow arrow over the right building
+       shows which bay to walk to. */
+
+    function addBay(cfg) {
+        const town = SCENES[cfg.outdoor];
+        const lab = SCENES[cfg.from];
+        const moved = lab.objects.filter((o) => cfg.kinds.includes(o.kind));
+        lab.objects = lab.objects.filter((o) => !cfg.kinds.includes(o.kind));
+        SCENES[cfg.id] = {
+            id: cfg.id,
+            label: cfg.label,
+            grid: interiorRows(),
+            floor: cfg.floor || lab.floor,
+            tint: lab.tint,
+            exitTo: { scene: cfg.outdoor, x: cfg.door.x, y: cfg.door.y + 1 },
+            objects: moved,
+            npcs: cfg.npcs || []
+        };
+        // stamp the building and its door into the town map
+        town.grid = town.grid.map((row, y) => {
+            if (y < cfg.y || y >= cfg.y + cfg.h) {
+                return row;
+            }
+            const chars = row.split("");
+            for (let x = cfg.x; x < cfg.x + cfg.w; x++) {
+                chars[x] = x === cfg.door.x && y === cfg.door.y ? "D" : "B";
+            }
+            return chars.join("");
+        });
+        town.buildings.push({
+            id: cfg.id, sign: cfg.sign, x: cfg.x, y: cfg.y, w: cfg.w, h: cfg.h, door: cfg.door,
+            wall: cfg.wall, roof: cfg.roof, locked: () => false
+        });
+        if (cfg.renameLab) {
+            const b = town.buildings.find((bb) => bb.id === cfg.from);
+            b.sign = cfg.renameLab.sign;
+            lab.label = cfg.renameLab.label;
+        }
+        if (!cfg.currentKind) {
+            return;
+        }
+        // "your next step is in here" arrows over both buildings
+        const hint = (b, kinds) => ({
+            kind: "bayhint",
+            x: b.door.x, y: b.y, w: 1, h: 1,
+            active: () => kinds().includes(cfg.currentKind()),
+            draw: (c, X, Y, W, H, t) => {
+                const ay = Y - 14 + Math.round(Math.sin(t / 250) * 2);
+                c.fillStyle = "#1a2033";
+                c.beginPath();
+                c.moveTo(X + 3, ay - 1);
+                c.lineTo(X + 13, ay - 1);
+                c.lineTo(X + 8, ay + 7);
+                c.fill();
+                c.fillStyle = "#ffd84a";
+                c.beginPath();
+                c.moveTo(X + 4.5, ay);
+                c.lineTo(X + 11.5, ay);
+                c.lineTo(X + 8, ay + 5.5);
+                c.fill();
+            },
+            lines: [`Your next recipe step is in here: ${b.sign}.`]
+        });
+        const labBuilding = town.buildings.find((bb) => bb.id === cfg.from);
+        town.objects = (town.objects || []).concat([
+            hint(town.buildings[town.buildings.length - 1], () => cfg.kinds),
+            hint(labBuilding, () => lab.objects.map((o) => o.kind))
+        ]);
+    }
 
     function certificate(id) {
         const c = CERTS.find((x) => x.id === id);
@@ -1313,6 +1400,7 @@
         // move the player to another scene (trams, warps)
         goTo: (id, x, y, dir) => changeScene(id, x, y, dir || "down"),
         certificate: certificate,
+        addBay: addBay,
         bag: {
             ITEMS: ITEMS,
             count: bagCount,
@@ -1831,7 +1919,7 @@
         }
 
         $("rsAll").addEventListener("click", () => {
-            if (!window.confirm("Restart your whole Fab Valley adventure? Your level, certificates and character will be erased.")) {
+            if (!window.confirm("Restart your whole Waferbound adventure? Your level, certificates and character will be erased.")) {
                 return;
             }
             try {
@@ -2434,7 +2522,7 @@
 
         const ch = currentChar();
 
-        $("hudName").textContent = ch ? ch.name : "Fab Valley";
+        $("hudName").textContent = ch ? ch.name : "Waferbound";
         $("hudTitle").textContent = ch ? ch.title : "Pick an engineer to begin";
         $("hudLevel").textContent = "Lv " + level();
 
@@ -2453,6 +2541,7 @@
         $("badgeEnergy").classList.toggle("earned", !!save.badges.energy);
         $("badgeMetal").classList.toggle("earned", !!save.badges.metal);
         $("badgeCarbonCity").classList.toggle("earned", !!save.badges.carboncity);
+        $("badgeQuantum").classList.toggle("earned", !!save.badges.quantum);
 
         const av = $("hudAvatar").getContext("2d");
         av.clearRect(0, 0, 32, 32);
@@ -2634,7 +2723,10 @@
             </button>`).join("");
 
         openModal(`
-            <p class="eyebrow">FAB VALLEY</p>
+            <div class="adv-title-logo">
+                <p class="adv-title-name">WAFERBOUND</p>
+                <p class="adv-title-tag">A chip-science adventure</p>
+            </div>
             <h2>Choose your engineer</h2>
             <p class="adv-lead">Travel between fabrication facilities, run real cleanroom machines for XP and battle process defects. Your specialty earns bonus XP on matching machines and powers up one battle move.</p>
             <div class="adv-select-grid">${cards}</div>`, { closable: false });

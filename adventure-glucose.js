@@ -50,27 +50,27 @@
 
         const STEPS = [
             {
-                id: "electrode", phase: "build", tool: "electrode", short: "Electrodes", where: "electrode bench",
+                id: "electrode", phase: "build", tool: "electrode", short: "Electrodes", where: "electrode bench in the SensorWorks",
                 name: "Choose the electrode materials: platinum working, Ag/AgCl reference",
                 card: ["Working electrode: <strong>platinum</strong>, the best catalyst for oxidizing hydrogen peroxide (H₂O₂).",
                     "Reference electrode: <strong>Ag/AgCl</strong> (silver / silver chloride), a steady voltage standard."]
             },
             {
-                id: "inner", phase: "build", tool: "dip", short: "Interference layer", where: "dip coater",
+                id: "inner", phase: "build", tool: "dip", short: "Interference layer", where: "dip coater in the SensorWorks",
                 name: "Dip-coat the inner interference-blocking layer (cellulose acetate, 3 dips)",
                 card: ["Material: <strong>cellulose acetate</strong>. Its tiny pores let small H₂O₂ through but block bigger molecules like acetaminophen.",
                     "Dips: <strong>3</strong> (2–4 works). Too few lets interferents through; too many slows the signal."],
                 dip: { title: "Dip Coater: Interference Layer", options: [{ id: "ca", label: "Cellulose acetate" }, { id: "nafion", label: "Nafion" }, { id: "none", label: "No coating" }], correct: "ca", min: 2, max: 4, key: "inner" }
             },
             {
-                id: "enzyme", phase: "build", tool: "spot", short: "Enzyme layer", where: "enzyme spotter",
+                id: "enzyme", phase: "build", tool: "spot", short: "Enzyme layer", where: "enzyme spotter in the SensorWorks",
                 name: "Spot the glucose oxidase enzyme layer (GOx + BSA + glutaraldehyde, 5 drops)",
                 card: ["Enzyme: <strong>GOx</strong> (glucose oxidase). It turns glucose + O₂ into gluconolactone + H₂O₂.",
                     "Crosslinker: <strong>glutaraldehyde with BSA</strong> (bovine serum albumin). It locks the enzyme in place so it can't wash off.",
                     "Drops: <strong>5</strong> (4–6 works). Keep the enzyme cool: heat unfolds the protein."]
             },
             {
-                id: "outer", phase: "build", tool: "dip", short: "Glucose-limiting membrane", where: "dip coater",
+                id: "outer", phase: "build", tool: "dip", short: "Glucose-limiting membrane", where: "dip coater in the SensorWorks",
                 name: "Dip-coat the glucose-limiting membrane (polyurethane, 5 dips)",
                 card: ["Material: <strong>polyurethane</strong>. It lets oxygen in much more easily than glucose.",
                     "Why: at 90 mg/dL glucose is about 5 mM but tissue oxygen is only about 0.05–0.1 mM. Without this layer the enzyme runs out of oxygen and the signal stops tracking glucose.",
@@ -78,41 +78,41 @@
                 dip: { title: "Dip Coater: Glucose-Limiting Membrane", options: [{ id: "pu", label: "Polyurethane" }, { id: "ca", label: "Cellulose acetate" }, { id: "none", label: "No coating" }], correct: "pu", min: 4, max: 6, key: "outer" }
             },
             {
-                id: "bio", phase: "build", tool: "dip", short: "Biocompatible coat", where: "dip coater",
+                id: "bio", phase: "build", tool: "dip", short: "Biocompatible coat", where: "dip coater in the SensorWorks",
                 name: "Add the biocompatible outer coat (PEG-based hydrogel, 1–2 dips)",
                 card: ["Material: <strong>PEG-based hydrogel</strong> (polyethylene glycol). Its water-loving surface keeps proteins from sticking (biofouling).",
                     "Dips: <strong>1–2</strong>."],
                 dip: { title: "Dip Coater: Biocompatible Coat", options: [{ id: "peg", label: "PEG hydrogel" }, { id: "none", label: "No coating" }], correct: "peg", min: 1, max: 2, key: "bio" }
             },
             {
-                id: "cure", phase: "finish", tool: "oven", short: "Cure", where: "cure oven",
+                id: "cure", phase: "finish", tool: "oven", short: "Cure", where: "cure oven in the SensorWorks",
                 name: "Cure the layers gently: 25 °C for 24 hours",
                 card: ["Temperature: <strong>25 °C</strong> (room temperature; 20–40 °C works).",
                     "Time: <strong>24 hours</strong> (12 hours or more).",
                     "Never go above about 50 °C: glucose oxidase unfolds and stops working."]
             },
             {
-                id: "potential", phase: "finish", tool: "pstat", short: "Set the potential", where: "potentiostat",
+                id: "potential", phase: "finish", tool: "pstat", short: "Set the potential", where: "potentiostat in the Test & Pack Lab",
                 name: "Hold the working electrode at +0.6 V vs Ag/AgCl and let it settle",
                 card: ["Potential: <strong>+0.6 V</strong> versus the Ag/AgCl reference. That's where H₂O₂ is oxidized at platinum: H₂O₂ → O₂ + 2H⁺ + 2e⁻.",
                     "Too low: little peroxide reacts. Too high: other molecules react too, adding noise."]
             },
             {
-                id: "calib", phase: "bench", tool: "bath", short: "Calibration curve", where: "calibration bath",
+                id: "calib", phase: "bench", tool: "bath", short: "Calibration curve", where: "calibration bath in the Test & Pack Lab",
                 name: "Measure glucose standards at 37 °C and build the calibration curve",
                 card: ["Bath: <strong>37 °C</strong> (body temperature), in <strong>PBS</strong> (phosphate-buffered saline).",
                     "Run at least <strong>4 standards from 0 to 400 mg/dL</strong> (for example 0, 100, 200, 300, 400).",
                     "Sensitivity = slope of the line (nA per mg/dL). Glucose = (current − intercept) ÷ sensitivity."]
             },
             {
-                id: "interf", phase: "bench", tool: "interf", short: "Interference test", where: "interference bench",
+                id: "interf", phase: "bench", tool: "interf", short: "Interference test", where: "interference bench in the Test & Pack Lab",
                 name: "Spike a 100 mg/dL sample with acetaminophen and check the reading barely moves",
                 card: ["Test: add <strong>acetaminophen</strong> (a common pain reliever) at 2 mg/dL, the high end of a normal dose, to a 100 mg/dL glucose sample.",
                     "Pass: the reading changes by <strong>less than 10%</strong>.",
                     "You can also try vitamin C (ascorbic acid) and uric acid."]
             },
             {
-                id: "pack", phase: "ship", tool: "pack", short: "Package and sterilize", where: "packaging line",
+                id: "pack", phase: "ship", tool: "pack", short: "Package and sterilize", where: "packaging line in the Test & Pack Lab",
                 name: "Seal each sensor in its applicator, then sterilize with an electron beam",
                 card: ["Sterilization: <strong>e-beam</strong> (electron-beam radiation) or <strong>ethylene oxide gas</strong>. Both work at low temperature.",
                     "Never steam autoclave (121 °C): the heat destroys the enzyme.",
@@ -1788,6 +1788,20 @@
         // the fountain hides while the boss stands on it
         const ring = api.SCENES.glucose.objects.find((o) => o.kind === "ring");
         ring.active = () => !(gs().step >= STEPS.length && allFitted() && !gs().boss);
+
+        // Split the lab into bays: these stations get their own building.
+        api.addBay({
+            outdoor: "glucose", from: "sensorworks",
+            id: "glutest", sign: "TESTING", label: "Glucose Grove · Test & Pack Lab",
+            kinds: ["glu-pstat", "glu-bath", "glu-interf", "glu-pack"],
+            x: 5, y: 10, w: 3, h: 2, door: { x: 6, y: 11 },
+            wall: "#ffffff", roof: "#ff6b7d",
+            currentKind: () => {
+                const st = STEPS[gs().step];
+                return gs().recipe && st ? "glu-" + st.tool : null;
+            }
+        });
+
     });
 
 })();

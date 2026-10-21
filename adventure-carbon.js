@@ -105,7 +105,7 @@
             return [
                 {
                     id: tag + "spin", phase: tag, tool: "spin", short: "Spin polyimide",
-                    name: "Spin photo-definable polyimide at 3000 rpm (~5 µm)", where: "spin coater",
+                    name: "Spin photo-definable polyimide at 3000 rpm (~5 µm)", where: "spin coater in the Ion Lab",
                     cfg: {
                         title: "Spin Coater: Polyimide",
                         lead: n === 1
@@ -123,7 +123,7 @@
                 },
                 {
                     id: tag + "bake", phase: tag, tool: "hot", short: "Soft bake",
-                    name: "Soft bake polyimide at 90 °C for 3 min", where: "hotplate",
+                    name: "Soft bake polyimide at 90 °C for 3 min", where: "hotplate in the Ion Lab",
                     cfg: {
                         mode: "simple",
                         title: "Hotplate: Polyimide Soft Bake",
@@ -135,7 +135,7 @@
                 },
                 {
                     id: tag + "expose", phase: tag, tool: "align", short: "Expose",
-                    name: `Align to the ${n === 1 ? "carbon" : "metal"} and expose (~200 mJ/cm²)`, where: "mask aligner",
+                    name: `Align to the ${n === 1 ? "carbon" : "metal"} and expose (~200 mJ/cm²)`, where: "mask aligner in the Ion Lab",
                     cfg: {
                         dose: [150, 250],
                         offset: 12,
@@ -148,7 +148,7 @@
                 },
                 {
                     id: tag + "dev", phase: tag, tool: "dev", short: "Develop",
-                    name: "Develop in PA-401D for 2 min, rinse in PA-400R", where: "developer bench",
+                    name: "Develop in PA-401D for 2 min, rinse in PA-400R", where: "developer bench in the Ion Lab",
                     cfg: {
                         title: "Developer Bench: Polyimide",
                         lead: "Dissolve the unexposed polyimide to open the windows, then rinse in PA-400R and dry with N<sub>2</sub>.",
@@ -167,27 +167,27 @@
                 },
                 {
                     id: tag + "cure", phase: tag, tool: "furnace", short: "Cure",
-                    name: "Cure (anneal) the polyimide at 250 °C in N₂ for 1 h", where: "tube furnace",
+                    name: "Cure (anneal) the polyimide at 250 °C in N₂ for 1 h", where: "tube furnace in the Furnace & Metal Bay",
                     cfg: { mode: "cure" }
                 }
             ];
         }
 
         const STEPS = [
-            { id: "clean", phase: "gc", tool: "wet", short: "Clean", name: "Clean the wafer", where: "wet bench" },
-            { id: "dehydrate", phase: "gc", tool: "hot", short: "Dehydration bake", name: "Dehydration bake at 150 °C for 3 min", where: "hotplate" },
-            { id: "plasma", phase: "gc", tool: "plasma", short: "O₂ plasma", name: "O₂ plasma for 1 min", where: "plasma asher" },
-            { id: "spin", phase: "gc", tool: "spin", short: "Spin coat", name: "Spin coat SU-8 at 3000 rpm for a ~5 µm film (grade: datasheet)", where: "spin coater" },
-            { id: "softbake", phase: "gc", tool: "hot", short: "Soft bake", name: "Soft bake at 95 °C (time: datasheet)", where: "hotplate" },
-            { id: "expose", phase: "gc", tool: "align", short: "Expose", name: "Align to the wafer marks and expose (dose: datasheet)", where: "mask aligner" },
-            { id: "peb", phase: "gc", tool: "hot", short: "Post-exposure bake", name: "Post-exposure bake at 95 °C (time: datasheet)", where: "hotplate" },
-            { id: "develop", phase: "gc", tool: "dev", short: "Develop", name: "Develop in SU-8 developer (time: datasheet), rinse in IPA", where: "developer bench" },
-            { id: "inspect", phase: "gc", tool: "scope", short: "Inspect", name: "Inspect the pattern under the microscope", where: "microscope" },
-            { id: "pyro", phase: "gc", tool: "furnace", short: "Pyrolyse", name: "Pyrolyse into glassy carbon (inert gas, ≤5 °C/min, 900–1000 °C, 1 h hold)", where: "tube furnace" }
+            { id: "clean", phase: "gc", tool: "wet", short: "Clean", name: "Clean the wafer", where: "wet bench in the Ion Lab" },
+            { id: "dehydrate", phase: "gc", tool: "hot", short: "Dehydration bake", name: "Dehydration bake at 150 °C for 3 min", where: "hotplate in the Ion Lab" },
+            { id: "plasma", phase: "gc", tool: "plasma", short: "O₂ plasma", name: "O₂ plasma for 1 min", where: "plasma asher in the Ion Lab" },
+            { id: "spin", phase: "gc", tool: "spin", short: "Spin coat", name: "Spin coat SU-8 at 3000 rpm for a ~5 µm film (grade: datasheet)", where: "spin coater in the Ion Lab" },
+            { id: "softbake", phase: "gc", tool: "hot", short: "Soft bake", name: "Soft bake at 95 °C (time: datasheet)", where: "hotplate in the Ion Lab" },
+            { id: "expose", phase: "gc", tool: "align", short: "Expose", name: "Align to the wafer marks and expose (dose: datasheet)", where: "mask aligner in the Ion Lab" },
+            { id: "peb", phase: "gc", tool: "hot", short: "Post-exposure bake", name: "Post-exposure bake at 95 °C (time: datasheet)", where: "hotplate in the Ion Lab" },
+            { id: "develop", phase: "gc", tool: "dev", short: "Develop", name: "Develop in SU-8 developer (time: datasheet), rinse in IPA", where: "developer bench in the Ion Lab" },
+            { id: "inspect", phase: "gc", tool: "scope", short: "Inspect", name: "Inspect the pattern under the microscope", where: "microscope in the Ion Lab" },
+            { id: "pyro", phase: "gc", tool: "furnace", short: "Pyrolyse", name: "Pyrolyse into glassy carbon (inert gas, ≤5 °C/min, 900–1000 °C, 1 h hold)", where: "tube furnace in the Furnace & Metal Bay" }
         ].concat(piSteps(1), [
             {
                 id: "lorspin", phase: "metal", tool: "spin", short: "Spin lift-off resist",
-                name: "Spin AZ nLOF 2020 lift-off resist at 3000 rpm (~2 µm)", where: "spin coater",
+                name: "Spin AZ nLOF 2020 lift-off resist at 3000 rpm (~2 µm)", where: "spin coater in the Ion Lab",
                 cfg: {
                     title: "Spin Coater: Lift-off Resist",
                     lead: "The metal traces are made by lift-off: pattern a sacrificial resist, coat metal over everything, then dissolve the resist so the metal on top of it lifts away. Aim for about 2 µm.",
@@ -201,7 +201,7 @@
             },
             {
                 id: "lorbake", phase: "metal", tool: "hot", short: "Soft bake",
-                name: "Soft bake the lift-off resist at 110 °C for 1 min", where: "hotplate",
+                name: "Soft bake the lift-off resist at 110 °C for 1 min", where: "hotplate in the Ion Lab",
                 cfg: {
                     mode: "simple",
                     title: "Hotplate: Lift-off Resist Soft Bake",
@@ -213,7 +213,7 @@
             },
             {
                 id: "lorexpose", phase: "metal", tool: "align", short: "Expose",
-                name: "Align to the carbon and expose (~65 mJ/cm²)", where: "mask aligner",
+                name: "Align to the carbon and expose (~65 mJ/cm²)", where: "mask aligner in the Ion Lab",
                 cfg: {
                     dose: [55, 80],
                     offset: 12,
@@ -226,7 +226,7 @@
             },
             {
                 id: "lorpeb", phase: "metal", tool: "hot", short: "Post-exposure bake",
-                name: "Post-exposure bake at 110 °C for 1 min", where: "hotplate",
+                name: "Post-exposure bake at 110 °C for 1 min", where: "hotplate in the Ion Lab",
                 cfg: {
                     mode: "simple",
                     title: "Hotplate: nLOF Post-Exposure Bake",
@@ -238,7 +238,7 @@
             },
             {
                 id: "lordev", phase: "metal", tool: "dev", short: "Develop",
-                name: "Develop in AZ 300 MIF for 1–2 min, rinse in DI water", where: "developer bench",
+                name: "Develop in AZ 300 MIF for 1–2 min, rinse in DI water", where: "developer bench in the Ion Lab",
                 cfg: {
                     title: "Developer Bench: Lift-off Resist",
                     lead: "Open up the trace pattern. A little extra time deepens the undercut that makes lift-off work.",
@@ -257,16 +257,16 @@
             },
             {
                 id: "metal", phase: "metal", tool: "metal", short: "Deposit metal",
-                name: "E-beam evaporate 20 nm Ti + 200 nm Au at ~1 Å/s, below 5×10⁻⁶ Torr", where: "metal evaporator"
+                name: "E-beam evaporate 20 nm Ti + 200 nm Au at ~1 Å/s, below 5×10⁻⁶ Torr", where: "metal evaporator in the Furnace & Metal Bay"
             },
             {
                 id: "liftoff", phase: "metal", tool: "wet", short: "Lift-off",
-                name: "Lift off the extra metal in an NMP-based remover", where: "wet bench"
+                name: "Lift off the extra metal in an NMP-based remover", where: "wet bench in the Ion Lab"
             }
         ], piSteps(2), [
             {
                 id: "release", phase: "release", tool: "wet", short: "Release",
-                name: "Soak in DI water, then peel the device off the wafer", where: "wet bench"
+                name: "Soak in DI water, then peel the device off the wafer", where: "wet bench in the Ion Lab"
             }
         ]);
 
@@ -3506,6 +3506,20 @@
                 `Head to the ${st.where}. ${tips[st.id] || ""}`
             ];
         }
+
+        // Split the lab into bays: these stations get their own building.
+        api.addBay({
+            outdoor: "carbon", from: "carbonlab",
+            id: "ionfurnace", sign: "FURNACE", label: "Ion City · Furnace & Metal Bay",
+            kinds: ["carbon-furnace", "carbon-metal"],
+            x: 16, y: 9, w: 3, h: 2, door: { x: 17, y: 10 },
+            wall: "#cfd3dd", roof: "#b0413e",
+            currentKind: () => {
+                const st = STEPS[cs().step];
+                return cs().recipe && st ? "carbon-" + st.tool : null;
+            }
+        });
+
     });
 
 })();

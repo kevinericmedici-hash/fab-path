@@ -49,54 +49,54 @@
 
         const STEPS = [
             {
-                id: "clean", phase: "front", tool: "wet", short: "RCA clean", where: "wet bench",
+                id: "clean", phase: "front", tool: "wet", short: "RCA clean", where: "wet bench in the MOS Fab",
                 name: "RCA clean a p-type wafer",
                 card: ["Start from a <strong>p-type</strong> wafer: the channel of an n-channel MOSFET forms in p-type silicon.",
                     "Clean: <strong>SC-1</strong> (particles and organics), <strong>HF dip</strong> (native oxide), <strong>SC-2</strong> (metal ions), then a DI water rinse.",
                     "The gate oxide will be only nanometers thick, so the surface must be spotless."]
             },
             {
-                id: "oxide", phase: "front", tool: "furnace", short: "Gate oxide", where: "oxidation furnace",
+                id: "oxide", phase: "front", tool: "furnace", short: "Gate oxide", where: "oxidation furnace in the MOS Fab",
                 name: "Grow a 10 nm gate oxide in dry O₂ at 1000 °C for about 10 minutes",
                 card: ["Use <strong>dry O₂</strong>: slower than steam, but the densest, cleanest oxide. That's why it's used for gates.",
                     "Target: about <strong>10 nm</strong>. In this furnace, <strong>1000 °C for ~10 min</strong> gets there (growth slows as the oxide thickens: twice as thick takes about four times as long).",
                     "Too thin and electrons tunnel straight through. Too thick and the gate loses its grip on the channel."]
             },
             {
-                id: "poly", phase: "front", tool: "lpcvd", short: "Poly gate", where: "LPCVD furnace",
+                id: "poly", phase: "front", tool: "lpcvd", short: "Poly gate", where: "LPCVD furnace in the MOS Fab",
                 name: "Deposit the polysilicon gate: silane (SiH₄) at about 620 °C",
                 card: ["LPCVD (low-pressure chemical vapor deposition): <strong>silane gas, SiH₄</strong>, breaks apart on the hot wafer and leaves silicon behind.",
                     "At about <strong>620 °C</strong> it forms polysilicon: tiny silicon crystals. This becomes the gate electrode."]
             },
             {
-                id: "litho", phase: "front", tool: "aligner", short: "Gate litho", where: "mask aligner",
+                id: "litho", phase: "front", tool: "aligner", short: "Gate litho", where: "mask aligner in the MOS Fab",
                 name: "Pattern the gate: spin S1813 resist and expose a 1 µm gate line",
                 card: ["The gate length L is the distance current travels under the gate. Shorter gates switch faster.",
                     "This contact aligner can print lines down to about <strong>1 µm</strong>. Below that the light blurs and the line breaks up.",
                     "Pick the shortest gate length the tool can reliably print."]
             },
             {
-                id: "etch", phase: "front", tool: "etcher", short: "Gate etch", where: "plasma etcher",
+                id: "etch", phase: "front", tool: "etcher", short: "Gate etch", where: "plasma etcher in the MOS Fab",
                 name: "Plasma-etch the poly, stop at the endpoint, then over-etch about 20%",
                 card: ["A chlorine plasma etches polysilicon fast and SiO₂ very slowly.",
                     "Watch the <strong>endpoint signal</strong>: when the poly is gone, the plasma's glow changes.",
                     "Add a short <strong>over-etch of about 20%</strong> to clear leftovers. Much more eats through the thin gate oxide."]
             },
             {
-                id: "implant", phase: "dope", tool: "implanter", short: "Source/drain implant", where: "ion implanter",
+                id: "implant", phase: "dope", tool: "implanter", short: "Source/drain implant", where: "ion implanter in the Implant & Metal Bay",
                 name: "Implant phosphorus for the source and drain (about 5×10¹⁵ ions/cm²)",
                 card: ["Use an <strong>n-type</strong> dopant (phosphorus) to make n⁺ source and drain in the p-type wafer.",
                     "The gate itself blocks the ions, so the source and drain line up with its edges automatically: <strong>self-aligned</strong>, no extra mask.",
                     "Dose: about <strong>5×10¹⁵ ions/cm²</strong> for low-resistance n⁺ regions."]
             },
             {
-                id: "anneal", phase: "dope", tool: "rta", short: "Anneal", where: "RTA",
+                id: "anneal", phase: "dope", tool: "rta", short: "Anneal", where: "RTA in the Implant & Metal Bay",
                 name: "Activate the implant with a rapid thermal anneal: 1000 °C for 10 s",
                 card: ["Implanted atoms sit in the wrong places and the crystal is damaged. A quick, hot anneal moves them into the lattice so they can give up electrons.",
                     "<strong>1000 °C for about 10 seconds</strong>. Too long and they diffuse sideways under the gate."]
             },
             {
-                id: "metal", phase: "dope", tool: "sputter", short: "Metal contacts", where: "sputter tool",
+                id: "metal", phase: "dope", tool: "sputter", short: "Metal contacts", where: "sputter tool in the Implant & Metal Bay",
                 name: "Sputter aluminum contacts, then sinter in forming gas at 425 °C",
                 card: ["This is Metal City's specialty: <strong>aluminum</strong> wires to the source, drain and gate.",
                     "Gold and copper are great conductors, but both diffuse into silicon and leave traps that leak current (copper needs a barrier layer first).",
@@ -1756,6 +1756,20 @@
             const st = STEPS[s.step];
             return [`Next step: ${st.name}.`, `It's at the ${st.where}. My card there has the settings.`];
         }
+
+        // Split the lab into bays: these stations get their own building.
+        api.addBay({
+            outdoor: "metal", from: "mosfab",
+            id: "mosmetals", sign: "METALS", label: "Metal City · Implant & Metal Bay",
+            kinds: ["mt-implanter", "mt-rta", "mt-sputter"],
+            x: 16, y: 9, w: 3, h: 2, door: { x: 17, y: 10 },
+            wall: "#e3e7ee", roof: "#8f98aa",
+            currentKind: () => {
+                const st = STEPS[ms().step];
+                return ms().recipe && st ? "mt-" + st.tool : null;
+            }
+        });
+
     });
 
 })();

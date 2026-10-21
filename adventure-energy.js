@@ -63,52 +63,52 @@
 
         const STEPS = [
             {
-                id: "material", phase: "electrode", tool: "material", short: "Active material", where: "material shelf",
+                id: "material", phase: "electrode", tool: "material", short: "Active material", where: "material shelf in the Cell Works",
                 name: "Pick the active material: activated carbon",
                 card: ["Choose <strong>activated carbon</strong>. It's full of tiny pores, about <strong>1,000–3,000 m²</strong> of surface per gram.",
                     "A supercapacitor stores charge as ions packed against the carbon's surface (the double layer), so more surface means more capacitance."]
             },
             {
-                id: "slurry", phase: "electrode", tool: "slurry", short: "Mix the slurry", where: "slurry mixer",
+                id: "slurry", phase: "electrode", tool: "slurry", short: "Mix the slurry", where: "slurry mixer in the Cell Works",
                 name: "Mix the slurry: 80% carbon, 10% carbon black, 10% PVDF binder",
                 card: ["A common lab recipe: <strong>80%</strong> activated carbon, <strong>10%</strong> carbon black, <strong>10%</strong> binder (PVDF), stirred with a solvent into a smooth paste.",
                     "Carbon black wires the particles together for electrons. The binder glues everything to the foil.",
                     "The binder is an insulator: use the smallest amount that still holds the film together."]
             },
             {
-                id: "cast", phase: "electrode", tool: "cast", short: "Cast", where: "doctor-blade coater",
+                id: "cast", phase: "electrode", tool: "cast", short: "Cast", where: "doctor-blade coater in the Cell Works",
                 name: "Cast the slurry onto aluminum foil with the doctor blade: 150 µm wet gap",
                 card: ["Blade gap: <strong>150 µm</strong> (100–200 µm works).",
                     "Thicker films store more energy but ions must travel farther, so power drops, and thick films crack when they dry."]
             },
             {
-                id: "dry", phase: "electrode", tool: "dry", short: "Dry", where: "vacuum oven",
+                id: "dry", phase: "electrode", tool: "dry", short: "Dry", where: "vacuum oven in the Cell Works",
                 name: "Dry the electrode in the vacuum oven at 120 °C for 12 hours",
                 card: ["Dry at <strong>120 °C</strong> under vacuum for <strong>12 hours</strong> (overnight).",
                     "Leftover solvent and water break down inside the cell. Above about 170 °C the PVDF binder melts."]
             },
             {
-                id: "press", phase: "electrode", tool: "press", short: "Press and punch", where: "calender press",
+                id: "press", phase: "electrode", tool: "press", short: "Press and punch", where: "calender press in the Cell Works",
                 name: "Press the film to about 70% of its thickness, then punch out electrode discs",
                 card: ["Roll it to about <strong>70%</strong> of its dried thickness (a 30% squeeze).",
                     "Pressing packs the particles into better contact, cutting resistance. Squeeze too hard and you crush the pores ions need."]
             },
             {
-                id: "electrolyte", phase: "cell", tool: "glovebox", short: "Electrolyte", where: "glove box",
+                id: "electrolyte", phase: "cell", tool: "glovebox", short: "Electrolyte", where: "glove box in the Cell Assembly Bay",
                 name: "In the dry glove box, choose the electrolyte: 1 M TEABF₄ in acetonitrile (2.7 V)",
                 card: ["The tram's cells need <strong>2.7 V</strong> each. Water splits at about 1.23 V, so water-based electrolytes stay near 1 V.",
                     "Organic electrolyte: <strong>1 M TEABF₄ in acetonitrile</strong> reaches about <strong>2.7 V</strong>.",
                     "Work in the <strong>argon glove box</strong>: a trace of water in an organic electrolyte breaks down and gasses at high voltage."]
             },
             {
-                id: "assemble", phase: "cell", tool: "crimper", short: "Assemble", where: "cell crimper",
+                id: "assemble", phase: "cell", tool: "crimper", short: "Assemble", where: "cell crimper in the Cell Assembly Bay",
                 name: "Stack electrode, porous separator, electrode; wet with electrolyte and crimp it shut",
                 card: ["Stack: electrode, <strong>porous separator</strong>, electrode. The separator keeps the electrodes from touching but lets ions through.",
                     "Add enough electrolyte to soak every pore: about <strong>6 drops</strong> for this coin cell.",
                     "Then crimp the case shut."]
             },
             {
-                id: "test", phase: "cell", tool: "cycler", short: "Test", where: "cell cycler",
+                id: "test", phase: "cell", tool: "cycler", short: "Test", where: "cell cycler in the Cell Assembly Bay",
                 name: "Charge and discharge the cell at a constant current; measure C and ESR",
                 card: ["Constant-current test: <strong>20 mA</strong> up to the cell's top voltage and back down.",
                     "The instant drop when discharge starts is <strong>ΔV = I × ESR</strong> (ESR: equivalent series resistance).",
@@ -2006,6 +2006,20 @@
             const st = STEPS[s.step];
             return [`Next step: ${st.name}.`, `It's at the ${st.where}. My card there has the settings.`];
         }
+
+        // Split the lab into bays: these stations get their own building.
+        api.addBay({
+            outdoor: "energy", from: "cellworks",
+            id: "cellassembly", sign: "CELLS", label: "Ampfield · Cell Assembly Bay",
+            kinds: ["en-glovebox", "en-crimper", "en-cycler"],
+            x: 16, y: 9, w: 3, h: 2, door: { x: 17, y: 10 },
+            wall: "#fff8e1", roof: "#ffb84a",
+            currentKind: () => {
+                const st = STEPS[es().step];
+                return es().recipe && st ? "en-" + st.tool : null;
+            }
+        });
+
     });
 
 })();
