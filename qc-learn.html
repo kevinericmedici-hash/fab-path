@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' blob:; connect-src 'self' https://xcftpdlniahvxpxtkdaq.supabase.co https://api.pwnedpasswords.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <script src="security.js"></script>
+    <script src="theme.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quantum Computing Chips | Fab Path</title>
+    <meta name="description" content="Quantum Computing Chips on Fab Path: how quantum computers work and how their chips are made, from qubits and entanglement to the cleanroom. Free interactive lessons with simulators and 3D models.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/qc-learn.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Quantum Computing Chips | Fab Path">
+    <meta property="og:description" content="Quantum Computing Chips on Fab Path: how quantum computers work and how their chips are made, from qubits and entanglement to the cleanroom. Free interactive lessons with simulators and 3D models.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lab.css">
+    <link rel="stylesheet" href="theme-light.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="qc-learn.html" class="active-nav">Learn</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+            <span>🔥 <span id="streakDisplay">0</span></span>
+            <span>⚡ <span id="totalXPDisplay">0</span> XP</span>
+        
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+    </header>
+
+
+    <main class="learn-page">
+
+        <section class="course-header">
+
+            <p class="eyebrow">
+                COURSE 08 · NEW
+            </p>
+
+            <h1>Quantum Computing Chips</h1>
+
+            <p>
+                How quantum computers work, and how their chips are made:
+                qubits, superposition, entanglement and interference, what
+                makes a good qubit, and the cleanroom work behind
+                superconducting, silicon, ion, atom and photonic quantum chips.
+                Short units with interactive simulators, 3D models and a quiz.
+            </p>
+
+            <div class="course-progress">
+                <div class="progress-track">
+                    <div class="progress-fill" id="qcProgressFill"></div>
+                </div>
+
+                <span id="qcProgressText">0% complete</span>
+            </div>
+
+            <a href="#" class="cert-view-link" id="qcCertificateLink" hidden>View certificate</a>
+
+        </section>
+
+
+        <section class="lab-cta">
+            <div>
+                <p class="eyebrow">GROWING COURSE</p>
+                <h2>Parts 1 and 2 are live</h2>
+                <p>Next up: superconducting circuits, how a quantum chip is fabricated, materials and loss, silicon spin qubits, the other platforms, scaling up, and the quantum economy. A Quantum Foundry lab, where you design and test your own qubit chip, is planned too.</p>
+            </div>
+        </section>
+
+        <section class="learning-path" id="qcLearningPath">
+        </section>
+
+    </main>
+
+
+    <script src="qc-course-data.js"></script>
+    <script src="script.js"></script>
+    <script src="qc-script.js"></script>
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+
+</html>

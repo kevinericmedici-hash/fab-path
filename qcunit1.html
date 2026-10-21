@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-UyyxBAvWv5ozCeddcKGebbAM3myzoGqUW5BrcA2JPi8=' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' blob:; connect-src 'self' https://xcftpdlniahvxpxtkdaq.supabase.co https://api.pwnedpasswords.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <script src="security.js"></script>
+    <script src="theme.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bits, Qubits and Quantum Physics | Fab Path</title>
+    <meta name="description" content="Bits, Qubits and Quantum Physics: illustrated, interactive study slides from the Quantum Computing Chips course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/qcunit1.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Bits, Qubits and Quantum Physics | Fab Path">
+    <meta property="og:description" content="Bits, Qubits and Quantum Physics: illustrated, interactive study slides from the Quantum Computing Chips course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme-light.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="qc-learn.html">Learn</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="qc-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    START HERE: WHAT IS A BIT?
+                </p>
+
+                <h1>
+                    A bit is the smallest piece of information
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-bits"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Bit</strong>
+                        <span>Short for binary digit: a single 0 or 1.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>In hardware</strong>
+                        <span>Stored as a transistor switched on or off, a voltage, or a tiny magnet pointing one way or the other.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Bytes and beyond</strong>
+                        <span>8 bits make a byte. Photos, songs and apps are just long lists of bits.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Every computer you've used, from a calculator to a supercomputer, works with bits.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHAT IS QUANTUM PHYSICS?
+                </p>
+
+                <h1>
+                    The rules of the very small
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-scale"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Quantum physics</strong>
+                        <span>The branch of physics that describes atoms, electrons and particles of light (photons).</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Discovered</strong>
+                        <span>In the early 1900s, by Planck, Einstein, Bohr, Schrödinger, Heisenberg and others.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Where it shows</strong>
+                        <span>In tiny things, and in carefully isolated, very cold systems. Big, warm objects average it away.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Everyday physics is a very good approximation; quantum physics is what's really going on underneath.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    QUANTUM IDEA 1
+                </p>
+
+                <h1>
+                    Energy comes in packets
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-quanta"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Quanta</strong>
+                        <span>At the atomic scale, energy comes in fixed steps, not any amount.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Photons</strong>
+                        <span>Light comes in packets with energy E = hf.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>For qubits</strong>
+                        <span>Two neighbouring energy steps become the qubit's 0 and 1.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The word 'quantum' just means 'a fixed amount'.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    QUANTUM IDEA 2
+                </p>
+
+                <h1>
+                    Particles behave like waves, and looking changes things
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-doubleslit"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Wave-like</strong>
+                        <span>Single electrons build up an interference pattern, as if each went through both slits.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Probabilities</strong>
+                        <span>Quantum physics predicts the odds of each result, not one certain outcome.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Measurement matters</strong>
+                        <span>Checking which slit an electron used destroys the pattern.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Superposition, probability and measurement: the same three ideas run every quantum computer.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SO WHAT IS A QUBIT?
+                </p>
+
+                <h1>
+                    A quantum bit
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 200" role="img" aria-label="Side by side: a bit is a switch that is either 0 or 1; a qubit is an arrow on a sphere that can point between 0 and 1, and gives 0 or 1 when measured.">
+<text class="fd-label" x="85" y="22" text-anchor="middle">Bit</text>
+<rect class="fd-metal" x="60" y="44" width="50" height="100" rx="8"/>
+<rect class="fd-n" x="66" y="50" width="38" height="42" rx="5"/>
+<text class="fd-accent" x="85" y="76" text-anchor="middle">1</text>
+<text class="fd-sub" x="85" y="122" text-anchor="middle">0</text>
+<text class="fd-sub" x="85" y="166" text-anchor="middle">definitely 0 or definitely 1</text>
+<text class="fd-sub" x="85" y="180" text-anchor="middle">e.g. a transistor on or off</text>
+<text class="fd-label" x="255" y="22" text-anchor="middle">Qubit</text>
+<circle class="fd-dash" cx="255" cy="94" r="50"/>
+<ellipse class="fd-dash" cx="255" cy="94" rx="50" ry="15"/>
+<text class="fd-accent" x="255" y="38" text-anchor="middle">|0⟩</text>
+<text class="fd-accent" x="255" y="158" text-anchor="middle">|1⟩</text>
+<line class="fd-curve-alt" x1="255" y1="94" x2="290" y2="62"/>
+<circle class="fd-hole" cx="290" cy="62" r="4"/>
+<text class="fd-sub" x="255" y="172" text-anchor="middle">can point anywhere in between</text>
+<text class="fd-sub" x="255" y="186" text-anchor="middle">reading it still gives 0 or 1</text>
+                </svg>
+                </div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Qubit</strong>
+                        <span>Short for quantum bit: any quantum system with two states we call 0 and 1.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The difference</strong>
+                        <span>A bit is always 0 or 1. A qubit can be in a blend of both (a superposition) until it is measured.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Real qubits</strong>
+                        <span>Two energy levels of an atom, the spin of one electron, or the two lowest energies of a tiny superconducting circuit.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Now you have the vocabulary. Next: why anyone would build a computer out of qubits.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 1 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    💡
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You can define a bit, explain what quantum physics is, and say what makes a qubit different from a bit.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeQcUnit1Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeQcUnit1Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathQcUnit1StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathQcUnit1StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "qc-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

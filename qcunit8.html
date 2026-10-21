@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-S2Ht/bpcM4PPMxPONWMzTnePeujezEz78rexyIc9DVU=' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' blob:; connect-src 'self' https://xcftpdlniahvxpxtkdaq.supabase.co https://api.pwnedpasswords.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <script src="security.js"></script>
+    <script src="theme.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>What Quantum Computers Are Good For, and What They're Not | Fab Path</title>
+    <meta name="description" content="What Quantum Computers Are Good For, and What They're Not: illustrated, interactive study slides from the Quantum Computing Chips course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/qcunit8.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="What Quantum Computers Are Good For, and What They're Not | Fab Path">
+    <meta property="og:description" content="What Quantum Computers Are Good For, and What They're Not: illustrated, interactive study slides from the Quantum Computing Chips course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme-light.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="qc-learn.html">Learn</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="qc-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    CHEMISTRY AND MATERIALS
+                </p>
+
+                <h1>
+                    Nature's hardest problems
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 200" role="img" aria-label="Two ways to turn nitrogen from the air into fertiliser: a hot, high-pressure factory, and an enzyme in bacteria that works at room temperature.">
+<rect class="fd-ox" x="20" y="40" width="130" height="90" rx="8"/>
+<text class="fd-label" x="85" y="64" text-anchor="middle">Haber–Bosch factory</text>
+<text class="fd-sub" x="85" y="84" text-anchor="middle">about 400–500 °C</text>
+<text class="fd-sub" x="85" y="98" text-anchor="middle">150–300 atmospheres</text>
+<text class="fd-sub" x="85" y="112" text-anchor="middle">roughly 1–2% of world energy</text>
+<rect class="fd-n" x="190" y="40" width="130" height="90" rx="8"/>
+<text class="fd-label" x="255" y="64" text-anchor="middle">Nitrogenase enzyme</text>
+<text class="fd-sub" x="255" y="84" text-anchor="middle">in soil bacteria</text>
+<text class="fd-sub" x="255" y="98" text-anchor="middle">room temperature</text>
+<text class="fd-sub" x="255" y="112" text-anchor="middle">FeMoco metal cluster</text>
+<text class="fd-accent" x="170" y="158" text-anchor="middle">N₂ + H → NH₃ (ammonia)</text>
+<text class="fd-sub" x="170" y="182" text-anchor="middle">Simulating FeMoco exactly is beyond classical computers</text>
+                </svg>
+                </div>
+
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🌾
+                        </div>
+
+                        <h3>Fertiliser</h3>
+
+                        <p>
+                            Understand the enzyme bacteria use to fix nitrogen at room temperature.
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔋
+                        </div>
+
+                        <h3>Batteries</h3>
+
+                        <p>
+                            Design electrolytes and electrodes from first principles.
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            ⚗️
+                        </div>
+
+                        <h3>Catalysts</h3>
+
+                        <p>
+                            Better catalysts for green hydrogen and capturing CO₂.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Molecules are quantum systems, so simulating them was the first reason to build quantum computers.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CRYPTOGRAPHY
+                </p>
+
+                <h1>
+                    Breaking, and fixing, encryption
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-hndl"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>The threat</strong>
+                        <span>Shor's algorithm could break RSA and elliptic-curve encryption.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Harvest now, decrypt later</strong>
+                        <span>Data copied today could be unlocked years from now.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The fix</strong>
+                        <span>Post-quantum encryption, standardised by NIST in 2024, is being rolled out now.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The security impact starts before the quantum computer even exists.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SORT THE HYPE
+                </p>
+
+                <h1>
+                    Quantum, classical, or still unclear?
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-usecase"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Strong cases</strong>
+                        <span>Chemistry, materials, cryptography, and quantum sensing, which already works.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Unclear</strong>
+                        <span>Optimisation, finance and machine learning: modest or debated speedups.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>No help</strong>
+                        <span>Everyday software like email, video and spreadsheets.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Ask of any claim: what problem, compared to which classical method?
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHAT IT WON'T DO
+                </p>
+
+                <h1>
+                    An accelerator, not a replacement
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 200" role="img" aria-label="A classical computer sends a quantum circuit to a quantum processor in a fridge, which returns measurement results; the loop repeats.">
+<rect class="fd-metal" x="20" y="60" width="110" height="70" rx="8"/>
+<text class="fd-label" x="75" y="90" text-anchor="middle">Classical</text><text class="fd-label" x="75" y="104" text-anchor="middle">computer</text>
+<rect class="fd-n" x="210" y="50" width="110" height="90" rx="8"/>
+<text class="fd-label" x="265" y="82" text-anchor="middle">Quantum</text><text class="fd-label" x="265" y="96" text-anchor="middle">processor</text>
+<text class="fd-sub" x="265" y="118" text-anchor="middle">in a 10 mK fridge</text>
+<line class="fd-axis" x1="132" y1="78" x2="204" y2="78"/><polygon class="fd-arrow" points="210,78 202,82 202,74"/>
+<text class="fd-sub" x="170" y="70" text-anchor="middle">circuit</text>
+<line class="fd-axis" x1="208" y1="112" x2="138" y2="112"/><polygon class="fd-arrow" points="132,112 140,108 140,116"/>
+<text class="fd-sub" x="170" y="128" text-anchor="middle">results</text>
+<text class="fd-accent" x="170" y="164" text-anchor="middle">A specialist accelerator, like a GPU</text>
+<text class="fd-sub" x="170" y="184" text-anchor="middle">Everything else still runs on classical chips</text>
+                </svg>
+                </div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Hybrid computing</strong>
+                        <span>Classical computers run everything, sending special tasks to a quantum processor.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Big data</strong>
+                        <span>Loading huge datasets into qubits is a bottleneck.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Your laptop</strong>
+                        <span>Will never be replaced by a quantum computer.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Think of a quantum processor like a GPU: a specialist for certain jobs.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    HOW BIG?
+                </p>
+
+                <h1>
+                    How large a machine do useful problems need?
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-resource"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Today</strong>
+                        <span>Hundreds to about a thousand noisy physical qubits.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Useful</strong>
+                        <span>Roughly 10<sup>5</sup> to 10<sup>6</sup> physical qubits for chemistry or breaking RSA (estimates vary and keep falling).</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The gap</strong>
+                        <span>Bridged only by error correction and better fabrication.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Part 2 explains why: what makes a good qubit, and how errors are tamed.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 8 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🧭
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You can sort real quantum use cases from hype and explain why useful machines need error correction.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeQcUnit8Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeQcUnit8Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathQcUnit8StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathQcUnit8StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "qc-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

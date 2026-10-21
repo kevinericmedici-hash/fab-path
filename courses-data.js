@@ -90,6 +90,18 @@ const coursesData = [
     },
 
     {
+        id: "quantum-chips",
+        title: "Quantum Computing Chips",
+        tagline: "How quantum computers are built",
+        description:
+            "Qubits, superposition, entanglement and interference, what makes a good qubit, and how superconducting, silicon, ion, atom and photonic quantum chips are made. Interactive simulators and 3D models throughout.",
+        icon: "⚛️",
+        status: "live",
+        growing: true,
+        href: "qc-learn.html"
+    },
+
+    {
         id: "carbon-materials",
         title: "Carbon-Based Materials",
         tagline: "Graphene, nanotubes, and beyond",

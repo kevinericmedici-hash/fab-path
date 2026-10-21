@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-/qGPfc8HAKrYhe4r4QxbhPcC2zTS+x9gnk/wVJ41jqk=' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' blob:; connect-src 'self' https://xcftpdlniahvxpxtkdaq.supabase.co https://api.pwnedpasswords.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <script src="security.js"></script>
+    <script src="theme.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bits vs Qubits | Fab Path</title>
+    <meta name="description" content="Bits vs Qubits: illustrated, interactive study slides from the Quantum Computing Chips course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/qcunit3.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Bits vs Qubits | Fab Path">
+    <meta property="og:description" content="Bits vs Qubits: illustrated, interactive study slides from the Quantum Computing Chips course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme-light.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="qc-learn.html">Learn</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="qc-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    RECAP: CLASSICAL BITS
+                </p>
+
+                <h1>
+                    How a bit is stored in hardware
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 200" role="img" aria-label="Two ways a classical bit is stored: charge on a memory cell, and the direction of a tiny magnet.">
+<text class="fd-label" x="85" y="22" text-anchor="middle">Memory cell</text>
+<rect class="fd-p" x="35" y="120" width="100" height="40" rx="4"/>
+<rect class="fd-ox" x="55" y="104" width="60" height="16"/>
+<rect class="fd-metal" x="55" y="80" width="60" height="24"/>
+<circle class="fd-electron" cx="68" cy="140" r="5"/><circle class="fd-electron" cx="85" cy="140" r="5"/><circle class="fd-electron" cx="102" cy="140" r="5"/>
+<text class="fd-sub" x="85" y="178" text-anchor="middle">charge stored = 1, empty = 0</text>
+<text class="fd-label" x="255" y="22" text-anchor="middle">Hard-drive magnet</text>
+<rect class="fd-n" x="215" y="70" width="80" height="34" rx="4"/>
+<text class="fd-accent" x="255" y="92" text-anchor="middle">N  →  S   = 1</text>
+<rect class="fd-ox" x="215" y="116" width="80" height="34" rx="4"/>
+<text class="fd-accent" x="255" y="138" text-anchor="middle">S  ←  N   = 0</text>
+<text class="fd-sub" x="255" y="178" text-anchor="middle">magnetised one way or the other</text>
+<text class="fd-sub" x="170" y="196" text-anchor="middle">Either way the bit is definitely 0 or definitely 1</text>
+                </svg>
+                </div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Always definite</strong>
+                        <span>A bit is either 0 or 1, stored as charge, voltage or magnetism.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Reading is harmless</strong>
+                        <span>Looking at a bit doesn't change it.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>n bits</strong>
+                        <span>Hold one of 2<sup>n</sup> patterns at a time.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Classical information is definite: you can always read it, copy it and check it.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    QUBITS
+                </p>
+
+                <h1>
+                    A qubit holds a blend of 0 and 1
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-coin"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>The state</strong>
+                        <span>|ψ⟩ = α|0⟩ + β|1⟩, where α and β are amplitudes.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The odds</strong>
+                        <span>Reading gives 0 with probability |α|<sup>2</sup> and 1 with probability |β|<sup>2</sup>.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The catch</strong>
+                        <span>Afterwards the qubit is left in whatever you read.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    A qubit isn't 'secretly 0 or 1': its blend is real, and it disappears when you look.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    PICTURE IT
+                </p>
+
+                <h1>
+                    Every qubit state is an arrow on a sphere
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 200" role="img" aria-label="A sphere with |0⟩ at the north pole and |1⟩ at the south pole, and an arrow pointing to a point in between.">
+<circle class="fd-dash" cx="170" cy="100" r="62"/>
+<ellipse class="fd-dash" cx="170" cy="100" rx="62" ry="18"/>
+<text class="fd-accent" x="170" y="30" text-anchor="middle">|0⟩ north pole</text>
+<text class="fd-accent" x="170" y="182" text-anchor="middle">|1⟩ south pole</text>
+<line class="fd-curve-alt" x1="170" y1="100" x2="214" y2="66"/>
+<circle class="fd-hole" cx="214" cy="66" r="4"/>
+<text class="fd-sub" x="222" y="62" text-anchor="start">the qubit's state</text>
+<text class="fd-sub" x="100" y="104" text-anchor="end">equator:</text>
+<text class="fd-sub" x="100" y="116" text-anchor="end">50/50 blends</text>
+                </svg>
+                </div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>North pole</strong>
+                        <span>|0⟩.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>South pole</strong>
+                        <span>|1⟩.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Everywhere else</strong>
+                        <span>A blend. The height sets the odds; the direction around is the phase.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    This picture is called the Bloch sphere. The next unit explores it in detail.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    MORE QUBITS
+                </p>
+
+                <h1>
+                    n qubits, 2ⁿ amplitudes
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-register"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Three qubits</strong>
+                        <span>Eight amplitudes at once: |000⟩ to |111⟩.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Ten qubits</strong>
+                        <span>1,024 amplitudes.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>But measuring</strong>
+                        <span>Gives back only n plain bits.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The power is in the amplitudes; the challenge is getting a useful answer out of them.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CHECK YOURSELF
+                </p>
+
+                <h1>
+                    Bit or qubit?
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-bitorqubit"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Bits</strong>
+                        <span>Definite, readable, copyable.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Qubits</strong>
+                        <span>Blends that collapse when read, and can't be copied.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Both</strong>
+                        <span>Give a 0 or a 1 when you read them, and can be built on chips.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Next: what superposition and measurement really mean.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 3 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🪙
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You can explain the difference between a bit and a qubit, and what measuring a qubit does.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeQcUnit3Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeQcUnit3Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathQcUnit3StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathQcUnit3StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "qc-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

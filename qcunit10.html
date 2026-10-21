@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-EMJbP++o9Bxyiv4sQm4qwRRxa6tQUTzVDGaT7uBZtFE=' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' blob:; connect-src 'self' https://xcftpdlniahvxpxtkdaq.supabase.co https://api.pwnedpasswords.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <script src="security.js"></script>
+    <script src="theme.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Energy Levels and Two-Level Systems | Fab Path</title>
+    <meta name="description" content="Energy Levels and Two-Level Systems: illustrated, interactive study slides from the Quantum Computing Chips course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/qcunit10.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Energy Levels and Two-Level Systems | Fab Path">
+    <meta property="og:description" content="Energy Levels and Two-Level Systems: illustrated, interactive study slides from the Quantum Computing Chips course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme-light.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="qc-learn.html">Learn</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="qc-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    ENERGY LEVELS
+                </p>
+
+                <h1>
+                    Quantum things have energy levels
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-atomlevels"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Only certain energies</strong>
+                        <span>Atoms and circuits have fixed levels, like rungs on a ladder.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>E = hf</strong>
+                        <span>A photon is absorbed only if its energy matches a gap.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Selectivity</strong>
+                        <span>You can address one transition and leave the others alone.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Quantised levels are what make precise qubit control possible.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    PICK TWO LEVELS
+                </p>
+
+                <h1>
+                    Why a qubit needs uneven steps
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-levels"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Even ladder</strong>
+                        <span>A plain circuit's levels are evenly spaced, so one pulse drives them all.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Uneven ladder</strong>
+                        <span>A transmon's steps shrink a little each time.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The qubit</strong>
+                        <span>Drive exactly the 0→1 frequency and only those two levels respond.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The Josephson junction makes the ladder uneven; you'll build one in Part 3.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    MICROWAVES
+                </p>
+
+                <h1>
+                    Qubits live in the microwave band
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-spectrum"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Superconducting qubits</strong>
+                        <span>About 4–8 GHz, near Wi-Fi.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Spin qubits</strong>
+                        <span>About 10–40 GHz.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Ions and atoms</strong>
+                        <span>Lasers, plus microwave clock transitions.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Quantum computing borrows heavily from RF and microwave engineering.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    COLDER THAN SPACE
+                </p>
+
+                <h1>
+                    Why everything must be so cold
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-thermal"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>A 5 GHz qubit</strong>
+                        <span>Its energy matches heat at only about 0.24 kelvin.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Room temperature</strong>
+                        <span>Heat would flip it about half the time.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>10 millikelvin</strong>
+                        <span>The chance drops to about one in a hundred billion.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Dilution refrigerators make superconducting qubits possible.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    DRIVING A QUBIT
+                </p>
+
+                <h1>
+                    Rabi oscillations
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-rabi"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>A resonant drive</strong>
+                        <span>Rotates the qubit back and forth between 0 and 1.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>A π pulse</strong>
+                        <span>Half a cycle: flips 0 into 1, the quantum NOT gate.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Detuning</strong>
+                        <span>Drive at the wrong frequency and it never fully flips.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Every gate on a superconducting chip is a carefully timed microwave pulse.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 10 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🪜
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've seen why a qubit needs uneven energy levels, why it lives at microwave frequencies and why it must be so cold.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeQcUnit10Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeQcUnit10Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathQcUnit10StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathQcUnit10StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "qc-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

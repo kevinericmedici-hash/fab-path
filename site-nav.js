@@ -30,6 +30,7 @@
                     title: "Chips & fabrication", items: [
                         ["chip-learn.html", "🏭", "Sand to Chip", "How a chip gets made, from sand to finished chip"],
                         ["learn.html", "🔬", "MEMS & Microfabrication", "Cleanroom processes and tiny machines"],
+                        ["qc-learn.html", "⚛️", "Quantum Computing Chips", "How quantum computers are built (new)"]
                     ]
                 },
                 {

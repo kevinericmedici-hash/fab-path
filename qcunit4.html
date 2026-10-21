@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-E+KZfwbKlPJC/Vmv6qVAEI8CgNbV2cLf1y2ElAZvJGo=' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' blob:; connect-src 'self' https://xcftpdlniahvxpxtkdaq.supabase.co https://api.pwnedpasswords.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <script src="security.js"></script>
+    <script src="theme.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Bloch Sphere: A Map of a Qubit | Fab Path</title>
+    <meta name="description" content="The Bloch Sphere: A Map of a Qubit: illustrated, interactive study slides from the Quantum Computing Chips course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/qcunit4.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="The Bloch Sphere: A Map of a Qubit | Fab Path">
+    <meta property="og:description" content="The Bloch Sphere: A Map of a Qubit: illustrated, interactive study slides from the Quantum Computing Chips course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme-light.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="qc-learn.html">Learn</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="qc-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    A MAP, NOT A PLACE
+                </p>
+
+                <h1>
+                    The Bloch sphere is a map of a qubit's state
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 200" role="img" aria-label="Left: an atom with an electron cloud around the nucleus, which is a picture of real space. Right: the Bloch sphere, which is a map of the qubit's state, not a place where anything sits.">
+<text class="fd-label" x="85" y="20" text-anchor="middle">An atom: real space</text>
+<circle class="fd-depl" cx="85" cy="92" r="52"/>
+<circle class="fd-depl" cx="85" cy="92" r="30"/>
+<circle class="fd-ion" cx="85" cy="92" r="7"/>
+<circle class="fd-electron" cx="115" cy="92" r="4"/>
+<text class="fd-sub" x="85" y="162" text-anchor="middle">where the electron is likely to be</text>
+<text class="fd-accent" x="85" y="182" text-anchor="middle">✗ not the Bloch sphere</text>
+<text class="fd-label" x="255" y="20" text-anchor="middle">Bloch sphere: a map</text>
+<circle class="fd-dash" cx="255" cy="92" r="52"/>
+<ellipse class="fd-dash" cx="255" cy="92" rx="52" ry="15"/>
+<text class="fd-sub" x="255" y="34" text-anchor="middle">|0⟩ north pole</text>
+<text class="fd-sub" x="255" y="158" text-anchor="middle">|1⟩ south pole</text>
+<line class="fd-curve-alt" x1="255" y1="92" x2="292" y2="66"/>
+<circle class="fd-hole" cx="292" cy="66" r="4"/>
+<text class="fd-accent" x="255" y="182" text-anchor="middle">✓ every point = one possible state</text>
+                </svg>
+                </div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Not where the electron is</strong>
+                        <span>It doesn't show a position in space. An atom's electron cloud is a different picture.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>A map of possibilities</strong>
+                        <span>Every point on the sphere's surface is one possible state the qubit could be in.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The arrow</strong>
+                        <span>Points to the qubit's current state, like a pin on a globe.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Named after physicist Felix Bloch, it fits every possible state of one qubit onto a single ball.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE POLES
+                </p>
+
+                <h1>
+                    North pole = |0⟩, south pole = |1⟩
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-poles"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>North pole, |0⟩</strong>
+                        <span>The qubit's lower-energy basic state: definitely 0.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>South pole, |1⟩</strong>
+                        <span>The higher-energy basic state: definitely 1.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>On real hardware</strong>
+                        <span>An atom's ground and excited levels, an electron's spin flipped one way or the other, or a circuit's lowest two energies.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    For an electron spin, the arrow even points the way the spin does in space. For other qubits, the sphere is purely a map.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    LATITUDE
+                </p>
+
+                <h1>
+                    How far south sets the odds
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-latitude"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Near the north pole</strong>
+                        <span>Likely to read 0.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>On the equator</strong>
+                        <span>Exactly 50/50.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Near the south pole</strong>
+                        <span>Likely to read 1. Rule: P(0) = cos<sup>2</sup>(θ/2).</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The arrow's height is all you need to know the odds of a measurement.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    LONGITUDE
+                </p>
+
+                <h1>
+                    How far around is the phase
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-longitude"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>The phase</strong>
+                        <span>The arrow's direction around the vertical axis.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Hidden</strong>
+                        <span>Measuring directly gives the same odds at every longitude.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>But real</strong>
+                        <span>An H gate turns the phase into a visible difference: interference.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Latitude sets the odds; longitude holds the phase that quantum algorithms steer.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    PUT IT TOGETHER
+                </p>
+
+                <h1>
+                    The whole sphere in 3D
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-3d-bloch"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Drag to turn it</strong>
+                        <span>Find the poles, the equator and the six named states.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Set any state</strong>
+                        <span>Use θ (latitude) and φ (longitude).</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Measure</strong>
+                        <span>Watch the arrow jump to a pole with the odds set by its latitude.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    From now on, every gate in this course is a rotation of this sphere.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 4 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🌐
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You can explain what the Bloch sphere is, what its poles mean on a real qubit, and how latitude and longitude describe the state.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeQcUnit4Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeQcUnit4Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathQcUnit4StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathQcUnit4StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "qc-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-MaYlm9om7ZJ07TYaVo8m7LNN/eutHj9h1JEJPkWcRxo=' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' blob:; connect-src 'self' https://xcftpdlniahvxpxtkdaq.supabase.co https://api.pwnedpasswords.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <script src="security.js"></script>
+    <script src="theme.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Why Quantum? | Fab Path</title>
+    <meta name="description" content="Why Quantum?: illustrated, interactive study slides from the Quantum Computing Chips course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/qcunit2.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Why Quantum? | Fab Path">
+    <meta property="og:description" content="Why Quantum?: illustrated, interactive study slides from the Quantum Computing Chips course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme-light.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="qc-learn.html">Learn</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="qc-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    A NEW KIND OF CHIP
+                </p>
+
+                <h1>
+                    Computers that run on quantum physics
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-3d-processor"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Classical chips</strong>
+                        <span>Billions of transistors switch between 0 and 1.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Quantum chips</strong>
+                        <span>Tens to about a thousand qubits that follow the rules of quantum physics.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Made in cleanrooms</strong>
+                        <span>With the same lithography, deposition and etch tools as Sand to Chip and MEMS.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    A quantum computer is a chip too, and building one is a microfabrication problem.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE PROBLEM WITH NATURE
+                </p>
+
+                <h1>
+                    Why ordinary computers struggle
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-growth"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Every particle doubles the bookkeeping</strong>
+                        <span>Describing n quantum particles exactly takes 2<sup>n</sup> numbers.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>50 qubits</strong>
+                        <span>About 18 petabytes, more memory than the biggest supercomputers.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>300 qubits</strong>
+                        <span>More numbers than there are atoms in the observable universe.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Simulating quantum systems on classical chips gets exponentially harder.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    FEYNMAN'S IDEA
+                </p>
+
+                <h1>
+                    Use quantum to simulate quantum
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-timeline"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>1982</strong>
+                        <span>Richard Feynman suggests building computers out of quantum parts.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>1994</strong>
+                        <span>Shor's algorithm shows a quantum computer could break today's encryption.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>2019 to 2024</strong>
+                        <span>Chips with dozens of qubits, then proof that error correction can scale.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Forty years from idea to working chips, and the hardest engineering is still ahead.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHAT'S DIFFERENT
+                </p>
+
+                <h1>
+                    Three quantum ingredients
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-ingredients"></div>
+
+
+                <div class="module-card-grid">
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🌗
+                        </div>
+
+                        <h3>Superposition</h3>
+
+                        <p>
+                            A qubit can hold a blend of 0 and 1.
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            🔗
+                        </div>
+
+                        <h3>Entanglement</h3>
+
+                        <p>
+                            Qubits can share one state, so their results are linked.
+                        </p>
+
+                    </div>
+
+                    <div class="module-card">
+
+                        <div class="module-card-icon">
+                            〰️
+                        </div>
+
+                        <h3>Interference</h3>
+
+                        <p>
+                            Amplitudes add and cancel like waves.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Every quantum algorithm uses all three. You'll meet each one in this part.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    WHERE THIS COURSE GOES
+                </p>
+
+                <h1>
+                    From qubits to quantum chips
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 200" role="img" aria-label="The nine parts of the course drawn as a path: quantum basics, good qubits, superconducting circuits, fabrication, materials and loss, silicon spin qubits, other platforms, scaling up, and quantum and the world.">
+<circle class="fd-n" cx="30" cy="60" r="17"/><text class="fd-label" x="30" y="64" text-anchor="middle">1</text><text class="fd-sub" x="30" y="92" text-anchor="middle">Quantum basics</text><circle class="fd-n" cx="100" cy="60" r="17"/><text class="fd-label" x="100" y="64" text-anchor="middle">2</text><text class="fd-sub" x="100" y="92" text-anchor="middle">Good qubits</text><circle class="fd-p" cx="170" cy="60" r="17"/><text class="fd-label" x="170" y="64" text-anchor="middle">3</text><text class="fd-sub" x="170" y="92" text-anchor="middle">Superconductors</text><circle class="fd-p" cx="240" cy="60" r="17"/><text class="fd-label" x="240" y="64" text-anchor="middle">4</text><text class="fd-sub" x="240" y="92" text-anchor="middle">Fabrication</text><circle class="fd-p" cx="310" cy="60" r="17"/><text class="fd-label" x="310" y="64" text-anchor="middle">5</text><text class="fd-sub" x="310" y="92" text-anchor="middle">Materials & loss</text><circle class="fd-p" cx="30" cy="140" r="17"/><text class="fd-label" x="30" y="144" text-anchor="middle">6</text><text class="fd-sub" x="30" y="172" text-anchor="middle">Silicon spins</text><circle class="fd-p" cx="100" cy="140" r="17"/><text class="fd-label" x="100" y="144" text-anchor="middle">7</text><text class="fd-sub" x="100" y="172" text-anchor="middle">Other platforms</text><circle class="fd-p" cx="170" cy="140" r="17"/><text class="fd-label" x="170" y="144" text-anchor="middle">8</text><text class="fd-sub" x="170" y="172" text-anchor="middle">Scaling up</text><circle class="fd-p" cx="240" cy="140" r="17"/><text class="fd-label" x="240" y="144" text-anchor="middle">9</text><text class="fd-sub" x="240" y="172" text-anchor="middle">The world</text><text class="fd-accent" x="65" y="22" text-anchor="middle">you are here</text><text class="fd-sub" x="170" y="196" text-anchor="middle">Parts 1–2 are live; the rest are on the way</text>
+                </svg>
+                </div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Parts 1–2</strong>
+                        <span>The quantum ideas, and what makes a good qubit.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Parts 3–5</strong>
+                        <span>Superconducting qubits: how they work, how they're fabricated, why materials matter.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Parts 6–9</strong>
+                        <span>Silicon spins, other platforms, scaling up, and the quantum economy.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    No advanced maths needed: sliders, games and 3D models carry the ideas.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 2 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    ⚛️
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've seen why simulating nature overwhelms classical computers and where quantum chips come in.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeQcUnit2Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeQcUnit2Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathQcUnit2StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathQcUnit2StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "qc-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

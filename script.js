@@ -8579,6 +8579,24 @@ function loadIndexPage() {
                         );
 
             } else if (
+                course.id === "quantum-chips" &&
+                typeof qcCourseData !== "undefined"
+            ) {
+
+                const totalLessons =
+                    getQcAllLessons().length;
+
+                const completedLessons =
+                    getQcCompletedLessonCount();
+
+                percent =
+                    totalLessons === 0
+                        ? 0
+                        : Math.round(
+                            (completedLessons / totalLessons) * 100
+                        );
+
+            } else if (
                 course.id === "sand-to-chip" &&
                 typeof chipCourseData !== "undefined"
             ) {
@@ -9330,6 +9348,13 @@ document.addEventListener("click", function (event) {
             if (document.querySelector('.fd-sim[data-sim^="nt-"]')) {
                 loadScript("diagram-sims-mems.js", function () {
                     loadScript("diagram-sims-nt.js");
+                });
+            }
+
+            // the quantum computing chips simulators share the helper functions in the MEMS file
+            if (document.querySelector('.fd-sim[data-sim^="qc-"]')) {
+                loadScript("diagram-sims-mems.js", function () {
+                    loadScript("diagram-sims-qc.js");
                 });
             }
         });

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-D7VMAXabvPA2aeFo9WR54vo98CEupoifZNk3w+XL2/k=' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' blob:; connect-src 'self' https://xcftpdlniahvxpxtkdaq.supabase.co https://api.pwnedpasswords.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <script src="security.js"></script>
+    <script src="theme.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Recipe for a Qubit | Fab Path</title>
+    <meta name="description" content="The Recipe for a Qubit: illustrated, interactive study slides from the Quantum Computing Chips course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/qcunit9.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="The Recipe for a Qubit | Fab Path">
+    <meta property="og:description" content="The Recipe for a Qubit: illustrated, interactive study slides from the Quantum Computing Chips course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme-light.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="qc-learn.html">Learn</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="qc-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    THE CHECKLIST
+                </p>
+
+                <h1>
+                    Five ingredients for a quantum computer
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-recipe"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>1. Qubits</strong>
+                        <span>Well-defined two-level systems you can scale up.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>2–3. Reset and coherence</strong>
+                        <span>Start in 0, and last much longer than a gate.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>4–5. Gates and measurement</strong>
+                        <span>A universal set of gates, and readout of each qubit.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Physicist David DiVincenzo listed these in 2000; every platform is still judged against them.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    A REAL QUBIT
+                </p>
+
+                <h1>
+                    Is it a good qubit?
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-candidates"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Not enough</strong>
+                        <span>Having two positions, like a switch or a coin.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>What's needed</strong>
+                        <span>A genuinely quantum two-level system that can hold superpositions.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Good candidates</strong>
+                        <span>Atoms, electron spins, superconducting circuits, photons.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Quantum behaviour, not just two states, is what makes a qubit.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    START FROM ZERO
+                </p>
+
+                <h1>
+                    Reset: every calculation starts at 0
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-reset"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Passive reset</strong>
+                        <span>Wait for the qubit to relax in a cold chip.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Active reset</strong>
+                        <span>Measure it, and flip it if it reads 1.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Why cold matters</strong>
+                        <span>Heat would randomly kick qubits back to 1.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    A clean start is the first step of every quantum program.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    LIFETIME VS SPEED
+                </p>
+
+                <h1>
+                    Long life, fast gates
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-ratio"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Coherence time</strong>
+                        <span>How long the qubit keeps its quantum state.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Gate time</strong>
+                        <span>How long one operation takes.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>What counts</strong>
+                        <span>The ratio: how many gates fit before the qubit forgets.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Thousands of gates per lifetime is the minimum for error correction.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CONTROL AND READOUT
+                </p>
+
+                <h1>
+                    Talk to every qubit, one at a time
+                </h1>
+
+                <div class="module-visual fet-diagram">
+                <svg viewBox="0 0 340 200" role="img" aria-label="One qubit with a drive line bringing microwave pulses in, and a readout resonator coupling it to a feedline that carries the measurement signal out.">
+<rect class="fd-p" x="20" y="150" width="300" height="20" rx="3"/>
+<text class="fd-sub" x="170" y="186" text-anchor="middle">chip</text>
+<rect class="fd-metal" x="140" y="96" width="60" height="44" rx="6"/>
+<text class="fd-label" x="170" y="122" text-anchor="middle">qubit</text>
+<line class="fd-channel" x1="40" y1="118" x2="136" y2="118"/>
+<text class="fd-sub" x="60" y="110" text-anchor="middle">drive line</text>
+<text class="fd-sub" x="60" y="140" text-anchor="middle">gate pulses in</text>
+<path class="fd-curve" d="M200 108 h20 v-16 h12 v16 h12 v-16 h12 v16 h12 v-40"/>
+<text class="fd-sub" x="262" y="120" text-anchor="middle">readout resonator</text>
+<line class="fd-curve-alt" x1="20" y1="58" x2="320" y2="58"/>
+<text class="fd-sub" x="96" y="50" text-anchor="middle">feedline: measurement signal out</text>
+<text class="fd-accent" x="170" y="24" text-anchor="middle">every qubit needs its own control and readout</text>
+                </svg>
+                </div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Control</strong>
+                        <span>Each qubit needs its own pulses, without disturbing its neighbours.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Readout</strong>
+                        <span>Fast, accurate measurement of each qubit.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>At scale</strong>
+                        <span>Thousands of control lines are a major engineering challenge.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Every one of these ingredients turns into a fabrication and wiring problem later in the course.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 9 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    📋
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You can judge any qubit candidate against DiVincenzo's checklist.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeQcUnit9Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeQcUnit9Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathQcUnit9StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathQcUnit9StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "qc-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>
