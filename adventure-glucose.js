@@ -1802,6 +1802,51 @@
             }
         });
 
+
+        // Microscopes: a cross-section of the sensor's working electrode.
+        function gluView(n) {
+            const id = STEPS[n - 1].id;
+            const W = [[0.05, 0.62]];
+            const layers = [
+                { name: "Sensor base (polymer)", color: "#3a4256", h: 30 },
+                { name: "Platinum working electrode", color: "#c9ced8", h: 22, seg: W },
+                { name: "Ag/AgCl reference electrode", color: "#9c8f80", h: 22, seg: [[0.72, 0.95]] }
+            ];
+            if (n >= 2) {
+                layers.push({ name: "Cellulose acetate (blocks interferents)", color: "#e9f2c4", h: 8, seg: W });
+            }
+            if (n >= 3) {
+                layers.push({ name: "Glucose oxidase (GOx) layer", color: "#f2a65a", h: 12, seg: W });
+            }
+            if (n >= 4) {
+                layers.push({ name: "Polyurethane (limits glucose)", color: "#9ec5ff", h: 16, seg: W });
+            }
+            if (n >= 5) {
+                layers.push({ name: "PEG hydrogel (biocompatible)", color: "#c6f0e0", h: 12, seg: W, rough: n >= 6 ? 0 : 1.5 });
+            }
+            const CAP = {
+                electrode: "The bare electrodes: platinum to do the sensing and Ag/AgCl as a steady reference.",
+                inner: "Cellulose acetate on the platinum. Small H₂O₂ gets through; bigger molecules like acetaminophen are blocked.",
+                enzyme: "The glucose oxidase layer. GOx turns glucose and O₂ into gluconolactone and H₂O₂, and the platinum measures the H₂O₂.",
+                outer: "The polyurethane membrane lets only a little glucose through but plenty of oxygen, so the enzyme never runs out of O₂.",
+                bio: "The soft PEG hydrogel outer coat helps the body tolerate the sensor. It's still wet and uneven.",
+                cure: "Cured gently, so the enzyme survives. The layers are set.",
+                potential: "Under +0.6 V, the platinum oxidizes the H₂O₂ the enzyme makes. The current tracks glucose.",
+                calib: "Same sensor, now with a calibration curve: current versus glucose at body temperature.",
+                interf: "The inner layer is why the acetaminophen spike barely moves the reading.",
+                pack: "Sealed and sterilized. The electron beam passes through without heating the enzyme.",
+                mard: "Same sensor. In the study its readings matched fingersticks well (that's the MARD).",
+                fit: "The finished sensor, the same one now on the residents' arms."
+            };
+            return { layers: layers, caption: CAP[id] };
+        }
+
+        api.addScope({
+            type: "glucose", title: "Dr. Dex's Microscope",
+            places: [["sensorworks", 17, 1], ["glutest", 17, 1]],
+            steps: STEPS, state: gs, view: gluView
+        });
+
     });
 
 })();

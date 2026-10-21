@@ -1128,6 +1128,153 @@
     ];
 
 
+    /* ---------- Microscopes ----------
+       Every lab gets a microscope that shows the device its town's
+       recipe has built so far. cfg.view(n, state) describes the device
+       after n finished steps: either a cross-section as a list of
+       layers (bottom up) or its own draw(c, W, H) function. A slider
+       steps back through every stage done so far. */
+
+    // Queued until every town has built its scenes, since a lab may
+    // belong to a later extension.
+    const scopeQueue = [];
+
+    function addScope(cfg) {
+        scopeQueue.push(cfg);
+    }
+
+    function placeScope(cfg) {
+        cfg.places.forEach((p) => {
+            SCENES[p[0]].objects.push({
+                kind: "devscope", x: p[1], y: p[2], w: 1, h: 1,
+                label: cfg.label || "Microscope",
+                draw: drawScope,
+                prompt: "A: Look at your device",
+                use: () => openScope(cfg)
+            });
+        });
+    }
+
+    function drawScope(c, X, Y) {
+        rect(c, X + 1, Y + 9, 14, 7, "#8a5a3b");
+        rect(c, X + 1, Y + 9, 14, 2, "#a8744f");
+        rect(c, X + 4, Y + 13, 8, 2, "#2b3245");
+        rect(c, X + 9, Y + 2, 3, 11, "#e9edf5");
+        rect(c, X + 5, Y + 8, 6, 2, "#c4cad6");
+        rect(c, X + 6, Y + 1, 3, 7, "#2b3245");
+        rect(c, X + 6, Y - 1, 3, 2, "#5ad1ff");
+        rect(c, X + 6, Y + 7, 2, 2, "#8f98aa");
+    }
+
+    function openScope(cfg) {
+        const st = cfg.state();
+        const total = cfg.steps.length;
+        const done = st && st.recipe ? Math.min(st.step || 0, total) : 0;
+        if (!done) {
+            say([cfg.empty || "The microscope stage is empty. Start the recipe, and your device will show up here after its first step."]);
+            return;
+        }
+        const legendHtml = (layers) => {
+            const seen = {};
+            return layers.filter((L) => L.name && !seen[L.name] && (seen[L.name] = true))
+                .map((L) => `<span class="adv-scope-key"><i style="background:${L.color}"></i>${L.name}</span>`).join("");
+        };
+        openModal(`
+            ${head(cfg.type, "🔬 " + cfg.title)}
+            <p class="adv-keys" style="text-align:left" id="scStage"></p>
+            <canvas id="scCanvas" class="adv-scope-canvas" width="560" height="250" role="img"></canvas>
+            <div class="adv-scope-legend" id="scLegend"></div>
+            <p class="adv-lead" id="scCap"></p>
+            ${done > 1 ? `<label class="adv-scope-scrub">Look back at an earlier stage
+                <input type="range" id="scRange" min="1" max="${done}" value="${done}"></label>` : ""}
+            <div id="scFlaws"></div>`);
+        const cv = $("scCanvas");
+        const show = (n) => {
+            const v = cfg.view(n, st) || {};
+            const c = cv.getContext("2d");
+            const W = cv.width, H = cv.height;
+            const g = c.createRadialGradient(W / 2, H / 2, 40, W / 2, H / 2, W * 0.62);
+            g.addColorStop(0, "#1c2740");
+            g.addColorStop(1, "#090d18");
+            c.fillStyle = g;
+            c.fillRect(0, 0, W, H);
+            if (v.draw) {
+                v.draw(c, W, H);
+            } else {
+                drawLayers(c, W, H, v.layers || []);
+            }
+            c.fillStyle = "rgba(245,247,255,0.55)";
+            c.font = "11px sans-serif";
+            c.textAlign = "right";
+            c.textBaseline = "alphabetic";
+            c.fillText(v.scale || (v.draw ? "" : "cross-section · not to scale"), W - 12, H - 8);
+            const name = cfg.steps[n - 1];
+            $("scStage").textContent = (n >= total ? "Finished device · " : `After step ${n} of ${total} · `) + (name.short || name.name);
+            $("scCap").innerHTML = v.caption || "";
+            cv.setAttribute("aria-label", (v.caption || "").replace(/<[^>]+>/g, ""));
+            $("scLegend").innerHTML = v.layers ? legendHtml(v.layers) : "";
+            const flaws = cfg.steps.slice(0, n).reduce((l, s) => l.concat(st.defects && st.defects[s.id] || []), []);
+            $("scFlaws").innerHTML = flaws.length
+                ? `<p class="adv-keys" style="text-align:left"><strong>Flaws you can see:</strong></p><ul class="adv-scope-flaws">${flaws.map((d) => `<li class="${d.sev}">${d.cause}</li>`).join("")}</ul>`
+                : '<p class="adv-keys" style="text-align:left">✅ No flaws so far.</p>';
+        };
+        show(done);
+        const range = $("scRange");
+        if (range) {
+            range.addEventListener("input", () => show(Number(range.value)));
+        }
+    }
+
+    // Draws a cross-section bottom up. Each layer stacks on whatever is
+    // under it, so films follow the steps below them. Layer fields:
+    // name, color, h (px), seg ([[from, to]] as fractions of the width),
+    // rough (px of surface wobble), inset (drawn down into the first
+    // layer, like an implant).
+    function drawLayers(c, W, H, layers) {
+        const N = 140;
+        const cw = W / N;
+        // zoom thin stacks to fill the view, then center them
+        let tallest = 0;
+        for (let i = 0; i < N; i++) {
+            const f = (i + 0.5) / N;
+            tallest = Math.max(tallest, layers.reduce((t, L) => t + (!L.inset && (L.seg || [[0, 1]]).some((sg) => f >= sg[0] && f < sg[1]) ? L.h : 0), 0));
+        }
+        const zoom = Math.min(2.2, Math.max(1, (H * 0.62) / Math.max(1, tallest)));
+        layers = layers.map((L) => Object.assign({}, L, { h: L.h * zoom, rough: (L.rough || 0) * zoom }));
+        const base = Math.min(H - 24, (H + tallest * zoom) / 2 + 8);
+        const hts = new Array(N).fill(0);
+        const tops = new Array(N).fill(null);
+        let sub = null;
+        layers.forEach((L, li) => {
+            const segs = L.seg || [[0, 1]];
+            for (let i = 0; i < N; i++) {
+                const f = (i + 0.5) / N;
+                if (!segs.some((s) => f >= s[0] && f < s[1])) {
+                    continue;
+                }
+                c.fillStyle = L.color;
+                if (L.inset) {
+                    c.fillRect(i * cw, base - sub[i], cw + 0.6, L.h);
+                    continue;
+                }
+                const h = Math.max(0, L.h + (L.rough ? L.rough * (Math.sin(i * 1.7 + li) + Math.sin(i * 0.63)) / 2 : 0));
+                c.fillRect(i * cw, base - hts[i] - h, cw + 0.6, h);
+                if (tops[i] === L.color) {
+                    // same material underneath: paint over its top edge
+                    c.fillRect(i * cw, base - hts[i], cw + 0.6, 1.5);
+                }
+                c.fillStyle = "rgba(255,255,255,0.18)";
+                c.fillRect(i * cw, base - hts[i] - h, cw + 0.6, Math.min(1.5, h));
+                hts[i] += h;
+                tops[i] = L.color;
+            }
+            if (li === 0) {
+                sub = hts.slice();
+            }
+        });
+    }
+
+
     /* ---------- Bays ----------
        Splits a town's lab into bays: the stations whose kinds are
        listed move from the town's lab (cfg.from) into a new building
@@ -1401,6 +1548,8 @@
         goTo: (id, x, y, dir) => changeScene(id, x, y, dir || "down"),
         certificate: certificate,
         addBay: addBay,
+        addScope: addScope,
+        openScope: openScope,
         bag: {
             ITEMS: ITEMS,
             count: bagCount,
@@ -1413,6 +1562,7 @@
     };
 
     (window.FabAdventureExtensions || []).forEach((ext) => ext(api));
+    scopeQueue.forEach(placeScope);
 
 
     /* ---------- DOM ---------- */

@@ -635,6 +635,43 @@
                 ]
             }
         );
+
+        // Microscopes in the Foundry and MEMS Works. Fab Valley has no
+        // recipe, so the stage follows the machines you've mastered.
+        const VALLEY_STEPS = [
+            { id: "spin", short: "Spin coat" },
+            { id: "align", short: "Align, expose and develop" },
+            { id: "drie", short: "Deep reactive ion etch" }
+        ];
+
+        api.addScope({
+            type: "litho", title: "Dr. Ingot's Microscope",
+            places: [["foundry", 17, 1], ["mems", 2, 1]],
+            steps: VALLEY_STEPS,
+            empty: "The microscope stage is empty. Master the spin coater, and your wafer will show up here.",
+            state: () => {
+                const m = api.save().mastered || {};
+                return { recipe: true, step: m.spin ? (m.align ? (m.drie ? 3 : 2) : 1) : 0, defects: {} };
+            },
+            view: (n) => {
+                const open = [[0.2, 0.32], [0.5, 0.62], [0.8, 0.86]];
+                const solid = [[0, 0.2], [0.32, 0.5], [0.62, 0.8], [0.86, 1]];
+                const layers = [
+                    { name: "Silicon wafer", color: "#6f7890", h: 60 },
+                    { name: "Silicon wafer", color: "#6f7890", h: 80, seg: n >= 3 ? solid : undefined },
+                    { name: "Photoresist", color: "#e05a8a", h: 18, seg: n >= 2 ? solid : undefined }
+                ];
+                return {
+                    layers: layers,
+                    caption: [
+                        "An even photoresist film from the spin coater.",
+                        "Exposed through the mask and developed: the resist is gone where the mask let light through.",
+                        "DRIE cut deep, straight-walled trenches into the silicon wherever the resist was open."
+                    ][n - 1]
+                };
+            }
+        });
+
     });
 
 })();

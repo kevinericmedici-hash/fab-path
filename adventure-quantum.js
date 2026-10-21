@@ -1746,6 +1746,47 @@
             const st = STEPS[s.step];
             return [`Next step: ${st.name}.`, `That's at the ${st.where} in the ${BAYS[st.bay]}. My card there has the settings.`];
         }
+
+        // Microscopes: a cross-section through the resonator and the junction.
+        function quView(n) {
+            const id = STEPS[n - 1].id;
+            const layers = [{ name: "High-resistivity silicon", color: "#6f7890", h: 50 }];
+            const nbPat = [[0, 0.14], [0.2, 0.28], [0.34, 0.46], [0.94, 1]];
+            if (n >= 2) {
+                layers.push({ name: "Niobium", color: "#9aa7c7", h: 14, seg: n >= 3 ? nbPat : undefined });
+            }
+            if (id === "ebeam" || id === "shadow") {
+                layers.push({ name: "MMA/PMMA e-beam resist", color: "#e05a8a", h: 30, seg: [[0.48, 0.66], [0.76, 0.92]] });
+            }
+            if (id === "shadow") {
+                layers.push({ name: "Aluminum", color: "#e4e8ef", h: 8, seg: [[0.48, 0.66], [0.76, 0.92]] });
+            }
+            if (n >= 5) {
+                layers.push({ name: "Aluminum (1st angle)", color: "#e4e8ef", h: 10, seg: n >= 6 ? [[0.5, 0.74]] : [[0.66, 0.74]] });
+                layers.push({ name: "AlOₓ tunnel barrier (~1 nm)", color: "#ff9f43", h: 5, seg: [[0.68, 0.74]] });
+                layers.push({ name: "Aluminum (2nd angle)", color: "#b7c4da", h: 10, seg: n >= 6 ? [[0.68, 0.9]] : [[0.68, 0.76]] });
+            }
+            const CAP = {
+                clean: "High-resistivity silicon after an HF dip: no native oxide, so fewer defects to soak up the qubit's energy.",
+                base: "A niobium film, about 150 nm. Below 9 K it superconducts.",
+                pattern: "Niobium patterned into the readout resonator's center line and ground planes, with a clearing left for the qubit.",
+                ebeam: "A bilayer e-beam resist. The bottom MMA layer is more sensitive, so it opens wider and leaves an overhang for the two-angle evaporation.",
+                shadow: "Two aluminum evaporations from two angles, with an oxidation in between. Where the strips overlap: Al / AlOₓ / Al, a Josephson junction.",
+                liftoff: "Lift-off cleared the resist and the aluminum on it. The two strips overlap at the tiny junction.",
+                rn: "Same chip. The probe measured the junction's room-temperature resistance, which sets the qubit's frequency.",
+                package: "Same chip, now wire-bonded in its package.",
+                fridge: "Same chip at 10 mK in the dilution fridge. The aluminum and niobium both superconduct now.",
+                measure: "The finished transmon qubit, with its frequency and T₁ measured."
+            };
+            return { layers: layers, caption: CAP[id] };
+        }
+
+        api.addScope({
+            type: "quantum", title: "Dr. Flux's Microscope",
+            places: [["qumetal", 17, 1], ["qujunction", 17, 1], ["qucryo", 17, 1]],
+            steps: STEPS, state: qs, view: quView
+        });
+
     });
 
 })();

@@ -2346,6 +2346,107 @@
             }
         });
 
+
+        // Microscopes: the carbon-fiber electrode and the glutamate probe.
+        function nrView(n) {
+            const id = STEPS[n - 1].id;
+            const has = (sid) => STEPS.slice(0, n).some((s) => s.id === sid);
+            const CAP = {
+                fiber: "A 7 µm carbon fiber threaded through a glass capillary. The fiber is about a tenth the width of a hair.",
+                pull: "The puller melted and stretched the glass into a fine taper that grips the fiber.",
+                epoxy: "Epoxy seals the joint where the fiber leaves the glass, so liquid can't creep inside.",
+                cut: "Trimmed to 100 µm of bare fiber. Only this tip touches the brain and measures.",
+                nafion: "A thin Nafion coat. Its negative charge pushes away ascorbate and lets dopamine (positive) through.",
+                condition: "Conditioning roughened and activated the carbon surface, so the signal is steady.",
+                mpd: "The platinum probe: an mPD layer now covers both sites to block interferents.",
+                enzyme: "Site 1 has glutamate oxidase. Site 2 (the sentinel) has only BSA, so it shows the background to subtract.",
+                fscvcal: "Same probes. The carbon fiber's FSCV scans gave each chemical's fingerprint.",
+                glucal: "Same probes. The glutamate sensor is calibrated and ignores ascorbate and dopamine.",
+                steril: "Sterilized with ethylene oxide gas, which is gentle enough for the enzyme and the Nafion.",
+                ward: "The finished probes, ready for the Neuro Hospital's patients."
+            };
+            return {
+                scale: "side view",
+                caption: CAP[id],
+                draw: (c, Wd, H) => {
+                    const two = n >= 7;
+                    const y = two ? 70 : H / 2;
+                    const tipX = has("pull") ? Wd * 0.55 : Wd * 0.8;
+                    const fiberEnd = has("cut") ? tipX + 40 : Wd - 30;
+                    c.strokeStyle = "rgba(200,225,255,0.85)";
+                    c.fillStyle = "rgba(170,210,255,0.18)";
+                    c.lineWidth = 2;
+                    c.beginPath();
+                    c.moveTo(20, y - 26);
+                    if (has("pull")) {
+                        c.lineTo(Wd * 0.3, y - 26);
+                        c.lineTo(tipX, y - 3);
+                        c.lineTo(tipX, y + 3);
+                        c.lineTo(Wd * 0.3, y + 26);
+                    } else {
+                        c.lineTo(tipX, y - 26);
+                        c.lineTo(tipX, y + 26);
+                    }
+                    c.lineTo(20, y + 26);
+                    c.fill();
+                    c.stroke();
+                    c.fillStyle = "#8d93a3";
+                    c.fillRect(20, y - 2, fiberEnd - 20, 4);
+                    if (has("nafion")) {
+                        c.fillStyle = "rgba(120,170,255,0.7)";
+                        c.fillRect(tipX, y - 4.5, fiberEnd - tipX + 2, 9);
+                        c.fillStyle = "#8d93a3";
+                        c.fillRect(tipX, y - 2, fiberEnd - tipX, 4);
+                    }
+                    if (has("epoxy")) {
+                        c.fillStyle = "rgba(230,170,60,0.85)";
+                        c.beginPath();
+                        c.ellipse(tipX, y, 7, 6, 0, 0, Math.PI * 2);
+                        c.fill();
+                    }
+                    if (two) {
+                        const yb = H - 80;
+                        c.fillStyle = "#d9dde6";
+                        c.beginPath();
+                        c.moveTo(20, yb - 22);
+                        c.lineTo(Wd - 90, yb - 22);
+                        c.lineTo(Wd - 30, yb);
+                        c.lineTo(Wd - 90, yb + 22);
+                        c.lineTo(20, yb + 22);
+                        c.fill();
+                        [[Wd * 0.45, has("enzyme") ? "#f2a65a" : null], [Wd * 0.65, has("enzyme") ? "#f4f0d8" : null]].forEach(([x, coat]) => {
+                            c.fillStyle = "#b8bcc6";
+                            c.fillRect(x - 18, yb - 9, 36, 18);
+                            c.fillStyle = "rgba(90,100,120,0.75)";
+                            c.fillRect(x - 20, yb - 11, 40, 22);
+                            c.fillStyle = "#c9ced8";
+                            c.fillRect(x - 16, yb - 7, 32, 14);
+                            if (coat) {
+                                c.fillStyle = coat;
+                                c.globalAlpha = 0.8;
+                                c.fillRect(x - 20, yb - 11, 40, 22);
+                                c.globalAlpha = 1;
+                            }
+                        });
+                        c.fillStyle = "rgba(245,247,255,0.8)";
+                        c.font = "11px sans-serif";
+                        c.textAlign = "center";
+                        c.fillText("site 1", Wd * 0.45, yb + 36);
+                        c.fillText("site 2 (sentinel)", Wd * 0.65, yb + 36);
+                        c.textAlign = "left";
+                        c.fillText("carbon-fiber electrode", 24, 30);
+                        c.fillText("platinum glutamate probe", 24, yb - 30);
+                    }
+                }
+            };
+        }
+
+        api.addScope({
+            type: "neuro", title: "Dr. Axon's Microscope",
+            places: [["neurofab", 17, 1], ["neurotest", 17, 1]],
+            steps: STEPS, state: ns, view: nrView
+        });
+
     });
 
 })();

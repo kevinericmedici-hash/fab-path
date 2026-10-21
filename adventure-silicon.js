@@ -2766,6 +2766,133 @@
             }
         });
 
+
+        // Microscopes: the wafer as it grows from sand to a doped wafer.
+        const scopeRand = (k) => {
+            const v = Math.sin(k * 12.9898) * 43758.5453;
+            return v - Math.floor(v);
+        };
+
+        function scopeGrains(c, W, H, count, colorOf, size) {
+            for (let i = 0; i < count; i++) {
+                c.fillStyle = colorOf(i);
+                c.beginPath();
+                c.ellipse(30 + scopeRand(i) * (W - 60), 28 + scopeRand(i + 99) * (H - 70), size * (0.6 + scopeRand(i + 7) * 0.6),
+                    size * (0.45 + scopeRand(i + 3) * 0.4), scopeRand(i + 5) * 3, 0, Math.PI * 2);
+                c.fill();
+            }
+        }
+
+        function scopeVial(c, W, H, liquid, specks) {
+            const x = W / 2 - 50, y = 30, w = 100, h = H - 70;
+            c.fillStyle = liquid;
+            c.fillRect(x, y + h * 0.35, w, h * 0.65);
+            c.strokeStyle = "rgba(220,235,255,0.8)";
+            c.lineWidth = 3;
+            c.strokeRect(x, y, w, h);
+            for (let i = 0; i < specks; i++) {
+                c.fillStyle = ["#c98f5a", "#7a8597", "#e0c050"][i % 3];
+                c.fillRect(x + 8 + scopeRand(i + 20) * (w - 16), y + h * 0.4 + scopeRand(i + 50) * h * 0.55, 3, 3);
+            }
+        }
+
+        function siView(n) {
+            const id = STEPS[n - 1].id;
+            if (id === "sand") {
+                return {
+                    scale: "×20 top view",
+                    caption: "Beach sand: grains of quartz (SiO₂, the clear ones) mixed with shell, feldspar and iron-stained grains. Only the purest quartz goes on.",
+                    draw: (c, W, H) => scopeGrains(c, W, H, 70, (i) => scopeRand(i + 40) < 0.7 ? "#efe6d0" : ["#c98f5a", "#8a6a4a", "#d8c9a0"][i % 3], 16)
+                };
+            }
+            if (id === "arc") {
+                return {
+                    scale: "×5 top view",
+                    caption: "Metallurgical-grade silicon, about 98–99% pure. Carbon in the arc furnace pulled the oxygen off the quartz. Too dirty for chips.",
+                    draw: (c, W, H) => scopeGrains(c, W, H, 18, (i) => ["#7a8597", "#9aa3b2", "#5d6577"][i % 3], 34)
+                };
+            }
+            if (id === "hcl" || id === "distill") {
+                const pure = id === "distill";
+                return {
+                    scale: "sample vial",
+                    caption: pure
+                        ? "Distilled trichlorosilane (SiHCl₃). Impurities boil at different temperatures, so distilling left them behind. It's now clear and ultra-pure."
+                        : "Trichlorosilane (SiHCl₃), a liquid that boils at 31.8 °C. The silicon reacted with HCl, but the metal impurities came along too.",
+                    draw: (c, W, H) => scopeVial(c, W, H, pure ? "rgba(190,225,255,0.35)" : "rgba(214,190,120,0.45)", pure ? 0 : 16)
+                };
+            }
+            if (id === "siemens") {
+                return {
+                    scale: "×10 side view",
+                    caption: "A polysilicon rod from the Siemens reactor: 99.9999999% pure, but built of many tiny crystals (grains) pointing every which way.",
+                    draw: (c, W, H) => {
+                        c.fillStyle = "#7a8597";
+                        c.fillRect(40, H / 2 - 50, W - 80, 100);
+                        for (let i = 0; i < 160; i++) {
+                            c.fillStyle = ["#8f98aa", "#6b7486", "#a7b0c0"][i % 3];
+                            c.beginPath();
+                            c.arc(44 + scopeRand(i) * (W - 88), H / 2 - 46 + scopeRand(i + 300) * 92, 5 + scopeRand(i + 9) * 6, 0, Math.PI * 2);
+                            c.fill();
+                        }
+                    }
+                };
+            }
+            if (id === "cz") {
+                return {
+                    scale: "whole ingot",
+                    caption: "A single-crystal ingot from the CZ puller. Every atom lines up in one continuous ⟨100⟩ lattice, doped with boron to p-type.",
+                    draw: (c, W, H) => {
+                        const g = c.createLinearGradient(0, H / 2 - 70, 0, H / 2 + 70);
+                        g.addColorStop(0, "#4c5466");
+                        g.addColorStop(0.45, "#d5dbe6");
+                        g.addColorStop(1, "#4c5466");
+                        c.fillStyle = g;
+                        c.fillRect(40, H / 2 - 5, 40, 10);
+                        c.beginPath();
+                        c.moveTo(80, H / 2 - 5);
+                        c.lineTo(150, H / 2 - 70);
+                        c.lineTo(150, H / 2 + 70);
+                        c.lineTo(80, H / 2 + 5);
+                        c.fill();
+                        c.fillRect(150, H / 2 - 70, W - 210, 140);
+                        c.beginPath();
+                        c.ellipse(W - 60, H / 2, 16, 70, 0, 0, Math.PI * 2);
+                        c.fill();
+                    }
+                };
+            }
+            const layers = [{ name: "p-type single-crystal Si", color: "#6f7890", h: 150, rough: id === "saw" ? 7 : id === "etch" ? 2.5 : 0 }];
+            if (id === "saw") {
+                layers.push({ name: "Saw damage (cracked crystal)", color: "#a3a9b8", h: 10, rough: 6 });
+            }
+            if (id === "cmp") {
+                layers.push({ name: "Leftover slurry particles", color: "#f2f2f2", h: 9, seg: [[0.12, 0.145], [0.4, 0.42], [0.71, 0.735]] });
+            }
+            if (n >= 11) {
+                layers.push(n >= 12
+                    ? { name: "n-type layer (phosphorus, activated)", color: "#4fc3a1", h: 24, inset: true }
+                    : { name: "Implanted phosphorus (crystal damaged)", color: "#b06fd8", h: 24, inset: true });
+            }
+            const CAP = {
+                saw: "A fresh-sawn wafer. The wire saw leaves a rough, cracked layer on top.",
+                etch: "Lapping and etching removed the saw damage. The surface is clean crystal, but still hazy and wavy.",
+                cmp: "CMP polished it to a mirror, flat to within a few atoms. A few slurry particles are still stuck on top.",
+                rca: "After the RCA clean, the particles, metals and organics are gone. The wafer is ready for processing.",
+                implant: "Phosphorus ions are buried just under the surface, but the impacts knocked silicon atoms out of place, so the layer doesn't conduct well yet.",
+                rta: "The anneal repaired the crystal and put the phosphorus onto lattice sites. An n-type layer now sits on the p-type wafer: a p-n junction.",
+                hotprobe: "Same wafer. The hot-point probe showed the top is n-type and the back is p-type.",
+                fourpp: "The finished wafer: an n-type layer over p-type silicon, with its resistivity measured by the four-point probe."
+            };
+            return { layers: layers, caption: CAP[id] };
+        }
+
+        api.addScope({
+            type: "silicon", title: "Dr. Silica's Microscope",
+            places: [["waferfab", 17, 1], ["siwaferlab", 17, 1]],
+            steps: STEPS, state: ss, view: siView
+        });
+
     });
 
 })();

@@ -1661,3 +1661,52 @@ body.adv-fs .adv-modal-panel {
     text-transform: uppercase;
     color: #f5b04c !important;
 }
+
+/* ---------- Device microscope ---------- */
+
+.adv-scope-canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    border: 3px solid #2b3245;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.6);
+    margin: 6px 0;
+}
+
+.adv-scope-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    font-size: 0.8rem;
+    margin: 4px 0 8px;
+}
+
+.adv-scope-key {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.adv-scope-key i {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.adv-scope-scrub {
+    display: grid;
+    gap: 4px;
+    font-size: 0.85rem;
+    margin: 8px 0;
+}
+
+.adv-scope-flaws {
+    margin: 4px 0 0;
+    padding-left: 18px;
+    font-size: 0.85rem;
+}
+
+.adv-scope-flaws .major { color: #ff7a7a; }
+.adv-scope-flaws .minor { color: #ffd166; }

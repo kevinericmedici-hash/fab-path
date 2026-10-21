@@ -2020,6 +2020,85 @@
             }
         });
 
+
+        // Microscopes: carbon powder, then the electrode, then the coin cell.
+        function enView(n) {
+            const id = STEPS[n - 1].id;
+            const CAP = {
+                material: "Activated carbon particles, riddled with tiny pores. One gram has the surface area of a few tennis courts, and that surface is where charge gets stored.",
+                slurry: "The slurry: activated carbon (big particles), carbon black (tiny specks that carry current between them) and PVDF binder dissolved in solvent.",
+                cast: "Wet slurry spread on aluminum foil by the doctor blade, 150 µm thick.",
+                dry: "Dried in the vacuum oven. The solvent left, so the film shrank, leaving a porous coat.",
+                press: "Pressed to about 70% of its thickness. The particles touch better, and the electrode packs more carbon.",
+                electrolyte: "In the glove box, the electrolyte (TEABF₄ in acetonitrile) soaks into the electrode's pores.",
+                assemble: "The coin cell: two electrodes facing each other across a porous separator, wet with electrolyte and crimped in a steel case.",
+                test: "Same cell. The cycler measured its capacitance and ESR.",
+                size: "Same cell design. The Tram Depot banks are big versions of this.",
+                install: "The finished cell, the recipe behind the Spark Tram's new bank."
+            };
+            if (n <= 2) {
+                return {
+                    scale: "×2000 top view",
+                    caption: CAP[id],
+                    draw: (c, W, H) => {
+                        for (let i = 0; i < 26; i++) {
+                            const r = Math.sin(i * 12.9898) * 43758.5453, f = r - Math.floor(r);
+                            const g = Math.sin(i * 78.233) * 43758.5453, f2 = g - Math.floor(g);
+                            const x = 40 + f * (W - 80), y = 30 + f2 * (H - 70), rad = 14 + f * 14;
+                            c.fillStyle = "#47474f";
+                            c.beginPath();
+                            c.arc(x, y, rad, 0, Math.PI * 2);
+                            c.fill();
+                            c.fillStyle = "#0b0b0d";
+                            for (let k = 0; k < 6; k++) {
+                                c.fillRect(x - rad / 2 + ((k * 7) % rad), y - rad / 2 + ((k * 11) % rad), 2, 2);
+                            }
+                        }
+                        if (n === 2) {
+                            for (let i = 0; i < 160; i++) {
+                                const r = Math.sin(i * 3.1) * 43758.5453, f = r - Math.floor(r);
+                                const g = Math.sin(i * 7.7) * 43758.5453, f2 = g - Math.floor(g);
+                                c.fillStyle = "#555559";
+                                c.fillRect(20 + f * (W - 40), 20 + f2 * (H - 50), 3, 3);
+                            }
+                            c.fillStyle = "rgba(240,240,220,0.12)";
+                            c.fillRect(0, 0, W, H);
+                        }
+                    }
+                };
+            }
+            const foil = { name: "Aluminum foil (current collector)", color: "#d7dde6", h: 12 };
+            if (n <= 6) {
+                const thick = id === "cast" ? 70 : id === "dry" ? 50 : 36;
+                const layers = [foil, {
+                    name: id === "cast" ? "Wet slurry" : "Carbon electrode", color: id === "cast" ? "#45454a" : "#2b2b2e",
+                    h: thick, rough: id === "press" || n >= 6 ? 0.6 : 3
+                }];
+                if (id === "electrolyte") {
+                    layers.push({ name: "Electrolyte (TEABF₄ in acetonitrile)", color: "#4a86c8", h: 14 });
+                }
+                return { layers: layers, caption: CAP[id] };
+            }
+            return {
+                caption: CAP[id],
+                layers: [
+                    { name: "Steel case", color: "#8f98aa", h: 14 },
+                    foil,
+                    { name: "Carbon electrode", color: "#2b2b2e", h: 36 },
+                    { name: "Separator (soaked in electrolyte)", color: "#9cc8ff", h: 10 },
+                    { name: "Carbon electrode", color: "#2b2b2e", h: 36 },
+                    foil,
+                    { name: "Steel case", color: "#8f98aa", h: 14 }
+                ]
+            };
+        }
+
+        api.addScope({
+            type: "energy", title: "Dr. Charge's Microscope",
+            places: [["cellworks", 17, 1], ["cellassembly", 17, 1]],
+            steps: STEPS, state: es, view: enView
+        });
+
     });
 
 })();

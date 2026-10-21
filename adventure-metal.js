@@ -1770,6 +1770,51 @@
             }
         });
 
+
+        // Microscopes: a cross-section of the transistor as it's built.
+        function mosView(n) {
+            const id = STEPS[n - 1].id;
+            const gate = [[0.4, 0.6]];
+            const etched = n >= 5;
+            const layers = [{ name: "p-type silicon", color: "#6f7890", h: 120 }];
+            if (n >= 2) {
+                layers.push({ name: "Gate oxide (SiO₂)", color: "#9fd3e8", h: 5, seg: etched ? gate : undefined });
+            }
+            if (n >= 3) {
+                layers.push({ name: "Polysilicon", color: "#c98a4b", h: 24, seg: etched ? gate : undefined });
+            }
+            if (id === "litho") {
+                layers.push({ name: "Photoresist", color: "#e05a8a", h: 16, seg: gate });
+            }
+            if (n >= 6) {
+                layers.push(n >= 7
+                    ? { name: "n⁺ source and drain (activated)", color: "#4fc3a1", h: 20, inset: true, seg: [[0.1, 0.4], [0.6, 0.9]] }
+                    : { name: "Implanted phosphorus (crystal damaged)", color: "#b06fd8", h: 20, inset: true, seg: [[0.1, 0.4], [0.6, 0.9]] });
+            }
+            if (n >= 8) {
+                layers.push({ name: "Aluminum contacts", color: "#d7dde6", h: 16, seg: [[0.16, 0.3], [0.44, 0.56], [0.7, 0.84]] });
+            }
+            const CAP = {
+                clean: "A clean p-type silicon wafer. The transistor's channel will form right at this surface.",
+                oxide: "A thin gate oxide, about 10 nm, grown on top. It's the insulator between the gate and the channel.",
+                poly: "Polysilicon deposited over the oxide. It will become the gate electrode.",
+                litho: "Photoresist patterned into a 1 µm line where the gate goes.",
+                etch: "The plasma etch removed the poly and oxide wherever the resist didn't cover them. With the resist stripped, the gate stack stands alone.",
+                implant: "Phosphorus implanted on both sides of the gate. The gate blocks the ions, so the source and drain line up with it on their own (self-aligned).",
+                anneal: "The anneal activated the phosphorus: n⁺ source and drain on either side of the p-type channel under the gate.",
+                metal: "Aluminum contacts on the source, gate and drain. It's a working n-channel MOSFET.",
+                test: "The probe needles land on these three pads to measure the Id–Vg curve.",
+                computer: "Your finished transistor, the building block of Dr. MOS's computer."
+            };
+            return { layers: layers, caption: CAP[id] };
+        }
+
+        api.addScope({
+            type: "metal", title: "Dr. MOS's Microscope",
+            places: [["mosfab", 17, 1], ["mosmetals", 17, 1], ["moslab", 17, 1]],
+            steps: STEPS, state: ms, view: mosView
+        });
+
     });
 
 })();

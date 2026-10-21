@@ -3520,6 +3520,88 @@
             }
         });
 
+
+        // Microscopes: a cross-section of the flexible carbon electrode.
+        function ionView(n) {
+            const id = STEPS[n - 1].id;
+            const has = (sid) => STEPS.slice(0, n).some((s) => s.id === sid);
+            const not = (segs) => {
+                const out = [];
+                let a = 0;
+                segs.forEach((s) => {
+                    out.push([a, s[0]]);
+                    a = s[1];
+                });
+                out.push([a, 1]);
+                return out;
+            };
+            const E = [[0.12, 0.34]];
+            const PI1 = [[0.16, 0.3], [0.74, 0.88]];
+            const M = [[0.26, 0.9]];
+            const PI2 = [[0.17, 0.26], [0.76, 0.86]];
+            const layers = [];
+            if (!has("release")) {
+                layers.push({ name: "Silicon wafer (temporary carrier)", color: "#6f7890", h: 70 });
+            }
+            if (has("pyro")) {
+                layers.push({ name: "Glassy carbon electrode", color: "#2a2c31", h: 12, seg: E });
+            } else if (has("develop")) {
+                layers.push({ name: "SU-8 (crosslinked)", color: "#7fbf68", h: 30, seg: E });
+            } else if (has("expose")) {
+                layers.push({ name: "SU-8 (exposed, crosslinked)", color: "#7fbf68", h: 30, seg: E });
+                layers.push({ name: "SU-8 (unexposed)", color: "#b8e0a0", h: 30, seg: not(E) });
+            } else if (has("spin")) {
+                layers.push({ name: "SU-8 film", color: "#b8e0a0", h: 30 });
+            }
+            const pi = (tag, openings) => {
+                if (!has(tag + "spin")) {
+                    return;
+                }
+                const cured = has(tag + "cure");
+                const color = cured ? "#c9861f" : "#e8b960";
+                const name = cured ? "Polyimide" : "Polyimide (uncured)";
+                layers.push({ name: name, color: color, h: 16, seg: has(tag + "dev") ? not(openings) : undefined });
+            };
+            pi("pi1", PI1);
+            if (has("lorspin") && !has("liftoff")) {
+                layers.push({ name: "Lift-off resist (nLOF)", color: "#e05a8a", h: 26, seg: has("lordev") ? not(M) : undefined });
+            }
+            if (has("liftoff")) {
+                layers.push({ name: "Ti/Au wire", color: "#f0c040", h: 7, seg: M });
+            } else if (has("metal")) {
+                layers.push({ name: "Ti/Au", color: "#f0c040", h: 7 });
+            }
+            pi("pi2", PI2);
+            const phase = STEPS[n - 1].phase;
+            const CAP = {
+                clean: "A clean silicon wafer. It's only a carrier: the finished device will peel off it.",
+                dehydrate: "The bake drove off water so the SU-8 sticks well.",
+                plasma: "The O₂ plasma cleaned off the last organics and made the surface easy to wet.",
+                spin: "An even SU-8 film, about 5 µm thick, across the wafer.",
+                softbake: "The soft bake drove the solvent out of the SU-8.",
+                expose: "UV crosslinked the SU-8 where the mask was clear (the darker green). It looks the same to the eye until it's baked and developed.",
+                peb: "The post-exposure bake finished crosslinking the exposed SU-8.",
+                develop: "The developer washed away the unexposed SU-8, leaving the electrode pattern.",
+                inspect: "Under the microscope: the SU-8 pattern, ready for the furnace.",
+                pyro: "Pyrolysis turned the SU-8 into glassy carbon. It shrank a lot: most of its mass left as gas.",
+                liftoff: "Lift-off: the resist dissolved, taking the metal on top of it with it. The gold wire stays where it touched the device, running from the carbon to the contact pad.",
+                metal: "Titanium (for sticking) and gold now coat everything, on top of the resist and down in its openings.",
+                release: "Released! The device peeled off the wafer: a flexible polyimide film with a glassy carbon electrode, a gold wire and an open contact pad."
+            };
+            const PHASE = {
+                pi1: "Polyimide insulation, with openings over the carbon electrode and the contact pad.",
+                metal: "Lift-off resist for the metal wire. The openings are where the metal will stay.",
+                pi2: "Polyimide passivation over the wire, leaving only the electrode and the gold pad open."
+            };
+            return { layers: layers, caption: CAP[id] || PHASE[phase] };
+        }
+
+        api.addScope({
+            type: "carbon", title: "Dr. Carbon's Device Scope", label: "Device scope",
+            places: [["carbonlab", 17, 1], ["ionfurnace", 17, 1], ["echemlab", 17, 1]],
+            steps: STEPS, state: cs, view: ionView
+        });
+
     });
 
 })();

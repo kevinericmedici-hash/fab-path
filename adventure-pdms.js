@@ -1802,6 +1802,107 @@
             }
         });
 
+
+        // Microscopes: the master mold, then the bonded organ chip.
+        function pdView(n) {
+            const id = STEPS[n - 1].id;
+            const CAP = {
+                master: "The master mold: SU-8 ridges 100 µm tall on a silicon wafer. Each ridge will become a channel.",
+                silane: "A one-molecule-thick silane layer (yellow) keeps the PDMS from sticking to the master.",
+                mix: "Sylgard 184 mixed 10:1 base to curing agent. Stirring folded in lots of air bubbles.",
+                degas: "Under vacuum the bubbles swelled, rose and popped. The PDMS is clear now.",
+                cure: "PDMS poured over the master and cured. It fills every gap around the ridges.",
+                punch: "Peeled off and flipped: the ridges left channels in the PDMS. A 1.5 mm hole punched down to the channel is the inlet.",
+                plasma: "Plasma-bonded: top channel, porous membrane, bottom channel. Cells on either side can signal through the pores.",
+                coat: "Collagen IV and fibronectin (pink) coat the channel so cells can grip it.",
+                lab: "The finished organ chip, with cells growing on the membrane."
+            };
+            if (id === "mix" || id === "degas") {
+                const bubbles = id === "mix" ? 70 : 3;
+                return {
+                    scale: "×5 side view of the cup",
+                    caption: CAP[id],
+                    draw: (c, W, H) => {
+                        c.fillStyle = "rgba(200,235,245,0.35)";
+                        c.fillRect(W / 2 - 120, 40, 240, H - 80);
+                        c.strokeStyle = "rgba(220,235,255,0.8)";
+                        c.lineWidth = 3;
+                        c.strokeRect(W / 2 - 120, 30, 240, H - 70);
+                        for (let i = 0; i < bubbles; i++) {
+                            const r = Math.sin(i * 12.9898) * 43758.5453;
+                            const f = r - Math.floor(r);
+                            const g = Math.sin(i * 78.233) * 43758.5453;
+                            const f2 = g - Math.floor(g);
+                            c.strokeStyle = "rgba(255,255,255,0.8)";
+                            c.lineWidth = 1.5;
+                            c.beginPath();
+                            c.arc(W / 2 - 110 + f * 220, 50 + f2 * (H - 110), 2 + f * 5, 0, Math.PI * 2);
+                            c.stroke();
+                        }
+                    }
+                };
+            }
+            const ch = [[0.36, 0.64]];
+            const off = [[0, 0.36], [0.64, 1]];
+            const air = "#0f1626";
+            if (n <= 5) {
+                const layers = [
+                    { name: "Silicon wafer", color: "#6f7890", h: 50 },
+                    { name: "SU-8 ridge", color: "#7fbf68", h: 50, seg: ch }
+                ];
+                if (n >= 2) {
+                    layers.push({ name: "Silane (non-stick)", color: "#ffe066", h: 2 });
+                }
+                if (n >= 5) {
+                    layers.push({ name: "Cured PDMS", color: "#bfe3ee", h: 40, seg: ch });
+                    layers.push({ name: "Cured PDMS", color: "#bfe3ee", h: 90, seg: off });
+                }
+                return { layers: layers, caption: CAP[id] };
+            }
+            if (id === "punch") {
+                return {
+                    caption: CAP[id],
+                    layers: [
+                        { color: air, h: 50, seg: ch },
+                        { name: "PDMS", color: "#bfe3ee", h: 50, seg: off },
+                        { name: "PDMS", color: "#bfe3ee", h: 60, seg: [[0, 0.46], [0.54, 1]] }
+                    ]
+                };
+            }
+            // pores and membrane share one height so the layers above stay level
+            const membrane = [];
+            const pores = [];
+            for (let i = 0; i < 1; i += 0.04) {
+                membrane.push([i, i + 0.03]);
+                pores.push([i + 0.03, i + 0.04]);
+            }
+            const layers = [
+                { name: "PDMS", color: "#bfe3ee", h: 26 },
+                { color: air, h: 36, seg: ch },
+                { name: "PDMS", color: "#bfe3ee", h: 36, seg: off },
+                { name: "Porous membrane (0.4 µm pores)", color: "#f4f4f4", h: 4, seg: membrane },
+                { color: air, h: 4, seg: pores }
+            ];
+            const coat = n >= 8;
+            const cells = n >= 9;
+            if (coat) {
+                layers.push({ name: "Collagen IV + fibronectin", color: "#f39cc0", h: 3, seg: ch });
+            }
+            if (cells) {
+                layers.push({ name: "Cells", color: "#ff7d6b", h: 8, seg: ch });
+            }
+            layers.push({ color: air, h: 36 - (coat ? 3 : 0) - (cells ? 8 : 0), seg: ch });
+            layers.push({ name: "PDMS", color: "#bfe3ee", h: 36, seg: off });
+            layers.push({ name: "PDMS", color: "#bfe3ee", h: 40, seg: [[0, 0.46], [0.54, 1]] });
+            return { layers: layers, caption: CAP[id] };
+        }
+
+        api.addScope({
+            type: "pdms", title: "Dr. Silox's Microscope",
+            places: [["softlitho", 17, 1], ["pdmsbond", 17, 1]],
+            steps: STEPS, state: ps, view: pdView
+        });
+
     });
 
 })();
