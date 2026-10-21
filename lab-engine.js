@@ -268,7 +268,7 @@
     // Whether the shapes drawn on a layer are windows cut through a film ("cut") or the material itself ("add").
     function defaultMode(role, material) {
 
-        if (role === "insulation" || role === "oxide" || role === "dimple" || role === "hole") { return "cut"; }
+        if (role === "insulation" || role === "oxide" || role === "dimple" || role === "hole" || role === "groundplane") { return "cut"; }
 
         if (role === "channel") { return material === "pdms" ? "add" : "cut"; }
 
@@ -1114,7 +1114,7 @@
 
     function blankDesign(kind) {
 
-        if ((kind === "bbb" || kind === "neural" || kind === "cgm" || kind === "accel" || kind === "gyro" || kind === "mirror") && HANDLERS[kind]) { return HANDLERS[kind].buildTemplate(kind, "blank"); }
+        if ((kind === "bbb" || kind === "neural" || kind === "cgm" || kind === "accel" || kind === "gyro" || kind === "mirror" || kind === "qubit") && HANDLERS[kind]) { return HANDLERS[kind].buildTemplate(kind, "blank"); }
 
         const role = (KINDS[kind] || KINDS.supercap).roles[0];
 

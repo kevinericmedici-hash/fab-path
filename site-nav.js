@@ -56,6 +56,7 @@
                     title: "Virtual fab labs: design, build and test", items: [
                         ["chip-lab.html", "🏭", "Sand to Chip foundry", "Sand to finished chip, station by station"],
                         ["mems-lab.html", "🔬", "MEMS lab", "Accelerometers, gyroscopes, micromirrors"],
+                        ["qc-lab.html", "⚛️", "Quantum Foundry", "Transmon qubit chips, measured at 10 mK"],
                         ["supercap-lab.html", "⚡", "Supercapacitor lab", "Chip, coin, pouch and jelly-roll cells"],
                         ["fet-lab.html", "🧪", "MOSFET & BioFET lab", "Transistors and biosensors"],
                         ["glu-lab.html", "🩸", "Glucose sensor lab", "Electrodes, enzymes and membranes"],

@@ -39,7 +39,7 @@
     const MAX_LAYERS = 8;
     const MAX_SHAPES = 500;
 
-    const PAD_LABELS = ["+", "−", "S", "D", "G", "A", "B", "I", "O", "W", "R", "C", "M", "1", "2", "3", "4", "5", "6", "7", "8"];
+    const PAD_LABELS = ["+", "−", "S", "D", "G", "A", "B", "I", "O", "W", "R", "C", "M", "1", "2", "3", "4", "5", "6", "7", "8", "Q1", "Q2", "Q3", "Q4"];
 
     const STEPS = [
         { id: "designs", name: "Designs" },
@@ -1756,7 +1756,7 @@
         heading("STEP 5 OF 6", "The test bench", "");
 
         // Where this lab's models are explained on the equations page.
-        const eqAnchor = { supercap: "supercap", nt: "neural", glu: "glucose", bbb: "bbb", fet: "fet", mems: "mems" }[COURSE.id] || "fabrication";
+        const eqAnchor = { supercap: "supercap", nt: "neural", glu: "glucose", bbb: "bbb", fet: "fet", mems: "mems", qc: "quantum" }[COURSE.id] || "fabrication";
 
         panel.appendChild(h("p", { className: "lab-hint" }, [
             "Curious what the simulator computes? ",
