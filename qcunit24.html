@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-zYckFtTbDyMT0jzVlKUbuG28WS5a7WzKfawE5waTTkQ=' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' blob:; connect-src 'self' https://xcftpdlniahvxpxtkdaq.supabase.co https://api.pwnedpasswords.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <script src="security.js"></script>
+    <script src="theme.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Making the Josephson Junction | Fab Path</title>
+    <meta name="description" content="Making the Josephson Junction: illustrated, interactive study slides from the Quantum Computing Chips course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/qcunit24.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Making the Josephson Junction | Fab Path">
+    <meta property="og:description" content="Making the Josephson Junction: illustrated, interactive study slides from the Quantum Computing Chips course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme-light.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="qc-learn.html">Learn</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="qc-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    SHADOW EVAPORATION
+                </p>
+
+                <h1>
+                    Make a junction with a shadow
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-3d-dolan"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>The bridge</strong>
+                        <span>Suspended resist casts a shadow.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Two angles</strong>
+                        <span>Evaporate, oxidise, evaporate again.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>One pump-down</strong>
+                        <span>The barrier never sees air.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    A clever geometry makes a nanometre barrier without patterning it.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    GEOMETRY
+                </p>
+
+                <h1>
+                    Aim the overlap
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-shadow"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Shift</strong>
+                        <span>h · tan θ for each evaporation.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Overlap</strong>
+                        <span>2h · tan θ minus the bridge width.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Target</strong>
+                        <span>About 0.2 µm.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Resist thickness and angle matter as much as the mask.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    OXIDATION
+                </p>
+
+                <h1>
+                    Grow the tunnel barrier
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-oxidation"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Exposure</strong>
+                        <span>Oxygen pressure × time.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Self-limiting</strong>
+                        <span>Thickness grows only slowly with exposure.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Resistance</strong>
+                        <span>R<sub>n</sub> = (resistance × area) ÷ area.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Two knobs, area and oxidation, set every junction.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    ALTERNATIVE
+                </p>
+
+                <h1>
+                    The Manhattan junction
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-manhattan"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Two crossing lines</strong>
+                        <span>No suspended bridge needed.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Rotate 90°</strong>
+                        <span>Each evaporation fills one line.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Bandage</strong>
+                        <span>A final layer connects the junction to the circuit.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Simpler resist, more reproducible junctions.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    VARIATION
+                </p>
+
+                <h1>
+                    No two junctions are identical
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-jjspread"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Edge roughness</strong>
+                        <span>A few nanometres changes the area.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Frequency</strong>
+                        <span>A 2% spread in resistance gives about 1% in frequency.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>State of the art</strong>
+                        <span>About 1 to 2% spread in resistance.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Spread is why frequency targeting needs its own step.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 24 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🌗
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've made a junction by shadow evaporation, aimed its overlap, oxidised its barrier, built a Manhattan junction and measured the spread.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeQcUnit24Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeQcUnit24Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathQcUnit24StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathQcUnit24StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "qc-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

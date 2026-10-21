@@ -11,7 +11,8 @@
    Unit 8: what quantum computers are good for.
 
    Registers on window.FabInteract; shares the helpers from
-   diagram-sims-mems.js. Chains diagram-sims-qc-b.js (units 9-14)
+   diagram-sims-mems.js. Chains diagram-sims-qc-b.js (units 9-14),
+   diagram-sims-qc-c.js (units 15-20), diagram-sims-qc-d.js (units 21-27)
    and diagram-sims-qc-3d.js (the 3D models).
    Teaching models: numbers are illustrative unless a slide says otherwise.
 ======================================== */
@@ -2137,7 +2138,13 @@
 
 
     // The rest of the course simulators, and the 3D models when the page has one.
-    [["fabQcScriptB", "diagram-sims-qc-b.js"]]
+    // Unit pages load only the file their part needs; other pages load them all.
+    const unitNo = (location.pathname.match(/qcunit(\d+)\.html/) || [])[1];
+    const needs = function (lo, hi) { return !unitNo || (+unitNo >= lo && +unitNo <= hi); };
+
+    [].concat(needs(9, 14) ? [["fabQcScriptB", "diagram-sims-qc-b.js"]] : [])
+        .concat(needs(15, 20) ? [["fabQcScriptC", "diagram-sims-qc-c.js"]] : [])
+        .concat(needs(21, 27) ? [["fabQcScriptD", "diagram-sims-qc-d.js"]] : [])
         .concat(document.querySelector('.fd-sim[data-sim^="qc-3d-"]') ? [["fabQc3dScript", "diagram-sims-qc-3d.js"]] : [])
         .forEach(function (f) {
 

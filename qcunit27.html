@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-FW5P7Q0JLua4/2sk49vGyVzlgqFZ0GtARDS8OKvNXMg=' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' blob:; connect-src 'self' https://xcftpdlniahvxpxtkdaq.supabase.co https://api.pwnedpasswords.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <script src="security.js"></script>
+    <script src="theme.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>3D Integration | Fab Path</title>
+    <meta name="description" content="3D Integration: illustrated, interactive study slides from the Quantum Computing Chips course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/qcunit27.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="3D Integration | Fab Path">
+    <meta property="og:description" content="3D Integration: illustrated, interactive study slides from the Quantum Computing Chips course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme-light.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="qc-learn.html">Learn</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="qc-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    STACKING
+                </p>
+
+                <h1>
+                    A flip-chip processor
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-3d-flipchip"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Qubit chip</strong>
+                        <span>Turned face-down, kept clean.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Wiring chip</strong>
+                        <span>Carries the control and readout lines.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Bumps</strong>
+                        <span>Superconducting indium joins the two.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Going vertical separates qubits from wiring.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE PROBLEM
+                </p>
+
+                <h1>
+                    Running out of edge
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-fanout"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Area</strong>
+                        <span>Qubits grow as n².</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Edge</strong>
+                        <span>Bond pads grow only as n.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The answer</strong>
+                        <span>Bring signals in vertically.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Two-dimensional wiring can't keep up with qubit counts.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    BUMP BONDS
+                </p>
+
+                <h1>
+                    Bonding two chips together
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-bump"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Indium</strong>
+                        <span>Soft, and superconducting below 3.4 K.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Alignment</strong>
+                        <span>About a micrometre.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Gap</strong>
+                        <span>Set by the bump height.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Soft metal makes a superconducting joint.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    VIAS
+                </p>
+
+                <h1>
+                    Through-silicon vias
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-tsv"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Deep etch</strong>
+                        <span>The Bosch process drills straight holes.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Coating</strong>
+                        <span>Superconducting walls, top to bottom.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Two jobs</strong>
+                        <span>Carry signals and tie grounds together.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Vias turn a chip into a three-dimensional circuit.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    BOX MODES
+                </p>
+
+                <h1>
+                    When the chip itself rings
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-boxmode"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Big chips</strong>
+                        <span>Ring at lower frequencies.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Danger</strong>
+                        <span>A mode in the 4 to 8 GHz band steals qubit energy.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The fix</strong>
+                        <span>Via fences split the chip into small cells.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Big processors need vias and bumps everywhere.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 27 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🧱
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've explored a flip-chip stack, run out of chip edge, bump-bonded two chips, drilled through-silicon vias and tamed box modes.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeQcUnit27Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeQcUnit27Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathQcUnit27StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathQcUnit27StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "qc-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

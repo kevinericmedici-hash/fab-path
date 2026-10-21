@@ -883,3 +883,822 @@ const qcLesson14Questions = [
         correct: 0
     }
 ];
+
+const qcLesson15Questions = [
+    {
+        question: "What happens to a superconductor's resistance below its critical temperature?",
+        answers: [
+            "It drops to exactly zero",
+            "It halves",
+            "It rises sharply",
+            "It stays the same"
+        ],
+        correct: 0
+    },
+    {
+        question: "Which of these never becomes superconducting, however cold it gets?",
+        answers: [
+            "Copper",
+            "Aluminium",
+            "Niobium",
+            "Tantalum"
+        ],
+        correct: 0
+    },
+    {
+        question: "What is the Meissner effect?",
+        answers: [
+            "A superconductor pushing magnetic field out of itself",
+            "Resistance rising with temperature",
+            "Light bending in a crystal",
+            "Electrons sticking to a surface"
+        ],
+        correct: 0
+    },
+    {
+        question: "Roughly what is aluminium's critical temperature?",
+        answers: [
+            "1.2 K",
+            "77 K",
+            "300 K",
+            "0.01 K"
+        ],
+        correct: 0
+    },
+    {
+        question: "Aluminium superconducts at 1.2 K. Why do qubit chips sit at about 10 mK?",
+        answers: [
+            "So heat can't kick 5 GHz qubits into the 1 state",
+            "Aluminium only superconducts below 10 mK",
+            "To make the chip shrink",
+            "To stop the metal oxidising"
+        ],
+        correct: 0
+    },
+    {
+        question: "Why are quantum chips placed inside magnetic shields?",
+        answers: [
+            "Trapped magnetic flux vortices absorb qubit energy",
+            "Magnets make the fridge colder",
+            "Shields amplify the readout signal",
+            "To hold the chip in place"
+        ],
+        correct: 0
+    }
+];
+
+const qcLesson16Questions = [
+    {
+        question: "What is a Cooper pair?",
+        answers: [
+            "Two electrons bound together through the lattice",
+            "A proton and an electron",
+            "Two atoms sharing a bond",
+            "A pair of photons"
+        ],
+        correct: 0
+    },
+    {
+        question: "What charge does a Cooper pair carry?",
+        answers: [
+            "2e",
+            "e",
+            "Zero",
+            "e/2"
+        ],
+        correct: 0
+    },
+    {
+        question: "Why does a 5 GHz qubit photon not break Cooper pairs in aluminium?",
+        answers: [
+            "Its energy is far below the gap, about 90 GHz",
+            "Aluminium has no energy gap",
+            "Photons can't reach the metal",
+            "It always breaks them"
+        ],
+        correct: 0
+    },
+    {
+        question: "What is a quasiparticle?",
+        answers: [
+            "Half of a broken Cooper pair",
+            "A type of qubit",
+            "A photon in a resonator",
+            "A defect in the substrate"
+        ],
+        correct: 0
+    },
+    {
+        question: "How can quasiparticles cause qubit errors?",
+        answers: [
+            "By tunnelling across the junction and absorbing the qubit's energy",
+            "By heating the fridge to room temperature",
+            "By changing the chip's colour",
+            "They can't cause errors"
+        ],
+        correct: 0
+    },
+    {
+        question: "What is the flux quantum Φ_0?",
+        answers: [
+            "h/2e, about 2.07 × 10^(−15) webers",
+            "The charge of an electron",
+            "The temperature of the fridge",
+            "The frequency of a qubit"
+        ],
+        correct: 0
+    }
+];
+
+const qcLesson17Questions = [
+    {
+        question: "What is a Josephson junction?",
+        answers: [
+            "Two superconductors separated by a very thin insulating barrier",
+            "A copper wire joint",
+            "A transistor",
+            "A capacitor made of glass"
+        ],
+        correct: 0
+    },
+    {
+        question: "How thick is the oxide barrier in a typical qubit junction?",
+        answers: [
+            "About 1 to 2 nm",
+            "About 1 mm",
+            "About 1 µm",
+            "About 1 m"
+        ],
+        correct: 0
+    },
+    {
+        question: "Below the critical current, what is the voltage across the junction?",
+        answers: [
+            "Zero",
+            "Exactly 1 volt",
+            "It oscillates at 1 Hz",
+            "It equals the current"
+        ],
+        correct: 0
+    },
+    {
+        question: "What makes the Josephson junction so useful for qubits?",
+        answers: [
+            "It is a nonlinear inductor with no resistance",
+            "It is very large",
+            "It glows when current flows",
+            "It stores charge permanently"
+        ],
+        correct: 0
+    },
+    {
+        question: "Why are junctions so sensitive to fabrication?",
+        answers: [
+            "The tunnelling current falls exponentially with barrier thickness",
+            "They are made of gold",
+            "They are measured at room temperature",
+            "They have no barrier"
+        ],
+        correct: 0
+    },
+    {
+        question: "What does a SQUID let you do?",
+        answers: [
+            "Tune the junction's strength, and the qubit frequency, with magnetic flux",
+            "Cool the chip",
+            "Measure temperature",
+            "Remove the oxide"
+        ],
+        correct: 0
+    }
+];
+
+const qcLesson18Questions = [
+    {
+        question: "Why isn't a plain LC circuit a good qubit?",
+        answers: [
+            "Its energy levels are equally spaced, so pulses climb the whole ladder",
+            "It has no energy levels",
+            "It can't oscillate",
+            "It's too small"
+        ],
+        correct: 0
+    },
+    {
+        question: "What is anharmonicity?",
+        answers: [
+            "The difference between the 1→2 and 0→1 step sizes",
+            "The resistance of the circuit",
+            "The size of the capacitor",
+            "The fridge temperature"
+        ],
+        correct: 0
+    },
+    {
+        question: "What problem did the transmon solve compared with the Cooper-pair box?",
+        answers: [
+            "Sensitivity to stray charge noise",
+            "Needing a fridge",
+            "Using superconductors",
+            "Having a junction"
+        ],
+        correct: 0
+    },
+    {
+        question: "How did the transmon reduce charge sensitivity?",
+        answers: [
+            "A large shunting capacitor raises E_J/E_C to about 50",
+            "It removed the junction",
+            "It used copper",
+            "It operates at room temperature"
+        ],
+        correct: 0
+    },
+    {
+        question: "For a transmon, the qubit frequency is approximately:",
+        answers: [
+            "√(8 E_J E_C) − E_C",
+            "E_J + E_C",
+            "E_J × E_C",
+            "1 / E_C"
+        ],
+        correct: 0
+    },
+    {
+        question: "What sets a transmon's charging energy E_C?",
+        answers: [
+            "The capacitance of its pads",
+            "The junction's oxide",
+            "The fridge temperature",
+            "The readout resonator"
+        ],
+        correct: 0
+    }
+];
+
+const qcLesson19Questions = [
+    {
+        question: "What sets the frequency of a quarter-wave coplanar resonator?",
+        answers: [
+            "Its length",
+            "Its colour",
+            "The fridge temperature",
+            "The qubit's state"
+        ],
+        correct: 0
+    },
+    {
+        question: "What does a quality factor Q of one million tell you?",
+        answers: [
+            "The resonator rings for about a million cycles: very low loss",
+            "It has a million qubits",
+            "It is a million times too hot",
+            "It reflects a million signals"
+        ],
+        correct: 0
+    },
+    {
+        question: "How is a transmon usually read out?",
+        answers: [
+            "Through the frequency shift it causes in a coupled resonator",
+            "By looking at it with a microscope",
+            "By measuring its temperature",
+            "By counting electrons with a voltmeter"
+        ],
+        correct: 0
+    },
+    {
+        question: "Why don't longer measurements always give better readout?",
+        answers: [
+            "The qubit may decay from 1 to 0 during the measurement",
+            "The resonator melts",
+            "Noise grows with time",
+            "Longer measurements are illegal"
+        ],
+        correct: 0
+    },
+    {
+        question: "What is the first amplifier the readout signal meets?",
+        answers: [
+            "A near-quantum-limited parametric amplifier at about 10 mK",
+            "A loudspeaker",
+            "A room-temperature amplifier",
+            "The HEMT at 300 K"
+        ],
+        correct: 0
+    },
+    {
+        question: "Why are readout resonators made with fairly low Q?",
+        answers: [
+            "So the signal leaks out quickly for fast measurements",
+            "Because high Q is impossible",
+            "To heat the qubit",
+            "To save metal"
+        ],
+        correct: 0
+    }
+];
+
+const qcLesson20Questions = [
+    {
+        question: "About how cold is the mixing chamber plate of a dilution refrigerator?",
+        answers: [
+            "10 mK",
+            "4 K",
+            "77 K",
+            "1 K"
+        ],
+        correct: 0
+    },
+    {
+        question: "What cools the 50 K and 4 K plates in a modern 'dry' fridge?",
+        answers: [
+            "A pulse-tube cooler",
+            "Liquid nitrogen",
+            "Ice",
+            "A fan"
+        ],
+        correct: 0
+    },
+    {
+        question: "Where does the cooling in a dilution fridge happen?",
+        answers: [
+            "Where helium-3 crosses from the concentrated phase into the dilute phase",
+            "In the pulse tube",
+            "At room temperature",
+            "In the coaxial cables"
+        ],
+        correct: 0
+    },
+    {
+        question: "What role does the still play?",
+        answers: [
+            "Pumping helium-3 out of the dilute phase to drive the cycle",
+            "Holding the chip",
+            "Amplifying signals",
+            "Filtering light"
+        ],
+        correct: 0
+    },
+    {
+        question: "Why are attenuators placed on each plate of the drive lines?",
+        answers: [
+            "To absorb room-temperature thermal noise before it reaches the qubits",
+            "To make signals louder",
+            "To heat the plates",
+            "To hold the cables"
+        ],
+        correct: 0
+    },
+    {
+        question: "Why is wiring a problem when scaling up?",
+        answers: [
+            "Every line brings heat, and cooling power at 10 mK is only microwatts",
+            "Wires are too expensive to buy",
+            "Wires can't carry microwaves",
+            "Wires block the view"
+        ],
+        correct: 0
+    }
+];
+
+const qcLesson21Questions = [
+    {
+        question: "Which two substrates are most common for superconducting qubits?",
+        answers: [
+            "High-resistivity silicon and sapphire",
+            "Glass and plastic",
+            "Copper and gold",
+            "Paper and wood"
+        ],
+        correct: 0
+    },
+    {
+        question: "What does the loss tangent tan δ describe?",
+        answers: [
+            "The fraction of microwave energy a material absorbs each cycle",
+            "The angle of the wafer flat",
+            "The thickness of the wafer",
+            "The colour of the substrate"
+        ],
+        correct: 0
+    },
+    {
+        question: "What does a dilute HF dip do to a silicon wafer?",
+        answers: [
+            "Removes the native oxide, leaving a hydrogen-terminated surface",
+            "Grows a thick oxide",
+            "Deposits aluminium",
+            "Cuts the wafer into chips"
+        ],
+        correct: 0
+    },
+    {
+        question: "Why must a cleaned wafer go into vacuum quickly?",
+        answers: [
+            "The native oxide starts regrowing in air within minutes",
+            "It will melt",
+            "It becomes magnetic",
+            "It's illegal to leave it out"
+        ],
+        correct: 0
+    },
+    {
+        question: "Where does most loss in today's qubits hide?",
+        answers: [
+            "At surfaces and interfaces",
+            "In the fridge's pumps",
+            "In the room-temperature electronics",
+            "In the bulk of a pure substrate"
+        ],
+        correct: 0
+    },
+    {
+        question: "Why do industrial fabs prefer 200 or 300 mm wafers?",
+        answers: [
+            "More chips per wafer and the same automated tools as ordinary chips",
+            "They are easier to break",
+            "They superconduct better",
+            "They are required by law"
+        ],
+        correct: 0
+    }
+];
+
+const qcLesson22Questions = [
+    {
+        question: "Why is electron-beam evaporation used for junctions?",
+        answers: [
+            "Its atoms travel in straight lines, so resist shadows define the layers",
+            "It is the only way to deposit aluminium",
+            "It is the hottest method",
+            "It needs no vacuum"
+        ],
+        correct: 0
+    },
+    {
+        question: "Which metal forms the junction barrier in almost every superconducting qubit?",
+        answers: [
+            "Aluminium",
+            "Copper",
+            "Niobium",
+            "Gold"
+        ],
+        correct: 0
+    },
+    {
+        question: "What are TLS defects?",
+        answers: [
+            "Atoms in amorphous oxides that flip between two positions and absorb energy",
+            "Gaps in the ground plane",
+            "Scratches on the wafer",
+            "Bubbles of helium"
+        ],
+        correct: 0
+    },
+    {
+        question: "Why can tantalum make longer-lived qubits than niobium?",
+        answers: [
+            "Its native oxide is thinner and more benign",
+            "It is cheaper",
+            "It does not superconduct",
+            "It has a higher critical temperature"
+        ],
+        correct: 0
+    },
+    {
+        question: "Which tantalum phase do qubits want?",
+        answers: [
+            "Alpha (body-centred cubic), with T_c about 4.4 K",
+            "Beta, with T_c under 1 K",
+            "Liquid tantalum",
+            "Tantalum oxide"
+        ],
+        correct: 0
+    },
+    {
+        question: "How is film thickness controlled when sputtering?",
+        answers: [
+            "Deposition rate (set by power) times time, from a calibration",
+            "By weighing the wafer",
+            "By guessing",
+            "By the colour of the plasma"
+        ],
+        correct: 0
+    }
+];
+
+const qcLesson23Questions = [
+    {
+        question: "What is the order of a basic lithography cycle?",
+        answers: [
+            "Spin resist, expose, develop, etch, strip",
+            "Etch, expose, spin, strip",
+            "Strip, etch, develop, spin",
+            "Develop, spin, etch, expose"
+        ],
+        correct: 0
+    },
+    {
+        question: "Why is dry plasma etching preferred for fine qubit features?",
+        answers: [
+            "It is directional, giving vertical walls without undercut",
+            "It uses less electricity",
+            "It works without a mask",
+            "It adds metal"
+        ],
+        correct: 0
+    },
+    {
+        question: "In liftoff, what removes the unwanted metal?",
+        answers: [
+            "Dissolving the resist underneath it",
+            "A plasma etch",
+            "Sanding",
+            "Heating to 1000 °C"
+        ],
+        correct: 0
+    },
+    {
+        question: "What sets a coplanar waveguide's impedance?",
+        answers: [
+            "The ratio of strip width to gap, and the substrate",
+            "Its length only",
+            "The fridge temperature",
+            "The qubit frequency"
+        ],
+        correct: 0
+    },
+    {
+        question: "What symptom would resist residue left under the capacitor pads cause?",
+        answers: [
+            "Extra loss and a shorter T_1",
+            "A short circuit",
+            "An open circuit",
+            "A colour change"
+        ],
+        correct: 0
+    },
+    {
+        question: "Why must on-chip lines be 50 Ω?",
+        answers: [
+            "To match the cables, so signals don't reflect",
+            "Because 50 is a lucky number",
+            "To make them superconduct",
+            "To slow signals down"
+        ],
+        correct: 0
+    }
+];
+
+const qcLesson24Questions = [
+    {
+        question: "What is a Dolan bridge?",
+        answers: [
+            "A strip of resist suspended over a cavity, used to cast a shadow",
+            "A bridge in a quantum computing lab",
+            "A metal airbridge",
+            "A type of qubit"
+        ],
+        correct: 0
+    },
+    {
+        question: "In shadow evaporation, what happens between the two evaporations?",
+        answers: [
+            "The first aluminium layer is oxidised to form the barrier",
+            "The wafer is diced",
+            "The resist is removed",
+            "The chip is cooled to 10 mK"
+        ],
+        correct: 0
+    },
+    {
+        question: "How far does each evaporation shift the pattern?",
+        answers: [
+            "h · tan θ, where h is the bridge height",
+            "Exactly 1 mm",
+            "The bridge width",
+            "Zero"
+        ],
+        correct: 0
+    },
+    {
+        question: "What sets a junction's normal-state resistance?",
+        answers: [
+            "The barrier's resistance per area divided by the junction area",
+            "The colour of the oxide",
+            "The fridge temperature",
+            "The substrate thickness"
+        ],
+        correct: 0
+    },
+    {
+        question: "What is the main advantage of Manhattan-style junctions?",
+        answers: [
+            "They need no fragile suspended bridge, so they are more reproducible",
+            "They use no aluminium",
+            "They need no oxidation",
+            "They are visible to the eye"
+        ],
+        correct: 0
+    },
+    {
+        question: "A 2% spread in junction resistance gives roughly what spread in qubit frequency?",
+        answers: [
+            "About 1%",
+            "About 20%",
+            "About 0.01%",
+            "About 2,000%"
+        ],
+        correct: 0
+    }
+];
+
+const qcLesson25Questions = [
+    {
+        question: "How can you predict a qubit's frequency before cooling it down?",
+        answers: [
+            "Measure the junction's room-temperature resistance and use Ambegaokar–Baratoff",
+            "Look at its colour",
+            "Weigh the chip",
+            "It can't be predicted"
+        ],
+        correct: 0
+    },
+    {
+        question: "What is a frequency collision?",
+        answers: [
+            "Neighbouring qubits with frequencies too close for clean gates",
+            "Two chips touching",
+            "A crash in the fridge",
+            "Photons bouncing off each other"
+        ],
+        correct: 0
+    },
+    {
+        question: "What does laser annealing do to a junction?",
+        answers: [
+            "Raises its resistance, lowering the qubit frequency",
+            "Lowers its resistance, raising the frequency",
+            "Removes it completely",
+            "Makes it superconduct at room temperature"
+        ],
+        correct: 0
+    },
+    {
+        question: "Why do designers aim slightly high in frequency before trimming?",
+        answers: [
+            "Trimming only moves the frequency down",
+            "High frequencies are always better",
+            "To use less metal",
+            "Because cooling raises frequency"
+        ],
+        correct: 0
+    },
+    {
+        question: "What is an advantage of fixed-frequency transmons?",
+        answers: [
+            "No flux line and no sensitivity to flux noise",
+            "They can be tuned after fabrication",
+            "They need no junction",
+            "They don't need a fridge"
+        ],
+        correct: 0
+    },
+    {
+        question: "What does a flux-tunable qubit use instead of a single junction?",
+        answers: [
+            "A SQUID loop of two junctions",
+            "A resistor",
+            "A diode",
+            "A laser"
+        ],
+        correct: 0
+    }
+];
+
+const qcLesson26Questions = [
+    {
+        question: "Why are airbridges added across coplanar lines?",
+        answers: [
+            "To tie the ground planes together and suppress unwanted modes",
+            "To make the chip look nice",
+            "To cool the chip",
+            "To hold the chip down"
+        ],
+        correct: 0
+    },
+    {
+        question: "What is a slotline mode?",
+        answers: [
+            "The two ground halves carrying opposite voltages",
+            "A qubit's ground state",
+            "A gap in the resist",
+            "A mode of the fridge pump"
+        ],
+        correct: 0
+    },
+    {
+        question: "How is the arch shape of an airbridge made?",
+        answers: [
+            "Resist is reflowed into a hump, coated with metal, then dissolved",
+            "The metal is bent by hand",
+            "It is 3D printed",
+            "It grows naturally"
+        ],
+        correct: 0
+    },
+    {
+        question: "What is a crossover?",
+        answers: [
+            "An airbridge that lets one signal line pass over another",
+            "A collision between two qubits",
+            "A type of junction",
+            "A resonator mode"
+        ],
+        correct: 0
+    },
+    {
+        question: "What happens if an airbridge is too long and thin?",
+        answers: [
+            "It can sag and short the line underneath",
+            "It becomes a qubit",
+            "It gets colder",
+            "Nothing"
+        ],
+        correct: 0
+    },
+    {
+        question: "Which of these needs an airbridge?",
+        answers: [
+            "A patch of ground plane surrounded by lines",
+            "A Josephson junction",
+            "A bond pad",
+            "The substrate"
+        ],
+        correct: 0
+    }
+];
+
+const qcLesson27Questions = [
+    {
+        question: "Why do large processors need 3D integration?",
+        answers: [
+            "Qubits grow with area but wire bonds only fit along the edge",
+            "Flat chips can't superconduct",
+            "3D chips are cheaper",
+            "To make them lighter"
+        ],
+        correct: 0
+    },
+    {
+        question: "In a flip-chip processor, where are the qubits?",
+        answers: [
+            "On a separate chip, face-down above the wiring chip",
+            "On the fridge plates",
+            "Inside the coax cables",
+            "On the room-temperature electronics"
+        ],
+        correct: 0
+    },
+    {
+        question: "What material are the bump bonds usually made of?",
+        answers: [
+            "Indium",
+            "Copper",
+            "Glass",
+            "Silicon"
+        ],
+        correct: 0
+    },
+    {
+        question: "Why does indium work as a bump bond?",
+        answers: [
+            "It's soft, cold-welds under pressure, and superconducts below 3.4 K",
+            "It's magnetic",
+            "It's transparent",
+            "It's a perfect insulator"
+        ],
+        correct: 0
+    },
+    {
+        question: "What is a through-silicon via?",
+        answers: [
+            "A superconductor-lined hole carrying signals through the chip",
+            "A gap between qubits",
+            "A crack in the wafer",
+            "A laser beam"
+        ],
+        correct: 0
+    },
+    {
+        question: "How do vias help with box modes?",
+        answers: [
+            "They split the chip into small cells, pushing modes above the qubit band",
+            "They lower the qubit frequency",
+            "They cool the chip",
+            "They don't affect box modes"
+        ],
+        correct: 0
+    }
+];

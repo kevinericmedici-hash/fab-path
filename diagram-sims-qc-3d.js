@@ -5,6 +5,10 @@
    Unit 2/3: the Bloch sphere (set a state, measure it).
    Unit 10: quantum gates as rotations on the Bloch sphere.
    Unit 12: the qubit zoo: five kinds of quantum chip.
+   Unit 17: a Josephson junction (layers, supercurrent).
+   Unit 20: a dilution refrigerator (plates, wiring, cooldown).
+   Unit 24: Dolan-bridge shadow evaporation, step by step.
+   Unit 27: a flip-chip processor (bumps, vias, flip and bond).
 
    Built on diagram-sims-3d-core.js and the local three.js.
    Teaching models: shapes and sizes are illustrative, not to scale.
@@ -1011,6 +1015,784 @@
                         d.photons[j].position.set(P[i][0] + (P[i + 1][0] - P[i][0]) * k, P[i][1] + 0.05, P[i][2] + (P[i + 1][2] - P[i][2]) * k);
                     });
                 }
+            }
+        });
+
+
+
+        // ================================================================
+        // UNIT 17: A JOSEPHSON JUNCTION
+        // ================================================================
+        D("qc-3d-junction", {
+
+            title: "Explore in 3D: a Josephson junction",
+            intro: "Click the layers. Send a supercurrent through, or lift the top electrode to see the barrier.",
+            stats: [["Parts explored", "seen"], ["Last action", "act"]],
+            defaults: {},
+            controls: [
+                { actions: [["pairs", "⚡ Send a supercurrent"], ["lift", "⬆ Lift the top electrode"]], label: "Try" },
+                { views: ["three", "top", "front"] }
+            ],
+            formula: "A qubit's Josephson junction is where two aluminium strips cross, with a 1 to 2 nm layer of aluminium oxide between them. The overlap is tiny, about 0.2 × 0.2 µm, so it's drawn hugely magnified here (and the barrier thicker than scale). Cooper pairs tunnel through the barrier with no voltage at all, as long as the current stays below the critical current.",
+            stage: { target: [0, 0.4, 0], halfWidth: 3.8, halfHeight: 1.8, views: { three: [0.7, 1.0], top: [0, 0.12], front: [0, 1.45] }, home: "three", sway: [0.7, 0.3] },
+            info: {
+                substrate: "Silicon substrate: high-resistivity silicon (or sapphire) carries the junction and the rest of the qubit.",
+                bottom: "Bottom electrode: the first aluminium layer, about 30 to 100 nm thick, evaporated at one angle.",
+                oxide: "Tunnel barrier: amorphous aluminium oxide, only 1 to 2 nm thick (a few atoms), grown by letting pure oxygen into the chamber. Its thickness sets the critical current very sensitively.",
+                top: "Top electrode: the second aluminium layer, evaporated at the opposite angle after oxidation. Where it crosses the bottom layer, the junction forms.",
+                overlap: "The junction itself: the overlap area, about 0.04 µm². Its area times the barrier's resistance per area sets the junction's resistance, and so the qubit frequency.",
+                pads: "Leads: these connect the junction to the qubit's capacitor pads (they are much bigger than drawn here)."
+            },
+            read: function (c) {
+
+                return {
+                    seen: c.count() + " of 6",
+                    act: c.data.act || "—",
+                    verdict: c.count() >= 4 ? "You've explored the junction's layers" : "Click the layers to learn what each one does"
+                };
+            },
+            reward: { when: function (c) { return c.count() >= 4; }, msg: "You explored a Josephson junction" },
+            reset: function (c) { c.data.liftT = 0; c.data.lift = false; c.data.pairs = []; c.data.act = ""; },
+            act: function (c, id) {
+
+                const d = c.data;
+
+                if (id === "pairs") {
+
+                    d.pairs = [0, 0.18, 0.36, 0.54, 0.72].map(function (k) { return { t: -k }; });
+                    d.act = "Cooper pairs tunnel through, V = 0";
+                }
+
+                if (id === "lift") { d.lift = !d.lift; d.act = d.lift ? "Top electrode lifted" : "Top electrode lowered"; }
+            },
+            build: function (c) {
+
+                const s = c.S;
+                const T = s.T;
+                const g = new T.Group();
+                const d = c.data;
+
+                s.scene.add(g);
+                s.shadow(g, 9, 7);
+
+                const siM = s.mat(0x4a5266, { roughness: 0.35, metalness: 0.3 });
+
+                s.part(g, "substrate", s.box(7.4, 0.3, 5.2, siM, 0, 0.15, 0), [siM]);
+
+                const alM = s.mat(0xd9e0ee, { metalness: 0.9, roughness: 0.22 });
+                const alM2 = s.mat(0xb9c6e0, { metalness: 0.9, roughness: 0.25 });
+                const bottom = s.box(6, 0.12, 0.6, alM, 0, 0.36, 0);
+                const bPads = [s.box(0.9, 0.12, 1.2, alM, -3.2, 0.36, 0), s.box(0.9, 0.12, 1.2, alM, 3.2, 0.36, 0)];
+
+                s.part(g, "bottom", bottom, [alM]);
+
+                const oxM = s.mat(0xbe96ff, { transparent: true, opacity: 0.85, emissive: 0x2a1450, roughness: 0.4 });
+                const ox = s.box(0.62, 0.05, 0.62, oxM, 0, 0.445, 0);
+
+                s.part(g, "oxide", ox, [oxM]);
+
+                // the top electrode is one group so it can be lifted
+                const top = new T.Group();
+
+                top.add(s.box(0.6, 0.12, 0.72, alM2, 0, 0.53, 0));
+                [-1, 1].forEach(function (sg) {
+
+                    top.add(s.box(0.6, 0.12, 1.9, alM2, 0, 0.36, sg * 1.31));
+                    top.add(s.box(0.6, 0.29, 0.06, alM2, 0, 0.445, sg * 0.33));
+                });
+
+                const tPads = [s.box(1.2, 0.12, 0.9, alM2, 0, 0.36, -2.6), s.box(1.2, 0.12, 0.9, alM2, 0, 0.36, 2.6)];
+
+                g.add(top);
+                s.part(top, "top", top.children.slice(), [alM2]);
+                s.part(g, "pads", bPads.concat(tPads), [alM, alM2], true);
+                d.top = top;
+
+                const ovM = s.mat(0xffd666, { emissive: 0x6a4a00, transparent: true, opacity: 0.55 });
+                const ov = s.box(0.6, 0.01, 0.6, ovM, 0, 0.475, 0);
+
+                s.part(g, "overlap", ov, [ovM], true);
+
+                labelAt(s, "Bottom aluminium", [-2.2, 0.8, 0.5]);
+                labelAt(s, "Top aluminium", [0.5, 0.85, 1.6]);
+                labelAt(s, "AlOₓ barrier, 1–2 nm", [0.6, 1.25, -0.4]);
+                labelAt(s, "Silicon", [3.2, 0.2, 2.4]);
+
+                const pairM = new T.MeshStandardMaterial({ color: 0xffd666, emissive: 0xffb800, emissiveIntensity: 1.2 });
+
+                d.balls = [];
+
+                for (let i = 0; i < 10; i++) {
+
+                    const b = s.sph(0.07, pairM, 0, -5, 0, 12);
+
+                    g.add(b);
+                    d.balls.push(b);
+                }
+
+                d.pairs = [];
+                d.liftT = 0;
+            },
+            frame: function (c, dt) {
+
+                const d = c.data;
+
+                d.liftT = clamp(d.liftT + (d.lift ? dt : -dt) * 0.6, 0, 1);
+                d.top.position.y = d.liftT * 0.9;
+
+                d.balls.forEach(function (b) { b.position.y = -5; });
+
+                d.pairs.forEach(function (p, i) {
+
+                    p.t += dt * 0.16;
+
+                    const t = p.t;
+
+                    if (t < 0 || t > 1) { return; }
+
+                    let x, y, z;
+
+                    if (t < 0.45) { x = -3 + t / 0.45 * 3; y = 0.45; z = 0; }
+                    else if (t < 0.55) { x = 0; y = 0.45 + (t - 0.45) / 0.1 * 0.17 + d.liftT * 0.9 * ((t - 0.45) / 0.1); z = 0; }
+                    else { x = 0; y = 0.62 + d.liftT * 0.9; z = (t - 0.55) / 0.45 * 2.6; if (z > 0.36) { y = 0.45 + d.liftT * 0.9; } }
+
+                    [-0.06, 0.06].forEach(function (off, j) {
+
+                        const b = d.balls[i * 2 + j];
+
+                        b.position.set(x + (z ? off : 0), y, z + (z ? 0 : off));
+                    });
+                });
+
+                d.pairs = d.pairs.filter(function (p) { return p.t <= 1; });
+            }
+        });
+
+
+        // ================================================================
+        // UNIT 20: THE DILUTION REFRIGERATOR
+        // ================================================================
+        const FRIDGE = [
+            ["top", "Room-temperature top plate", 5.6, 1.75, 300],
+            ["p50", "50 K plate", 4.85, 1.65, 45],
+            ["p4", "4 K plate", 4.1, 1.55, 3.5],
+            ["still", "Still plate", 3.4, 1.4, 0.8],
+            ["cp", "Cold plate", 2.75, 1.3, 0.1],
+            ["mxc", "Mixing chamber plate", 2.1, 1.2, 0.01]
+        ];
+
+        D("qc-3d-fridge", {
+
+            title: "Explore in 3D: a dilution refrigerator",
+            intro: "Click any plate or component. Start a cooldown, or send a microwave pulse down to the chip.",
+            stats: [["Parts explored", "seen"], ["Mixing chamber", "temp"]],
+            defaults: {},
+            controls: [
+                { actions: [["cool", "❄ Cool down"], ["pulse", "⚡ Send a pulse to the chip"]], label: "Try" },
+                { views: ["three", "front", "side"] }
+            ],
+            formula: "Inside its outer vacuum can and radiation shields, a dilution refrigerator is a 'chandelier' of gold-plated copper plates, each colder than the one above: about 50 K, 4 K, 0.8 K (the still), 0.1 K (the cold plate) and 10 mK (the mixing chamber). Coaxial lines carry signals down, with attenuators on each plate to block heat and noise. The quantum chip hangs at the bottom, inside a magnetic shield. (The cans and shields are hidden here; the speeds of the animations are not to scale.)",
+            stage: { target: [0, 3.0, 0], halfWidth: 2.6, halfHeight: 3.3, views: { three: [0.6, 1.25], front: [0, 1.5], side: [1.5, 1.45] }, home: "three", sway: [0.6, 0.35] },
+            info: {
+                top: "Top plate (300 K): the vacuum flange at room temperature, where cables, pumping lines and the pulse tube enter.",
+                p50: "50 K plate: the first stage of the pulse-tube cooler. A radiation shield hangs from it to block heat radiated from the room-temperature can.",
+                p4: "4 K plate: cooled by the pulse tube's second stage to about 3 K. The HEMT readout amplifiers and the first big attenuators sit here, where there is plenty of cooling power.",
+                still: "Still plate (about 0.8 K): helium-3 is pumped away from the still, driving the dilution cycle.",
+                cp: "Cold plate (about 0.1 K): an intermediate stage that intercepts heat flowing down the cables.",
+                mxc: "Mixing chamber plate (about 10 mK): the coldest point, where helium-3 dissolves into helium-4 and absorbs heat. The chip and quantum-limited amplifiers are attached here.",
+                pt: "Pulse-tube cooler: a closed-cycle helium gas refrigerator that cools the 50 K and 4 K plates without a bath of liquid helium. Its gentle vibration is one thing designers must isolate from the qubits.",
+                dil: "Dilution unit: the still, heat exchangers and mixing chamber where the helium-3/helium-4 mixture circulates.",
+                coax: "Coaxial lines: thin superconducting or stainless-steel cables that conduct little heat. Each qubit needs one or more; big systems carry hundreds.",
+                att: "Attenuators: on each plate they absorb room-temperature noise and pass on only a tiny, cold remnant of the signal.",
+                hemt: "HEMT amplifier (4 K): a low-noise transistor amplifier that boosts the weak readout signal.",
+                twpa: "Quantum-limited amplifier (10 mK): a parametric amplifier made of Josephson junctions, the first amplifier the readout signal meets.",
+                sample: "Sample holder and chip: the quantum processor in its copper holder, bolted to the mixing chamber plate.",
+                shield: "Magnetic shield: cryogenic mu-metal and superconducting cans keep stray magnetic fields (and trapped flux) away from the chip."
+            },
+            read: function (c) {
+
+                const T = c.data.T === undefined ? 300 : c.data.T;
+
+                return {
+                    seen: c.count() + " of 14",
+                    temp: T >= 1 ? T.toFixed(T < 10 ? 1 : 0) + " K" : Math.round(T * 1000) + " mK",
+                    verdict: T <= 0.012 ? "At base temperature: ready for qubits" : c.count() >= 8 ? "You've explored the fridge" : "Click the parts to learn what each one does"
+                };
+            },
+            reward: { when: function (c) { return c.count() >= 8; }, msg: "You explored a dilution refrigerator" },
+            reset: function (c) { c.data.cool = 0; c.data.cooling = false; c.data.T = 300; c.data.pulse = null; },
+            act: function (c, id) {
+
+                const d = c.data;
+
+                if (id === "cool") { d.cooling = true; d.cool = 0; }
+                if (id === "pulse") { d.pulse = 0; }
+            },
+            build: function (c) {
+
+                const s = c.S;
+                const T = s.T;
+                const g = new T.Group();
+                const d = c.data;
+
+                s.scene.add(g);
+                s.shadow(g, 5, 5);
+
+                d.plateMats = [];
+
+                FRIDGE.forEach(function (p, i) {
+
+                    const m = s.mat(i === 0 ? 0xb8bcc8 : i === 5 ? 0xe0b450 : 0xd29a5c, { metalness: 0.85, roughness: 0.3 });
+
+                    d.plateMats.push(m);
+                    s.part(g, p[0], s.disc(p[3], 0.1, m, 0, p[2], 0), [m]);
+                    labelAt(s, p[1].replace(" plate", "") + (i ? " · " + (p[4] >= 1 ? p[4] + " K" : p[4] * 1000 + " mK") : " · 300 K"), [-p[3] - 0.25, p[2] + 0.05, 0]);
+
+                    if (i < FRIDGE.length - 1) {
+
+                        const nx = FRIDGE[i + 1];
+                        const rodM = s.mat(0x8f97ab, { metalness: 0.6, roughness: 0.4 });
+
+                        [0, 2.1, 4.2].forEach(function (a) {
+
+                            const r = nx[3] - 0.12;
+
+                            g.add(s.cyl(0.03, 0.03, p[2] - nx[2], rodM, Math.cos(a) * r, (p[2] + nx[2]) / 2, Math.sin(a) * r, 8));
+                        });
+                    }
+                });
+
+                // pulse tube from the top plate to the 4 K plate
+                const ptM = s.mat(0x9aa6c4, { metalness: 0.7, roughness: 0.3 });
+
+                s.part(g, "pt", [s.cyl(0.22, 0.22, 0.8, ptM, 0.9, 6.05, 0.3), s.cyl(0.13, 0.13, 0.75, ptM, 0.9, 5.22, 0.3), s.cyl(0.1, 0.1, 0.75, ptM, 0.9, 4.47, 0.3)], [ptM]);
+
+                // dilution unit: still pot, heat exchanger coil and mixing chamber pot
+                const dlM = s.mat(0xc9d3e6, { metalness: 0.8, roughness: 0.3 });
+                const coil = [];
+
+                for (let k = 0; k <= 60; k++) {
+
+                    const a = k / 60 * Math.PI * 8;
+
+                    coil.push([-0.55 + Math.cos(a) * 0.18, 3.25 - k / 60 * 1.0, 0.45 + Math.sin(a) * 0.18]);
+                }
+
+                s.part(g, "dil", [s.cyl(0.25, 0.25, 0.35, dlM, -0.55, 3.15, 0.45), s.tube(coil, 0.025, dlM, 200), s.cyl(0.28, 0.28, 0.3, dlM, -0.55, 1.88, 0.45)], [dlM]);
+
+                // coax lines with attenuators on each plate
+                const cxM = s.mat(0x78b4ff, { metalness: 0.6, roughness: 0.35 });
+                const atM = s.mat(0xffd666, { metalness: 0.6, roughness: 0.35 });
+                const lines = [];
+                const atts = [];
+
+                [[0.35, -0.55], [0.5, -0.4], [0.2, -0.65], [0.62, -0.2]].forEach(function (p) {
+
+                    lines.push(s.cyl(0.018, 0.018, 4.0, cxM, p[0], 4.0, p[1], 8));
+
+                    [3, 4, 5].forEach(function (i) { atts.push(s.box(0.09, 0.14, 0.09, atM, p[0], FRIDGE[i][2] - 0.12, p[1])); });
+                    atts.push(s.box(0.09, 0.14, 0.09, atM, p[0], FRIDGE[2][2] - 0.12, p[1]));
+                });
+
+                s.part(g, "coax", lines, [cxM]);
+                s.part(g, "att", atts, [atM]);
+
+                const hemtM = s.mat(0x54e0c7, { metalness: 0.5, roughness: 0.3 });
+
+                s.part(g, "hemt", s.box(0.4, 0.16, 0.3, hemtM, -0.6, FRIDGE[2][2] + 0.13, -0.6), [hemtM]);
+
+                const twM = s.mat(0xbe96ff, { metalness: 0.5, roughness: 0.3 });
+
+                s.part(g, "twpa", s.box(0.35, 0.14, 0.25, twM, 0.55, FRIDGE[5][2] - 0.12, 0.5), [twM]);
+
+                // sample holder hanging below the mixing chamber, inside a magnetic shield
+                const cuM = s.mat(0xc8834f, { metalness: 0.85, roughness: 0.35 });
+
+                s.part(g, "sample", [s.cyl(0.07, 0.07, 0.6, cuM, 0, 1.75, 0), s.box(0.45, 0.6, 0.1, cuM, 0, 1.15, 0), s.box(0.22, 0.22, 0.02, s.mat(0x4a5266), 0, 1.15, 0.06)], [cuM]);
+
+                const shM = s.glass(0x9fb3d8, 0.25, false);
+
+                s.part(g, "shield", s.cyl(0.42, 0.42, 1.2, shM, 0, 1.25, 0, 32, true), [shM], true);
+
+                labelAt(s, "Pulse tube", [1.4, 6.3, 0.3]);
+                labelAt(s, "Coax lines + attenuators", [1.4, 3.7, -0.6]);
+                labelAt(s, "Chip in magnetic shield", [1.1, 1.0, 0]);
+                labelAt(s, "Dilution unit", [-1.2, 2.6, 0.8]);
+
+                const pulseM = new T.MeshStandardMaterial({ color: 0xfff1b0, emissive: 0xffb800, emissiveIntensity: 1.6 });
+
+                d.ball = s.sph(0.06, pulseM, 0, -5, 0, 12);
+                g.add(d.ball);
+                d.T = 300;
+                d.cool = 0;
+            },
+            frame: function (c, dt) {
+
+                const d = c.data;
+
+                if (d.cooling) { d.cool = Math.min(1, d.cool + dt / 18); }
+
+                // stage temperatures blend from 300 K to their base values over the cooldown
+                FRIDGE.forEach(function (p, i) {
+
+                    if (i === 0) { return; }
+
+                    const k = clamp(d.cool * 1.6 - (i - 1) * 0.12, 0, 1);
+                    const Tst = Math.exp(Math.log(300) * (1 - k) + Math.log(p[4]) * k);
+                    const warm = clamp(Math.log10(Tst) / Math.log10(300), 0, 1);
+                    const m = d.plateMats[i];
+
+                    if (c.S.selected() && c.S.selected().mats.indexOf(m) >= 0) { return; }
+
+                    m.emissive.setRGB(0.25 * warm * warm, 0.05 * warm, 0.25 * (1 - warm) * (i >= 3 ? 1 : 0.5));
+
+                    if (i === 5) { d.T = Tst; }
+                });
+
+                if (d.pulse !== null && d.pulse !== undefined) {
+
+                    d.pulse += dt * 0.2;
+
+                    if (d.pulse < 0.8) {
+
+                        d.ball.position.set(0.35, 6.0 - d.pulse / 0.8 * 4.0, -0.55);
+
+                    } else {
+
+                        const f = (d.pulse - 0.8) / 0.2;
+
+                        d.ball.position.set(0.35 * (1 - f), 2.0 - 0.85 * f, -0.55 + 0.65 * f);
+                    }
+
+                    if (d.pulse >= 1) { d.pulse = null; d.ball.position.y = -5; }
+                }
+            }
+        });
+
+
+        // ================================================================
+        // UNIT 24: SHADOW EVAPORATION THROUGH A DOLAN BRIDGE
+        // ================================================================
+        D("qc-3d-dolan", {
+
+            title: "Explore in 3D: making a junction with a shadow",
+            intro: "Do the four steps in order: evaporate, oxidise, evaporate again, then lift off. Click any layer to learn about it.",
+            stats: [["Step", "step"], ["Junction", "jj"]],
+            defaults: {},
+            controls: [
+                { actions: [["e1", "① Evaporate from the left"], ["ox", "② Oxidise"], ["e2", "③ Evaporate from the right"], ["lift", "④ Lift off"]], label: "Steps" },
+                { views: ["three", "top", "front"] }
+            ],
+            formula: "The Dolan technique (1977): e-beam lithography makes a two-layer resist with a thin bridge suspended over an undercut cavity. Aluminium is evaporated twice, from opposite angles, with an oxidation in between. The bridge's shadow shifts with the angle, so the two layers overlap under the bridge, forming the junction, all in one vacuum pump-down. Dissolving the resist lifts off the metal on top. (Greatly magnified; the bridge is about 100 to 200 nm wide.)",
+            stage: { target: [0, 0.5, 0], halfWidth: 3.6, halfHeight: 1.8, views: { three: [0.55, 0.95], top: [0, 0.1], front: [0, 1.4] }, home: "three", sway: [0.55, 0.3] },
+            info: {
+                substrate: "Substrate: the wafer, already carrying the rest of the qubit circuit (pads and wiring).",
+                lower: "Lower resist (for example a copolymer, MMA): thick, and more sensitive, so development undercuts it into a cavity below the top layer.",
+                upper: "Upper resist (PMMA): a thin layer patterned by the electron beam. It defines the line and the bridge.",
+                bridge: "The Dolan bridge: a strip of upper resist suspended over the cavity. It casts the shadow that separates and offsets the two evaporations.",
+                al1: "First aluminium layer: evaporated from one side, so its pattern lands shifted one way.",
+                oxide: "Oxide: pure oxygen at a controlled pressure and time grows the 1 to 2 nm AlOₓ tunnel barrier on the first layer.",
+                al2: "Second aluminium layer: evaporated from the other side, shifted the other way. Under the bridge it lands on the oxidised first layer: that overlap is the junction.",
+                topmetal: "Metal on the resist: most of the evaporated aluminium lands on top of the resist and is removed in liftoff.",
+                junction: "The junction: where the second layer lies on the oxidised first layer, right under where the bridge was. The wide overlaps along the leads are junctions too, but so large that they act almost like plain wire."
+            },
+            read: function (c) {
+
+                const d = c.data;
+                const names = ["Not started", "First layer deposited", "Barrier grown", "Second layer deposited", "Lifted off: finished"];
+
+                return {
+                    step: names[d.stage || 0],
+                    jj: (d.stage || 0) >= 3 ? "Formed under the bridge" : "Not yet",
+                    verdict: d.msg || (d.stage === 4 ? "A finished junction: two overlapping aluminium layers with oxide between" : "Follow the steps in order")
+                };
+            },
+            reward: { when: function (c) { return c.data.stage === 4; }, msg: "You made a junction by shadow evaporation" },
+            reset: function (c) {
+
+                const d = c.data;
+
+                d.stage = 0;
+                d.anim = null;
+                d.msg = "";
+                d.al1.forEach(function (m) { m.scale.y = 0.001; });
+                d.al2.forEach(function (m) { m.scale.y = 0.001; });
+                d.oxides.forEach(function (m) { m.visible = false; });
+                d.tops.forEach(function (m) { m.visible = false; m.scale.y = 0.001; m.position.y = d.Y2 + 0.03; });
+                d.resist.forEach(function (m) { m.visible = true; });
+                d.resistMats.forEach(function (m) { m.opacity = m.userData.op; });
+                d.rLabels.forEach(function (l) { l.el.style.visibility = ""; });
+                d.jj.visible = false;
+            },
+            act: function (c, id) {
+
+                const d = c.data;
+                const order = ["e1", "ox", "e2", "lift"];
+                const want = order[d.stage || 0];
+
+                if (d.anim) { d.msg = "Wait for the current step to finish"; return; }
+
+                if (id !== want) { d.msg = want ? "Next step: " + ["① evaporate from the left", "② oxidise", "③ evaporate from the right", "④ lift off"][d.stage] : "Finished! Press Reset to start again"; return; }
+
+                d.msg = "";
+                d.anim = { id: id, t: 0 };
+            },
+            build: function (c) {
+
+                const s = c.S;
+                const T = s.T;
+                const g = new T.Group();
+                const d = c.data;
+
+                s.scene.add(g);
+                s.shadow(g, 8, 5);
+
+                const siM = s.mat(0x4a5266, { roughness: 0.35, metalness: 0.3 });
+
+                s.part(g, "substrate", s.box(6.4, 0.3, 3.4, siM, 0, 0.15, 0), [siM]);
+
+                const loM = s.glass(0xffb27a, 0.28, false);
+                const upM = s.glass(0xff9f6a, 0.55, false);
+                const brM = s.mat(0xff9f6a, { transparent: true, opacity: 0.85, roughness: 0.5 });
+
+                loM.userData.op = 0.28;
+                upM.userData.op = 0.55;
+                brM.userData.op = 0.85;
+                d.resistMats = [loM, upM, brM];
+
+                const Y0 = 0.3, Y1 = 1.0, Y2 = 1.12;
+                const lower = [
+                    s.box(6.4, Y1 - Y0, 1.2, loM, 0, (Y0 + Y1) / 2, 1.1),
+                    s.box(6.4, Y1 - Y0, 1.2, loM, 0, (Y0 + Y1) / 2, -1.1),
+                    s.box(0.6, Y1 - Y0, 1.0, loM, -2.9, (Y0 + Y1) / 2, 0),
+                    s.box(0.6, Y1 - Y0, 1.0, loM, 2.9, (Y0 + Y1) / 2, 0)
+                ];
+                const upperBoxes = [[0, 6.4, 0.2, 1.5], [0, 6.4, -1.5, -0.2], [-1, 1.0, -0.2, 0.2], [1, 1.0, -0.2, 0.2]];
+                const upper = upperBoxes.map(function (b) {
+
+                    if (b[0] === 0) { return s.box(6.4, Y2 - Y1, b[3] - b[2], upM, 0, (Y1 + Y2) / 2, (b[2] + b[3]) / 2); }
+
+                    return s.box(b[1], Y2 - Y1, 0.4, upM, b[0] * 2.7, (Y1 + Y2) / 2, 0);
+                });
+                const bridge = s.box(0.3, Y2 - Y1, 0.4, brM, 0, (Y1 + Y2) / 2, 0);
+
+                s.part(g, "lower", lower, [loM]);
+                s.part(g, "upper", upper, [upM]);
+                s.part(g, "bridge", bridge, [brM]);
+                d.resist = lower.concat(upper, [bridge]);
+
+                // geometry of the shadows: shift = (height of the bridge above the floor) × tan(angle)
+                const sh = 0.35;
+                const strip = function (x1, x2, y, mat) {
+
+                    const m = s.box(x2 - x1, 0.05, 0.4, mat, (x1 + x2) / 2, y, 0);
+
+                    m.geometry.translate(0, 0.025, 0);
+                    m.position.y = y;
+                    m.scale.y = 0.001;
+
+                    return m;
+                };
+
+                const a1M = s.mat(0xd9e0ee, { metalness: 0.9, roughness: 0.22 });
+                const a2M = s.mat(0xa9c0ea, { metalness: 0.9, roughness: 0.25 });
+
+                d.al1 = [strip(-2.2 + sh, -0.15 + sh, Y0, a1M), strip(0.15 + sh, 2.2 + sh, Y0, a1M)];
+                d.al2 = [strip(-2.2 - sh, -0.15 - sh, Y0 + 0.07, a2M), strip(0.15 - sh, 2.2 - sh, Y0 + 0.07, a2M)];
+
+                s.part(g, "al1", d.al1, [a1M]);
+                s.part(g, "al2", d.al2, [a2M]);
+
+                const oxM = s.mat(0xbe96ff, { emissive: 0x2a1450, roughness: 0.4 });
+
+                d.oxides = d.al1.map(function (m) {
+
+                    const o = s.box(m.geometry.parameters.width, 0.02, 0.4, oxM, m.position.x, Y0 + 0.06, 0);
+
+                    o.visible = false;
+
+                    return o;
+                });
+
+                s.part(g, "oxide", d.oxides, [oxM]);
+
+                const tmM = s.mat(0xc9d3e6, { metalness: 0.9, roughness: 0.25 });
+
+                d.tops = upper.concat([bridge]).map(function (u) {
+
+                    const p = u.geometry.parameters;
+                    const m = s.box(p.width, 0.06, p.depth, tmM, u.position.x, Y2 + 0.03, u.position.z);
+
+                    m.visible = false;
+
+                    return m;
+                });
+
+                s.part(g, "topmetal", d.tops, [tmM], true);
+
+                d.rLabels = [labelAt(s, "Suspended bridge", [0, 1.65, 0]), labelAt(s, "Upper resist", [-2.4, 1.45, -1.2]), labelAt(s, "Undercut cavity", [-1.6, 0.75, 0])];
+                labelAt(s, "Junction forms here", [0, 0.1, -0.9]);
+
+                // the small junction under the bridge glows once the second layer lands on the first
+                const jjM = s.mat(0xffd666, { emissive: 0x8a6000, transparent: true, opacity: 0.9 });
+
+                d.jj = s.box(0.4, 0.02, 0.44, jjM, 0, Y0 + 0.065, 0);
+                d.jj.visible = false;
+                s.part(g, "junction", d.jj, [jjM]);
+
+                const atomM = new T.MeshStandardMaterial({ color: 0xf5f7ff, emissive: 0x8090b0 });
+
+                d.atoms = [];
+
+                for (let i = 0; i < 40; i++) {
+
+                    const a = s.sph(0.035, atomM, 0, -5, 0, 8);
+
+                    g.add(a);
+                    d.atoms.push({ m: a, x: (i % 20) / 20 * 4.4 - 2.2, ph: (i * 0.37) % 1 });
+                }
+
+                d.stage = 0;
+                d.anim = null;
+                d.Y0 = Y0;
+                d.Y2 = Y2;
+            },
+            frame: function (c, dt) {
+
+                const d = c.data;
+
+                d.atoms.forEach(function (a) { a.m.position.y = -5; });
+
+                if (!d.anim) { return; }
+
+                const A = d.anim;
+
+                A.t += dt / 4.5;
+
+                const k = Math.min(1, A.t);
+
+                if (A.id === "e1" || A.id === "e2") {
+
+                    const dir = A.id === "e1" ? 1 : -1;
+                    const layer = A.id === "e1" ? d.al1 : d.al2;
+
+                    layer.forEach(function (m) { m.scale.y = Math.max(0.001, k); });
+
+                    if (A.id === "e2" && k >= 1) { d.jj.visible = true; }
+                    d.tops.forEach(function (m) { m.visible = true; m.scale.y = Math.max(0.001, A.id === "e1" ? k : 1); });
+
+                    d.atoms.forEach(function (a) {
+
+                        const u = (a.ph + A.t * 2.2) % 1;
+                        const y = 3 - u * 2.7;
+                        const x = a.x + dir * 0.35 - dir * (y - d.Y0) * 0.5;
+
+                        if (k < 1) { a.m.position.set(x, y, (a.ph - 0.5) * 0.3); }
+                    });
+                }
+
+                if (A.id === "ox") {
+
+                    d.oxides.forEach(function (o) { o.visible = true; o.scale.y = Math.max(0.001, k); });
+                }
+
+                if (A.id === "lift") {
+
+                    d.resistMats.forEach(function (m) { m.opacity = m.userData.op * (1 - k); });
+                    d.tops.forEach(function (m) { m.position.y = d.Y2 + 0.03 + k * 2; m.visible = k < 0.95; });
+                    d.resist.forEach(function (m) { m.visible = k < 0.98; });
+                    d.rLabels.forEach(function (l) { l.el.style.visibility = k > 0.5 ? "hidden" : ""; });
+                }
+
+                if (A.t >= 1) {
+
+                    d.stage++;
+                    d.anim = null;
+                    d.msg = "";
+                }
+            }
+        });
+
+
+        // ================================================================
+        // UNIT 27: A FLIP-CHIP QUANTUM PROCESSOR
+        // ================================================================
+        D("qc-3d-flipchip", {
+
+            title: "Explore in 3D: a flip-chip quantum processor",
+            intro: "Click any layer. Replay the flip-and-bond, pull the layers apart, or send a signal up through the stack.",
+            stats: [["Parts explored", "seen"], ["Last action", "act"]],
+            defaults: {},
+            controls: [
+                { actions: [["flip", "🔄 Flip and bond"], ["explode", "↕ Pull the layers apart"], ["signal", "⚡ Send a signal up"]], label: "Try" },
+                { views: ["three", "front", "top"] }
+            ],
+            formula: "In a flip-chip processor, the qubits live on their own clean chip, turned face-down onto a second chip that carries the wiring, joined by superconducting indium bumps a few micrometres tall. Through-silicon vias carry signals vertically from the package below, so lines no longer need to squeeze out to the chip edge. (Vertical sizes are hugely exaggerated.)",
+            stage: { target: [0, 0.9, 0], halfWidth: 4.2, halfHeight: 2.2, views: { three: [0.65, 1.05], front: [0, 1.45], top: [0, 0.12] }, home: "three", sway: [0.65, 0.3] },
+            info: {
+                base: "Package board: carries signals from the coaxial cables to the chip stack, inside the copper sample holder.",
+                interposer: "Wiring chip (interposer): carries the readout and control lines and, in some designs, the readout resonators, keeping lossy wiring away from the qubits.",
+                wiring: "Wiring: superconducting lines on the wiring chip, routed underneath the qubit chip to each qubit.",
+                tsv: "Through-silicon vias: superconductor-lined holes through the wiring chip, connecting its top and bottom. Fences of grounded vias also suppress box modes.",
+                bumps: "Indium bumps: soft, superconducting below 3.4 K, cold-welded when the chips are pressed together. They carry signals and tie the grounds of the two chips together.",
+                chip: "Qubit chip: flipped face-down. Only qubits and couplers live here, so its surfaces can be kept as clean as possible.",
+                qubits: "Qubits: Xmon-style transmons on the underside of the qubit chip, a few micrometres above the wiring chip. Their frequency depends slightly on that gap, so bump height must be uniform."
+            },
+            read: function (c) {
+
+                return {
+                    seen: c.count() + " of 7",
+                    act: c.data.act || "—",
+                    verdict: c.count() >= 5 ? "You've explored a 3D-integrated quantum processor" : "Click the layers to learn what each one does"
+                };
+            },
+            reward: { when: function (c) { return c.count() >= 5; }, msg: "You explored a flip-chip quantum processor" },
+            reset: function (c) { c.data.flipT = 1; c.data.exT = 0; c.data.ex = false; c.data.sig = null; c.data.act = ""; },
+            act: function (c, id) {
+
+                const d = c.data;
+
+                if (id === "flip") { d.flipT = 0; d.act = "Qubit chip flipped and pressed onto the bumps"; }
+                if (id === "explode") { d.ex = !d.ex; d.act = d.ex ? "Layers pulled apart" : "Layers back together"; }
+                if (id === "signal") { d.sig = 0; d.act = "Signal: via → wiring → bump → qubit"; }
+            },
+            build: function (c) {
+
+                const s = c.S;
+                const T = s.T;
+                const g = new T.Group();
+                const d = c.data;
+
+                s.scene.add(g);
+                s.shadow(g, 9, 9);
+
+                const pcbM = s.mat(0x2f5a46, { roughness: 0.6 });
+
+                s.part(g, "base", s.box(7, 0.2, 7, pcbM, 0, 0.1, 0), [pcbM], true);
+
+                // everything above the board sits in groups so the stack can be pulled apart
+                d.lower = new T.Group();
+                d.mid = new T.Group();
+                d.upper = new T.Group();
+                g.add(d.lower);
+                g.add(d.mid);
+                g.add(d.upper);
+
+                const siM = s.mat(0x4a5266, { roughness: 0.35, metalness: 0.3 });
+
+                s.part(d.lower, "interposer", s.box(5, 0.3, 5, siM, 0, 0.35, 0), [siM]);
+
+                const tsvM = s.mat(0xd6b85a, { metalness: 0.85, roughness: 0.3 });
+                const tsvs = [];
+
+                for (let i = -2; i <= 2; i++) { [-2.2, 2.2].forEach(function (z) { tsvs.push(s.cyl(0.06, 0.06, 0.32, tsvM, i * 0.9, 0.35, z, 12)); tsvs.push(s.cyl(0.06, 0.06, 0.32, tsvM, z, 0.35, i * 0.9, 12)); }); }
+
+                s.part(d.lower, "tsv", tsvs, [tsvM]);
+
+                const wM = s.mat(0x78b4ff, { metalness: 0.6, roughness: 0.3 });
+                const wires = [];
+
+                [[-1, -1], [0, -1], [1, -1], [-1, 0], [0, 0], [1, 0], [-1, 1], [0, 1], [1, 1]].forEach(function (q, i) {
+
+                    const ex = i % 2 ? 2.2 : -2.2;
+
+                    wires.push(s.tube([[q[0] * 1.1, 0.52, q[1] * 1.1], [q[0] * 1.1 + (ex - q[0] * 1.1) * 0.5, 0.52, q[1] * 1.1 + 0.15], [ex, 0.52, q[1] * 1.1 * 0.9]], 0.02, wM, 16));
+                });
+
+                s.part(d.lower, "wiring", wires, [wM]);
+
+                const inM = s.mat(0xc0c4d6, { metalness: 0.75, roughness: 0.4 });
+                const bumps = [];
+
+                for (let i = -3; i <= 3; i++) {
+
+                    for (let j = -3; j <= 3; j++) {
+
+                        if ((i + j) % 2) { continue; }
+
+                        bumps.push(s.cyl(0.07, 0.07, 0.2, inM, i * 0.55, 0.6, j * 0.55, 12));
+                    }
+                }
+
+                s.part(d.mid, "bumps", bumps, [inM]);
+
+                const chipM = s.glass(0x8fa0c0, 0.45, false);
+
+                d.chip = new T.Group();
+                d.upper.add(d.chip);
+
+                const chip = s.box(3.8, 0.25, 3.8, chipM, 0, 0, 0);
+
+                d.chip.add(chip);
+                s.part(d.chip, "chip", chip, [chipM]);
+
+                const qM = s.mat(0xe3e8f2, { metalness: 0.9, roughness: 0.22, emissive: 0x000000 });
+                const qs = [];
+
+                [-1, 0, 1].forEach(function (x) {
+
+                    [-1, 0, 1].forEach(function (z) {
+
+                        qs.push(s.box(0.6, 0.03, 0.09, qM, x * 1.1, -0.14, z * 1.1));
+                        qs.push(s.box(0.09, 0.03, 0.6, qM, x * 1.1, -0.14, z * 1.1));
+                    });
+                });
+
+                qs.forEach(function (m) { d.chip.add(m); });
+                s.part(d.chip, "qubits", qs, [qM]);
+                d.qM = qM;
+
+                labelAt(s, "Qubit chip (face down)", [0, 1.55, -2.2]);
+                labelAt(s, "Indium bumps", [2.6, 0.75, 1.0]);
+                labelAt(s, "Wiring chip", [2.9, 0.35, -2.6]);
+                labelAt(s, "Through-silicon vias", [-3.2, 0.2, 2.2]);
+                labelAt(s, "Package board", [3.6, 0.05, 3.4]);
+
+                const pM = new T.MeshStandardMaterial({ color: 0xfff1b0, emissive: 0xffb800, emissiveIntensity: 1.6 });
+
+                d.ball = s.sph(0.08, pM, 0, -5, 0, 12);
+                g.add(d.ball);
+                d.flipT = 1;
+                d.exT = 0;
+                d.glow = 0;
+            },
+            frame: function (c, dt) {
+
+                const d = c.data;
+                const chipY = 0.825;
+
+                d.exT = clamp(d.exT + (d.ex ? dt : -dt) * 0.6, 0, 1);
+
+                if (d.flipT < 1) { d.flipT = Math.min(1, d.flipT + dt / 6); }
+
+                const k = d.flipT;
+                const lift = k < 0.6 ? 2.2 : 2.2 * (1 - (k - 0.6) / 0.4);
+                const rot = Math.PI * (1 - clamp(k / 0.6, 0, 1));
+
+                d.mid.position.y = d.exT * 0.7;
+                d.upper.position.y = d.exT * 1.5;
+                d.chip.position.set(0, chipY + lift, 0);
+                d.chip.rotation.z = rot;
+
+                if (d.sig !== null && d.sig !== undefined) {
+
+                    d.sig += dt * 0.22;
+
+                    const u = d.sig;
+                    const P = [[-2.2, 0.15, 0], [-2.2, 0.52, 0], [-1.1, 0.52, 0], [-1.1, 0.6 + d.exT * 0.7, 0], [-1.1, chipY - 0.14 + d.exT * 1.5, 0]];
+                    const segs = P.length - 1;
+                    const x = Math.min(u, 1) * segs;
+                    const i = Math.min(Math.floor(x), segs - 1);
+                    const f = x - i;
+
+                    d.ball.position.set(P[i][0] + (P[i + 1][0] - P[i][0]) * f, P[i][1] + (P[i + 1][1] - P[i][1]) * f, P[i][2] + (P[i + 1][2] - P[i][2]) * f);
+
+                    if (u >= 1) { d.sig = null; d.ball.position.y = -5; d.glow = 1.5; }
+                }
+
+                if (d.glow > 0) { d.glow = Math.max(0, d.glow - dt); }
+
+                if (!(c.S.selected() && c.S.selected().mats.indexOf(d.qM) >= 0)) { d.qM.emissive.setRGB(0.5 * d.glow, 0.42 * d.glow, 0.1 * d.glow); }
             }
         });
 

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-18WCoSBG3fch0kS6SimvPv/UsB/W9eo5sj2vftJhOe4=' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' blob:; connect-src 'self' https://xcftpdlniahvxpxtkdaq.supabase.co https://api.pwnedpasswords.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <script src="security.js"></script>
+    <script src="theme.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Airbridges and Crossovers | Fab Path</title>
+    <meta name="description" content="Airbridges and Crossovers: illustrated, interactive study slides from the Quantum Computing Chips course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/qcunit26.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Airbridges and Crossovers | Fab Path">
+    <meta property="og:description" content="Airbridges and Crossovers: illustrated, interactive study slides from the Quantum Computing Chips course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme-light.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="qc-learn.html">Learn</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="qc-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+
+            <!-- SLIDE -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    WHY BRIDGES
+                </p>
+
+                <h1>
+                    Tying the ground together
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-slotline"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Split grounds</strong>
+                        <span>Lines cut the ground plane into pieces.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Unwanted modes</strong>
+                        <span>Slotline modes and floating islands steal energy.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Airbridges</strong>
+                        <span>Small arches tie the ground pieces together.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Bridges keep the ground plane one piece.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    FABRICATION
+                </p>
+
+                <h1>
+                    Building an airbridge
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-airbridge"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Scaffold</strong>
+                        <span>A resist block, reflowed into a hump.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Metal</strong>
+                        <span>Aluminium deposited over it and patterned.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Release</strong>
+                        <span>Dissolving the resist leaves a free arch.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    A temporary scaffold makes a permanent bridge.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CROSSTALK
+                </p>
+
+                <h1>
+                    Keep signals in their own lines
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-crosstalk"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Leakage</strong>
+                        <span>A pulse for one qubit nudges another.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Distance</strong>
+                        <span>Helps, but chip area is precious.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Shielding</strong>
+                        <span>A grounded strip stitched with bridges.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Good layout keeps every pulse where it belongs.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    MECHANICS
+                </p>
+
+                <h1>
+                    How long can a bridge be?
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-bridgespan"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Sag</strong>
+                        <span>Grows steeply with span.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Thickness</strong>
+                        <span>Thicker metal is stiffer.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Collapse</strong>
+                        <span>A sagging bridge can short the line below.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Even a quantum chip has to obey mechanics.
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SLIDE -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    PLACEMENT
+                </p>
+
+                <h1>
+                    Bridge or no bridge?
+                </h1>
+
+                <div class="module-visual fd-sim" data-sim="qc-bridgequiz"></div>
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Stitching</strong>
+                        <span>Along long lines that split the ground.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Crossovers</strong>
+                        <span>Where one line must cross another.</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Islands</strong>
+                        <span>Wherever a ground patch would float.</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Bridges are small, but a large chip needs thousands.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 26 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🌉
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've seen why grounds need stitching, built an airbridge, isolated two lines, designed a sturdy bridge and placed bridges on a chip.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeQcUnit26Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+        </div>
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeQcUnit26Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathQcUnit26StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathQcUnit26StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "qc-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>
