@@ -3200,7 +3200,7 @@
                 {
                     id: "kay",
                     name: "Kay Potassium (K⁺)",
-                    x: 15, y: 12,
+                    x: 18, y: 12,
                     dir: "down",
                     draw: (c, X, Y, t) => drawIonFolk(c, X, Y, t, "#c97fe0", "K⁺"),
                     talk: () => [
@@ -3222,7 +3222,7 @@
                 {
                     id: "hydroxide",
                     name: "Ollie Hydroxide (OH⁻)",
-                    x: 16, y: 13,
+                    x: 18, y: 13,
                     dir: "down",
                     draw: (c, X, Y, t) => drawIonFolk(c, X, Y, t, "#7fb2ff", "OH⁻"),
                     talk: () => [
