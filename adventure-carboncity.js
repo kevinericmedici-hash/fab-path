@@ -706,9 +706,9 @@
                 foeSize: 32,
                 fieldClass: "adv-field-carboncity",
                 drawFoe: (c, t) => drawGolem(c, 0, 0, 1, t),
-                foeMax: 360,
-                foePower: 1.2,
-                meMax: 120,
+                foeMax: 300,
+                foePower: 1.0,
+                meMax: 140,
                 moves: [
                     { type: "diamond", name: "Diamond Lattice", mult: 1.75, label: "Diamond", icon: "💎", special: "dep", cls: "dep", effect: "Direct hit! Order snaps into a rigid crystal." },
                     { type: "graphene", name: "Graphene Sheet", mult: 1.5, label: "Graphene", icon: "⬡", special: "etch", cls: "etch", effect: "It's effective! A perfect honeycomb wraps around the soot." },

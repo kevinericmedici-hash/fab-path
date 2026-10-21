@@ -1444,9 +1444,9 @@
                 foeSize: 32,
                 fieldClass: "adv-field-energy",
                 drawFoe: (c, t) => drawShort(c, 0, 0, 1, t),
-                foeMax: 340,
-                foePower: 1.15,
-                meMax: 120,
+                foeMax: 285,
+                foePower: 1.0,
+                meMax: 140,
                 moves: [
                     { type: "build", name: "Separator Shield", mult: 1.75, label: "Building cells", icon: "🛡️", special: "dep", cls: "dep", effect: "Direct hit! The separator splits its current path in two." },
                     { type: "electrolyte", name: "Voltage Window", mult: 1.5, label: "Electrolytes", icon: "🧪", special: "etch", cls: "etch", effect: "It's effective! You kept every cell inside its safe voltage." },

@@ -870,9 +870,9 @@
                 foeSize: 32,
                 fieldClass: "adv-field-echem",
                 drawFoe: (c, t) => drawBiofouler(c, 0, 0, 1, t),
-                foeMax: 260,
-                foePower: 0.95,
-                meMax: 120,
+                foeMax: 225,
+                foePower: 0.89,
+                meMax: 140,
                 moves: [
                     { type: "cv", name: "CV Sweep", mult: 1.5, label: "Voltammetry", icon: "〰️", special: "dep", cls: "dep", effect: "It's effective! Sweeping the potential knocks loose some of the protein film." },
                     { type: "cell", name: "Acid Clean", mult: 1.75, label: "Cell & cleaning", icon: "🧪", special: "etch", cls: "etch", effect: "Direct hit! Cycling in dilute acid strips the adsorbed proteins off the carbon." },

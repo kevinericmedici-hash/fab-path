@@ -1249,9 +1249,9 @@
                 foeSize: 32,
                 fieldClass: "adv-field-sugar",
                 drawFoe: (c, t) => drawSpike(c, 0, 0, 1, t),
-                foeMax: 280,
-                foePower: 1.0,
-                meMax: 120,
+                foeMax: 240,
+                foePower: 0.92,
+                meMax: 140,
                 moves: [
                     { type: "body", name: "Time in Range", mult: 1, label: "Glucose & the body", icon: "📈", special: "litho", cls: "litho", effect: "The whole graph settles back into the green band!" },
                     { type: "enzyme", name: "Enzyme Lock", mult: 1.75, label: "Enzyme chemistry", icon: "🧬", special: "dep", cls: "dep", effect: "Direct hit! Glucose oxidase grabs every sugar molecule it can reach." },

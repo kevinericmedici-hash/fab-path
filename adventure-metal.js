@@ -1311,9 +1311,9 @@
                 foeSize: 32,
                 fieldClass: "adv-field-metal",
                 drawFoe: (c, t) => drawPhantom(c, 0, 0, 1, t),
-                foeMax: 240,
-                foePower: 0.9,
-                meMax: 120,
+                foeMax: 210,
+                foePower: 0.86,
+                meMax: 140,
                 moves: [
                     { type: "oxide", name: "Dry Oxide", mult: 1.75, label: "Gate oxide", icon: "🔥", special: "dep", cls: "dep", effect: "Direct hit! A dense, clean oxide leaves it nowhere to tunnel." },
                     { type: "gate", name: "Self-Align", mult: 1.5, label: "Gate patterning", icon: "📐", special: "etch", cls: "etch", effect: "It's effective! A perfectly placed gate shuts the channel tight." },

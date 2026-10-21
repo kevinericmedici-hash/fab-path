@@ -1301,9 +1301,9 @@
                 foeSize: 32,
                 fieldClass: "adv-field-pdms",
                 drawFoe: (c, t) => drawBeast(c, 0, 0, 1, t),
-                foeMax: 320,
-                foePower: 1.1,
-                meMax: 120,
+                foeMax: 270,
+                foePower: 0.97,
+                meMax: 140,
                 moves: [
                     { type: "litho", name: "Degas", mult: 1.75, label: "Soft lithography", icon: "🫙", special: "dep", cls: "dep", effect: "Direct hit! The vacuum pops its bubbles one after another." },
                     { type: "bond", name: "Plasma Bond", mult: 1.5, label: "Bonding", icon: "⚡", special: "etch", cls: "etch", effect: "It's effective! A sealed chip leaves it nowhere to sneak in." },

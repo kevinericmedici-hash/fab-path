@@ -1798,9 +1798,9 @@
                 foeSize: 32,
                 fieldClass: "adv-field-neuro",
                 drawFoe: (c, t) => drawScar(c, 0, 0, 1, t),
-                foeMax: 300,
-                foePower: 1.05,
-                meMax: 120,
+                foeMax: 255,
+                foePower: 0.95,
+                meMax: 140,
                 moves: [
                     { type: "messengers", name: "Neuro Know-how", mult: 1, label: "Brain chemistry", icon: "🧪", special: "litho", cls: "litho", effect: "Knowing your messengers keeps the signal clear." },
                     { type: "fscv", name: "Fast Scan", mult: 1.75, label: "FSCV", icon: "⚡", special: "etch", cls: "etch", effect: "Direct hit! The +1.3 V sweep scrubs the carbon surface clean." },

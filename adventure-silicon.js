@@ -2475,9 +2475,9 @@
                 foeSize: 32,
                 fieldClass: "adv-field-sea",
                 drawFoe: (c, t) => drawKraken(c, 0, 0, 1, t),
-                foeMax: 200,
+                foeMax: 180,
                 foePower: 0.8,
-                meMax: 120,
+                meMax: 140,
                 moves: [
                     { type: "purify", name: "Distill", mult: 1.75, label: "Purification", icon: "⚗️", special: "dep", cls: "dep", effect: "Direct hit! Fractional distillation boils its impurities right out." },
                     { type: "crystal", name: "Crystal Pull", mult: 1, label: "Crystal growth", icon: "💎", special: "litho", cls: "litho", effect: "A perfect single crystal leaves it nowhere to hide." },
