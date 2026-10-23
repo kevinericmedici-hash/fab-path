@@ -1,5 +1,5 @@
 /* ========================================
-   BIOFETS & MOSFETS: INTERACTIVE SIMULATORS, PART 4
+   TRANSISTORS: INTERACTIVE SIMULATORS, PART 4
 
    Unit 18: binding affinity and kinetics.
    Unit 19: verifying the layer.

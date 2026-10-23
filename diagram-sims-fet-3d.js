@@ -1,5 +1,5 @@
 /* ========================================
-   BIOFETS AND MOSFETS: 3D SCENES
+   TRANSISTORS: 3D SCENES
 
    Unit 1:  a MOSFET: the gate field makes a channel and the drain pulls current through it.
    Unit 8:  an ISFET: the metal gate is replaced by a liquid, and pH moves the threshold.

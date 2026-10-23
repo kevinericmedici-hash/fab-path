@@ -35,7 +35,7 @@
                 },
                 {
                     title: "Sensors & the body", items: [
-                        ["fet-learn.html", "🧪", "BioFETs & MOSFETs", "Transistors that sense biology"],
+                        ["fet-learn.html", "🧪", "Transistors", "From MOSFETs to biosensors"],
                         ["glu-learn.html", "🩸", "Glucose Sensors", "How a glucose monitor works"],
                         ["nt-learn.html", "🧬", "Neural Interface Chip", "Chips that talk to neurons"]
                     ]
@@ -57,7 +57,7 @@
                         ["mems-lab.html", "🔬", "MEMS lab", "Accelerometers, gyroscopes, micromirrors"],
                         ["qc-lab.html", "⚛️", "Quantum Foundry", "Transmon qubit chips, measured at 10 mK"],
                         ["supercap-lab.html", "⚡", "Supercapacitor lab", "Chip, coin, pouch and jelly-roll cells"],
-                        ["fet-lab.html", "🧪", "MOSFET & BioFET lab", "Transistors and biosensors"],
+                        ["fet-lab.html", "🧪", "Transistor lab", "MOSFETs and biosensors"],
                         ["glu-lab.html", "🩸", "Glucose sensor lab", "Electrodes, enzymes and membranes"],
                         ["nt-lab.html", "🧬", "Neural probe lab", "Electrode arrays for the brain"]
                     ]
@@ -78,7 +78,7 @@
                         ["chip-games.html", "🏭", "Sand to Chip games", ""],
                         ["games.html", "🔬", "MEMS games", ""],
                         ["supercap-games.html", "⚡", "Supercapacitor games", ""],
-                        ["fet-games.html", "🧪", "BioFET games", ""],
+                        ["fet-games.html", "🧪", "Transistor games", ""],
                         ["glu-games.html", "🩸", "Glucose games", ""],
                         ["nt-games.html", "🧬", "Neural games", ""]
                     ]
@@ -88,7 +88,7 @@
                         ["chip-practice.html", "🏭", "Sand to Chip practice", ""],
                         ["practice.html", "🔬", "MEMS practice", ""],
                         ["supercap-practice.html", "⚡", "Supercapacitor practice", ""],
-                        ["fet-practice.html", "🧪", "BioFET practice", ""],
+                        ["fet-practice.html", "🧪", "Transistor practice", ""],
                         ["glu-practice.html", "🩸", "Glucose practice", ""],
                         ["nt-practice.html", "🧬", "Neural practice", ""]
                     ]

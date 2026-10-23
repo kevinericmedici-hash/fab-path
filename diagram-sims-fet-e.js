@@ -1,5 +1,5 @@
 /* ========================================
-   BIOFETS & MOSFETS: INTERACTIVE SIMULATORS, PART 5
+   TRANSISTORS: INTERACTIVE SIMULATORS, PART 5
 
    Unit 2: drift versus diffusion, mobility, inversion-layer mobility.
 

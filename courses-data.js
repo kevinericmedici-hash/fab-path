@@ -43,8 +43,8 @@ const coursesData = [
 
     {
         id: "biofets",
-        title: "BioFETs & MOSFETs",
-        tagline: "Sensing biology with transistors",
+        title: "Transistors",
+        tagline: "From MOSFETs to biosensors",
         description:
             "MOSFET fundamentals, ion-sensitive FETs, biofunctionalization, and how a transistor becomes a biosensor.",
         icon: "🧪",

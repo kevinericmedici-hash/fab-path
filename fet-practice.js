@@ -1,5 +1,5 @@
 /* ========================================
-   BIOFETS & MOSFETS PRACTICE PAGE
+   TRANSISTORS PRACTICE PAGE
    One "questions you miss most" session
    per part of the course (a part is a group
    of units), scoped to this course's own

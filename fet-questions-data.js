@@ -1,5 +1,5 @@
 /* ========================================
-   BIOFETS & MOSFETS COURSE QUESTIONS
+   TRANSISTORS COURSE QUESTIONS
    Same shape as the other courses: the
    answer order is shuffled at render time.
 ======================================== */

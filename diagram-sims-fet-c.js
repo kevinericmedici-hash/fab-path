@@ -1,5 +1,5 @@
 /* ========================================
-   BIOFETS & MOSFETS: INTERACTIVE SIMULATORS, PART 3
+   TRANSISTORS: INTERACTIVE SIMULATORS, PART 3
 
    Unit 10: the electrical double layer, Debye length.
    Unit 11: the Nernst limit, sensing insulators, a pH shift.

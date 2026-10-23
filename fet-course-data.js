@@ -1,5 +1,5 @@
 /* ========================================
-   BIOFETS & MOSFETS COURSE DATA
+   TRANSISTORS COURSE DATA
    All four parts are built: 1 (MOSFET Fundamentals),
    2 (Sensing Ions), 3 (Biofunctionalization), and
    4 (Biosensing).

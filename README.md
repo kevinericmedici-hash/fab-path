@@ -15,7 +15,7 @@ devices, built for students heading into the chip industry.
   etching, real MEMS processes, and packaging (56 lessons in 35 short units, 8 games).
 - **Supercapacitors**: charge storage, materials, geometries, electrolytes,
   testing, fabrication, and applications (42 lessons, 8 games).
-- **BioFETs & MOSFETs**: how a transistor works, building toward biosensing
+- **Transistors**: how a transistor works, building toward biosensing
   (all four parts live, 25 short units).
 
 Each course follows the same loop: illustrated study slides, quizzes,

@@ -1,5 +1,5 @@
 /* ========================================
-   BIOFETS & MOSFETS: INTERACTIVE SIMULATORS, PART 2
+   TRANSISTORS: INTERACTIVE SIMULATORS, PART 2
 
    Unit 6: output curves, the three regions, the square law.
    Unit 7: transfer curves, shifting curves, subthreshold swing.

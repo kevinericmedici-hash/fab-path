@@ -1,5 +1,5 @@
 /* ========================================
-   BIOFETS & MOSFETS: INTERACTIVE SIMULATORS, PART 1
+   TRANSISTORS: INTERACTIVE SIMULATORS, PART 1
 
    Unit 1: a field-effect transistor you can switch, the FET family.
    Unit 2: mass action, the p-n junction.

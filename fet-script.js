@@ -1,8 +1,8 @@
 /* ========================================
-   BIOFETS & MOSFETS COURSE ENGINE
+   TRANSISTORS COURSE ENGINE
    Self-contained: progress tracking, path
    rendering, and quiz logic for the
-   BioFETs & MOSFETs course. Namespaced with
+   Transistors course. Namespaced with
    "fabPathFet" localStorage keys and
    "fet"-prefixed element ids so it
    never collides with the MEMS course's
@@ -99,7 +99,7 @@ function getFetCompletedLessonCount() {
 
 /* ========================================
    MISTAKE TRACKING
-   Powers the BioFETs & MOSFETs "questions you
+   Powers the Transistors "questions you
    get wrong most" practice sessions. Uses
    its own localStorage blob so lesson ids
    never collide with the MEMS course's
@@ -351,8 +351,8 @@ function updateFetCourseProgress() {
                 if (window.FabCertificate) {
 
                     window.FabCertificate.showCourseComplete({
-                        courseTitle: "BioFETs & MOSFETs",
-                        courseSlug: "biofets-mosfets",
+                        courseTitle: "Transistors",
+                        courseSlug: "transistors",
                         lessonCount: getFetAllLessons().length
                     });
                 }
@@ -586,8 +586,8 @@ function initFetLessonQuiz(lessonId, questions) {
             if (lessonId === FET_FINAL_LESSON_ID && window.FabCertificate) {
 
                 window.FabCertificate.showCourseComplete({
-                    courseTitle: "BioFETs & MOSFETs",
-                    courseSlug: "biofets-mosfets",
+                    courseTitle: "Transistors",
+                    courseSlug: "transistors",
                     lessonCount: FET_FINAL_LESSON_ID,
                     onContinue: function () {
                         window.location.href = "fet-learn.html";

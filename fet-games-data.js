@@ -1,5 +1,5 @@
 /* ========================================
-   BIOFETS & MOSFETS GAMES — DATA
+   TRANSISTORS GAMES — DATA
    Read by the shared sort and step-ordering
    engines (supercap-game-sort.js and
    supercap-game-order.js).
