@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-KfGiOlbp1VPLwhX2XrPAUb5JVVPdfG7rAs/L/8CN9gI=' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' blob:; connect-src 'self' https://xcftpdlniahvxpxtkdaq.supabase.co https://api.pwnedpasswords.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <script src="security.js"></script>
+    <script src="theme.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flash &amp; Nonvolatile Memory | Fab Path</title>
+    <meta name="description" content="Flash &amp; Nonvolatile Memory: illustrated study slides from the Transistors course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/fetunit33.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Flash &amp; Nonvolatile Memory | Fab Path">
+    <meta property="og:description" content="Flash &amp; Nonvolatile Memory: illustrated study slides from the Transistors course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme-light.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="fet-learn.html">Learn</a>
+            <a href="fet-games.html">Games</a>
+            <a href="fet-practice.html">Practice</a>
+            <a href="fet-lab.html">Lab</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="fet-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+            <!-- SLIDE 1 -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    REMEMBERING WITHOUT POWER
+                </p>
+
+                <h1>
+                    A transistor with a second gate
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Nonvolatile</strong>
+                        <span>The bit survives with the power off, for years</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The cell</strong>
+                        <span>An ordinary transistor with an extra gate, the floating gate, fully wrapped in oxide</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Programming</strong>
+                        <span>A strong field makes electrons tunnel through the oxide onto the floating gate</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Erasing</strong>
+                        <span>The reverse field pulls them off again</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    No wires touch the floating gate. The charge simply has nowhere to go.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 2 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    STORED CHARGE SHIFTS THE THRESHOLD
+                </p>
+
+                <h1>
+                    The same rule as a sensor gate
+                </h1>
+
+                <!-- fd:flash -->
+                <div class="module-visual fd-sim" data-sim="fet-flash"></div>
+                <!-- /fd:flash -->
+
+
+                <div class="module-visual module-visual-text">
+                    <span class="math-visual">ΔV<sub>th</sub> = −Q<sub>FG</sub> ÷ C<sub>cg</sub></span>
+                </div>
+
+                <p>
+                    Electrons on the floating gate shield the channel from the control gate, so a higher control-gate voltage is needed to turn the cell on. A read voltage placed between the erased and programmed thresholds tells them apart: conducting means 1, not conducting means 0. It is exactly the charge-shifts-the-threshold rule from Unit 5, used deliberately.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A memory cell is a charge detector that someone loaded on purpose.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 3 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    MORE BITS PER CELL
+                </p>
+
+                <h1>
+                    Levels, gaps and wear
+                </h1>
+
+                <!-- fd:mlc -->
+                <div class="module-visual fd-sim" data-sim="fet-mlc"></div>
+                <!-- /fd:mlc -->
+
+
+                <p>
+                    Instead of two states, a cell can store one of 4, 8 or 16 charge levels: 2, 3 or 4 bits. The price is smaller gaps between the levels, so the same tunnel-oxide wear that barely matters for one bit causes errors with four. That is why denser Flash has shorter endurance and needs stronger error correction.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Each extra bit per cell doubles the number of levels and halves the safety margin.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE MODERN CELL
+                </p>
+
+                <h1>
+                    NAND, charge traps and 3D stacking
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>NAND strings</strong>
+                        <span>Cells connected in series share contacts, giving the densest storage but block-based access</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Charge trap</strong>
+                        <span>A silicon-nitride layer holds the charge in many separate traps instead of one floating island</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>3D NAND</strong>
+                        <span>Strings are built vertically in tall stacks of well over 100 layers, so density grows by building up</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Wear leveling</strong>
+                        <span>A controller spreads writes evenly because each cell survives only a limited number of erase cycles</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Flash scaled by going vertical when shrinking the cells ran out of room.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CHECK THE CELL
+                </p>
+
+                <h1>
+                    How does Flash store a bit?
+                </h1>
+
+                <!-- fd:flashq -->
+                <div class="module-visual fd-sim" data-sim="fet-flashq"></div>
+                <!-- /fd:flashq -->
+
+
+                <div class="module-takeaway">
+
+                    A trapped charge shifts the threshold, and the cell reads that shift.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 15 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    💾
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've trapped charge on a floating gate, packed several bits into one cell, and seen where Flash gets its density and its wear.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeFetUnit33Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+
+</div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeFetUnit33Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathFetUnit33StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathFetUnit5StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "fet-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

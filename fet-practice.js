@@ -35,13 +35,12 @@ function shuffleFetPractice(items) {
 function fetPartAsUnit(part) {
 
     const lessons = [];
+    const first = fetUnitNumber(part.firstUnitId);
+    const last = fetUnitNumber(part.lastUnitId);
 
-    fetCourseData.forEach(function (unit) {
+    fetCourseData.forEach(function (unit, index) {
 
-        if (
-            unit.id >= part.firstUnitId &&
-            unit.id <= part.lastUnitId
-        ) {
+        if (index + 1 >= first && index + 1 <= last) {
             unit.lessons.forEach(function (lesson) {
                 lessons.push(lesson);
             });

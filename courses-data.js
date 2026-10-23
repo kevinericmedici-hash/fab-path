@@ -44,9 +44,9 @@ const coursesData = [
     {
         id: "biofets",
         title: "Transistors",
-        tagline: "From MOSFETs to biosensors",
+        tagline: "From the first transistor to biosensors",
         description:
-            "MOSFET fundamentals, ion-sensitive FETs, biofunctionalization, and how a transistor becomes a biosensor.",
+            "The whole transistor picture: MOSFET fundamentals, scaling, CMOS circuits and memory, FinFETs and nanosheets, the bipolar, power and thin-film family, then ion-sensitive FETs and biosensing.",
         icon: "🧪",
         status: "live",
         growing: false,

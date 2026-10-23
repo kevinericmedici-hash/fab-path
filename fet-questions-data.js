@@ -1508,6 +1508,1270 @@ const fetLesson25Questions = [
 ];
 
 
+/*NEW-QUESTIONS-START*/
+const fetLesson26Questions = [
+
+    {
+        question: "What happens to electrons in a very strong field inside a short channel?",
+        answers: [
+            "They keep speeding up without limit",
+            "They stop moving altogether",
+            "Their speed saturates near 10⁷ cm/s",
+            "They turn into holes"
+        ],
+        correct: 2
+    },
+
+
+    {
+        question: "In a velocity-saturated device, drain current rises with gate overdrive roughly …",
+        answers: [
+            "With the square",
+            "Exponentially at every bias",
+            "Not at all",
+            "Linearly"
+        ],
+        correct: 3
+    },
+
+
+    {
+        question: "How does channel-length modulation show up in output curves?",
+        answers: [
+            "The saturation current is perfectly flat",
+            "The saturation current keeps rising slowly with V_DS",
+            "The curves are shifted to negative V_DS",
+            "The current falls as V_DS rises"
+        ],
+        correct: 1
+    },
+
+
+    {
+        question: "What does DIBL stand for, and what does it do?",
+        answers: [
+            "Drain-isolated body leakage: it cuts off the drain",
+            "Doped-interface bias loss: it lowers the doping",
+            "Drain-induced barrier lowering: a larger V_DS lowers V_th",
+            "Dielectric-induced band leveling: it flattens the bands"
+        ],
+        correct: 2
+    },
+
+
+    {
+        question: "Which change helps the gate keep control of a short channel?",
+        answers: [
+            "A thinner gate dielectric",
+            "A thicker gate dielectric",
+            "Deeper, wider source and drain junctions",
+            "A higher drain voltage"
+        ],
+        correct: 0
+    }
+
+];
+
+const fetLesson27Questions = [
+
+    {
+        question: "What is the smallest subthreshold swing a MOSFET can have at room temperature?",
+        answers: [
+            "About 6 mV per decade",
+            "About 60 mV per decade",
+            "About 600 mV per decade",
+            "Zero, if the oxide is thin enough"
+        ],
+        correct: 1
+    },
+
+
+    {
+        question: "Lowering V_th by 60 mV at S = 60 mV/dec changes the off current by about …",
+        answers: [
+            "10 times smaller",
+            "A factor of 2",
+            "10 times larger",
+            "It stays the same"
+        ],
+        correct: 2
+    },
+
+
+    {
+        question: "Why does gate-oxide leakage rise sharply as the oxide gets thinner?",
+        answers: [
+            "Electrons tunnel through a thin barrier",
+            "The oxide melts and becomes a conductor",
+            "The gate voltage rises as the oxide thins",
+            "The silicon changes to metal"
+        ],
+        correct: 0
+    },
+
+
+    {
+        question: "Which technique saves leakage by cutting off a whole idle block?",
+        answers: [
+            "Clock gating alone",
+            "Power gating",
+            "Raising V_DD",
+            "Lowering the oxide thickness"
+        ],
+        correct: 1
+    },
+
+
+    {
+        question: "What generally happens to subthreshold leakage when a chip heats up?",
+        answers: [
+            "It falls to zero",
+            "It does not change",
+            "It reverses direction",
+            "It rises quickly"
+        ],
+        correct: 3
+    }
+
+];
+
+const fetLesson28Questions = [
+
+    {
+        question: "What does Moore's law describe?",
+        answers: [
+            "Transistor counts on a chip doubling roughly every two years",
+            "The speed of light in silicon",
+            "The maximum voltage of a gate oxide",
+            "Electron mobility doubling every year"
+        ],
+        correct: 0
+    },
+
+
+    {
+        question: "Under ideal Dennard scaling by a factor κ, what happens to power per unit chip area?",
+        answers: [
+            "It rises as κ cubed",
+            "It stays about the same",
+            "It falls as κ squared",
+            "It doubles every generation"
+        ],
+        correct: 1
+    },
+
+
+    {
+        question: "Why did supply voltages stop shrinking?",
+        answers: [
+            "Wires could not carry the lower voltage",
+            "Batteries cannot supply a lower voltage",
+            "Lower voltage makes oxides thicker",
+            "Lowering V_th further would make leakage explode"
+        ],
+        correct: 3
+    },
+
+
+    {
+        question: "What does a node name such as \"5 nm\" mean today?",
+        answers: [
+            "A marketing label, not a measured gate length",
+            "The exact physical gate length",
+            "The width of a metal wire",
+            "The thickness of the gate oxide"
+        ],
+        correct: 0
+    },
+
+
+    {
+        question: "What was the main response to the clock-speed plateau?",
+        answers: [
+            "Doubling the supply voltage",
+            "Doubling the chip size",
+            "More cores and specialised accelerators",
+            "Cooling chips with liquid nitrogen"
+        ],
+        correct: 2
+    }
+
+];
+
+const fetLesson29Questions = [
+
+    {
+        question: "In a CMOS inverter with the input held high, which transistor conducts?",
+        answers: [
+            "The PMOS, pulling the output high",
+            "Both equally",
+            "Neither",
+            "The NMOS, pulling the output low"
+        ],
+        correct: 3
+    },
+
+
+    {
+        question: "Why does a CMOS gate draw almost no current in a steady state?",
+        answers: [
+            "One of the two transistors is always off",
+            "The gate oxide is a perfect insulator",
+            "The supply voltage is zero",
+            "Both transistors are always on"
+        ],
+        correct: 0
+    },
+
+
+    {
+        question: "What does a noise margin describe?",
+        answers: [
+            "How loud the clock is",
+            "How fast the gate switches",
+            "How far an input may stray before it is misread",
+            "How thick the oxide is"
+        ],
+        correct: 2
+    },
+
+
+    {
+        question: "Why is the PMOS usually drawn wider than the NMOS?",
+        answers: [
+            "PMOS has a higher threshold",
+            "PMOS needs a bigger oxide",
+            "Holes carry more charge",
+            "Holes are less mobile than electrons"
+        ],
+        correct: 3
+    },
+
+
+    {
+        question: "When does a CMOS inverter draw its largest current?",
+        answers: [
+            "When the input is held at 0",
+            "Briefly, when the input crosses the middle",
+            "When the input is held at V_DD",
+            "Only when the chip is off"
+        ],
+        correct: 1
+    }
+
+];
+
+const fetLesson30Questions = [
+
+    {
+        question: "In a two-input NAND gate, how are the NMOS transistors connected?",
+        answers: [
+            "In parallel",
+            "Not connected to each other",
+            "In series",
+            "Only one of them is used"
+        ],
+        correct: 2
+    },
+
+
+    {
+        question: "In a two-input NOR gate, how are the PMOS transistors connected?",
+        answers: [
+            "In parallel",
+            "Each in its own gate",
+            "They are not used",
+            "In series"
+        ],
+        correct: 3
+    },
+
+
+    {
+        question: "Why is NAND called a universal gate?",
+        answers: [
+            "It is the fastest gate",
+            "Any logic function can be built from NANDs alone",
+            "It uses the fewest transistors",
+            "It never leaks"
+        ],
+        correct: 1
+    },
+
+
+    {
+        question: "How does dynamic power change if V_DD is halved at the same frequency?",
+        answers: [
+            "It halves",
+            "It stays the same",
+            "It falls to about a quarter",
+            "It doubles"
+        ],
+        correct: 2
+    },
+
+
+    {
+        question: "What does clock gating save?",
+        answers: [
+            "Dynamic power in idle blocks",
+            "Leakage in every block",
+            "Silicon area",
+            "Wire resistance"
+        ],
+        correct: 0
+    }
+
+];
+
+const fetLesson31Questions = [
+
+    {
+        question: "In a common-source amplifier, what is the sign of the voltage gain?",
+        answers: [
+            "Positive: the output follows the input",
+            "Negative: the output is inverted",
+            "Zero in saturation",
+            "Always exactly one"
+        ],
+        correct: 1
+    },
+
+
+    {
+        question: "What must the bias do for an amplifier to work?",
+        answers: [
+            "Keep the transistor in cutoff",
+            "Hold the drain at ground",
+            "Keep the transistor in saturation through the whole signal swing",
+            "Remove all current from the channel"
+        ],
+        correct: 2
+    },
+
+
+    {
+        question: "Which change raises the gain A_v = −g_m·R_D?",
+        answers: [
+            "A larger g_m or a larger load resistor",
+            "A smaller g_m and a smaller load resistor",
+            "A thicker gate oxide only",
+            "Removing the bias entirely"
+        ],
+        correct: 0
+    },
+
+
+    {
+        question: "How does a current mirror copy a current?",
+        answers: [
+            "A capacitor stores the current and releases it",
+            "Two matched transistors share a gate voltage, and current scales with width",
+            "A resistor splits the current into equal parts",
+            "A diode flips the current direction"
+        ],
+        correct: 1
+    },
+
+
+    {
+        question: "Why does the intrinsic gain g_m·r_o fall in very short transistors?",
+        answers: [
+            "The gate oxide becomes a conductor",
+            "The threshold voltage becomes negative",
+            "The source and drain merge into one",
+            "Channel-length modulation lowers the output resistance"
+        ],
+        correct: 3
+    }
+
+];
+
+const fetLesson32Questions = [
+
+    {
+        question: "How many transistors are in a standard SRAM cell?",
+        answers: [
+            "Six",
+            "One",
+            "Two",
+            "Twelve"
+        ],
+        correct: 0
+    },
+
+
+    {
+        question: "Why does a DRAM cell need to be refreshed?",
+        answers: [
+            "Its transistor wears out every second",
+            "Its stored charge leaks away",
+            "The bit lines drift in voltage",
+            "The word line forgets its address"
+        ],
+        correct: 1
+    },
+
+
+    {
+        question: "What is the main memory of most computers made of?",
+        answers: [
+            "SRAM",
+            "Flash",
+            "Magnetic tape",
+            "DRAM"
+        ],
+        correct: 3
+    },
+
+
+    {
+        question: "What does the word line do in an SRAM cell?",
+        answers: [
+            "Turns on the access transistors that connect the cell to the bit lines",
+            "Supplies power to the cell",
+            "Stores the bit",
+            "Cools the transistors"
+        ],
+        correct: 0
+    },
+
+
+    {
+        question: "What happens to DRAM retention time as the chip heats up?",
+        answers: [
+            "It gets longer",
+            "It stays the same",
+            "It gets shorter, so refresh must be more frequent",
+            "It becomes infinite"
+        ],
+        correct: 2
+    }
+
+];
+
+const fetLesson33Questions = [
+
+    {
+        question: "What stores the bit in a floating-gate Flash cell?",
+        answers: [
+            "A tiny capacitor that leaks away",
+            "A latch of six transistors",
+            "A magnetised metal layer",
+            "Electrons trapped on a floating gate"
+        ],
+        correct: 3
+    },
+
+
+    {
+        question: "How does stored charge change the transistor?",
+        answers: [
+            "It shifts the threshold voltage",
+            "It changes the gate length",
+            "It swaps the source and drain",
+            "It thickens the oxide"
+        ],
+        correct: 0
+    },
+
+
+    {
+        question: "Why does storing more bits per cell shorten its life?",
+        answers: [
+            "More bits need more voltage, which melts the cell",
+            "The cell gets physically larger",
+            "The levels are closer together, so wear causes errors sooner",
+            "Extra bits are stored in the wires"
+        ],
+        correct: 2
+    },
+
+
+    {
+        question: "What is 3D NAND?",
+        answers: [
+            "A flat sheet of memory that rotates",
+            "A memory made of three separate chips",
+            "A cell with three gates side by side",
+            "Cells stacked vertically in tall strings"
+        ],
+        correct: 3
+    },
+
+
+    {
+        question: "How is a Flash cell erased?",
+        answers: [
+            "The chip is heated above 400 °C",
+            "A reversed field pulls electrons off the gate",
+            "Only the drain is grounded",
+            "The oxide is thinned"
+        ],
+        correct: 1
+    }
+
+];
+
+const fetLesson34Questions = [
+
+    {
+        question: "Why replace SiO₂ with a high-k dielectric?",
+        answers: [
+            "It lowers the gate capacitance",
+            "It makes the gate transparent to light",
+            "It gives the same capacitance with a thicker, less leaky film",
+            "It raises the supply voltage"
+        ],
+        correct: 2
+    },
+
+
+    {
+        question: "What does EOT mean?",
+        answers: [
+            "The total thickness of the wafer",
+            "The edge of the transistor",
+            "The energy of tunneling",
+            "The thickness of SiO₂ that would give the same capacitance"
+        ],
+        correct: 3
+    },
+
+
+    {
+        question: "Why do metal gates beat polysilicon gates in thin-oxide devices?",
+        answers: [
+            "They are cheaper to deposit",
+            "They have no depletion layer, and their work function can be tuned",
+            "They conduct no current",
+            "They are transparent"
+        ],
+        correct: 1
+    },
+
+
+    {
+        question: "Which kind of strain helps PMOS transistors?",
+        answers: [
+            "Tensile",
+            "None at all",
+            "Compressive",
+            "Shear only"
+        ],
+        correct: 2
+    },
+
+
+    {
+        question: "Why was hafnium oxide chosen as the standard high-k material?",
+        answers: [
+            "It has a high k and is stable on silicon",
+            "It is the cheapest oxide of all",
+            "It conducts like a metal",
+            "It is a superconductor"
+        ],
+        correct: 0
+    }
+
+];
+
+const fetLesson35Questions = [
+
+    {
+        question: "How many sides of the channel does a FinFET gate cover?",
+        answers: [
+            "One",
+            "Three",
+            "Two",
+            "Four"
+        ],
+        correct: 1
+    },
+
+
+    {
+        question: "What gives a FinFET its drive width?",
+        answers: [
+            "The thickness of the wafer",
+            "The length of the gate only",
+            "The number of fins times (2H + W)",
+            "The supply voltage"
+        ],
+        correct: 2
+    },
+
+
+    {
+        question: "Why must the fin stay thin?",
+        answers: [
+            "So the gate can control the middle of the fin too",
+            "So it uses less silicon",
+            "So it conducts through its top only",
+            "So the oxide can be omitted"
+        ],
+        correct: 0
+    },
+
+
+    {
+        question: "What is quantized in FinFET design?",
+        answers: [
+            "The gate length",
+            "The channel width, in whole fins",
+            "The oxide thickness",
+            "The supply voltage"
+        ],
+        correct: 1
+    },
+
+
+    {
+        question: "What problem did the FinFET address?",
+        answers: [
+            "Wires that were too thin",
+            "Chips that were too cold",
+            "Wafers that were too thick",
+            "Poor gate control and leakage in short planar channels"
+        ],
+        correct: 3
+    }
+
+];
+
+const fetLesson36Questions = [
+
+    {
+        question: "How many sides of a nanosheet does a gate-all-around gate surround?",
+        answers: [
+            "All four",
+            "One",
+            "Two",
+            "Three"
+        ],
+        correct: 0
+    },
+
+
+    {
+        question: "How are nanosheets formed?",
+        answers: [
+            "Each sheet is cut from a block with a laser",
+            "Alternating Si and SiGe layers are grown, then the SiGe is etched away",
+            "They are grown as free wires in a solution",
+            "They are printed with an inkjet"
+        ],
+        correct: 1
+    },
+
+
+    {
+        question: "What advantage do nanosheets have over fins for drive current?",
+        answers: [
+            "They have no gate at all",
+            "They need no silicon",
+            "They conduct only through their top",
+            "The sheet width can be tuned continuously"
+        ],
+        correct: 3
+    },
+
+
+    {
+        question: "What does a CFET do?",
+        answers: [
+            "Stacks an n-type device on top of a p-type device",
+            "Replaces silicon with copper",
+            "Doubles the gate oxide thickness",
+            "Removes the source and drain"
+        ],
+        correct: 0
+    },
+
+
+    {
+        question: "What is backside power delivery?",
+        answers: [
+            "Powering the chip from a battery on the back",
+            "Cooling the back of the wafer",
+            "Running power rails under the transistors, freeing the front for signals",
+            "A second supply for the gate only"
+        ],
+        correct: 2
+    }
+
+];
+
+const fetLesson37Questions = [
+
+    {
+        question: "Why is the gate used as a mask for the source and drain implant?",
+        answers: [
+            "The gate is the only part that can be implanted",
+            "It makes the implant deeper",
+            "It removes the need for any lithography",
+            "The source and drain edges then line up with the gate automatically"
+        ],
+        correct: 3
+    },
+
+
+    {
+        question: "What does chemical-mechanical polishing (CMP) do?",
+        answers: [
+            "It polishes the surface flat",
+            "It implants dopants",
+            "It grows epitaxial layers",
+            "It prints patterns with light"
+        ],
+        correct: 0
+    },
+
+
+    {
+        question: "Why is a replacement-metal-gate flow used?",
+        answers: [
+            "Metals are easier to etch than polysilicon",
+            "It saves a deposition step",
+            "High-k and metal gates cannot survive the hottest anneals, so a placeholder is swapped in later",
+            "It removes the need for spacers"
+        ],
+        correct: 2
+    },
+
+
+    {
+        question: "Which structures set the distance between the gate and the source or drain?",
+        answers: [
+            "The wells",
+            "The substrate",
+            "The metal wiring",
+            "The spacers"
+        ],
+        correct: 3
+    },
+
+
+    {
+        question: "What is atomic layer deposition (ALD) used for?",
+        answers: [
+            "Etching deep holes in silicon",
+            "Depositing films one atomic layer at a time",
+            "Printing the pattern",
+            "Measuring the wafer"
+        ],
+        correct: 1
+    }
+
+];
+
+const fetLesson38Questions = [
+
+    {
+        question: "What are the three regions of an NPN bipolar transistor called?",
+        answers: [
+            "Source, gate and drain",
+            "Anode, cathode and gate",
+            "Emitter, base and collector",
+            "Substrate, well and body"
+        ],
+        correct: 2
+    },
+
+
+    {
+        question: "What controls the collector current of a bipolar transistor?",
+        answers: [
+            "The thickness of the gate oxide",
+            "The drain length",
+            "The substrate doping only",
+            "The base-emitter voltage, through the injected base current"
+        ],
+        correct: 3
+    },
+
+
+    {
+        question: "Why is the base made very thin?",
+        answers: [
+            "So it can store more charge",
+            "So most injected carriers cross to the collector instead of recombining",
+            "So the emitter can be larger",
+            "So the collector can be omitted"
+        ],
+        correct: 1
+    },
+
+
+    {
+        question: "How does collector current vary with V_BE?",
+        answers: [
+            "Linearly",
+            "With the square of V_BE",
+            "Exponentially: about ten times per 60 mV",
+            "It does not vary"
+        ],
+        correct: 2
+    },
+
+
+    {
+        question: "Which device gives more transconductance per unit current?",
+        answers: [
+            "The bipolar transistor",
+            "A MOSFET in strong inversion",
+            "They are exactly equal",
+            "Neither has a transconductance"
+        ],
+        correct: 0
+    }
+
+];
+
+const fetLesson39Questions = [
+
+    {
+        question: "How does a JFET's gate control the channel?",
+        answers: [
+            "A thin oxide capacitor inverts the surface",
+            "A reverse-biased p–n junction widens its depletion layer",
+            "A magnet deflects the carriers",
+            "Electrons tunnel through the gate"
+        ],
+        correct: 1
+    },
+
+
+    {
+        question: "What is a JFET doing at zero gate voltage?",
+        answers: [
+            "It is off",
+            "It is oscillating",
+            "It is on: it conducts at its maximum",
+            "It is broken"
+        ],
+        correct: 2
+    },
+
+
+    {
+        question: "What forms the two-dimensional electron gas in an AlGaN/GaN HEMT?",
+        answers: [
+            "Polarization at the interface, with no dopants needed",
+            "Heavy donor doping in the GaN",
+            "An external magnetic field",
+            "Implanted boron"
+        ],
+        correct: 0
+    },
+
+
+    {
+        question: "Why can electrons in a HEMT move so fast?",
+        answers: [
+            "They are lighter in GaN than anywhere else",
+            "There are no dopant atoms in the channel to scatter them",
+            "The gate pushes them along",
+            "They travel in a vacuum"
+        ],
+        correct: 1
+    },
+
+
+    {
+        question: "Where are GaN HEMTs commonly used?",
+        answers: [
+            "Digital memory arrays",
+            "Fiber-optic cables",
+            "Solar panel glass",
+            "5G base stations, radar and fast chargers"
+        ],
+        correct: 3
+    }
+
+];
+
+const fetLesson40Questions = [
+
+    {
+        question: "Why does a power transistor have a thick, lightly doped drift region?",
+        answers: [
+            "To hold the off-state voltage below the material's critical field",
+            "To reduce the gate capacitance",
+            "To make it easier to bond wires",
+            "To increase the threshold voltage"
+        ],
+        correct: 0
+    },
+
+
+    {
+        question: "Why do wide-bandgap materials give a lower ideal on-resistance at the same blocking voltage?",
+        answers: [
+            "They have no drift region at all",
+            "A higher critical field allows a thinner, more heavily doped drift layer",
+            "They are metals when on",
+            "They have lower mobility"
+        ],
+        correct: 1
+    },
+
+
+    {
+        question: "What does an IGBT combine?",
+        answers: [
+            "Two MOSFETs in series",
+            "A JFET and a thyristor",
+            "A capacitor and a diode",
+            "A MOS gate controlling a bipolar output stage"
+        ],
+        correct: 3
+    },
+
+
+    {
+        question: "What does the switching loss of a power switch scale with?",
+        answers: [
+            "The switching frequency and the energy lost per event",
+            "Only the wafer thickness",
+            "Only the room temperature",
+            "The color of the package"
+        ],
+        correct: 0
+    },
+
+
+    {
+        question: "Which device is the best match for an 800 V electric-vehicle traction inverter?",
+        answers: [
+            "A 5 V logic MOSFET",
+            "A JFET input stage",
+            "A silicon carbide MOSFET",
+            "A DRAM cell"
+        ],
+        correct: 2
+    }
+
+];
+
+const fetLesson41Questions = [
+
+    {
+        question: "What is a thin-film transistor deposited on?",
+        answers: [
+            "A silicon wafer",
+            "A ceramic crucible",
+            "A copper sheet",
+            "Glass or plastic"
+        ],
+        correct: 3
+    },
+
+
+    {
+        question: "Why does the off current of a pixel TFT matter?",
+        answers: [
+            "The storage capacitor has to keep its voltage between refreshes",
+            "It sets the color of the pixel",
+            "It makes the display lighter",
+            "It controls the backlight directly"
+        ],
+        correct: 0
+    },
+
+
+    {
+        question: "Which TFT material allows very low refresh rates because of its tiny off current?",
+        answers: [
+            "Low-temperature poly-Si",
+            "A silicon wafer",
+            "Oxide semiconductor (IGZO)",
+            "A metal film"
+        ],
+        correct: 2
+    },
+
+
+    {
+        question: "Why is crystalline silicon not used for large LCD TFTs?",
+        answers: [
+            "It is too fast",
+            "It is transparent",
+            "It cannot be doped",
+            "It cannot be deposited as a crystal on glass at the low temperatures glass tolerates"
+        ],
+        correct: 3
+    },
+
+
+    {
+        question: "What is the typical mobility of an amorphous-silicon TFT?",
+        answers: [
+            "About 1,400 cm²/V·s",
+            "About 0.5 to 1 cm²/V·s",
+            "About 50,000 cm²/V·s",
+            "Exactly zero"
+        ],
+        correct: 1
+    }
+
+];
+
+const fetLesson42Questions = [
+
+    {
+        question: "What is the rule for the band gap of a semiconducting nanotube?",
+        answers: [
+            "About 0.84 eV times the diameter",
+            "The same for every tube",
+            "About 0.84 eV divided by the diameter in nanometers",
+            "Zero for all semiconducting tubes"
+        ],
+        correct: 2
+    },
+
+
+    {
+        question: "When is a carbon nanotube with indices (n, m) metallic?",
+        answers: [
+            "When n equals 1",
+            "When m equals 0 only",
+            "Never",
+            "When n − m is a multiple of 3"
+        ],
+        correct: 3
+    },
+
+
+    {
+        question: "Why does silicon lose mobility when thinner than about 5 nm?",
+        answers: [
+            "It becomes a metal",
+            "Carriers scatter off its rough surfaces and are confined",
+            "It melts",
+            "Its dopants leave"
+        ],
+        correct: 1
+    },
+
+
+    {
+        question: "What makes a monolayer of MoS₂ attractive as a transistor channel?",
+        answers: [
+            "It has no band gap",
+            "It is a metal",
+            "It is about 0.65 nm thick and has a real band gap",
+            "It is magnetic"
+        ],
+        correct: 2
+    },
+
+
+    {
+        question: "What is a major obstacle for 2D transistors?",
+        answers: [
+            "High contact resistance and wafer-scale growth",
+            "They are too thick",
+            "They cannot be gated",
+            "They are too fast to use"
+        ],
+        correct: 0
+    }
+
+];
+
+const fetLesson43Questions = [
+
+    {
+        question: "Why can't a conventional MOSFET switch more steeply than about 60 mV per decade at room temperature?",
+        answers: [
+            "The oxide is too thick",
+            "Carriers follow a thermal distribution, so current grows only so fast",
+            "The gate is too short",
+            "The source is too hot"
+        ],
+        correct: 1
+    },
+
+
+    {
+        question: "How does a tunnel FET inject carriers?",
+        answers: [
+            "By thermal emission over the barrier",
+            "By light absorption",
+            "By band-to-band tunneling from the source valence band into the channel",
+            "By ion implantation"
+        ],
+        correct: 2
+    },
+
+
+    {
+        question: "What is a drawback of tunnel FETs today?",
+        answers: [
+            "Their on current is low",
+            "They leak far more than a MOSFET",
+            "They need a thicker oxide",
+            "They cannot be switched off"
+        ],
+        correct: 0
+    },
+
+
+    {
+        question: "What does the ferroelectric layer do in a negative-capacitance FET?",
+        answers: [
+            "It stores the drain current",
+            "It amplifies the internal gate voltage, so S can drop below 60 mV/dec",
+            "It makes the channel metallic",
+            "It removes the gate"
+        ],
+        correct: 1
+    },
+
+
+    {
+        question: "Why does lowering the supply voltage matter so much for power?",
+        answers: [
+            "Lower voltage makes transistors larger",
+            "It makes wires thicker",
+            "It has no effect",
+            "Dynamic energy scales with the square of the voltage"
+        ],
+        correct: 3
+    }
+
+];
+
+const fetLesson44Questions = [
+
+    {
+        question: "What does bias-temperature instability do to a transistor over time?",
+        answers: [
+            "It shifts the threshold voltage",
+            "It shortens the gate",
+            "It adds a terminal",
+            "It turns the transistor into a diode"
+        ],
+        correct: 0
+    },
+
+
+    {
+        question: "Which conditions speed up bias-temperature instability?",
+        answers: [
+            "Low voltage and low temperature",
+            "High gate voltage and high temperature",
+            "A strong magnetic field only",
+            "A vacuum"
+        ],
+        correct: 1
+    },
+
+
+    {
+        question: "What sets the oxide-breakdown life of a large chip?",
+        answers: [
+            "The average oxide",
+            "The thickest oxide",
+            "The wiring only",
+            "The weakest oxide, like the weakest link in a chain"
+        ],
+        correct: 3
+    },
+
+
+    {
+        question: "What is burn-in for?",
+        answers: [
+            "Stressing chips early so the weak ones fail before they ship",
+            "Cleaning the wafer",
+            "Printing the pattern",
+            "Doping the source"
+        ],
+        correct: 0
+    },
+
+
+    {
+        question: "Why does ISFET drift resemble bias-temperature instability?",
+        answers: [
+            "Both are caused by cosmic rays",
+            "Both come from the supply wire",
+            "Both involve slow charge trapping near an insulator surface",
+            "Both disappear after one second"
+        ],
+        correct: 2
+    }
+
+];
+
+const fetLesson45Questions = [
+
+    {
+        question: "According to Pelgrom's law, what happens to the threshold-voltage spread as the gate area increases?",
+        answers: [
+            "It rises with the area",
+            "It does not change",
+            "It vanishes at any size",
+            "It falls as one over the square root of the area"
+        ],
+        correct: 3
+    },
+
+
+    {
+        question: "What is random dopant fluctuation?",
+        answers: [
+            "The random number and positions of dopant atoms in a tiny channel",
+            "A change in the supply voltage",
+            "Fluctuation of the room temperature",
+            "A wiring defect"
+        ],
+        correct: 0
+    },
+
+
+    {
+        question: "Why do SRAM cells limit the minimum supply voltage?",
+        answers: [
+            "SRAM needs a high voltage to hold a bit",
+            "Low voltage melts the cell",
+            "Mismatch makes the weakest cells fail first at low voltage",
+            "Cells are shorted at low voltage"
+        ],
+        correct: 2
+    },
+
+
+    {
+        question: "Which transistor architecture comes after FinFETs in today's roadmap?",
+        answers: [
+            "Planar bulk transistors",
+            "Vacuum tubes",
+            "Bipolar junction transistors",
+            "Nanosheet gate-all-around transistors"
+        ],
+        correct: 3
+    },
+
+
+    {
+        question: "What does the phrase \"more than Moore\" mean?",
+        answers: [
+            "Doubling the clock speed",
+            "Adding functions such as sensing, radio and power, not just shrinking",
+            "Making transistors larger",
+            "A law of thermodynamics"
+        ],
+        correct: 1
+    }
+
+];
+
+/*NEW-QUESTIONS-END*/
+
+
 /*
     Looked up by numeric lesson id, the same
     pattern the other courses use.
@@ -1538,5 +2802,27 @@ const fetAllLessonQuestions = {
     22: fetLesson22Questions,
     23: fetLesson23Questions,
     24: fetLesson24Questions,
-    25: fetLesson25Questions
+    25: fetLesson25Questions,
+    /*NEW-MAP-START*/
+    26: fetLesson26Questions,
+    27: fetLesson27Questions,
+    28: fetLesson28Questions,
+    29: fetLesson29Questions,
+    30: fetLesson30Questions,
+    31: fetLesson31Questions,
+    32: fetLesson32Questions,
+    33: fetLesson33Questions,
+    34: fetLesson34Questions,
+    35: fetLesson35Questions,
+    36: fetLesson36Questions,
+    37: fetLesson37Questions,
+    38: fetLesson38Questions,
+    39: fetLesson39Questions,
+    40: fetLesson40Questions,
+    41: fetLesson41Questions,
+    42: fetLesson42Questions,
+    43: fetLesson43Questions,
+    44: fetLesson44Questions,
+    45: fetLesson45Questions,
+    /*NEW-MAP-END*/
 };

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-biNzZiaKhzZudpJVfTp6X2i3Cyp+Wo6dbiuW8I14nPc=' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' blob:; connect-src 'self' https://xcftpdlniahvxpxtkdaq.supabase.co https://api.pwnedpasswords.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <script src="security.js"></script>
+    <script src="theme.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The CMOS Inverter | Fab Path</title>
+    <meta name="description" content="The CMOS Inverter: illustrated study slides from the Transistors course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/fetunit29.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="The CMOS Inverter | Fab Path">
+    <meta property="og:description" content="The CMOS Inverter: illustrated study slides from the Transistors course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme-light.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="fet-learn.html">Learn</a>
+            <a href="fet-games.html">Games</a>
+            <a href="fet-practice.html">Practice</a>
+            <a href="fet-lab.html">Lab</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="fet-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+            <!-- SLIDE 1 -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    A COMPLEMENTARY PAIR
+                </p>
+
+                <h1>
+                    One up, one down
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>PMOS to the supply</strong>
+                        <span>Conducts when its gate is low, and pulls the output up to V<sub>DD</sub></span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>NMOS to ground</strong>
+                        <span>Conducts when its gate is high, and pulls the output down to 0 V</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Shared gate</strong>
+                        <span>The same input drives both gates, so exactly one is on</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Complementary</strong>
+                        <span>That is where CMOS gets its name: complementary metal-oxide-semiconductor</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Input high gives output low, and input low gives output high. That is a NOT gate.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 2 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE TRANSFER CURVE
+                </p>
+
+                <h1>
+                    Sweep the input
+                </h1>
+
+                <!-- fd:inverter -->
+                <div class="module-visual fd-sim" data-sim="fet-inverter"></div>
+                <!-- /fd:inverter -->
+
+
+                <p>
+                    In the two steady states the output sits at a clean 1 or 0, and no current flows from supply to ground because one transistor is always off. Only while the input crosses the middle are both on, and then a brief surge of current flows. The steep part of the curve is where the gate has its gain.
+                </p>
+
+                <div class="module-takeaway">
+
+                    CMOS only spends power when it switches.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 3 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    RESTORING LOGIC
+                </p>
+
+                <h1>
+                    Noise gets cleaned at every gate
+                </h1>
+
+                <!-- fd:regen -->
+                <div class="module-visual fd-sim" data-sim="fet-regen"></div>
+                <!-- /fd:regen -->
+
+
+                <p>
+                    Because the curve is steep in the middle and flat at both ends, a slightly-too-high or slightly-too-low input is pushed to a clean 1 or 0 at the output. The room an input can wander before it is misread is the noise margin. A long chain of gates therefore passes bits without accumulating errors, which an analog signal path cannot do.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Digital logic is reliable because every gate re-draws the bit.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SIZING THE PAIR
+                </p>
+
+                <h1>
+                    Why the PMOS is wider
+                </h1>
+
+                <div class="module-visual module-visual-text">
+                    <span class="math-visual">t<sub>pd</sub> ≈ C·V<sub>DD</sub> ÷ I<sub>on</sub></span>
+                </div>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Hole mobility</strong>
+                        <span>Holes are two to three times slower than electrons in silicon</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Equal widths</strong>
+                        <span>The PMOS pulls up more weakly than the NMOS pulls down, so rises are slower than falls</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>A wider PMOS</strong>
+                        <span>Making W<sub>p</sub> about 2 to 2.5 times W<sub>n</sub> balances the two, and centres the switching point</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Delay</strong>
+                        <span>How fast the output swings is set by the load capacitance and the drive current</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Drag the width ratio in the simulator and watch the switching point move.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CHECK THE IDEA
+                </p>
+
+                <h1>
+                    Why did CMOS win?
+                </h1>
+
+                <!-- fd:cmosq -->
+                <div class="module-visual fd-sim" data-sim="fet-cmosq"></div>
+                <!-- /fd:cmosq -->
+
+
+                <div class="module-takeaway">
+
+                    Almost no standby power, cleaned signals, and a balanced pair.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 11 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🔁
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've built the basic CMOS cell, and seen why one transistor on, one off, is such a good idea.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeFetUnit29Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+
+</div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeFetUnit29Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathFetUnit29StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathFetUnit5StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "fet-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-F91t5Ir6FvG2ST/KCqMMUkjbvS6sSlOmpY7/yzX7l/s=' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' blob:; connect-src 'self' https://xcftpdlniahvxpxtkdaq.supabase.co https://api.pwnedpasswords.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <script src="security.js"></script>
+    <script src="theme.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Short-Channel Effects | Fab Path</title>
+    <meta name="description" content="Short-Channel Effects: illustrated study slides from the Transistors course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/fetunit26.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Short-Channel Effects | Fab Path">
+    <meta property="og:description" content="Short-Channel Effects: illustrated study slides from the Transistors course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme-light.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="fet-learn.html">Learn</a>
+            <a href="fet-games.html">Games</a>
+            <a href="fet-practice.html">Practice</a>
+            <a href="fet-lab.html">Lab</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="fet-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+            <!-- SLIDE 1 -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    WHEN THE MODEL BREAKS
+                </p>
+
+                <h1>
+                    Shrink the channel, change the rules
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Long channel</strong>
+                        <span>The gate alone sets the barrier, and the drain barely matters once the device is saturated</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Short channel</strong>
+                        <span>Source and drain are so close that they tug on the same barrier the gate controls</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Today</strong>
+                        <span>Production channels are tens of nanometers long, against the micrometers of early textbooks</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The square law</strong>
+                        <span>I<sub>D</sub> ∝ (V<sub>GS</sub> − V<sub>th</sub>)² assumes a long channel and carriers that keep speeding up</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Four things change when L shrinks: the speed limit, the slope, the barrier and the threshold.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 2 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    VELOCITY SATURATION
+                </p>
+
+                <h1>
+                    Electrons hit a speed limit
+                </h1>
+
+                <!-- fd:velsat -->
+                <div class="module-visual fd-sim" data-sim="fet-velsat"></div>
+                <!-- /fd:velsat -->
+
+
+                <div class="module-visual module-visual-text">
+                    <span class="math-visual">v = μE, until v<sub>sat</sub> ≈ 10<sup>7</sup> cm/s</span>
+                </div>
+
+                <p>
+                    One volt across a 50 nm channel is a field of 200,000 V/cm. At that strength electrons lose energy to the lattice as fast as the field gives it, so they stop speeding up. The current then grows roughly in step with the gate overdrive, not with its square.
+                </p>
+
+                <div class="module-takeaway">
+
+                    In a short channel the carriers run at the speed limit, and extra voltage buys less and less.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 3 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CHANNEL-LENGTH MODULATION
+                </p>
+
+                <h1>
+                    Saturation is not flat
+                </h1>
+
+                <!-- fd:clm -->
+                <div class="module-visual fd-sim" data-sim="fet-clm"></div>
+                <!-- /fd:clm -->
+
+
+                <div class="module-visual module-visual-text">
+                    <span class="math-visual">I<sub>D</sub> = I<sub>sat</sub>(1 + λV<sub>DS</sub>)</span>
+                </div>
+
+                <p>
+                    Past pinch-off, more drain voltage moves the pinch-off point toward the source and shortens the effective channel. The current creeps up. λ grows as L shrinks, so a short device makes a poorer current source and a lower-gain amplifier.
+                </p>
+
+                <div class="module-takeaway">
+
+                    A short transistor never quite saturates, and its output resistance falls.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    DRAIN-INDUCED BARRIER LOWERING
+                </p>
+
+                <h1>
+                    The drain reaches across
+                </h1>
+
+                <!-- fd:dibl -->
+                <div class="module-visual fd-sim" data-sim="fet-dibl"></div>
+                <!-- /fd:dibl -->
+
+
+                <div class="module-visual module-visual-text">
+                    <span class="math-visual">DIBL = ΔV<sub>th</sub> ÷ ΔV<sub>DS</sub>  (mV per volt)</span>
+                </div>
+
+                <p>
+                    In a short channel the drain's field reaches the source end and lowers the barrier the gate is trying to hold up. The threshold drops as the drain voltage rises, and so does the control the gate has over leakage. Separately, V<sub>th</sub> also rolls off as L shrinks, because source and drain share the charge under the gate.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Short channels leak more, and they leak more at high drain voltage.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    TAKING BACK CONTROL
+                </p>
+
+                <h1>
+                    Four effects, four fixes
+                </h1>
+
+                <!-- fd:shortq -->
+                <div class="module-visual fd-sim" data-sim="fet-shortq"></div>
+                <!-- /fd:shortq -->
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Thinner gate dielectric</strong>
+                        <span>The gate couples more strongly to the channel</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Shallow, abrupt junctions</strong>
+                        <span>Source and drain reach less far under the gate</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Halo implants</strong>
+                        <span>Extra doping near the ends holds back the drain's field</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Better geometry</strong>
+                        <span>FinFETs and nanosheets wrap the gate around the channel (Part 4)</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Every fix for short-channel effects is a way of giving the gate more say than the drain.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 8 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    📏
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've seen four ways a short channel breaks the textbook, and why the gate has to fight to stay in charge.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeFetUnit26Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+
+</div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeFetUnit26Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathFetUnit26StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathFetUnit5StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "fet-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

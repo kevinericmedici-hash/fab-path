@@ -89,6 +89,26 @@ function getFetAllLessons() {
 }
 
 
+/* Unit and lesson numbers on the path follow the order in the course
+   data, not the ids. New units were slotted in after the saved progress
+   keys (which use the ids) were already in the wild, so ids stay put. */
+
+function fetUnitNumber(unitId) {
+
+    return fetCourseData.findIndex(function (u) {
+        return u.id === unitId;
+    }) + 1;
+}
+
+
+function fetLessonNumber(lessonId) {
+
+    return getFetAllLessons().findIndex(function (l) {
+        return l.id === lessonId;
+    }) + 1;
+}
+
+
 function getFetCompletedLessonCount() {
 
     return getFetAllLessons().filter(function (lesson) {
@@ -189,7 +209,7 @@ function createFetStudyNode(unit, unitIndex) {
             </div>
 
             <div class="node-info">
-                <span>UNIT ${unit.id} · STUDY</span>
+                <span>UNIT ${fetUnitNumber(unit.id)} · STUDY</span>
                 <h3>${unit.studyModule.title}</h3>
                 <p>A few quick slides, then the Fab Challenge.</p>
             </div>
@@ -220,7 +240,7 @@ function createFetLessonNode(unit, lesson, lessonIndex) {
     } else if (unlocked) {
 
         statusClass = "available";
-        circleContent = lesson.id;
+        circleContent = fetLessonNumber(lesson.id);
         href = `fetlesson${lesson.id}.html`;
     }
 
@@ -237,7 +257,7 @@ function createFetLessonNode(unit, lesson, lessonIndex) {
             </div>
 
             <div class="node-info">
-                <span>FAB CHALLENGE ${lesson.id}</span>
+                <span>FAB CHALLENGE ${fetLessonNumber(lesson.id)}</span>
                 <h3>${lesson.title}</h3>
                 <p>${lesson.description}</p>
             </div>
@@ -269,7 +289,7 @@ function renderFetLearningPath() {
 
             html += `
                 <div class="unit-banner">
-                    <span>PART ${part.id} · UNITS ${part.firstUnitId}–${part.lastUnitId}</span>
+                    <span>PART ${part.id} · UNITS ${fetUnitNumber(part.firstUnitId)}–${fetUnitNumber(part.lastUnitId)}</span>
                     <h2>${part.title}</h2>
                     <p>${part.description}</p>
                 </div>
@@ -582,13 +602,14 @@ function initFetLessonQuiz(lessonId, questions) {
                only on fet-learn.html, so this is a literal. */
 
             const FET_FINAL_LESSON_ID = 25;
+            const FET_LESSON_COUNT = 45;
 
             if (lessonId === FET_FINAL_LESSON_ID && window.FabCertificate) {
 
                 window.FabCertificate.showCourseComplete({
                     courseTitle: "Transistors",
                     courseSlug: "transistors",
-                    lessonCount: FET_FINAL_LESSON_ID,
+                    lessonCount: FET_LESSON_COUNT,
                     onContinue: function () {
                         window.location.href = "fet-learn.html";
                     }

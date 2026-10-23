@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-Tml9cYJj0pqJoR7kGqV2UOdPaROVSpSpWGo95mZ+kIY=' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' blob:; connect-src 'self' https://xcftpdlniahvxpxtkdaq.supabase.co https://api.pwnedpasswords.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <script src="security.js"></script>
+    <script src="theme.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Power Transistors | Fab Path</title>
+    <meta name="description" content="Power Transistors: illustrated study slides from the Transistors course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/fetunit40.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Power Transistors | Fab Path">
+    <meta property="og:description" content="Power Transistors: illustrated study slides from the Transistors course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme-light.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="fet-learn.html">Learn</a>
+            <a href="fet-games.html">Games</a>
+            <a href="fet-practice.html">Practice</a>
+            <a href="fet-lab.html">Lab</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="fet-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+            <!-- SLIDE 1 -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    A DIFFERENT JOB
+                </p>
+
+                <h1>
+                    Hold off the voltage, carry the amps
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>The task</strong>
+                        <span>Block hundreds or thousands of volts when off, and carry many amps with little loss when on</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Vertical structure</strong>
+                        <span>Current flows from top to bottom through a thick, lightly doped drift region</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>The compromise</strong>
+                        <span>Blocking more voltage needs a thicker, more resistive drift region</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Figures of merit</strong>
+                        <span>On-resistance times area, and the switching energy per cycle</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Power devices are judged by how little energy they waste, not by how small they are.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 2 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE MATERIAL LIMIT
+                </p>
+
+                <h1>
+                    Why wide bandgap wins
+                </h1>
+
+                <!-- fd:driftlimit -->
+                <div class="module-visual fd-sim" data-sim="fet-driftlimit"></div>
+                <!-- /fd:driftlimit -->
+
+
+                <div class="module-visual module-visual-text">
+                    <span class="math-visual">R<sub>on,sp</sub> = 4V<sub>B</sub>² ÷ (ε μ E<sub>c</sub><sup>3</sup>)</span>
+                </div>
+
+                <p>
+                    The drift region has to hold the off-state voltage with a field below the critical field E<sub>c</sub> of the material. Silicon carbide and gallium nitride have critical fields about ten times that of silicon, so their drift regions are ten times thinner and far more heavily doped. Because E<sub>c</sub> is cubed, the ideal on-resistance falls by two to three orders of magnitude.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Wide-bandgap materials turn a thick, resistive layer into a thin, conductive one.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 3 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE DEVICE ZOO
+                </p>
+
+                <h1>
+                    Four power devices
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Silicon IGBT</strong>
+                        <span>A MOS gate on a bipolar output. Electrons and holes flood the drift region and lower its resistance, but the stored charge makes it slow to turn off</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Superjunction MOSFET</strong>
+                        <span>Alternating n and p columns let a silicon MOSFET block hundreds of volts at low resistance</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>SiC MOSFET</strong>
+                        <span>650 V to 3.3 kV and above: electric-vehicle inverters and solar converters</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>GaN HEMT</strong>
+                        <span>Lateral devices up to about 650 V that switch very fast, shrinking chargers and data-center supplies</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Each material and structure has a window of voltage and frequency where it is best.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    SWITCHING LOSS
+                </p>
+
+                <h1>
+                    Where the energy goes
+                </h1>
+
+                <!-- fd:switchloss -->
+                <div class="module-visual fd-sim" data-sim="fet-switchloss"></div>
+                <!-- /fd:switchloss -->
+
+
+                <div class="module-visual module-visual-text">
+                    <span class="math-visual">P<sub>loss</sub> = P<sub>cond</sub> + E<sub>sw</sub> · f</span>
+                </div>
+
+                <p>
+                    The on-state loss does not depend on frequency, but every switching event wastes a little energy as voltage and current overlap. At high frequency this switching loss dominates, so a faster device lets designers switch faster, and a higher frequency means smaller inductors and capacitors, which is where chargers got their small size.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Smaller switching energy means higher frequency, and higher frequency means smaller parts.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CHECK THE MATCH
+                </p>
+
+                <h1>
+                    Pick the power device
+                </h1>
+
+                <!-- fd:powerq -->
+                <div class="module-visual fd-sim" data-sim="fet-powerq"></div>
+                <!-- /fd:powerq -->
+
+
+                <div class="module-takeaway">
+
+                    IGBT for big and slow, silicon MOSFET for low voltage, SiC for high voltage, GaN for fast and small.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 22 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    ⚡
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've seen how the transistors that run electric cars, chargers and the grid are built to hold off voltage, and why new materials took over.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeFetUnit40Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+
+</div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeFetUnit40Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathFetUnit40StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathFetUnit5StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "fet-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

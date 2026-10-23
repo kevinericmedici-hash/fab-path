@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-QCLnoMM03vMD1e1J421xit5hCS0We1OKx8/NX1n/Ejc=' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' blob:; connect-src 'self' https://xcftpdlniahvxpxtkdaq.supabase.co https://api.pwnedpasswords.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <script src="security.js"></script>
+    <script src="theme.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nanosheets &amp; Gate-All-Around | Fab Path</title>
+    <meta name="description" content="Nanosheets &amp; Gate-All-Around: illustrated study slides from the Transistors course on Fab Path.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="canonical" href="https://fab-path.com/fetunit36.html">
+    <meta property="og:site_name" content="Fab Path">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Nanosheets &amp; Gate-All-Around | Fab Path">
+    <meta property="og:description" content="Nanosheets &amp; Gate-All-Around: illustrated study slides from the Transistors course on Fab Path.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme-light.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <a href="index.html" class="logo">
+            FAB PATH
+        </a>
+
+        <nav>
+            <a href="fet-learn.html">Learn</a>
+            <a href="fet-games.html">Games</a>
+            <a href="fet-practice.html">Practice</a>
+            <a href="fet-lab.html">Lab</a>
+            <a href="index.html">Progress</a>
+        </nav>
+
+        <div class="user-stats">
+
+            <span>
+                🔥 <span id="streakDisplay">0</span>
+            </span>
+
+            <span>
+                ⚡ <span id="totalXPDisplay">0</span> XP
+            </span>
+
+        
+
+            <button type="button" class="account-button" id="fabAccountButton">Sign in</button>
+        </div>
+
+    </header>
+
+
+<main class="module-page">
+
+    <section class="module-shell">
+
+        <div class="module-top">
+
+            <a href="fet-learn.html" class="module-exit">
+                ← Back to Path
+            </a>
+
+            <div class="module-progress-area">
+
+                <div class="module-progress-track">
+                    <div
+                        class="module-progress-fill"
+                        id="moduleProgressFill"
+                    ></div>
+                </div>
+
+                <span id="moduleProgressText">
+                    1 / 6
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="module-slides">
+
+            <!-- SLIDE 1 -->
+            <section class="module-slide active-slide">
+
+                <p class="eyebrow">
+                    THE NEXT STEP
+                </p>
+
+                <h1>
+                    Wrap the fourth side
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Gate-all-around</strong>
+                        <span>The gate surrounds the channel on every side, so control is as good as geometry allows</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Nanosheets</strong>
+                        <span>Wide, thin ribbons of silicon, stacked and each surrounded by the gate</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Nanowires</strong>
+                        <span>The narrow version: less current per wire, but the best control</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>In production</strong>
+                        <span>First shipped by Samsung in 2022; Intel and TSMC followed in the mid-2020s</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    A FinFET runs out of room to shrink. A stack of nanosheets does not, yet.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 2 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    STACK THE SHEETS
+                </p>
+
+                <h1>
+                    Drive from stacking
+                </h1>
+
+                <!-- fd:nanosheet -->
+                <div class="module-visual fd-sim" data-sim="fet-nanosheet"></div>
+                <!-- /fd:nanosheet -->
+
+
+                <div class="module-visual module-visual-text">
+                    <span class="math-visual">W<sub>eff</sub> = N × 2(W + T)</span>
+                </div>
+
+                <p>
+                    Each sheet conducts around its full perimeter, so adding sheets multiplies the width without needing more footprint. And unlike fins, the width W of the sheet can be chosen freely: wide for fast logic, narrow for compact memory. The thickness T must stay thin, about 5 nm or less, to keep the gate in control.
+                </p>
+
+                <div class="module-takeaway">
+
+                    Nanosheets bring back a free width knob that FinFETs had lost.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 3 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    HOW IT IS MADE
+                </p>
+
+                <h1>
+                    Alternating layers, one etched away
+                </h1>
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>Start</strong>
+                        <span>Grow alternating thin layers of silicon and silicon-germanium on the wafer</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Pattern</strong>
+                        <span>Etch the stack into fins, as for a FinFET</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Release</strong>
+                        <span>Selectively etch away the SiGe layers, leaving the silicon sheets suspended</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Wrap</strong>
+                        <span>Deposit the high-k dielectric and metal gate into the gaps, around every sheet</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    The sheets exist only because one material can be etched away without touching the other.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 4 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    THE NEXT TWISTS
+                </p>
+
+                <h1>
+                    Stacking the pair, powering from below
+                </h1>
+
+                <!-- fd:cfet -->
+                <div class="module-visual fd-sim" data-sim="fet-cfet"></div>
+                <!-- /fd:cfet -->
+
+
+                <div class="scale-stack">
+
+                    <div class="scale-row">
+                        <strong>CFET</strong>
+                        <span>Place the n-type device directly on top of the p-type one, halving the footprint of a logic cell</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Backside power</strong>
+                        <span>Run the power rails under the transistors, so the front can be used for signals only</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Forksheet</strong>
+                        <span>A wall between the n and p devices lets them sit closer together</span>
+                    </div>
+
+                    <div class="scale-row">
+                        <strong>Research frontier</strong>
+                        <span>These are being developed for the late 2020s and beyond</span>
+                    </div>
+
+                </div>
+
+                <div class="module-takeaway">
+
+                    Fold the pair, flip the power: more transistors in the same footprint.
+
+                </div>
+
+            </section>
+
+
+            <!-- SLIDE 5 -->
+            <section class="module-slide">
+
+                <p class="eyebrow">
+                    CHECK THE ARCHITECTURES
+                </p>
+
+                <h1>
+                    Fin, nanosheet or CFET?
+                </h1>
+
+                <!-- fd:gaaq -->
+                <div class="module-visual fd-sim" data-sim="fet-gaaq"></div>
+                <!-- /fd:gaaq -->
+
+
+                <div class="module-takeaway">
+
+                    Fin, sheet, then stack: each step wraps the gate more and uses the footprint better.
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPLETION SLIDE -->
+            <section class="module-slide module-finish-slide">
+
+                <p class="eyebrow">
+                    UNIT 18 STUDY COMPLETE
+                </p>
+
+                <div class="module-visual">
+                    🥞
+                </div>
+
+                <h1>
+                    Ready for the Fab Challenge?
+                </h1>
+
+                <p class="module-lead">
+                    You've followed the transistor from fin to sheet to stacked pair, each step wrapping the gate further around the channel.
+                </p>
+
+                <button
+                    type="button"
+                    class="complete-study-button"
+                    id="completeFetUnit36Button"
+                >
+                    Complete Module
+                </button>
+
+            </section>
+
+
+
+</div>
+
+
+
+
+        <div class="module-controls">
+
+            <button
+                type="button"
+                class="module-nav-button secondary-button"
+                id="moduleBackButton"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                class="module-nav-button"
+                id="moduleNextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+    <script src="script.js"></script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const slides =
+            document.querySelectorAll(".module-slide");
+
+        const nextButton =
+            document.getElementById("moduleNextButton");
+
+        const backButton =
+            document.getElementById("moduleBackButton");
+
+        const progressFill =
+            document.getElementById("moduleProgressFill");
+
+        const progressText =
+            document.getElementById("moduleProgressText");
+
+        const completeButton =
+            document.getElementById("completeFetUnit36Button");
+
+
+        let currentSlide = 0;
+
+
+        function showSlide() {
+
+            slides.forEach(function (slide, index) {
+
+                if (index === currentSlide) {
+
+                    slide.classList.add("active-slide");
+
+                } else {
+
+                    slide.classList.remove("active-slide");
+
+                }
+
+            });
+
+
+            const progress =
+                ((currentSlide + 1) / slides.length) * 100;
+
+
+            if (progressFill) {
+
+                progressFill.style.width =
+                    progress + "%";
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    (currentSlide + 1) +
+                    " / " +
+                    slides.length;
+            }
+
+
+            if (backButton) {
+
+                backButton.disabled =
+                    currentSlide === 0;
+            }
+
+
+            if (nextButton) {
+
+                if (
+                    currentSlide ===
+                    slides.length - 1
+                ) {
+
+                    nextButton.style.display =
+                        "none";
+
+                } else {
+
+                    nextButton.style.display =
+                        "block";
+                }
+
+            }
+
+        }
+
+
+        if (nextButton) {
+
+            nextButton.onclick =
+                function () {
+
+                    if (
+                        currentSlide <
+                        slides.length - 1
+                    ) {
+
+                        currentSlide++;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (backButton) {
+
+            backButton.onclick =
+                function () {
+
+                    if (currentSlide > 0) {
+
+                        currentSlide--;
+
+                        showSlide();
+                    }
+
+                };
+        }
+
+
+        if (completeButton) {
+
+            const alreadyComplete =
+                localStorage.getItem(
+                    "fabPathFetUnit36StudyComplete"
+                ) === "true";
+
+            if (alreadyComplete) {
+
+                completeButton.textContent =
+                    "Module Complete ✓";
+            }
+
+            completeButton.onclick =
+                function () {
+
+                    localStorage.setItem(
+                        "fabPathFetUnit5StudyComplete",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "fet-learn.html";
+                };
+        }
+
+
+        showSlide();
+
+    });
+
+</script>
+
+
+    <script src="supabase-config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>
