@@ -37,8 +37,7 @@
                     title: "Sensors & the body", items: [
                         ["fet-learn.html", "🧪", "BioFETs & MOSFETs", "Transistors that sense biology"],
                         ["glu-learn.html", "🩸", "Glucose Sensors", "How a glucose monitor works"],
-                        ["nt-learn.html", "🧬", "Neural Interface Chip", "Chips that talk to neurons"],
-                        ["bbb-learn.html", "🧠", "Blood-Brain Barrier on a Chip", "Organ chips with living cells"]
+                        ["nt-learn.html", "🧬", "Neural Interface Chip", "Chips that talk to neurons"]
                     ]
                 },
                 {
@@ -60,8 +59,7 @@
                         ["supercap-lab.html", "⚡", "Supercapacitor lab", "Chip, coin, pouch and jelly-roll cells"],
                         ["fet-lab.html", "🧪", "MOSFET & BioFET lab", "Transistors and biosensors"],
                         ["glu-lab.html", "🩸", "Glucose sensor lab", "Electrodes, enzymes and membranes"],
-                        ["nt-lab.html", "🧬", "Neural probe lab", "Electrode arrays for the brain"],
-                        ["bbb-lab.html", "🧠", "Barrier chip lab", "Microfluidic organ chips"]
+                        ["nt-lab.html", "🧬", "Neural probe lab", "Electrode arrays for the brain"]
                     ]
                 }
             ],
@@ -82,8 +80,7 @@
                         ["supercap-games.html", "⚡", "Supercapacitor games", ""],
                         ["fet-games.html", "🧪", "BioFET games", ""],
                         ["glu-games.html", "🩸", "Glucose games", ""],
-                        ["nt-games.html", "🧬", "Neural games", ""],
-                        ["bbb-games.html", "🧠", "Barrier chip games", ""]
+                        ["nt-games.html", "🧬", "Neural games", ""]
                     ]
                 },
                 {
@@ -93,8 +90,7 @@
                         ["supercap-practice.html", "⚡", "Supercapacitor practice", ""],
                         ["fet-practice.html", "🧪", "BioFET practice", ""],
                         ["glu-practice.html", "🩸", "Glucose practice", ""],
-                        ["nt-practice.html", "🧬", "Neural practice", ""],
-                        ["bbb-practice.html", "🧠", "Barrier chip practice", ""]
+                        ["nt-practice.html", "🧬", "Neural practice", ""]
                     ]
                 }
             ]

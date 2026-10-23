@@ -12,7 +12,7 @@
 
     const DOORS = {
         chips: ["chip-learn.html", "learn.html"],
-        body: ["fet-learn.html", "glu-learn.html", "nt-learn.html", "bbb-learn.html"],
+        body: ["fet-learn.html", "glu-learn.html", "nt-learn.html"],
         future: ["supercap-learn.html", "qc-learn.html"]
     };
 

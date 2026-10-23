@@ -66,18 +66,6 @@ const coursesData = [
     },
 
     {
-        id: "bbb-chip",
-        title: "Blood-Brain Barrier on a Chip",
-        tagline: "Modeling the body's most selective barrier",
-        description:
-            "Organ-on-chip design, endothelial cell culture, microfluidic BBB models, and what they reveal about drug delivery to the brain.",
-        icon: "🧠",
-        status: "live",
-        growing: false,
-        href: "bbb-learn.html"
-    },
-
-    {
         id: "neurotransmitters",
         title: "Neural Interface Chip",
         tagline: "Microfabricated chips that talk to neurons",

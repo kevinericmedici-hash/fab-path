@@ -8314,15 +8314,6 @@ function loadProgressPage() {
             getGluAllLessons().length;
     }
 
-    if (typeof bbbCourseData !== "undefined") {
-
-        completedLessons +=
-            getBbbCompletedLessonCount();
-
-        totalLessons +=
-            getBbbAllLessons().length;
-    }
-
     if (typeof ntCourseData !== "undefined") {
 
         completedLessons +=
@@ -8534,24 +8525,6 @@ function loadIndexPage() {
 
                 const completedLessons =
                     getGluCompletedLessonCount();
-
-                percent =
-                    totalLessons === 0
-                        ? 0
-                        : Math.round(
-                            (completedLessons / totalLessons) * 100
-                        );
-
-            } else if (
-                course.id === "bbb-chip" &&
-                typeof bbbCourseData !== "undefined"
-            ) {
-
-                const totalLessons =
-                    getBbbAllLessons().length;
-
-                const completedLessons =
-                    getBbbCompletedLessonCount();
 
                 percent =
                     totalLessons === 0
@@ -9327,13 +9300,6 @@ document.addEventListener("click", function (event) {
             if (document.querySelector('.fd-sim[data-sim^="fet-"]')) {
                 loadScript("diagram-sims-mems.js", function () {
                     loadScript("diagram-sims-fet.js");
-                });
-            }
-
-            // the blood-brain barrier simulators share the helper functions in the MEMS file
-            if (document.querySelector('.fd-sim[data-sim^="bbb-"]')) {
-                loadScript("diagram-sims-mems.js", function () {
-                    loadScript("diagram-sims-bbb.js");
                 });
             }
 
